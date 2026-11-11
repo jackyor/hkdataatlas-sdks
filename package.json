@@ -3,7 +3,16 @@
   "private": true,
   "type": "module",
   "packageManager": "bun@1.4.3",
-  "engines": {"node": "24.22.1"},
-  "scripts": {"generate":"node scripts/generate.mjs", "generate:check":"node scripts/generate.mjs --check", "check":"node scripts/check.mjs", "ci":"node scripts/ci.mjs", "ci:verify":"node scripts/verify-ci.mjs", "response:check":"uv run --frozen python scripts/response-check.py"},
-  "devDependencies": {"orval":"8.47.0", "typescript":"5.9.3", "yaml":"2.9.1"}
+  "engines": {
+    "node": "24.22.1"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "ci": "node scripts/ci.mjs",
+    "ci:verify": "node scripts/verify-ci.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "yaml": "2.9.1"
+  }
 }

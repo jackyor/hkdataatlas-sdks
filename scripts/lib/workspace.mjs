@@ -24,7 +24,7 @@ export async function treeHashes(root) {
 }
 export async function publishers() {
   const manifest = await json('specs/manifest.json');
-  if (manifest.version !== 2) throw new Error('Run bun run import:specs to import the all-origin manifest first.');
+  if (manifest.version !== 2) throw new Error('Expected a finalized version2 specification manifest.');
   const groups = new Map();
   for (const entry of manifest.sources) {
     if (!/^[a-z][a-z0-9-]*$/.test(entry.publisherKey)) throw new Error(`Invalid publisher key ${entry.publisherKey}`);
@@ -40,5 +40,5 @@ export async function publishers() {
 }
 export async function ensure(path) { await mkdir(path, { recursive: true }); }
 export function packageRoots(publisher) {
-  return { ts: 'packages/typescript', py: 'packages/python', tsPublisher: `packages/typescript/src/publishers/${publisher.key}`, pyPublisher: `packages/python/src/hkdataatlas/${publisher.namespace}`, tsDist: `packages/typescript/dist/publishers/${publisher.key}`, generation: `packages/typescript/.generation/${publisher.key}`, pyModule: `hkdataatlas.${publisher.namespace}` };
+  return { ts: 'packages/typescript', py: 'packages/python', tsPublisher: `packages/typescript/src/publishers/${publisher.key}`, pyPublisher: `packages/python/src/hkdataatlas/${publisher.namespace}`, tsDist: `packages/typescript/dist/publishers/${publisher.key}`, buildConfig: `reports/typescript/${publisher.key}/tsconfig.json`, pyModule: `hkdataatlas.${publisher.namespace}` };
 }

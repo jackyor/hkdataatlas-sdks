@@ -14,4 +14,4 @@ Each function takes its generated path/query/body/header arguments, followed by 
 
 The bundled sources.json records URLs, hashes and partial-contract markers. Canonical JSON/YAML files remain unchanged in the repository. Generator-only equivalent input normalization preserves mandatory query parameters with defaults and required-only anyOf alternatives. Distinct API hosts and contracts remain separate family modules.
 
-Authored code is MIT licensed; publisher materials retain their terms. Package names are provisional; no registry publication is implied.
+Authored code is MIT licensed; publisher materials retain their terms. Install the single public package with `npm install hkdataatlas`.
