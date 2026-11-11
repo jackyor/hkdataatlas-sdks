@@ -23,7 +23,7 @@ From the exact candidate source, run finalized-product, synthetic consumer and p
 
 ## Publication checkpoints and retries
 
-The build creates `dist/release-manifest.json`, binding the three checked archives to the exact source commit. Each registry job downloads existing public archives and compares their size and SHA-256 before skipping an identical version. Different bytes, unexpected files or a partially published PyPI version stop the job; `skip-existing` is not used.
+Each build stores its bundle under a unique run-attempt name; registry jobs download the exact immutable artifact ID, including when only failed jobs are rerun. The build creates `dist/release-manifest.json`, binding the three checked archives to the exact source commit. Each registry job downloads existing public archives and compares their size and SHA-256 before skipping an identical version. Different bytes, unexpected files or a partially published PyPI version stop the job; `skip-existing` is not used.
 
 Before the first submission, the job saves an immutable Actions artifact named `publication-intent-<registry>-<name>-<version>`. A later run that finds this intent only reconciles the public registry and does not submit again. Keep these checkpoints: Actions artifacts are retained for 90 days. Do not delete a checkpoint or resubmit an unresolved version without checking the registry and the prior run. This checkpoint is evidence of an attempted submission, not evidence that the version is public.
 

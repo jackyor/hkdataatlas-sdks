@@ -1,4 +1,6 @@
 import test from 'node:test';
+import {readFile} from 'node:fs/promises';
+import {parse} from 'yaml';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {registryState,pollRegistry,publicationDecision,priorPublicationIntents,submissionReceipt,intentName} from '../scripts/registry-release.mjs';
@@ -28,3 +30,12 @@ test('pending timeout retains a no-resubmit outcome',async()=>{let waits=0;await
 test('failed submission does not wait or authorize retry',async()=>{await assert.rejects(pollRegistry('npm',manifest,{fetcher:async()=>json({},404),submissionFailed:true,sleep:async()=>assert.fail()}),/reconcile/);});
 test('GitHub artifact lookup uses fixed identity and keeps expired intents',async()=>{const result=await priorPublicationIntents('npm',manifest,{repository:manifest.repository,token:'fictional',fetcher:async(url,options)=>{assert.equal(new URL(url).hostname,'api.github.com');assert.equal(new URL(url).searchParams.get('name'),intentName('npm',manifest));assert.equal(options.headers.authorization,'Bearer fictional');return json({artifacts:[{id:7,expired:true,workflow_run:{id:8}}]});}});assert.deepEqual(result,[{id:7,expired:true,runId:8}]);});
 test('failed intent lookup or repository mismatch refuses submission',async()=>{await assert.rejects(priorPublicationIntents('npm',manifest,{repository:'other/repo',token:'fictional'}),/identity/);await assert.rejects(priorPublicationIntents('npm',manifest,{repository:manifest.repository,token:'fictional',fetcher:async()=>json({},403)}),/no submission/);});
+
+test('workflow retries retain exact immutable bundle identity and intent-before-submit ordering',async()=>{
+ const workflow=parse(await readFile('.github/workflows/release.yml','utf8'));
+ assert.equal(workflow.jobs.build.outputs.bundle_id,'${{ steps.bundle.outputs.artifact-id }}');
+ const bundle=workflow.jobs.build.steps.find(s=>s.id==='bundle');assert.ok(bundle.with.name.includes('github.run_attempt'));
+ for(const registry of ['npm','pypi']){const job=workflow.jobs[registry],download=job.steps.find(s=>s.uses?.startsWith('actions/download-artifact@'));assert.equal(download.with['artifact-ids'],'${{ needs.build.outputs.bundle_id }}');
+  const prepare=job.steps.findIndex(s=>s.id==='prepare'),intent=job.steps.findIndex(s=>s.with?.path===`dist/release-receipts/${registry}-intent.json`),publish=job.steps.findIndex(s=>s.id==='publish');assert.ok(prepare<intent&&intent<publish);assert.equal(job.steps[publish].if,job.steps[intent].if);assert.equal(job.permissions['id-token'],'write');assert.equal(job.steps[publish].with?.['skip-existing'],undefined);assert.equal(job.steps[publish].with?.password,undefined);
+ }
+});
