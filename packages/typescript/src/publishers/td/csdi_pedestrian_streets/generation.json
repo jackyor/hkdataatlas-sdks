@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "td-csdi-pedestrian-streets",
+  "sourceSha256": "61e17f573e0be3040ab39b4835fc05d7cfd30f083b26e5250a0cf77ecfcc4614",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/td_rcd_1697081765097_37742/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1697081765097_37742/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1697081765097_37742/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

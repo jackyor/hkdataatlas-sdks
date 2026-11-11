@@ -1,0 +1,213 @@
+components:
+  schemas:
+    HkoMeteorologicalData:
+      description: Meteorological payload fields documented for HKO. The data dictionary declares these values as strings; some examples are presented without quotation marks, so the schema allows either string or number for those fields to preserve the discrepancy.
+      properties:
+        DH:
+          anyOf:
+            - type: string
+            - type: number
+          description: 'Device height, in m; resolution 1 m. Declared data type: String. The data dictionary example is the unquoted number 3, while the API response example uses the string "12"; both representations are allowed.'
+          examples:
+            - "12"
+            - 3
+        RH:
+          description: 'Relative humidity, in %; resolution 0.1 %. The data dictionary declares String. Example: "93.1"; "////" if quality control fails.'
+          examples:
+            - "71.7"
+            - ////
+          type: string
+        T0:
+          description: 'Air temperature, in °C; resolution 0.1 °C. The data dictionary declares String. Example: "19.8"; "////" if quality control fails.'
+          examples:
+            - "33.5"
+            - ////
+          type: string
+        TP:
+          description: "Data processed time in Hong Kong Time. Format: YYYYMMDDHHMMSS (described as ISO 8601 notation)."
+          example: "20230913174049"
+          type: string
+        TS:
+          description: "Data measurement time in Hong Kong Time. Format: YYYYMMDDHHMMSS (described as ISO 8601 notation)."
+          example: "20230913174049"
+          type: string
+        VN:
+          description: "Version number of the payload format. Resolution: 0.1."
+          example: "1.0"
+          type: string
+        WD:
+          anyOf:
+            - type: string
+            - type: number
+          description: "10-minute mean wind direction, in degrees; resolution 1°. Declared data type: String. The data dictionary's example is the unquoted number 108, while the API response example uses the string \"143\"; both representations are allowed. \"////\" if quality control fails."
+          examples:
+            - "143"
+            - 108
+            - ////
+        WS:
+          anyOf:
+            - type: string
+            - type: number
+          description: "10-minute mean wind speed, in km/h; resolution 1 km/h. Declared data type: String. The data dictionary's example is the unquoted number 3, while the API response example uses the string \"4\"; both representations are allowed. \"////\" if quality control fails."
+          examples:
+            - "4"
+            - 3
+            - ////
+      type: object
+    MessageResponse:
+      description: Error response structure shown in the documentation.
+      properties:
+        message:
+          description: Error message.
+          examples:
+            - "Missing required request parameters: [di, pi]"
+            - "[Error Message]"
+          type: string
+      type: object
+    MeteorologicalDataResponse:
+      description: Documented response fields for a successful data result. Fields and nesting are based on the data dictionary and the documented example; the source does not explicitly establish a complete or closed response contract.
+      example:
+        BD: "00"
+        BODY:
+          HKO:
+            DH: "12"
+            RH: "71.7"
+            T0: "33.5"
+            TP: "20230913174049"
+            TS: "20230913174049"
+            VN: "1.0"
+            WD: "143"
+            WS: "4"
+        DI: "01"
+        GI: "00"
+        PI: GF3637
+        TS: "0"
+      properties:
+        BD:
+          default: "00"
+          description: 'Reserved for HKSARG Department Code under the Interoperability Framework (IF) for E-Government; currently not in use. Default value: "00".'
+          example: "00"
+          type: string
+        BODY:
+          properties:
+            HKO:
+              $ref: "#/components/schemas/HkoMeteorologicalData"
+          type: object
+        DI:
+          description: Device ID. 2 characters.
+          example: "01"
+          type: string
+        GI:
+          default: "00"
+          description: 'Reserved for Branch/Division/Section code; currently not in use. Default value: "00".'
+          example: "00"
+          type: string
+        PI:
+          description: Lamppost ID. Maximum 8 characters.
+          example: GF3637
+          type: string
+        TS:
+          default: "0"
+          description: 'Packet creation date and time, up to millisecond precision. Unix time stamp. Currently not in use; default value: "0".'
+          example: "0"
+          type: string
+      type: object
+    NoRecordFoundResponse:
+      description: Documented HTTP 200 response when the requested lamppost or device ID is invalid.
+      example:
+        message: No record found
+      properties:
+        message:
+          example: No record found
+          type: string
+      type: object
+externalDocs:
+  description: Data Dictionary for experimental meteorological data collected from Smart Lampposts, version 3.1, March 2023
+  url: https://www.hko.gov.hk/common/hko_data/smart-lamppost/files/smart_lamppost_data_spec.pdf
+info:
+  description: Retrieves the latest processed experimental meteorological data (in 10-minute intervals) for a specified smart lamppost and device. The source documentation is version 3.1 (March 2023); this is the data-dictionary version, not a documented API version. Authentication is documented as not required. The response data dictionary describes fields and types, while the sample response shows values encoded as JSON strings; both are preserved where they differ.
+  title: Smart Lamppost Experimental Meteorological Data API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /smart-lamppost.php:
+    get:
+      description: "Returns the latest processed data (in 10-minute intervals) for the specified lamppost and device. For lists of valid lamppost and device IDs, consult the HKO static datasets: https://www.hko.gov.hk/common/hko_data/R3/files/smart_lamppost_met_device_location.json, https://www.hko.gov.hk/common/hko_data/R3/files/smart_lamppost_met_device_type.json, and https://www.hko.gov.hk/common/hko_data/R3/files/smart_lamppost_met_device_element.json. The API documentation states that authentication is not required."
+      operationId: getSmartLamppostData
+      parameters:
+        - description: Lamppost ID. Maximum 8 characters.
+          example: GF3637
+          in: query
+          name: pi
+          required: true
+          schema:
+            maxLength: 8
+            type: string
+        - description: Device ID. 2 characters.
+          example: "01"
+          in: query
+          name: di
+          required: true
+          schema:
+            maxLength: 2
+            minLength: 2
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                noRecordFound:
+                  summary: Invalid lamppost or device ID
+                  value:
+                    message: No record found
+                normal:
+                  summary: Normal request
+                  value:
+                    BD: "00"
+                    BODY:
+                      HKO:
+                        DH: "12"
+                        RH: "71.7"
+                        T0: "33.5"
+                        TP: "20230913174049"
+                        TS: "20230913174049"
+                        VN: "1.0"
+                        WD: "143"
+                        WS: "4"
+                    DI: "01"
+                    GI: "00"
+                    PI: GF3637
+                    TS: "0"
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/MeteorologicalDataResponse"
+                  - $ref: "#/components/schemas/NoRecordFoundResponse"
+          description: Success. An invalid lamppost or device ID is also documented as returning HTTP 200 with a message indicating that no record was found.
+        "400":
+          content:
+            application/json:
+              example:
+                message: "Missing required request parameters: [di, pi]"
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+          description: Bad Request. The documented example is returned when required request parameters are not provided.
+        "500":
+          content:
+            application/json:
+              example:
+                message: "[Error Message]"
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+          description: Internal Server Error.
+        "503":
+          content:
+            application/json:
+              example:
+                message: "[Error Message]"
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+          description: The server is currently unavailable.
+      summary: Get data by lamppost ID and device ID
+servers:
+  - url: https://data.weather.gov.hk/weatherAPI/smart-lamppost

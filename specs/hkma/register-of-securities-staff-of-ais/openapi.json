@@ -1,0 +1,493 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Register of Securities Staff of AIs (eRegister)",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/bank-svf-info/register-ais-secstaff",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/bank-svf-info",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/register-ais-secstaff": {
+      "get": {
+        "summary": "Retrieve data of Register of Securities Staff of AIs (eRegister)",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Lang"
+            }
+          },
+          {
+            "name": "searchtype",
+            "in": "query",
+            "description": "Select engName, chiName or regNo. engName requires surname and/or forename; chiName requires chinesename; regNo requires reg_code. Every search type requires is_curr_rel_indiv.",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Searchtype"
+            }
+          },
+          {
+            "name": "surname",
+            "in": "query",
+            "description": "Required with searchtype=engName unless forename is provided; English surname.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "chan"
+          },
+          {
+            "name": "forename",
+            "in": "query",
+            "description": "Required with searchtype=engName unless surname is provided; English forename.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "chinesename",
+            "in": "query",
+            "description": "Required with searchtype=chiName.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "is_curr_rel_indiv",
+            "in": "query",
+            "description": "Required for every documented search type.0 means current relevant individuals;1 means current and former relevant individuals.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Is_curr_rel_indiv"
+            },
+            "required": true,
+            "example": "0"
+          },
+          {
+            "name": "reg_code",
+            "in": "query",
+            "description": "Required with searchtype=regNo.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-conditional-parameter-rules": [
+          {
+            "when": {
+              "searchtype": "engName"
+            },
+            "required": [
+              "is_curr_rel_indiv"
+            ],
+            "atLeastOne": [
+              "surname",
+              "forename"
+            ]
+          },
+          {
+            "when": {
+              "searchtype": "chiName"
+            },
+            "required": [
+              "is_curr_rel_indiv",
+              "chinesename"
+            ]
+          },
+          {
+            "when": {
+              "searchtype": "regNo"
+            },
+            "required": [
+              "is_curr_rel_indiv",
+              "reg_code"
+            ]
+          }
+        ],
+        "description": "Select engName, chiName or regNo. engName requires surname and/or forename; chiName requires chinesename; regNo requires reg_code. Every search type requires is_curr_rel_indiv.\n\nOpenAPI3.0 cannot express dependencies between separate query parameters; conditional rules are documented in x-conditional-parameter-rules.",
+        "x-documented-example-url": "https://api.hkma.gov.hk/public/bank-svf-info/register-ais-secstaff?lang=en&searchtype=engName&is_curr_rel_indiv=0&surname=chan"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "name_tc": {
+            "type": "string"
+          },
+          "reg_code": {
+            "type": "string"
+          },
+          "current_registration": {
+            "title": "current_registration",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Current_registration"
+            }
+          },
+          "business_address": {
+            "title": "business_address",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Business_address"
+            }
+          },
+          "conditions": {
+            "title": "conditions",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Conditions"
+            }
+          },
+          "registration_history": {
+            "title": "registration_history",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Registration_history"
+            }
+          },
+          "public_disciplinary_action": {
+            "title": "public_disciplinary_action",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Public_disciplinary_action"
+            }
+          }
+        }
+      },
+      "Lang": {
+        "title": "lang",
+        "enum": [
+          "en",
+          "tc"
+        ],
+        "type": "string",
+        "example": "en",
+        "x-enum-elements": [
+          {
+            "name": "en",
+            "description": ""
+          },
+          {
+            "name": "tc",
+            "description": ""
+          }
+        ]
+      },
+      "Searchtype": {
+        "title": "searchtype",
+        "enum": [
+          "engName",
+          "chiName",
+          "regNo"
+        ],
+        "type": "string",
+        "example": "engName",
+        "x-enum-elements": [
+          {
+            "name": "engName",
+            "description": ""
+          },
+          {
+            "name": "chiName",
+            "description": ""
+          },
+          {
+            "name": "regNo",
+            "description": ""
+          }
+        ]
+      },
+      "Is_curr_rel_indiv": {
+        "title": "is_curr_rel_indiv",
+        "enum": [
+          "0",
+          "1"
+        ],
+        "type": "string",
+        "example": "0",
+        "x-enum-elements": [
+          {
+            "name": "0",
+            "description": ""
+          },
+          {
+            "name": "1",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      },
+      "Current_registration": {
+        "title": "Current_registration",
+        "type": "object",
+        "properties": {
+          "reg_inst_name": {
+            "type": "string"
+          },
+          "reg_act": {
+            "type": "string"
+          },
+          "eng_first_date": {
+            "type": "string"
+          },
+          "is_eo": {
+            "type": "string"
+          },
+          "capacity": {
+            "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          }
+        }
+      },
+      "Business_address": {
+        "title": "Business_address",
+        "type": "object",
+        "properties": {
+          "reg_inst_name": {
+            "type": "string"
+          },
+          "sfc_ce_num": {
+            "type": "string"
+          },
+          "business_address": {
+            "type": "string"
+          }
+        }
+      },
+      "Conditions": {
+        "title": "Conditions",
+        "type": "object",
+        "properties": {
+          "reg_inst_name": {
+            "type": "string"
+          },
+          "effective_date": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Registration_history": {
+        "title": "Registration_history",
+        "type": "object",
+        "properties": {
+          "reg_code": {
+            "type": "string"
+          },
+          "reg_inst_name": {
+            "type": "string"
+          },
+          "reg_act": {
+            "type": "string"
+          },
+          "effective_period": {
+            "type": "string"
+          },
+          "is_eo": {
+            "type": "string"
+          }
+        }
+      },
+      "Public_disciplinary_action": {
+        "title": "Public_disciplinary_action",
+        "type": "object",
+        "properties": {
+          "rec_pub_dis_act_by_sfc": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Rec_pub_dis_act_by_sfc"
+            }
+          },
+          "rec_pub_dis_act_by_hkma": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Rec_pub_dis_act_by_hkma"
+            }
+          }
+        }
+      },
+      "Rec_pub_dis_act_by_sfc": {
+        "title": "Rec_pub_dis_act_by_sfc",
+        "type": "object",
+        "properties": {
+          "action_date": {
+            "type": "string"
+          },
+          "action_taken": {
+            "type": "string"
+          },
+          "pr_en": {
+            "type": "string"
+          },
+          "pr_tc": {
+            "type": "string"
+          }
+        }
+      },
+      "Rec_pub_dis_act_by_hkma": {
+        "title": "Rec_pub_dis_act_by_hkma",
+        "type": "object",
+        "properties": {
+          "action_date": {
+            "type": "string"
+          },
+          "action_taken": {
+            "type": "string"
+          },
+          "pr_en": {
+            "type": "string"
+          },
+          "pr_tc": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "x-source-evidence": {
+    "url": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/register-ais-secstaff/",
+    "sourceHtmlSha256": "a5ba1c145568dde928d083e34fbeda2585f637211d6247745182ddf52147c806",
+    "originalSourceUrl": "https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/register-ais-secstaff-swagger.json",
+    "originalJsonSha256": "fda33030befc6bd0d35c4d031f7bf59e0dd0e81dc1bc7169b5289322ca7a8816",
+    "classification": "source_corrected_derivative",
+    "change": "Document publisher conditional search fields and require the current/former selector used by every documented search type.",
+    "responseMeaning": "Publisher response schema preserved exactly; no new live schema fit established."
+  }
+}

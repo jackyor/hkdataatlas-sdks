@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "lcsd-csdi-netball-courts-free-outdoor-pitches-courts",
+  "sourceSha256": "f727a9033af688da881b03bae41add8deee9ce92eb59a7ffbe2f1f0f07ac7eb5",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/lcsd_rcd_1670385134456_14016/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1670385134456_14016/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1670385134456_14016/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "components": {
+    "schemas": {
+      "PublicTransportationResponse": {
+        "properties": {
+          "value": {
+            "description": "List of public transportation route objects.",
+            "items": {
+              "$ref": "#/components/schemas/TransportationRoute"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "TransportationRoute": {
+        "properties": {
+          "bound": {
+            "description": "The direction of the bus route (I - inbound; O - outbound).",
+            "type": "string"
+          },
+          "dest_en": {
+            "description": "The destination of a bus route in English.",
+            "type": "string"
+          },
+          "dest_sc": {
+            "description": "The destination of a bus route in Simplified Chinese.",
+            "type": "string"
+          },
+          "dest_tc": {
+            "description": "The destination of a bus route in Traditional Chinese.",
+            "type": "string"
+          },
+          "operator": {
+            "description": "The operator of the route.",
+            "type": "string"
+          },
+          "orig_en": {
+            "description": "The origin of a bus route in English.",
+            "type": "string"
+          },
+          "orig_sc": {
+            "description": "The origin of a bus route in Simplified Chinese.",
+            "type": "string"
+          },
+          "orig_tc": {
+            "description": "The origin of a bus route in Traditional Chinese.",
+            "type": "string"
+          },
+          "route": {
+            "description": "The bus route number.",
+            "type": "string"
+          },
+          "service_type": {
+            "description": "The service type of the bus route.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "https://opendata.hkstp.org/doc/park-info/HKSTP-API-public-transportation-list.pdf"
+  },
+  "info": {
+    "description": "Provides public transportation information connecting to Hong Kong Science Park. The version is a metadata placeholder, not a publisher API version. Authentication requirements are not documented.",
+    "title": "HKSTPC Available Public Transportation API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/park-info/v1/public-transportation": {
+      "get": {
+        "operationId": "getPublicTransportation",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedResponse": {
+                    "summary": "Publisher's example response",
+                    "value": {
+                      "value": [
+                        {
+                          "bound": "O",
+                          "dest_en": "HONG KONG SCIENCE PARK",
+                          "dest_sc": "香港科学园",
+                          "dest_tc": "香港科學園",
+                          "operator": "KMB&LWB",
+                          "orig_en": "TSUEN WAN WEST STATION",
+                          "orig_sc": "荃湾西站",
+                          "orig_tc": "荃灣西站",
+                          "route": "43P",
+                          "service_type": "1"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PublicTransportationResponse"
+                }
+              }
+            },
+            "description": "JSON response containing a list of public transportation routes."
+          }
+        },
+        "summary": "Get available public transportation"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://opendata.hkstp.org"
+    }
+  ]
+}

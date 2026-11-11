@@ -1,0 +1,760 @@
+{
+  "publisherKey": "ld",
+  "publisherName": "Labour Department",
+  "sources": [
+    {
+      "id": "ld-heat-stress-at-work-warning-api",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "heat-stress-at-work-warning-api",
+      "name": "Heat Stress at Work Warning API",
+      "apiTitle": "Heat Stress at Work Warning API",
+      "json": "ld/heat-stress-at-work-warning-api/openapi.json",
+      "yaml": "ld/heat-stress-at-work-warning-api/openapi.yaml",
+      "file": "ld/heat-stress-at-work-warning-api/openapi.json",
+      "sha256": "fb5846d33e88266766a594ebf8c53e7b636b6e195ee05e6953a8d1f18d08ab4a",
+      "jsonSha256": "fb5846d33e88266766a594ebf8c53e7b636b6e195ee05e6953a8d1f18d08ab4a",
+      "yamlSha256": "a03167b60a58dfb3a0777aaaa0171b98a8eaa6cd13aad2cbb033f42e87c2dbda",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "heat_stress_at_work_warning_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fb5846d33e88266766a594ebf8c53e7b636b6e195ee05e6953a8d1f18d08ab4a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.weather.gov.hk/weatherAPI/doc/HSWW_API_Documentation.pdf",
+        "canonicalJsonSha256": "fb5846d33e88266766a594ebf8c53e7b636b6e195ee05e6953a8d1f18d08ab4a",
+        "originalRepresentationSha256": "fb5846d33e88266766a594ebf8c53e7b636b6e195ee05e6953a8d1f18d08ab4a",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "heat_stress_at_work_warning_api"
+    },
+    {
+      "id": "ld-csdi-information-of-job-centres-and-industry-based-recruitment-centres",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-job-centres-and-industry-based-recruitment-centres",
+      "name": "Information of Job Centres and Industry-based Recruitment Centres",
+      "apiTitle": "Labour Department \u2014 Information of Job Centres and Industry-based Recruitment Centres",
+      "json": "ld/csdi-information-of-job-centres-and-industry-based-recruitment-centres/openapi.json",
+      "yaml": "ld/csdi-information-of-job-centres-and-industry-based-recruitment-centres/openapi.yaml",
+      "file": "ld/csdi-information-of-job-centres-and-industry-based-recruitment-centres/openapi.json",
+      "sha256": "8b623c6aaf808802d1859f6b2e616881959a4c95f3012d99943fd308524e8741",
+      "jsonSha256": "8b623c6aaf808802d1859f6b2e616881959a4c95f3012d99943fd308524e8741",
+      "yamlSha256": "49e859c0612150cb43253580292352d69c0ff3b4b6b9ca299beac43af9f9e7e2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_job_centres_and_industry_based_recruitment_centres",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8b623c6aaf808802d1859f6b2e616881959a4c95f3012d99943fd308524e8741"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1629267205215_52059",
+        "canonicalJsonSha256": "8b623c6aaf808802d1859f6b2e616881959a4c95f3012d99943fd308524e8741",
+        "originalRepresentationSha256": "8b623c6aaf808802d1859f6b2e616881959a4c95f3012d99943fd308524e8741",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_job_centres_and_industry_based_recruitment_centres"
+    },
+    {
+      "id": "ld-csdi-organisations-providing-career-development-services-under-the-youth-employment-and-training-programme",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-organisations-providing-career-development-services-under-the-youth-employment-and-training-programme",
+      "name": "Organisations providing career development services under the Youth Employment and Training Programme",
+      "apiTitle": "Labour Department \u2014 Organisations providing career development services under the Youth Employment and Training Programme",
+      "json": "ld/csdi-organisations-providing-career-development-services-under-the-youth-employment-and-training-programme/openapi.json",
+      "yaml": "ld/csdi-organisations-providing-career-development-services-under-the-youth-employment-and-training-programme/openapi.yaml",
+      "file": "ld/csdi-organisations-providing-career-development-services-under-the-youth-employment-and-training-programme/openapi.json",
+      "sha256": "e41757c33d05d525fea10fad1849d6090e2e7e207ac07fbcd3faac2f808cf013",
+      "jsonSha256": "e41757c33d05d525fea10fad1849d6090e2e7e207ac07fbcd3faac2f808cf013",
+      "yamlSha256": "e018c1480a961bcd356543f004589fc73416d3b1561a2cb6b891fc16c2f2c9b2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_organisations_providing_career_development_services_under_the_youth_employment_and_training_programme",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e41757c33d05d525fea10fad1849d6090e2e7e207ac07fbcd3faac2f808cf013"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1635319922526_39998",
+        "canonicalJsonSha256": "e41757c33d05d525fea10fad1849d6090e2e7e207ac07fbcd3faac2f808cf013",
+        "originalRepresentationSha256": "e41757c33d05d525fea10fad1849d6090e2e7e207ac07fbcd3faac2f808cf013",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_organisations_providing_career_development_services_under_the_youth_employment_and_training_programme"
+    },
+    {
+      "id": "ld-csdi-information-of-occupational-medicine-unit",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-occupational-medicine-unit",
+      "name": "Information of Occupational Medicine Unit",
+      "apiTitle": "Labour Department \u2014 Information of Occupational Medicine Unit",
+      "json": "ld/csdi-information-of-occupational-medicine-unit/openapi.json",
+      "yaml": "ld/csdi-information-of-occupational-medicine-unit/openapi.yaml",
+      "file": "ld/csdi-information-of-occupational-medicine-unit/openapi.json",
+      "sha256": "23484a0e3d1ac8173f425403ba04726964af28938244edfe8c67d89c96caaa7c",
+      "jsonSha256": "23484a0e3d1ac8173f425403ba04726964af28938244edfe8c67d89c96caaa7c",
+      "yamlSha256": "f81709104b370aa5be42e55b546b15962dd5609634c030b8fd35eb32b5fbeab6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_occupational_medicine_unit",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "23484a0e3d1ac8173f425403ba04726964af28938244edfe8c67d89c96caaa7c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1635320226161_4333",
+        "canonicalJsonSha256": "23484a0e3d1ac8173f425403ba04726964af28938244edfe8c67d89c96caaa7c",
+        "originalRepresentationSha256": "23484a0e3d1ac8173f425403ba04726964af28938244edfe8c67d89c96caaa7c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_occupational_medicine_unit"
+    },
+    {
+      "id": "ld-csdi-information-of-occupational-health-clinic",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-occupational-health-clinic",
+      "name": "Information of Occupational Health Clinic",
+      "apiTitle": "Labour Department \u2014 Information of Occupational Health Clinic",
+      "json": "ld/csdi-information-of-occupational-health-clinic/openapi.json",
+      "yaml": "ld/csdi-information-of-occupational-health-clinic/openapi.yaml",
+      "file": "ld/csdi-information-of-occupational-health-clinic/openapi.json",
+      "sha256": "2438efc5f5f0e905bf995189944f6604ccc96c3b0f695ff36399332286be965a",
+      "jsonSha256": "2438efc5f5f0e905bf995189944f6604ccc96c3b0f695ff36399332286be965a",
+      "yamlSha256": "c30bace11f73b2e6155aa51d551fad9cc215057f6ba4200e46c51881226f02c6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_occupational_health_clinic",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2438efc5f5f0e905bf995189944f6604ccc96c3b0f695ff36399332286be965a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1635320421962_38722",
+        "canonicalJsonSha256": "2438efc5f5f0e905bf995189944f6604ccc96c3b0f695ff36399332286be965a",
+        "originalRepresentationSha256": "2438efc5f5f0e905bf995189944f6604ccc96c3b0f695ff36399332286be965a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_occupational_health_clinic"
+    },
+    {
+      "id": "ld-csdi-information-of-occupational-safety-and-health-osh-centre",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-occupational-safety-and-health-osh-centre",
+      "name": "Information of Occupational Safety and Health (OSH) Centre",
+      "apiTitle": "Labour Department \u2014 Information of Occupational Safety and Health (OSH) Centre",
+      "json": "ld/csdi-information-of-occupational-safety-and-health-osh-centre/openapi.json",
+      "yaml": "ld/csdi-information-of-occupational-safety-and-health-osh-centre/openapi.yaml",
+      "file": "ld/csdi-information-of-occupational-safety-and-health-osh-centre/openapi.json",
+      "sha256": "b6168ad3125f74a184497c977d4195f3f52e5bb6b854f5ebd0d3499251c1aec7",
+      "jsonSha256": "b6168ad3125f74a184497c977d4195f3f52e5bb6b854f5ebd0d3499251c1aec7",
+      "yamlSha256": "043da196a2ea29e1425c6da51d35d8725b363fef0485074ffb131bcb0d42cc0f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_occupational_safety_and_health_osh_centre",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b6168ad3125f74a184497c977d4195f3f52e5bb6b854f5ebd0d3499251c1aec7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1635320671270_98571",
+        "canonicalJsonSha256": "b6168ad3125f74a184497c977d4195f3f52e5bb6b854f5ebd0d3499251c1aec7",
+        "originalRepresentationSha256": "b6168ad3125f74a184497c977d4195f3f52e5bb6b854f5ebd0d3499251c1aec7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_occupational_safety_and_health_osh_centre"
+    },
+    {
+      "id": "ld-csdi-information-of-the-service-centre-of-the-reimbursement-of-maternity-leave-pay-scheme",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-the-service-centre-of-the-reimbursement-of-maternity-leave-pay-scheme",
+      "name": "Information of the Service Centre of the Reimbursement of Maternity Leave Pay Scheme",
+      "apiTitle": "Labour Department \u2014 Information of the Service Centre of the Reimbursement of Maternity Leave Pay Scheme",
+      "json": "ld/csdi-information-of-the-service-centre-of-the-reimbursement-of-maternity-leave-pay-scheme/openapi.json",
+      "yaml": "ld/csdi-information-of-the-service-centre-of-the-reimbursement-of-maternity-leave-pay-scheme/openapi.yaml",
+      "file": "ld/csdi-information-of-the-service-centre-of-the-reimbursement-of-maternity-leave-pay-scheme/openapi.json",
+      "sha256": "3a87f2a0d30de4da8b7691498bfa5032e0f536611c4a17a986e3d2e18a4f76d8",
+      "jsonSha256": "3a87f2a0d30de4da8b7691498bfa5032e0f536611c4a17a986e3d2e18a4f76d8",
+      "yamlSha256": "9bdd85c13eb4f969f7f24d139ffb56a78da4b778f954f851369ff7e5d5e3bb5b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_the_service_centre_of_the_reimbursement_of_maternity_leave_pay_scheme",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3a87f2a0d30de4da8b7691498bfa5032e0f536611c4a17a986e3d2e18a4f76d8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1697791819629_77187",
+        "canonicalJsonSha256": "3a87f2a0d30de4da8b7691498bfa5032e0f536611c4a17a986e3d2e18a4f76d8",
+        "originalRepresentationSha256": "3a87f2a0d30de4da8b7691498bfa5032e0f536611c4a17a986e3d2e18a4f76d8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_the_service_centre_of_the_reimbursement_of_maternity_leave_pay_scheme"
+    },
+    {
+      "id": "ld-csdi-information-of-youth-employment-start-y-e-s",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-youth-employment-start-y-e-s",
+      "name": "Information of Youth Employment Start (Y.E.S.)",
+      "apiTitle": "Labour Department \u2014 Information of Youth Employment Start (Y.E.S.)",
+      "json": "ld/csdi-information-of-youth-employment-start-y-e-s/openapi.json",
+      "yaml": "ld/csdi-information-of-youth-employment-start-y-e-s/openapi.yaml",
+      "file": "ld/csdi-information-of-youth-employment-start-y-e-s/openapi.json",
+      "sha256": "84a572f33b3fee067cc7b91e7314d592155aeed222e26d1220bc712182e4f3b0",
+      "jsonSha256": "84a572f33b3fee067cc7b91e7314d592155aeed222e26d1220bc712182e4f3b0",
+      "yamlSha256": "5dfa0c0e55a69575c9b2862ad45fde71fc54c986af674e3d13af2b8a786e015a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_youth_employment_start_y_e_s",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "84a572f33b3fee067cc7b91e7314d592155aeed222e26d1220bc712182e4f3b0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1697792058533_18520",
+        "canonicalJsonSha256": "84a572f33b3fee067cc7b91e7314d592155aeed222e26d1220bc712182e4f3b0",
+        "originalRepresentationSha256": "84a572f33b3fee067cc7b91e7314d592155aeed222e26d1220bc712182e4f3b0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_youth_employment_start_y_e_s"
+    },
+    {
+      "id": "ld-csdi-information-of-the-racial-diversity-employment-programme-rdep",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-the-racial-diversity-employment-programme-rdep",
+      "name": "Information of the Racial Diversity Employment Programme (RDEP)",
+      "apiTitle": "Labour Department \u2014 Information of the Racial Diversity Employment Programme (RDEP)",
+      "json": "ld/csdi-information-of-the-racial-diversity-employment-programme-rdep/openapi.json",
+      "yaml": "ld/csdi-information-of-the-racial-diversity-employment-programme-rdep/openapi.yaml",
+      "file": "ld/csdi-information-of-the-racial-diversity-employment-programme-rdep/openapi.json",
+      "sha256": "fcc669218b589569e20ae9d08deeaacd1d2c4157d8ea38946126c5f2be6c9e89",
+      "jsonSha256": "fcc669218b589569e20ae9d08deeaacd1d2c4157d8ea38946126c5f2be6c9e89",
+      "yamlSha256": "3d19d345ee779ff678fdb3f8217d6cb3aa19b8c6face848ddd9ee86d715acdac",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_the_racial_diversity_employment_programme_rdep",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fcc669218b589569e20ae9d08deeaacd1d2c4157d8ea38946126c5f2be6c9e89"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1697792188001_10822",
+        "canonicalJsonSha256": "fcc669218b589569e20ae9d08deeaacd1d2c4157d8ea38946126c5f2be6c9e89",
+        "originalRepresentationSha256": "fcc669218b589569e20ae9d08deeaacd1d2c4157d8ea38946126c5f2be6c9e89",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_the_racial_diversity_employment_programme_rdep"
+    },
+    {
+      "id": "ld-csdi-information-of-the-service-centre-for-subsidy-scheme-for-abolition-of-mpf-offsetting-arrangement",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-the-service-centre-for-subsidy-scheme-for-abolition-of-mpf-offsetting-arrangement",
+      "name": "Information of the Service Centre for Subsidy Scheme for Abolition of MPF Offsetting Arrangement",
+      "apiTitle": "Labour Department \u2014 Information of the Service Centre for Subsidy Scheme for Abolition of MPF Offsetting Arrangement",
+      "json": "ld/csdi-information-of-the-service-centre-for-subsidy-scheme-for-abolition-of-mpf-offsetting-arrangement/openapi.json",
+      "yaml": "ld/csdi-information-of-the-service-centre-for-subsidy-scheme-for-abolition-of-mpf-offsetting-arrangement/openapi.yaml",
+      "file": "ld/csdi-information-of-the-service-centre-for-subsidy-scheme-for-abolition-of-mpf-offsetting-arrangement/openapi.json",
+      "sha256": "9a682cf52ddb50bc017de67c4a6e46ffb92b0208b45fee214ff7203a54fd0254",
+      "jsonSha256": "9a682cf52ddb50bc017de67c4a6e46ffb92b0208b45fee214ff7203a54fd0254",
+      "yamlSha256": "a82edaef6cf6bae2717a76b3607240f9bfbe5795e0c2535e12ffda6e878c24cd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_the_service_centre_for_subsidy_scheme_for_abolition_of_mpf_offsetting_arrangement",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "9a682cf52ddb50bc017de67c4a6e46ffb92b0208b45fee214ff7203a54fd0254"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1728897448999_30144",
+        "canonicalJsonSha256": "9a682cf52ddb50bc017de67c4a6e46ffb92b0208b45fee214ff7203a54fd0254",
+        "originalRepresentationSha256": "9a682cf52ddb50bc017de67c4a6e46ffb92b0208b45fee214ff7203a54fd0254",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_the_service_centre_for_subsidy_scheme_for_abolition_of_mpf_offsetting_arrangement"
+    },
+    {
+      "id": "ld-csdi-information-of-offices-of-the-labour-relations-division",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-offices-of-the-labour-relations-division",
+      "name": "Information of Offices of the Labour Relations Division",
+      "apiTitle": "Labour Department \u2014 Information of Offices of the Labour Relations Division",
+      "json": "ld/csdi-information-of-offices-of-the-labour-relations-division/openapi.json",
+      "yaml": "ld/csdi-information-of-offices-of-the-labour-relations-division/openapi.yaml",
+      "file": "ld/csdi-information-of-offices-of-the-labour-relations-division/openapi.json",
+      "sha256": "af49381f4b5f34136053a8a7b93938340873dbfe39e2f0e5bc4e5db465beaa51",
+      "jsonSha256": "af49381f4b5f34136053a8a7b93938340873dbfe39e2f0e5bc4e5db465beaa51",
+      "yamlSha256": "f4b3ace3ab853e96447fa54b23e0233ae70df2b7878c013bfc6240c21552380f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_offices_of_the_labour_relations_division",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "af49381f4b5f34136053a8a7b93938340873dbfe39e2f0e5bc4e5db465beaa51"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1759741707723_16863",
+        "canonicalJsonSha256": "af49381f4b5f34136053a8a7b93938340873dbfe39e2f0e5bc4e5db465beaa51",
+        "originalRepresentationSha256": "af49381f4b5f34136053a8a7b93938340873dbfe39e2f0e5bc4e5db465beaa51",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_offices_of_the_labour_relations_division"
+    },
+    {
+      "id": "ld-csdi-information-of-the-registry-of-trade-unions",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-the-registry-of-trade-unions",
+      "name": "Information of the Registry of Trade Unions",
+      "apiTitle": "Labour Department \u2014 Information of the Registry of Trade Unions",
+      "json": "ld/csdi-information-of-the-registry-of-trade-unions/openapi.json",
+      "yaml": "ld/csdi-information-of-the-registry-of-trade-unions/openapi.yaml",
+      "file": "ld/csdi-information-of-the-registry-of-trade-unions/openapi.json",
+      "sha256": "cbc0597dec0a9e7c31610f45a37797d86f9507c87d2708c810213554202b374a",
+      "jsonSha256": "cbc0597dec0a9e7c31610f45a37797d86f9507c87d2708c810213554202b374a",
+      "yamlSha256": "3de7d11e6235fd6fdb99ec8aa40b4a2d7ab2a3d840a54eb4f2c0be77a8495b26",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_the_registry_of_trade_unions",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cbc0597dec0a9e7c31610f45a37797d86f9507c87d2708c810213554202b374a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1760408778957_75005",
+        "canonicalJsonSha256": "cbc0597dec0a9e7c31610f45a37797d86f9507c87d2708c810213554202b374a",
+        "originalRepresentationSha256": "cbc0597dec0a9e7c31610f45a37797d86f9507c87d2708c810213554202b374a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_the_registry_of_trade_unions"
+    },
+    {
+      "id": "ld-csdi-information-of-the-minor-employment-claims-adjudication-board",
+      "publisherKey": "ld",
+      "publisherName": "Labour Department",
+      "familyKey": "csdi-information-of-the-minor-employment-claims-adjudication-board",
+      "name": "Information of the Minor Employment Claims Adjudication Board",
+      "apiTitle": "Labour Department \u2014 Information of the Minor Employment Claims Adjudication Board",
+      "json": "ld/csdi-information-of-the-minor-employment-claims-adjudication-board/openapi.json",
+      "yaml": "ld/csdi-information-of-the-minor-employment-claims-adjudication-board/openapi.yaml",
+      "file": "ld/csdi-information-of-the-minor-employment-claims-adjudication-board/openapi.json",
+      "sha256": "ef3bc2589e74832403fb6fffc369a3abc13134733c7727798a4c8501a2f5ba5b",
+      "jsonSha256": "ef3bc2589e74832403fb6fffc369a3abc13134733c7727798a4c8501a2f5ba5b",
+      "yamlSha256": "e705b96298d0c010fcac94878f62397585334a7e89e6ac53a4660e2b385965bd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_the_minor_employment_claims_adjudication_board",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ef3bc2589e74832403fb6fffc369a3abc13134733c7727798a4c8501a2f5ba5b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=labour_rcd_1760409228235_69617",
+        "canonicalJsonSha256": "ef3bc2589e74832403fb6fffc369a3abc13134733c7727798a4c8501a2f5ba5b",
+        "originalRepresentationSha256": "ef3bc2589e74832403fb6fffc369a3abc13134733c7727798a4c8501a2f5ba5b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_the_minor_employment_claims_adjudication_board"
+    }
+  ]
+}

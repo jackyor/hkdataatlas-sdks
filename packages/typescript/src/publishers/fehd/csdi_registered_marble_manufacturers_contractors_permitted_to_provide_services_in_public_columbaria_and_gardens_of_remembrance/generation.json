@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "fehd-csdi-registered-marble-manufacturers-contractors-permitted-to-provide-services-in-public-columbaria-and-gardens-of-remembrance",
+  "sourceSha256": "a53f9f7521469cffa74d927d167d7069cbbc980d7e2efb2dab6d52a332e0e8dd",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/fehd_rcd_1728372438571_13661/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1728372438571_13661/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1728372438571_13661/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

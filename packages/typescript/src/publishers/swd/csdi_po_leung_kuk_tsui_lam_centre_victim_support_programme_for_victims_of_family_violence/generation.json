@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "swd-csdi-po-leung-kuk-tsui-lam-centre-victim-support-programme-for-victims-of-family-violence",
+  "sourceSha256": "fe038a0b0cceab038a9e2beb877fcf1750f01c03e7033bf844dfc726fc50675f",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/swd_rcd_1665548609613_64224/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/swd_rcd_1665548609613_64224/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/swd_rcd_1665548609613_64224/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

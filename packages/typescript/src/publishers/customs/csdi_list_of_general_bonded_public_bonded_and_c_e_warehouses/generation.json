@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "customs-csdi-list-of-general-bonded-public-bonded-and-c-e-warehouses",
+  "sourceSha256": "3f2dc1a22964f6c53319d22067d5c3c41a34e04f594a904c8868d3efb4765b44",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/customs_rcd_1635475097101_79953/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/customs_rcd_1635475097101_79953/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/customs_rcd_1635475097101_79953/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

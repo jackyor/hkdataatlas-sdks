@@ -1,0 +1,2575 @@
+{
+  "publisherKey": "censtatd",
+  "publisherName": "Census and Statistics Department",
+  "sources": [
+    {
+      "id": "censtatd-c-sd-web-table-api",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "c-sd-web-table-api",
+      "name": "C&SD Web Table API",
+      "apiTitle": "APIs for C&SD Web Tables",
+      "json": "censtatd/c-sd-web-table-api/openapi.json",
+      "yaml": "censtatd/c-sd-web-table-api/openapi.yaml",
+      "file": "censtatd/c-sd-web-table-api/openapi.json",
+      "sha256": "12c4e924a31cf70d60ac17f0dbaff0e838fa1e2b6699040e7b919381dd481391",
+      "jsonSha256": "12c4e924a31cf70d60ac17f0dbaff0e838fa1e2b6699040e7b919381dd481391",
+      "yamlSha256": "3854da6f21a071540365de9a17fa7ffe85bdbd115576e491483dad48e12e9a85",
+      "openapiVersion": "3.0.3",
+      "publisherVersion": "1.0.0",
+      "namespace": "c_sd_web_table_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "12c4e924a31cf70d60ac17f0dbaff0e838fa1e2b6699040e7b919381dd481391"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.censtatd.gov.hk/datagovhk/WT_data_dict_en.pdf",
+        "currentUrl": "https://www.censtatd.gov.hk/en/API_Guide.html",
+        "sourceRefresh": {
+          "priorJsonSha256": "aa9dc8a73611daf0ca48aa7c81a6f8f82fbdab798db02302153dbc01975d0f80",
+          "canonicalJsonSha256": "12c4e924a31cf70d60ac17f0dbaff0e838fa1e2b6699040e7b919381dd481391",
+          "currentSourceUrl": "https://www.censtatd.gov.hk/en/API_Guide.html",
+          "classification": "source_backed_response_or_parameter_description_correction",
+          "documentationSources": [
+            {
+              "url": "https://www.censtatd.gov.hk/en/API_Guide.html",
+              "sha256": "85c14adac05649325d7f9b2d3ac8de31e464dc675269f80485ffc9719a92be57",
+              "representation": "source-attachment"
+            }
+          ],
+          "sourceCoverage": "Publisher contract plus 639 standard named parameter examples; unrestricted string retained.",
+          "responseCoverage": "Unchanged publisher response schema.",
+          "liveAssessment": "No new HTTP performed by SDK import; exact retained body/sample proof remains bounded."
+        },
+        "canonicalJsonSha256": "12c4e924a31cf70d60ac17f0dbaff0e838fa1e2b6699040e7b919381dd481391",
+        "originalRepresentationSha256": "aa9dc8a73611daf0ca48aa7c81a6f8f82fbdab798db02302153dbc01975d0f80",
+        "serialization": "Maintained derivative from hash-bound original source and replayable delta; publisher original preserved."
+      },
+      "moduleName": "c_sd_web_table_api"
+    },
+    {
+      "id": "censtatd-trade-interactive-data-dissemination-service-trade-idds-api",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "trade-interactive-data-dissemination-service-trade-idds-api",
+      "name": "Trade-Interactive Data Dissemination Service (Trade-IDDS) API",
+      "apiTitle": "Trade-Interactive Data Dissemination Service (Trade-IDDS) API",
+      "json": "censtatd/trade-interactive-data-dissemination-service-trade-idds-api/openapi.json",
+      "yaml": "censtatd/trade-interactive-data-dissemination-service-trade-idds-api/openapi.yaml",
+      "file": "censtatd/trade-interactive-data-dissemination-service-trade-idds-api/openapi.json",
+      "sha256": "137a298b3d8bb4f8a7fe724f896bff86459580f6a2642684f74d2bd98ef2dd32",
+      "jsonSha256": "137a298b3d8bb4f8a7fe724f896bff86459580f6a2642684f74d2bd98ef2dd32",
+      "yamlSha256": "2fe0a9c3e50737e5ce9bdd3d1a6378b82af556577785c4f6abc4784c20c71d1e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "trade_interactive_data_dissemination_service_trade_idds_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "137a298b3d8bb4f8a7fe724f896bff86459580f6a2642684f74d2bd98ef2dd32"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://tradeidds.censtatd.gov.hk/MetadataLink/ApiSpec/API_eng.pdf",
+        "canonicalJsonSha256": "137a298b3d8bb4f8a7fe724f896bff86459580f6a2642684f74d2bd98ef2dd32",
+        "originalRepresentationSha256": "137a298b3d8bb4f8a7fe724f896bff86459580f6a2642684f74d2bd98ef2dd32",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "trade_interactive_data_dissemination_service_trade_idds_api"
+    },
+    {
+      "id": "censtatd-csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-districts",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-districts",
+      "name": "2016 Population By-census (Statistics and Boundaries of District Council Districts)",
+      "apiTitle": "Census and Statistics Department \u2014 2016 Population By-census (Statistics and Boundaries of District Council Districts)",
+      "json": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "yaml": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-districts/openapi.yaml",
+      "file": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "sha256": "6a47ba4b3a835d58551ae8ec899584fa2fa7dea76397638c7064acbc17428654",
+      "jsonSha256": "6a47ba4b3a835d58551ae8ec899584fa2fa7dea76397638c7064acbc17428654",
+      "yamlSha256": "6728067acaa62cf3d7193c96c438d2b09af2ee0a750ab6f47e2887270a5835fc",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2016_population_by_census_statistics_and_boundaries_of_district_council_districts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6a47ba4b3a835d58551ae8ec899584fa2fa7dea76397638c7064acbc17428654"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205219_37828",
+        "canonicalJsonSha256": "6a47ba4b3a835d58551ae8ec899584fa2fa7dea76397638c7064acbc17428654",
+        "originalRepresentationSha256": "6a47ba4b3a835d58551ae8ec899584fa2fa7dea76397638c7064acbc17428654",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2016_population_by_census_statistics_and_boundaries_of_district_council_districts"
+    },
+    {
+      "id": "censtatd-csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "name": "2016 Population By-census (Statistics and Boundaries of District Council Constituency Areas)",
+      "apiTitle": "Census and Statistics Department \u2014 2016 Population By-census (Statistics and Boundaries of District Council Constituency Areas)",
+      "json": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "yaml": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.yaml",
+      "file": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "sha256": "a06c381bb7304e055e4d929f6573eb93bb6ed5e86049a43809811b8ea868dc0e",
+      "jsonSha256": "a06c381bb7304e055e4d929f6573eb93bb6ed5e86049a43809811b8ea868dc0e",
+      "yamlSha256": "5f106e4d4673a811d57fefc35dc17748dc19c8133cc95f6507bf2ce55cad694e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2016_population_by_census_statistics_and_boundaries_of_district_council_constituency_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a06c381bb7304e055e4d929f6573eb93bb6ed5e86049a43809811b8ea868dc0e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205219_53611",
+        "canonicalJsonSha256": "a06c381bb7304e055e4d929f6573eb93bb6ed5e86049a43809811b8ea868dc0e",
+        "originalRepresentationSha256": "a06c381bb7304e055e4d929f6573eb93bb6ed5e86049a43809811b8ea868dc0e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2016_population_by_census_statistics_and_boundaries_of_district_council_constituency_areas"
+    },
+    {
+      "id": "censtatd-csdi-2016-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2016-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "name": "2016 Population By-census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2016 Population By-census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "ab711a4edd48848fab2562588f11d074bd84f3db2e515093f045dbf0587d2658",
+      "jsonSha256": "ab711a4edd48848fab2562588f11d074bd84f3db2e515093f045dbf0587d2658",
+      "yamlSha256": "52cdb491c224a8236f995f506738cfcfa78f3d3f3d33ada057ff89fc948e9c63",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2016_population_by_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ab711a4edd48848fab2562588f11d074bd84f3db2e515093f045dbf0587d2658"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205224_87566",
+        "canonicalJsonSha256": "ab711a4edd48848fab2562588f11d074bd84f3db2e515093f045dbf0587d2658",
+        "originalRepresentationSha256": "ab711a4edd48848fab2562588f11d074bd84f3db2e515093f045dbf0587d2658",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2016_population_by_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2016-population-by-census-statistics-and-boundaries-of-small-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2016-population-by-census-statistics-and-boundaries-of-small-street-block-groups",
+      "name": "2016 Population By-census (Statistics and Boundaries of Small Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2016 Population By-census (Statistics and Boundaries of Small Street Block Groups)",
+      "json": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-small-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "sha256": "6c534aa83f1d65a412a3483b388619ab8beca902e808109d5d2bd66756f8d101",
+      "jsonSha256": "6c534aa83f1d65a412a3483b388619ab8beca902e808109d5d2bd66756f8d101",
+      "yamlSha256": "937d11abad8988723bcd89553abebc3449fe7996698f830d50662c0b3e51d6c2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2016_population_by_census_statistics_and_boundaries_of_small_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6c534aa83f1d65a412a3483b388619ab8beca902e808109d5d2bd66756f8d101"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_2386",
+        "canonicalJsonSha256": "6c534aa83f1d65a412a3483b388619ab8beca902e808109d5d2bd66756f8d101",
+        "originalRepresentationSha256": "6c534aa83f1d65a412a3483b388619ab8beca902e808109d5d2bd66756f8d101",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2016_population_by_census_statistics_and_boundaries_of_small_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2016-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2016-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "name": "2016 Population By-census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2016 Population By-census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "9db86d3a984ea8d89e0960262ad73a023331440f08df5e456509aedc5ea8b291",
+      "jsonSha256": "9db86d3a984ea8d89e0960262ad73a023331440f08df5e456509aedc5ea8b291",
+      "yamlSha256": "449488c790c1d03adc4974e60e21fb2db4c9f1846a069a92ea028b4394eca0ca",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2016_population_by_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "9db86d3a984ea8d89e0960262ad73a023331440f08df5e456509aedc5ea8b291"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_40996",
+        "canonicalJsonSha256": "9db86d3a984ea8d89e0960262ad73a023331440f08df5e456509aedc5ea8b291",
+        "originalRepresentationSha256": "9db86d3a984ea8d89e0960262ad73a023331440f08df5e456509aedc5ea8b291",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2016_population_by_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2011-population-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "name": "2011 Population Census (Statistics and Boundaries of District Council Constituency Areas)",
+      "apiTitle": "Census and Statistics Department \u2014 2011 Population Census (Statistics and Boundaries of District Council Constituency Areas)",
+      "json": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "yaml": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.yaml",
+      "file": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "sha256": "feb7b6029056197b8ca66d9c69bf65e9fc896a776492ba881f2bc5bacb950b10",
+      "jsonSha256": "feb7b6029056197b8ca66d9c69bf65e9fc896a776492ba881f2bc5bacb950b10",
+      "yamlSha256": "6417dfa73f455a5cc4b3e8ca2f64bf357b4ab32f688fb6fc9a75f2a7f9806f86",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2011_population_census_statistics_and_boundaries_of_district_council_constituency_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "feb7b6029056197b8ca66d9c69bf65e9fc896a776492ba881f2bc5bacb950b10"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_46115",
+        "canonicalJsonSha256": "feb7b6029056197b8ca66d9c69bf65e9fc896a776492ba881f2bc5bacb950b10",
+        "originalRepresentationSha256": "feb7b6029056197b8ca66d9c69bf65e9fc896a776492ba881f2bc5bacb950b10",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2011_population_census_statistics_and_boundaries_of_district_council_constituency_areas"
+    },
+    {
+      "id": "censtatd-csdi-2016-population-by-census-statistics-and-boundaries-of-large-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2016-population-by-census-statistics-and-boundaries-of-large-street-block-groups",
+      "name": "2016 Population By-census (Statistics and Boundaries of Large Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2016 Population By-census (Statistics and Boundaries of Large Street Block Groups)",
+      "json": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-large-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2016-population-by-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "sha256": "1da3af6d7390fead918c3b3e75fa2fd87187da69645ff135637b1d276a0cbd59",
+      "jsonSha256": "1da3af6d7390fead918c3b3e75fa2fd87187da69645ff135637b1d276a0cbd59",
+      "yamlSha256": "210c2ca945bc957c485a39ca3a8c68eeb7f798170546fad44c67fc04f7076599",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2016_population_by_census_statistics_and_boundaries_of_large_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1da3af6d7390fead918c3b3e75fa2fd87187da69645ff135637b1d276a0cbd59"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_49850",
+        "canonicalJsonSha256": "1da3af6d7390fead918c3b3e75fa2fd87187da69645ff135637b1d276a0cbd59",
+        "originalRepresentationSha256": "1da3af6d7390fead918c3b3e75fa2fd87187da69645ff135637b1d276a0cbd59",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2016_population_by_census_statistics_and_boundaries_of_large_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-district-council-districts",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2011-population-census-statistics-and-boundaries-of-district-council-districts",
+      "name": "2011 Population Census (Statistics and Boundaries of District Council Districts)",
+      "apiTitle": "Census and Statistics Department \u2014 2011 Population Census (Statistics and Boundaries of District Council Districts)",
+      "json": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "yaml": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-district-council-districts/openapi.yaml",
+      "file": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "sha256": "3df998e03914b19d6a867f58607c3a3d70050a03a850ac5763171db68132d7f1",
+      "jsonSha256": "3df998e03914b19d6a867f58607c3a3d70050a03a850ac5763171db68132d7f1",
+      "yamlSha256": "928c4c7a28270a0c5bb7452a6ec6325a13f4b1ee5cbacaefb3a56b80371abe50",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2011_population_census_statistics_and_boundaries_of_district_council_districts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3df998e03914b19d6a867f58607c3a3d70050a03a850ac5763171db68132d7f1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_54778",
+        "canonicalJsonSha256": "3df998e03914b19d6a867f58607c3a3d70050a03a850ac5763171db68132d7f1",
+        "originalRepresentationSha256": "3df998e03914b19d6a867f58607c3a3d70050a03a850ac5763171db68132d7f1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2011_population_census_statistics_and_boundaries_of_district_council_districts"
+    },
+    {
+      "id": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-large-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2011-population-census-statistics-and-boundaries-of-large-street-block-groups",
+      "name": "2011 Population Census (Statistics and Boundaries of Large Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2011 Population Census (Statistics and Boundaries of Large Street Block Groups)",
+      "json": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-large-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "sha256": "f7bb9bee960e68aec45b55b92b752a17b42481796614cb231b9c1d8134d90575",
+      "jsonSha256": "f7bb9bee960e68aec45b55b92b752a17b42481796614cb231b9c1d8134d90575",
+      "yamlSha256": "b7277475ab4295c0b4e0240c8bd9bc005c67cc0e88b73980938e59df226966f8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2011_population_census_statistics_and_boundaries_of_large_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f7bb9bee960e68aec45b55b92b752a17b42481796614cb231b9c1d8134d90575"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_58728",
+        "canonicalJsonSha256": "f7bb9bee960e68aec45b55b92b752a17b42481796614cb231b9c1d8134d90575",
+        "originalRepresentationSha256": "f7bb9bee960e68aec45b55b92b752a17b42481796614cb231b9c1d8134d90575",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2011_population_census_statistics_and_boundaries_of_large_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-small-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2011-population-census-statistics-and-boundaries-of-small-street-block-groups",
+      "name": "2011 Population Census (Statistics and Boundaries of Small Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2011 Population Census (Statistics and Boundaries of Small Street Block Groups)",
+      "json": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-small-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "sha256": "1faa7ef095b192ead446978b1f69b14cc1884c119de48af49b0ca323ac74b675",
+      "jsonSha256": "1faa7ef095b192ead446978b1f69b14cc1884c119de48af49b0ca323ac74b675",
+      "yamlSha256": "c726fbb1be526bc26b81e9f92ade2b2342295f12e24617550da140077d0055f1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2011_population_census_statistics_and_boundaries_of_small_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1faa7ef095b192ead446978b1f69b14cc1884c119de48af49b0ca323ac74b675"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_66380",
+        "canonicalJsonSha256": "1faa7ef095b192ead446978b1f69b14cc1884c119de48af49b0ca323ac74b675",
+        "originalRepresentationSha256": "1faa7ef095b192ead446978b1f69b14cc1884c119de48af49b0ca323ac74b675",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2011_population_census_statistics_and_boundaries_of_small_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2011-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "name": "2011 Population Census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2011 Population Census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "d4f75c41d71876447ab0fcae6d4a21fb7108d7236ee49600af35c81a11977c59",
+      "jsonSha256": "d4f75c41d71876447ab0fcae6d4a21fb7108d7236ee49600af35c81a11977c59",
+      "yamlSha256": "c69cc5902fb669b62e4c204138fbfdf442aea7139e43010a3bdedd0599979992",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2011_population_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d4f75c41d71876447ab0fcae6d4a21fb7108d7236ee49600af35c81a11977c59"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_857",
+        "canonicalJsonSha256": "d4f75c41d71876447ab0fcae6d4a21fb7108d7236ee49600af35c81a11977c59",
+        "originalRepresentationSha256": "d4f75c41d71876447ab0fcae6d4a21fb7108d7236ee49600af35c81a11977c59",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2011_population_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2011-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "name": "2011 Population Census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2011 Population Census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2011-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "466db5173b8880394c4dcabc57d2228112fa9d303fba7ed994aaea5b512efabf",
+      "jsonSha256": "466db5173b8880394c4dcabc57d2228112fa9d303fba7ed994aaea5b512efabf",
+      "yamlSha256": "1f081b9aa65eb6d87e9540121e41d9f73468c65ec1fb2d3f50b3554da8bc2621",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2011_population_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "466db5173b8880394c4dcabc57d2228112fa9d303fba7ed994aaea5b512efabf"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1629267205229_97980",
+        "canonicalJsonSha256": "466db5173b8880394c4dcabc57d2228112fa9d303fba7ed994aaea5b512efabf",
+        "originalRepresentationSha256": "466db5173b8880394c4dcabc57d2228112fa9d303fba7ed994aaea5b512efabf",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2011_population_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2001-population-census-statistics-and-boundaries-of-district-council-districts",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2001-population-census-statistics-and-boundaries-of-district-council-districts",
+      "name": "2001 Population Census (Statistics and Boundaries of District Council Districts)",
+      "apiTitle": "Census and Statistics Department \u2014 2001 Population Census (Statistics and Boundaries of District Council Districts)",
+      "json": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "yaml": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-district-council-districts/openapi.yaml",
+      "file": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "sha256": "82d040298d8a3e689f8837e3c864ddadb14ee38fc7e81cce7c4e55aa3b474e0f",
+      "jsonSha256": "82d040298d8a3e689f8837e3c864ddadb14ee38fc7e81cce7c4e55aa3b474e0f",
+      "yamlSha256": "0ca654badca2c7832bceb1b7257ce5800fda6a9b1bd16a5bedf31ff1c84a1a27",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2001_population_census_statistics_and_boundaries_of_district_council_districts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "82d040298d8a3e689f8837e3c864ddadb14ee38fc7e81cce7c4e55aa3b474e0f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635929936495_19983",
+        "canonicalJsonSha256": "82d040298d8a3e689f8837e3c864ddadb14ee38fc7e81cce7c4e55aa3b474e0f",
+        "originalRepresentationSha256": "82d040298d8a3e689f8837e3c864ddadb14ee38fc7e81cce7c4e55aa3b474e0f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2001_population_census_statistics_and_boundaries_of_district_council_districts"
+    },
+    {
+      "id": "censtatd-csdi-2001-population-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2001-population-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "name": "2001 Population Census (Statistics and Boundaries of District Council Constituency Areas)",
+      "apiTitle": "Census and Statistics Department \u2014 2001 Population Census (Statistics and Boundaries of District Council Constituency Areas)",
+      "json": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "yaml": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.yaml",
+      "file": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "sha256": "63d96c8d4a477faac2adfc46db06708ab086ff677b971dc1ebe7058ba9cd85f0",
+      "jsonSha256": "63d96c8d4a477faac2adfc46db06708ab086ff677b971dc1ebe7058ba9cd85f0",
+      "yamlSha256": "1040d20226e406b6cb0dfea85b853055232105f81531fbeb4c15a45b44d68e40",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2001_population_census_statistics_and_boundaries_of_district_council_constituency_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "63d96c8d4a477faac2adfc46db06708ab086ff677b971dc1ebe7058ba9cd85f0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635930083783_10404",
+        "canonicalJsonSha256": "63d96c8d4a477faac2adfc46db06708ab086ff677b971dc1ebe7058ba9cd85f0",
+        "originalRepresentationSha256": "63d96c8d4a477faac2adfc46db06708ab086ff677b971dc1ebe7058ba9cd85f0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2001_population_census_statistics_and_boundaries_of_district_council_constituency_areas"
+    },
+    {
+      "id": "censtatd-csdi-2001-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2001-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "name": "2001 Population Census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2001 Population Census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "1ee9524a7caac96b3331bbec06b6246b19e55d5e22730f7b05ae3d9844fb1c41",
+      "jsonSha256": "1ee9524a7caac96b3331bbec06b6246b19e55d5e22730f7b05ae3d9844fb1c41",
+      "yamlSha256": "aedd90f5b8e4ff1a4e727120bcc046d8a08866da1de45967c28504c6e238a68e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2001_population_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1ee9524a7caac96b3331bbec06b6246b19e55d5e22730f7b05ae3d9844fb1c41"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635930155120_96012",
+        "canonicalJsonSha256": "1ee9524a7caac96b3331bbec06b6246b19e55d5e22730f7b05ae3d9844fb1c41",
+        "originalRepresentationSha256": "1ee9524a7caac96b3331bbec06b6246b19e55d5e22730f7b05ae3d9844fb1c41",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2001_population_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2001-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2001-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "name": "2001 Population Census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2001 Population Census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "c627965eb7ab879c3a5a618763528624489e70f509d7ad45b831cd1278a8c947",
+      "jsonSha256": "c627965eb7ab879c3a5a618763528624489e70f509d7ad45b831cd1278a8c947",
+      "yamlSha256": "b5a680175d85600169f6d089b873762954864aaab2601a31bc2696be025580e1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2001_population_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c627965eb7ab879c3a5a618763528624489e70f509d7ad45b831cd1278a8c947"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635930257558_16767",
+        "canonicalJsonSha256": "c627965eb7ab879c3a5a618763528624489e70f509d7ad45b831cd1278a8c947",
+        "originalRepresentationSha256": "c627965eb7ab879c3a5a618763528624489e70f509d7ad45b831cd1278a8c947",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2001_population_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2001-population-census-statistics-and-boundaries-of-large-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2001-population-census-statistics-and-boundaries-of-large-street-block-groups",
+      "name": "2001 Population Census (Statistics and Boundaries of Large Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2001 Population Census (Statistics and Boundaries of Large Street Block Groups)",
+      "json": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-large-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "sha256": "b622225b7b99216d69fcffa209388f7d9b07d5499643f31d252dfc04ebe254f0",
+      "jsonSha256": "b622225b7b99216d69fcffa209388f7d9b07d5499643f31d252dfc04ebe254f0",
+      "yamlSha256": "8216ebc30fb452b92b031821bf96f0f735c24d1cadc3b1b0009ff54de1d2a8ec",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2001_population_census_statistics_and_boundaries_of_large_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b622225b7b99216d69fcffa209388f7d9b07d5499643f31d252dfc04ebe254f0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635930339939_43584",
+        "canonicalJsonSha256": "b622225b7b99216d69fcffa209388f7d9b07d5499643f31d252dfc04ebe254f0",
+        "originalRepresentationSha256": "b622225b7b99216d69fcffa209388f7d9b07d5499643f31d252dfc04ebe254f0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2001_population_census_statistics_and_boundaries_of_large_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2001-population-census-statistics-and-boundaries-of-small-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2001-population-census-statistics-and-boundaries-of-small-street-block-groups",
+      "name": "2001 Population Census (Statistics and Boundaries of Small Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2001 Population Census (Statistics and Boundaries of Small Street Block Groups)",
+      "json": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-small-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2001-population-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "sha256": "a91789703ee129342ccb4df475c7a9c55cf1b150ac3e03efa75f613703445294",
+      "jsonSha256": "a91789703ee129342ccb4df475c7a9c55cf1b150ac3e03efa75f613703445294",
+      "yamlSha256": "0f846ca139d285e9476aa4c101734318fda8d3fd47c04fc43ff2ad7bec0d3aea",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2001_population_census_statistics_and_boundaries_of_small_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a91789703ee129342ccb4df475c7a9c55cf1b150ac3e03efa75f613703445294"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635930411785_22089",
+        "canonicalJsonSha256": "a91789703ee129342ccb4df475c7a9c55cf1b150ac3e03efa75f613703445294",
+        "originalRepresentationSha256": "a91789703ee129342ccb4df475c7a9c55cf1b150ac3e03efa75f613703445294",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2001_population_census_statistics_and_boundaries_of_small_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-districts",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-districts",
+      "name": "2006 Population By-census (Statistics and Boundaries of District Council Districts)",
+      "apiTitle": "Census and Statistics Department \u2014 2006 Population By-census (Statistics and Boundaries of District Council Districts)",
+      "json": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "yaml": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-districts/openapi.yaml",
+      "file": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "sha256": "404929a1ecae26299a02891a832ed49cd97668674e5038c33fd4a81e42224263",
+      "jsonSha256": "404929a1ecae26299a02891a832ed49cd97668674e5038c33fd4a81e42224263",
+      "yamlSha256": "fd65b0b28b6f1fedd67bb630f2af4ba8de8501d69b371ff9c926cf758bb875c7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2006_population_by_census_statistics_and_boundaries_of_district_council_districts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "404929a1ecae26299a02891a832ed49cd97668674e5038c33fd4a81e42224263"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635930696045_68018",
+        "canonicalJsonSha256": "404929a1ecae26299a02891a832ed49cd97668674e5038c33fd4a81e42224263",
+        "originalRepresentationSha256": "404929a1ecae26299a02891a832ed49cd97668674e5038c33fd4a81e42224263",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2006_population_by_census_statistics_and_boundaries_of_district_council_districts"
+    },
+    {
+      "id": "censtatd-csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "name": "2006 Population By-census (Statistics and Boundaries of District Council Constituency Areas)",
+      "apiTitle": "Census and Statistics Department \u2014 2006 Population By-census (Statistics and Boundaries of District Council Constituency Areas)",
+      "json": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "yaml": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.yaml",
+      "file": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "sha256": "b37405eefdd99c99abd9ef2d472323ecb0914ee42b2af13a2880714aaaae0a09",
+      "jsonSha256": "b37405eefdd99c99abd9ef2d472323ecb0914ee42b2af13a2880714aaaae0a09",
+      "yamlSha256": "8aafd8680dfeb5be2b0b62129c4948162fbfaae91690a83c3b2f46ff067522b1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2006_population_by_census_statistics_and_boundaries_of_district_council_constituency_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b37405eefdd99c99abd9ef2d472323ecb0914ee42b2af13a2880714aaaae0a09"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635930856036_47083",
+        "canonicalJsonSha256": "b37405eefdd99c99abd9ef2d472323ecb0914ee42b2af13a2880714aaaae0a09",
+        "originalRepresentationSha256": "b37405eefdd99c99abd9ef2d472323ecb0914ee42b2af13a2880714aaaae0a09",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2006_population_by_census_statistics_and_boundaries_of_district_council_constituency_areas"
+    },
+    {
+      "id": "censtatd-csdi-2006-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2006-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "name": "2006 Population By-census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2006 Population By-census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "5f63926430ccab7ce3aabf24a282f093f59c904dc892435fad42ec914e7ae8dc",
+      "jsonSha256": "5f63926430ccab7ce3aabf24a282f093f59c904dc892435fad42ec914e7ae8dc",
+      "yamlSha256": "dc97034fd54b84f2ba8bc4a5819e5b5cec54d301ad09c709a6d7c23e82edc7bb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2006_population_by_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5f63926430ccab7ce3aabf24a282f093f59c904dc892435fad42ec914e7ae8dc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635931100643_54773",
+        "canonicalJsonSha256": "5f63926430ccab7ce3aabf24a282f093f59c904dc892435fad42ec914e7ae8dc",
+        "originalRepresentationSha256": "5f63926430ccab7ce3aabf24a282f093f59c904dc892435fad42ec914e7ae8dc",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2006_population_by_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2006-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2006-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "name": "2006 Population By-census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2006 Population By-census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "c057170d224746c75b92eea6510f10f109fc1483b712b33dbc9bb9a7dcaa35f3",
+      "jsonSha256": "c057170d224746c75b92eea6510f10f109fc1483b712b33dbc9bb9a7dcaa35f3",
+      "yamlSha256": "efeb63f74fc42bd2036a0309bc59c395614478ea5d7226ed423007b8cc15ced2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2006_population_by_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c057170d224746c75b92eea6510f10f109fc1483b712b33dbc9bb9a7dcaa35f3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635931180148_90380",
+        "canonicalJsonSha256": "c057170d224746c75b92eea6510f10f109fc1483b712b33dbc9bb9a7dcaa35f3",
+        "originalRepresentationSha256": "c057170d224746c75b92eea6510f10f109fc1483b712b33dbc9bb9a7dcaa35f3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2006_population_by_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2006-population-by-census-statistics-and-boundaries-of-large-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2006-population-by-census-statistics-and-boundaries-of-large-street-block-groups",
+      "name": "2006 Population By-census (Statistics and Boundaries of Large Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2006 Population By-census (Statistics and Boundaries of Large Street Block Groups)",
+      "json": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-large-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-large-street-block-groups/openapi.json",
+      "sha256": "b264eef677a0d26e9927e0ea1d26b8bf32188a2d64cfd4ab1b44f8e25b886ece",
+      "jsonSha256": "b264eef677a0d26e9927e0ea1d26b8bf32188a2d64cfd4ab1b44f8e25b886ece",
+      "yamlSha256": "96a9074f7c1cd1525a11f05e7cda63433e5da2923b95d11ceae1e9fab46b18c9",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2006_population_by_census_statistics_and_boundaries_of_large_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b264eef677a0d26e9927e0ea1d26b8bf32188a2d64cfd4ab1b44f8e25b886ece"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635931241174_12236",
+        "canonicalJsonSha256": "b264eef677a0d26e9927e0ea1d26b8bf32188a2d64cfd4ab1b44f8e25b886ece",
+        "originalRepresentationSha256": "b264eef677a0d26e9927e0ea1d26b8bf32188a2d64cfd4ab1b44f8e25b886ece",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2006_population_by_census_statistics_and_boundaries_of_large_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2006-population-by-census-statistics-and-boundaries-of-small-street-block-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2006-population-by-census-statistics-and-boundaries-of-small-street-block-groups",
+      "name": "2006 Population By-census (Statistics and Boundaries of Small Street Block Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2006 Population By-census (Statistics and Boundaries of Small Street Block Groups)",
+      "json": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "yaml": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-small-street-block-groups/openapi.yaml",
+      "file": "censtatd/csdi-2006-population-by-census-statistics-and-boundaries-of-small-street-block-groups/openapi.json",
+      "sha256": "61c68ef53fbc163eefe0794574bee90a7f30fa5ca32cc12cf9b69420d169677e",
+      "jsonSha256": "61c68ef53fbc163eefe0794574bee90a7f30fa5ca32cc12cf9b69420d169677e",
+      "yamlSha256": "e6f5a2c3494729ec4da20880f27afa4656d778d9fa987f539c7e1b64d366f3e4",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2006_population_by_census_statistics_and_boundaries_of_small_street_block_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "61c68ef53fbc163eefe0794574bee90a7f30fa5ca32cc12cf9b69420d169677e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635931306405_72167",
+        "canonicalJsonSha256": "61c68ef53fbc163eefe0794574bee90a7f30fa5ca32cc12cf9b69420d169677e",
+        "originalRepresentationSha256": "61c68ef53fbc163eefe0794574bee90a7f30fa5ca32cc12cf9b69420d169677e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2006_population_by_census_statistics_and_boundaries_of_small_street_block_groups"
+    },
+    {
+      "id": "censtatd-csdi-2016-population-by-census-statistics-of-subdivided-units-by-district-council-district",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2016-population-by-census-statistics-of-subdivided-units-by-district-council-district",
+      "name": "2016 Population By-census (Statistics of Subdivided Units by District Council District)",
+      "apiTitle": "Census and Statistics Department \u2014 2016 Population By-census (Statistics of Subdivided Units by District Council District)",
+      "json": "censtatd/csdi-2016-population-by-census-statistics-of-subdivided-units-by-district-council-district/openapi.json",
+      "yaml": "censtatd/csdi-2016-population-by-census-statistics-of-subdivided-units-by-district-council-district/openapi.yaml",
+      "file": "censtatd/csdi-2016-population-by-census-statistics-of-subdivided-units-by-district-council-district/openapi.json",
+      "sha256": "ba09bbdc5e8277e5b04a4c33181924e1bbf74bb11f80b8d602f332d7fa81dff0",
+      "jsonSha256": "ba09bbdc5e8277e5b04a4c33181924e1bbf74bb11f80b8d602f332d7fa81dff0",
+      "yamlSha256": "e6f94266f0cd18bc7303daf18816cd2aa7742e919d99565b2e5250821069865c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2016_population_by_census_statistics_of_subdivided_units_by_district_council_district",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ba09bbdc5e8277e5b04a4c33181924e1bbf74bb11f80b8d602f332d7fa81dff0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635932488538_10765",
+        "canonicalJsonSha256": "ba09bbdc5e8277e5b04a4c33181924e1bbf74bb11f80b8d602f332d7fa81dff0",
+        "originalRepresentationSha256": "ba09bbdc5e8277e5b04a4c33181924e1bbf74bb11f80b8d602f332d7fa81dff0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2016_population_by_census_statistics_of_subdivided_units_by_district_council_district"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-district-council-districts",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-district-council-districts",
+      "name": "2021 Population Census (Statistics and Boundaries of District Council Districts)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of District Council Districts)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-district-council-districts/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-district-council-districts/openapi.json",
+      "sha256": "1dad245a017ebd1bd72a20f5b819b666c7b70e4b0eb0802c17e0930dd46dd391",
+      "jsonSha256": "1dad245a017ebd1bd72a20f5b819b666c7b70e4b0eb0802c17e0930dd46dd391",
+      "yamlSha256": "40d7633cc8c809506815c421cc9e1364b7b52ef944d4c5dd3e63b09e9c045702",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_district_council_districts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1dad245a017ebd1bd72a20f5b819b666c7b70e4b0eb0802c17e0930dd46dd391"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635932856094_19982",
+        "canonicalJsonSha256": "1dad245a017ebd1bd72a20f5b819b666c7b70e4b0eb0802c17e0930dd46dd391",
+        "originalRepresentationSha256": "1dad245a017ebd1bd72a20f5b819b666c7b70e4b0eb0802c17e0930dd46dd391",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_district_council_districts"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-district-council-constituency-areas",
+      "name": "2021 Population Census (Statistics and Boundaries of District Council Constituency Areas)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of District Council Constituency Areas)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-district-council-constituency-areas/openapi.json",
+      "sha256": "9f587cc7aefe912475eb1864eccac5b1e621816aeed468038148b7c89dde8853",
+      "jsonSha256": "9f587cc7aefe912475eb1864eccac5b1e621816aeed468038148b7c89dde8853",
+      "yamlSha256": "24f0412534daab181d6bedca60f54a3f8671d2304b4c1d1cf49750a86c80a856",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_district_council_constituency_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "9f587cc7aefe912475eb1864eccac5b1e621816aeed468038148b7c89dde8853"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635933003339_9920",
+        "canonicalJsonSha256": "9f587cc7aefe912475eb1864eccac5b1e621816aeed468038148b7c89dde8853",
+        "originalRepresentationSha256": "9f587cc7aefe912475eb1864eccac5b1e621816aeed468038148b7c89dde8853",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_district_council_constituency_areas"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups",
+      "name": "2021 Population Census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of Large Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-large-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "acfcbc987a1aa1a293910c2c81f236efdc7f3189c221c757e006aa42da2f3ec5",
+      "jsonSha256": "acfcbc987a1aa1a293910c2c81f236efdc7f3189c221c757e006aa42da2f3ec5",
+      "yamlSha256": "409933b2a1097152aea7736b3bed8368d69914b2a7a8b027cbcc811b4f4895da",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "acfcbc987a1aa1a293910c2c81f236efdc7f3189c221c757e006aa42da2f3ec5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635933102538_82889",
+        "canonicalJsonSha256": "acfcbc987a1aa1a293910c2c81f236efdc7f3189c221c757e006aa42da2f3ec5",
+        "originalRepresentationSha256": "acfcbc987a1aa1a293910c2c81f236efdc7f3189c221c757e006aa42da2f3ec5",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_large_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups",
+      "name": "2021 Population Census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of Small Tertiary Planning Unit Groups)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-small-tertiary-planning-unit-groups/openapi.json",
+      "sha256": "49012caf27c3df50e76f2dfdb2256187f96a12e35912903b02480e1917c91f2b",
+      "jsonSha256": "49012caf27c3df50e76f2dfdb2256187f96a12e35912903b02480e1917c91f2b",
+      "yamlSha256": "8b06854e6ddda73541221316c559158953159ada8b7fb656e59af01149d1b9f9",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "49012caf27c3df50e76f2dfdb2256187f96a12e35912903b02480e1917c91f2b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635933193720_58660",
+        "canonicalJsonSha256": "49012caf27c3df50e76f2dfdb2256187f96a12e35912903b02480e1917c91f2b",
+        "originalRepresentationSha256": "49012caf27c3df50e76f2dfdb2256187f96a12e35912903b02480e1917c91f2b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_small_tertiary_planning_unit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-large-subunit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-large-subunit-groups",
+      "name": "2021 Population Census (Statistics and Boundaries of Large Subunit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of Large Subunit Groups)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-large-subunit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-large-subunit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-large-subunit-groups/openapi.json",
+      "sha256": "38364128896c4c7a9b476ec3f6ea7aea8e4c33f912a788003d265071708a5b13",
+      "jsonSha256": "38364128896c4c7a9b476ec3f6ea7aea8e4c33f912a788003d265071708a5b13",
+      "yamlSha256": "a51ed9a1b3098e1261e455ef643466cf3b03eacc4e7c4218e98dfd6b0d9ea896",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_large_subunit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "38364128896c4c7a9b476ec3f6ea7aea8e4c33f912a788003d265071708a5b13"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635933282224_58228",
+        "canonicalJsonSha256": "38364128896c4c7a9b476ec3f6ea7aea8e4c33f912a788003d265071708a5b13",
+        "originalRepresentationSha256": "38364128896c4c7a9b476ec3f6ea7aea8e4c33f912a788003d265071708a5b13",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_large_subunit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-small-subunit-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-small-subunit-groups",
+      "name": "2021 Population Census (Statistics and Boundaries of Small Subunit Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of Small Subunit Groups)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-small-subunit-groups/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-small-subunit-groups/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-small-subunit-groups/openapi.json",
+      "sha256": "21829a728c4c7c0e4235999da0f526a7294c0d83d6c370ed04cc35ed2c8bf6c1",
+      "jsonSha256": "21829a728c4c7c0e4235999da0f526a7294c0d83d6c370ed04cc35ed2c8bf6c1",
+      "yamlSha256": "b80f5126a0559e205c53a22fc1de4996f9bf7346e0726595719023451dff35df",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_small_subunit_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "21829a728c4c7c0e4235999da0f526a7294c0d83d6c370ed04cc35ed2c8bf6c1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635933365202_19171",
+        "canonicalJsonSha256": "21829a728c4c7c0e4235999da0f526a7294c0d83d6c370ed04cc35ed2c8bf6c1",
+        "originalRepresentationSha256": "21829a728c4c7c0e4235999da0f526a7294c0d83d6c370ed04cc35ed2c8bf6c1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_small_subunit_groups"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-of-subdivided-units-by-district-council-district",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-of-subdivided-units-by-district-council-district",
+      "name": "2021 Population Census (Statistics of Subdivided Units by District Council District)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics of Subdivided Units by District Council District)",
+      "json": "censtatd/csdi-2021-population-census-statistics-of-subdivided-units-by-district-council-district/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-of-subdivided-units-by-district-council-district/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-of-subdivided-units-by-district-council-district/openapi.json",
+      "sha256": "f3292f9360e057487dc75d1a70fea3cdeeb84f68f3a38afcb662aa7d73ca314e",
+      "jsonSha256": "f3292f9360e057487dc75d1a70fea3cdeeb84f68f3a38afcb662aa7d73ca314e",
+      "yamlSha256": "f7b8883e8ed71d771c7ac6a5c6937c21ca2e975b9ac8751b789b857f8b2638c3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_of_subdivided_units_by_district_council_district",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f3292f9360e057487dc75d1a70fea3cdeeb84f68f3a38afcb662aa7d73ca314e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635933617052_68946",
+        "canonicalJsonSha256": "f3292f9360e057487dc75d1a70fea3cdeeb84f68f3a38afcb662aa7d73ca314e",
+        "originalRepresentationSha256": "f3292f9360e057487dc75d1a70fea3cdeeb84f68f3a38afcb662aa7d73ca314e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_of_subdivided_units_by_district_council_district"
+    },
+    {
+      "id": "censtatd-csdi-stock-of-permanent-living-quarters-by-area-and-type",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-stock-of-permanent-living-quarters-by-area-and-type",
+      "name": "Stock of permanent living quarters by area and type",
+      "apiTitle": "Census and Statistics Department \u2014 Stock of permanent living quarters by area and type",
+      "json": "censtatd/csdi-stock-of-permanent-living-quarters-by-area-and-type/openapi.json",
+      "yaml": "censtatd/csdi-stock-of-permanent-living-quarters-by-area-and-type/openapi.yaml",
+      "file": "censtatd/csdi-stock-of-permanent-living-quarters-by-area-and-type/openapi.json",
+      "sha256": "b393a2b4fe81f8a4baf92bcfad8155a2e4d198e3c4bf17efe808870181d4894c",
+      "jsonSha256": "b393a2b4fe81f8a4baf92bcfad8155a2e4d198e3c4bf17efe808870181d4894c",
+      "yamlSha256": "f50165ffa83bbecf2d2f7155636d38b2186fa2a36d42c367d11d7e98259acf2d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_stock_of_permanent_living_quarters_by_area_and_type",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b393a2b4fe81f8a4baf92bcfad8155a2e4d198e3c4bf17efe808870181d4894c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635933883228_46491",
+        "canonicalJsonSha256": "b393a2b4fe81f8a4baf92bcfad8155a2e4d198e3c4bf17efe808870181d4894c",
+        "originalRepresentationSha256": "b393a2b4fe81f8a4baf92bcfad8155a2e4d198e3c4bf17efe808870181d4894c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_stock_of_permanent_living_quarters_by_area_and_type"
+    },
+    {
+      "id": "censtatd-csdi-stock-of-permanent-living-quarters-by-district-council-district",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-stock-of-permanent-living-quarters-by-district-council-district",
+      "name": "Stock of permanent living quarters by District Council district",
+      "apiTitle": "Census and Statistics Department \u2014 Stock of permanent living quarters by District Council district",
+      "json": "censtatd/csdi-stock-of-permanent-living-quarters-by-district-council-district/openapi.json",
+      "yaml": "censtatd/csdi-stock-of-permanent-living-quarters-by-district-council-district/openapi.yaml",
+      "file": "censtatd/csdi-stock-of-permanent-living-quarters-by-district-council-district/openapi.json",
+      "sha256": "a003b729552a5fe184f29b2bd97ad8281b5825ac6f2590890172eb6c79015acd",
+      "jsonSha256": "a003b729552a5fe184f29b2bd97ad8281b5825ac6f2590890172eb6c79015acd",
+      "yamlSha256": "373794b25aef9abbf981ef4c7a56759cfb07972feb026d316f90a80ad7df0751",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_stock_of_permanent_living_quarters_by_district_council_district",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a003b729552a5fe184f29b2bd97ad8281b5825ac6f2590890172eb6c79015acd"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635934103275_66203",
+        "canonicalJsonSha256": "a003b729552a5fe184f29b2bd97ad8281b5825ac6f2590890172eb6c79015acd",
+        "originalRepresentationSha256": "a003b729552a5fe184f29b2bd97ad8281b5825ac6f2590890172eb6c79015acd",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_stock_of_permanent_living_quarters_by_district_council_district"
+    },
+    {
+      "id": "censtatd-csdi-land-area-mid-year-population-and-population-density-by-district-council-district",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-land-area-mid-year-population-and-population-density-by-district-council-district",
+      "name": "Land area, mid-year population and population density by District Council district",
+      "apiTitle": "Census and Statistics Department \u2014 Land area, mid-year population and population density by District Council district",
+      "json": "censtatd/csdi-land-area-mid-year-population-and-population-density-by-district-council-district/openapi.json",
+      "yaml": "censtatd/csdi-land-area-mid-year-population-and-population-density-by-district-council-district/openapi.yaml",
+      "file": "censtatd/csdi-land-area-mid-year-population-and-population-density-by-district-council-district/openapi.json",
+      "sha256": "14f6601bb11ed6d330384eabafb97dc5f701fd4b69090b340e1405faced6db76",
+      "jsonSha256": "14f6601bb11ed6d330384eabafb97dc5f701fd4b69090b340e1405faced6db76",
+      "yamlSha256": "aa496f163bcabeacdca2999ea9dbda10a8d26fc6ba8250c210cf1caba50e6523",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_land_area_mid_year_population_and_population_density_by_district_council_district",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "14f6601bb11ed6d330384eabafb97dc5f701fd4b69090b340e1405faced6db76"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635934215448_25451",
+        "canonicalJsonSha256": "14f6601bb11ed6d330384eabafb97dc5f701fd4b69090b340e1405faced6db76",
+        "originalRepresentationSha256": "14f6601bb11ed6d330384eabafb97dc5f701fd4b69090b340e1405faced6db76",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_land_area_mid_year_population_and_population_density_by_district_council_district"
+    },
+    {
+      "id": "censtatd-csdi-dataset-on-population-and-household-statistics-analysed-by-district-council-district",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-dataset-on-population-and-household-statistics-analysed-by-district-council-district",
+      "name": "Dataset on population and household statistics analysed by District Council district",
+      "apiTitle": "Census and Statistics Department \u2014 Dataset on population and household statistics analysed by District Council district",
+      "json": "censtatd/csdi-dataset-on-population-and-household-statistics-analysed-by-district-council-district/openapi.json",
+      "yaml": "censtatd/csdi-dataset-on-population-and-household-statistics-analysed-by-district-council-district/openapi.yaml",
+      "file": "censtatd/csdi-dataset-on-population-and-household-statistics-analysed-by-district-council-district/openapi.json",
+      "sha256": "21315867e758a0925be85b198a418f45be48d3c7024c8eabf0b9b9faacc41c32",
+      "jsonSha256": "21315867e758a0925be85b198a418f45be48d3c7024c8eabf0b9b9faacc41c32",
+      "yamlSha256": "610dce8cc7d978979f1096bf415e3ffd191c8db91e67063a1f00fb152349bcbd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_dataset_on_population_and_household_statistics_analysed_by_district_council_district",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "21315867e758a0925be85b198a418f45be48d3c7024c8eabf0b9b9faacc41c32"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635934545173_69201",
+        "canonicalJsonSha256": "21315867e758a0925be85b198a418f45be48d3c7024c8eabf0b9b9faacc41c32",
+        "originalRepresentationSha256": "21315867e758a0925be85b198a418f45be48d3c7024c8eabf0b9b9faacc41c32",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_dataset_on_population_and_household_statistics_analysed_by_district_council_district"
+    },
+    {
+      "id": "censtatd-csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-district-council-district-and-sex-of-persons-eng",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-district-council-district-and-sex-of-persons-eng",
+      "name": "Number of establishments and persons engaged (other than those in the civil service) analysed by industry section, District Council district and sex of persons engaged",
+      "apiTitle": "Census and Statistics Department \u2014 Number of establishments and persons engaged (other than those in the civil service) analysed by industry section, District Council district and sex of persons engaged",
+      "json": "censtatd/csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-district-council-district-and-sex-of-persons-eng/openapi.json",
+      "yaml": "censtatd/csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-district-council-district-and-sex-of-persons-eng/openapi.yaml",
+      "file": "censtatd/csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-district-council-district-and-sex-of-persons-eng/openapi.json",
+      "sha256": "2aa0217f44901a6bc4db0c1d2e380f81f30b33aa40a1fecfa33d037e144c29d2",
+      "jsonSha256": "2aa0217f44901a6bc4db0c1d2e380f81f30b33aa40a1fecfa33d037e144c29d2",
+      "yamlSha256": "e5bee6899701cdd35a0a12a665bd3611a1d0c214815c327eb3fd3a9494eac8a1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_number_of_establishments_and_persons_engaged_other_than_those_in_the_civil_service_analysed_by_industry_section_district_council_district_and_sex_of_persons_eng",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2aa0217f44901a6bc4db0c1d2e380f81f30b33aa40a1fecfa33d037e144c29d2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635934885367_51094",
+        "canonicalJsonSha256": "2aa0217f44901a6bc4db0c1d2e380f81f30b33aa40a1fecfa33d037e144c29d2",
+        "originalRepresentationSha256": "2aa0217f44901a6bc4db0c1d2e380f81f30b33aa40a1fecfa33d037e144c29d2",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_number_of_establishments_and_persons_engaged_other_than_those_in_the_civil_service_analysed_by_industry_section_district_council_district_and_sex_of_persons_eng"
+    },
+    {
+      "id": "censtatd-csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-industry-division-and-district-council-district",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-industry-division-and-district-council-district",
+      "name": "Number of establishments and persons engaged (other than those in the civil service) analysed by industry section / industry division and District Council district",
+      "apiTitle": "Census and Statistics Department \u2014 Number of establishments and persons engaged (other than those in the civil service) analysed by industry section / industry division and District Council district",
+      "json": "censtatd/csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-industry-division-and-district-council-district/openapi.json",
+      "yaml": "censtatd/csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-industry-division-and-district-council-district/openapi.yaml",
+      "file": "censtatd/csdi-number-of-establishments-and-persons-engaged-other-than-those-in-the-civil-service-analysed-by-industry-section-industry-division-and-district-council-district/openapi.json",
+      "sha256": "f506102ff70c93c965e432f4e82aae34ad63fa584dceb3ae482a3903995ea31d",
+      "jsonSha256": "f506102ff70c93c965e432f4e82aae34ad63fa584dceb3ae482a3903995ea31d",
+      "yamlSha256": "c98f830475cd19397a47edd9e95a800f07105071e9a5486f5028d830a2b62fe1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_number_of_establishments_and_persons_engaged_other_than_those_in_the_civil_service_analysed_by_industry_section_industry_division_and_district_council_district",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f506102ff70c93c965e432f4e82aae34ad63fa584dceb3ae482a3903995ea31d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1635934988457_37762",
+        "canonicalJsonSha256": "f506102ff70c93c965e432f4e82aae34ad63fa584dceb3ae482a3903995ea31d",
+        "originalRepresentationSha256": "f506102ff70c93c965e432f4e82aae34ad63fa584dceb3ae482a3903995ea31d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_number_of_establishments_and_persons_engaged_other_than_those_in_the_civil_service_analysed_by_industry_section_industry_division_and_district_council_district"
+    },
+    {
+      "id": "censtatd-csdi-census-and-statistics-department-offices",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-census-and-statistics-department-offices",
+      "name": "Census and Statistics Department Offices",
+      "apiTitle": "Census and Statistics Department \u2014 Census and Statistics Department Offices",
+      "json": "censtatd/csdi-census-and-statistics-department-offices/openapi.json",
+      "yaml": "censtatd/csdi-census-and-statistics-department-offices/openapi.yaml",
+      "file": "censtatd/csdi-census-and-statistics-department-offices/openapi.json",
+      "sha256": "3866782191a11ee121151733699f6a3dc68e7e37ae7f432f6a296fe9173f5d2d",
+      "jsonSha256": "3866782191a11ee121151733699f6a3dc68e7e37ae7f432f6a296fe9173f5d2d",
+      "yamlSha256": "b3ef44cd3d3c2bb423f92cab037a137f7312d601ba2f4dc83b2ee472f0256679",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_census_and_statistics_department_offices",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3866782191a11ee121151733699f6a3dc68e7e37ae7f432f6a296fe9173f5d2d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1695181706413_15189",
+        "canonicalJsonSha256": "3866782191a11ee121151733699f6a3dc68e7e37ae7f432f6a296fe9173f5d2d",
+        "originalRepresentationSha256": "3866782191a11ee121151733699f6a3dc68e7e37ae7f432f6a296fe9173f5d2d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_census_and_statistics_department_offices"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-new-towns",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-new-towns",
+      "name": "2021 Population Census (Statistics and Boundaries of New Towns)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of New Towns)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-new-towns/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-new-towns/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-new-towns/openapi.json",
+      "sha256": "242922dba978a806df3d0482dfc590c0b25d2d9b4359785874e6bc93b9681316",
+      "jsonSha256": "242922dba978a806df3d0482dfc590c0b25d2d9b4359785874e6bc93b9681316",
+      "yamlSha256": "4719a15b86c70cfb85ef2684bc40026df3b6a6cd1fab252e2d15d8c88b2409eb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_new_towns",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "242922dba978a806df3d0482dfc590c0b25d2d9b4359785874e6bc93b9681316"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1695181913136_27614",
+        "canonicalJsonSha256": "242922dba978a806df3d0482dfc590c0b25d2d9b4359785874e6bc93b9681316",
+        "originalRepresentationSha256": "242922dba978a806df3d0482dfc590c0b25d2d9b4359785874e6bc93b9681316",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_new_towns"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-major-housing-estates",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-major-housing-estates",
+      "name": "2021 Population Census (Statistics and Boundaries of Major Housing Estates)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of Major Housing Estates)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-major-housing-estates/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-major-housing-estates/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-major-housing-estates/openapi.json",
+      "sha256": "cb5bbffd89a4864c0db3f1fd43f19ba76f29c605dcd5f718074fc7023250bcc2",
+      "jsonSha256": "cb5bbffd89a4864c0db3f1fd43f19ba76f29c605dcd5f718074fc7023250bcc2",
+      "yamlSha256": "0927c8a5aeeaef73d10962ee7c63e6414f926a20ed6cc215ff18f20aaa8a7ade",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_major_housing_estates",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cb5bbffd89a4864c0db3f1fd43f19ba76f29c605dcd5f718074fc7023250bcc2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1695182015782_79001",
+        "canonicalJsonSha256": "cb5bbffd89a4864c0db3f1fd43f19ba76f29c605dcd5f718074fc7023250bcc2",
+        "originalRepresentationSha256": "cb5bbffd89a4864c0db3f1fd43f19ba76f29c605dcd5f718074fc7023250bcc2",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_major_housing_estates"
+    },
+    {
+      "id": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-housing-market-areas-and-building-groups",
+      "publisherKey": "censtatd",
+      "publisherName": "Census and Statistics Department",
+      "familyKey": "csdi-2021-population-census-statistics-and-boundaries-of-housing-market-areas-and-building-groups",
+      "name": "2021 Population Census (Statistics and Boundaries of Housing Market Areas and Building Groups)",
+      "apiTitle": "Census and Statistics Department \u2014 2021 Population Census (Statistics and Boundaries of Housing Market Areas and Building Groups)",
+      "json": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-housing-market-areas-and-building-groups/openapi.json",
+      "yaml": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-housing-market-areas-and-building-groups/openapi.yaml",
+      "file": "censtatd/csdi-2021-population-census-statistics-and-boundaries-of-housing-market-areas-and-building-groups/openapi.json",
+      "sha256": "5f5430f0314ebf2c95c46109d122e78c5134a328ab527df73217e210985668ef",
+      "jsonSha256": "5f5430f0314ebf2c95c46109d122e78c5134a328ab527df73217e210985668ef",
+      "yamlSha256": "076e135ee9da8c3a2cd0b4d894b7cb7e3b2df84f4b262225972722a21f9823e0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_population_census_statistics_and_boundaries_of_housing_market_areas_and_building_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5f5430f0314ebf2c95c46109d122e78c5134a328ab527df73217e210985668ef"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=censtatd_rcd_1728978338390_76872",
+        "canonicalJsonSha256": "5f5430f0314ebf2c95c46109d122e78c5134a328ab527df73217e210985668ef",
+        "originalRepresentationSha256": "5f5430f0314ebf2c95c46109d122e78c5134a328ab527df73217e210985668ef",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_population_census_statistics_and_boundaries_of_housing_market_areas_and_building_groups"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+components:
+  schemas:
+    SpeechArticle:
+      description: API record fields documented for a speech or article.
+      properties:
+        date:
+          description: Date in YYYY-M-D format.
+          type: string
+        description:
+          description: Content of the Speeches and Articles.
+          type: string
+        link:
+          description: URL of headline.
+          format: uri
+          type: string
+        title:
+          description: Headline of Speeches and Articles.
+          type: string
+      required:
+        - title
+        - link
+        - date
+        - description
+      type: object
+externalDocs:
+  url: https://www.doj.gov.hk/datagovhk/data/data_dict_major_speech_en.pdf
+info:
+  description: API for Department of Justice speeches and articles. The version is undocumented and is not a publisher API version. When start and end are both omitted, major speeches from the last six months are returned. Times are in HKT (GMT+8), and at most 400 records are returned. Authentication requirements are not specified.
+  title: Department of Justice - Speeches and Articles
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /v1/pressrelease/search:
+    get:
+      description: Returns Department of Justice speeches and articles. The documented English endpoint uses official=SJ, type=speech, and lang=en. The documented major-speech default applies when both date parameters are omitted; the API documentation states that start and end must be used together.
+      operationId: searchSpeechesAndArticles
+      parameters:
+        - description: Official selector; the documented endpoint value is SJ.
+          in: query
+          name: official
+          required: true
+          schema:
+            example: SJ
+            type: string
+        - description: Content type; the documented endpoint value is speech.
+          in: query
+          name: type
+          required: true
+          schema:
+            example: speech
+            type: string
+        - description: Language selector; the documented endpoint value is en. Catalog resources also list sc and tc language variants.
+          in: query
+          name: lang
+          required: true
+          schema:
+            example: en
+            type: string
+        - description: "Inclusive start date in YYYYMMDD format (example: 20190102). Earliest accepted date is 01 July 2017. Must be used together with end. If both date parameters are omitted, major speeches of the last six months are returned."
+          in: query
+          name: start
+          required: false
+          schema:
+            example: "20190102"
+            pattern: ^\d{8}$
+            type: string
+        - description: "Inclusive end date in YYYYMMDD format (example: 20190109). Latest accepted date is today. Must be used together with start. If both date parameters are omitted, major speeches of the last six months are returned."
+          in: query
+          name: end
+          required: false
+          schema:
+            example: "20190109"
+            pattern: ^\d{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - items:
+                      $ref: "#/components/schemas/SpeechArticle"
+                    type: array
+                  - additionalProperties: true
+                    description: Response envelope not specified by the documentation; properties are not constrained.
+                    type: object
+          description: Speech and article results. The documentation describes the fields of each API record but does not specify the top-level response envelope.
+      summary: Search speeches and articles
+servers:
+  - url: https://api.data.gov.hk

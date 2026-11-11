@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "afcd-csdi-water-filling-station-for-general-public-managed-by-marine-parks",
+  "sourceSha256": "03617d91d7ded3e06c16efcf38734c9b7734c6937e5edb0e699cfa3f8b875e3a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/afcd_rcd_1635134016841_24336/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1635134016841_24336/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1635134016841_24336/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

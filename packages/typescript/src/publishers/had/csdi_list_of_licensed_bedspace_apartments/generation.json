@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "had-csdi-list-of-licensed-bedspace-apartments",
+  "sourceSha256": "4dfadd1b2a250f821946e5a08a70966d8aa2d1395f9b5e1b7aee02f07b3708c0",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/had_rcd_1639474383389_56622/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1639474383389_56622/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

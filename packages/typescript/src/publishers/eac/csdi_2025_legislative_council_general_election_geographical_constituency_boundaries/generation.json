@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "eac-csdi-2025-legislative-council-general-election-geographical-constituency-boundaries",
+  "sourceSha256": "54947cdb609719065c27a5a4dcd39db0872ffa9e6a1714351d461c01273bac17",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/reo_rcd_1698719807005_45829/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/reo_rcd_1698719807005_45829/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/reo_rcd_1698719807005_45829/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

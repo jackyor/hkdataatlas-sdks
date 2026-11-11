@@ -1,0 +1,98 @@
+{
+  "components": {
+    "schemas": {
+      "CarparkVacancy": {
+        "properties": {
+          "carpark": {
+            "description": "The code of carpark.",
+            "example": "P1",
+            "type": "string"
+          },
+          "privateCar": {
+            "$ref": "#/components/schemas/PrivateCarVacancy"
+          }
+        },
+        "type": "object"
+      },
+      "PrivateCarVacancy": {
+        "description": "Enclosed elements include the vacancy count for public parking, excluding EV.",
+        "properties": {
+          "vacancy": {
+            "description": "Available parking spaces for public (excluded EV).",
+            "example": 57,
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "VacancyResponse": {
+        "example": {
+          "value": [
+            {
+              "carpark": "P1",
+              "privateCar": {
+                "vacancy": 57
+              }
+            }
+          ]
+        },
+        "properties": {
+          "value": {
+            "description": "List of objects.",
+            "items": {
+              "$ref": "#/components/schemas/CarparkVacancy"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "https://opendata.hkstp.org/doc/carpark/HKSTP-API-carpark-vacancy.pdf"
+  },
+  "info": {
+    "description": "Provides the number of available non-EV public parking spaces in Hong Kong Science Park. The version is a metadata placeholder; the publisher does not document an API version here. Authentication requirements are undocumented.",
+    "title": "HKSTPC Carpark Vacancy API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/carpark/v1/vacancy": {
+      "get": {
+        "description": "Returns the documented JSON vacancy response. The documentation labels the method as “Get”.",
+        "operationId": "getCarparkVacancy",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "value": [
+                    {
+                      "carpark": "P1",
+                      "privateCar": {
+                        "vacancy": 57
+                      }
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/VacancyResponse"
+                }
+              }
+            },
+            "description": "JSON response containing carpark vacancy information."
+          }
+        },
+        "summary": "Get carpark vacancy"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://opendata.hkstp.org"
+    }
+  ]
+}

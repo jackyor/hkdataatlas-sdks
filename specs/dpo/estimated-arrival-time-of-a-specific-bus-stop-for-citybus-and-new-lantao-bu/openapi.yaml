@@ -1,0 +1,425 @@
+components:
+  responses:
+    InternalServerError:
+      description: Internal server error.
+    TooManyRequests:
+      description: Processing too many requests.
+    UnprocessableEntity:
+      content:
+        application/json:
+          examples:
+            invalidLanguage:
+              summary: Invalid language sample; source formatting splits the property and value across lines
+              value:
+                code: "422"
+                message: Invalid language
+          schema:
+            $ref: "#/components/schemas/Error"
+      description: Request error; details vary and are provided in the response body.
+  schemas:
+    Error:
+      description: Error body returned for API execution errors.
+      properties:
+        code:
+          description: Response code, represented as a string in the documented sample.
+          examples:
+            - "422"
+          type: string
+        message:
+          description: Error message.
+          type: string
+      type: object
+    StopEtaRecord:
+      description: An estimated-arrival record. Some fields are not applicable for a particular company, as noted individually.
+      properties:
+        co:
+          description: "Company code. Documented codes: CTB (Citybus Limited) and NLB (New Lantao Bus Company Limited)."
+          enum:
+            - CTB
+            - NLB
+          type: string
+        data_timestamp:
+          description: Timestamp when data was initially prepared from the origin server, with time zone in ISO 8601 format.
+          format: date-time
+          type: string
+        departed:
+          anyOf:
+            - description: Indicator that a trip has departed from the route's first stop; not applicable for CTB. 0 means not departed; 1 means departed.
+              type:
+                - integer
+                - "null"
+            - type: string
+          description: Preserves documented integer/null indicator and retained official empty-string representation for non-applicable company fields; lexical constraints are undocumented and no coercion is applied.
+        dest:
+          description: Destination of a route. Dictionary example uses the related dest_en label; it documents this field as a string.
+          type: string
+        dir:
+          description: Route direction; not applicable for NLB. I means inbound; O means outbound.
+          enum:
+            - I
+            - O
+            - null
+          type:
+            - string
+            - "null"
+        eta:
+          description: Timestamp of the next ETA, with time zone in ISO 8601 format. Retained publisherETA is also an empty string when not applicable; preserve published timestamp strings without requiring every string to be a strictRFC3339 value.
+          type: string
+        eta_seq:
+          description: "ETA sequence number: 1 represents the next ETA, 2 the ETA after the first, and so on. Not applicable for NLB. Dictionary describes a numeric value; NLB example includes null."
+          type:
+            - integer
+            - "null"
+        noGPS:
+          anyOf:
+            - description: GPS equipment indicator; not applicable for CTB. 0 means non-GPS-equipped; 1 means GPS-equipped.
+              type:
+                - integer
+                - "null"
+            - type: string
+          description: Preserves documented integer/null indicator and retained official empty-string representation for non-applicable company fields; lexical constraints are undocumented and no coercion is applied.
+        rmk:
+          description: Remark of an ETA.
+          type: string
+        route:
+          description: Route number of the requested company.
+          type: string
+        routeVariantName:
+          description: Supplementary route name; not applicable for CTB.
+          type:
+            - string
+            - "null"
+        seq:
+          description: Stop sequence number of a bus route; not applicable for NLB.
+          type:
+            - integer
+            - "null"
+        stop:
+          description: Bus stop ID.
+          type: string
+        wheelChair:
+          anyOf:
+            - description: Wheelchair accessibility indicator; not applicable for CTB. 0 means not wheelchair accessible; 1 means wheelchair accessible.
+              type:
+                - integer
+                - "null"
+            - type: string
+          description: Preserves documented integer/null indicator and retained official empty-string representation for non-applicable company fields; lexical constraints are undocumented and no coercion is applied.
+      type: object
+    StopEtaResponse:
+      description: Stop-ETA API response envelope.
+      properties:
+        data:
+          description: List of requested ETA data objects.
+          items:
+            $ref: "#/components/schemas/StopEtaRecord"
+          type: array
+        generated_timestamp:
+          description: Initial generated time of the response before it is cached, with time zone in ISO 8601 format.
+          format: date-time
+          type: string
+        type:
+          const: StopETA
+          description: Corresponding API identifier; documented value is StopETA.
+          type: string
+        version:
+          description: Version number of the returned JSON in major.minor format.
+          examples:
+            - "1.0"
+          type: string
+      type: object
+    StopRouteRecord:
+      description: A route record for a requested stop. Field applicability differs by company; null indicates a field is not applicable for the respective company.
+      properties:
+        co:
+          description: "Company code. Documented codes: CTB (Citybus Limited) and NLB (New Lantao Bus Company Limited)."
+          enum:
+            - CTB
+            - NLB
+          type: string
+        data_timestamp:
+          description: Timestamp when data was initially prepared from the origin server, with time zone in ISO 8601 format.
+          format: date-time
+          type: string
+        dir:
+          description: Route direction; not applicable for NLB. I means inbound; O means outbound.
+          enum:
+            - I
+            - O
+            - null
+          type:
+            - string
+            - "null"
+        overnightRoute:
+          description: Indicator of an overnight route; not applicable for CTB. 0 means not an overnight route; 1 means an overnight route.
+          enum:
+            - 0
+            - 1
+            - null
+          type:
+            - integer
+            - "null"
+        route:
+          description: Route number of the requested company.
+          type: string
+        routeId:
+          description: Route ID of the respective company's route; not applicable for CTB.
+          type:
+            - string
+            - "null"
+        routeName:
+          description: Name of a route; not applicable for CTB.
+          type:
+            - string
+            - "null"
+        seq:
+          description: Stop sequence number of a bus route; not applicable for NLB. The dictionary documents a numeric type. The API sample shows this as a number (for example, 11), while a data-dictionary example shows a string representation (for example, "10").
+          examples:
+            - 11
+            - "10"
+          type: integer
+        specialRoute:
+          description: Indicator of a special route; not applicable for CTB. 0 means not a special route; 1 means a special route.
+          enum:
+            - 0
+            - 1
+            - null
+          type:
+            - integer
+            - "null"
+        stop:
+          description: Bus stop ID.
+          type: string
+      type: object
+    StopRouteResponse:
+      description: Stop-Route API response envelope. The publisher documents these fields and says an empty data object denotes data not found; the meaning of that wording's representation is not further specified.
+      properties:
+        data:
+          description: List of requested data objects.
+          items:
+            $ref: "#/components/schemas/StopRouteRecord"
+          type: array
+        generated_timestamp:
+          description: Initial generated time of the response before it is cached, with time zone in ISO 8601 format.
+          format: date-time
+          type: string
+        type:
+          const: StopRoute
+          description: Corresponding API identifier; documented value is StopRoute.
+          type: string
+        version:
+          description: Version number of the returned JSON in major.minor format.
+          examples:
+            - "1.1"
+          type: string
+      type: object
+externalDocs:
+  description: API Specifications (Version 1.3, March 2024)
+  url: https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-specifications.pdf
+info:
+  description: Returns bus route information or estimated arrival data for a specified bus stop for Citybus Limited (CTB) or New Lantao Bus (NLB). The API specification document is version 1.3 (March 2024); this is the document version, not a documented API version. Authentication requirements are not specified.
+  title: Bus Route List and Estimated Arrival Time of a Specific Bus Stop API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /v1.1/transport/batch/stop-route/{company_id}/{stop_id}:
+    get:
+      description: Returns route information for the specified stop and company. CTB stop IDs are documented in Citybus stop and route-stop datasets; NLB stop IDs are documented in its Stops of a route dataset. For the associated field definitions, see the data dictionary.
+      externalDocs:
+        description: Bus Route List and Estimated Arrival Time of a Specific Bus Stop API Data Dictionary (Version 1.2, July 2023)
+        url: https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-data-dictionary.pdf
+      operationId: getStopRoutes
+      parameters:
+        - description: Company ID. Valid values are CTB (Citybus Limited) and NLB (New Lantao Bus).
+          in: path
+          name: company_id
+          required: true
+          schema:
+            enum:
+              - CTB
+              - NLB
+            type: string
+        - description: Stop ID of the respective company.
+          in: path
+          name: stop_id
+          required: true
+          schema:
+            type: string
+        - description: Language of returned data. Valid languages are en (English; default if not specified), zh-hant (Traditional Chinese), and zh-hans (Simplified Chinese).
+          in: query
+          name: lang
+          required: false
+          schema:
+            default: en
+            enum:
+              - en
+              - zh-hant
+              - zh-hans
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                citybus:
+                  summary: Documented sample response (CTB)
+                  value:
+                    data:
+                      - co: CTB
+                        data_timestamp: 2019-10-14T11:25:54+08:00
+                        dir: O
+                        overnightRoute: null
+                        route: "12"
+                        routeId: null
+                        routeName: null
+                        seq: 11
+                        specialRoute: null
+                        stop: "001001"
+                      - co: CTB
+                        data_timestamp: 2019-10-14T11:25:54+08:00
+                        dir: O
+                        overnightRoute: null
+                        route: 12M
+                        routeId: null
+                        routeName: null
+                        seq: 6
+                        specialRoute: null
+                        stop: "001001"
+                      - co: CTB
+                        data_timestamp: 2019-10-14T11:25:54+08:00
+                        dir: I
+                        overnightRoute: null
+                        route: 40M
+                        routeId: null
+                        routeName: null
+                        seq: 10
+                        specialRoute: null
+                        stop: "001001"
+                    generated_timestamp: 2019-10-14T15:24:17+08:00
+                    type: StopRoute
+                    version: "1.1"
+              schema:
+                $ref: "#/components/schemas/StopRouteResponse"
+          description: Success. Sample response is an envelope with route objects; the publisher notes that an empty data object denotes data not found.
+        "422":
+          $ref: "#/components/responses/UnprocessableEntity"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      summary: Get routes serving a bus stop
+  /v1/transport/batch/stop-eta/{company_id}/{stop_id}:
+    get:
+      description: Returns ETA data for the specified stop and company. CTB stop IDs are documented in Citybus stop and route-stop datasets; NLB stop IDs are documented in its Stops of a route dataset. For the associated field definitions, see the data dictionary.
+      externalDocs:
+        description: Bus Route List and Estimated Arrival Time of a Specific Bus Stop API Data Dictionary (Version 1.2, July 2023)
+        url: https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-data-dictionary.pdf
+      operationId: getStopEstimatedArrivals
+      parameters:
+        - description: Company ID. Valid values are CTB (Citybus Limited) and NLB (New Lantao Bus). The sample request uses lowercase nlb, although the documented valid company codes are CTB and NLB; case handling is not specified.
+          in: path
+          name: company_id
+          required: true
+          schema:
+            enum:
+              - CTB
+              - NLB
+            type: string
+        - description: Stop ID of the respective company.
+          in: path
+          name: stop_id
+          required: true
+          schema:
+            type: string
+        - description: Language of returned data. Valid languages are en (English; default if not specified), zh-hant (Traditional Chinese), and zh-hans (Simplified Chinese).
+          in: query
+          name: lang
+          required: false
+          schema:
+            default: en
+            enum:
+              - en
+              - zh-hant
+              - zh-hans
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                citybus:
+                  summary: Documented sample response (CTB)
+                  value:
+                    data:
+                      - co: CTB
+                        data_timestamp: 2019-10-14T15:22:02+08:00
+                        departed: null
+                        dest: Kotewall Road
+                        dir: O
+                        eta: 2019-10-14T15:34:06+08:00
+                        eta_seq: 1
+                        noGPS: null
+                        rmk: ""
+                        route: "13"
+                        routeVariantName: null
+                        seq: 6
+                        stop: "001001"
+                        wheelChair: null
+                      - co: CTB
+                        data_timestamp: 2019-10-14T15:22:02+08:00
+                        departed: null
+                        dest: Kotewall Road
+                        dir: O
+                        eta: 2019-10-14T15:48:37+08:00
+                        eta_seq: 2
+                        noGPS: null
+                        rmk: ""
+                        route: "13"
+                        routeVariantName: null
+                        seq: 6
+                        stop: "001001"
+                        wheelChair: null
+                      - co: CTB
+                        data_timestamp: 2019-10-14T15:22:02+08:00
+                        departed: null
+                        dest: Kotewall Road
+                        dir: O
+                        eta: 2019-10-14T16:03:37+08:00
+                        eta_seq: 3
+                        noGPS: null
+                        rmk: ""
+                        route: "13"
+                        routeVariantName: null
+                        seq: 6
+                        stop: "001001"
+                        wheelChair: null
+                    generated_timestamp: 2019-10-14T15:23:04+08:00
+                    type: StopETA
+                    version: "1.0"
+              schema:
+                $ref: "#/components/schemas/StopEtaResponse"
+          description: Success. Sample response illustrates CTB ETA records; publisher notes that an empty data object denotes data not found.
+        "422":
+          $ref: "#/components/responses/UnprocessableEntity"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+        "502":
+          description: Invalid response from upstream server
+      summary: Get estimated arrivals for a bus stop
+servers:
+  - url: https://rt.data.gov.hk
+x-source-evidence:
+  url: https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-specifications.pdf
+  originalSourceUrl: https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-specifications.pdf
+  originalJsonSha256: 85cda06a8ee6dbc33bee2f8680de0e073313d6edeadf94c6806bb8ec42d0ae03
+  retainedPublisherSourceSha256: 5ea8833df574a6978c88cb3c15d65cd4ea1180b32d9db98914a35d47bcfdaa33
+  classification: publisher_contract_and_observed_response_compatibility_derivative
+  change: Only enumeratedresponse constraints broadened to preserve published and hash-bound observed representations; no newfields, values, ranges, restrictivepatterns or coercions.
+  responseBodySha256:
+    - 0b52d5c6f634062014ca54cfec9a92cd17506adfb10c8d84b7e8e2e78bb9469a
+    - 28e4417fae484b9bc7dce928959ae4bbea307c7c6fbe7aaf868f7635845ff023
+    - ef572180d7c1122e28c95e5cd4ca6f8d493452a1b605b3c31da6c343ade21ebb
+    - 4f9600d5a4e0c4cc41666f1e5f7b767df60ddad1efa1d947c45118c0e92a063d
+  scope: Completebodies and completeitems from incompleteprefixes are labelled separately. Unreadtail/cardinality are never asserted.

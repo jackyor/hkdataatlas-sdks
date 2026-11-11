@@ -1,0 +1,187 @@
+openapi: 3.1.0
+info:
+  title: Leisure and Cultural Services Department — Swimming Pools
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: SP
+              value: "0"
+          x-choice-count: 1
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisFeatureSet"
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer?f=pjson
+          sha256: b353c0989f4ac0619db259124f510239a366ba198979364095585a23d28fbfd4
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer/0?f=pjson
+          sha256: 5350d216bd85c7df18dcf66b9257114af99f04e5ffdbdfff3f4d425cf4a8db79
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: fail
+          kind: arcgis-layer
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties: {}
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: "0"
+    title: SP
+    protocol: arcgis
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=lcsd_rcd_1634540558875_77434
+    sha256: 1f09986f725c47eab8dfc80fe559513aa70c3e4e93e27e2cc8c83c5aef28f49b
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer?f=pjson
+    sha256: b353c0989f4ac0619db259124f510239a366ba198979364095585a23d28fbfd4
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer/0?f=pjson
+    sha256: 5350d216bd85c7df18dcf66b9257114af99f04e5ffdbdfff3f4d425cf4a8db79
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: fail
+    kind: arcgis-layer
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_publisher_error
+      url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer/0?f=pjson
+      httpStatus: 200
+      publisherCode: 499
+      reason: Token Required
+    - serviceId: csdi-service-f72253ce16ffa72a05c83db0
+      code: discovery_metadata_error
+      reason: 'ArcGIS application error: {"code": 499, "message": "Token Required", "details": []}'
+      url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer/0?f=pjson
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1634540558875_77434/MapServer/WFSServer?service=WFS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-ba47089843162755213f8d1d
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1634540558875_77434/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    - serviceId: csdi-service-ba47089843162755213f8d1d
+      protocol: wfs
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WFS GetCapabilities
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1634540558875_77434/MapServer/WMSServer?service=WMS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-b8269f2bb771cfa87a0a2732
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1634540558875_77434/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    - serviceId: csdi-service-b8269f2bb771cfa87a0a2732
+      protocol: wms
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WMS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 3
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

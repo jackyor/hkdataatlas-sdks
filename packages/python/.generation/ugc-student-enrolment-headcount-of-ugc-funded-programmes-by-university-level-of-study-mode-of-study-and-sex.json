@@ -1,0 +1,81 @@
+{
+  "sourceId": "ugc-student-enrolment-headcount-of-ugc-funded-programmes-by-university-level-of-study-mode-of-study-and-sex",
+  "publisherKey": "ugc",
+  "family": "student_enrolment_headcount_of_ugc_funded_programmes_by_university_level_of_study_mode_of_study_and_sex",
+  "status": "generated",
+  "key": "41572ca9f8604d09e12ad3c0f0c25891170bfabd169a57ae7623f62658e3f78b",
+  "sourceSha256": "7e6d735e5c0f227b67c4b3688b8bfd80cea9139ecaf564efe35a67a447cae355",
+  "derivedInputSha256": "82ea4282a096683cfeb088e3c56f8fdbd0149cfe43ab18a2df03514ba2eba6ad",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/ugc_rcd_1665536366226_31862/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/ugc_rcd_1665536366226_31862/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature",
+      "tags": [
+        "WFS"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/ugc_rcd_1665536366226_31862/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap",
+      "tags": [
+        "WMS"
+      ]
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/ugc-student-enrolment-headcount-of-ugc-funded-programmes-by-university-level-of-study-mode-of-study-and-sex.log",
+  "outputs": {
+    "__init__.py": "27bd08fe91c099655bab3753afbe4df1aad4712fff8383160830ef922f5845ca",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "0c45af833b33ff955a76faea0fb6a703417119a528dd6b8828472a605d695dfe",
+    "api/wfs/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wfs/wfs_map_server_get_feature.py": "a95796d4bd12494da0b8d3e651e43b4f5688a8cca7ee4ddd9492c22c44ff848c",
+    "api/wms/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wms/wms_map_server_get_map.py": "b5962ce028510822a363cfdd92faba3de674fc4ad2ed38875614880ff47096f4",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "532f87493f9ad2ac19bc4b6c9d0329e230100192968ee4cf204029e7d3519440",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "da978dade68da2e328dfd99b32dee4d3d572e5f6be14af3323497f9b30302362",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "models/publisher_dictionary_student_enrolment_record.py": "101cc803a6b71886f006d484b8de041030a6a7e738828f2485d7c73510bcfa3a",
+    "models/publisher_dictionary_student_enrolment_record_level_of_study_en.py": "a77ce62ccb87767cbd7f6e9a18036db070452d42da0aa9fd38465c6a0b9ff7c8",
+    "models/publisher_dictionary_student_enrolment_record_level_of_study_tc.py": "af5c8347ef10c9226b96c1e7cd907ed29c90fe0c3f304bfa98772667a9ed1fbe",
+    "models/publisher_dictionary_student_enrolment_record_mode_of_study_en.py": "5623ced11ab221d98fa8dfc212f08c4b24602c03cd5ec84dd6a4ceebadb98080",
+    "models/publisher_dictionary_student_enrolment_record_mode_of_study_tc.py": "c0b9eb5cfe46459d33d8408a411a7d5a7b5049315a262dd7c39764d043c7bd81",
+    "models/publisher_dictionary_student_enrolment_record_sex_en.py": "ab9439de13e33b63c5cb666ce27a9b4a0ff41db179e7eff52183cbcbebca2f0d",
+    "models/publisher_dictionary_student_enrolment_record_sex_tc.py": "f2de48cdd29232082e94e2259ab4fbda9f9a34acfd9c20c0b7e081c1c45ec967",
+    "models/publisher_dictionary_student_enrolment_record_university_en.py": "3d51175bd2ea8e32a0c5974879ce410ad84993018ae9e6db5b8ecce9eff43e44",
+    "models/publisher_dictionary_student_enrolment_record_university_tc.py": "b3f2e83c79a86e5ee14699e94be3e4be9b003f070846138defcd2b6ecfe5180b",
+    "models/wfs_map_server_get_feature_output_format.py": "e4f57cb3890a02ce6dba52d2b0fcfc686179fd837b5c03300dff588d928d98d7",
+    "models/wfs_map_server_get_feature_request.py": "afc05e39db501a145c828df80073f57e52779c155b2631cb84b197d8532067c9",
+    "models/wfs_map_server_get_feature_service.py": "919ac8ccb249a9d757a7c1a39b3f3b0adc5377b9dafcac83c84789cd9972e9e8",
+    "models/wfs_map_server_get_feature_version.py": "1ad3a545490446ff0a487beea15c3c456473b4e63545161c573ade0f30e3014b",
+    "models/wfs_map_server_wfs_feature_collection.py": "b7fdfaa58f7e34a0c48a8d5b3ca0a53dd2e634639948261108f9b853f550b2e5",
+    "models/wfs_map_server_wfs_feature_collection_features_item.py": "cacb71eab6121156fb1e23e958092aec69cfeca1d6daa7eb72ae9b02845d37ac",
+    "models/wfs_map_server_wfsgeotagging_attributes.py": "7dacd8147d24dc7706ca2ed5ecd8d5f1fc3c02a547b26cebfef69047ca554d11",
+    "models/wms_map_server_get_map_format.py": "a65b75b0acd6d74d2b98a842cc9d3f5acd1a40873813841fd53fdffe75d25c40",
+    "models/wms_map_server_get_map_request.py": "847774c945625dd0b2021a20ecb37f7d99e0031f6b91c82d0aa27cdc0f99b621",
+    "models/wms_map_server_get_map_service.py": "cb701b87d9fbf4f140a0316cede0a4bc37a611998facdd5bb0793962d7d9c3a5",
+    "models/wms_map_server_get_map_version.py": "80f2a7664e048499e4919b94dfcf4a546ef4aec1e377a77fb199c1a6e5d9856a",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

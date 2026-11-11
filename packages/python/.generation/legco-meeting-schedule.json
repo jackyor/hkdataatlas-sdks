@@ -1,0 +1,35 @@
+{
+  "sourceId": "legco-meeting-schedule",
+  "publisherKey": "legco",
+  "family": "meeting_schedule",
+  "status": "generated",
+  "key": "4e46f1eec2ecc46325ed749c8c59bf98f291354e3847c7cb046d2a42d78e4e5e",
+  "sourceSha256": "c9945766a6f3d3b7e84edc8069eff8133fad7330803056b6d25967afd783dd7d",
+  "derivedInputSha256": "c54506b946d832f87596d948c6237f70c48bb4b97a2d529bd584625e4537d14b",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/Tmeeting",
+      "operationId": "getMeetingSchedule",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/legco-meeting-schedule.log",
+  "outputs": {
+    "__init__.py": "910f8b5dfd78f9551cdf77607ca46ff317928908018ce82b9d04e80baaf4c426",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_meeting_schedule.py": "3db833ed3ca83d4d59184199f2a4c4e6595b4842c48e4d96880bd39501766167",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "83b0c883b27bfdd2f9dd1a1f5f1fa7670e76627bfb5bdcc90b6a5cb070fc7c47",
+    "models/committee.py": "6da30a04f481cb6c406c1aa5628a5c968cc9f7696c11dc88afe7aff51a320d91",
+    "models/meeting.py": "b8090376a8fa647d32d829682c0d0395183f71c2e0aaf7849bb0462cf75dc0a2",
+    "models/meeting_committee.py": "1da4f1f0f15c842d4a801f9fd194fc2ff06997c230cf2cb461a7c9d8c17855dc",
+    "models/meeting_schedule_resource_type_2.py": "a85becbfe55fd89164eac56e756339d4f27866b6f609a0133e0bff9864fd0174",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "reo-csdi-election-results-of-2019-district-council-ordinary-election",
+  "sourceSha256": "4552bb3013cb13e6f68367939784fbe0f31e359c10d5cc20880a45f904a6c584",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/reo_rcd_1667450356363_93687/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/reo_rcd_1667450356363_93687/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/reo_rcd_1667450356363_93687/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

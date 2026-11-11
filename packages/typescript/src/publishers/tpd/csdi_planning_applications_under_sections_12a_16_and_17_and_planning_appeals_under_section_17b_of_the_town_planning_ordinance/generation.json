@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "tpd-csdi-planning-applications-under-sections-12a-16-and-17-and-planning-appeals-under-section-17b-of-the-town-planning-ordinance",
+  "sourceSha256": "c60aa06a9d06c7730556c156b1ad6670de4644a1b702dda7411663c70de43cc6",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/arcgis2/services/DATA/APP_AMEND_CSDI/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

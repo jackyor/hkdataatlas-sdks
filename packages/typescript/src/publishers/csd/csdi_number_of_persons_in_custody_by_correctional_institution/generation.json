@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "csd-csdi-number-of-persons-in-custody-by-correctional-institution",
+  "sourceSha256": "908f8cab346d4c85ce7dc4f4ef98e993c029c812522c7bf24483e612adbf6f68",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/csd_rcd_1666073630518_50729/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/csd_rcd_1666073630518_50729/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/csd_rcd_1666073630518_50729/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

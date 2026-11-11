@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "swd-csdi-list-of-kindergartens-kgs-kindergarten-cum-child-care-centres-kg-cum-cccs-participating-in-on-site-pre-school-rehabilitation-services-oprs",
+  "sourceSha256": "0542ef25ce18cac5da7ec03cee303037950afc85846a8e3794bba54d7408c698",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/swd_rcd_1696993257961_55701/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/swd_rcd_1696993257961_55701/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

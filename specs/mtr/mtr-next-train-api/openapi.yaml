@@ -1,0 +1,373 @@
+components:
+  schemas:
+    ScheduleResponse:
+      description: Normal schedule response. The response dictionary documents the fields below; examples show representative values. Example time values use yyyy-MM-dd HH:mm:ss. Sample schedule entries encode fields such as numeric status/platform/sequence values as strings, while the dictionary declares platform and sequence as Numbers; both representations are allowed to preserve that discrepancy.
+      examples:
+        - curr_time: 2022-04-25 15:19:59
+          data:
+            TKL-TKO:
+              DOWN: []
+              UP: []
+              curr_time: 2022-04-25 15:19:59
+              sys_time: 2022-04-25 15:19:59
+          isdelay: N
+          message: successful
+          status: 1
+          sys_time: 2022-04-25 15:19:59
+      properties:
+        curr_time:
+          description: Current date and time. The dictionary describes the format as yyyy-MM-dd HH:mm:ss; examples also use "-" when data is absent.
+          examples:
+            - 2022-04-25 15:19:59
+            - "-"
+          type: string
+        data:
+          additionalProperties:
+            $ref: "#/components/schemas/StationSchedule"
+          description: Data keyed by a line-station identifier, shown in the example as line code, hyphen, and station code (for example, TKL-TKO).
+          examples:
+            - TKL-TKO:
+                DOWN: []
+                UP: []
+                curr_time: 2022-04-25 15:19:59
+                sys_time: 2022-04-25 15:19:59
+          type: object
+        isdelay:
+          description: "Indicates whether the train is delayed: Y = delayed, N = running on time. Documented as optional."
+          examples:
+            - N
+            - Y
+          type: string
+        message:
+          description: Alert message.
+          examples:
+            - successful
+          type: string
+        status:
+          description: System status code. The dictionary gives 1 = normal and 0 = error or alert.
+          examples:
+            - 1
+            - 0
+          type: integer
+        sys_time:
+          description: System date and time. Examples also use "-" when data is absent.
+          examples:
+            - 2022-04-25 15:19:59
+            - "-"
+          type: string
+        url:
+          description: URL for a Special Train Services Arrangement case.
+          format: uri
+          type: string
+      type: object
+    ServiceArrangementResponse:
+      description: Response example for a special train services arrangement. Fields shown are documented by example; no closed-object guarantee is made.
+      examples:
+        - cur_time: 2019-06-13 17:34:58
+          message: Special train service arrangements are now in place on this line. Please click here for more information.
+          status: 0
+          url: https://www.mtr.com.hk/alert/alert_title_wap.html
+      properties:
+        cur_time:
+          description: Current-time field as shown in the special-arrangement example.
+          examples:
+            - 2019-06-13 17:34:58
+          type: string
+        message:
+          description: Alert message.
+          type: string
+        status:
+          description: System status code; dictionary maps 0 to error or alert.
+          examples:
+            - 0
+          type: integer
+        url:
+          description: URL for special train services arrangement information.
+          format: uri
+          type: string
+      type: object
+    StationSchedule:
+      description: Schedule data for one line and station. Direction keys UP and DOWN are arrays of trains for that line. A data-absence example includes only current and system time.
+      examples:
+        - DOWN: []
+          UP:
+            - dest: POA
+              plat: "1"
+              seq: "1"
+              source: "-"
+              time: 2019-06-13 01:17:00
+              ttnt: "2"
+              valid: Y
+          curr_time: 2019-06-13 01:10:00
+          sys_time: 2019-06-13 01:10:00
+      properties:
+        DOWN:
+          description: Upcoming trains in the DOWN direction. Direction destinations vary by line as described in the data dictionary.
+          items:
+            $ref: "#/components/schemas/Train"
+          type: array
+        UP:
+          description: Upcoming trains in the UP direction. Direction destinations vary by line as described in the data dictionary.
+          items:
+            $ref: "#/components/schemas/Train"
+          type: array
+        curr_time:
+          description: Current date and time; may be "-" in the documented data-absence example.
+          type: string
+        sys_time:
+          description: System date and time; may be "-" in the documented data-absence example.
+          type: string
+      type: object
+    SuspendedStationResponse:
+      description: Suspended-station response example.
+      examples:
+        - message: LOW station is suspended
+          status: 0
+      properties:
+        message:
+          examples:
+            - LOW station is suspended
+          type: string
+        status:
+          examples:
+            - 0
+          type: integer
+      type: object
+    Train:
+      description: A train entry. The dictionary labels ttnt, valid, and source as Dummy/N/A; their sample representations are retained without asserting additional semantics. Dictionary numeric declarations for plat and seq conflict with string representations in examples; either representation is permitted.
+      examples:
+        - dest: POA
+          plat: "1"
+          seq: "1"
+          source: "-"
+          time: 2022-04-25 15:20:00
+          ttnt: "1"
+          valid: Y
+      properties:
+        dest:
+          description: MTR station code in capital letters. Dictionary describes this as 3 characters.
+          examples:
+            - POA
+            - LHP
+            - NOP
+            - TIK
+          maxLength: 3
+          minLength: 3
+          type: string
+        plat:
+          anyOf:
+            - type: number
+            - type: string
+          description: Platform number for the departure/arrival train. Dictionary declares Numbers, while examples represent the value as a string.
+          examples:
+            - "1"
+            - "2"
+        route:
+          description: "Optional field documented for EAL only. Indicates a train to destination via Racecourse rather than Fo Tan: empty string = normal; RAC = via Racecourse station."
+          enum:
+            - ""
+            - RAC
+          type: string
+        seq:
+          anyOf:
+            - type: number
+            - type: string
+          description: Sequence of upcoming trains; dictionary gives values 1, 2, 3, 4. The sample represents the sequence as a string, while the dictionary declares Numbers.
+          examples:
+            - "1"
+            - "2"
+        source:
+          description: 'Dictionary type: Dummy; description: N/A. The schedule example represents this value as "-".'
+          examples:
+            - "-"
+          type: string
+        time:
+          description: Estimated arrival or departure time of the train, in yyyy-MM-dd HH:mm:ss format.
+          examples:
+            - 2022-04-25 15:20:00
+          type: string
+        timetype:
+          description: "Optional field documented for EAL only. Indicates whether the train is arriving or departing: A = Arrival, D = Departure."
+          enum:
+            - A
+            - D
+          maxLength: 1
+          minLength: 1
+          type: string
+        ttnt:
+          description: "Dictionary type: Dummy; description: N/A. The schedule example represents this value as a string."
+          type: string
+        valid:
+          description: "Dictionary type: Dummy; description: N/A. The schedule example represents this value as a string."
+          type: string
+      type: object
+externalDocs:
+  description: Next Train API Specification v1.7
+  url: https://opendata.mtr.com.hk/doc/Next_Train_API_Spec_v1.7.pdf
+info:
+  description: Returns train arrival or departure schedules for documented MTR lines. API specification and data dictionary are version 1.7, dated 13 March 2025. Authentication requirements are not specified in the documentation.
+  title: MTR Next Train API
+  version: "1.7"
+openapi: 3.1.0
+paths:
+  /getSchedule.php:
+    get:
+      description: Returns train arrival schedule data. A valid result is returned only when the combination of line and station is correct. The station availability table in the specification and data dictionary differs in some details; the parameter descriptions preserve the documented associations without asserting that they are exhaustive. The response may instead describe a special train service arrangement, data absence, or a suspended station.
+      externalDocs:
+        description: Next Train API Specification v1.7
+        url: https://opendata.mtr.com.hk/doc/Next_Train_API_Spec_v1.7.pdf
+      operationId: getSchedule
+      parameters:
+        - description: "MTR line code. Documented codes: AEL (Airport Express), TCL (Tung Chung Line), TML (Tuen Ma Line), TKL (Tseung Kwan O Line), EAL (East Rail Line), SIL (South Island Line), TWL (Tsuen Wan Line), ISL (Island Line), KTL (Kwun Tong Line), DRL (Disneyland Resort Line). The station code must be a valid combination for the selected line."
+          examples:
+            eastRail:
+              value: EAL
+            tseungKwanO:
+              value: TKL
+          in: query
+          name: line
+          required: true
+          schema:
+            enum:
+              - AEL
+              - TCL
+              - TML
+              - TKL
+              - EAL
+              - SIL
+              - TWL
+              - ISL
+              - KTL
+              - DRL
+            type: string
+        - description: "Station code. Must be a valid combination with line. Documented station codes include: AEL—HOK, KOW, TSY, AIR, AWE; TCL—HOK, KOW, OLY, NAC, LAK, TSY, SUN, TUC; TML—WKS, MOS, HEO, TSH, SHM, CIO, STW, CKT, TAW, HIK, DIH, KAT, SUW, TKW, HOM, HUH, ETS, AUS, NAC, MEF, TWW, KSR, YUL, LOP, TIS, SIH, TUM; TKL—NOP, QUB, YAT, TIK, TKO, LHP, HAH, POA; EAL—ADM, EXC, HUH, MKK, KOT, TAW, SHT, FOT, RAC, UNI, TAP, TWO, FAN, SHS, LOW, LMC; SIL—ADM, OCP, WCH, LET, SOH; TWL—CEN, TST, JOR, YMT, MOK, PRE, SSP, CSW, LCK, MEF, LAK, KWF, KWH, TWH, TSW; ISL—KET, HKU, SYP, SHW, CEN, ADM, WAC, CAB, TIH, FOH, NOP, QUB, TAK, SWH, SKW, HFC, CHW; KTL—WHA, HOM, YMT, MOK, PRE, SKM, KOT, LOF, WTS, DIH, CHH, KOB, NTK, KWT, LAT, YAT, TIK; DRL—SUN, DIS. Some documentation presents adjacent station codes together in tables; they are listed individually here as documented codes. There are discrepancies between the specification and dictionary station tables, and this list does not assert a universally exhaustive contract."
+          examples:
+            suspendedEastRail:
+              value: LOW
+            tseungKwanO:
+              value: TKO
+          in: query
+          name: sta
+          required: true
+          schema:
+            type: string
+        - description: Language of the returned result. Defaults to English.
+          examples:
+            english:
+              value: EN
+            traditionalChinese:
+              value: TC
+          in: query
+          name: lang
+          required: false
+          schema:
+            default: EN
+            enum:
+              - EN
+              - TC
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                dataAbsence:
+                  summary: Data absence example
+                  value:
+                    curr_time: "-"
+                    data:
+                      TKL-TKO:
+                        curr_time: "-"
+                        sys_time: "-"
+                    isdelay: Y
+                    message: successful
+                    status: 1
+                    sys_time: "-"
+                lastTrain:
+                  summary: Last train example
+                  value:
+                    curr_time: 2019-06-13 01:10:42
+                    data:
+                      TKL-TKO:
+                        DOWN: []
+                        UP:
+                          - dest: POA
+                            plat: "1"
+                            seq: "1"
+                            source: "-"
+                            time: 2019-06-13 01:17:00
+                            ttnt: "2"
+                            valid: Y
+                        curr_time: 2019-06-13 01:10:00
+                        sys_time: 2019-06-13 01:10:00
+                    isdelay: N
+                    message: successful
+                    status: 1
+                    sys_time: 2019-06-13 01:10:42
+                schedule:
+                  summary: Successful schedule example
+                  value:
+                    curr_time: 2022-04-25 15:19:59
+                    data:
+                      TKL-TKO:
+                        DOWN:
+                          - dest: NOP
+                            plat: "2"
+                            seq: "1"
+                            source: "-"
+                            time: 2022-04-25 15:21:00
+                            ttnt: "2"
+                            valid: Y
+                          - dest: TIK
+                            plat: "2"
+                            seq: "2"
+                            source: "-"
+                            time: 2022-04-25 15:23:00
+                            ttnt: "4"
+                            valid: Y
+                        UP:
+                          - dest: POA
+                            plat: "1"
+                            seq: "1"
+                            source: "-"
+                            time: 2022-04-25 15:20:00
+                            ttnt: "1"
+                            valid: Y
+                          - dest: LHP
+                            plat: "1"
+                            seq: "2"
+                            source: "-"
+                            time: 2022-04-25 15:24:00
+                            ttnt: "4"
+                            valid: Y
+                        curr_time: 2022-04-25 15:19:59
+                        sys_time: 2022-04-25 15:19:59
+                    isdelay: N
+                    message: successful
+                    status: 1
+                    sys_time: 2022-04-25 15:19:59
+                specialTrainArrangement:
+                  summary: Special train services arrangement example
+                  value:
+                    cur_time: 2019-06-13 17:34:58
+                    message: Special train service arrangements are now in place on this line. Please click here for more information.
+                    status: 0
+                    url: https://www.mtr.com.hk/alert/alert_title_wap.html
+                suspendedStation:
+                  summary: Suspension of East Rail Line LOW station
+                  value:
+                    message: LOW station is suspended
+                    status: 0
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/ScheduleResponse"
+                  - $ref: "#/components/schemas/ServiceArrangementResponse"
+                  - $ref: "#/components/schemas/SuspendedStationResponse"
+          description: Success. Response examples include normal schedule data, absence of schedule data, a special train service arrangement, and a suspended-station error. These are documented response forms and examples, not a guarantee that every response contains the same fields.
+        "429":
+          description: Too Many Requests. The specification documents this status code but provides no response body or media type.
+        "500":
+          description: Internal Server Error. The specification documents this status code but provides no response body or media type.
+      summary: Get train schedule
+servers:
+  - url: https://rt.data.gov.hk/v1/transport/mtr

@@ -1,0 +1,274 @@
+components:
+  schemas:
+    Bus:
+      description: Data for each bus in the selected route.
+      properties:
+        arrivalTimeInSecond:
+          description: Estimated time of arrival of the bus in seconds. The example represents this as a string.
+          type: string
+        arrivalTimeText:
+          description: Estimated time of arrival in text. Documented formats include `_ minutes/分鐘` for arrival in the stated time, `Arriving / Departed` or `即將到站/已離開` for a bus arriving soon or having departed, and no arrival-time text for first stops of non-circular routes.
+          type: string
+        busId:
+          description: Unique ID of the bus.
+          type: string
+        busLocation:
+          $ref: "#/components/schemas/BusLocation"
+        busRemark:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        departureTimeInSecond:
+          description: Estimated time of departure of the bus in seconds. The example represents this as a string and includes negative and zero values.
+          type: string
+        departureTimeText:
+          description: Estimated time of departure in text. Documented formats include `_ minutes/分鐘` for departure in the stated time and `Departing / Departed` or `即將開出/已離開` when the bus is departing soon or has departed.
+          type: string
+        isDelayed:
+          description: Deprecated.
+          type: string
+        isScheduled:
+          description: "Indicates whether the estimated arrival time is based on service schedule: `1` = based on service schedule; `0` = based on real-time status."
+          type: string
+        lineRef:
+          description: Route reference name formed by combining the route name and the initial of the destination name. For a circular route, the destination initial is `CIR`.
+          type: string
+      type: object
+    BusLocation:
+      description: Coordinates of the bus's current location.
+      properties:
+        latitude:
+          description: Latitude.
+          type: number
+        longitude:
+          description: Longitude.
+          type: number
+      type: object
+    BusStop:
+      description: Data within each bus stop in the selected route.
+      properties:
+        bus:
+          description: Array of buses.
+          items:
+            $ref: "#/components/schemas/Bus"
+          type: array
+        busIcon:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        busStopId:
+          description: Bus stop ID.
+          type: string
+        busStopRemark:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        busStopStatus:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        busStopStatusRemarkContent:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        busStopStatusRemarkTitle:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        busStopStatusTime:
+          description: Deprecated. The dictionary describes a date-time string with format `yyyy-MM-dd HH:mm`; the example contains null.
+          type:
+            - string
+            - "null"
+        isSuspended:
+          description: "Indicates whether service is suspended: `1` = suspended; `0` = normal service."
+          type: string
+      type: object
+    ScheduleRequest:
+      description: The publisher says a valid result is returned only when both language and routeName are correct.
+      properties:
+        language:
+          description: Language selection.
+          enum:
+            - en
+            - zh
+          examples:
+            - zh
+          type: string
+        routeName:
+          description: Selected route name. The listed routes can have multiple directions or variants under the same routeName. The list is not a statement of current availability.
+          enum:
+            - "506"
+            - K12
+            - K14
+            - K17
+            - K18
+            - K51
+            - K51A
+            - K52
+            - K52A
+            - K52P
+            - K53
+            - K53S
+            - K54
+            - K54A
+            - K58
+            - K65
+            - K65A
+            - K66
+            - K68
+            - K73
+            - K74
+            - K75A
+            - K75P
+            - K75S
+            - K76
+            - K76S
+          examples:
+            - K12
+          type: string
+      required:
+        - language
+        - routeName
+      type: object
+    ScheduleResponse:
+      description: Returned schedule data. Properties below are documented in the data dictionary or visible in the publisher's example. The dictionary identifies deprecated fields; it does not state that they are absent from responses.
+      properties:
+        appRefreshTimeInSecond:
+          description: Time interval between each refresh.
+          type: string
+        busStop:
+          description: Array of bus stops on the selected route.
+          items:
+            $ref: "#/components/schemas/BusStop"
+          type: array
+        caseNumber:
+          description: Deprecated.
+          type: integer
+        caseNumberDetail:
+          description: Deprecated.
+          type: string
+        footerRemarks:
+          description: Disclaimer for estimated time provided.
+          type: string
+        routeColour:
+          description: Deprecated.
+          type: string
+        routeName:
+          description: Route name.
+          type: string
+        routeStatus:
+          description: Deprecated.
+          type: string
+        routeStatusColour:
+          description: Deprecated.
+          type: string
+        routeStatusRemarkContent:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        routeStatusRemarkFooterRemark:
+          description: Deprecated.
+          type: string
+        routeStatusRemarkTitle:
+          description: Deprecated. The example contains null.
+          type:
+            - string
+            - "null"
+        routeStatusTime:
+          description: System date and time. The dictionary gives format `yyyy-MM-dd HH:mm`; the example instead represents it as `2021/08/24 11:29`. Both documented forms are retained without imposing a restrictive format.
+          type: string
+        status:
+          description: "System status code: `1` = normal; `0` = error or alert."
+          type: string
+      type: object
+externalDocs:
+  description: MTR Bus API Specification v1.14 and associated Data Dictionary v1.20
+  url: https://opendata.mtr.com.hk/doc/MTR_BUS_API_Spec_v1.14.pdf
+info:
+  description: Returns estimated bus arrival data for a selected route. The publisher API specification is version 1.14, dated 28 September 2026. A valid result is returned only if both `language` and `routeName` are correct. The route list is an included list of MTR Bus routes and does not reflect route availability. Authentication requirements are not specified in the documentation.
+  license:
+    name: All rights reserved by MTR Corporation Limited
+  title: MTR Bus Next Bus API
+  version: "1.14"
+openapi: 3.1.0
+paths:
+  /v1/transport/mtr/bus/getSchedule:
+    post:
+      description: Returns estimated time of arrival data for a selected MTR Bus route. The publisher documents HTTP 200, 400, 429 and 500 response codes but provides a response example only for success; response bodies for the error codes are not specified.
+      operationId: getMtrBusSchedule
+      requestBody:
+        content:
+          application/json:
+            examples:
+              traditionalChineseK12:
+                summary: Traditional Chinese request for route K12
+                value:
+                  language: zh
+                  routeName: K12
+            schema:
+              $ref: "#/components/schemas/ScheduleRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedK12Response:
+                  description: The publisher's example spans multiple pages. This excerpt preserves representative nested bus-stop and bus data and the complete visible top-level fields; it is an example, not a complete response contract.
+                  summary: Publisher's K12 response example (excerpt)
+                  value:
+                    appRefreshTimeInSecond: "60"
+                    busStop:
+                      - bus:
+                          - arrivalTimeInSecond: "207"
+                            arrivalTimeText: 3 minutes
+                            busId: "804"
+                            busLocation:
+                              latitude: 0
+                              longitude: 0
+                            busRemark: null
+                            departureTimeInSecond: "294"
+                            departureTimeText: 4 minutes
+                            isDelayed: "0"
+                            isScheduled: "1"
+                            lineRef: K12_TPMS
+                        busIcon: null
+                        busStopId: K12-D020
+                        busStopRemark: null
+                        busStopStatus: null
+                        busStopStatusRemarkContent: null
+                        busStopStatusRemarkTitle: null
+                        busStopStatusTime: null
+                        isSuspended: "0"
+                    caseNumber: 0
+                    caseNumberDetail: ""
+                    footerRemarks: System testing in progress. Estimated arrival time may vary from actual arrival time. Please allow sufficient time for travel. Schedule and arrival times are for reference only and are subject to change depending on traffic conditions and service delivery.
+                    routeColour: ""
+                    routeName: K12
+                    routeStatus: "0"
+                    routeStatusColour: black
+                    routeStatusRemarkContent: null
+                    routeStatusRemarkFooterRemark: ""
+                    routeStatusRemarkTitle: null
+                    routeStatusTime: 2021/08/24 11:29
+                    status: "0"
+              schema:
+                $ref: "#/components/schemas/ScheduleResponse"
+          description: Success. The response is JSON; its documented properties are described below. The included response is an example, not a guarantee that every response has precisely this structure or these values.
+        "400":
+          description: Bad Request. The publisher does not document an error response body.
+        "429":
+          description: Too Many Requests. The publisher does not document an error response body.
+        "500":
+          description: Internal Server Error. The publisher does not document an error response body.
+      summary: Get bus schedule and estimated arrival times
+servers:
+  - url: https://rt.data.gov.hk

@@ -1,0 +1,132 @@
+{
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/apidoc/LotIndexAPI"
+  },
+  "info": {
+    "contact": {
+      "email": "mapapi@landsd.gov.hk",
+      "name": "Map API Support Team, Lands Department"
+    },
+    "description": "Retrieves private lots, Government Land Allocations (GLAs), and Short-Term Tenancies (STTs) in GML format using the HK80 spatial reference system. The API guide identifies the API version in the URL as v1.0.0; this is the documented API URL version, not a publisher-declared OpenAPI metadata version. Data is returned only when the map extent is no larger than 750 m × 600 m on the ground. The publisher advises against large numbers of requests within a short period. TLS 1.2 is required. Use is subject to LandsD Map API terms and conditions; map applications must include the Lands Department logo and the copyright notice “Map from Lands Department”.",
+    "title": "LandsD Lot Index API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/gs/api/{version}/iC1000/{LIT}": {
+      "get": {
+        "description": "Returns features in GML. The returned data uses the HK80 spatial reference system. The map extent must be at most 750 m × 600 m on the ground, equivalent to a standard 1:1000 (HP1C) topographic map tile.",
+        "operationId": "getLotIndex",
+        "parameters": [
+          {
+            "description": "API version number. The currently documented value is v1.0.0. The publisher notes that versions may change, old versions may be removed without notice, and supported versions should be checked in the API guide.",
+            "example": "v1.0.0",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Lot index type to return. The guide describes the values as LOT (private lots), GLA (Government Land Allocations), and STT (Short-Term Tenancies). Its native query-builder controls show the corresponding lowercase URL values lot, gla, and stt; the documented example URL uses lot. The guide lists semantic uppercase labels while the native query builder uses lowercase wire values; listed source choices are retained as examples without asserting case exclusivity.",
+            "examples": {
+              "governmentLandAllocations": {
+                "summary": "Government Land Allocations",
+                "value": "gla"
+              },
+              "privateLots": {
+                "summary": "Private lots",
+                "value": "lot"
+              },
+              "shortTermTenancies": {
+                "summary": "Short-Term Tenancies",
+                "value": "stt"
+              }
+            },
+            "in": "path",
+            "name": "LIT",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Spatial extent in HK1980 Grid coordinates, with values ordered as minimum Easting, minimum Northing, maximum Easting, maximum Northing, followed by the coordinate reference identifier EPSG:2326. The returned map extent must be no larger than 750 m × 600 m on the ground. The guide does not explicitly label query requiredness.",
+            "example": [
+              839363,
+              816910,
+              839603,
+              817103,
+              "EPSG:2326"
+            ],
+            "explode": false,
+            "in": "query",
+            "name": "bbox",
+            "schema": {
+              "maxItems": 5,
+              "minItems": 5,
+              "prefixItems": [
+                {
+                  "description": "Minimum HK1980 Easting.",
+                  "type": "number"
+                },
+                {
+                  "description": "Minimum HK1980 Northing.",
+                  "type": "number"
+                },
+                {
+                  "description": "Maximum HK1980 Easting.",
+                  "type": "number"
+                },
+                {
+                  "description": "Maximum HK1980 Northing.",
+                  "type": "number"
+                },
+                {
+                  "const": "EPSG:2326",
+                  "description": "HK80 coordinate reference identifier.",
+                  "type": "string"
+                }
+              ],
+              "type": "array"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/gml+xml": {
+                "schema": {
+                  "description": "GML document. The detailed feature and property structure is not specified in this API guide.",
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "XML representation of the GML data. The detailed feature and property structure is not specified in this API guide.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "OK. Lot-index data is returned in GML format using the HK80 spatial reference system. The guide does not provide a response schema or sample body."
+          },
+          "400": {
+            "description": "Bad Request, for example invalid query parameters."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "summary": "Retrieve lot index features"
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Current service domain. The publisher states that https://mapapi.geodata.gov.hk is to be deprecated on 15 March 2027.",
+      "url": "https://mapapi.hkmapservice.gov.hk"
+    }
+  ]
+}

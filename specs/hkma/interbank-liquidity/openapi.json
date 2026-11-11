@@ -1,0 +1,362 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Daily Figures of Interbank Liquidity",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/daily-monetary-statistics/daily-figures-interbank-liquidity",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/daily-monetary-statistics",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/daily-figures-interbank-liquidity": {
+      "get": {
+        "summary": "Retrieve data of Daily Figures of Interbank Liquidity",
+        "parameters": [
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+				"$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "end_of_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "cu_weakside": {
+            "type": "number"
+          },
+          "cu_strongside": {
+            "type": "number"
+          },
+          "disc_win_base_rate": {
+            "type": "number"
+          },
+          "hibor_overnight": {
+            "type": "number"
+          },
+          "hibor_fixing_1m": {
+            "type": "number"
+          },
+          "twi": {
+            "type": "number"
+          },
+          "opening_balance": {
+            "type": "number"
+          },
+          "closing_balance": {
+            "type": "number"
+          },
+          "market_activities": {
+            "type": "string"
+          },
+          "interest_payment": {
+            "type": "string"
+          },
+          "discount_window_reversal": {
+            "type": "string"
+          },
+          "discount_window_activities": {
+            "type": "string"
+          },
+          "intraday_movements_of_aggregate_balance_at_0930": {
+            "type": "number"
+          },
+          "intraday_movements_of_aggregate_balance_at_1000": {
+            "type": "number"
+          },
+          "intraday_movements_of_aggregate_balance_at_1100": {
+            "type": "number"
+          },
+          "intraday_movements_of_aggregate_balance_at_1200": {
+            "type": "number"
+          },
+          "intraday_movements_of_aggregate_balance_at_1500": {
+            "type": "number"
+          },
+          "intraday_movements_of_aggregate_balance_at_1600": {
+            "type": "number"
+          },
+          "forex_trans_t1": {
+            "type": "string"
+          },
+          "other_market_activities_t1": {
+            "type": "string"
+          },
+          "reversal_of_discount_window_t1": {
+            "type": "string"
+          },
+          "interest_payment_issuance_efbn_t1": {
+            "type": "string"
+          },
+          "forecast_aggregate_bal_t1": {
+            "type": "number"
+          },
+          "forex_trans_t2": {
+            "type": "string"
+          },
+          "other_market_activities_t2": {
+            "type": "string"
+          },
+          "reversal_of_discount_window_t2": {
+            "type": "string"
+          },
+          "interest_payment_issuance_efbn_t2": {
+            "type": "string"
+          },
+          "forecast_aggregate_bal_t2": {
+            "type": "number"
+          },
+          "forex_trans_t3": {
+            "type": "string"
+          },
+          "other_market_activities_t3": {
+            "type": "string"
+          },
+          "reversal_of_discount_window_t3": {
+            "type": "string"
+          },
+          "interest_payment_issuance_efbn_t3": {
+            "type": "string"
+          },
+          "forecast_aggregate_bal_t3": {
+            "type": "number"
+          },
+          "forex_trans_t4": {
+            "type": "string"
+          },
+          "other_market_activities_t4": {
+            "type": "string"
+          },
+          "reversal_of_discount_window_t4": {
+            "type": "string"
+          },
+          "interest_payment_issuance_efbn_t4": {
+            "type": "string"
+          },
+          "forecast_aggregate_bal_t4": {
+            "type": "number"
+          },
+          "forex_trans_u": {
+            "type": "string"
+          },
+          "other_market_activities_u": {
+            "type": "string"
+          },
+          "reversal_of_discount_window_u": {
+            "type": "string"
+          },
+          "interest_payment_issuance_efbn_u": {
+            "type": "string"
+          },
+          "forecast_aggregate_bal_u": {
+            "type": "number"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  }
+}

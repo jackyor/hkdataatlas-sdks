@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "lcsd-csdi-swimming-pools",
+  "sourceSha256": "86086d6ef00d145e8184ccc117aa3a74ea316b5a7a33d35aea9bf271f48025df",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/lcsd_rcd_1634540558875_77434/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

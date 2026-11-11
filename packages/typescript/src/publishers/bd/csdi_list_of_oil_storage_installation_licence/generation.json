@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "bd-csdi-list-of-oil-storage-installation-licence",
+  "sourceSha256": "daeb3e4449f1430b66266a883e17c5a73ee36e6a39bc105aa382faaa9713d3b7",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/bd_rcd_1630980890272_70649/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1630980890272_70649/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1630980890272_70649/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

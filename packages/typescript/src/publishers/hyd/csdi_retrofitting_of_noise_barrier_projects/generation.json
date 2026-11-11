@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hyd-csdi-retrofitting-of-noise-barrier-projects",
+  "sourceSha256": "f5262e949aeb6d93974bfeae60e7d4e8452c31241f72364243a9d8ec775dbe2a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hyd_rcd_1728896280736_45635/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1728896280736_45635/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

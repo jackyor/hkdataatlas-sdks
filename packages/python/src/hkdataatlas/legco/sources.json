@@ -1,0 +1,360 @@
+{
+  "publisherKey": "legco",
+  "publisherName": "Legislative Council",
+  "sources": [
+    {
+      "id": "legco-legislative-council-webcast-system",
+      "publisherKey": "legco",
+      "publisherName": "Legislative Council",
+      "familyKey": "legislative-council-webcast-system",
+      "name": "Legislative Council Webcast System",
+      "apiTitle": "Legislative Council Webcast System",
+      "json": "legco/legislative-council-webcast-system/openapi.json",
+      "yaml": "legco/legislative-council-webcast-system/openapi.yaml",
+      "file": "legco/legislative-council-webcast-system/openapi.json",
+      "sha256": "99da608c95d7c78c57cca608908ee54e9ced0c52980c2cd6c28d5c5e874c0322",
+      "jsonSha256": "99da608c95d7c78c57cca608908ee54e9ced0c52980c2cd6c28d5c5e874c0322",
+      "yamlSha256": "d1a6b9e078b76f0a9ad447dfa54eec19e23915f24094579f906ecc105891b435",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "legislative_council_webcast_system",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "99da608c95d7c78c57cca608908ee54e9ced0c52980c2cd6c28d5c5e874c0322"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-webcast-db-en.pdf",
+        "canonicalJsonSha256": "99da608c95d7c78c57cca608908ee54e9ced0c52980c2cd6c28d5c5e874c0322",
+        "originalRepresentationSha256": "31a882188ed7c484391cacc3bb39927f70b74480b653ee6cc701e875518b7e3c",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "efefb01ac046b19f4f57fdca4b7e6085d73152301fec8bbcd7951b2ece21cc2d",
+          "canonicalJsonSha256": "99da608c95d7c78c57cca608908ee54e9ced0c52980c2cd6c28d5c5e874c0322",
+          "currentSourceUrl": "https://www.legco.gov.hk/datagovhk/data-dictionary-webcast-db-en.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "legislative_council_webcast_system"
+    },
+    {
+      "id": "legco-questions-at-legislative-council-meetings",
+      "publisherKey": "legco",
+      "publisherName": "Legislative Council",
+      "familyKey": "questions-at-legislative-council-meetings",
+      "name": "Questions at Legislative Council meetings",
+      "apiTitle": "Questions at Legislative Council meetings",
+      "json": "legco/questions-at-legislative-council-meetings/openapi.json",
+      "yaml": "legco/questions-at-legislative-council-meetings/openapi.yaml",
+      "file": "legco/questions-at-legislative-council-meetings/openapi.json",
+      "sha256": "2058378c0f466280bc8c8868eb536b5e24873b901120496d912eba048b4880a9",
+      "jsonSha256": "2058378c0f466280bc8c8868eb536b5e24873b901120496d912eba048b4880a9",
+      "yamlSha256": "a220ace1c09f0180b74584f478c5789dba22ac68867300cffdfd8862d95a341b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "questions_at_legislative_council_meetings",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2058378c0f466280bc8c8868eb536b5e24873b901120496d912eba048b4880a9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 4,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-questions-en.pdf",
+        "canonicalJsonSha256": "2058378c0f466280bc8c8868eb536b5e24873b901120496d912eba048b4880a9",
+        "originalRepresentationSha256": "5cf38d30aebb06bef749d544ff0b1867115cb39d662976a353f31d1d64e8576e",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "questions_at_legislative_council_meetings"
+    },
+    {
+      "id": "legco-reference-data",
+      "publisherKey": "legco",
+      "publisherName": "Legislative Council",
+      "familyKey": "reference-data",
+      "name": "Reference Data",
+      "apiTitle": "Legislative Council Reference Data",
+      "json": "legco/reference-data/openapi.json",
+      "yaml": "legco/reference-data/openapi.yaml",
+      "file": "legco/reference-data/openapi.json",
+      "sha256": "948e949b2288987e0bcb694d042b71369860e2dded272507ec84fa1d1253554d",
+      "jsonSha256": "948e949b2288987e0bcb694d042b71369860e2dded272507ec84fa1d1253554d",
+      "yamlSha256": "b54c4d2412b52a818c2b7009bfaebd260a7d5135b08f98b553baeac9829638b7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "reference_data",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "948e949b2288987e0bcb694d042b71369860e2dded272507ec84fa1d1253554d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 5,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-reference-data-en.pdf",
+        "canonicalJsonSha256": "948e949b2288987e0bcb694d042b71369860e2dded272507ec84fa1d1253554d",
+        "originalRepresentationSha256": "dc63fe8ab920a7ec385982dd1dfab657d9b3093654687b61a40472a53f7ccdf8",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "reference_data"
+    },
+    {
+      "id": "legco-meeting-schedule",
+      "publisherKey": "legco",
+      "publisherName": "Legislative Council",
+      "familyKey": "meeting-schedule",
+      "name": "Meeting Schedule",
+      "apiTitle": "Legislative Council Meeting Schedule",
+      "json": "legco/meeting-schedule/openapi.json",
+      "yaml": "legco/meeting-schedule/openapi.yaml",
+      "file": "legco/meeting-schedule/openapi.json",
+      "sha256": "c9945766a6f3d3b7e84edc8069eff8133fad7330803056b6d25967afd783dd7d",
+      "jsonSha256": "c9945766a6f3d3b7e84edc8069eff8133fad7330803056b6d25967afd783dd7d",
+      "yamlSha256": "23cdc0b24e7cdabcf1763bc02d351898be594b009d50c7397a74587a49e02a02",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "meeting_schedule",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c9945766a6f3d3b7e84edc8069eff8133fad7330803056b6d25967afd783dd7d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-meeting-schedule-en.pdf",
+        "canonicalJsonSha256": "c9945766a6f3d3b7e84edc8069eff8133fad7330803056b6d25967afd783dd7d",
+        "originalRepresentationSha256": "c2f4a22307729c2f5c198fadf7a57b98f836eaf4881ea61213c2648e89650dc1",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "meeting_schedule"
+    },
+    {
+      "id": "legco-voting-result-database",
+      "publisherKey": "legco",
+      "publisherName": "Legislative Council",
+      "familyKey": "voting-result-database",
+      "name": "Voting Result Database",
+      "apiTitle": "Legislative Council Voting Result Database",
+      "json": "legco/voting-result-database/openapi.json",
+      "yaml": "legco/voting-result-database/openapi.yaml",
+      "file": "legco/voting-result-database/openapi.json",
+      "sha256": "7f8c26302fbc1c9aedd64be9208ed288697651df6fb7d4446ab08362b9c1b3b5",
+      "jsonSha256": "7f8c26302fbc1c9aedd64be9208ed288697651df6fb7d4446ab08362b9c1b3b5",
+      "yamlSha256": "b11e40e7c3bf4a421830c0fa7570c720227b482d625853144b873a88cfecf183",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "voting_result_database",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "7f8c26302fbc1c9aedd64be9208ed288697651df6fb7d4446ab08362b9c1b3b5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-votingresult-db-en.pdf",
+        "canonicalJsonSha256": "7f8c26302fbc1c9aedd64be9208ed288697651df6fb7d4446ab08362b9c1b3b5",
+        "originalRepresentationSha256": "007308244d89a44a5e778df3f9c47c3ed38815d460447b3194164b8f0dcbbc7a",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "voting_result_database"
+    },
+    {
+      "id": "legco-bills-database",
+      "publisherKey": "legco",
+      "publisherName": "Legislative Council",
+      "familyKey": "bills-database",
+      "name": "Bills Database",
+      "apiTitle": "Legislative Council Bills Database",
+      "json": "legco/bills-database/openapi.json",
+      "yaml": "legco/bills-database/openapi.yaml",
+      "file": "legco/bills-database/openapi.json",
+      "sha256": "e37fd20eeee4761d3db7dfa8dc631cee4a62576dc44cc97e64b17dc3e8743f2d",
+      "jsonSha256": "e37fd20eeee4761d3db7dfa8dc631cee4a62576dc44cc97e64b17dc3e8743f2d",
+      "yamlSha256": "09a0f0617fbb3c89ca6ac39189eea1c59f5b91d6a4d4e88ba639a11f42a8e646",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "bills_database",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e37fd20eeee4761d3db7dfa8dc631cee4a62576dc44cc97e64b17dc3e8743f2d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-bills-db-en.pdf",
+        "canonicalJsonSha256": "e37fd20eeee4761d3db7dfa8dc631cee4a62576dc44cc97e64b17dc3e8743f2d",
+        "originalRepresentationSha256": "17bbd7bb13aefe8f29448aee69e988baac0f9d9397171ff749eac661523ae1ca",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "bills_database"
+    }
+  ]
+}

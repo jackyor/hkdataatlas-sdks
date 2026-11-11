@@ -1,0 +1,731 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Citybus Next Bus API",
+    "version": "2.01",
+    "description": "Current publisher v2.01 request contract and v2.01 data dictionary. Response field types are documented; numeric/string coordinate alternatives and route-list wrapper are supported by retained complete current bodies. Optional fields and open objects preserve undocumented omissions/extensions."
+  },
+  "servers": [
+    {
+      "url": "https://rt.data.gov.hk"
+    }
+  ],
+  "paths": {
+    "/v2/transport/citybus/company/{company_id}": {
+      "get": {
+        "operationId": "getCitybusCompany",
+        "summary": "Company information",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "description": "Citybus company ID. All former NWFB routes are available under CTB.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CTB"
+              ]
+            }
+          }
+        ],
+        "x-publisher-source-pages": [
+          5
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. Documented optional fields; empty data object/array denotes no match. Observed string coordinates retained.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCitybusCompanyResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "API execution error; see response body.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "429": {
+            "description": "Processing too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/transport/citybus/route/{company_id}": {
+      "get": {
+        "operationId": "listCitybusRoutes",
+        "summary": "Complete company route list (optional route segment omitted)",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "description": "Citybus company ID. All former NWFB routes are available under CTB.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CTB"
+              ]
+            }
+          }
+        ],
+        "x-publisher-source-pages": [
+          7
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. Documented optional fields; empty data object/array denotes no match. Observed string coordinates retained.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/listCitybusRoutesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "API execution error; see response body.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "429": {
+            "description": "Processing too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/transport/citybus/route/{company_id}/{route}": {
+      "get": {
+        "operationId": "getCitybusRoute",
+        "summary": "Route information",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "description": "Citybus company ID. All former NWFB routes are available under CTB.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CTB"
+              ]
+            }
+          },
+          {
+            "name": "route",
+            "in": "path",
+            "required": true,
+            "description": "Operating bus route number.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "x-publisher-source-pages": [
+          7
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. Documented optional fields; empty data object/array denotes no match. Observed string coordinates retained.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCitybusRouteResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "API execution error; see response body.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "429": {
+            "description": "Processing too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/transport/citybus/stop/{stop_id}": {
+      "get": {
+        "operationId": "getCitybusStop",
+        "summary": "Stop information",
+        "parameters": [
+          {
+            "name": "stop_id",
+            "in": "path",
+            "required": true,
+            "description": "Six-digit bus stop identifier.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{6}$"
+            }
+          }
+        ],
+        "x-publisher-source-pages": [
+          9
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. Documented optional fields; empty data object/array denotes no match. Observed string coordinates retained.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCitybusStopResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "API execution error; see response body.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "429": {
+            "description": "Processing too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/transport/citybus/route-stop/{company_id}/{route}/{direction}": {
+      "get": {
+        "operationId": "getCitybusRouteStops",
+        "summary": "Route stops",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "description": "Citybus company ID. All former NWFB routes are available under CTB.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CTB"
+              ]
+            }
+          },
+          {
+            "name": "route",
+            "in": "path",
+            "required": true,
+            "description": "Operating bus route number.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "direction",
+            "in": "path",
+            "required": true,
+            "description": "Direction towards origin (inbound) or destination (outbound).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "inbound",
+                "outbound"
+              ]
+            }
+          }
+        ],
+        "x-publisher-source-pages": [
+          11
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. Documented optional fields; empty data object/array denotes no match. Observed string coordinates retained.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCitybusRouteStopsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "API execution error; see response body.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "429": {
+            "description": "Processing too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/transport/citybus/eta/{company_id}/{stop_id}/{route}": {
+      "get": {
+        "operationId": "getCitybusEta",
+        "summary": "Estimated arrival times",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "description": "Citybus company ID. All former NWFB routes are available under CTB.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CTB"
+              ]
+            }
+          },
+          {
+            "name": "stop_id",
+            "in": "path",
+            "required": true,
+            "description": "Six-digit bus stop identifier.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{6}$"
+            }
+          },
+          {
+            "name": "route",
+            "in": "path",
+            "required": true,
+            "description": "Operating bus route number.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "x-publisher-source-pages": [
+          19,
+          20
+        ],
+        "responses": {
+          "200": {
+            "description": "Success. Documented optional fields; empty data object/array denotes no match. Observed string coordinates retained.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCitybusEtaResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "API execution error; see response body.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "429": {
+            "description": "Processing too many requests.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-response-schema-status": "unknown_for_current_contract",
+  "x-authentication-status": "public_access_documented; no authentication scheme specified",
+  "components": {
+    "schemas": {
+      "CompanyRecord": {
+        "type": "object",
+        "properties": {
+          "co": {
+            "type": "string"
+          },
+          "name_en": {
+            "type": "string"
+          },
+          "name_tc": {
+            "type": "string"
+          },
+          "name_sc": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "data_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          }
+        }
+      },
+      "RouteRecord": {
+        "type": "object",
+        "properties": {
+          "co": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "orig_en": {
+            "type": "string"
+          },
+          "orig_tc": {
+            "type": "string"
+          },
+          "orig_sc": {
+            "type": "string"
+          },
+          "dest_en": {
+            "type": "string"
+          },
+          "dest_tc": {
+            "type": "string"
+          },
+          "dest_sc": {
+            "type": "string"
+          },
+          "data_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          }
+        }
+      },
+      "StopRecord": {
+        "type": "object",
+        "properties": {
+          "stop": {
+            "type": "string"
+          },
+          "name_en": {
+            "type": "string"
+          },
+          "name_tc": {
+            "type": "string"
+          },
+          "name_sc": {
+            "type": "string"
+          },
+          "lat": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "description": "Publisher dictionary specifies a number; retained current export encodes a string. No lexical or range constraint inferred."
+          },
+          "long": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "description": "Publisher dictionary specifies a number; retained current export encodes a string. No lexical or range constraint inferred."
+          },
+          "data_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          }
+        }
+      },
+      "RouteStopRecord": {
+        "type": "object",
+        "properties": {
+          "co": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "dir": {
+            "type": "string"
+          },
+          "stop": {
+            "type": "string"
+          },
+          "seq": {
+            "type": "number"
+          },
+          "data_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          }
+        }
+      },
+      "EtaRecord": {
+        "type": "object",
+        "properties": {
+          "co": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "dir": {
+            "type": "string"
+          },
+          "stop": {
+            "type": "string"
+          },
+          "dest_en": {
+            "type": "string"
+          },
+          "dest_tc": {
+            "type": "string"
+          },
+          "dest_sc": {
+            "type": "string"
+          },
+          "eta": {
+            "type": "string"
+          },
+          "rmk_en": {
+            "type": "string"
+          },
+          "rmk_tc": {
+            "type": "string"
+          },
+          "rmk_sc": {
+            "type": "string"
+          },
+          "seq": {
+            "type": "number"
+          },
+          "eta_seq": {
+            "type": "number"
+          },
+          "data_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          }
+        }
+      },
+      "getCitybusCompanyResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "generated_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          },
+          "data": {
+            "$ref": "#/components/schemas/CompanyRecord"
+          }
+        }
+      },
+      "listCitybusRoutesResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "generated_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteRecord"
+            }
+          }
+        }
+      },
+      "getCitybusRouteResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "generated_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          },
+          "data": {
+            "$ref": "#/components/schemas/RouteRecord"
+          }
+        }
+      },
+      "getCitybusStopResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "generated_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          },
+          "data": {
+            "$ref": "#/components/schemas/StopRecord"
+          }
+        }
+      },
+      "getCitybusRouteStopsResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "generated_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteStopRecord"
+            }
+          }
+        }
+      },
+      "getCitybusEtaResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "generated_timestamp": {
+            "type": "string",
+            "description": "ISO 8601 date time with time zone per dictionary; no stronger lexical restriction inferred."
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EtaRecord"
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-current-response-evidence": {
+    "sourceId": "ctb-citybus-and-new-world-first-bus-next-bus-api",
+    "coverage": "All six current operations have documented record fields. No required properties, closed objects, fixed version/type constants, cardinality, or patterns inferred. RouteList discriminator and array shape observed; numeric/string stop coordinates preserve actual wire values; ETA may be empty string.",
+    "dictionary": {
+      "url": "https://www.citybus.com.hk/datagovhk/bus_eta_data_dictionary.pdf",
+      "pages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sha256": "b2c006a3419c10a54848b4bd180db2c56030fc9f30b7db17a749dde1c8bb7002"
+    },
+    "originalJsonSha256": "43c117808e417fb09f2be92d18b9541d596e8fb3f84cf999747b5923fc514c53",
+    "classification": "documented_response_fields_with_explicit_observed_wire_compatibility",
+    "newLiveCallsByBuilder": 0,
+    "requirednessInferred": false,
+    "unknownFieldsAllowed": true
+  }
+}

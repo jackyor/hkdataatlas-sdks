@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cstb-csdi-number-of-hotel-rooms-for-the-next-three-years-by-18-district-councils",
+  "sourceSha256": "31d55f0f890f60ec03fb952eb469a5b2134cd1894fdf7e79a1d16ba8e96f0a91",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cstb_rcd_1699843199583_52/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cstb_rcd_1699843199583_52/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cstb_rcd_1699843199583_52/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

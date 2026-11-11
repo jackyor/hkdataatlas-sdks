@@ -1,0 +1,72 @@
+{
+  "sourceId": "landsd-csdi-revitalisation-of-industrial-buildings-2018-executed-lease-modification-cases-available-in-gml",
+  "publisherKey": "landsd",
+  "family": "csdi_revitalisation_of_industrial_buildings_2018_executed_lease_modification_cases_available_in_gml",
+  "status": "generated",
+  "key": "e8c540f2b5b0887346306ed14efa302db5ad196f5c4be818eceec17eae2e0c22",
+  "sourceSha256": "f64e1a2b6efd83452cec0ab42ff98b977d1e72f5603c14b9f54fb1874dea0714",
+  "derivedInputSha256": "1199c766d623b143415d288bf562edc6a0e0397e14a38f5cc0ebbd6f7fa15c90",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/landsd_rcd_1637309419658_86585/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/landsd_rcd_1637309419658_86585/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature",
+      "tags": [
+        "WFS"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/landsd_rcd_1637309419658_86585/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap",
+      "tags": [
+        "WMS"
+      ]
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/landsd-csdi-revitalisation-of-industrial-buildings-2018-executed-lease-modification-cases-available-in-gml.log",
+  "outputs": {
+    "__init__.py": "b93af633f8b671ed0437298e834a0e49578c0f1eeda4337affc16705ff92b42a",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "1d460280b82f377c6420dfc8bba7a4cbbaf6f8c3013a2584ed41a51b942d87e3",
+    "api/wfs/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wfs/wfs_map_server_get_feature.py": "3c05af01c9e7181afb12ae1f9aacf1c28d318e5af493967e16502d54b4b9356f",
+    "api/wms/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wms/wms_map_server_get_map.py": "2917c4b9b6e1d9b67ee606352c7ccfc320cdee1e11b0f06cc3341f9c449cf303",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "034ccae63a59b931f70c7299e3f716186e912e4d9f0563374364ac9715d0d61b",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "c2f2159c92c660a238d996bc8b3fe9fd4fc7e308cba6cb61523816c2ddd49789",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "models/wfs_map_server_get_feature_output_format.py": "e4f57cb3890a02ce6dba52d2b0fcfc686179fd837b5c03300dff588d928d98d7",
+    "models/wfs_map_server_get_feature_request.py": "afc05e39db501a145c828df80073f57e52779c155b2631cb84b197d8532067c9",
+    "models/wfs_map_server_get_feature_service.py": "919ac8ccb249a9d757a7c1a39b3f3b0adc5377b9dafcac83c84789cd9972e9e8",
+    "models/wfs_map_server_get_feature_version.py": "1ad3a545490446ff0a487beea15c3c456473b4e63545161c573ade0f30e3014b",
+    "models/wfs_map_server_wfs_feature_collection.py": "b7fdfaa58f7e34a0c48a8d5b3ca0a53dd2e634639948261108f9b853f550b2e5",
+    "models/wfs_map_server_wfs_feature_collection_features_item.py": "6862e13b21e8af4eacd19afde2067edd23aee71056e97d19385aebf961a770b1",
+    "models/wfs_map_server_wfs_laoelmc18_attributes.py": "9bbf3f611687e0f7345961248c114167fe7f4dd91d84a86ab3bfa9a81c777e79",
+    "models/wms_map_server_get_map_format.py": "a65b75b0acd6d74d2b98a842cc9d3f5acd1a40873813841fd53fdffe75d25c40",
+    "models/wms_map_server_get_map_request.py": "847774c945625dd0b2021a20ecb37f7d99e0031f6b91c82d0aa27cdc0f99b621",
+    "models/wms_map_server_get_map_service.py": "cb701b87d9fbf4f140a0316cede0a4bc37a611998facdd5bb0793962d7d9c3a5",
+    "models/wms_map_server_get_map_version.py": "80f2a7664e048499e4919b94dfcf4a546ef4aec1e377a77fb199c1a6e5d9856a",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

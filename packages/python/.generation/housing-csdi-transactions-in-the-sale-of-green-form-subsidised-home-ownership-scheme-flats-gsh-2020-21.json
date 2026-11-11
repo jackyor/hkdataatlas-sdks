@@ -1,0 +1,58 @@
+{
+  "sourceId": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21",
+  "publisherKey": "housing",
+  "family": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_flats_gsh_2020_21",
+  "status": "generated",
+  "key": "86a0ce7ffdd1e4fdad543211378f4a70554a249804ac4e120daefa86ab99e8e3",
+  "sourceSha256": "c1fc3e15fb085ddc825c0cef204a76d123f1138ca95176214c40939816b2c6dd",
+  "derivedInputSha256": "376e2a3a408ec7fa85693475ac16b752ac92a0ab1e60fbc8fc7a685e06e7ec44",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/housingauthority_rcd_1765178950193_21959/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/housingauthority_rcd_1765178950193_21959/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature",
+      "tags": [
+        "WFS"
+      ]
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21.log",
+  "outputs": {
+    "__init__.py": "d46af37e12b42f5403b3fc2d50c6f53b7225ca580c75c4ce281ead02d4dd4279",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "b0376f936532661ae5155e72bce05d9019279a2ffe881eeb5daaace1701e0d83",
+    "api/wfs/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wfs/wfs_map_server_get_feature.py": "9cb1749bd6e0300c4a805cd167e9802bfa3d6bc979384a34036e1a9671c7d1a1",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "43ec5fbed6e38eb5b3919eadf028fe54c27595c4361accd7c9070742c50d70fe",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "ba14b63e965910e22370a4aa303236447322d10d9993fc234b60883d6891e726",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "models/wfs_map_server_get_feature_output_format.py": "e4f57cb3890a02ce6dba52d2b0fcfc686179fd837b5c03300dff588d928d98d7",
+    "models/wfs_map_server_get_feature_request.py": "afc05e39db501a145c828df80073f57e52779c155b2631cb84b197d8532067c9",
+    "models/wfs_map_server_get_feature_service.py": "919ac8ccb249a9d757a7c1a39b3f3b0adc5377b9dafcac83c84789cd9972e9e8",
+    "models/wfs_map_server_get_feature_version.py": "1ad3a545490446ff0a487beea15c3c456473b4e63545161c573ade0f30e3014b",
+    "models/wfs_map_server_wfs_feature_collection.py": "b7fdfaa58f7e34a0c48a8d5b3ca0a53dd2e634639948261108f9b853f550b2e5",
+    "models/wfs_map_server_wfs_feature_collection_features_item.py": "f509b995b8c2d9bb90262f0d460e21aca8fdb047d4b5147972970fd9497d793c",
+    "models/wfs_map_server_wfs_gsh202021_attributes.py": "34ecdd89e94c9dc6acd1d5fa872881a139201f17ba9a60b57467965f5150a9f1",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

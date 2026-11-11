@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "swd-csdi-integrated-community-centre-for-mental-wellness",
+  "sourceSha256": "04a343f43a27e70e732b2e832e435d331c63a6a05f117346f32b703b30fb799d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/swd_rcd_1629267205216_42879/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/swd_rcd_1629267205216_42879/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/swd_rcd_1629267205216_42879/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

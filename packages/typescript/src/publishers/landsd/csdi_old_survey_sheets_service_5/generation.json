@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "landsd-csdi-old-survey-sheets-service-5",
+  "sourceSha256": "7eeb4da2e26c7b6fd9b084b08da1fa5efaf9814d357cbf2c3998ab9146250609",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/landsd_rcd_1671592436814_1059/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1671592436814_1059/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

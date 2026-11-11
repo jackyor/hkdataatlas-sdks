@@ -1,0 +1,3559 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Education Bureau — Profile of Kindergartens and Kindergarten-cum-Child Care Centres",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/edb_rcd_1633401226600_10690/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "GEO_PPKCCC_1",
+                "value": 0
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/edb_rcd_1633401226600_10690/FeatureServer?f=pjson",
+            "sha256": "7b82dcbf47b9f9f922b55d7e6c77f90018c23f39ab11182b32546be735275f95",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/edb_rcd_1633401226600_10690/FeatureServer/0?f=pjson",
+            "sha256": "f1f260cddecc6d01c41c7f79ddcc7760021f593024383ad8d37f3847b026b59c",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/edb_rcd_1633401226600_10690/MapServer/WFSServer": {
+      "get": {
+        "operationId": "WfsMapServerGetFeature",
+        "tags": [
+          "WFS"
+        ],
+        "summary": "Retrieve published features",
+        "description": "One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WFS"
+              ]
+            },
+            "example": "WFS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact capabilities version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2.0.0"
+              ]
+            },
+            "example": "2.0.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only operation advertised by GetCapabilities.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetFeature"
+              ]
+            },
+            "example": "GetFeature"
+          },
+          {
+            "name": "typeNames",
+            "in": "query",
+            "required": true,
+            "description": "Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "GEO_PPKCCC_1",
+                "value": "csdi:GEO_PPKCCC_1"
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "outputFormat",
+            "in": "query",
+            "required": false,
+            "description": "Advertised native representation; JSON, GML, CSV and images are kept distinct.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GML32",
+                "GML32+ZIP",
+                "GML32+GZIP",
+                "application/gml+xml; version=3.2",
+                "GML3",
+                "GML3+ZIP",
+                "GML3+GZIP",
+                "text/xml; subtype=gml/3.1.1",
+                "GML2",
+                "GML2+ZIP",
+                "GML2+GZIP",
+                "text/xml; subtype=gml/2.1.2",
+                "GEOJSON",
+                "GEOJSON+ZIP",
+                "GEOJSON+GZIP",
+                "ESRIGEOJSON",
+                "ESRIGEOJSON+ZIP",
+                "ESRIGEOJSON+GZIP",
+                "KML",
+                "application/vnd.google-earth.kml xml",
+                "application/vnd.google-earth.kml+xml",
+                "KMZ",
+                "application/vnd.google-earth.kmz",
+                "SHAPE+ZIP",
+                "CSV",
+                "CSV+ZIP",
+                "CSV+GZIP",
+                "Geopackage",
+                "Geopackage+ZIP"
+              ]
+            },
+            "example": "GEOJSON"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "OGC bounded feature limit; example requests one feature without claiming a server-wide bound.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "srsName",
+            "in": "query",
+            "required": false,
+            "description": "Output CRS choices advertised by at least one feature type; support may vary by selected type.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "urn:ogc:def:crs:EPSG::4326"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/gml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/vnd.google-earth.kml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "description": "Native Geopackage+ZIP output; wire media type/fields are not constrained."
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "description": "Native CSV; row/column wire conformance is not inferred from JSON schemas."
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://docs.ogc.org/is/09-025r2/09-025r2.html"
+        },
+        "x-advertised-crss": [
+          "urn:ogc:def:crs:EPSG::4326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/edb_rcd_1633401226600_10690/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+            "sha256": "d851bcee14c25355362e5f4b24fd24d6a0c4932d45e50f671fc75d744348017e",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-capabilities",
+            "parseStatus": "pass",
+            "kind": "wfs-capabilities"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/edb_rcd_1633401226600_10690/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType&typeNames=csdi%3AGEO_PPKCCC_1",
+            "sha256": "771cb2a8ebdf7dcca2d53e3b2970f1d98286113f816efc2d6743bcbfaf65dc2a",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-feature-type",
+            "parseStatus": "pass",
+            "kind": "wfs-feature-type"
+          }
+        ]
+      }
+    },
+    "/server/services/common/edb_rcd_1633401226600_10690/MapServer/WMSServer": {
+      "get": {
+        "operationId": "WmsMapServerGetMap",
+        "tags": [
+          "WMS"
+        ],
+        "summary": "Render a map image",
+        "description": "Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WMS"
+              ]
+            },
+            "example": "WMS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact advertised WMS version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1.3.0"
+              ]
+            },
+            "example": "1.3.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only GetMap operation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetMap"
+              ]
+            },
+            "example": "GetMap"
+          },
+          {
+            "name": "layers",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "GEO_PPKCCC_1",
+                "value": "GEO_PPKCCC_1"
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "styles",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated style names; an empty string selects the standard default style.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Advertised GetMap representation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "image/bmp",
+                "image/jpeg",
+                "image/tiff",
+                "image/png",
+                "image/png8",
+                "image/png24",
+                "image/png32",
+                "image/gif",
+                "image/svg+xml"
+              ]
+            },
+            "example": "image/png"
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Requested image width in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Requested image height in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "required": true,
+            "description": "Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "CRS:84"
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "required": true,
+            "description": "minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "113.863568,22.204738,114.321829,22.533430"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/tiff": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png24": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png32": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+        },
+        "x-advertised-crss": [
+          "CRS:84",
+          "EPSG:4326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/edb_rcd_1633401226600_10690/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+            "sha256": "d88b7b2a242595a1ff10dc974df58f0abc90b21235f726cebfe1d6281799a426",
+            "httpStatus": 200,
+            "contentType": "text/xml",
+            "role": "wms-capabilities",
+            "parseStatus": "pass",
+            "kind": "wms-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "school_no": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "school_no",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "location_no": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_no",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_name_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_name_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_name_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_name_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "district_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "district_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "joining_kg_edu_scheme_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "joining_kg_edu_scheme_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "joining_kg_edu_scheme_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "joining_kg_edu_scheme_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "received_grant_for_support_to_ncs_students": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "received_grant_for_support_to_ncs_students",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_date_from": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "application_date_from",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_date_to": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "application_date_to",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_form_type_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "application_form_type_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_form_type_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "application_form_type_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_period_type_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "application_period_type_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_period_type_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "application_period_type_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "address_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "address_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "address_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "address_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_category_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_category_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_category_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_category_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "student_category_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "student_category_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "student_category_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "student_category_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "tel": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "tel",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fax": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "fax",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_supervisor_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "name_of_school_supervisor_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_supervisor_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "name_of_school_supervisor_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_supervisor_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "title_of_school_supervisor_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_supervisor_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "title_of_school_supervisor_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_principal_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "name_of_school_principal_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_principal_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "name_of_school_principal_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_principal_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "title_of_school_principal_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_principal_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "title_of_school_principal_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_registered_classrooms_tc": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "no_of_registered_classrooms_tc",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "no_of_registered_classrooms_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_registered_classrooms_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_registered_classrooms_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_registered_classrooms_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "outdoor_playground_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "outdoor_playground_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "outdoor_playground_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "outdoor_playground_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "indoor_playground_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "indoor_playground_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "indoor_playground_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "indoor_playground_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "music_room_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "music_room_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "music_room_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "music_room_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_special_rooms_or_areas_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_special_rooms_or_areas_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_special_rooms_or_areas_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_special_rooms_or_areas_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_founding_year": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "school_founding_year",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "school_founding_year_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_founding_year_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_founding_year_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_founding_year_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_website": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_website",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_30000_or_below": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_hd_30000_or_below",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_30001_to_40000": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_hd_30001_to_40000",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_40000_above": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_hd_40000_above",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_hd_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_hd_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_30000_or_below": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_wd_30000_or_below",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_30001_to_40000": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_wd_30001_to_40000",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_40000_above": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_wd_40000_above",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_wd_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_wd_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_below_4_yrs": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_exp_of_principal_and_teaching_staff_below_4_yrs",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "principal_and_teaching_staff_working_exp_fm_4_to_7_yrs": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "principal_and_teaching_staff_working_exp_fm_4_to_7_yrs",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_above_7_yrs": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_exp_of_principal_and_teaching_staff_above_7_yrs",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_exp_of_principal_and_teaching_staff_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "working_exp_of_principal_and_teaching_staff_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "summer_uniform_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "summer_uniform_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "summer_uniform_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "summer_uniform_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "winter_uniform_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "winter_uniform_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "winter_uniform_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "winter_uniform_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_bag_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_bag_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_bag_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_bag_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "tea_and_snacks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "tea_and_snacks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "tea_and_snacks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "tea_and_snacks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "textbooks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "textbooks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "textbooks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "textbooks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "exercise_books_or_workbooks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "exercise_books_or_workbooks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "exercise_books_or_workbooks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "exercise_books_or_workbooks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "stationery_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "stationery_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "stationery_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "stationery_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "bedding_items_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "bedding_items_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "bedding_items_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "bedding_items_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "salary_of_principal_and_teaching_staff": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "salary_of_principal_and_teaching_staff",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "non_teaching_staff_salary": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "non_teaching_staff_salary",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "rent_management_fees_rates_and_government_rent": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "rent_management_fees_rates_and_government_rent",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teaching_resources": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "teaching_resources",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "staff_training_and_professional_development": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "staff_training_and_professional_development",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_expenses": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_expenses",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "expenditure_information_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "expenditure_information_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_based_on_audited_account_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "expenditure_information_based_on_audited_account_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_based_on_audited_account_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "expenditure_information_based_on_audited_account_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_type_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "curriculum_type_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_type_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "curriculum_type_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_planning_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "curriculum_planning_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_planning_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "curriculum_planning_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "learning_or_teaching_approach_and_activities_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "learning_or_teaching_approach_and_activities_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "learning_or_teaching_approach_and_activities_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "learning_or_teaching_approach_and_activities_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "assessment_of_children_learning_experiences_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "assessment_of_children_learning_experiences_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "assessment_of_children_learning_experiences_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "assessment_of_children_learning_experiences_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_vision_and_mission_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_vision_and_mission_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_vision_and_mission_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "school_vision_and_mission_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "support_to_students_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "support_to_students_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "parent_teacher_association_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "parent_teacher_association_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "parent_teacher_association_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "parent_teacher_association_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_activities_or_communication_with_parents_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_activities_or_communication_with_parents_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_activities_or_communication_with_parents_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_activities_or_communication_with_parents_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_non_chinese_speaking_ncs_students_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "support_to_non_chinese_speaking_ncs_students_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_non_chinese_speaking_ncs_students_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "support_to_non_chinese_speaking_ncs_students_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_with_special_needs_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "support_to_students_with_special_needs_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_with_special_needs_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "support_to_students_with_special_needs_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "nursery_classes_not_writing": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "nursery_classes_not_writing",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "total_no_of_permitted_accommodation_of_class_rm_in_use": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "total_no_of_permitted_accommodation_of_class_rm_in_use",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_nursery_am": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_in_nursery_am",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_lkg_am": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_in_lkg_am",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_ukg_am": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_ukg_am",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_nursery_pm": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_in_nursery_pm",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_lkg_pm": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_in_lkg_pm",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_ukg_pm": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_ukg_pm",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_nursery_wd": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_in_nursery_wd",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_lkg_wd": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_in_lkg_wd",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_ukg_wd": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_students_in_ukg_wd",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_in_morning_session": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "teacher_to_pupil_ratio_in_morning_session",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_in_afternoon_session": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "teacher_to_pupil_ratio_in_afternoon_session",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "teacher_to_pupil_ratio_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "teacher_to_pupil_ratio_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_with_degree": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_principal_and_teaching_staff_with_degree",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_w_non_degree": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_principal_and_teaching_staff_w_non_degree",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_prin_n_teaching_staff_w_c_ece_or_above": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_prin_n_teaching_staff_w_c_ece_or_above",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_w_qkt": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_principal_and_teaching_staff_w_qkt",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_prin_n_teaching_staff_w_other_t_training": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_prin_n_teaching_staff_w_other_t_training",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_w_qakt": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_principal_and_teaching_staff_w_qakt",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_others": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_of_principal_and_teaching_staff_others",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "total_no_of_principal_and_teaching_staff": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "total_no_of_principal_and_teaching_staff",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fees_certificate": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "fees_certificate",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_chi_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "quality_review_result_and_report_chi_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_chi_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "quality_review_result_and_report_chi_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_eng_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "quality_review_result_and_report_eng_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_eng_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "quality_review_result_and_report_eng_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_under_2_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "child_care_service_for_aged_under_2_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_under_2_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "child_care_service_for_aged_under_2_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_2_to_3_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "child_care_service_for_aged_2_to_3_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_2_to_3_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "child_care_service_for_aged_2_to_3_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_for_enrolment_aged_2_to_3": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_for_enrolment_aged_2_to_3",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "cc_service_fee_level_annum_hd": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "cc_service_fee_level_annum_hd",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "cc_service_fee_level_annum_wd": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "cc_service_fee_level_annum_wd",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "join_ccc_subsidy_scheme_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "join_ccc_subsidy_scheme_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "join_ccc_subsidy_scheme_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "join_ccc_subsidy_scheme_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_occasional_cc_service_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "provide_occasional_cc_service_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_occasional_cc_service_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "provide_occasional_cc_service_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_extended_hour_service_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "provide_extended_hour_service_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_extended_hour_service_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "provide_extended_hour_service_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_application_fee_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_approved_fees_application_fee_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_application_fee_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_approved_fees_application_fee_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_registration_fee_hd": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_approved_fees_registration_fee_hd",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_hd_session_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_hd_session_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_hd_session_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_hd_session_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_registration_fee_wd": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "other_approved_fees_registration_fee_wd",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_wd_session_remarks_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_wd_session_remarks_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_wd_session_remarks_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "no_wd_session_remarks_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "northing": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "northing",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "easting": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "easting",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GeometryLongitude": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GeometryLongitude",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GeometryLatitude": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GeometryLatitude",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "fid": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "fid",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsGEOPPKCCC1Attributes": {
+        "type": "object",
+        "properties": {
+          "school_no": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "location_no": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_name_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_name_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "district_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "district_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "joining_kg_edu_scheme_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "joining_kg_edu_scheme_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "received_grant_for_support_to_ncs_students": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_date_from": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_date_to": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_form_type_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_form_type_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_period_type_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "application_period_type_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "address_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "address_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_category_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_category_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "student_category_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "student_category_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "tel": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fax": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_supervisor_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_supervisor_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_supervisor_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_supervisor_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_principal_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "name_of_school_principal_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_principal_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "title_of_school_principal_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_registered_classrooms_tc": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "no_of_registered_classrooms_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_registered_classrooms_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "outdoor_playground_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "outdoor_playground_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "indoor_playground_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "indoor_playground_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "music_room_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "music_room_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_special_rooms_or_areas_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_special_rooms_or_areas_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_founding_year": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "school_founding_year_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_founding_year_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_website": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_30000_or_below": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_30001_to_40000": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_40000_above": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_hd_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_30000_or_below": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_30001_to_40000": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_40000_above": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_wd_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_below_4_yrs": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "principal_and_teaching_staff_working_exp_fm_4_to_7_yrs": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_above_7_yrs": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "working_exp_of_principal_and_teaching_staff_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "summer_uniform_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "summer_uniform_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "winter_uniform_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "winter_uniform_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_bag_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_bag_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "tea_and_snacks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "tea_and_snacks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "textbooks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "textbooks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "exercise_books_or_workbooks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "exercise_books_or_workbooks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "stationery_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "stationery_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "bedding_items_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "bedding_items_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "salary_of_principal_and_teaching_staff": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "non_teaching_staff_salary": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "rent_management_fees_rates_and_government_rent": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teaching_resources": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "staff_training_and_professional_development": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_expenses": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_based_on_audited_account_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "expenditure_information_based_on_audited_account_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_type_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_type_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_planning_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "curriculum_planning_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "learning_or_teaching_approach_and_activities_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "learning_or_teaching_approach_and_activities_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "assessment_of_children_learning_experiences_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "assessment_of_children_learning_experiences_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_vision_and_mission_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "school_vision_and_mission_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "parent_teacher_association_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "parent_teacher_association_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_activities_or_communication_with_parents_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_activities_or_communication_with_parents_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_non_chinese_speaking_ncs_students_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_non_chinese_speaking_ncs_students_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_with_special_needs_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "support_to_students_with_special_needs_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "nursery_classes_not_writing": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "total_no_of_permitted_accommodation_of_class_rm_in_use": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_nursery_am": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_lkg_am": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_ukg_am": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_nursery_pm": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_lkg_pm": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_ukg_pm": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_nursery_wd": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_lkg_wd": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_students_in_ukg_wd": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_in_morning_session": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_in_afternoon_session": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "teacher_to_pupil_ratio_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_with_degree": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_w_non_degree": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_prin_n_teaching_staff_w_c_ece_or_above": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_w_qkt": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_prin_n_teaching_staff_w_other_t_training": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_w_qakt": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_of_principal_and_teaching_staff_others": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "total_no_of_principal_and_teaching_staff": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fees_certificate": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_chi_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_chi_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_eng_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "quality_review_result_and_report_eng_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_under_2_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_under_2_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_2_to_3_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "child_care_service_for_aged_2_to_3_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_for_enrolment_aged_2_to_3": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "cc_service_fee_level_annum_hd": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "cc_service_fee_level_annum_wd": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "join_ccc_subsidy_scheme_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "join_ccc_subsidy_scheme_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_occasional_cc_service_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_occasional_cc_service_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_extended_hour_service_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "provide_extended_hour_service_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_application_fee_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_application_fee_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_registration_fee_hd": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_hd_session_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_hd_session_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "other_approved_fees_registration_fee_wd": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_wd_session_remarks_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "no_wd_session_remarks_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "northing": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "easting": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GeometryLongitude": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GeometryLatitude": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "fid": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "SHAPE": {
+            "description": "Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type."
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsFeatureCollection": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsGEOPPKCCC1Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "GEO_PPKCCC_1",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "csdi:GEO_PPKCCC_1",
+      "title": "GEO_PPKCCC_1",
+      "protocol": "wfs"
+    },
+    {
+      "id": "GEO_PPKCCC_1",
+      "title": "GEO_PPKCCC_1",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.863568",
+          "miny": "22.204738",
+          "maxx": "114.321829",
+          "maxy": "22.533430"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.204738",
+          "miny": "113.863568",
+          "maxx": "22.533430",
+          "maxy": "114.321829"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.863568",
+          "miny": "22.204738",
+          "maxx": "114.321829",
+          "maxy": "22.533430"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.204738",
+          "miny": "113.863568",
+          "maxx": "22.533430",
+          "maxy": "114.321829"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "GEO_PPKCCC_1"
+        }
+      ]
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=edb_rcd_1633401226600_10690",
+      "sha256": "a5119cf979ec3f1dd0518522a64d7eec9917385c720c2d61dd5f8229a7bbe7cc",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/edb_rcd_1633401226600_10690/FeatureServer?f=pjson",
+      "sha256": "7b82dcbf47b9f9f922b55d7e6c77f90018c23f39ab11182b32546be735275f95",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/edb_rcd_1633401226600_10690/FeatureServer/0?f=pjson",
+      "sha256": "f1f260cddecc6d01c41c7f79ddcc7760021f593024383ad8d37f3847b026b59c",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/edb_rcd_1633401226600_10690/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+      "sha256": "d851bcee14c25355362e5f4b24fd24d6a0c4932d45e50f671fc75d744348017e",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-capabilities",
+      "parseStatus": "pass",
+      "kind": "wfs-capabilities"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/edb_rcd_1633401226600_10690/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType&typeNames=csdi%3AGEO_PPKCCC_1",
+      "sha256": "771cb2a8ebdf7dcca2d53e3b2970f1d98286113f816efc2d6743bcbfaf65dc2a",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-feature-type",
+      "parseStatus": "pass",
+      "kind": "wfs-feature-type"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/edb_rcd_1633401226600_10690/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+      "sha256": "d88b7b2a242595a1ff10dc974df58f0abc90b21235f726cebfe1d6281799a426",
+      "httpStatus": 200,
+      "contentType": "text/xml",
+      "role": "wms-capabilities",
+      "parseStatus": "pass",
+      "kind": "wms-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 6
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "landsd-csdi-old-survey-sheets-service-4",
+  "sourceSha256": "c3700d3820807a2ec68bba598407cfc4dafebdf6b8e7c7b933c972b771205b53",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/landsd_rcd_1640047456225_68329/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1640047456225_68329/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1640047456225_68329/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

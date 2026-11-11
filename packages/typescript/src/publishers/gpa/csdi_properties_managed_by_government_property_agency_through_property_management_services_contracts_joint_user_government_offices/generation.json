@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "gpa-csdi-properties-managed-by-government-property-agency-through-property-management-services-contracts-joint-user-government-offices",
+  "sourceSha256": "5864f88c62a26ef7896ee4a56731cf83201d07ded2fceede3f9b02fecf521ba5",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/gpa_rcd_1633334898216_75957/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/gpa_rcd_1633334898216_75957/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/gpa_rcd_1633334898216_75957/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

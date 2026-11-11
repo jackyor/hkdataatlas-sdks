@@ -1,0 +1,32 @@
+{
+  "sourceId": "landsd-search-nearby-api",
+  "publisherKey": "landsd",
+  "family": "search_nearby_api",
+  "status": "generated",
+  "key": "9783e137bebb7c50c8bab8e29afe25f938c67eccf30095baadfad430f9544b6d",
+  "sourceSha256": "a5beccd2a631d0d75abc4ac0323f826e830ac99722c6c2b3c1e90fe52e954283",
+  "derivedInputSha256": "a5beccd2a631d0d75abc4ac0323f826e830ac99722c6c2b3c1e90fe52e954283",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/searchNearby",
+      "operationId": "searchNearby",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/landsd-search-nearby-api.log",
+  "outputs": {
+    "__init__.py": "8f2a7e706740452b7a7b090d6729dd2ad3aebaf3745ae7769fa05720820fbb3d",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/search_nearby.py": "fa074956fd8e2a6118c69befa30ea398eeebe4a9fac8b9ac3bc1a31ef7f433eb",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "abfe65f3761995781e8ac8368c891cfdf2033bc6d5b5feac65240f22cbb41fe0",
+    "models/search_nearby_lang.py": "d83e3fd3236d61bbd96577758a498a7c186c7cdeb6430abe8b049b51649ccde8",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "externalDocs": {
+    "description": "Publisher data dictionary",
+    "url": "https://www.tid.gov.hk/psi/dd_eMailNotification_EN.pdf"
+  },
+  "info": {
+    "description": "The source documents describe notification data fields and provide three literal XML resource URLs, but do not document an HTTP API contract, including methods, request parameters, response statuses, or response schemas. The resource URLs are therefore not represented as executable operations. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Free eMail Notification Services",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/service/utf/messageFromUsTc.do": {
+      "get": {
+        "operationId": "retrieveInformationUpdateRelatedToTradeAndIndustryDepartmentTraditionalChineseServiceUtfMessagefromustcDo",
+        "summary": "Retrieve Information update related to Trade and Industry Department (Traditional Chinese)",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://www.tid.gov.hk/service/utf/messageFromUsTc.do. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://www.tid.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/service/utf/messageFromUsSc.do": {
+      "get": {
+        "operationId": "retrieveInformationUpdateRelatedToTradeAndIndustryDepartmentSimplifiedChineseServiceUtfMessagefromusscDo",
+        "summary": "Retrieve Information update related to Trade and Industry Department (Simplified Chinese)",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://www.tid.gov.hk/service/utf/messageFromUsSc.do. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://www.tid.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/service/utf/messageFromUsEn.do": {
+      "get": {
+        "operationId": "retrieveInformationUpdateRelatedToTradeAndIndustryDepartmentEnglishServiceUtfMessagefromusenDo",
+        "summary": "Retrieve Information update related to Trade and Industry Department (English)",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://www.tid.gov.hk/service/utf/messageFromUsEn.do. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://www.tid.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

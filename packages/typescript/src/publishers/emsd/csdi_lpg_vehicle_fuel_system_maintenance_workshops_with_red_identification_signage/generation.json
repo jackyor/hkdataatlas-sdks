@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "emsd-csdi-lpg-vehicle-fuel-system-maintenance-workshops-with-red-identification-signage",
+  "sourceSha256": "640acf32d92b4184ae593eb4c0718082e44d918afc147478cbcb17df5407258c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/emsd_rcd_1664941340274_60903/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1664941340274_60903/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1664941340274_60903/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

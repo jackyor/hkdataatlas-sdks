@@ -1,0 +1,86 @@
+components:
+  schemas:
+    BlogEntry:
+      properties:
+        date:
+          description: Date in D.M.YYYY format, for example 24.4.2019.
+          type: string
+        description:
+          description: My Blog content.
+          type: string
+        link:
+          description: URL of headline.
+          format: uri
+          type: string
+        title:
+          description: Headline of My Blog.
+          type: string
+      required:
+        - title
+        - link
+        - date
+        - description
+      type: object
+externalDocs:
+  description: Publisher API data dictionary
+  url: https://www.cso.gov.hk/eng/open_data/data_dict_blog.pdf
+info:
+  description: Search the Chief Secretary for Administration's My Blog. The publisher does not document an API version; “undocumented” is a metadata placeholder, not a publisher API version. The API documentation specifies English-language results; catalog metadata also lists Traditional Chinese and Simplified Chinese API resources, but provides no corresponding parameter documentation or response schemas. Authentication requirements are not specified.
+  title: Chief Secretary for Administration - My Blog
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /cso/blog/search:
+    get:
+      description: Returns My Blog entries. All times are Hong Kong Time (GMT+8). If both date parameters are omitted, the last six months of entries are returned. A maximum of 400 records will be returned. The documented date range is inclusive.
+      operationId: searchChiefSecretaryBlog
+      parameters:
+        - description: Language of the requested blog. The English-language API resource is documented at this URL; the catalog also lists Traditional Chinese (tc) and Simplified Chinese (sc) resources, but the publisher API documentation does not define these values or their response contract.
+          example: en
+          in: query
+          name: lang
+          required: true
+          schema:
+            default: en
+            type: string
+        - description: Inclusive start date in YYYYMMDD format, for example 20190102. The earliest accepted date is 16 January 2017. Must be used together with end.
+          example: "20190102"
+          in: query
+          name: start
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+        - description: Inclusive end date in YYYYMMDD format, for example 20190109. The latest accepted date is today. Must be used together with start.
+          example: "20190109"
+          in: query
+          name: end
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                description: The response envelope is not specified. The documented entry fields are represented as a permissive object.
+                properties:
+                  date:
+                    description: Date in D.M.YYYY format, for example 24.4.2019.
+                    type: string
+                  description:
+                    description: My Blog content.
+                    type: string
+                  link:
+                    description: URL of headline.
+                    format: uri
+                    type: string
+                  title:
+                    description: Headline of My Blog.
+                    type: string
+                type: object
+          description: Successful search response. The data dictionary documents the fields of each blog entry but does not specify the top-level JSON response structure.
+      summary: Search My Blog
+servers:
+  - url: https://api.data.gov.hk/v1

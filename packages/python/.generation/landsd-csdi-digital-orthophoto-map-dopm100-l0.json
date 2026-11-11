@@ -1,0 +1,37 @@
+{
+  "sourceId": "landsd-csdi-digital-orthophoto-map-dopm100-l0",
+  "publisherKey": "landsd",
+  "family": "csdi_digital_orthophoto_map_dopm100_l0",
+  "status": "generated",
+  "key": "c8372faeef8bce7f100d194966d7e4f7fd517afcc136cbe201e908140a6742d7",
+  "sourceSha256": "f17bfce31bf1ff1e7a7ae1eea64f6e15856d6e73ce8d030b3d0784039911d9dd",
+  "derivedInputSha256": "6fff95904817fed58fcb7a2cdd9cd4999c521f027d23bf6584b2d6033bf0e611",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/services/common/landsd_rcd_1638158449007_88801/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap",
+      "tags": [
+        "WMS"
+      ]
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/landsd-csdi-digital-orthophoto-map-dopm100-l0.log",
+  "outputs": {
+    "__init__.py": "a356acce1b5a90a6d066dd7758ffd2e0c267d3a805808349a42950e793163231",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/wms/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wms/wms_map_server_get_map.py": "a2aa19d05e59e82820559e519f38010c603f513804867aab245ed72bc74b2b2a",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "3ff68a6d7203ff895d379b5bf927d98f7625dbd4f32dc6f3462c10b9f3a8d10f",
+    "models/wms_map_server_get_map_format.py": "a65b75b0acd6d74d2b98a842cc9d3f5acd1a40873813841fd53fdffe75d25c40",
+    "models/wms_map_server_get_map_request.py": "847774c945625dd0b2021a20ecb37f7d99e0031f6b91c82d0aa27cdc0f99b621",
+    "models/wms_map_server_get_map_service.py": "cb701b87d9fbf4f140a0316cede0a4bc37a611998facdd5bb0793962d7d9c3a5",
+    "models/wms_map_server_get_map_version.py": "80f2a7664e048499e4919b94dfcf4a546ef4aec1e377a77fb199c1a6e5d9856a",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

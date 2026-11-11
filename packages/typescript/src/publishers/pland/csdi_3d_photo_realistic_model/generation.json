@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "pland-csdi-3d-photo-realistic-model",
+  "sourceSha256": "679d1efe4f21338323986ce369a8fb9287407bf76be3ff7bc878c9991dfec554",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/pland_rcd_1636534828693_9849/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1636534828693_9849/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1636534828693_9849/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

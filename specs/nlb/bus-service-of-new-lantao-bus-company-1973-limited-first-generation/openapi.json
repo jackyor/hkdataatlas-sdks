@@ -1,0 +1,441 @@
+{
+  "components": {
+    "schemas": {
+      "EstimatedArrival": {
+        "properties": {
+          "departed": {
+            "description": "1 if the departure has departed from the first stop of that route, otherwise 0. Scheduled arrival time is calculated from the timetable; actual departure time may change subject to operational adjustment.",
+            "type": "integer"
+          },
+          "estimatedArrivalTime": {
+            "description": "Documented as Datetime; the sample representation is YYYY-MM-DD HH:MM:SS.",
+            "type": "string"
+          },
+          "generateTime": {
+            "description": "Documented as Datetime; the sample representation is YYYY-MM-DD HH:MM:SS.",
+            "type": "string"
+          },
+          "noGPS": {
+            "description": "1 if the bus of that departure has GPS installed, otherwise 0. Estimated arrival time is calculated from historical data, not real-time traffic data.",
+            "type": "integer"
+          },
+          "routeVariantName": {
+            "type": "string"
+          },
+          "wheelChair": {
+            "description": "1 if the bus of that departure can be easily accessed by wheelchair, otherwise 0.",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "EstimatedArrivalsRequest": {
+        "properties": {
+          "language": {
+            "description": "Language of response content: `en` English, `zh` Traditional Chinese, `cn` Simplified Chinese.",
+            "enum": [
+              "en",
+              "zh",
+              "cn"
+            ],
+            "type": "string"
+          },
+          "routeId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Documented as Integer; the sample request represents this identifier as a string."
+          },
+          "stopId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Documented as Integer; the sample request represents this identifier as a string."
+          }
+        },
+        "type": "object"
+      },
+      "EstimatedArrivalsResponse": {
+        "properties": {
+          "estimatedArrivals": {
+            "description": "This property does not exist if the bus estimated arrival time of the route is currently unavailable.",
+            "items": {
+              "$ref": "#/components/schemas/EstimatedArrival"
+            },
+            "type": "array"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Route": {
+        "properties": {
+          "overnightRoute": {
+            "description": "Indicates whether the route is an overnight route: 1 if it is, otherwise 0.",
+            "type": "integer"
+          },
+          "routeId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Documented as Integer; the documented sample represents this identifier as a string."
+          },
+          "routeName_c": {
+            "type": "string"
+          },
+          "routeName_e": {
+            "type": "string"
+          },
+          "routeName_s": {
+            "type": "string"
+          },
+          "routeNo": {
+            "type": "string"
+          },
+          "specialRoute": {
+            "description": "Indicates whether the route is a special route: 1 if it is, otherwise 0.",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "RouteStopsRequest": {
+        "properties": {
+          "routeId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Documented as Integer; the sample request represents this identifier as a string."
+          }
+        },
+        "type": "object"
+      },
+      "RoutesResponse": {
+        "properties": {
+          "routes": {
+            "items": {
+              "$ref": "#/components/schemas/Route"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "Stop": {
+        "properties": {
+          "fare": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Fare from Monday to Saturday, except public holidays. Documented as Number; the sample represents it as a string."
+          },
+          "fareHoliday": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Fare on Sundays and public holidays. Documented as Number; the sample represents it as a string."
+          },
+          "latitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Documented as Number; the sample represents it as a string."
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Documented as Number; the sample represents it as a string."
+          },
+          "someDepartureObserveOnly": {
+            "description": "Indicates whether the stop of that route is some departure observe only: 1 if it is, otherwise 0.",
+            "type": "integer"
+          },
+          "stopId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Documented as Integer; the sample represents this identifier as a string."
+          },
+          "stopLocation_c": {
+            "type": "string"
+          },
+          "stopLocation_e": {
+            "type": "string"
+          },
+          "stopLocation_s": {
+            "type": "string"
+          },
+          "stopName_c": {
+            "type": "string"
+          },
+          "stopName_e": {
+            "type": "string"
+          },
+          "stopName_s": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "StopsResponse": {
+        "properties": {
+          "stops": {
+            "description": "The stops are ordered by stop sequence of the route.",
+            "items": {
+              "$ref": "#/components/schemas/Stop"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "http://www.nlb.com.hk/datagovhk/BusServiceOpenAPIDocumentation1.0.pdf"
+  },
+  "info": {
+    "description": "Bus Service Open API documentation, API version 1.0. Last updated 2019-08-05. Authentication requirements are not specified in the source.",
+    "title": "New Lantao Bus Company Bus Service API",
+    "version": "1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/route.php": {
+      "post": {
+        "operationId": "listRoutes",
+        "parameters": [
+          {
+            "description": "Selects the documented operation variant.",
+            "example": "list",
+            "in": "query",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "const": "list",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documented": {
+                    "summary": "Documented sample response",
+                    "value": {
+                      "routes": [
+                        {
+                          "overnightRoute": 0,
+                          "routeId": "2",
+                          "routeName_c": "大澳 > 梅窩碼頭",
+                          "routeName_e": "Tai O > Mui Wo Ferry Pier",
+                          "routeName_s": "大澳 > 梅窝码头",
+                          "routeNo": "1",
+                          "specialRoute": 0
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RoutesResponse"
+                }
+              }
+            },
+            "description": "List of routes."
+          }
+        },
+        "summary": "Get list of all routes",
+        "x-request-body-status": "undocumented_by_publisher",
+        "x-documented-request-content-type": "application/json",
+        "description": "The publisher page4 documents POST route.php?action=list with application/json but leaves request body and sample body blank. No required object schema is asserted. A source-backed no-body request is a separate observation, not a universal body constraint."
+      }
+    },
+    "/stop.php": {
+      "post": {
+        "operationId": "stopOperations",
+        "parameters": [
+          {
+            "description": "Selects the operation. For `estimatedArrivals`, the request body must also provide `stopId` and `language`; those fields are not required for `list`.",
+            "examples": {
+              "estimatedArrivals": {
+                "summary": "Get estimated arrivals of a stop of a route",
+                "value": "estimatedArrivals"
+              },
+              "list": {
+                "summary": "Get list of stops of a route",
+                "value": "list"
+              }
+            },
+            "in": "query",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "enum": [
+                "list",
+                "estimatedArrivals"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "estimatedArrivals": {
+                  "summary": "Documented request for the estimatedArrivals action",
+                  "value": {
+                    "language": "en",
+                    "routeId": "32",
+                    "stopId": "4"
+                  }
+                },
+                "list": {
+                  "summary": "Documented request for the list action",
+                  "value": {
+                    "routeId": "32"
+                  }
+                }
+              },
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/RouteStopsRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/EstimatedArrivalsRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "description": "For `list`, provide `routeId`. For `estimatedArrivals`, provide `routeId`, `stopId`, and `language`.",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "estimatedArrivals": {
+                    "summary": "Documented sample response for the estimatedArrivals action (truncated with ellipsis in source)",
+                    "value": {
+                      "estimatedArrivals": [
+                        {
+                          "departed": 1,
+                          "estimatedArrivalTime": "2018-01-01 08:05:00",
+                          "generateTime": "2018-01-01 08:00:00",
+                          "noGPS": 0,
+                          "routeVariantName": "Via: Mui Wo Old Town",
+                          "wheelChair": 1
+                        }
+                      ],
+                      "message": "Actual arrival time can be affected by traffic conditions, please wait at the bus stop in advance<br />Scheduled arrival time is calculated from timetable, actual departure time may change subject to operational adjustment"
+                    }
+                  },
+                  "list": {
+                    "summary": "Documented sample response for the list action (truncated with ellipsis in source)",
+                    "value": {
+                      "stops": [
+                        {
+                          "fare": "15.0",
+                          "fareHoliday": "25.0",
+                          "latitude": "22.31456900",
+                          "longitude": "113.93661000",
+                          "someDepartureObserveOnly": 0,
+                          "stopId": "117",
+                          "stopLocation_c": "暢達路",
+                          "stopLocation_e": "Cheong Tat Road",
+                          "stopLocation_s": "畅达路",
+                          "stopName_c": "機場(客運大樓)",
+                          "stopName_e": "Airport (Passenger Terminal Building)",
+                          "stopName_s": "机场(客运大楼)"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/StopsResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/EstimatedArrivalsResponse"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Response for the selected action. For `list`, stops are ordered by stop sequence of the route. For `estimatedArrivals`, estimated arrivals and an accompanying message are returned; `estimatedArrivals` does not exist when the bus estimated arrival time for that route is currently unavailable. Arrival estimates are calculated from historical data, not real-time traffic data; actual arrival time can be affected by traffic. Scheduled arrival time is calculated from the timetable, and actual departure time may change subject to operational adjustment."
+          }
+        },
+        "summary": "Get stops of a route or estimated arrivals"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://rt.data.gov.hk/v1/transport/nlb/"
+    }
+  ],
+  "x-source-evidence": {
+    "url": "http://www.nlb.com.hk/datagovhk/BusServiceOpenAPIDocumentation1.0.pdf",
+    "sourcePdfSha256": "a03aacff1edd85134790189bf4625f905003393f6aa911ea768ec0b5eb36ef10",
+    "sourcePage": "Page4/9 table visually inspected; request body and sample body blank",
+    "classification": "source_corrected_derivative_of_documentation_derived_contract",
+    "change": "Remove invented required empty-object request body for the documented read-only route-list POST; retain body-unspecified metadata and documented content type."
+  }
+}

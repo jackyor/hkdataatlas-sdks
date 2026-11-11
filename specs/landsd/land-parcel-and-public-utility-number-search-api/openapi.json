@@ -1,0 +1,98 @@
+{
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/apidoc/LPPUNSearchAPI"
+  },
+  "info": {
+    "description": "Searches for locations by land parcel number, public utility number, Building CSUID, Lot CSUID, or PRN. PRN search applies to Lot searching only. The URL pattern documents API version v1.0.0; this is not a declared OpenAPI metadata version. The publisher advises that the existing service domain https://mapapi.geodata.gov.hk will be deprecated on 15 March 2027 and that clients should use the new domain. API use is subject to the publisher's terms, including attribution requirements; see the official documentation. TLS 1.2 is required. Authentication requirements are not documented.",
+    "title": "Land Parcel and Public Utility Number Search API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/gs/api/{version}/lus/{DataType}/SearchNumber": {
+      "get": {
+        "description": "Returns search data in JSON format. The publisher advises against invoking the API with a large number of requests within a short period. The documented URL example uses version v1.0.0 and DataType value gla; the query-builder's exact values are lowercase, while the prose lists uppercase labels. The API version may change, and old versions may be removed without notice.",
+        "operationId": "searchNumber",
+        "parameters": [
+          {
+            "description": "API version. The currently documented version is v1.0.0; supported versions may change.",
+            "example": "v1.0.0",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Data set to search. Prose documents these labels: LOT (Private Lot), STT (Short Term Tenancy), GLA (Government Land Allocation), LPP (Government Licence and Permit), UN (Public Utility Number: electricity pole, electrical transformer, fresh water fire hydrant, lamp post, or salt water fire hydrant), BUILDINGCSUID (Building CSUID), LOTCSUID (Lot CSUID), and PRN (Property Reference Number). The retained HTML query-builder records the corresponding lowercase path values. The guide lists semantic uppercase labels while the native query builder uses lowercase wire values; listed source choices are retained as examples without asserting case exclusivity.",
+            "examples": {
+              "lot": {
+                "summary": "Private Lot",
+                "value": "lot"
+              },
+              "propertyReference": {
+                "summary": "Property Reference Number",
+                "value": "prn"
+              },
+              "publicUtility": {
+                "summary": "Public Utility Number",
+                "value": "un"
+              }
+            },
+            "in": "path",
+            "name": "DataType",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Search value input by the user. The guide's URL format uses the query parameter text; its explanatory parameter list refers to this value as [value]. The guide does not explicitly label query requiredness.",
+            "examples": {
+              "governmentLandAllocation": {
+                "summary": "Government Land Allocation search",
+                "value": "GLA-HK 836"
+              },
+              "lot": {
+                "summary": "Lot search",
+                "value": "IL 152"
+              }
+            },
+            "in": "query",
+            "name": "text",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "The source documents JSON output without a field dictionary or universal object/array shape."
+                }
+              }
+            },
+            "description": "OK. The publisher states that data is returned in JSON format but does not document response fields or a response schema."
+          },
+          "400": {
+            "description": "Bad Request, for example, invalid query parameters."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "summary": "Search by land parcel or public utility number"
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Current service domain documented by the publisher",
+      "url": "https://mapapi.hkmapservice.gov.hk"
+    }
+  ]
+}

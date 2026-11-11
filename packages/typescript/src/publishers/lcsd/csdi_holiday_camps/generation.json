@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "lcsd-csdi-holiday-camps",
+  "sourceSha256": "d5c9c9bab718ad58de0287dbf344c8dac50ee6e7a63fd8956fed8d96b40562d1",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/lcsd_rcd_1629267205214_83172/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1629267205214_83172/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1629267205214_83172/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hko-csdi-daily-mean-dew-point-temperature",
+  "sourceSha256": "4505b37513072ad0e37de67ccb83714203f9c8ef2bb859934bfffc1b0371f8f7",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hko_rcd_1634960124704_66104/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634960124704_66104/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634960124704_66104/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

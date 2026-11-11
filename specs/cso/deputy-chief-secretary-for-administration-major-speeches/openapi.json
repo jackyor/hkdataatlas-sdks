@@ -1,0 +1,118 @@
+{
+  "components": {
+    "schemas": {
+      "MajorSpeech": {
+        "additionalProperties": true,
+        "description": "A major speech record as described by the XML dictionary. The dictionary lists title, link and pubDate for an item; the API table additionally lists title, link, date and description. The precise API response envelope and field-name alignment are not fully established.",
+        "properties": {
+          "date": {
+            "description": "Date (D.M.YYYY), as listed in the API field table.",
+            "type": "string"
+          },
+          "description": {
+            "description": "Content of the Major Speeches.",
+            "type": "string"
+          },
+          "link": {
+            "description": "URL of headline.",
+            "format": "uri",
+            "type": "string"
+          },
+          "pubDate": {
+            "description": "Date (D.M.YYYY), as listed for an XML item.",
+            "type": "string"
+          },
+          "title": {
+            "description": "Headline of Major Speeches.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official data dictionary",
+    "url": "https://www.cso.gov.hk/eng/open_data/data_dict_major_speech_testing.pdf"
+  },
+  "info": {
+    "description": "Retrieves Major Speeches of the Chief Secretary for Administration. The version is undocumented and is a metadata placeholder, not a publisher API version. The documentation specifies an English-language search URL and XML field descriptions, but does not describe authentication or the complete response envelope.",
+    "title": "Chief Secretary for Administration — Major Speeches",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/search": {
+      "get": {
+        "description": "Returns major speeches. The documented URL is `https://api.data.gov.hk/v1/cso/majorspeech/search?lang=en&start=<param>&end=<param>`. Start and end must be used together when supplied. If both are omitted, speeches from the last six months are returned. A maximum of 400 records is returned. Dates are interpreted in Hong Kong Time (GMT+8).",
+        "operationId": "searchMajorSpeeches",
+        "parameters": [
+          {
+            "description": "Language selector. The documented English URL uses `en`. Other language values are not specified by this dictionary.",
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "const": "en",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Inclusive start date in YYYYMMDD format, for example `20190102`. The earliest accepted date is 16 January 2017. Must be supplied together with `end`.",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": {
+              "examples": [
+                "20190102"
+              ],
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Inclusive end date in YYYYMMDD format, for example `20190109`. The latest accepted date is today. Must be supplied together with `start`.",
+            "in": "query",
+            "name": "end",
+            "required": false,
+            "schema": {
+              "examples": [
+                "20190109"
+              ],
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "properties": {
+                    "items": {
+                      "description": "Speech items. The dictionary does not explicitly establish the response-envelope property name; `items` is therefore not asserted as a documented wire key.",
+                      "items": {
+                        "$ref": "#/components/schemas/MajorSpeech"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Major speeches search results. The dictionary documents the speech fields but does not specify the complete response envelope or response media type."
+          }
+        },
+        "summary": "Search major speeches"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.data.gov.hk/v1/cso/majorspeech"
+    }
+  ]
+}

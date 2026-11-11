@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "afcd-csdi-distribution-of-fishing-operation-in-hong-kong-waters",
+  "sourceSha256": "9ccb7afb7031ad186c7d162647df81d757679d94b6dd253efada828ab67f95bf",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/afcd_rcd_1697167244880_33192/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1697167244880_33192/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1697167244880_33192/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hko-csdi-daily-mean-pressure",
+  "sourceSha256": "821c1922303fd37021d6686b0e61c0311efba14b5ae2c061f35b87ae4c5bc1c0",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hko_rcd_1634960001885_89970/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634960001885_89970/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634960001885_89970/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

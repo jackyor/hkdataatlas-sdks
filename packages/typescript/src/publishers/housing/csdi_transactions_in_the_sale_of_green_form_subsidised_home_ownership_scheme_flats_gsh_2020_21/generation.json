@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21",
+  "sourceSha256": "c1fc3e15fb085ddc825c0cef204a76d123f1138ca95176214c40939816b2c6dd",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/housingauthority_rcd_1765178950193_21959/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/housingauthority_rcd_1765178950193_21959/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

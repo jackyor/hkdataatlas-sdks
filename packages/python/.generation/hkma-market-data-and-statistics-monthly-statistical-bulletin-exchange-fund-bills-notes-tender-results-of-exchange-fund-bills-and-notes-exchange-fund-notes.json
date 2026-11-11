@@ -1,0 +1,43 @@
+{
+  "sourceId": "hkma-market-data-and-statistics-monthly-statistical-bulletin-exchange-fund-bills-notes-tender-results-of-exchange-fund-bills-and-notes-exchange-fund-notes",
+  "publisherKey": "hkma",
+  "family": "market_data_and_statistics_monthly_statistical_bulletin_exchange_fund_bills_notes_tender_results_of_exchange_fund_bills_and_notes_exchange_fund_notes",
+  "status": "generated",
+  "key": "c3c47d2ae7b51f304714440e59cc1c4bf02975bf2d92e6c520b438308e50a155",
+  "sourceSha256": "1cc0bac7196c2a9181983c4712f91b494351e7599606b56e6b992ee5b25b9e40",
+  "derivedInputSha256": "1cc0bac7196c2a9181983c4712f91b494351e7599606b56e6b992ee5b25b9e40",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/efbn-tender-results-efn",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-market-data-and-statistics-monthly-statistical-bulletin-exchange-fund-bills-notes-tender-results-of-exchange-fund-bills-and-notes-exchange-fund-notes.log",
+  "outputs": {
+    "__init__.py": "23148455f016486cc8fabc31eb861ee8f7c906803ef16ca849b5b3d34ea22540",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_efbn_tender_results_efn.py": "98c9f86069418391d164373922a8f2a5d7af59d5e53a168c09c3fcd9ab66d3d6",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "4493575bbde427c54817ea20d3262028ed4c8e973ff91d00926711e69522076a",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "ba6aaa5789241a7989b27108c8d3bdc09402cec8a6b284e134b279481bdaa23a",
+    "models/record.py": "df0699bbc3fce8b9bf0537b2284ab60e2ac8aa52388df7898b5b56abcf974771",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/segment.py": "b59fa2255afa424b193eead317e5fb0680940c4abd6d9d28a1121fdfe9faaf1f",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

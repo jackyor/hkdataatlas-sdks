@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ld-csdi-information-of-the-registry-of-trade-unions",
+  "sourceSha256": "cbc0597dec0a9e7c31610f45a37797d86f9507c87d2708c810213554202b374a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/labour_rcd_1760408778957_75005/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/labour_rcd_1760408778957_75005/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,821 @@
+components:
+  schemas:
+    Address:
+      description: A premises address or other address type, if applicable. The retained XML schema describes a PremisesAddress choice; it is not assumed to define the JSON response.
+      properties:
+        PremisesAddress:
+          $ref: "#/components/schemas/PremisesAddress"
+      type: object
+    AddressLookupForm:
+      properties:
+        q:
+          description: Free-text input address element information.
+          type: string
+      required:
+        - q
+      type: object
+    AddressLookupResult:
+      description: Conceptual lookup result containing the request address and suggested addresses in decreasing order of similarity. The observed JSON has RequestAddress and SuggestedAddress at the top level; the XML schema is XML-only and is not treated as a JSON schema.
+      properties:
+        RequestAddress:
+          $ref: "#/components/schemas/RequestAddress"
+        SuggestedAddress:
+          description: Suggested addresses in decreasing similarity order; the dictionary notes a maximum of 200 results.
+          items:
+            $ref: "#/components/schemas/SuggestedAddress"
+          maxItems: 200
+          type: array
+      type: object
+    Chi3dAddress:
+      description: Optional Chinese floor and unit information; documented as available when `3d=1`.
+      properties:
+        ChiFloor:
+          properties:
+            FloorDescription:
+              description: Floor description in Chinese, for example 大堂層, 地下上層, 天台 or 平台.
+              type: string
+            FloorNum:
+              description: Floor number.
+              type: string
+          type: object
+        ChiUnit:
+          properties:
+            UnitDescriptor:
+              description: Unit descriptor in Chinese, for example 室 or 舖.
+              type: string
+            UnitNo:
+              description: Unit number, including non-numeric parts.
+              type: string
+            UnitPortion:
+              description: Unit portion in Chinese.
+              type: string
+          type: object
+      type: object
+    ChiBlock:
+      description: Block information in Chinese.
+      properties:
+        BlockDescriptor:
+          description: Block descriptor in Chinese, for example 座 or 洋房.
+          maxLength: 14
+          type: string
+        BlockNo:
+          description: Block number in Chinese or numeric values, for example 1, 一 or 東.
+          maxLength: 5
+          type: string
+      type: object
+    ChiDistrict:
+      description: District and/or sub-district information in Chinese.
+      properties:
+        DcDistrict:
+          description: District Council where the address is located.
+          maxLength: 10
+          type: string
+      type: object
+    ChiEstate:
+      description: Estate name and related information in Chinese.
+      properties:
+        ChiPhase:
+          $ref: "#/components/schemas/ChiPhase"
+        EstateName:
+          maxLength: 25
+          type: string
+      type: object
+    ChiLot:
+      description: Lot information in Chinese. The XML dictionary schema describes either structured lot entries or free-text lot lines; those XML choice details are not treated as a JSON guarantee.
+      properties:
+        ChiStructuredLot:
+          items:
+            $ref: "#/components/schemas/StructuredLot"
+          type: array
+        FreeTextLotLines:
+          items:
+            maxLength: 35
+            type: string
+          maxItems: 5
+          type: array
+      type: object
+    ChiPhase:
+      properties:
+        PhaseName:
+          maxLength: 25
+          type: string
+        PhaseNo:
+          description: Phase number.
+          type: number
+      type: object
+    ChiPremisesAddress:
+      description: Structured Chinese address referring to a location that can be occupied by persons or organisations within Hong Kong.
+      properties:
+        BuildingName:
+          description: Full building name in Chinese.
+          maxLength: 85
+          type: string
+        Chi3dAddress:
+          $ref: "#/components/schemas/Chi3dAddress"
+          description: Floor and unit information in Chinese; documented as present in lookup results from 31 July 2022 and shown when `3d=1`.
+        ChiBlock:
+          $ref: "#/components/schemas/ChiBlock"
+        ChiDistrict:
+          $ref: "#/components/schemas/ChiDistrict"
+        ChiEstate:
+          $ref: "#/components/schemas/ChiEstate"
+        ChiLot:
+          $ref: "#/components/schemas/ChiLot"
+        ChiStreet:
+          $ref: "#/components/schemas/ChiStreet"
+        ChiVillage:
+          $ref: "#/components/schemas/ChiVillage"
+        Region:
+          description: Region to which the address belongs.
+          enum:
+            - 香港
+            - 九龍
+            - 新界
+          maxLength: 3
+          type: string
+      type: object
+    ChiStreet:
+      description: Street name and building number information in Chinese.
+      properties:
+        BuildingNoConfirmationCode:
+          description: Building-number confirmation; when C or P, BuildingNoFrom must not be null.
+          enum:
+            - C
+            - P
+            - A
+            - B
+            - X
+          type: string
+        BuildingNoFrom:
+          $ref: "#/components/schemas/ChineseBuildingNumber"
+        BuildingNoOddEvenIndicator:
+          description: O = odd numbers, E = even numbers, B = both even and odd numbers within the range.
+          enum:
+            - O
+            - E
+            - B
+          type: string
+        BuildingNoTo:
+          $ref: "#/components/schemas/ChineseBuildingNumber"
+        BuildingNoUnofficialIndicator:
+          description: "Unofficial-address indicator: 1 = unofficial building number or no building number; 2 = unofficial building number and building name."
+          enum:
+            - "1"
+            - "2"
+          type: string
+        LocationName:
+          description: Place name in Chinese.
+          maxLength: 69
+          type: string
+        StreetName:
+          description: Street name in Chinese.
+          maxLength: 24
+          type: string
+      type: object
+    ChiVillage:
+      description: Village name and building number information in Chinese.
+      properties:
+        BuildingNoConfirmationCode:
+          description: When the code is C or P, BuildingNoFrom must not be null.
+          enum:
+            - C
+            - P
+            - A
+            - B
+            - X
+          type: string
+        BuildingNoFrom:
+          $ref: "#/components/schemas/ChineseBuildingNumber"
+        BuildingNoOddEvenIndicator:
+          enum:
+            - O
+            - E
+            - B
+          type: string
+        BuildingNoTo:
+          $ref: "#/components/schemas/ChineseBuildingNumber"
+        BuildingNoUnofficialIndicator:
+          enum:
+            - "1"
+            - "2"
+          type: string
+        LocationName:
+          description: Place name in Chinese.
+          maxLength: 69
+          type: string
+        VillageName:
+          description: Village name in Chinese.
+          maxLength: 24
+          type: string
+      type: object
+    ChineseBuildingNumber:
+      description: Starting or ending building number, including any non-numeric part.
+      maxLength: 7
+      pattern: ^[A-Z]{0,2}[0-9]{0,4}[A-Z]{0,2}$
+      type: string
+    Eng3dAddress:
+      description: Optional English floor and unit information; documented as available when `3d=1`.
+      properties:
+        EngFloor:
+          properties:
+            FloorDescription:
+              description: Floor description in English, for example CONCOURSE, UPPER G/F, ROOF or PODIUM.
+              type: string
+            FloorNum:
+              description: Floor number.
+              type: string
+          type: object
+        EngUnit:
+          properties:
+            UnitDescriptor:
+              description: Unit descriptor in English, for example FLAT or SHOP.
+              type: string
+            UnitNo:
+              description: Unit number, including non-numeric parts.
+              type: string
+            UnitPortion:
+              description: Unit portion in English.
+              type: string
+          type: object
+      type: object
+    EngBlock:
+      description: Block information of the address in English.
+      properties:
+        BlockDescriptor:
+          description: Block descriptor in English, for example Building, House, Block or BLK.
+          maxLength: 35
+          type: string
+        BlockDescriptorPrecedenceIndicator:
+          description: "Ordering indicator when descriptor and number are both not null: Y means descriptor precedes number; N means number precedes descriptor."
+          enum:
+            - Y
+            - N
+          maxLength: 1
+          type: string
+        BlockNo:
+          description: Block number in English or numeric values, for example 1, A or EAST.
+          maxLength: 15
+          type: string
+      type: object
+    EngDistrict:
+      description: District and/or sub-district information in English.
+      properties:
+        DcDistrict:
+          description: District Council where the address is located.
+          maxLength: 50
+          type: string
+      type: object
+    EngEstate:
+      description: Estate name and related information in English.
+      properties:
+        EngPhase:
+          $ref: "#/components/schemas/EngPhase"
+        EstateName:
+          description: Estate name in English.
+          maxLength: 80
+          type: string
+      type: object
+    EngLot:
+      description: Lot information in English. The XML dictionary schema describes either structured lot entries or free-text lot lines; those XML choice details are not treated as a JSON guarantee.
+      properties:
+        EngStructuredLot:
+          items:
+            $ref: "#/components/schemas/StructuredLot"
+          type: array
+        FreeTextLotLines:
+          items:
+            maxLength: 40
+            type: string
+          maxItems: 5
+          type: array
+      type: object
+    EngPhase:
+      description: Phase name and phase number information in English.
+      properties:
+        PhaseName:
+          description: Phase name in English.
+          maxLength: 80
+          type: string
+        PhaseNo:
+          description: Phase number.
+          type: number
+      type: object
+    EngPremisesAddress:
+      description: Structured English address referring to a location that can be occupied by persons or organisations within Hong Kong.
+      properties:
+        BuildingName:
+          description: Full building name in English.
+          maxLength: 195
+          type: string
+        Eng3dAddress:
+          $ref: "#/components/schemas/Eng3dAddress"
+          description: Floor and unit information in English; documented as present in lookup results from 31 July 2022 and shown when `3d=1`.
+        EngBlock:
+          $ref: "#/components/schemas/EngBlock"
+        EngDistrict:
+          $ref: "#/components/schemas/EngDistrict"
+        EngEstate:
+          $ref: "#/components/schemas/EngEstate"
+        EngLot:
+          $ref: "#/components/schemas/EngLot"
+        EngStreet:
+          $ref: "#/components/schemas/EngStreet"
+        EngVillage:
+          $ref: "#/components/schemas/EngVillage"
+        Region:
+          description: "Region: HK = Hong Kong, KLN = Kowloon, NT = New Territories."
+          enum:
+            - HK
+            - KLN
+            - NT
+          maxLength: 3
+          type: string
+      type: object
+    EngStreet:
+      description: Street name and building number information in English.
+      properties:
+        BuildingNoConfirmationCode:
+          description: "Building-number confirmation: C = confirmed; P = provisional; A = not yet allocated but action to be taken; B = use existing old number but action to be taken; X = not applicable. When C or P, BuildingNoFrom must not be null."
+          enum:
+            - C
+            - P
+            - A
+            - B
+            - X
+          type: string
+        BuildingNoFrom:
+          $ref: "#/components/schemas/EnglishBuildingNumber"
+        BuildingNoOddEvenIndicator:
+          description: O = odd numbers, E = even numbers, B = both even and odd numbers within the range.
+          enum:
+            - O
+            - E
+            - B
+          type: string
+        BuildingNoTo:
+          $ref: "#/components/schemas/EnglishBuildingNumber"
+        BuildingNoUnofficialIndicator:
+          description: "Unofficial-address indicator: 1 = unofficial building number or no building number; 2 = unofficial building number and building name."
+          enum:
+            - "1"
+            - "2"
+          type: string
+        LocationName:
+          description: Place or location name in English.
+          maxLength: 175
+          type: string
+        StreetName:
+          description: Street name in English.
+          maxLength: 67
+          type: string
+      type: object
+    EngVillage:
+      description: Village name and building number information in English.
+      properties:
+        BuildingNoConfirmationCode:
+          description: "Building-number confirmation: C = confirmed; P = provisional; A = not yet allocated but action to be taken; B = use existing old number but action to be taken; X = not applicable. When C or P, BuildingNoFrom must not be null."
+          enum:
+            - C
+            - P
+            - A
+            - B
+            - X
+          type: string
+        BuildingNoFrom:
+          $ref: "#/components/schemas/EnglishBuildingNumber"
+        BuildingNoOddEvenIndicator:
+          description: O = odd numbers, E = even numbers, B = both even and odd numbers within the range.
+          enum:
+            - O
+            - E
+            - B
+          type: string
+        BuildingNoTo:
+          $ref: "#/components/schemas/EnglishBuildingNumber"
+        BuildingNoUnofficialIndicator:
+          description: "Unofficial-address indicator: 1 = unofficial building number or no building number; 2 = unofficial building number and village name."
+          enum:
+            - "1"
+            - "2"
+          type: string
+        LocationName:
+          description: Place or location name in English.
+          maxLength: 175
+          type: string
+        VillageName:
+          description: Village name in English.
+          maxLength: 67
+          type: string
+      type: object
+    EnglishBuildingNumber:
+      description: Starting or ending building number, including any non-numeric part, as described for English street and village addresses. The observed response includes the string `2`; the dictionary specifies a constrained text representation.
+      maxLength: 7
+      pattern: ^[A-Z]{0,2}[0-9]{0,4}[A-Z]{0,2}$
+      type: string
+    GeoAddressLookupForm:
+      properties:
+        ga:
+          description: Input GeoAddress.
+          maxLength: 19
+          minLength: 19
+          type: string
+      required:
+        - ga
+      type: object
+    GeospatialInformation:
+      description: Geospatial information for an address. The companion XML schema describes these values as text; its maximum-length restrictions are included.
+      properties:
+        Easting:
+          description: Easting value of HK1980 Grid Coordinates.
+          maxLength: 10
+          type: string
+        Latitude:
+          description: Latitude degree value of WGS84 Geographical Coordinates.
+          maxLength: 13
+          type: string
+        Longitude:
+          description: Longitude degree value of WGS84 Geographical Coordinates.
+          maxLength: 13
+          type: string
+        Northing:
+          description: Northing value of HK1980 Grid Coordinates.
+          maxLength: 10
+          type: string
+      type: object
+    PremisesAddress:
+      description: Reference to an address which can be occupied by persons or organisations.
+      properties:
+        ChiPremisesAddress:
+          $ref: "#/components/schemas/ChiPremisesAddress"
+        EngPremisesAddress:
+          $ref: "#/components/schemas/EngPremisesAddress"
+        GeoAddress:
+          description: GeoAddress identifier. The dictionary describes format CHAR(19).
+          maxLength: 19
+          type: string
+        GeospatialInformation:
+          $ref: "#/components/schemas/GeospatialInformation"
+      type: object
+    RequestAddress:
+      description: The address to be looked up.
+      properties:
+        AddressLine:
+          anyOf:
+            - type: string
+            - items:
+                type: string
+              type: array
+          description: Free-text address captured from the input parameter. The observed JSON encodes this as an array of lines; this is an observation, not a declaration of all permitted representations.
+          examples:
+            - central government offices
+            - - central government offices
+      type: object
+    StructuredLot:
+      properties:
+        DdNo:
+          maxLength: 4
+          type: string
+        DdType:
+          maxLength: 5
+          type: string
+        LotExtendPortionCode:
+          enum:
+            - "1"
+            - "2"
+            - "3"
+            - "4"
+            - "5"
+            - "6"
+            - "7"
+            - "8"
+            - "9"
+          type: string
+        LotNo:
+          maxLength: 13
+          type: string
+        LotSection1:
+          maxLength: 4
+          type: string
+        LotSection2:
+          maxLength: 4
+          type: string
+        LotSection3:
+          maxLength: 4
+          type: string
+        LotSection4:
+          maxLength: 4
+          type: string
+        LotSubsection1:
+          maxLength: 4
+          type: string
+        LotSubsection2:
+          maxLength: 3
+          type: string
+        LotSubsection3:
+          maxLength: 3
+          type: string
+        LotType:
+          maxLength: 15
+          type: string
+      type: object
+    SuggestedAddress:
+      description: A suggested address from the address database.
+      properties:
+        Address:
+          $ref: "#/components/schemas/Address"
+        ValidationInformation:
+          $ref: "#/components/schemas/ValidationInformation"
+      type: object
+    ValidationInformation:
+      anyOf:
+        - description: Validation information for the suggested address.
+          properties:
+            Score:
+              description: Similarity score for reference and result ordering; included in address lookup results effective from 31 December 2019.
+              maximum: 100
+              minimum: 0
+              multipleOf: 0.01
+              type: number
+          type: object
+        - type: "null"
+      description: Preserves documented validation-information object and retained official null for geo-address results without validation information; no score/value coercion.
+externalDocs:
+  description: Data Dictionary for Address Lookup Service (September 2023)
+  url: https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf
+info:
+  description: Hong Kong Address Lookup Service and GeoAddress Lookup Service. The version is an OpenAPI metadata placeholder; no publisher API version is specified. Authentication requirements are not documented. For the `t` parameter on `/lookup`, the Data Dictionary (version 3.1, September 2023) specifies a default of 35, while the official resource description specifies 20; this conflict is retained here as a documented discrepancy.
+  termsOfService: https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf
+  title: Address Lookup Service
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /galookup:
+    get:
+      description: Looks up address records using a GeoAddress, a 19-character standardized identifier for a corresponding building or address. The documented identifier consists of ten leading digits derived from HK1980 grid coordinates with leading 8 digits removed, a `P` (podium) or `T` (tower) character, and an address record creation date in YYYYMMDD form. Request and response are encoded in UTF-8.
+      operationId: lookupGeoAddressGet
+      parameters:
+        - description: Input GeoAddress; 19-character string.
+          example: 3508215732T20110704
+          in: query
+          name: ga
+          required: true
+          schema:
+            maxLength: 19
+            minLength: 19
+            type: string
+        - description: Maximum number of records to be returned.
+          in: query
+          name: n
+          required: false
+          schema:
+            default: 200
+            maximum: 200
+            minimum: 1
+            type: integer
+        - description: Enable or disable showing floor and unit information. Floor and unit filtering is effective when this parameter is enabled.
+          in: query
+          name: 3d
+          required: false
+          schema:
+            default: 0
+            enum:
+              - 0
+              - 1
+            type: integer
+        - description: Address floor information for filtering returned floors; effective when `3d` is enabled. URL-encoded (percent-encoded).
+          in: query
+          name: floor
+          required: false
+          schema:
+            type: string
+        - description: Address unit information for filtering returned units; effective when `3d` is enabled. URL-encoded (percent-encoded).
+          in: query
+          name: unit
+          required: false
+          schema:
+            type: string
+        - description: Supported output formats include application/json and application/xml. The documented default is application/xml.
+          in: header
+          name: Accept
+          required: false
+          schema:
+            default: application/xml
+            enum:
+              - application/json
+              - application/xml
+            type: string
+        - description: Optional response compression. `gzip` is supported; default is no compression.
+          in: header
+          name: Accept-Encoding
+          required: false
+          schema:
+            enum:
+              - gzip
+            type: string
+        - description: Selects English, Traditional Chinese, or both. The documented default is `*`.
+          in: header
+          name: Accept-Language
+          required: false
+          schema:
+            default: "*"
+            enum:
+              - "*"
+              - en
+              - zh-Hant
+              - en, zh-Hant
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddressLookupResult"
+            application/xml:
+              schema:
+                description: XML response. The companion XSD documents the XML shape; its imported common-core types are unresolved in this bundle.
+                type: string
+          description: The request succeeded and lookup result is returned.
+        "400":
+          description: "Bad Request: request parameters cannot be interpreted by the server."
+        "406":
+          description: "Not Acceptable: the specified media type in the Accept header is not supported."
+        "413":
+          description: "Payload Too Large: the input address is longer than 255 characters."
+        "429":
+          description: "Too Many Requests: too many requests have been sent in a given amount of time."
+        "500":
+          description: "Internal Server Error: the server is unable to process the request."
+      summary: GeoAddress lookup
+  /lookup:
+    get:
+      description: Looks up address records from free-text address elements and may return addresses with similar spelling or pronunciation. Request and response are encoded in UTF-8. Results are ordered in decreasing similarity. The response structure is supported by the publisher's dictionary and one documented JSON observation; that observation does not establish universal requiredness or a complete response contract.
+      operationId: lookupAddressGet
+      parameters:
+        - description: Input address element information, URL-encoded (percent-encoded).
+          example: central government offices
+          in: query
+          name: q
+          required: true
+          schema:
+            type: string
+        - description: Maximum number of records to be returned.
+          in: query
+          name: n
+          required: false
+          schema:
+            default: 200
+            maximum: 200
+            minimum: 1
+            type: integer
+        - description: Tolerance on returned record scores. Controls the range of scores below the highest score; for example, a highest score of 75 with tolerance 10 returns scores 65–75. When used with `n`, both conditions apply. The Data Dictionary specifies default 35; the official resource description specifies default 20, so the default is disputed.
+          in: query
+          name: t
+          required: false
+          schema:
+            default: 35
+            maximum: 80
+            minimum: 0
+            type: integer
+        - description: Enable or disable basic searching mode. When set to 1, the service does not search for addresses with similar spelling or pronunciation.
+          in: query
+          name: b
+          required: false
+          schema:
+            default: 0
+            enum:
+              - 0
+              - 1
+            type: integer
+        - description: Enable or disable showing floor and unit information. Floor and unit filtering is effective when this parameter is enabled.
+          in: query
+          name: 3d
+          required: false
+          schema:
+            default: 0
+            enum:
+              - 0
+              - 1
+            type: integer
+        - description: Address floor information for filtering returned floors; effective when `3d` is enabled. URL-encoded (percent-encoded).
+          in: query
+          name: floor
+          required: false
+          schema:
+            type: string
+        - description: Address unit information for filtering returned units; effective when `3d` is enabled. URL-encoded (percent-encoded).
+          in: query
+          name: unit
+          required: false
+          schema:
+            type: string
+        - description: Supported output formats include application/json and application/xml. The documented default is application/xml.
+          in: header
+          name: Accept
+          required: false
+          schema:
+            default: application/xml
+            enum:
+              - application/json
+              - application/xml
+            type: string
+        - description: Optional response compression. `gzip` is supported; default is no compression.
+          in: header
+          name: Accept-Encoding
+          required: false
+          schema:
+            enum:
+              - gzip
+            type: string
+        - description: Selects English, Traditional Chinese, or both. The documented default is `*`.
+          in: header
+          name: Accept-Language
+          required: false
+          schema:
+            default: "*"
+            enum:
+              - "*"
+              - en
+              - zh-Hant
+              - en, zh-Hant
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                observedLookup:
+                  summary: Observed JSON response for a documented GET request; observational, not a complete publisher contract
+                  value:
+                    RequestAddress:
+                      AddressLine:
+                        - central government offices
+                    SuggestedAddress:
+                      - Address:
+                          PremisesAddress:
+                            ChiPremisesAddress:
+                              BuildingName: 政府總部
+                              ChiDistrict:
+                                DcDistrict: 中西區
+                              ChiStreet:
+                                BuildingNoFrom: "2"
+                                StreetName: 添美道
+                              Region: 香港
+                            EngPremisesAddress:
+                              BuildingName: CENTRAL GOVERNMENT OFFICES
+                              EngDistrict:
+                                DcDistrict: CENTRAL & WESTERN DISTRICT
+                              EngStreet:
+                                BuildingNoFrom: "2"
+                                StreetName: TIM MEI AVENUE
+                              Region: HK
+                            GeoAddress: 3508215732T20110704
+                            GeospatialInformation:
+                              Easting: "835082"
+                              Latitude: "22.28046"
+                              Longitude: "114.16537"
+                              Northing: "815732"
+                        ValidationInformation:
+                          Score: 70
+              schema:
+                $ref: "#/components/schemas/AddressLookupResult"
+            application/xml:
+              schema:
+                description: XML response. The companion XSD documents the XML shape; its imported common-core types are unresolved in this bundle.
+                type: string
+          description: The request succeeded and lookup result is returned.
+        "400":
+          description: "Bad Request: request parameters cannot be interpreted by the server."
+        "406":
+          description: "Not Acceptable: the specified media type in the Accept header is not supported."
+        "413":
+          description: "Payload Too Large: the input address is longer than 255 characters."
+        "429":
+          description: "Too Many Requests: too many requests have been sent in a given amount of time."
+        "500":
+          description: "Internal Server Error: the server is unable to process the request."
+      summary: Address lookup
+servers:
+  - url: https://www.als.gov.hk
+x-method-source-status:
+  supported:
+    - Published resource directURL GET /lookup?q=central%20government%20offices
+    - Published resource directURL GET /galookup?ga=3508215732T20110704
+  removedUnsupportedOperations:
+    - method: POST
+      path: /galookup
+      operationId: lookupGeoAddressPost
+    - method: POST
+      path: /lookup
+      operationId: lookupAddressPost
+  meaning: No POST/form method or example exists in the current17page publisher PDF, whose bytes match the retained source; current official catalogue lists directGET URLs. This does not assert the server rejects POST, only that the delivered contract must not invent it.
+x-source-evidence:
+  url: https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf
+  originalSourceUrl: https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf
+  originalJsonSha256: a0bf0c8892577b0c747e17fdb5c18b35e8408304282e1caefeca898430e635e5
+  retainedPublisherSourceSha256: 3895c304fb7e1b2795902c5cf77cc1dbb47f64b654d9ada34550eb8f0092fa30
+  classification: publisher_contract_and_observed_response_compatibility_derivative
+  change: Only enumeratedresponse constraints broadened to preserve published and hash-bound observed representations; no newfields, values, ranges, restrictivepatterns or coercions.
+  responseBodySha256:
+    - bb878e4a279558394832a6697b83096e22ab1b3b5a4569833c03bf31d4f76609
+    - bf0248edec5919a8fca39faadf247bcdd26a239ccad7fd83b2a1c1d9a7709a5b
+  scope: Completebodies and completeitems from incompleteprefixes are labelled separately. Unreadtail/cardinality are never asserted.

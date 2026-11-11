@@ -1,0 +1,216 @@
+{
+  "components": {
+    "schemas": {
+      "TaxiFleetTdSlimRecord": {
+        "description": "Slim vehicle record with latest GPS status. Field requiredness is not specified.",
+        "properties": {
+          "lat": {
+            "description": "Current latitude, documented to 6 decimal places with accuracy ±0.5%. Preserves documented numbers and observed null for an unavailable coordinate; no value is fabricated.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "long": {
+            "description": "Current longitude, documented to 6 decimal places with accuracy ±0.5%. Preserves documented numbers and observed null for an unavailable coordinate; no value is fabricated.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "op_status": {
+            "description": "Occupied (O), Vacant (V), or No service (N).",
+            "enum": [
+              "O",
+              "V",
+              "N"
+            ],
+            "type": "string"
+          },
+          "passenger_cap": {
+            "description": "Seating capacity; whole number or null.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "taxi_type": {
+            "description": "Vehicle type.",
+            "enum": [
+              "O",
+              "P",
+              "W"
+            ],
+            "type": "string"
+          },
+          "time_stamp": {
+            "description": "Data received time in ISO 8601 with +08:00 timezone.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "veh_id": {
+            "description": "Vehicle ID. Documented format: stable 12-character identifier.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "VehicleListResponse": {
+        "properties": {
+          "taxis": {
+            "description": "TaxiFleetTdSlimRecord entries. The response example uses a placeholder for the array contents.",
+            "items": {
+              "$ref": "#/components/schemas/TaxiFleetTdSlimRecord"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-amigo/Amigo_spec.pdf"
+  },
+  "info": {
+    "description": "HTTP API usage guide for slim taxi vehicle records. The version is undocumented and is not a publisher API version. Authentication requirements are not specified.",
+    "title": "Taxi Fleet Information (Amigo) Webx API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/webx/v1/vehicle/list": {
+      "get": {
+        "description": "Returns a slim vehicle list with their latest GPS status.",
+        "operationId": "listVehicles",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "taxis": []
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleListResponse"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "summary": "List vehicles"
+      }
+    },
+    "/webx/v1/vehicle/nearby": {
+      "get": {
+        "description": "Finds slim vehicles within a geographic radius from a given location. Results are sorted by distance ascending. Each record includes a distance field (as a string) indicating distance from the query center; the documented TaxiFleetTdSlimRecord schema does not specify that field's exact structure.",
+        "operationId": "findNearbyVehicles",
+        "parameters": [
+          {
+            "description": "Center latitude, in 6 decimal degrees.",
+            "in": "query",
+            "name": "lat",
+            "required": true,
+            "schema": {
+              "format": "float",
+              "maximum": 90,
+              "minimum": -90,
+              "type": "number"
+            }
+          },
+          {
+            "description": "Center longitude, in 6 decimal degrees.",
+            "in": "query",
+            "name": "lng",
+            "required": true,
+            "schema": {
+              "format": "float",
+              "maximum": 180,
+              "minimum": -180,
+              "type": "number"
+            }
+          },
+          {
+            "description": "Search radius. Default: 5.",
+            "in": "query",
+            "name": "radius",
+            "required": false,
+            "schema": {
+              "default": 5,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Distance unit. Default: km.",
+            "in": "query",
+            "name": "unit",
+            "required": false,
+            "schema": {
+              "default": "km",
+              "enum": [
+                "m",
+                "km",
+                "mi",
+                "ft"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum results to return. Default is undocumented; maximum 200.",
+            "in": "query",
+            "name": "count",
+            "required": false,
+            "schema": {
+              "maximum": 200,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "taxis": []
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleListResponse"
+                }
+              }
+            },
+            "description": "Successful response. Vehicles are sorted by distance ascending; each returned record includes distance from the query center as a string."
+          },
+          "400": {
+            "description": "Invalid latitude/longitude range, or unrecognized unit."
+          }
+        },
+        "summary": "Find nearby vehicles"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.amigo.taxi"
+    }
+  ],
+  "x-source-evidence": {
+    "url": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-amigo/Amigo_spec.pdf",
+    "originalSourceUrl": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-amigo/Amigo_spec.pdf",
+    "originalJsonSha256": "f8799af0af9c7e196f356dd53d1e66acb5556d6a0f13c0229b023a57286748fd",
+    "retainedPublisherSourceSha256": "7a4c528d9379a3e2a37ea015aa39f2c73ce14a236c76a9caa91f1fe4e864303f",
+    "classification": "publisher_contract_and_observed_response_compatibility_derivative",
+    "change": "Only enumeratedresponse constraints broadened to preserve published and hash-bound observed representations; no newfields, values, ranges, restrictivepatterns or coercions.",
+    "responseBodySha256": [
+      "861f75169bf3f45be4a6b6176cb6cd4c30ff0f4a0e428d9eb2563a4b5f781e4d",
+      "6daf2a8b09e7f79c00ea5473491a799f6120a5515da8dc883e98847b70df6e02",
+      "281861f376d82af50e6911e2498da25ae6546168699c5a1aba7da17e30c22939",
+      "a6abf8e85eca16f8447a4ae6aa00fdf664f22d0efd21f6d1b88fd98656ebcf5a",
+      "be9a8a2556a378a47446caa6843183bc563d7537699a36320e977c02762ca1d9"
+    ],
+    "scope": "Completebodies and completeitems from incompleteprefixes are labelled separately. Unreadtail/cardinality are never asserted."
+  }
+}

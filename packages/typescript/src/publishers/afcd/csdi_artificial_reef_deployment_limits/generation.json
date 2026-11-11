@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "afcd-csdi-artificial-reef-deployment-limits",
+  "sourceSha256": "a4988007bc451a5c174e1550d0f007f9aa50455c465b6e2f7c48256b404499bb",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/afcd_rcd_1629267205235_87237/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1629267205235_87237/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1629267205235_87237/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

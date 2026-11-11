@@ -1,0 +1,797 @@
+{
+  "publisherKey": "dpo",
+  "publisherName": "Digital Policy Office",
+  "sources": [
+    {
+      "id": "dpo-address-lookup-service",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "address-lookup-service",
+      "name": "Address Lookup Service",
+      "apiTitle": "Address Lookup Service",
+      "json": "dpo/address-lookup-service/openapi.json",
+      "yaml": "dpo/address-lookup-service/openapi.yaml",
+      "file": "dpo/address-lookup-service/openapi.json",
+      "sha256": "c3ea8d639a1514041bfa0e27cc8d7cb7ebf41b7f9c9c8827f8064a30882d10ec",
+      "jsonSha256": "c3ea8d639a1514041bfa0e27cc8d7cb7ebf41b7f9c9c8827f8064a30882d10ec",
+      "yamlSha256": "dffaef3e3ad1f25ee6b75739cf3cb827116a559944b803e8f3b63aa685458520",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "address_lookup_service",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c3ea8d639a1514041bfa0e27cc8d7cb7ebf41b7f9c9c8827f8064a30882d10ec"
+        },
+        "sourceContent": {
+          "status": "source_correction_bound_to_official_documentation",
+          "kind": "targeted_source_accuracy_correction",
+          "fullContentCompleteness": "not_established_by_targeted_correction"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf",
+        "canonicalJsonSha256": "c3ea8d639a1514041bfa0e27cc8d7cb7ebf41b7f9c9c8827f8064a30882d10ec",
+        "originalRepresentationSha256": "85faa2408f41976e16a805ce7539ee735ea3cd1da9e8d990a9200a245e49a6f4",
+        "serialization": "Source-backed corrected derivative; original representation preserved in source history",
+        "currentUrl": "https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "a0bf0c8892577b0c747e17fdb5c18b35e8408304282e1caefeca898430e635e5",
+          "canonicalJsonSha256": "c3ea8d639a1514041bfa0e27cc8d7cb7ebf41b7f9c9c8827f8064a30882d10ec",
+          "currentSourceUrl": "https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf",
+          "documentationSources": [
+            {
+              "url": "https://www.als.gov.hk/docs/Data_Dictionary_for_ALS_EN.pdf",
+              "sha256": "3895c304fb7e1b2795902c5cf77cc1dbb47f64b654d9ada34550eb8f0092fa30",
+              "kind": "publisher_document_bytes"
+            }
+          ],
+          "reason": {
+            "kind": "response_field_compatibility",
+            "patchPointers": [
+              "#/components/schemas/ValidationInformation"
+            ]
+          }
+        }
+      },
+      "moduleName": "address_lookup_service"
+    },
+    {
+      "id": "dpo-data-inside-the-compartments-of-smart-lampposts",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "data-inside-the-compartments-of-smart-lampposts",
+      "name": "Data inside the Compartments of Smart Lampposts",
+      "apiTitle": "Data inside the Compartments of Smart Lampposts",
+      "json": "dpo/data-inside-the-compartments-of-smart-lampposts/openapi.json",
+      "yaml": "dpo/data-inside-the-compartments-of-smart-lampposts/openapi.yaml",
+      "file": "dpo/data-inside-the-compartments-of-smart-lampposts/openapi.json",
+      "sha256": "76cc91438ad29af7d51c7bcee8e0fe00e99fa17b8ec80bec13b71117ae4c971f",
+      "jsonSha256": "76cc91438ad29af7d51c7bcee8e0fe00e99fa17b8ec80bec13b71117ae4c971f",
+      "yamlSha256": "b15c9ea0fa6a8daa101814cfa71a454ca8647d1a072c3759ef8735de8c0aabd2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "data_inside_the_compartments_of_smart_lampposts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "76cc91438ad29af7d51c7bcee8e0fe00e99fa17b8ec80bec13b71117ae4c971f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.digitalpolicy.gov.hk/open_data/smart_lampposts/compartment-data-data-dictionary-en.pdf",
+        "canonicalJsonSha256": "76cc91438ad29af7d51c7bcee8e0fe00e99fa17b8ec80bec13b71117ae4c971f",
+        "originalRepresentationSha256": "76cc91438ad29af7d51c7bcee8e0fe00e99fa17b8ec80bec13b71117ae4c971f",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "data_inside_the_compartments_of_smart_lampposts"
+    },
+    {
+      "id": "dpo-estimated-arrival-time-of-a-specific-bus-stop-for-citybus-and-new-lantao-bu",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "estimated-arrival-time-of-a-specific-bus-stop-for-citybus-and-new-lantao-bu",
+      "name": "Estimated arrival time of a specific bus stop for Citybus and New Lantao Bus",
+      "apiTitle": "Bus Route List and Estimated Arrival Time of a Specific Bus Stop API",
+      "json": "dpo/estimated-arrival-time-of-a-specific-bus-stop-for-citybus-and-new-lantao-bu/openapi.json",
+      "yaml": "dpo/estimated-arrival-time-of-a-specific-bus-stop-for-citybus-and-new-lantao-bu/openapi.yaml",
+      "file": "dpo/estimated-arrival-time-of-a-specific-bus-stop-for-citybus-and-new-lantao-bu/openapi.json",
+      "sha256": "2bb32e12b06ad9236a72e7312f05712d9a3965499c84578a0cb7c9a1bf2827c9",
+      "jsonSha256": "2bb32e12b06ad9236a72e7312f05712d9a3965499c84578a0cb7c9a1bf2827c9",
+      "yamlSha256": "fef47ea66029561732f082d37422027c550b99f4ab9db6149d668a85fddfaf7b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "estimated_arrival_time_of_a_specific_bus_stop_for_citybus_and_new_lantao_bu",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2bb32e12b06ad9236a72e7312f05712d9a3965499c84578a0cb7c9a1bf2827c9"
+        },
+        "sourceContent": {
+          "status": "source_correction_bound_to_official_documentation",
+          "kind": "targeted_source_accuracy_correction",
+          "fullContentCompleteness": "not_established_by_targeted_correction"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-specifications.pdf",
+        "canonicalJsonSha256": "2bb32e12b06ad9236a72e7312f05712d9a3965499c84578a0cb7c9a1bf2827c9",
+        "originalRepresentationSha256": "85cda06a8ee6dbc33bee2f8680de0e073313d6edeadf94c6806bb8ec42d0ae03",
+        "serialization": "Source-backed corrected derivative; original representation preserved in source history",
+        "currentUrl": "https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-specifications.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "85cda06a8ee6dbc33bee2f8680de0e073313d6edeadf94c6806bb8ec42d0ae03",
+          "canonicalJsonSha256": "2bb32e12b06ad9236a72e7312f05712d9a3965499c84578a0cb7c9a1bf2827c9",
+          "currentSourceUrl": "https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-specifications.pdf",
+          "documentationSources": [
+            {
+              "url": "https://static.data.gov.hk/opendata/eta/bus-route-list-and-eta-specific-stop-api-specifications.pdf",
+              "sha256": "5ea8833df574a6978c88cb3c15d65cd4ea1180b32d9db98914a35d47bcfdaa33",
+              "kind": "publisher_document_bytes"
+            }
+          ],
+          "reason": {
+            "kind": "response_field_compatibility",
+            "patchPointers": [
+              "#/components/schemas/StopEtaRecord/properties/departed",
+              "#/components/schemas/StopEtaRecord/properties/noGPS",
+              "#/components/schemas/StopEtaRecord/properties/wheelChair",
+              "#/components/schemas/StopEtaRecord/properties/eta"
+            ]
+          }
+        }
+      },
+      "moduleName": "estimated_arrival_time_of_a_specific_bus_stop_for_citybus_and_new_lantao_bu"
+    },
+    {
+      "id": "dpo-parking-vacancy-data-api",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "parking-vacancy-data-api",
+      "name": "Parking Vacancy Data API",
+      "apiTitle": "Parking Vacancy Data API",
+      "json": "dpo/parking-vacancy-data-api/openapi.json",
+      "yaml": "dpo/parking-vacancy-data-api/openapi.yaml",
+      "file": "dpo/parking-vacancy-data-api/openapi.json",
+      "sha256": "1720299fb4796a10bfed777fc377f3d2e93f6459a467b106bc46d8dd84c91b2c",
+      "jsonSha256": "1720299fb4796a10bfed777fc377f3d2e93f6459a467b106bc46d8dd84c91b2c",
+      "yamlSha256": "a1f7d00b9666cd017d98bdeaa9f2fd1100cf135b48fb40f4b39848ad9fdbcf1f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.2",
+      "namespace": "parking_vacancy_data_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1720299fb4796a10bfed777fc377f3d2e93f6459a467b106bc46d8dd84c91b2c"
+        },
+        "sourceContent": {
+          "status": "source_correction_bound_to_official_documentation",
+          "kind": "targeted_source_accuracy_correction",
+          "fullContentCompleteness": "not_established_by_targeted_correction"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://resource.data.one.gov.hk/opendata/carpark/Parking_Vacancy_Data_Specification.pdf",
+        "canonicalJsonSha256": "1720299fb4796a10bfed777fc377f3d2e93f6459a467b106bc46d8dd84c91b2c",
+        "originalRepresentationSha256": "063d4196ff0825f928b52acf7661d06aaa2e36bb3714873f556d95576b2ac8e0",
+        "serialization": "Source-backed corrected derivative; original representation preserved in source history",
+        "currentUrl": "https://resource.data.one.gov.hk/opendata/carpark/Parking_Vacancy_Data_Specification.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "063d4196ff0825f928b52acf7661d06aaa2e36bb3714873f556d95576b2ac8e0",
+          "canonicalJsonSha256": "1720299fb4796a10bfed777fc377f3d2e93f6459a467b106bc46d8dd84c91b2c",
+          "currentSourceUrl": "https://resource.data.one.gov.hk/opendata/carpark/Parking_Vacancy_Data_Specification.pdf",
+          "documentationSources": [
+            {
+              "url": "https://resource.data.one.gov.hk/opendata/carpark/Parking_Vacancy_Data_Specification.pdf",
+              "sha256": "7a89f85ad65787f3b845d9a659a4002751b740b53df39375d28d58ba9244c6f2",
+              "kind": "publisher_document_bytes"
+            }
+          ],
+          "reason": {
+            "kind": "publisher_dictionary_optional_field_correction",
+            "reason": "Publisher dictionary marks openingHours Mandat. N. Its child fields remain required when an opening-hour rule exists.",
+            "orderedPatchSha256": "c2e50082086c792d7219580dacc9036efdcef19778a7bec2f35abcb14336718c",
+            "lineageSha256": "a9b5fce97ef9bac9c96cb3ff237875838e6d7e74c271079e04efeda8124644ad"
+          }
+        }
+      },
+      "moduleName": "parking_vacancy_data_api"
+    },
+    {
+      "id": "dpo-press-release-search",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "press-release-search",
+      "name": "Press Release Search",
+      "apiTitle": "Press Release Search API",
+      "json": "dpo/press-release-search/openapi.json",
+      "yaml": "dpo/press-release-search/openapi.yaml",
+      "file": "dpo/press-release-search/openapi.json",
+      "sha256": "b5dfbf0b98d967647b8a3ab0924dd69ab3f00c01fe7642fb0232f105a88ed340",
+      "jsonSha256": "b5dfbf0b98d967647b8a3ab0924dd69ab3f00c01fe7642fb0232f105a88ed340",
+      "yamlSha256": "02ea76e23068dfadd2157b7afde523663a8db1b22a01047a363ecbfcd63a5add",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "press_release_search",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b5dfbf0b98d967647b8a3ab0924dd69ab3f00c01fe7642fb0232f105a88ed340"
+        },
+        "sourceContent": {
+          "status": "source_correction_bound_to_official_documentation",
+          "kind": "targeted_source_accuracy_correction",
+          "fullContentCompleteness": "not_established_by_targeted_correction"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://resource.data.one.gov.hk/opendata/pressrelease-search/pressrelease-search-data-specification.pdf",
+        "canonicalJsonSha256": "b5dfbf0b98d967647b8a3ab0924dd69ab3f00c01fe7642fb0232f105a88ed340",
+        "originalRepresentationSha256": "a82f8c8bbc5b0922497c5912cb1046038b3dc8ce304d03292ae896f761237d12",
+        "serialization": "Source-backed corrected derivative; original representation preserved in source history",
+        "currentUrl": "https://resource.data.one.gov.hk/opendata/pressrelease-search/pressrelease-search-data-specification.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "a82f8c8bbc5b0922497c5912cb1046038b3dc8ce304d03292ae896f761237d12",
+          "canonicalJsonSha256": "b5dfbf0b98d967647b8a3ab0924dd69ab3f00c01fe7642fb0232f105a88ed340",
+          "currentSourceUrl": "https://resource.data.one.gov.hk/opendata/pressrelease-search/pressrelease-search-data-specification.pdf",
+          "documentationSources": [
+            {
+              "url": "https://resource.data.one.gov.hk/opendata/pressrelease-search/pressrelease-search-data-specification.pdf",
+              "sha256": "f758a6afee627c304260f148866f864a5b6ef34d99361016cd15072e264e75a3",
+              "kind": "publisher_document_bytes"
+            }
+          ],
+          "reason": {
+            "kind": "response_field_compatibility",
+            "patchPointers": [
+              "#/components/schemas/PressRelease/properties/link"
+            ]
+          }
+        }
+      },
+      "moduleName": "press_release_search"
+    },
+    {
+      "id": "dpo-csdi-wi-fi-hk",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "csdi-wi-fi-hk",
+      "name": "Wi-Fi.HK",
+      "apiTitle": "Digital Policy Office \u2014 Wi-Fi.HK",
+      "json": "dpo/csdi-wi-fi-hk/openapi.json",
+      "yaml": "dpo/csdi-wi-fi-hk/openapi.yaml",
+      "file": "dpo/csdi-wi-fi-hk/openapi.json",
+      "sha256": "8aca748e13357cdd94bc570310bd27db9fcf7f99e917f4781e79079f55bd6a6c",
+      "jsonSha256": "8aca748e13357cdd94bc570310bd27db9fcf7f99e917f4781e79079f55bd6a6c",
+      "yamlSha256": "fb532a644c95bdc262801b7d14ed0e98d4de2c558414ea08df3be06424b1831d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_wi_fi_hk",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8aca748e13357cdd94bc570310bd27db9fcf7f99e917f4781e79079f55bd6a6c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dpo_rcd_1629267205215_74392",
+        "canonicalJsonSha256": "8aca748e13357cdd94bc570310bd27db9fcf7f99e917f4781e79079f55bd6a6c",
+        "originalRepresentationSha256": "8aca748e13357cdd94bc570310bd27db9fcf7f99e917f4781e79079f55bd6a6c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_wi_fi_hk"
+    },
+    {
+      "id": "dpo-csdi-iam-smart-registration-locations",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "csdi-iam-smart-registration-locations",
+      "name": "\u201ciAM Smart\u201d registration locations",
+      "apiTitle": "Digital Policy Office \u2014 \u201ciAM Smart\u201d registration locations",
+      "json": "dpo/csdi-iam-smart-registration-locations/openapi.json",
+      "yaml": "dpo/csdi-iam-smart-registration-locations/openapi.yaml",
+      "file": "dpo/csdi-iam-smart-registration-locations/openapi.json",
+      "sha256": "a1e351c137c888d3133662af43d6320948d39f4641d009bf968d4d77252683ed",
+      "jsonSha256": "a1e351c137c888d3133662af43d6320948d39f4641d009bf968d4d77252683ed",
+      "yamlSha256": "85e3595bfb042c19dd01840e0573ec5b8f65023f635bd10c1f89e457b8faac52",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_iam_smart_registration_locations",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a1e351c137c888d3133662af43d6320948d39f4641d009bf968d4d77252683ed"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dpo_rcd_1633683905900_48271",
+        "canonicalJsonSha256": "a1e351c137c888d3133662af43d6320948d39f4641d009bf968d4d77252683ed",
+        "originalRepresentationSha256": "a1e351c137c888d3133662af43d6320948d39f4641d009bf968d4d77252683ed",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_iam_smart_registration_locations"
+    },
+    {
+      "id": "dpo-csdi-multi-functional-smart-lampposts",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "csdi-multi-functional-smart-lampposts",
+      "name": "Multi-functional Smart Lampposts",
+      "apiTitle": "Digital Policy Office \u2014 Multi-functional Smart Lampposts",
+      "json": "dpo/csdi-multi-functional-smart-lampposts/openapi.json",
+      "yaml": "dpo/csdi-multi-functional-smart-lampposts/openapi.yaml",
+      "file": "dpo/csdi-multi-functional-smart-lampposts/openapi.json",
+      "sha256": "0b8c06becdff44af860383a3883530b201f83f994090863af975b08ccd7069dd",
+      "jsonSha256": "0b8c06becdff44af860383a3883530b201f83f994090863af975b08ccd7069dd",
+      "yamlSha256": "b9f18fb8cbd8b7a37dbc9a5aa2ad8909cb8f195cdab295bf9421db51f97fa9b4",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_multi_functional_smart_lampposts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0b8c06becdff44af860383a3883530b201f83f994090863af975b08ccd7069dd"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dpo_rcd_1633684022403_5010",
+        "canonicalJsonSha256": "0b8c06becdff44af860383a3883530b201f83f994090863af975b08ccd7069dd",
+        "originalRepresentationSha256": "0b8c06becdff44af860383a3883530b201f83f994090863af975b08ccd7069dd",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_multi_functional_smart_lampposts"
+    },
+    {
+      "id": "dpo-csdi-list-of-community-and-mobile-help-desks-for-digital-service-under-the-smart-silver-community-digital-inclusion-programme",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "csdi-list-of-community-and-mobile-help-desks-for-digital-service-under-the-smart-silver-community-digital-inclusion-programme",
+      "name": "List of community and mobile help desks for digital service under the \u201cSmart Silver\u201d Community Digital Inclusion Programme",
+      "apiTitle": "Digital Policy Office \u2014 List of community and mobile help desks for digital service under the \u201cSmart Silver\u201d Community Digital Inclusion Programme",
+      "json": "dpo/csdi-list-of-community-and-mobile-help-desks-for-digital-service-under-the-smart-silver-community-digital-inclusion-programme/openapi.json",
+      "yaml": "dpo/csdi-list-of-community-and-mobile-help-desks-for-digital-service-under-the-smart-silver-community-digital-inclusion-programme/openapi.yaml",
+      "file": "dpo/csdi-list-of-community-and-mobile-help-desks-for-digital-service-under-the-smart-silver-community-digital-inclusion-programme/openapi.json",
+      "sha256": "e4b7ab4f31990ea4ce9b6296d9cbc55d2d970c0d7b32f516675fdda7d04150b6",
+      "jsonSha256": "e4b7ab4f31990ea4ce9b6296d9cbc55d2d970c0d7b32f516675fdda7d04150b6",
+      "yamlSha256": "a1a85458a81b1b06b84de7373539b8e0ee13e76656394fb9a4f9cdce62128fbf",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_community_and_mobile_help_desks_for_digital_service_under_the_smart_silver_community_digital_inclusion_programme",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e4b7ab4f31990ea4ce9b6296d9cbc55d2d970c0d7b32f516675fdda7d04150b6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dpo_rcd_1729485267557_62693",
+        "canonicalJsonSha256": "e4b7ab4f31990ea4ce9b6296d9cbc55d2d970c0d7b32f516675fdda7d04150b6",
+        "originalRepresentationSha256": "e4b7ab4f31990ea4ce9b6296d9cbc55d2d970c0d7b32f516675fdda7d04150b6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_community_and_mobile_help_desks_for_digital_service_under_the_smart_silver_community_digital_inclusion_programme"
+    },
+    {
+      "id": "dpo-deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks",
+      "name": "Deployment Locations of Hong Kong Cross-boundary Public Services Self-service Kiosks",
+      "apiTitle": "Deployment Locations of Hong Kong Cross-boundary Public Services Self-service Kiosks",
+      "json": "dpo/deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks/openapi.json",
+      "yaml": "dpo/deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks/openapi.yaml",
+      "file": "dpo/deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks/openapi.json",
+      "sha256": "2f0d9f4c201f363a27232073d6ec7a299e4ca0598353822306d3ed1a3bc8af3d",
+      "jsonSha256": "2f0d9f4c201f363a27232073d6ec7a299e4ca0598353822306d3ed1a3bc8af3d",
+      "yamlSha256": "c4777d226236d59dd3103867776de72443a23010bffc877bd924588bec07141a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "deployment_locations_of_hong_kong_cross_boundary_public_services_self_service_kiosks",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2f0d9f4c201f363a27232073d6ec7a299e4ca0598353822306d3ed1a3bc8af3d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.crossboundaryservices.gov.hk/datagovhk/cbpskiosk_data_dictionary.pdf",
+        "canonicalJsonSha256": "2f0d9f4c201f363a27232073d6ec7a299e4ca0598353822306d3ed1a3bc8af3d",
+        "originalRepresentationSha256": "988700dee0700afd68cb343fc8da9cea00ff1a6bc99c4df4d8a836da6a574f82",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "deployment_locations_of_hong_kong_cross_boundary_public_services_self_service_kiosks"
+    },
+    {
+      "id": "dpo-approved-fund-raising-activities",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "approved-fund-raising-activities",
+      "name": "Approved fund-raising activities",
+      "apiTitle": "Approved Fund-Raising Activities API",
+      "json": "dpo/approved-fund-raising-activities/openapi.json",
+      "yaml": "dpo/approved-fund-raising-activities/openapi.yaml",
+      "file": "dpo/approved-fund-raising-activities/openapi.json",
+      "sha256": "ac2bfc29725382a6d021fbd4ec67be92897f9dd20abeb37256b9bf06ed875f82",
+      "jsonSha256": "ac2bfc29725382a6d021fbd4ec67be92897f9dd20abeb37256b9bf06ed875f82",
+      "yamlSha256": "a5267dc0dd4c723fa6728fe1f8ac99821b93421315e8c8b37cb33763d037985f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "approved_fund_raising_activities",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ac2bfc29725382a6d021fbd4ec67be92897f9dd20abeb37256b9bf06ed875f82"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.gov.hk/en/theme/fundraising/datasets/Data_Specification_for_Fund-Raising_Activities_PSI_EN.pdf",
+        "canonicalJsonSha256": "ac2bfc29725382a6d021fbd4ec67be92897f9dd20abeb37256b9bf06ed875f82",
+        "originalRepresentationSha256": "924937a78b219d07ff78757baeac9dcb08c4008a6a2e2867cad311d207c31011",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "62b2bcaf2b499824f87b3659af7e489176d29582c0d9ce8b07d0d9ee8948182b",
+          "canonicalJsonSha256": "ac2bfc29725382a6d021fbd4ec67be92897f9dd20abeb37256b9bf06ed875f82",
+          "currentSourceUrl": "https://www.gov.hk/en/theme/fundraising/datasets/Data_Specification_for_Fund-Raising_Activities_PSI_EN.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "approved_fund_raising_activities"
+    },
+    {
+      "id": "dpo-iam-smart-news-alerts",
+      "publisherKey": "dpo",
+      "publisherName": "Digital Policy Office",
+      "familyKey": "iam-smart-news-alerts",
+      "name": "\"iAM Smart\" News & Alerts",
+      "apiTitle": "\"iAM Smart\" News & Alerts",
+      "json": "dpo/iam-smart-news-alerts/openapi.json",
+      "yaml": "dpo/iam-smart-news-alerts/openapi.yaml",
+      "file": "dpo/iam-smart-news-alerts/openapi.json",
+      "sha256": "2b7162878f241f94164b79433a9e5d632cb8035fb70742716dd8c205d8b522c9",
+      "jsonSha256": "2b7162878f241f94164b79433a9e5d632cb8035fb70742716dd8c205d8b522c9",
+      "yamlSha256": "f9c51ab886e9a54011087e0f8967be8562b1f6c71cf96cf1ac05e5d4523d610b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "iam_smart_news_alerts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2b7162878f241f94164b79433a9e5d632cb8035fb70742716dd8c205d8b522c9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.gov.hk/en/about/govdirectory/mobileapps/psi/iamsmart_newsandalerts/datasets/iAMSmartNews&AlertsDataSpec.pdf",
+        "canonicalJsonSha256": "2b7162878f241f94164b79433a9e5d632cb8035fb70742716dd8c205d8b522c9",
+        "originalRepresentationSha256": "7638ff6096415917814d0f707d224ca47754ef5453c9572560cd98dab2767a20",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "39663e6c72a504b448d7e6da06373c612969a7d25a6bcf320b7017da2c99a703",
+          "canonicalJsonSha256": "2b7162878f241f94164b79433a9e5d632cb8035fb70742716dd8c205d8b522c9",
+          "currentSourceUrl": "https://www.gov.hk/en/about/govdirectory/mobileapps/psi/iamsmart_newsandalerts/datasets/iAMSmartNews&AlertsDataSpec.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "iam_smart_news_alerts"
+    }
+  ]
+}

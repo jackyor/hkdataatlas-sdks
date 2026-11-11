@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hko-csdi-predicted-tidal-information-times-and-heights-of-astronomical-high-and-low-tides",
+  "sourceSha256": "7d3ac500e560338dd0bf0346f7ba7417e6855e0834fa3d42df34f66a5caba0fc",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hko_rcd_1634809240679_79523/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634809240679_79523/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634809240679_79523/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

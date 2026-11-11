@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "landsd-csdi-digital-land-boundary-map-ic1000",
+  "sourceSha256": "bc670d0f92b496efa5c7bd12cbc41382e2beb998cd74b8b9e90355401581509a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/landsd_rcd_1637223499176_68379/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1637223499176_68379/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1637223499176_68379/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

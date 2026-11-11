@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "edb-csdi-school-location-and-information-service-2",
+  "sourceSha256": "7fbfbf18ea6224e846dffd72a7c29f7acc17cd8c87b38f893101926fe7cf7557",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/edb_rcd_1629267205213_1378/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/edb_rcd_1629267205213_1378/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

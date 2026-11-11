@@ -1,0 +1,269 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Asset quality - Retail banks",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/banking/assetquality-retailbanks",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/banking",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/assetquality-retailbanks": {
+      "get": {
+        "summary": "Retrieve data of Asset quality - Retail banks",
+        "parameters": [
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+				"$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "end_of_month": {
+            "type": "string",
+            "format": "date"
+          },
+          "pass_loans": {
+            "type": "number"
+          },
+          "sp_ment_loans": {
+            "type": "number"
+          },
+          "cl_gross_substandard": {
+            "type": "number"
+          },
+          "cl_gross_doubtful": {
+            "type": "number"
+          },
+          "cl_gross_loss": {
+            "type": "number"
+          },
+          "cl_gross_total": {
+            "type": "number"
+          },
+          "cl_net": {
+            "type": "number"
+          },
+          "loans_od3m": {
+            "type": "number"
+          },
+          "loans_resch": {
+            "type": "number"
+          },
+          "loans_od3m_resch_total": {
+            "type": "number"
+          },
+          "nonperform_loans": {
+            "type": "number"
+          },
+          "cl_gross_mainland_lend": {
+            "type": "number"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  }
+}

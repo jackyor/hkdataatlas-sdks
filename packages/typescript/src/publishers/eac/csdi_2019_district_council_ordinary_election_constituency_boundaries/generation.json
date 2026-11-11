@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "eac-csdi-2019-district-council-ordinary-election-constituency-boundaries",
+  "sourceSha256": "202c1d4f2764ed9c3f747258b65729e0a70cacec0b4b405af4ff6da8b8835603",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/reo_rcd_1632902237014_57096/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/reo_rcd_1632902237014_57096/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/reo_rcd_1632902237014_57096/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

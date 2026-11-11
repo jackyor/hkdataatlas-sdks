@@ -1,0 +1,70 @@
+{
+  "sourceId": "hkkf-ferry-service-timetables-faretables-and-estimated-time-of-arrival-data-of-hong-k",
+  "publisherKey": "hkkf",
+  "family": "ferry_service_timetables_faretables_and_estimated_time_of_arrival_data_of_hong_k",
+  "status": "generated",
+  "key": "cf93e3b648d92476dfc5a64e4d924338a8e4de79734a258d7538921071218ed4",
+  "sourceSha256": "98545eb590c3b1009180cff8bb947af7ea6cf94e564d16a256324779eeda0fab",
+  "derivedInputSha256": "8792bd475b7e77dcf790a162606024988f7f97ead28c2de1274395d9344bc4f6",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/opendata/eta/{route_id}/{direction}",
+      "operationId": "getEta",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/opendata/fare_table/{route_id}",
+      "operationId": "getFareTable",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/opendata/pier/{pier_id}",
+      "operationId": "getPier",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/opendata/route",
+      "operationId": "listRoutes",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/opendata/time_table/{route_id}/{direction}",
+      "operationId": "getTimetable",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkkf-ferry-service-timetables-faretables-and-estimated-time-of-arrival-data-of-hong-k.log",
+  "outputs": {
+    "__init__.py": "7fa064cda0b304b3e048f69e749019a2212717c75c9de9abb92624a11f573633",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_eta.py": "46480fcb38a600cf9cda6ce2d6c64b64a0043ffea0b4d7eeba7777a8f839ec9f",
+    "api/default/get_fare_table.py": "786c910b90cffab3aa0bca3529c6dcd41bed7efea39aff02d6b38ec4cd915dd1",
+    "api/default/get_pier.py": "35be296fc0b2481a15591ea80c73dd2c7575eaf0b7eb6c5d08e83d2e9e834f1d",
+    "api/default/get_timetable.py": "a623415925611db8908fadc536afa8a4b236a96eb50ee14c20f59e30aa3b43e6",
+    "api/default/list_routes.py": "fa3dd9cbf74dcebc7a36b834944e72b30dfb9e4d1152054985f6ef6f4bc5196a",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "5d019df1f461456b9e7bf60a0582c92fa31ce6ea63aa3ade9fabd8423836be2d",
+    "models/eta_record.py": "b351fdc15a2c9ac56a716b05d88ddf5c50c0c7693b176e927c488d26dbdbf351",
+    "models/eta_response.py": "a96a3a445753dd9b2cdcea95f25ba24213dc8fde7448e5afae3746f53899726c",
+    "models/get_eta_direction.py": "5407b968e00577c5abeeafaa10327a5bbb96d9514e89ee1ff40e1a176daff2c4",
+    "models/get_eta_route_id.py": "559bc2c5f0995a2d0ba3029a0d1085b6438a98dcf7227fad3e1535ba43298f0b",
+    "models/get_fare_table_route_id.py": "c8bfad742f82da0e55cc6a774f7ac7f554118d694a5c36173d0366bb852ad145",
+    "models/get_pier_pier_id.py": "4b5176a2738def920f6b40fbe4429c81e4b39baed9f5a55314a234b6ab175df4",
+    "models/get_timetable_route_id.py": "9a3e61842ce782fcd222bbe6de1622778cf6f3f3bc046f33b9a75983caf7b1a9",
+    "models/pier.py": "00c33258a694a51b039386588489dca8894391bcfcbeb587e2239a4212eeff0b",
+    "models/pier_response.py": "824fe813dd37b7108364cfae3969fa716dc9952882a26bf3dd151efc56c8b743",
+    "models/route.py": "835c6d7fb1e5e158b92c7fde50a3d6c1660fb7dc5ca879c5e6596b9877f7a03e",
+    "models/route_response.py": "33ee12608382a314505930fd6b3d724bcb1f6a19974905bd8dad650e06826d81",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

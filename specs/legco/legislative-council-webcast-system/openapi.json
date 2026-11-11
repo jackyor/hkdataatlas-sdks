@@ -1,0 +1,393 @@
+{
+  "components": {
+    "schemas": {
+      "ArchiveMeeting": {
+        "description": "Field specification for archive meetings (VArchiveMeeting). The data dictionary lists the same fields and examples as live meetings; it does not declare which fields are always present.",
+        "properties": {
+          "ChiMeetName": {
+            "description": "Chinese meeting name.",
+            "examples": [
+              "立法會會議"
+            ],
+            "type": "string"
+          },
+          "ChiMeetRoomName": {
+            "description": "Chinese meeting room name.",
+            "examples": [
+              "會議廳"
+            ],
+            "type": "string"
+          },
+          "MeetDate": {
+            "anyOf": [
+              {
+                "description": "Meeting date. The source labels the data type DateTime.",
+                "examples": [
+                  "2019-06-05T00:00:00"
+                ],
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
+              }
+            ],
+            "description": "The dictionary explicitly shows local date-time strings without an offset. Retain that documented representation alongside the prior RFC3339 branch; no timezone is fabricated."
+          },
+          "MeetName": {
+            "description": "English meeting name.",
+            "examples": [
+              "Council meeting"
+            ],
+            "type": "string"
+          },
+          "MeetRoomName": {
+            "description": "English meeting room name.",
+            "examples": [
+              "Chamber"
+            ],
+            "type": "string"
+          },
+          "MeetTime": {
+            "anyOf": [
+              {
+                "description": "Meeting time. The source labels the data type DateTime; its example is a date-time-shaped value.",
+                "examples": [
+                  "1900-01-01T11:00:00"
+                ],
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
+              }
+            ],
+            "description": "The dictionary explicitly shows local date-time strings without an offset. Retain that documented representation alongside the prior RFC3339 branch; no timezone is fabricated."
+          },
+          "MeetingID": {
+            "description": "Meeting identifier.",
+            "examples": [
+              "M19060001"
+            ],
+            "type": "string"
+          },
+          "link": {
+            "description": "URL of the meeting in Webcast.",
+            "examples": [
+              "https://webcast.legco.gov.hk/public/zh-hk/SearchResult?MeetingID=M19060001"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "thumbnail": {
+            "description": "URL of thumbnail in Webcast.",
+            "examples": [
+              "http://webcast.legco.gov.hk/webcast_preview_img/2019/06/M19060001/thumb_d.jpg"
+            ],
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "LiveMeeting": {
+        "description": "Field specification for live meetings (VLiveMeeting). Properties are described by the data dictionary; it does not declare which fields are always present.",
+        "properties": {
+          "ChiMeetName": {
+            "description": "Chinese meeting name.",
+            "examples": [
+              "立法會會議"
+            ],
+            "type": "string"
+          },
+          "ChiMeetRoomName": {
+            "description": "Chinese meeting room name.",
+            "examples": [
+              "會議廳"
+            ],
+            "type": "string"
+          },
+          "MeetDate": {
+            "anyOf": [
+              {
+                "description": "Meeting date. The source labels the data type DateTime.",
+                "examples": [
+                  "2019-06-05T00:00:00"
+                ],
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
+              }
+            ],
+            "description": "The dictionary explicitly shows local date-time strings without an offset. Retain that documented representation alongside the prior RFC3339 branch; no timezone is fabricated."
+          },
+          "MeetName": {
+            "description": "English meeting name.",
+            "examples": [
+              "Council meeting"
+            ],
+            "type": "string"
+          },
+          "MeetRoomName": {
+            "description": "English meeting room name.",
+            "examples": [
+              "Chamber"
+            ],
+            "type": "string"
+          },
+          "MeetTime": {
+            "anyOf": [
+              {
+                "description": "Meeting time. The source labels the data type DateTime; its example is a date-time-shaped value.",
+                "examples": [
+                  "1900-01-01T11:00:00"
+                ],
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"
+              }
+            ],
+            "description": "The dictionary explicitly shows local date-time strings without an offset. Retain that documented representation alongside the prior RFC3339 branch; no timezone is fabricated."
+          },
+          "MeetingID": {
+            "description": "Meeting identifier.",
+            "examples": [
+              "M19060001"
+            ],
+            "type": "string"
+          },
+          "link": {
+            "description": "URL of the meeting in Webcast.",
+            "examples": [
+              "https://webcast.legco.gov.hk/public/zh-hk/SearchResult?MeetingID=M19060001"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "thumbnail": {
+            "description": "URL of thumbnail in Webcast.",
+            "examples": [
+              "http://webcast.legco.gov.hk/webcast_preview_img/2019/06/M19060001/thumb_d.jpg"
+            ],
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "MeetingInfo": {
+        "description": "Field specification for agenda items and time markers (VMeetingInfo). The data dictionary does not declare which fields are always present.",
+        "properties": {
+          "AgendaName": {
+            "description": "English agenda / subject name.",
+            "examples": [
+              "The President"
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "AgendaRunningTime": {
+            "description": "Time stamp (based on running time).",
+            "examples": [
+              "00:03:30"
+            ],
+            "type": "string"
+          },
+          "AgendaTime": {
+            "description": "Time stamp (based on meeting time).",
+            "examples": [
+              "11:00:00"
+            ],
+            "type": "string"
+          },
+          "ChiAgendaName": {
+            "description": "Chinese agenda / subject name.",
+            "examples": [
+              "主席"
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "MeetingID": {
+            "description": "Meeting identifier.",
+            "examples": [
+              "M19060001"
+            ],
+            "type": "string"
+          },
+          "nrow": {
+            "anyOf": [
+              {
+                "description": "Item number.",
+                "examples": [
+                  60440
+                ],
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "pattern": "^[0-9]+$"
+              }
+            ],
+            "description": "Dictionary integer item number is encoded as a decimal-digit string in every item of the retained response; both representations remain supported."
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Data Specification for the Legislative Council Webcast System",
+    "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-webcast-db-en.pdf"
+  },
+  "info": {
+    "contact": {
+      "name": "Legislative Council"
+    },
+    "description": "Read-only retrieval of the Legislative Council's published webcast data resources. The version value is a metadata placeholder, not a publisher API version. The data dictionary documents fields for live meetings, archived meetings, and agenda items/time markers, but does not specify HTTP methods, request parameters, authentication, response status codes, or a complete response envelope. Catalogue context supports GET retrieval of the following exact published resource URLs; no URL templates or additional query behavior are implied. Authentication requirements are undocumented.",
+    "license": {
+      "name": "Undocumented"
+    },
+    "title": "Legislative Council Webcast System",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/VArchiveMeeting": {
+      "get": {
+        "description": "The exact published JSON resource URL is https://app.legco.gov.hk/wcod/odata/VArchiveMeeting. An XML resource is also published at https://app.legco.gov.hk/wcod/odata/VArchiveMeeting?$format=xml. Catalogue URLs include date-filtered downloads for specified council terms, but the data dictionary does not document a general filter parameter contract. Response envelope and status-code details are not documented.",
+        "operationId": "getArchivedMeetings",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "odata.metadata": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "items": {
+                        "$ref": "#/components/schemas/ArchiveMeeting"
+                      },
+                      "type": "array"
+                    },
+                    "odata.nextLink": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "Retained OData JSON uses an object envelope with value-array records and optional metadata/nextLink strings. The dictionary describes records; it does not establish universal envelope-field requiredness."
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ArchiveMeeting"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful retrieval. The publisher specifies the listed meeting fields but does not document a complete response envelope or guarantee field requiredness."
+          }
+        },
+        "summary": "Retrieve archived meeting information"
+      }
+    },
+    "/VLiveMeeting": {
+      "get": {
+        "description": "The exact published JSON resource URL is https://app.legco.gov.hk/wcod/odata/VLiveMeeting?$inlinecount=allpages. The catalogue also publishes an XML resource URL at https://app.legco.gov.hk/wcod/odata/VLiveMeeting?$format=xml&$inlinecount=allpages. These literal links document retrieval resources, not a general query contract. Response envelope and status-code details are not documented.",
+        "operationId": "getLiveMeetings",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "odata.metadata": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "items": {
+                        "$ref": "#/components/schemas/LiveMeeting"
+                      },
+                      "type": "array"
+                    },
+                    "odata.nextLink": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "Retained OData JSON uses an object envelope with value-array records and optional metadata/nextLink strings. The dictionary describes records; it does not establish universal envelope-field requiredness."
+                }
+              }
+            },
+            "description": "Successful retrieval. The publisher specifies the listed meeting fields but does not document a complete response envelope or guarantee field requiredness."
+          }
+        },
+        "summary": "Retrieve live meeting information"
+      }
+    },
+    "/VMeetingInfo": {
+      "get": {
+        "description": "The exact published JSON resource URL is https://app.legco.gov.hk/wcod/odata/VMeetingInfo. The catalogue also publishes an XML resource URL at https://app.legco.gov.hk/wcod/odata/VMeetingInfo?$format=xml. Council-term-specific filtered download links are listed in the catalogue; those literal links do not establish a general query-parameter contract. Response envelope and status-code details are not documented.",
+        "operationId": "getMeetingAgendaItems",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "odata.metadata": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "items": {
+                        "$ref": "#/components/schemas/MeetingInfo"
+                      },
+                      "type": "array"
+                    },
+                    "odata.nextLink": {
+                      "type": "string"
+                    }
+                  },
+                  "description": "Retained OData JSON uses an object envelope with value-array records and optional metadata/nextLink strings. The dictionary describes records; it does not establish universal envelope-field requiredness."
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/MeetingInfo"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful retrieval. The publisher specifies the listed agenda fields but does not document a complete response envelope or guarantee field requiredness."
+          }
+        },
+        "summary": "Retrieve agenda items and time markers"
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Published OData resource base",
+      "url": "https://app.legco.gov.hk/wcod/odata"
+    }
+  ]
+}

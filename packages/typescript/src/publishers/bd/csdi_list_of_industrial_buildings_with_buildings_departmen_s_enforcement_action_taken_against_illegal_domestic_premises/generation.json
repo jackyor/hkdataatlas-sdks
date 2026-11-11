@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "bd-csdi-list-of-industrial-buildings-with-buildings-departmen-s-enforcement-action-taken-against-illegal-domestic-premises",
+  "sourceSha256": "f617da5494b7c9e3a0f7edd9f3dc70fb7474aa20b37d422472a0a56a4cf59bd2",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/bd_rcd_1728440057576_62865/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1728440057576_62865/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1728440057576_62865/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

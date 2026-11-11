@@ -1,0 +1,2907 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Environmental Protection Department — Habitat Maps from EIA Reports",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "SeasonalWatercourse",
+                "value": 0
+              },
+              "choice2": {
+                "summary": "woodland",
+                "value": 1
+              },
+              "choice3": {
+                "summary": "Plantation",
+                "value": 10
+              },
+              "choice4": {
+                "summary": "Marsh",
+                "value": 11
+              },
+              "choice5": {
+                "summary": "GrasslandShrubland",
+                "value": 12
+              },
+              "choice6": {
+                "summary": "Grassland",
+                "value": 13
+              },
+              "choice7": {
+                "summary": "DevelopedArea",
+                "value": 14
+              },
+              "choice8": {
+                "summary": "AgriculturalLand",
+                "value": 15
+              },
+              "choice9": {
+                "summary": "Wetland",
+                "value": 2
+              },
+              "choice10": {
+                "summary": "Watercourse",
+                "value": 3
+              },
+              "choice11": {
+                "summary": "Wasteland",
+                "value": 4
+              },
+              "choice12": {
+                "summary": "VillageArea",
+                "value": 5
+              },
+              "choice13": {
+                "summary": "UplandGrassland",
+                "value": 6
+              },
+              "choice14": {
+                "summary": "SSSI",
+                "value": 7
+              },
+              "choice15": {
+                "summary": "Shrubland",
+                "value": 8
+              },
+              "choice16": {
+                "summary": "Pond",
+                "value": 9
+              }
+            },
+            "x-choice-count": 16
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0,
+              1,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer?f=pjson",
+            "sha256": "322cc5042a5c7f66dbbf8436fec77f4cbf3eb5221b353a29eb0bc7b16da75748",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/0?f=pjson",
+            "sha256": "1de7acae056cc30f0d60fed0cd6f4fbb1875cb58343110ac8dcf18e0557199f8",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/10?f=pjson",
+            "sha256": "ecc12ea9400e595f49128ac5243d37f209b335f5c9644534a75b6c264d45a42b",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/11?f=pjson",
+            "sha256": "b56f0d3a7f8eb6e49ae9131a74092a677e353769acd2e01f5b656d6862d21f4f",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/12?f=pjson",
+            "sha256": "82e675471e1b36a247948594c5af812cd77b719495de1c4c7289cac46ef30ea0",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/13?f=pjson",
+            "sha256": "5a74a581c6ec7d10a72927491944747829172d8f61aa117944484282d7c1af4a",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/14?f=pjson",
+            "sha256": "442c55c564f3c99cab2cc6a159fc31ee02ef9fc6f6a099bdc1b4482606934e98",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/15?f=pjson",
+            "sha256": "18253d748ef28d9a6eef95c0ea4a7150aad84d2ba18c667078a07a8bb2355541",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/1?f=pjson",
+            "sha256": "bdb54bce5690152a37c73fd089671c1cb4a046abbf09b933069a058f1fb400a9",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/2?f=pjson",
+            "sha256": "2c0e749905cfbb7ad04e26d0e6eec2df182aba5055100f7a0c171c2c03b06b7c",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/3?f=pjson",
+            "sha256": "f3881aeb08be41bb0e82fd0a54b811665643d1508dc8a9bd2d2ffba00f6a1c68",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/4?f=pjson",
+            "sha256": "7b14a7eec52064d2d9c10777c1a8aea3434fabb102805bb9ec0b8c6226e344dd",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/5?f=pjson",
+            "sha256": "052dd0cbaa960de4ec913d75824b0b34293ea26cd58340be73b80220c15d1100",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/6?f=pjson",
+            "sha256": "7dceefa429ab289d7c9c25d7e132a25ff12b46722c2247897d5369d955b5e1cf",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/7?f=pjson",
+            "sha256": "37f4480d23e0e6af283ec612107abbe268cab9bd7e6a63559251b48aff69a9b9",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/8?f=pjson",
+            "sha256": "234a2a63c19f926e63460e005f227781ac0a432b01fd7ada64554d30e8c72dee",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/9?f=pjson",
+            "sha256": "985270e09a7cbef34c0403305769bb3aa03123f09eaf836b3421b14b0a5aedff",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/epd_rcd_1696985725838_7798/MapServer/WFSServer": {
+      "get": {
+        "operationId": "WfsMapServerGetFeature",
+        "tags": [
+          "WFS"
+        ],
+        "summary": "Retrieve published features",
+        "description": "One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WFS"
+              ]
+            },
+            "example": "WFS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact capabilities version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2.0.0"
+              ]
+            },
+            "example": "2.0.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only operation advertised by GetCapabilities.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetFeature"
+              ]
+            },
+            "example": "GetFeature"
+          },
+          {
+            "name": "typeNames",
+            "in": "query",
+            "required": true,
+            "description": "Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "SeasonalWatercourse",
+                "value": "csdi:SeasonalWatercourse"
+              },
+              "choice2": {
+                "summary": "AgriculturalLand",
+                "value": "csdi:AgriculturalLand"
+              },
+              "choice3": {
+                "summary": "DevelopedArea",
+                "value": "csdi:DevelopedArea"
+              },
+              "choice4": {
+                "summary": "Grassland",
+                "value": "csdi:Grassland"
+              },
+              "choice5": {
+                "summary": "GrasslandShrubland",
+                "value": "csdi:GrasslandShrubland"
+              },
+              "choice6": {
+                "summary": "Marsh",
+                "value": "csdi:Marsh"
+              },
+              "choice7": {
+                "summary": "Plantation",
+                "value": "csdi:Plantation"
+              },
+              "choice8": {
+                "summary": "Pond",
+                "value": "csdi:Pond"
+              },
+              "choice9": {
+                "summary": "Shrubland",
+                "value": "csdi:Shrubland"
+              },
+              "choice10": {
+                "summary": "SSSI",
+                "value": "csdi:SSSI"
+              },
+              "choice11": {
+                "summary": "UplandGrassland",
+                "value": "csdi:UplandGrassland"
+              },
+              "choice12": {
+                "summary": "VillageArea",
+                "value": "csdi:VillageArea"
+              },
+              "choice13": {
+                "summary": "Wasteland",
+                "value": "csdi:Wasteland"
+              },
+              "choice14": {
+                "summary": "Watercourse",
+                "value": "csdi:Watercourse"
+              },
+              "choice15": {
+                "summary": "Wetland",
+                "value": "csdi:Wetland"
+              },
+              "choice16": {
+                "summary": "woodland",
+                "value": "csdi:woodland"
+              }
+            },
+            "x-choice-count": 16
+          },
+          {
+            "name": "outputFormat",
+            "in": "query",
+            "required": false,
+            "description": "Advertised native representation; JSON, GML, CSV and images are kept distinct.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GML32",
+                "GML32+ZIP",
+                "GML32+GZIP",
+                "application/gml+xml; version=3.2",
+                "GML3",
+                "GML3+ZIP",
+                "GML3+GZIP",
+                "text/xml; subtype=gml/3.1.1",
+                "GML2",
+                "GML2+ZIP",
+                "GML2+GZIP",
+                "text/xml; subtype=gml/2.1.2",
+                "GEOJSON",
+                "GEOJSON+ZIP",
+                "GEOJSON+GZIP",
+                "ESRIGEOJSON",
+                "ESRIGEOJSON+ZIP",
+                "ESRIGEOJSON+GZIP",
+                "KML",
+                "application/vnd.google-earth.kml xml",
+                "application/vnd.google-earth.kml+xml",
+                "KMZ",
+                "application/vnd.google-earth.kmz",
+                "SHAPE+ZIP",
+                "CSV",
+                "CSV+ZIP",
+                "CSV+GZIP",
+                "Geopackage",
+                "Geopackage+ZIP"
+              ]
+            },
+            "example": "GEOJSON"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "OGC bounded feature limit; example requests one feature without claiming a server-wide bound.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "srsName",
+            "in": "query",
+            "required": false,
+            "description": "Output CRS choices advertised by at least one feature type; support may vary by selected type.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "urn:ogc:def:crs:EPSG::2326"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/gml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/vnd.google-earth.kml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "description": "Native Geopackage+ZIP output; wire media type/fields are not constrained."
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "description": "Native CSV; row/column wire conformance is not inferred from JSON schemas."
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://docs.ogc.org/is/09-025r2/09-025r2.html"
+        },
+        "x-advertised-crss": [
+          "urn:ogc:def:crs:EPSG::2326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/epd_rcd_1696985725838_7798/MapServer/WFSServer?service=wfs&request=GetCapabilities",
+            "sha256": "186820fd3c4b6c0f8e6dcfb96ac6a28eef05fac00204d504702ec87e63684ac2",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-capabilities",
+            "parseStatus": "pass",
+            "kind": "wfs-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID_1": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID_1",
+            "type": "integer"
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "OBJECTID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ReportName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ReportName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "District": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerCateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerCateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer10Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "figno": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "figno",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "SHAPE__Len": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Len",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SHAPE__Are": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Are",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer11Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "ReportName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ReportName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "District": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerCateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerCateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer12Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "figno": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "figno",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "SHAPE__Len": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Len",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SHAPE__Are": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Are",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer13Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "EIA_No": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EIA_No",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "Name": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Name",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "District": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Category": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Category",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer14Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "figno": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "figno",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "SHAPE__Len": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Len",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SHAPE__Are": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Are",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer15Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "EIA_No": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EIA_No",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer2Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer3Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "figno": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "figno",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "SHAPE__Len": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Len",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SHAPE__Are": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Are",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer4Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "ReportName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ReportName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "District": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerCateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerCateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer5Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "ReportName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ReportName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "District": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerCateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerCateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer6Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID_1": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID_1",
+            "type": "integer"
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "OBJECTID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ReportName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ReportName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "District": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerCateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerCateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer7Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "figno": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "figno",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "SHAPE__Len": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Len",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SHAPE__Are": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Are",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer8Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "ReportName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ReportName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "District": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "FigNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FigNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerCateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerCateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "LayerName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LayerName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Shape_Leng": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Leng",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer9Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "reportname": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "reportname",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "Project": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Project",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 254
+          },
+          "figno": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "figno",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "district": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "district",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layertype": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layertype",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layercateg": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layercateg",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "layername": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "layername",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "SHAPE__Len": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Len",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SHAPE__Are": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE__Are",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsFeatureCollection": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "DescribeFeatureType attribute declarations unavailable; record fields remain unknown."
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "SeasonalWatercourse",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1,
+      "title": "woodland",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 10,
+      "title": "Plantation",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 11,
+      "title": "Marsh",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 12,
+      "title": "GrasslandShrubland",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 13,
+      "title": "Grassland",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 14,
+      "title": "DevelopedArea",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 15,
+      "title": "AgriculturalLand",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 2,
+      "title": "Wetland",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 3,
+      "title": "Watercourse",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 4,
+      "title": "Wasteland",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 5,
+      "title": "VillageArea",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 6,
+      "title": "UplandGrassland",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 7,
+      "title": "SSSI",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 8,
+      "title": "Shrubland",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 9,
+      "title": "Pond",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "csdi:SeasonalWatercourse",
+      "title": "SeasonalWatercourse",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:AgriculturalLand",
+      "title": "AgriculturalLand",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:DevelopedArea",
+      "title": "DevelopedArea",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Grassland",
+      "title": "Grassland",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:GrasslandShrubland",
+      "title": "GrasslandShrubland",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Marsh",
+      "title": "Marsh",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Plantation",
+      "title": "Plantation",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Pond",
+      "title": "Pond",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Shrubland",
+      "title": "Shrubland",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:SSSI",
+      "title": "SSSI",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:UplandGrassland",
+      "title": "UplandGrassland",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:VillageArea",
+      "title": "VillageArea",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Wasteland",
+      "title": "Wasteland",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Watercourse",
+      "title": "Watercourse",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Wetland",
+      "title": "Wetland",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:woodland",
+      "title": "woodland",
+      "protocol": "wfs"
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=epd_rcd_1696985725838_7798",
+      "sha256": "9846161bdb710c7d3cf24322abf9896e486186422d601cf0c6d77fdd44162224",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer?f=pjson",
+      "sha256": "322cc5042a5c7f66dbbf8436fec77f4cbf3eb5221b353a29eb0bc7b16da75748",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/0?f=pjson",
+      "sha256": "1de7acae056cc30f0d60fed0cd6f4fbb1875cb58343110ac8dcf18e0557199f8",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/10?f=pjson",
+      "sha256": "ecc12ea9400e595f49128ac5243d37f209b335f5c9644534a75b6c264d45a42b",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/11?f=pjson",
+      "sha256": "b56f0d3a7f8eb6e49ae9131a74092a677e353769acd2e01f5b656d6862d21f4f",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/12?f=pjson",
+      "sha256": "82e675471e1b36a247948594c5af812cd77b719495de1c4c7289cac46ef30ea0",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/13?f=pjson",
+      "sha256": "5a74a581c6ec7d10a72927491944747829172d8f61aa117944484282d7c1af4a",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/14?f=pjson",
+      "sha256": "442c55c564f3c99cab2cc6a159fc31ee02ef9fc6f6a099bdc1b4482606934e98",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/15?f=pjson",
+      "sha256": "18253d748ef28d9a6eef95c0ea4a7150aad84d2ba18c667078a07a8bb2355541",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/1?f=pjson",
+      "sha256": "bdb54bce5690152a37c73fd089671c1cb4a046abbf09b933069a058f1fb400a9",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/2?f=pjson",
+      "sha256": "2c0e749905cfbb7ad04e26d0e6eec2df182aba5055100f7a0c171c2c03b06b7c",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/3?f=pjson",
+      "sha256": "f3881aeb08be41bb0e82fd0a54b811665643d1508dc8a9bd2d2ffba00f6a1c68",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/4?f=pjson",
+      "sha256": "7b14a7eec52064d2d9c10777c1a8aea3434fabb102805bb9ec0b8c6226e344dd",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/5?f=pjson",
+      "sha256": "052dd0cbaa960de4ec913d75824b0b34293ea26cd58340be73b80220c15d1100",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/6?f=pjson",
+      "sha256": "7dceefa429ab289d7c9c25d7e132a25ff12b46722c2247897d5369d955b5e1cf",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/7?f=pjson",
+      "sha256": "37f4480d23e0e6af283ec612107abbe268cab9bd7e6a63559251b48aff69a9b9",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/8?f=pjson",
+      "sha256": "234a2a63c19f926e63460e005f227781ac0a432b01fd7ada64554d30e8c72dee",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/epd_rcd_1696985725838_7798/FeatureServer/9?f=pjson",
+      "sha256": "985270e09a7cbef34c0403305769bb3aa03123f09eaf836b3421b14b0a5aedff",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/epd_rcd_1696985725838_7798/MapServer/WFSServer?service=wfs&request=GetCapabilities",
+      "sha256": "186820fd3c4b6c0f8e6dcfb96ac6a28eef05fac00204d504702ec87e63684ac2",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-capabilities",
+      "parseStatus": "pass",
+      "kind": "wfs-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [
+      {
+        "serviceId": "csdi-service-6170f6e32d30d63f2d1bc382",
+        "code": "discovery_metadata_error",
+        "reason": "No retained response; cache-only mode performs no HTTP request",
+        "url": "https://portal.csdi.gov.hk/server/services/common/epd_rcd_1696985725838_7798/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType"
+      },
+      {
+        "code": "metadata_http_not_200",
+        "url": "https://portal.csdi.gov.hk/server/services/common/epd_rcd_1696985725838_7798/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+        "httpStatus": 403
+      },
+      {
+        "serviceId": "csdi-service-e93ab69909cfbf1358dc07b4",
+        "code": "discovery_metadata_error",
+        "reason": "Metadata request status http_error",
+        "url": "https://portal.csdi.gov.hk/server/services/common/epd_rcd_1696985725838_7798/MapServer/WMSServer?service=WMS&request=GetCapabilities"
+      },
+      {
+        "serviceId": "csdi-service-e93ab69909cfbf1358dc07b4",
+        "protocol": "wms",
+        "code": "unsupported_or_incomplete_native_contract",
+        "reason": "No retained parseable WMS GetCapabilities"
+      }
+    ],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 19
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

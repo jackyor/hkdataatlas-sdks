@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "lcsd-csdi-trees-lcsd-venues-other-than-major-parks",
+  "sourceSha256": "08051ffefbc15f926b0979b9c034ae9ae6cc3e4dc12d0ffbf359711d29d9f030",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/lcsd_rcd_1760154188966_59086/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1760154188966_59086/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1760154188966_59086/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

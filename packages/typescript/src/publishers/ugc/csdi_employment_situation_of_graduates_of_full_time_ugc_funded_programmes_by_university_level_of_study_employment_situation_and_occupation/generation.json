@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ugc-csdi-employment-situation-of-graduates-of-full-time-ugc-funded-programmes-by-university-level-of-study-employment-situation-and-occupation",
+  "sourceSha256": "b9a67ddec76aea7b9267c6580133ead51d2ede1d0b12017b52e713349c2cdfd3",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ugc_rcd_1697187102698_87308/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ugc_rcd_1697187102698_87308/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ugc_rcd_1697187102698_87308/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

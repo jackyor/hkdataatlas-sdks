@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "fehd-csdi-fehd-facility-and-service-locations",
+  "sourceSha256": "87626c9900d49ce78dde76c221cce83f3948f2306550de000bb825b80acfc2cb",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/fehd_rcd_1629969687926_30590/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1629969687926_30590/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1629969687926_30590/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

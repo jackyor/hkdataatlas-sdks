@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "devb-csdi-invigorating-island-south-conceptual-master-plan-3-0-wong-chuk-hang-aberdeen-and-ap-lei-chau",
+  "sourceSha256": "c395862706212d2beac1529f97d78c94fb2a8567737f84403e85e515e73c2e44",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/devb_plb_rcd_1728273963729_93696/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_plb_rcd_1728273963729_93696/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_plb_rcd_1728273963729_93696/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

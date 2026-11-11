@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "bd-csdi-fire-safety-directions-complied-with-withdrawn-superseded-under-fire-safety-industrial-buildings-ordinance-by-buildings-department",
+  "sourceSha256": "8fa19a005b275c771812ca15b705b620c4e1c7c3116a7fec4012efb316b940e5",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/bd_rcd_1696918634976_17756/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1696918634976_17756/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1696918634976_17756/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,722 @@
+components:
+  parameters: {}
+  schemas:
+    Address:
+      anyOf:
+        - required:
+            - dcDestrict
+        - required:
+            - dcDistrict
+      description: Address of the car park. Locale-specific address fields are
+        documented as optional except where marked required. The publisher
+        declares the district field required with spelling dcDestrict; one
+        bounded three-item response uses dcDistrict instead. At least one of
+        these source/observed spellings is required, while both are permitted.
+        Other declared required address fields remain required.
+      properties:
+        blockDescriptor:
+          description: Block descriptor in the specified locale.
+          type: string
+        blockNo:
+          description: Block number in estates in the specified locale.
+          type: string
+        buildingName:
+          description: Building name in the specified locale.
+          type: string
+        buildingNo:
+          description: Building number in the specified locale.
+          type: string
+        dcDestrict:
+          description: District in the specified locale. The source spells this field
+            `dcDestrict`.
+          type: string
+        dcDistrict:
+          description: District in the specified locale, using the spelling observed in
+            the retained three-item live response. The publisher dictionary
+            spells the corresponding required field dcDestrict; that documented
+            variant is retained alongside this observational variant.
+          type: string
+        estateName:
+          description: Estate name in the specified locale.
+          type: string
+        floor:
+          description: Floor in the specified locale.
+          type: string
+        phase:
+          description: Phase in the specified locale.
+          type: string
+        region:
+          description: Region in the specified locale.
+          type: string
+        streetName:
+          description: Street name in the specified locale.
+          type: string
+        subDistrict:
+          description: Sub-district in the specified locale.
+          type: string
+        unitDescriptor:
+          description: Unit descriptor in the specified locale.
+          type: string
+        unitNo:
+          description: Unit number in the specified locale.
+          type: string
+        villageName:
+          description: Village name in the specified locale.
+          type: string
+      required:
+        - subDistrict
+        - region
+      type: object
+    CarparkInfo:
+      description: Basic car park information. Properties marked required in the
+        publisher dictionary are required for this object; other dictionary
+        fields are optional.
+      properties:
+        CV:
+          $ref: "#/components/schemas/VehicleInformation"
+        HGV:
+          $ref: "#/components/schemas/VehicleInformation"
+        LGV:
+          $ref: "#/components/schemas/VehicleInformation"
+        address:
+          $ref: "#/components/schemas/Address"
+        carpark_Type:
+          description: Type of car park; documented possible values are multi-storey,
+            off-street, and metered.
+          type: string
+        coach:
+          $ref: "#/components/schemas/VehicleInformation"
+        contactNo:
+          description: Telephone number of the car park.
+          type: string
+        creationDate:
+          description: Creation time (YYYY-MM-DD HH:MM:SS).
+          type: string
+        displayAddress:
+          description: Display address of the car park.
+          type: string
+        district:
+          description: District name.
+          type: string
+        facilities:
+          items:
+            description: Documented possible values include evCharger, disabilities,
+              unloading, washing, and valet-parking.
+            type: string
+          type: array
+        gracePeriods:
+          description: Array of grace-period rules.
+          items:
+            $ref: "#/components/schemas/GracePeriod"
+          type: array
+        heightLimits:
+          description: Array of height limits.
+          items:
+            $ref: "#/components/schemas/HeightLimit"
+          type: array
+        lang:
+          description: Display language of the car park information.
+          enum:
+            - en_US
+            - zh_TW
+            - zh_CN
+          type: string
+        latitude:
+          description: Latitude of the car park.
+          type: number
+        longitude:
+          description: Longitude of the car park.
+          type: number
+        modifiedDate:
+          description: Last modified time (YYYY-MM-DD HH:MM:SS).
+          type: string
+        motorCycle:
+          $ref: "#/components/schemas/VehicleInformation"
+        name:
+          description: The name of the car park.
+          type: string
+        nature:
+          description: Nature of the car park; documented possible values are government
+            or commercial.
+          type: string
+        openingHours:
+          description: Array of opening-hour rules.
+          items:
+            $ref: "#/components/schemas/OpeningHour"
+          type: array
+        opening_status:
+          description: "Current opening status: OPEN or CLOSED."
+          type: string
+        park_Id:
+          description: The system ID of the car park.
+          type: string
+        paymentMethods:
+          items:
+            description: Documented possible values include cash, octopus, EPS, visa,
+              master, unionpay, alipay, and autopay-station.
+            type: string
+          type: array
+        privateCar:
+          $ref: "#/components/schemas/VehicleInformation"
+        publishedDate:
+          description: Publication time (YYYY-MM-DD HH:MM:SS).
+          type: string
+        renditionUrls:
+          $ref: "#/components/schemas/RenditionUrls"
+        website:
+          description: URL of the car park website. The publisher declares an optional
+            String and does not impose a URI format constraint. One retained
+            bounded response contains an empty string.
+          type: string
+      required:
+        - park_Id
+        - name
+        - displayAddress
+        - latitude
+        - longitude
+        - lang
+      type: object
+    CarparkVacancy:
+      description: Parking vacancy data. Vehicle properties contain arrays of vacancy
+        records.
+      properties:
+        CV:
+          items:
+            $ref: "#/components/schemas/VacancyRecord"
+          type: array
+        HGV:
+          items:
+            $ref: "#/components/schemas/VacancyRecord"
+          type: array
+        LGV:
+          items:
+            $ref: "#/components/schemas/VacancyRecord"
+          type: array
+        coach:
+          items:
+            $ref: "#/components/schemas/VacancyRecord"
+          type: array
+        motorCycle:
+          items:
+            $ref: "#/components/schemas/VacancyRecord"
+          type: array
+        park_Id:
+          description: The system ID of the car park.
+          type: string
+        privateCar:
+          items:
+            $ref: "#/components/schemas/VacancyRecord"
+          type: array
+      required:
+        - park_Id
+      type: object
+    DayNightPark:
+      properties:
+        covered:
+          enum:
+            - covered
+            - semi-covered
+            - open-air
+            - mixed
+          type: string
+        excludePublicHoliday:
+          type: boolean
+        periodEnd:
+          type: string
+        periodStart:
+          type: string
+        price:
+          description: Rate in Hong Kong dollars.
+          type: number
+        remark:
+          description: Condition to which this rule applies; localized responses provide
+            the remark in the specified locale. The documented example uses
+            null.
+          type:
+            - string
+            - "null"
+        type:
+          enum:
+            - day-park
+            - night-park
+            - 6-hours-park
+            - 12-hours-park
+            - 24-hours-park
+          type: string
+        validUntil:
+          enum:
+            - no-restrictions
+            - same-day
+            - following-day
+          type: string
+        validUntilEnd:
+          description: "End time until which parking of the specified number of hours is
+            valid. Example: 24:00."
+          type: string
+        weekdays:
+          $ref: "#/components/schemas/Weekdays"
+      required:
+        - type
+        - weekdays
+        - excludePublicHoliday
+        - periodStart
+        - periodEnd
+        - validUntil
+        - price
+        - covered
+      type: object
+    GracePeriod:
+      properties:
+        minutes:
+          description: Number of minutes the user may park for free.
+          type: number
+        remark:
+          description: Condition to which this grace period applies; localized responses
+            provide the remark in the specified locale.
+          type: string
+      required:
+        - minutes
+      type: object
+    HeightLimit:
+      properties:
+        height:
+          description: Height limit in meters.
+          type: number
+        remark:
+          description: Remark text.
+          type: string
+      type: object
+    HourlyCharge:
+      properties:
+        covered:
+          enum:
+            - covered
+            - semi-covered
+            - open-air
+            - mixed
+          type: string
+        excludePublicHoliday:
+          type: boolean
+        periodEnd:
+          type: string
+        periodStart:
+          type: string
+        price:
+          description: Rate in Hong Kong dollars.
+          type: number
+        remark:
+          description: Condition to which this rule applies; localized responses provide
+            the remark in the specified locale.
+          type: string
+        type:
+          enum:
+            - hourly
+            - half-hourly
+          type: string
+        usageThresholds:
+          description: Usage thresholds charged on a usage basis.
+          items:
+            $ref: "#/components/schemas/UsageThreshold"
+          type: array
+        weekdays:
+          $ref: "#/components/schemas/Weekdays"
+      required:
+        - type
+        - weekdays
+        - excludePublicHoliday
+        - periodStart
+        - periodEnd
+        - price
+        - covered
+      type: object
+    MonthlyCharge:
+      properties:
+        covered:
+          enum:
+            - covered
+            - semi-covered
+            - open-air
+            - mixed
+          type: string
+        price:
+          description: Rate in Hong Kong dollars.
+          type: number
+        ranges:
+          description: Time periods in which the monthly charge rule particularly applies
+            to day/night parking.
+          items:
+            $ref: "#/components/schemas/TimeRange"
+          type: array
+        remark:
+          description: Condition to which this rule applies; localized responses provide
+            the remark in the specified locale.
+          type: string
+        reserved:
+          enum:
+            - reserved
+            - non-reserved
+          type: string
+        type:
+          enum:
+            - monthly-park
+            - monthly-day-park
+            - monthly-night-park
+            - bimonthly-park
+            - bimonthly-day-park
+            - bimonthly-night-park
+            - quarterly-park
+            - quarterly-day-park
+            - quarterly-night-park
+            - yearly-park
+            - yearly-day-park
+            - yearly-night-park
+          type: string
+      required:
+        - type
+        - price
+        - covered
+        - reserved
+      type: object
+    OpeningHour:
+      properties:
+        excludePublicHoliday:
+          description: Indicates whether the opening hour applies to public holidays.
+          type: boolean
+        periodEnd:
+          description: "End time of the opening hour applied; example: 24:00."
+          type: string
+        periodStart:
+          description: "Start time of the opening hour applied; example: 08:00."
+          type: string
+        weekdays:
+          $ref: "#/components/schemas/Weekdays"
+      required:
+        - periodStart
+        - periodEnd
+        - excludePublicHoliday
+        - weekdays
+      type: object
+    Privilege:
+      properties:
+        description:
+          description: Description of the privilege; localized responses provide the text
+            in the specified locale.
+          type: string
+        excludePublicHoliday:
+          type: boolean
+        periodEnd:
+          type: string
+        periodStart:
+          type: string
+        weekdays:
+          $ref: "#/components/schemas/Weekdays"
+      required:
+        - weekdays
+        - excludePublicHoliday
+        - periodStart
+        - periodEnd
+        - description
+      type: object
+    RenditionUrls:
+      description: Image renditions generated from a photo uploaded by the car park
+        owner. Empty if the car park has no photo.
+      properties:
+        banner:
+          description: Absolute URL of a 300x250 center-cropped rectangle.
+          format: uri
+          type: string
+        carpark_photo:
+          description: Absolute URL of the car park's main entrance image.
+          format: uri
+          type: string
+        square:
+          description: Absolute URL of a 150x150 center-cropped square image.
+          format: uri
+          type: string
+        thumbnail:
+          description: Absolute URL of a center-cropped rectangle with maximum width 320
+            and height 250.
+          format: uri
+          type: string
+      type: object
+    TimeRange:
+      properties:
+        excludePublicHoliday:
+          type: boolean
+        periodEnd:
+          type: string
+        periodStart:
+          type: string
+        weekdays:
+          $ref: "#/components/schemas/Weekdays"
+      required:
+        - weekdays
+        - excludePublicHoliday
+        - periodStart
+        - periodEnd
+      type: object
+    Unloading:
+      properties:
+        price:
+          description: Rate in Hong Kong dollars.
+          type: number
+        remark:
+          description: Condition to which this rule applies; localized responses provide
+            the remark in the specified locale.
+          type: string
+        type:
+          enum:
+            - hourly
+            - half-hourly
+          type: string
+        usageThresholds:
+          items:
+            $ref: "#/components/schemas/UsageThreshold"
+          type: array
+      required:
+        - type
+        - price
+      type: object
+    UsageThreshold:
+      properties:
+        hours:
+          description: Usage threshold in hours.
+          type: number
+        price:
+          description: Price charged within the usage threshold.
+          type: number
+      required:
+        - hours
+        - price
+      type: object
+    VacancyRecord:
+      properties:
+        category:
+          enum:
+            - HOURLY
+            - DAILY
+            - MONTHLY
+          type: string
+        lastupdate:
+          description: Last update date from the car park owner (YYYY-MM-DD HH:MM:SS).
+          type: string
+        vacancy:
+          description: Available parking spaces for this vehicle type, including
+            electronic and non-electronic vehicles. For type A, 0 means full and
+            -1 means the operator provided no data. For type B, 0 means full, 1
+            means spaces available, and -1 means the operator provided no data.
+            Type C always returns 0.
+          type: number
+        vacancyDIS:
+          description: Available parking spaces for this electronic vehicle type assigned
+            to disabled persons.
+          type: number
+        vacancyEV:
+          description: Available parking spaces for this electronic vehicle type only.
+          type: number
+        vacancyUNL:
+          description: Available unloading spaces for this electronic vehicle type.
+          type: number
+        vacancy_type:
+          description: "Vacancy type: A means availability with an actual number; B means
+            availability without an actual number; C means the car park is
+            closed."
+          enum:
+            - A
+            - B
+            - C
+          type: string
+      required:
+        - vacancy_type
+        - vacancy
+        - lastupdate
+      type: object
+    VehicleInformation:
+      description: Vehicle-space and rating information. The property may be omitted
+        if the car park has no information for that vehicle type.
+      properties:
+        dayNightParks:
+          items:
+            $ref: "#/components/schemas/DayNightPark"
+          type: array
+        hourlyCharges:
+          items:
+            $ref: "#/components/schemas/HourlyCharge"
+          type: array
+        monthlyCharges:
+          items:
+            $ref: "#/components/schemas/MonthlyCharge"
+          type: array
+        privileges:
+          items:
+            $ref: "#/components/schemas/Privilege"
+          type: array
+        space:
+          description: Total parking space for this vehicle type, including electronic and
+            non-electronic vehicles.
+          type: number
+        spaceDIS:
+          description: Total parking space for this electronic vehicle type assigned to
+            disabled persons.
+          type: number
+        spaceEV:
+          description: Total parking space for this electronic vehicle type only.
+          type: number
+        spaceUNL:
+          description: Total unloading space for this electronic vehicle type.
+          type: number
+        unloadings:
+          items:
+            $ref: "#/components/schemas/Unloading"
+          type: array
+      type: object
+    Weekdays:
+      items:
+        enum:
+          - MON
+          - TUE
+          - WED
+          - THU
+          - FRI
+          - SAT
+          - SUN
+          - PH
+        type: string
+      type: array
+externalDocs:
+  description: Parking Vacancy Data Specification
+  url: https://resource.data.one.gov.hk/opendata/carpark/Parking_Vacancy_Data_Specification.pdf
+info:
+  description: Returns published car park basic information and parking vacancy
+    data. The API specification is version 1.2, dated 14 January 2020.
+    Authentication is documented as not required.
+  title: Parking Vacancy Data API
+  version: "1.2"
+openapi: 3.1.0
+paths:
+  /carpark-info-vacancy:
+    get:
+      description: Gets all published car parks' basic information and vacancy data.
+        The `data` parameter selects basic information or parking vacancy data.
+        Response examples and dictionaries are representative documentation and
+        do not establish that every listed property is present in every
+        response.
+      operationId: getCarparkInfoVacancy
+      parameters:
+        - description: Data to return. Defaults to `info`. `info` returns basic car park
+            information, such as location, parking fee and opening hours;
+            `vacancy` returns parking vacancy data, such as vacancy type and
+            available parking spaces.
+          in: query
+          name: data
+          required: false
+          schema:
+            default: info
+            enum:
+              - info
+              - vacancy
+            type: string
+        - description: Type of vehicle to include. The documented values are `privateCar`,
+            `LGV`, `HGV`, `CV`, `coach`, and `motorCycle`.
+          in: query
+          name: vehicleTypes
+          required: false
+          schema:
+            items:
+              type: string
+            type: string
+        - description: Comma-separated IDs of car parks to include.
+          in: query
+          name: carparkIds
+          required: false
+          schema:
+            type: string
+        - description: Car parks within the specified rectangular bounds. The value is a
+            comma-separated sequence of left longitude, bottom latitude, right
+            longitude, and top latitude.
+          in: query
+          name: extent
+          required: false
+          schema:
+            type: string
+        - description: Display language. Defaults to `en_US`. The documented values are
+            `en_US`, `zh_TW`, and `zh_CN`. The specification says Traditional
+            Chinese data is returned if the car park does not have a `zh_TW`
+            description and Simplified Chinese data is returned if it does not
+            have a `zh_CN` description.
+          in: query
+          name: lang
+          required: false
+          schema:
+            default: en_US
+            enum:
+              - en_US
+              - zh_TW
+              - zh_CN
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                vacancy:
+                  description: The source's example is fragmentary and contains ellipses; this
+                    example captures the clearly documented structure and values
+                    without implying a complete response.
+                  summary: Documented vacancy response example
+                  value:
+                    results:
+                      - HGV:
+                          - lastupdate: 2018-10-02 11:01:05
+                            vacancy: 0
+                            vacancy_type: A
+                        LGV:
+                          - lastupdate: 2018-10-02 11:01:05
+                            vacancy: 0
+                            vacancy_type: A
+                        motorCycle:
+                          - lastupdate: 2018-10-02 11:01:05
+                            vacancy: 0
+                            vacancy_type: A
+                        park_Id: "10"
+                        privateCar:
+                          - lastupdate: 2018-10-02 11:06:21
+                            vacancy: 94
+                            vacancy_type: A
+                      - park_Id: "12"
+                        privateCar:
+                          - lastupdate: 2018-10-02 11:01:05
+                            vacancy: 155
+                            vacancyDIS: 6
+                            vacancyEV: 5
+                            vacancy_type: A
+                      - motorCycle:
+                          - lastupdate: 2018-10-02 08:48:52
+                            vacancy: 2
+                            vacancy_type: A
+                        park_Id: "27"
+                        privateCar:
+                          - lastupdate: 2018-10-02 08:48:52
+                            vacancy: 12
+                            vacancyDIS: 1
+                            vacancy_type: A
+              schema:
+                properties:
+                  results:
+                    items:
+                      anyOf:
+                        - $ref: "#/components/schemas/CarparkInfo"
+                        - $ref: "#/components/schemas/CarparkVacancy"
+                    type: array
+                type: object
+          description: Success. JSON response encoded in UTF-8.
+        "400":
+          description: Bad Request.
+        "500":
+          description: Internal Server Error.
+        "503":
+          description: The server is currently unavailable.
+      security: []
+      summary: Get car park information and vacancy data
+servers:
+  - url: https://api.data.gov.hk/v1

@@ -1,0 +1,34 @@
+{
+  "sourceId": "pland-3d-photo-realistic-model",
+  "publisherKey": "pland",
+  "family": "3d_photo_realistic_model",
+  "status": "generated",
+  "key": "c913e02d0dacaa48f8991c9fe2ec1ad4e293ab3606dd31ffec5206efecce8803",
+  "sourceSha256": "0064fdee2f73fbb71db2ed58257e1175944f4451bab1c84dcdf2dee26777f58b",
+  "derivedInputSha256": "a7dda60bf84af2aa123bd936dc435bf352079f3666f4e7e876852cd9b46d77ad",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/plandapi/Tiles",
+      "operationId": "get3DPhotoRealisticModelTiles",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/pland-3d-photo-realistic-model.log",
+  "outputs": {
+    "__init__.py": "7468e5e43e3a992dfac344941aebd3f5e24f373100caf9efd7884a61191ee9b1",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_3d_photo_realistic_model_tiles.py": "11a314524299962f16b279510284e50feb4150556f738e5d60b2a1db30f41227",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "816de5d79f19ecf639777cb87e29e4f105dd0a34c54698c3fba3d1333f1748f2",
+    "models/get_3d_photo_realistic_model_tiles_file_type.py": "445fe0e8fd0971595aeef0db6c985fb1d4317e7bee502be90f2a5f42114172dc",
+    "models/tile.py": "d6d96048c240b86a017f3a2ba44d220e5856466a90bb8ecc1271033769cd4f87",
+    "models/tiles_response.py": "1f44690def47fd335ca8e96b220baa502cbd27ebe5dae0184189c69de9684e6d",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

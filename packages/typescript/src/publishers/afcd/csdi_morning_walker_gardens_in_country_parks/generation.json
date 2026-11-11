@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "afcd-csdi-morning-walker-gardens-in-country-parks",
+  "sourceSha256": "37a4660ff9543fcf41460f8fe1400f289c833c9bf5d018bc8562fe0fa761e838",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/afcd_rcd_1635136324296_93597/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1635136324296_93597/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1635136324296_93597/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

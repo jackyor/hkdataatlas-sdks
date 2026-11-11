@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "afcd-csdi-information-on-fish-enjoy-inland-fish-farms",
+  "sourceSha256": "3945de7f258fa470707cb6cae53e00d9a0bb80be8b038a9d15ef4155320c9298",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/afcd_rcd_1759892890280_79931/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1759892890280_79931/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/afcd_rcd_1759892890280_79931/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

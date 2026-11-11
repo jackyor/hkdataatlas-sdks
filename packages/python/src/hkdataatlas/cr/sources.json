@@ -1,0 +1,128 @@
+{
+  "publisherKey": "cr",
+  "publisherName": "Companies Registry",
+  "sources": [
+    {
+      "id": "cr-csdi-list-of-trust-or-company-service-provider-licensees",
+      "publisherKey": "cr",
+      "publisherName": "Companies Registry",
+      "familyKey": "csdi-list-of-trust-or-company-service-provider-licensees",
+      "name": "List of Trust or Company Service Provider Licensees",
+      "apiTitle": "Companies Registry \u2014 List of Trust or Company Service Provider Licensees",
+      "json": "cr/csdi-list-of-trust-or-company-service-provider-licensees/openapi.json",
+      "yaml": "cr/csdi-list-of-trust-or-company-service-provider-licensees/openapi.yaml",
+      "file": "cr/csdi-list-of-trust-or-company-service-provider-licensees/openapi.json",
+      "sha256": "43a6ef29a46ea4bf68cb3bf0826bf6af0f5822b6df1ab9e61a2e1285c70f5f9f",
+      "jsonSha256": "43a6ef29a46ea4bf68cb3bf0826bf6af0f5822b6df1ab9e61a2e1285c70f5f9f",
+      "yamlSha256": "ce2615d9767f904690a21f00b95e2558ef0ab14ec7a82f696f5d1b3a66251aec",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_trust_or_company_service_provider_licensees",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "43a6ef29a46ea4bf68cb3bf0826bf6af0f5822b6df1ab9e61a2e1285c70f5f9f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=cr_rcd_1668395265357_67292",
+        "canonicalJsonSha256": "43a6ef29a46ea4bf68cb3bf0826bf6af0f5822b6df1ab9e61a2e1285c70f5f9f",
+        "originalRepresentationSha256": "43a6ef29a46ea4bf68cb3bf0826bf6af0f5822b6df1ab9e61a2e1285c70f5f9f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_trust_or_company_service_provider_licensees"
+    },
+    {
+      "id": "cr-registered-office-address-of-live-local-companies-and-principal-place-of-business-of-registered-non-hong-kong-companies",
+      "publisherKey": "cr",
+      "publisherName": "Companies Registry",
+      "familyKey": "registered-office-address-of-live-local-companies-and-principal-place-of-business-of-registered-non-hong-kong-companies",
+      "name": "Registered Office Address of Live Local Companies and Principal Place of Business of Registered Non-Hong Kong Companies",
+      "apiTitle": "Companies Registry Company Address Search",
+      "json": "cr/registered-office-address-of-live-local-companies-and-principal-place-of-business-of-registered-non-hong-kong-companies/openapi.json",
+      "yaml": "cr/registered-office-address-of-live-local-companies-and-principal-place-of-business-of-registered-non-hong-kong-companies/openapi.yaml",
+      "file": "cr/registered-office-address-of-live-local-companies-and-principal-place-of-business-of-registered-non-hong-kong-companies/openapi.json",
+      "sha256": "bdcc7e4a779dd57ecf9062b9296eb49310fcb88620ac112b8c99092c20f4c38e",
+      "jsonSha256": "bdcc7e4a779dd57ecf9062b9296eb49310fcb88620ac112b8c99092c20f4c38e",
+      "yamlSha256": "5cb7caf0fa70eb5d2a022871a84f51fafa42393e42165a6d0251f05bb90a45cf",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "registered_office_address_of_live_local_companies_and_principal_place_of_business_of_registered_non_hong_kong_companies",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "bdcc7e4a779dd57ecf9062b9296eb49310fcb88620ac112b8c99092c20f4c38e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.cr.gov.hk/datagovhk/dict/data_dictionary_RO_PPB_en.docx",
+        "canonicalJsonSha256": "bdcc7e4a779dd57ecf9062b9296eb49310fcb88620ac112b8c99092c20f4c38e",
+        "originalRepresentationSha256": "c7538b184b1df6d42718d35f7e1d9770c6447942a7515b9cc18144c9307f8ed6",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "133b8a9b843c52469c2fe999afa7307d064e43bd3e5881c3fce248c62df86739",
+          "canonicalJsonSha256": "bdcc7e4a779dd57ecf9062b9296eb49310fcb88620ac112b8c99092c20f4c38e",
+          "currentSourceUrl": "https://www.cr.gov.hk/datagovhk/dict/data_dictionary_RO_PPB_en.docx",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "registered_office_address_of_live_local_companies_and_principal_place_of_business_of_registered_non_hong_kong_companies"
+    }
+  ]
+}

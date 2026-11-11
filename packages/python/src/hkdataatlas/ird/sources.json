@@ -1,0 +1,64 @@
+{
+  "publisherKey": "ird",
+  "publisherName": "Inland Revenue Department",
+  "sources": [
+    {
+      "id": "ird-csdi-offices-of-inland-revenue-department",
+      "publisherKey": "ird",
+      "publisherName": "Inland Revenue Department",
+      "familyKey": "csdi-offices-of-inland-revenue-department",
+      "name": "Offices of Inland Revenue Department",
+      "apiTitle": "Inland Revenue Department \u2014 Offices of Inland Revenue Department",
+      "json": "ird/csdi-offices-of-inland-revenue-department/openapi.json",
+      "yaml": "ird/csdi-offices-of-inland-revenue-department/openapi.yaml",
+      "file": "ird/csdi-offices-of-inland-revenue-department/openapi.json",
+      "sha256": "2d9cb1dcacc2112b2bfa974b3c4f52366b72fc6adda92ce2511c75cb5da85217",
+      "jsonSha256": "2d9cb1dcacc2112b2bfa974b3c4f52366b72fc6adda92ce2511c75cb5da85217",
+      "yamlSha256": "e04af480479a0860ea03507fb640cec97290ff89bca0da47d486ae88f07b1342",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_offices_of_inland_revenue_department",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2d9cb1dcacc2112b2bfa974b3c4f52366b72fc6adda92ce2511c75cb5da85217"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=ird_rcd_1668166144542_67785",
+        "canonicalJsonSha256": "2d9cb1dcacc2112b2bfa974b3c4f52366b72fc6adda92ce2511c75cb5da85217",
+        "originalRepresentationSha256": "2d9cb1dcacc2112b2bfa974b3c4f52366b72fc6adda92ce2511c75cb5da85217",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_offices_of_inland_revenue_department"
+    }
+  ]
+}

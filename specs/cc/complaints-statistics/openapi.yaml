@@ -1,0 +1,113 @@
+components:
+  schemas:
+    ComplaintCategory:
+      description: A complaint category and its complaint amount.
+      properties:
+        amount:
+          description: The complaint amount on the category.
+          type: string
+        category:
+          description: The name of the complaint category.
+          type: string
+      type: object
+    ComplaintStatisticsResponse:
+      description: Response object containing complaint statistics. The example demonstrates the `complaints` property; the source does not specify requiredness or a closed set of properties.
+      properties:
+        complaints:
+          description: Complaint statistics grouped by year.
+          items:
+            $ref: "#/components/schemas/ComplaintYear"
+          type: array
+      type: object
+    ComplaintYear:
+      description: Statistics for a complaint year. The source data dictionary describes the year and month values as text.
+      properties:
+        categories:
+          description: Contains all categories and the complaint amount for each category.
+          items:
+            $ref: "#/components/schemas/ComplaintCategory"
+          type: array
+        complaints_month:
+          description: The period of month in the year of the complaint statistic.
+          type: string
+        complaints_year:
+          description: The year of the complaint statistic.
+          type: string
+      type: object
+externalDocs:
+  url: https://www.consumer.org.hk/f/open/401750/complaints-statistic-data-specification.pdf
+info:
+  description: Provides complaint statistics for the recent three years. The version value is a metadata placeholder, not a publisher API version. The documentation states that authentication is not required. The documented `year` values are the latest three years, with 2018, 2019, and 2020 given as examples; this is a moving range, not a fixed enumeration.
+  title: Consumer Council Complaint Statistic API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /node/32290/export-complaints/json:
+    get:
+      description: Returns complaint statistics. The API documentation says the data covers the recent three years.
+      operationId: getComplaintStatistics
+      parameters:
+        - description: Optional. Defaults to NULL. Valid values are the latest three years (the documentation gives 2018, 2019, and 2020 as examples).
+          examples:
+            documentedYearExample:
+              value: "2018"
+          in: query
+          name: year
+          required: false
+          schema:
+            type:
+              - string
+              - "null"
+        - description: Optional. Defaults to `tc`.
+          examples:
+            english:
+              value: en
+            simplifiedChinese:
+              value: sc
+            traditionalChinese:
+              value: tc
+          in: query
+          name: lang
+          required: false
+          schema:
+            default: tc
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedResponse:
+                  description: The source example includes an ellipsis for omitted entries; the example preserves the shown values and structure.
+                  summary: Documented example response (abbreviated)
+                  value:
+                    complaints:
+                      - categories:
+                          - amount: "2462"
+                            category: 醫療服務
+                          - amount: "2769"
+                            category: 電訊服務
+                        complaints_month: 1-12
+                        complaints_year: "2018"
+                      - categories: []
+                        complaints_month: 1-12
+                        complaints_year: "2019"
+                      - categories: []
+                        complaints_month: 1-5
+                        complaints_year: "2020"
+              schema:
+                $ref: "#/components/schemas/ComplaintStatisticsResponse"
+          description: OK. JSON response encoded as UTF-8.
+        "400":
+          description: Bad Request — request cannot be understood.
+        "500":
+          description: Internal Server Error — server-side error.
+        "503":
+          description: Service Unavailable — server temporarily unavailable.
+      summary: Get complaint statistics
+servers:
+  - url: https://www.consumer.org.hk

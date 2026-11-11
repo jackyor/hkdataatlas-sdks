@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "devb-csdi-policy-of-facilitating-provision-of-pedestrian-links-by-the-private-sector",
+  "sourceSha256": "2edd1865d89593c209507132302cabc77e52b97bb4b2fd31836cd437a8c6ea18",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/devb_plb_rcd_1668571930357_90710/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_plb_rcd_1668571930357_90710/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_plb_rcd_1668571930357_90710/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

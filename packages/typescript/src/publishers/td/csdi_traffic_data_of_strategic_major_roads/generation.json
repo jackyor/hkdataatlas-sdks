@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "td-csdi-traffic-data-of-strategic-major-roads",
+  "sourceSha256": "17d3596822a75d6be57029114567199d635ac1e3a75864a37a479bbd71e06941",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/td_rcd_1671693191724_92214/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1671693191724_92214/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1671693191724_92214/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hko-csdi-daily-mean-sea-temperature",
+  "sourceSha256": "3f084e4aaf8b74a81be40739d4510a7c3abff15e283cc5b7ddf1ede2271593b8",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hko_rcd_1698120226004_79920/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1698120226004_79920/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1698120226004_79920/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

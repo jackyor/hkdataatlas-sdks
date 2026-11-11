@@ -1,0 +1,295 @@
+components:
+  schemas:
+    Activity:
+      description: Activity field dictionary. The source does not establish field requiredness.
+      properties:
+        activityNameEnglish:
+          description: "Activity type in English. The dictionary lists these English names: General Charitable Fund-Raising Activity; Flag Day; Lottery (Obtained Approval for Selling on Public Streets); Lottery (Have Not Obtained Approval for Selling on Public Streets); Non-Charitable Fund-Raising Activity; and On-street Selling for Fund-Raising Purpose."
+          type: string
+        activityNameSChinese:
+          description: Activity type in Simplified Chinese.
+          type: string
+        activityNameTChinese:
+          description: Activity type in Traditional Chinese.
+          type: string
+        charitable:
+          description: Charitable identifier of an activity; wire type is not specified.
+        departmentNameEnglish:
+          description: Licence/permit issuing department, in English.
+          type: string
+        departmentNameSChinese:
+          description: Licence/permit issuing department, in Simplified Chinese.
+          type: string
+        departmentNameTChinese:
+          description: Licence/permit issuing department, in Traditional Chinese.
+          type: string
+        enquiryContact:
+          description: Enquiry/contact information of an activity.
+          type: string
+        licencePermitTypeEnglish:
+          description: Licence/permit type applied for, in English.
+          type: string
+        licencePermitTypeSChinese:
+          description: Licence/permit type applied for, in Simplified Chinese.
+          type: string
+        licencePermitTypeTChinese:
+          description: Licence/permit type applied for, in Traditional Chinese.
+          type: string
+        organisationNameEnglish:
+          description: Organisation name in English.
+          type: string
+        organisationNameSChinese:
+          description: Organisation name in Simplified Chinese.
+          type: string
+        organisationNameTChinese:
+          description: Organisation name in Traditional Chinese.
+          type: string
+        permitNumber:
+          description: Licence/permit number assigned to an activity.
+          type: string
+        remarkLegends:
+          description: List of remark legends, if any.
+          items:
+            $ref: "#/components/schemas/RemarkLegend"
+          type: array
+        remarks:
+          description: List of remark identifiers; legends are included within remarkLegends.
+          items:
+            type: string
+          type: array
+        schedule:
+          description: Schedule of an activity.
+          items:
+            $ref: "#/components/schemas/Schedule"
+          type: array
+        subSchedule:
+          description: XML-only sub-schedule of an activity.
+        supplementaryInfoEngish:
+          description: Supplementary information of an activity, in English. The source spells the field name 'supplementaryInfoEngish'.
+          type: string
+        supplementaryInfoSChinese:
+          description: Supplementary information of an activity, in Simplified Chinese.
+          type: string
+        supplementaryInfoTChinese:
+          description: Supplementary information of an activity, in Traditional Chinese.
+          type: string
+      type: object
+    FundraisingResponse:
+      description: JSON response field dictionary. The source does not establish complete JSON nesting, property requiredness, or wire types for these fields.
+      properties:
+        activities:
+          description: List of activities matching the search parameters.
+          items:
+            $ref: "#/components/schemas/Activity"
+          type: array
+        currentPage:
+          anyOf:
+            - description: Current page number of the returned records; should match the page parameter.
+              type: integer
+            - type: string
+              pattern: ^[0-9]+$
+          description: The source does not establish wire types; retain the prior integer interpretation and exact observed decimal-digit strings without coercion.
+        generator:
+          description: Generator identifier of this JSON/XML.
+          type: string
+        totalRecordsInCurrentPage:
+          anyOf:
+            - description: Number of records returned in the current page; should not exceed 100 or the itemperpage value.
+              type: integer
+            - type: string
+              pattern: ^[0-9]+$
+          description: The source does not establish wire types; retain the prior integer interpretation and exact observed decimal-digit strings without coercion.
+        totalRecordsSearched:
+          anyOf:
+            - description: Total number of records found based on search parameters; returned XML may contain only a subset of the complete list.
+              type: integer
+            - type: string
+              pattern: ^[0-9]+$
+          description: The source does not establish wire types; retain the prior integer interpretation and exact observed decimal-digit strings without coercion.
+      type: object
+    RemarkLegend:
+      description: Remark legend field dictionary; wire types and requiredness are not specified.
+      properties:
+        legendEnglish:
+          description: Remark legend in English.
+          type: string
+        legendSChinese:
+          description: Remark legend in Simplified Chinese.
+          type: string
+        legendTChinese:
+          description: Remark legend in Traditional Chinese.
+          type: string
+        remarkLegend:
+          description: XML-only one of the remarks in the list.
+        remarkName:
+          description: Remark identifier.
+      type: object
+    Schedule:
+      description: Activity schedule. A timeFrom and timeTo value of 00:00 indicates a whole-day event.
+      properties:
+        dateFrom:
+          description: Activity begin date, in dd-mm-yyyy format. Compatibility derivative also accepts retained publisher YYYY-MM-DD strings; the source still documents dd-mm-yyyy.
+          pattern: ^(?:\d{2}-\d{2}-\d{4}|\d{4}-\d{2}-\d{2})$
+          type: string
+        dateTo:
+          description: Activity end date, in dd-mm-yyyy format. Compatibility derivative also accepts retained publisher YYYY-MM-DD strings; the source still documents dd-mm-yyyy.
+          pattern: ^(?:\d{2}-\d{2}-\d{4}|\d{4}-\d{2}-\d{2})$
+          type: string
+        districtNameEnglish:
+          description: District in English where the activity will be held. Listed values are Territory-Wide, HK Island, Kowloon, New Territories, and Islands.
+          type: string
+        districtNameSChinese:
+          description: District in Simplified Chinese where the activity will be held.
+          type: string
+        districtNameTChinese:
+          description: District in Traditional Chinese where the activity will be held.
+          type: string
+        locationNameEnglish:
+          description: Location in English where the activity will be held.
+          type: string
+        locationNameSChinese:
+          description: Location in Simplified Chinese where the activity will be held.
+          type: string
+        locationNameTChinese:
+          description: Location in Traditional Chinese where the activity will be held.
+          type: string
+        timeFrom:
+          description: Activity begin time, in HH:mm format. Retained publisher responses also include seconds (HH:mm:ss).
+          pattern: ^\d{2}:\d{2}(?::\d{2})?$
+          type: string
+        timeTo:
+          description: Activity end time, in HH:mm format. Retained publisher responses also include seconds (HH:mm:ss).
+          pattern: ^\d{2}:\d{2}(?::\d{2})?$
+          type: string
+      type: object
+externalDocs:
+  description: Data Specification for Fund-Raising Activities PSI
+  url: https://www.gov.hk/en/theme/fundraising/datasets/Data_Specification_for_Fund-Raising_Activities_PSI_EN.pdf
+info:
+  description: Returns up-to-date fund-raising activity data in JSON or XML. The version value is a metadata placeholder, not a publisher API version. Authentication requirements are not documented.
+  title: Approved Fund-Raising Activities API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /json:
+    get:
+      description: "Searches fund-raising activities. If either fromdate or todate is omitted, today's activity is returned. If activity, licence, or charitable is omitted, no filter is applied for that criterion. Defaults: orderby=date, orderstyle=desc, itemperpage=10, and page=1. A requested itemperpage greater than 100 yields at most 100 records per request. An activity schedule with timeFrom and timeTo both equal to 00:00 indicates a whole-day event."
+      operationId: getFundraisingActivitiesJson
+      parameters:
+        - description: First date in the activity search range, in yyyymmdd format. If either fromdate or todate is omitted, today's activity is returned.
+          in: query
+          name: fromdate
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+        - description: Last date in the activity search range, in yyyymmdd format. If either fromdate or todate is omitted, today's activity is returned.
+          in: query
+          name: todate
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+        - description: Filter by activity type. Omitted means all activity types.
+          in: query
+          name: activity
+          required: false
+          schema:
+            enum:
+              - fund
+              - flag
+              - lotpub
+              - lotpri
+              - sell
+              - noncharitable
+            type: string
+        - description: Filter by licence type. Omitted means all licence types.
+          in: query
+          name: licence
+          required: false
+          schema:
+            enum:
+              - lottery
+              - psp
+              - hawker
+              - noncharitable
+            type: string
+        - description: "Activity charitable status: 1 returns charitable activities; 0 returns non-charitable activities. Omitted returns both."
+          in: query
+          name: charitable
+          required: false
+          schema:
+            enum:
+              - 0
+              - 1
+            type: integer
+        - description: Sort order criterion. Defaults to date.
+          in: query
+          name: orderby
+          required: false
+          schema:
+            default: date
+            enum:
+              - date
+              - activity
+              - licence
+            type: string
+        - description: Sort direction. Defaults to descending.
+          in: query
+          name: orderstyle
+          required: false
+          schema:
+            default: desc
+            enum:
+              - asc
+              - desc
+            type: string
+        - description: Number of items requested per page. Defaults to 10. If greater than 100, at most 100 records are returned for each request.
+          in: query
+          name: itemperpage
+          required: false
+          schema:
+            default: 10
+            maximum: 100
+            type: integer
+        - description: Page to return based on itemperpage. Defaults to the first page.
+          in: query
+          name: page
+          required: false
+          schema:
+            default: 1
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FundraisingResponse"
+          description: JSON response containing search metadata and matching activities. The field dictionary describes the data elements; exact JSON nesting and wire representation are not specified by the retained documentation.
+      summary: Search fund-raising activities (JSON)
+  /xml:
+    get:
+      description: Searches fund-raising activities using the same documented query parameters and behavior as the JSON resource. An activity schedule with timeFrom and timeTo both equal to 00:00 indicates a whole-day event.
+      operationId: getFundraisingActivitiesXml
+      parameters:
+        - $ref: "#/paths/~1json/get/parameters/0"
+        - $ref: "#/paths/~1json/get/parameters/1"
+        - $ref: "#/paths/~1json/get/parameters/2"
+        - $ref: "#/paths/~1json/get/parameters/3"
+        - $ref: "#/paths/~1json/get/parameters/4"
+        - $ref: "#/paths/~1json/get/parameters/5"
+        - $ref: "#/paths/~1json/get/parameters/6"
+        - $ref: "#/paths/~1json/get/parameters/7"
+        - $ref: "#/paths/~1json/get/parameters/8"
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                description: XML payload; the complete XML structure is not established by the available field dictionary.
+                type: object
+          description: XML response containing search metadata and matching activities. The dictionary identifies XML-only elements including activity, subSchedule, and remark; no XML schema body was available to specify its complete structure.
+      summary: Search fund-raising activities (XML)
+servers:
+  - description: Published API base URL
+    url: https://fundraising.one.gov.hk/fundraise_query/webservice/psi

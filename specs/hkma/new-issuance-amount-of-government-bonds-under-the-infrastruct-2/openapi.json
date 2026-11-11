@@ -1,0 +1,260 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "New issuance amount of Government Bonds under the Infrastructure Bond Programme and Government Sustainable Bond Programme – Renminbi-denominated",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/ibpgsbp/new-issuance-amt-gov-bonds-ibpgsbp-rmb",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/ibpgsbp",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/new-issuance-amt-gov-bonds-ibpgsbp-rmb": {
+      "get": {
+        "summary": "Retrieve data of New issuance amount of Government Bonds under the Infrastructure Bond Programme and Government Sustainable Bond Programme – Renminbi-denominated",
+        "parameters": [
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "end_of_month": {
+            "type": "string",
+            "format": "date"
+          },
+          "institutional_1y": {
+            "type": "number"
+          },
+          "institutional_2y": {
+            "type": "number"
+          },
+          "institutional_3y": {
+            "type": "number"
+          },
+          "institutional_5y": {
+            "type": "number"
+          },
+          "institutional_7y": {
+            "type": "number"
+          },
+          "institutional_10y": {
+            "type": "number"
+          },
+          "institutional_20y": {
+            "type": "number"
+          },
+          "institutional_30y": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "components": {
+    "schemas": {
+      "SpeechArticle": {
+        "description": "A speech or article record, with fields documented as mandatory.",
+        "properties": {
+          "Date": {
+            "description": "Date of the speech or article, documented in D.M.YYYY format.",
+            "type": "string"
+          },
+          "Description": {
+            "description": "Content of the speech and article.",
+            "type": "string"
+          },
+          "Link": {
+            "description": "Link of the speech and article.",
+            "type": "string"
+          },
+          "Title": {
+            "description": "Heading of the speech and article.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "Title",
+          "Link",
+          "Date",
+          "Description"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://www.ceo.gov.hk/public/open-data/en/speech/data_dict_speeches_and_articles.pdf"
+  },
+  "info": {
+    "description": "This dataset provides the Chief Executive's speeches and articles. The version is undocumented and is not a publisher API version. The documentation does not specify authentication requirements.",
+    "title": "The Chief Executive's speeches and articles",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/v1/pressrelease/search": {
+      "get": {
+        "description": "Returns speeches and articles of the Chief Executive. All time is in HKT (GMT+8). If start and end are omitted, records for the last six months will be returned. A maximum of 400 records will be returned.",
+        "operationId": "searchChiefExecutiveSpeechesAndArticles",
+        "parameters": [
+          {
+            "description": "Language of the resource. The documented English endpoint uses `en`; catalog metadata also lists Traditional Chinese (`tc`) and Simplified Chinese (`sc`) resource URLs.",
+            "example": "en",
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Official identifier used by the documented endpoint.",
+            "example": "CE",
+            "in": "query",
+            "name": "official",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Content type used by the documented endpoint.",
+            "example": "speech",
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Start date (inclusive), in YYYYMMDD format. The earliest accepted date is 1 July 2017. Must be used together with `end`.",
+            "example": "20190102",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": {
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "End date (inclusive), in YYYYMMDD format. The latest accepted date is today. Must be used together with `start`.",
+            "example": "20190109",
+            "in": "query",
+            "name": "end",
+            "required": false,
+            "schema": {
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "records": {
+                      "description": "Speech and article records. The response property name and envelope are not specified in the documentation; this is a permissive representation of the documented record structure.",
+                      "items": {
+                        "$ref": "#/components/schemas/SpeechArticle"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful search response. The documentation provides the fields for each dataset record but does not specify the response envelope or HTTP response schema."
+          }
+        },
+        "summary": "Search speeches and articles"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.data.gov.hk"
+    }
+  ]
+}

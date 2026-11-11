@@ -1,0 +1,7 @@
+# Preserve all imported publisher and derived specification bytes.
+specs/**/*.json -text
+specs/**/*.yaml -text
+specs/**/*.yml -text
+specs/**/*.html -text
+# Retained response hashes bind wire bytes, including original line endings.
+tests/fixtures/** -text

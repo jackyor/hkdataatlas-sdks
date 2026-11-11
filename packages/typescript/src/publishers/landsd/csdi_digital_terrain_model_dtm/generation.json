@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "landsd-csdi-digital-terrain-model-dtm",
+  "sourceSha256": "46da3b94e5b8b262c8db4ecb54dcfec80822511c4af158215e6ee32afaa40719",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1638158088368_93806/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

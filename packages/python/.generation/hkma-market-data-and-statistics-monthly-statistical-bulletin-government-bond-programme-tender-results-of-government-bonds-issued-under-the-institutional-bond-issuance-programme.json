@@ -1,0 +1,43 @@
+{
+  "sourceId": "hkma-market-data-and-statistics-monthly-statistical-bulletin-government-bond-programme-tender-results-of-government-bonds-issued-under-the-institutional-bond-issuance-programme",
+  "publisherKey": "hkma",
+  "family": "market_data_and_statistics_monthly_statistical_bulletin_government_bond_programme_tender_results_of_government_bonds_issued_under_the_institutional_bond_issuance_programme",
+  "status": "generated",
+  "key": "6ca0fe8a481055d589775bd0013c6cae9d4aee24077678b03d50ad95bb2e6a00",
+  "sourceSha256": "d8181073a2754698e453f8aa0a8b8128bb3ca3a00092fe831eeeeb844cbb0465",
+  "derivedInputSha256": "d8181073a2754698e453f8aa0a8b8128bb3ca3a00092fe831eeeeb844cbb0465",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/tender-results-gov-bonds-ibip",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-market-data-and-statistics-monthly-statistical-bulletin-government-bond-programme-tender-results-of-government-bonds-issued-under-the-institutional-bond-issuance-programme.log",
+  "outputs": {
+    "__init__.py": "360c43f699e1ac896b6d325925e56345f1da2e0002b883e4dd20804d23f336b6",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_tender_results_gov_bonds_ibip.py": "034f61129e5b489be5ca89bfde0c894279d19bae35acae88fd082f4054ad5acf",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "4493575bbde427c54817ea20d3262028ed4c8e973ff91d00926711e69522076a",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "ba6aaa5789241a7989b27108c8d3bdc09402cec8a6b284e134b279481bdaa23a",
+    "models/record.py": "6048ba0054240cfceb05b9a84ce99a61b4a23839dd8f93c7b34968df050ba4af",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/segment.py": "9f2cdf2cae81d861a98403182d460e39bfcdca8c865d548a4a99778b7565a71a",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

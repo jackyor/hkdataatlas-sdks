@@ -1,0 +1,291 @@
+openapi: 3.1.0
+info:
+  title: Planning Department — Digital Planning Data of Regulated Areas
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /arcgis2/rest/services/DATA/RA_PLAN_CSDI/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: TPIS_ADM.OD_RA_PLAN_CSDI
+              value: 1
+          x-choice-count: 1
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 1
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://www.ozp.tpb.gov.hk
+      x-native-source-evidence:
+        - url: https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/RA_PLAN_CSDI/FeatureServer?f=pjson
+          sha256: 9b2f862337bef5bb05330155f140054d49702872845c43e4081b1c4316ff6dad
+          httpStatus: 200
+          contentType: text/plain; charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/RA_PLAN_CSDI/FeatureServer/1?f=pjson
+          sha256: 1b21cb1a42e90827507d44cccff7e72d9aa10cc41295abfb7ea048a65044121a
+          httpStatus: 200
+          contentType: text/plain; charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer1Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        SECT_NO:
+          description: "Publisher field type: esriFieldTypeString"
+          title: SECT_NO
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        PLAN_SCALE:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: PLAN_SCALE
+          type:
+            - integer
+            - "null"
+        GEOJSON_LINK:
+          description: "Publisher field type: esriFieldTypeString"
+          title: GEOJSON_LINK
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        GML_LINK:
+          description: "Publisher field type: esriFieldTypeString"
+          title: GML_LINK
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        SHP_LINK:
+          description: "Publisher field type: esriFieldTypeString"
+          title: SHP_LINK
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        RA_PLAN_NO:
+          description: "Publisher field type: esriFieldTypeString"
+          title: RA_PLAN_NO
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        RA_ENG:
+          description: "Publisher field type: esriFieldTypeString"
+          title: RA_ENG
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        RA_CHT:
+          description: "Publisher field type: esriFieldTypeString"
+          title: RA_CHT
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        RA_CHS:
+          description: "Publisher field type: esriFieldTypeString"
+          title: RA_CHS
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        GAZ_DATE:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: GAZ_DATE
+        OZP_SCHM:
+          description: "Publisher field type: esriFieldTypeString"
+          title: OZP_SCHM
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        SUB_AREA:
+          description: "Publisher field type: esriFieldTypeString"
+          title: SUB_AREA
+          type:
+            - string
+            - "null"
+          maxLength: 80
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE.STArea()
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE.STLength()
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 1
+    title: TPIS_ADM.OD_RA_PLAN_CSDI
+    protocol: arcgis
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=c17a8a39-4fed-5e02-8528-998b84011228
+    sha256: 56b9472f17426b5db52d21c4cd8c28d1bf3ccf2d0e574f5deb15250720c9ceac
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/RA_PLAN_CSDI/FeatureServer?f=pjson
+    sha256: 9b2f862337bef5bb05330155f140054d49702872845c43e4081b1c4316ff6dad
+    httpStatus: 200
+    contentType: text/plain; charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/RA_PLAN_CSDI/FeatureServer/1?f=pjson
+    sha256: 1b21cb1a42e90827507d44cccff7e72d9aa10cc41295abfb7ea048a65044121a
+    httpStatus: 200
+    contentType: text/plain; charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+x-csdi-source-scope:
+  partialProtocols: []
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 3
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "eac-csdi-2015-district-council-ordinary-election-constituency-boundaries",
+  "sourceSha256": "aac2cd936aab62452f61a6eca60d22f839d74c4de5dc25794b16bf7d7abfcf78",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/reo_rcd_1632902778771_91842/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/reo_rcd_1632902778771_91842/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,670 @@
+components:
+  schemas:
+    BestTrackCsvRecord:
+      description: Data row in the annual tropical cyclone best-track CSV. The documented dataset layout includes a dataset-name section before a header row; this schema describes the 12 data fields, not the preceding CSV metadata rows.
+      examples:
+        - - MALAKAS
+          - 2022
+          - 4
+          - 7
+          - 0
+          - TD
+          - 370
+          - 14850
+          - 1000
+          - 25
+          - "2201"
+          - "0001"
+      items:
+        oneOf:
+          - description: "Field 1: Tropical cyclone name."
+            type: string
+          - description: "Field 2: Year."
+            type: integer
+          - description: "Field 3: Month."
+            type: integer
+          - description: "Field 4: Day."
+            type: integer
+          - description: "Field 5: Time in UTC."
+            type: integer
+          - description: "Field 6: Intensity classification. The dataset uses the Hong Kong Observatory's classification, including the three typhoon categories applied consistently across years: Typhoon, Severe Typhoon, and Super Typhoon. The source example gives TD; it does not enumerate all intensity values."
+            type: string
+          - description: "Field 7: Latitude in units of 0.01 degree north."
+            type: integer
+          - description: "Field 8: Longitude in units of 0.01 degree east."
+            type: integer
+          - description: "Field 9: Estimated minimum central pressure in hPa."
+            type: integer
+          - description: "Field 10: Estimated maximum surface winds in knots."
+            type: integer
+          - description: "Field 11: JMA code. Source example: 2201."
+            type: string
+          - description: "Field 12: HKO code. Source example: 0001."
+            type: string
+      maxItems: 12
+      minItems: 12
+      type: array
+info:
+  description: The source documents the structure of annual CSV datasets, not an executable HTTP API. The version value is a metadata placeholder, not a publisher API version. The catalogue associates annual CSV download files with this dataset; it does not establish an API URL template, parameters, authentication, or a JSON response contract. Each CSV contains dataset-name rows, a header row, and data rows with 12 fields. Field meanings and units are described in the schema; CSV records are not represented here as JSON API responses.
+  title: Tropical Cyclone Best Track Data (Post-analysis)
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /weatherAPI/hko_data/tc/HKO1987BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1987WeatherapiHkoDataTcHko1987bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1987)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1987BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2004BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2004WeatherapiHkoDataTcHko2004bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2004)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2004BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1999BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1999WeatherapiHkoDataTcHko1999bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1999)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1999BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2010BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2010WeatherapiHkoDataTcHko2010bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2010)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2010BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2025BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2025WeatherapiHkoDataTcHko2025bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2025)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2025BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2023BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2023WeatherapiHkoDataTcHko2023bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2023)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2023BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2003BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2003WeatherapiHkoDataTcHko2003bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2003)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2003BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2014BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2014WeatherapiHkoDataTcHko2014bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2014)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2014BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2001BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2001WeatherapiHkoDataTcHko2001bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2001)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2001BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2009BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2009WeatherapiHkoDataTcHko2009bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2009)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2009BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1988BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1988WeatherapiHkoDataTcHko1988bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1988)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1988BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1997BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1997WeatherapiHkoDataTcHko1997bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1997)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1997BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2013BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2013WeatherapiHkoDataTcHko2013bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2013)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2013BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2000BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2000WeatherapiHkoDataTcHko2000bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2000)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2000BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1992BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1992WeatherapiHkoDataTcHko1992bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1992)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1992BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2012BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2012WeatherapiHkoDataTcHko2012bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2012)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2012BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2015BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2015WeatherapiHkoDataTcHko2015bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2015)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2015BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1991BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1991WeatherapiHkoDataTcHko1991bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1991)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1991BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2005BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2005WeatherapiHkoDataTcHko2005bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2005)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2005BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1998BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1998WeatherapiHkoDataTcHko1998bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1998)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1998BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2011BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2011WeatherapiHkoDataTcHko2011bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2011)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2011BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2024BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2024WeatherapiHkoDataTcHko2024bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2024)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2024BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2018BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2018WeatherapiHkoDataTcHko2018bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2018)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2018BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1994BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1994WeatherapiHkoDataTcHko1994bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1994)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1994BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2008BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2008WeatherapiHkoDataTcHko2008bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2008)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2008BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2016BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2016WeatherapiHkoDataTcHko2016bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2016)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2016BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2019BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2019WeatherapiHkoDataTcHko2019bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2019)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2019BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2002BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2002WeatherapiHkoDataTcHko2002bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2002)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2002BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1990BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1990WeatherapiHkoDataTcHko1990bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1990)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1990BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2007BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2007WeatherapiHkoDataTcHko2007bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2007)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2007BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2021BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2021WeatherapiHkoDataTcHko2021bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2021)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2021BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2020BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2020WeatherapiHkoDataTcHko2020bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2020)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2020BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1993BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1993WeatherapiHkoDataTcHko1993bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1993)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1993BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1996BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1996WeatherapiHkoDataTcHko1996bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1996)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1996BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2006BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2006WeatherapiHkoDataTcHko2006bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2006)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2006BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2022BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2022WeatherapiHkoDataTcHko2022bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2022)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2022BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO2017BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis2017WeatherapiHkoDataTcHko2017bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (2017)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO2017BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1995BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1995WeatherapiHkoDataTcHko1995bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1995)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1995BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1989BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1989WeatherapiHkoDataTcHko1989bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1989)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1989BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1986BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1986WeatherapiHkoDataTcHko1986bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1986)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1986BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+  /weatherAPI/hko_data/tc/HKO1985BST.csv:
+    get:
+      operationId: retrieveTropicalCycloneBestTrackDataPostAnalysis1985WeatherapiHkoDataTcHko1985bstCsv
+      summary: Retrieve Tropical cyclone best track data (post analysis) (1985)
+      description: Read-only retrieval of the exact publisher-listed CSV resource https://data.weather.gov.hk/weatherAPI/hko_data/tc/HKO1985BST.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://data.weather.gov.hk
+      responses:
+        "200":
+          description: Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            text/csv:
+              schema:
+                description: Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.
+                type: string
+externalDocs:
+  description: Publisher data dictionary for the annual CSV layout
+  url: https://data.weather.gov.hk/weatherAPI/doc/data_dictionary_tropical_cyclone_best_track_data_post_analysis.pdf

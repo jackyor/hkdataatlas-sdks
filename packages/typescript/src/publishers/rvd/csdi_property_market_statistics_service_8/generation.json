@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "rvd-csdi-property-market-statistics-service-8",
+  "sourceSha256": "df741795d8e70ad5e65b133a2aba20de222121bda6bc67cfbeabf2a50c8bfae0",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/rvd_rcd_1631777001336_8540/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/rvd_rcd_1631777001336_8540/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "landsd-csdi-applications-for-consent-to-assign-for-residential-non-residential-development-pending-approval-available-in-gml",
+  "sourceSha256": "d682efafd9346fbfdbb9e1ef3e836466d2b3de5a64e07cdc7175af2e0ba30067",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/landsd_rcd_1637222323531_13490/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1637222323531_13490/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1637222323531_13490/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

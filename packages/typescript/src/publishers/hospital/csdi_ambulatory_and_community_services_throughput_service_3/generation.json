@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hospital-csdi-ambulatory-and-community-services-throughput-service-3",
+  "sourceSha256": "1399fdc667233a4e731f819f2828d22de309a6f38b7277d27fae51b0f6eadd26",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/fhb_rcd_1637056228502_23233/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fhb_rcd_1637056228502_23233/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fhb_rcd_1637056228502_23233/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

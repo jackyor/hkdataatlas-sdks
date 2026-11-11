@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "edb-csdi-primary-one-admission-poa-school-net-boundaries",
+  "sourceSha256": "1dfbbe3ac6943e468fe6596e4ab404e7883a37842c1d6fc6bc0bd238dbabf1a9",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/edb_rcd_1633320960920_77011/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/edb_rcd_1633320960920_77011/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

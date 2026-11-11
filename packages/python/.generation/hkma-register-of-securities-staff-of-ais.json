@@ -1,0 +1,51 @@
+{
+  "sourceId": "hkma-register-of-securities-staff-of-ais",
+  "publisherKey": "hkma",
+  "family": "register_of_securities_staff_of_ais",
+  "status": "generated",
+  "key": "8abc4162ef9ed04d5291dc4a700c5eb85eda74ca95f83b281bebf35b1848c221",
+  "sourceSha256": "191929e79504bd97e14eacf312ae7b4d26a1302c92218d705fd39082a2fe728e",
+  "derivedInputSha256": "191929e79504bd97e14eacf312ae7b4d26a1302c92218d705fd39082a2fe728e",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/register-ais-secstaff",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-register-of-securities-staff-of-ais.log",
+  "outputs": {
+    "__init__.py": "9f8b4914e9e5e47c791bfb9c54677aa7c82c2770d9f6ff6ce0ba8608e209cdcc",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_register_ais_secstaff.py": "5e90ab6b96e2a784bdd9fecfe7ad7459ee605e60eddf2de23071ae1e2417b71a",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "7b5513fc48cefc9401199a54ea81fa95cd8ce1d3e35fe0886954cd81d35feb4e",
+    "models/business_address.py": "e645038af84a9bc6749235734de80a316274c025ffd5bc5d36a187ae00eabb2f",
+    "models/conditions.py": "cbf984523354c8b4cca3b686fc7f60e98227ed17e78487d95022cc60e7932e89",
+    "models/current_registration.py": "08f5fd050dafbd01d59690d1fd896c8d7e6b46fed410c02a024457e991f09baf",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/is_curr_rel_indiv.py": "0e3ee3df46519a6fbc485d6a21b53bbd160b84950a724eed0b2ae265045f4607",
+    "models/lang.py": "b6c27f2eb5db4b63ee7b292b8bc3415cea1ca3277126ba19bc2d6751ef9812d8",
+    "models/public_disciplinary_action.py": "d26825fbed5fad0983daf3569a411815a09eb5f83638a9376d9556f66520b84a",
+    "models/rec_pub_dis_act_by_hkma.py": "ffa49064c934926d496a951a7d48984bc56bcc9c8c5ab9dd29102a58cb9014d4",
+    "models/rec_pub_dis_act_by_sfc.py": "fca25793339ad411021eeb1469020bd48c546282353840b86822b84128e89295",
+    "models/record.py": "e8bbfe5eb3960433e59db6dd19993973ed94418968da241d63f2cee97bca8964",
+    "models/registration_history.py": "d050ec4ec650266b3b485a23a9825a6012bb23d94360b905d51ee22f0baf4b8c",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/searchtype.py": "f4e19bca5cc69a2aedc8e4e00a350be05d84aacfac64750ac133cb158fdc8d96",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

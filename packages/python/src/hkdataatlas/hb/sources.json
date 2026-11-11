@@ -1,0 +1,139 @@
+{
+  "publisherKey": "hb",
+  "publisherName": "Housing Bureau",
+  "sources": [
+    {
+      "id": "hb-light-public-housing-stock",
+      "publisherKey": "hb",
+      "publisherName": "Housing Bureau",
+      "familyKey": "light-public-housing-stock",
+      "name": "Light Public Housing Stock API",
+      "apiTitle": "Light Public Housing Stock API",
+      "json": "hb/light-public-housing-stock/openapi.json",
+      "yaml": "hb/light-public-housing-stock/openapi.yaml",
+      "file": "hb/light-public-housing-stock/openapi.json",
+      "sha256": "fa0dd028d82073ad5bf3e3441b0316b6a8e877869c28eddbe9519da49cc1e26b",
+      "jsonSha256": "fa0dd028d82073ad5bf3e3441b0316b6a8e877869c28eddbe9519da49cc1e26b",
+      "yamlSha256": "203910f0fc7095ea3d1341f9314df341a60faa0a77f3817b27180e4546e36b13",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "source-refresh-20261108",
+      "namespace": "light_public_housing_stock",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fa0dd028d82073ad5bf3e3441b0316b6a8e877869c28eddbe9519da49cc1e26b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.hb.gov.hk/dataset/lph/hb_lph_data_dictionary.pdf",
+        "currentUrl": "https://data.gov.hk/en-data/dataset/hk-hb-lph-housing-stock/resource/22ea996a-5be6-4653-927f-89372bb6aafb",
+        "sourceRefresh": {
+          "priorJsonSha256": "f471898da3c774e5529bfd39de35a1dd4a58b65ff73c352f978b844a27bebcdc",
+          "canonicalJsonSha256": "fa0dd028d82073ad5bf3e3441b0316b6a8e877869c28eddbe9519da49cc1e26b",
+          "currentSourceUrl": "https://data.gov.hk/en-data/dataset/hk-hb-lph-housing-stock/resource/22ea996a-5be6-4653-927f-89372bb6aafb",
+          "classification": "source_backed_response_or_parameter_description_correction",
+          "documentationSources": [
+            {
+              "url": "https://data.hb.gov.hk/dataset/lph/hb_lph_data_dictionary.pdf",
+              "sha256": "9688ed970fd737ae0cb073b1f0a8ff5baa5fc3522000fd1b1a92eabd80265b9d",
+              "representation": "source-attachment"
+            }
+          ],
+          "sourceCoverage": "Documented optional response fields and explicit retained wire compatibility; request identities retained.",
+          "responseCoverage": "{\"kind\":\"retained_body_and_sample_only_validation\",\"completeBodyChecks\":0,\"sampleOnlyChecks\":1,\"newHTTPRequests\":0}",
+          "liveAssessment": "No new HTTP performed by SDK import; exact retained body/sample proof remains bounded."
+        },
+        "canonicalJsonSha256": "fa0dd028d82073ad5bf3e3441b0316b6a8e877869c28eddbe9519da49cc1e26b",
+        "originalRepresentationSha256": "f471898da3c774e5529bfd39de35a1dd4a58b65ff73c352f978b844a27bebcdc",
+        "serialization": "Maintained derivative from hash-bound original source and replayable delta; publisher original preserved."
+      },
+      "moduleName": "light_public_housing_stock"
+    },
+    {
+      "id": "hb-csdi-light-public-housing-stock",
+      "publisherKey": "hb",
+      "publisherName": "Housing Bureau",
+      "familyKey": "csdi-light-public-housing-stock",
+      "name": "Light Public Housing Stock",
+      "apiTitle": "Housing Bureau \u2014 Light Public Housing Stock",
+      "json": "hb/csdi-light-public-housing-stock/openapi.json",
+      "yaml": "hb/csdi-light-public-housing-stock/openapi.yaml",
+      "file": "hb/csdi-light-public-housing-stock/openapi.json",
+      "sha256": "f237f1381f1ece1e6d3c2f7a810de14d058b21afc5a2c771ad68450a51bda203",
+      "jsonSha256": "f237f1381f1ece1e6d3c2f7a810de14d058b21afc5a2c771ad68450a51bda203",
+      "yamlSha256": "2da907decf7279481357502678088f8f6bd87cb03b7d1460468b40806a9977ee",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_light_public_housing_stock",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f237f1381f1ece1e6d3c2f7a810de14d058b21afc5a2c771ad68450a51bda203"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hb_rcd_1771576496970_57090",
+        "canonicalJsonSha256": "f237f1381f1ece1e6d3c2f7a810de14d058b21afc5a2c771ad68450a51bda203",
+        "originalRepresentationSha256": "f237f1381f1ece1e6d3c2f7a810de14d058b21afc5a2c771ad68450a51bda203",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_light_public_housing_stock"
+    }
+  ]
+}

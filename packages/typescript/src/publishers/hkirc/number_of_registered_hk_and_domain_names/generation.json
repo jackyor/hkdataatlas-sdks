@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hkirc-number-of-registered-hk-and-domain-names",
+  "sourceSha256": "d01244a6a0b5842c56ac73a68786d54fa0deb43ef7654589c33e630746caad1e",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/openapi/statistic/dn",
+      "operationId": "retrieveNumberOfRegisteredHkAndDomainNamesOpenapiStatisticDn"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

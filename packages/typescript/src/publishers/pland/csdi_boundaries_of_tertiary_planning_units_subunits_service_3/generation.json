@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "pland-csdi-boundaries-of-tertiary-planning-units-subunits-service-3",
+  "sourceSha256": "1821ddc3373cbb774d83a2a812f2c6481678c7d2356e5c1e7d032a61e84ebb37",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/pland_rcd_1634281887222_15002/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1634281887222_15002/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1634281887222_15002/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

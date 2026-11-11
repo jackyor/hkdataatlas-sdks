@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "censtatd-csdi-stock-of-permanent-living-quarters-by-district-council-district",
+  "sourceSha256": "a003b729552a5fe184f29b2bd97ad8281b5825ac6f2590890172eb6c79015acd",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/censtatd_rcd_1635934103275_66203/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1635934103275_66203/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1635934103275_66203/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "td-csdi-journey-time-indicators-2nd-generation",
+  "sourceSha256": "f9485463ff3a1e536171c69371ae57c82aab59dada7fc6883394c0e65b5db505",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/td_rcd_1671692669689_59165/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1671692669689_59165/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1671692669689_59165/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "sourceId": "devb-smart-parking-open-data-api",
+  "publisherKey": "devb",
+  "family": "smart_parking_open_data_api",
+  "status": "generated",
+  "key": "20fe52aa8b744b04ba1e4024f9cc341c475414019ff54564764f43e4f0c0536e",
+  "sourceSha256": "b140edf0607170249cd2ad01c5b25510317abeb9c2de68eb994279153d6673d3",
+  "derivedInputSha256": "b140edf0607170249cd2ad01c5b25510317abeb9c2de68eb994279153d6673d3",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/getCarpark",
+      "operationId": "getCarparkVacancy",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/getCarparkInfo",
+      "operationId": "getCarparkInformation",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/getCarparkInfos",
+      "operationId": "getAllCarparkInformation",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/getCarparkVacancies",
+      "operationId": "getAllCarparkVacancies",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/devb-smart-parking-open-data-api.log",
+  "outputs": {
+    "__init__.py": "d4d8e1b824f92385e5c1582e5a917fa7071020aef5b60f061eb4c62833cd8cb6",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_all_carpark_information.py": "06a01bc2274c80abf0e4081d3cef75685fc3ba96d9a3a3ed60aa3a10b05e6660",
+    "api/default/get_all_carpark_vacancies.py": "66c981cacdf3845813b772c3a7038a9eb1a1c19021b61a4ea66748f279661f42",
+    "api/default/get_carpark_information.py": "58084d96bc134f3214efaab5a5fd1b518c9a6c38d8afc110acacefbc14e60a51",
+    "api/default/get_carpark_vacancy.py": "221c9cbf0eb66ac48cc14d1b3fc6ee76b187c55955d5043cebb127a56ed78835",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "ca73445a364f625e9248ff48ed175afbe230abcc778fba11fa8c054ca8941fe8",
+    "models/address.py": "361b83e440555f15f01b762c30b1ef04d62334e140106ed8ce31a253fd21904f",
+    "models/carpark.py": "124c5cef52748e562da9d20c07505c7467ac56b12a415a7c2216e1b4773271eb",
+    "models/carpark_facilities_item.py": "545343841f33c7b1312c813336c57132f62e2c3c1b89882df0cd01cc702b4663",
+    "models/carpark_info_response.py": "74463c2da8dbf50294c5174ec9089d5c8cdc4574f34a3a43b6f644339bdfb38b",
+    "models/carpark_list_response.py": "214e1d73fd9cbb20a15d126ba93b415d549fff51c7543348f2e9b3b954dad112",
+    "models/carpark_nature.py": "26c120aef064bbb0782fff71e08293aac713ad5957a050bdfe2abb308e0fd474",
+    "models/carpark_type.py": "c2a3851496ce4ec8b011e662f1aef7218945359818b0b4bf51dfbc3663eebc20",
+    "models/charge_base.py": "23f858749f52e4b3e27378f500582c42b3aa438d3a2b82a227268b8b7bb7d7dc",
+    "models/charge_base_covered.py": "75b71c6f66ff03c00bfe5df85d46a96445362e81effa037b999d4ebb9ff394e4",
+    "models/charge_range.py": "2d0f97218ef1edb88665c1f96e98b2ddbd519b1b75c907a1a71863dbbc5f6c47",
+    "models/day_night_park.py": "4a28e73730e8c949b8652d5892389c108b436eb012c673dc19a6456437be601b",
+    "models/day_night_park_valid_until.py": "6fd8bf66300868ece9d9d3e0e17fb2363ea4ca2c36a558d2791062223b8c03d4",
+    "models/get_all_carpark_information_lang.py": "3899ac546780a23e643ca6c77c9ebfbdc4f00abae859f01aa32ab068f2032215",
+    "models/get_all_carpark_vacancies_lang.py": "946bef4e2a4d0e590dde383a9b92fd413007673803780f2240b1ef2532c98062",
+    "models/get_carpark_information_lang.py": "85c998584df2b0f6e9bb12fbc9f23037eca0cce71a2b47b7b89b8d54b9e3dcb4",
+    "models/grace_period.py": "9895a8bbe6ee9de9b4a74c5662e6029c55e0ab468638fcffdc53ef92ddbb5fc9",
+    "models/height_limit.py": "4dbdddb0099cb540b3b6e1af32dcac999f9cb41cedb78e1f2de9d95312f80668",
+    "models/hourly_charge.py": "5609a13a6bb6c0473e2cebcfe2fa13919a0ab9fb51179ac3d4a856ba6ebbe4c9",
+    "models/hourly_charge_type.py": "13bb92d6f828476d927177d429466145beb6dca29241582c2c64574e82bf4f77",
+    "models/monthly_charge.py": "5762e1da1142dbfdb038bca5765bf10fe046aba89a6161baecea5e051d2c67be",
+    "models/monthly_charge_covered.py": "491bedb919a33bf49bd1dcc74c596957bdb6926473c7733d23816633752bba55",
+    "models/monthly_charge_reserved.py": "7d947b7fe3c3b56854d0a095cc570b5ea7642f906c9ee1a1d8f0fc24b5c4aa3f",
+    "models/opening_hours.py": "7fdf0d49ca3ae205f06dc5e80d104aa36d4ffc9d4c5904c687e22f71c7c25ac9",
+    "models/privilege.py": "f193c8460473a1d905cb2ad760111c06c0a82a40fba6fb2010fe675321c14fed",
+    "models/rendition_urls.py": "a8774a00c4f023d0215b8b26a299d23a8d66b2ae001a1509695957a296488fb6",
+    "models/unloading_charge.py": "267a6a86fa561f280eb341daf740bda28397a0ad82bff5397a88713dcafc74d7",
+    "models/unloading_charge_type.py": "0e93162eab17e145113a6c8fac5f939abb096ca388dcf4ae5c09557312a3d971",
+    "models/usage_threshold.py": "4e3c8ca21f2168d542bae6dd11c61369892da85f26674fdf1835515b57aa3de6",
+    "models/vehicle_information.py": "34ba4185d7044367d6ef5d6f416378f3a03ece2aa4a96213305f85f855c9bfed",
+    "models/weekdays_item.py": "d4bf570eb1cdd76e00f11d49d05982ed0ae5f05f78a2067d2259875f97bce90f",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

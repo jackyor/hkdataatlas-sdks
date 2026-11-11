@@ -1,0 +1,32 @@
+{
+  "sourceId": "landsd-topographic-map-api",
+  "publisherKey": "landsd",
+  "family": "topographic_map_api",
+  "status": "generated",
+  "key": "a890c9e231e439dc0908f1c91c8c8a3ed7fbf27129134e5530c5b23686e76e2b",
+  "sourceSha256": "ebbe8033542391912e24d35991a130af55ed992d1f075833d31807376545328a",
+  "derivedInputSha256": "f76f10512e0671bcec7c5fd096283ae3601d114019be8dfcd9de836ca5ef9e01",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/gs/api/{version}/xyz/basemap/{sr}/{z}/{x}/{y}.png",
+      "operationId": "getTopographicMapTile",
+      "tags": []
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/landsd-topographic-map-api.log",
+  "outputs": {
+    "__init__.py": "c2cfe860e8fb85ea44bcadf5ed93bb121ee6d07f68616dcc26847b44755108dc",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_topographic_map_tile.py": "1feb51ba402d1ec72fa090a368b7a41575c6e227f043d828d38d3e304b75adf9",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "52d733c648a141fdf61bc0e2c3a4b6bf4434511f1cfd806491c2aa2ea3a140c7",
+    "models/get_topographic_map_tile_sr.py": "a69782a65203138581cbc519deb670451a4e4466da129c19ff6026800cf67d4f",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

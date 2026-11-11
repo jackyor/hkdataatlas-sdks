@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "td-csdi-tunnel-and-control-area-operators",
+  "sourceSha256": "086a9929380f8cab45d80f76504750851bc332ee2c9bdfc2a0a252d387818964",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/td_rcd_1697081534887_201/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1697081534887_201/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1697081534887_201/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

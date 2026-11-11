@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "swd-csdi-hostel-for-moderately-mentally-handicapped-persons",
+  "sourceSha256": "62873e6af906acf19d5554c538f0b7ac80d4477e6e4d1577e8ae9d99da72423e",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/swd_rcd_1629267205217_55750/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/swd_rcd_1629267205217_55750/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/swd_rcd_1629267205217_55750/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

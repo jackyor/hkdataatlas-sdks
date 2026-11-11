@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "td-csdi-routes-and-fares-of-public-transport-geojson-service-2",
+  "sourceSha256": "2e97eb8f42f2bab1e382815b07388ac59f2c66f800bdad5f1fad04e944f9553d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/td_rcd_1638874475129_49745/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/td_rcd_1638874475129_49745/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

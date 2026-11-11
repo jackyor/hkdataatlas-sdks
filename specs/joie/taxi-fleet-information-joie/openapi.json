@@ -1,0 +1,189 @@
+{
+  "components": {
+    "schemas": {
+      "Taxi": {
+        "description": "Taxi record. The sample records are illustrative and do not establish that every field is always present.",
+        "examples": [
+          {
+            "lat": null,
+            "long": null,
+            "op_status": "O",
+            "passenger_cap": 5,
+            "taxi_type": "W",
+            "time_stamp": null,
+            "veh_id": "JOI100040880"
+          },
+          {
+            "lat": 22.310099,
+            "long": 113.93009,
+            "op_status": "V",
+            "passenger_cap": 6,
+            "taxi_type": "P",
+            "time_stamp": "2026-03-01T15:58:40+08:00",
+            "veh_id": "JOI103424356"
+          },
+          {
+            "lat": null,
+            "long": null,
+            "op_status": "N",
+            "passenger_cap": 5,
+            "taxi_type": "W",
+            "time_stamp": null,
+            "veh_id": "JOI101949888"
+          }
+        ],
+        "properties": {
+          "lat": {
+            "description": "Latitude in WGS84 (EPSG:4326), in degrees. May be null.",
+            "examples": [
+              22.310087,
+              null
+            ],
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "long": {
+            "description": "Longitude in WGS84 (EPSG:4326), in degrees. May be null.",
+            "examples": [
+              114.170044,
+              null
+            ],
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "op_status": {
+            "description": "Current operational status: O = Occupied, V = Vacant, N = Out of Service.",
+            "examples": [
+              "O",
+              "V",
+              "N"
+            ],
+            "type": "string"
+          },
+          "passenger_cap": {
+            "description": "Maximum number of passengers. Unit: seats.",
+            "examples": [
+              5,
+              6
+            ],
+            "type": "integer"
+          },
+          "taxi_type": {
+            "description": "Type of the Taxi: O = Ordinary Taxi, P = Premium Taxi, W = Wheelchair-accessible Taxi.",
+            "examples": [
+              "W",
+              "P"
+            ],
+            "type": "string"
+          },
+          "time_stamp": {
+            "description": "Server timestamp in ISO 8601 format; may be null.",
+            "examples": [
+              "2026-03-01T15:58:45+08:00",
+              null
+            ],
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "veh_id": {
+            "description": "Unique identifier for each Taxi. May be rotated.",
+            "examples": [
+              "JOI100040880"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "VehicleCollection": {
+        "description": "Collection of public taxi vehicle records.",
+        "examples": [
+          {
+            "taxis": [
+              {
+                "lat": 22.310087,
+                "long": 114.170044,
+                "op_status": "O",
+                "passenger_cap": 5,
+                "taxi_type": "W",
+                "time_stamp": "2026-03-01T15:58:45+08:00",
+                "veh_id": "JOI100040880"
+              }
+            ]
+          }
+        ],
+        "properties": {
+          "taxis": {
+            "description": "Taxi fleet records.",
+            "items": {
+              "$ref": "#/components/schemas/Taxi"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "JOIE Open Data API Specification",
+    "url": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-joie/Joie_spec.pdf"
+  },
+  "info": {
+    "description": "Provides public taxi fleet data for data.gov.hk and open data. The publisher expects this endpoint to be behind the Transport Department's CDN for caching and says it shall not be exposed directly to end users. Consumers shall not poll it more frequently than once every 30 seconds. The version history lists specification revisions 1.0, 1.1 and 1.2; these are not identified as an API version. Authentication requirements are not specified.",
+    "title": "JOIE Open Data API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/vehicles": {
+      "get": {
+        "description": "Provides public taxi fleet data for data.gov.hk and open data. The endpoint is expected to be behind the Transport Department's CDN for caching and shall not be exposed directly to end users. Consumers shall not poll it more frequently than once every 30 seconds.",
+        "operationId": "getVehicles",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "successResponse": {
+                    "summary": "Documented success response",
+                    "value": {
+                      "taxis": [
+                        {
+                          "lat": 22.310087,
+                          "long": 114.170044,
+                          "op_status": "O",
+                          "passenger_cap": 5,
+                          "taxi_type": "W",
+                          "time_stamp": "2026-03-01T15:58:45+08:00",
+                          "veh_id": "JOI100040880"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleCollection"
+                }
+              }
+            },
+            "description": "Success"
+          }
+        },
+        "summary": "Get public taxi fleet data"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://open-api.joie.socif.co"
+    }
+  ]
+}

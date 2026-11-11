@@ -1,0 +1,42 @@
+{
+  "sourceId": "hkma-new-issuance-amt-gov-bonds-ibpgsbp-other-crncy-minimal",
+  "publisherKey": "hkma",
+  "family": "new_issuance_amt_gov_bonds_ibpgsbp_other_crncy_minimal",
+  "status": "generated",
+  "key": "b544f11d9623f6fac5d97130c19bbb2bf18326af5a38154d8d3dbb93076f951d",
+  "sourceSha256": "f743a5c09fbd379626988384cf586e851948779198bd044276079b78ffda83df",
+  "derivedInputSha256": "63f6a1c1e643e1fc78ca05c2ae430f73f7eecae00b84d956d1fc408dc1600fe9",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/new-issuance-amt-gov-bonds-ibpgsbp-other-crncy",
+      "operationId": "getNewIssuanceAmtGovBondsIbpgsbpOtherCrncy",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-new-issuance-amt-gov-bonds-ibpgsbp-other-crncy-minimal.log",
+  "outputs": {
+    "__init__.py": "234fab157ef9894e4f7b67ce15b108264454c2b2de91d749f8fed7510cd220a1",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_new_issuance_amt_gov_bonds_ibpgsbp_other_crncy.py": "85f72ee9a1c0fb4e5dd4451fee9e8fcbd814316ecb6959958e84707d81a2836b",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "ab87e9fd78dcdcb8f737f1d791f9fc1a4f1e4872f7c9279af03bdeb3aa85017a",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/result.py": "477cde547d7cbc84e34da80e6240b714ee992dd03eb62a74b5779509741372be",
+    "models/segment.py": "e16ccbb0b29bc9affff899bddbf7c86aecb5c3dcd448efb6f039a8f745e875d8",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

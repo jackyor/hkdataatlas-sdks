@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "lcsd-csdi-horse-riding-schools",
+  "sourceSha256": "4b32ec34d6fa5c17b7d54ee2650fd4e467e86acef9eaebdc26a737c558a26c85",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/lcsd_rcd_1629267205215_62149/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1629267205215_62149/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/lcsd_rcd_1629267205215_62149/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

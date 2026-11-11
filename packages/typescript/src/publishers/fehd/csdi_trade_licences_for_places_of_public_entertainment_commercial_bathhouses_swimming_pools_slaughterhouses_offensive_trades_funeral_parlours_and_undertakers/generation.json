@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "fehd-csdi-trade-licences-for-places-of-public-entertainment-commercial-bathhouses-swimming-pools-slaughterhouses-offensive-trades-funeral-parlours-and-undertakers",
+  "sourceSha256": "27469d78c4bdece7dbfa146bf89a5ca12609c75b35af5606f5be931d62d1d7c3",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/fehd_rcd_1630036520303_61763/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1630036520303_61763/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1630036520303_61763/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

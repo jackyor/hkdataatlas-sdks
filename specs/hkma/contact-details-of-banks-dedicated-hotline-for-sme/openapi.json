@@ -1,0 +1,290 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Contact details of banks' dedicated hotline for SME",
+    "description": "Contact details of banks' dedicated hotline for SME lending will be made available for access in JSON format through Open API which is provided by HKMA in official website and listed in Open Data Portal.",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/bank-svf-info"
+    }
+  ],
+  "paths": {
+    "/info-for-sme-lending-services": {
+      "get": {
+        "summary": "Retrieve information of Contact details of banks' dedicated hotline for SME lending will be made available for access in JSON format through Open API which is provided by HKMA in official website and listed in Open Data Portal.",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Lang"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "bank_name": {
+            "type": "string"
+          },
+          "web_page": {
+            "type": "string"
+          },
+          "hotline_1": {
+            "type": "string"
+          },
+          "remark_1": {
+            "type": "string"
+          },
+          "hotline_2": {
+            "type": "string"
+          },
+          "remark_2": {
+            "type": "string"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "Lang": {
+        "title": "lang",
+        "enum": [
+          "en",
+          "tc",
+          "sc"
+        ],
+        "type": "string",
+        "example": "en",
+        "x-enum-elements": [
+          {
+            "name": "en",
+            "description": "Data in English"
+          },
+          {
+            "name": "tc",
+            "description": "Data in Traditional Chinese"
+          },
+          {
+            "name": "sc",
+            "description": "Data in Simplified Chinese"
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  },
+  "x-source-evidence": {
+    "url": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/info-for-sme-lending-services/",
+    "sourceHtmlSha256": "dbe706b059422216794cfcaa73d405dda41d6a01eb3cb63d95d6d0ca45b20e66",
+    "originalSourceUrl": "https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/info-for-sme-lending-services.json",
+    "originalJsonSha256": "c8f573ed71637afdf926250011ae11dd24899d8a047a199585ec3551189001f8",
+    "classification": "source_corrected_derivative",
+    "change": "Correct the duplicated server/path join and missing bank-svf-info category.",
+    "responseMeaning": "Publisher response schema preserved exactly; no new live schema fit established."
+  }
+}

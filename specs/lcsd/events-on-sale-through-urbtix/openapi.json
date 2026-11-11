@@ -1,0 +1,153 @@
+{
+  "components": {
+    "schemas": {
+      "EventBatchFields": {
+        "description": "Field dictionary for the dataset. This is not a complete XML document schema; element nesting, field requiredness, and the overall response structure are not specified.",
+        "properties": {
+          "CITY_EG": {
+            "description": "City English name.",
+            "type": "string"
+          },
+          "CITY_TC": {
+            "description": "City Chinese name.",
+            "type": "string"
+          },
+          "ED_DATE": {
+            "description": "Event end date. Documented type: date; an example shown in the dictionary is 20211015. The example uses YYYYMMDD representation.",
+            "type": "string"
+          },
+          "EVENT_CODE": {
+            "description": "Event code.",
+            "type": "string"
+          },
+          "EVENT_EG": {
+            "description": "Event English name.",
+            "type": "string"
+          },
+          "EVENT_TC": {
+            "description": "Event Chinese name.",
+            "type": "string"
+          },
+          "IMAGE_LINK": {
+            "description": "Event image URL.",
+            "type": "string"
+          },
+          "MAIN_CAT.EG": {
+            "description": "Event category English name. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "MAIN_CAT.TC": {
+            "description": "Event category Chinese name. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "PERFORMANCE.PERFORMANCE_DATETIME": {
+            "description": "Performance date and time. Documented type: datetime; example: 2021/10/15 19:45 Fri. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "PERFORMANCE.REFERENCE_LINK": {
+            "description": "Performance URL. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "PERFORMANCE.REF_NO": {
+            "description": "Performance reference number. Documented type: numeric. The dotted spelling is as documented.",
+            "type": "number"
+          },
+          "PERFORMANCE.TITLE_EG": {
+            "description": "Performance English name. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "PERFORMANCE.TITLE_TC": {
+            "description": "Performance Chinese name. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "REFERENCE_LINK": {
+            "description": "Event URL.",
+            "type": "string"
+          },
+          "REGION_EG": {
+            "description": "Region English name.",
+            "type": "string"
+          },
+          "REGION_TC": {
+            "description": "Region Chinese name.",
+            "type": "string"
+          },
+          "SEND_DATE": {
+            "description": "Data creation date. Documented type: date; example: 20210912. The example uses YYYYMMDD representation.",
+            "type": "string"
+          },
+          "ST_DATE": {
+            "description": "Event start date. Documented type: date; example: 20211015. The example uses YYYYMMDD representation.",
+            "type": "string"
+          },
+          "SUB_CAT.EG": {
+            "description": "Event sub-category English name. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "SUB_CAT.TC": {
+            "description": "Event sub-category Chinese name. The dotted spelling is as documented.",
+            "type": "string"
+          },
+          "SYSTEM": {
+            "description": "System.",
+            "type": "string"
+          },
+          "TOTAL": {
+            "description": "Number of events. Documented type: numeric.",
+            "type": "number"
+          },
+          "VENUE_CODE": {
+            "description": "Venue code.",
+            "type": "string"
+          },
+          "VENUE_EG": {
+            "description": "Venue English name.",
+            "type": "string"
+          },
+          "VENUE_TC": {
+            "description": "Venue Chinese name.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Publisher data specification and field dictionary",
+    "url": "https://www.lcsd.gov.hk/datagovhk/event/urbtix_event_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "The source bundle documents a daily XML data resource and its field dictionary, but does not establish an executable HTTP operation: it identifies a literal download URL containing the YYYYMMDD token without defining a URL-template parameter or supported request interface. No HTTP operation is described here. The metadata version is a placeholder, not a publisher API version.",
+    "title": "Events on Sale through URBTIX",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/prod/gprd/URBTIX_eventBatch_YYYYMMDD.xml": {
+      "get": {
+        "operationId": "retrieveDataSpecificationForEventsOnSaleThroughUrbtixProdGprdUrbtixEventbatchYyyymmddXml",
+        "summary": "Retrieve Data Specification for Events on Sale through URBTIX",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://fs-open-1304240968.cos.ap-hongkong.myqcloud.com/prod/gprd/URBTIX_eventBatch_YYYYMMDD.xml. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://fs-open-1304240968.cos.ap-hongkong.myqcloud.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

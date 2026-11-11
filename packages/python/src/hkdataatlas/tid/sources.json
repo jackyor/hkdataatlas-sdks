@@ -1,0 +1,64 @@
+{
+  "publisherKey": "tid",
+  "publisherName": "Trade and Industry Department",
+  "sources": [
+    {
+      "id": "tid-free-email-notification-services",
+      "publisherKey": "tid",
+      "publisherName": "Trade and Industry Department",
+      "familyKey": "free-email-notification-services",
+      "name": "Free eMail Notification Services",
+      "apiTitle": "Free eMail Notification Services",
+      "json": "tid/free-email-notification-services/openapi.json",
+      "yaml": "tid/free-email-notification-services/openapi.yaml",
+      "file": "tid/free-email-notification-services/openapi.json",
+      "sha256": "36c7fb46e2963a9b70ba1ee4ad9d288b8d9b6848e2b1a25c02f897977813c701",
+      "jsonSha256": "36c7fb46e2963a9b70ba1ee4ad9d288b8d9b6848e2b1a25c02f897977813c701",
+      "yamlSha256": "5962ec6e72acc8b94cf283738e0f0afc0beabc0e9cfae902699f878e67f9504b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "free_email_notification_services",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "36c7fb46e2963a9b70ba1ee4ad9d288b8d9b6848e2b1a25c02f897977813c701"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.tid.gov.hk/psi/dd_eMailNotification_EN.pdf",
+        "canonicalJsonSha256": "36c7fb46e2963a9b70ba1ee4ad9d288b8d9b6848e2b1a25c02f897977813c701",
+        "originalRepresentationSha256": "8473d6186a5ddeaa6bf4fb66d456db9f8a4942c37af6a7c5521b2b014d4e9f3b",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "free_email_notification_services"
+    }
+  ]
+}

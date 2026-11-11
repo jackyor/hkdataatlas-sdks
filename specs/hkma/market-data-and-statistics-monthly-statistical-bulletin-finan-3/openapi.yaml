@@ -1,0 +1,186 @@
+openapi: 3.0.0
+info:
+  title: Capital market statistics
+  description: "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/financial/capital-market-statistics"
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/financial
+    variables: {}
+paths:
+  /capital-market-statistics:
+    get:
+      summary: Retrieve data of Capital market statistics
+      parameters:
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Record"
+          description: ""
+    Record:
+      title: Record
+      type: object
+      properties:
+        end_of_month:
+          type: string
+          description: Reportingperiod is returned asYYYY-MM; preserve plainstrings including full dates without inventing aday or pattern.
+        hkd_drmkt_outstand_efbn:
+          type: number
+        hkd_drmkt_outstand_odrinst:
+          type: number
+          nullable: true
+          description: Retained officialresponses use null when this statistical value is unavailable.
+        hkd_drmkt_outstand_total:
+          type: number
+          nullable: true
+          description: Retained officialresponses use null when this statistical value is unavailable.
+        hkd_drmkt_new_non_efbn:
+          type: number
+          nullable: true
+          description: Retained officialresponses use null when this statistical value is unavailable.
+        eq_mkt_hs_index:
+          type: number
+        eq_mkt_ttl_stock_cap:
+          type: number
+        eq_mkt_fund_raised:
+          type: number
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+x-source-evidence:
+  url: https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/T0103-swagger.json
+  originalSourceUrl: https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/T0103-swagger.json
+  originalJsonSha256: 35416f3be2ac614ff1ab2728894ab1fd9f9146eb8146428d5138fc4fe2e2a371
+  retainedPublisherSourceSha256: null
+  classification: publisher_contract_and_observed_response_compatibility_derivative
+  change: Only enumeratedresponse constraints broadened to preserve published and hash-bound observed representations; no newfields, values, ranges, restrictivepatterns or coercions.
+  responseBodySha256:
+    - 8cb18a25d829486e150f4e9785cfe6e39d3091d795811a42dbb85c242188136e
+    - 27950a686031acda8d1423e39f6269c49eec8ad67125ef8d9c0dcd9b6ca50989
+  scope: Completebodies and completeitems from incompleteprefixes are labelled separately. Unreadtail/cardinality are never asserted.

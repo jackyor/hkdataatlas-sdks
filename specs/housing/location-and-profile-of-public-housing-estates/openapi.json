@@ -1,0 +1,383 @@
+{
+  "components": {
+    "schemas": {
+      "LocalizedText": {
+        "additionalProperties": true,
+        "description": "Multilingual text object shown in dictionary examples with en, zh-Hant, and zh-Hans values. The examples do not establish that all three properties are always present.",
+        "properties": {
+          "en": {
+            "description": "Value in English.",
+            "type": "string"
+          },
+          "zh-Hans": {
+            "description": "Value in Simplified Chinese.",
+            "type": "string"
+          },
+          "zh-Hant": {
+            "description": "Value in Traditional Chinese.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "LocationProfileRecord": {
+        "additionalProperties": true,
+        "description": "A record may vary by selected resource. Dictionary field labels are represented using their documented label spellings; the API example instead uses underscore-separated spellings for several estate fields. The dictionary's multilingual text examples use en, zh-Hant, and zh-Hans keys. Language path values are documented as en, tc, and sc; the publisher does not explicitly define a mapping between those parameter values and dictionary keys.",
+        "properties": {
+          "Carpark Management": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Carpark_Management": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Carpark Management'.",
+            "type": "string"
+          },
+          "Court Website": {
+            "description": "Website address of the court.",
+            "type": "string"
+          },
+          "District Name": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "District Tenancy Management Office/Estate Office": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "District_Name": {
+            "description": "Key spelling appears in the API example; dictionary label is 'District Name'.",
+            "type": "string"
+          },
+          "District_Tenancy_Management_Office_Estate_Office": {
+            "description": "Key spelling appears in the API example; dictionary label is 'District Tenancy Management Office/Estate Office'.",
+            "type": "string"
+          },
+          "Estate Management Advisory Committee (EMAC)": {
+            "description": "Whether an EMAC is established. The dictionary indicates a text value, and its examples show a localized object when formed; the example response uses an empty string under an underscore-separated key.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LocalizedText"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "Estate Map Latitude": {
+            "description": "Latitude. The dictionary documents a numeric value with a precision pattern shown as <99.999999>. The API response example represents coordinates as strings, so either representation is allowed.",
+            "type": "number"
+          },
+          "Estate Map Longitude": {
+            "description": "Longitude. The dictionary documents a numeric value with a precision pattern shown as <999.999999>. The API response example represents coordinates as strings, so either representation is allowed.",
+            "type": "number"
+          },
+          "Estate Name": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Estate Website": {
+            "description": "Website address of the estate.",
+            "type": "string"
+          },
+          "Estate_Management_Advisory_Committee_EMAC": {
+            "description": "Key spelling and empty-string value appear in the API example; dictionary describes EMAC status as text and provides a localized formed value.",
+            "type": "string"
+          },
+          "Estate_Name": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Estate Name'.",
+            "type": "string"
+          },
+          "Estate_Website": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Estate Website'.",
+            "type": "string"
+          },
+          "Factory Estate Office": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Flat Size (m2)": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Flat_Size_m2": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Flat Size (m2)'.",
+            "type": "string"
+          },
+          "Flatted Factories Website": {
+            "description": "Website address of the flatted factory estate.",
+            "type": "string"
+          },
+          "Further Information": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Further_Information": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Further Information'.",
+            "type": "string"
+          },
+          "Gross Floor Area of Flat (m2)": {
+            "description": "Gross floor area range in square meters, documented in a text format like 'XXXXXXX - XXXXXXX'; each stated number may be from 0 to 9999999.",
+            "type": "string"
+          },
+          "Initial Sale Price($)": {
+            "description": "Initial sale price range, documented in a text format like 'XXXXXXX - XXXXXXX'; each stated number may be from 0 to 9999999.",
+            "type": "string"
+          },
+          "Name of Block(s)": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Name_of_Block": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Name of Block(s)'.",
+            "type": "string"
+          },
+          "No. of Blocks": {
+            "description": "Block count as text in the dictionary; the example response also represents it as a string.",
+            "examples": [
+              "6",
+              "9"
+            ],
+            "type": "string"
+          },
+          "No. of Flats": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "No. of Floor(s)": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "No. of Rental Flats": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "No_of_Blocks": {
+            "description": "Key spelling appears in the API example; dictionary describes the value as text.",
+            "type": "string"
+          },
+          "No_of_Rental_Flats": {
+            "description": "Key spelling appears in the API example; dictionary describes localized text.",
+            "type": "string"
+          },
+          "Owners' Corporation": {
+            "$ref": "#/components/schemas/LocalizedText",
+            "description": "Whether the Owners' Corporation is established. The dictionary examples include a localized value, such as 'Not Yet Formed'."
+          },
+          "Property Management": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Property_Management": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Property Management'.",
+            "type": "string"
+          },
+          "Region Name": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Region_Name": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Region Name'.",
+            "type": "string"
+          },
+          "Regional Management Office / Management Office / Estate Office": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Saleable Area of Flats (m2)": {
+            "description": "Saleable area range in square meters, documented in a text format like 'XXXXXXX - XXXXXXX'; each stated number may be from 0 to 9999999.",
+            "type": "string"
+          },
+          "Shopping Centre Website": {
+            "description": "Website address of the shopping centre.",
+            "type": "string"
+          },
+          "Sold Under": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Storey": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Total Lettable Area (m2)": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Type of Estate": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Type(s) of Block(s)": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Type_of_Block": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Type(s) of Block(s)'.",
+            "type": "string"
+          },
+          "Type_of_Estate": {
+            "description": "Key spelling appears in the API example; dictionary label is 'Type of Estate'.",
+            "type": "string"
+          },
+          "Year of Completion": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Year of Intake": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "Year_of_Intake": {
+            "description": "Key spelling appears in the API example; dictionary describes localized text in yyyy format.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "LocationProfileResponse": {
+        "additionalProperties": true,
+        "description": "JSON response example has a data array. The publisher does not state that the sample lists every property in every response.",
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/LocationProfileRecord"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Publisher data specification",
+    "url": "https://data.housingauthority.gov.hk/dataset/hahdweb/ha_hahdweb_dataspec.pdf"
+  },
+  "info": {
+    "description": "Returns location and profile data for public rental housing estates, HOS/PSPS/GSH courts, HA shopping centres, or HA flatted factories. The publisher states that the service returns up-to-date data in JSON and documents JSON, CSV, and XML response formats. Authentication is explicitly not required. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Hong Kong Housing Authority — Location and Profile of Public Housing Estates",
+    "version": "undocumented",
+    "x-document-date": "2024-07-25"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/criteriafilter/{dataresource}/{lang}/{format}": {
+      "get": {
+        "description": "Retrieves the selected dataset in the requested language and format. The documentation's example response is for Public Housing Estates. The data dictionary describes the fields for four resource types; it does not establish that every field appears in every returned record. The example response spells some keys with underscores where the dictionary presents labels with spaces; these spellings are preserved separately rather than assumed to be interchangeable. Authentication is explicitly not required.",
+        "operationId": "getLocationAndProfileData",
+        "parameters": [
+          {
+            "description": "Dataset resource to return.",
+            "example": "prh-estates",
+            "in": "path",
+            "name": "dataresource",
+            "required": true,
+            "schema": {
+              "enum": [
+                "prh-estates",
+                "hos-courts",
+                "shopping-centres",
+                "flatted-factory"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response language.",
+            "examples": {
+              "english": {
+                "value": "en"
+              },
+              "simplifiedChinese": {
+                "value": "sc"
+              },
+              "traditionalChinese": {
+                "value": "tc"
+              }
+            },
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response file format.",
+            "examples": {
+              "csv": {
+                "value": "csv"
+              },
+              "json": {
+                "value": "json"
+              },
+              "xml": {
+                "value": "xml"
+              }
+            },
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "enum": [
+                "json",
+                "csv",
+                "xml"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "publicHousingEstate": {
+                    "summary": "Publisher example response for a public housing estate",
+                    "value": {
+                      "data": [
+                        {
+                          "Carpark_Management": "Good Excel Property Consultant Ltd G/F Carport Building Tak Long Estate Kowloon Telephone: 2856 6225 Fax: 2856 6100",
+                          "District_Name": "Kowloon City",
+                          "District_Tenancy_Management_Office_Estate_Office": "Kowloon West & Sai Kung District Tenancy Management Office (5) G/F Carport Building Tak Long Estate Kowloon Telephone: 2383 0422 Fax: 2383 0945",
+                          "Estate Map Latitude": "22.330105",
+                          "Estate Map Longitude": "114.2031",
+                          "Estate_Management_Advisory_Committee_EMAC": "",
+                          "Estate_Name": "Tak Long Estate",
+                          "Estate_Website": "",
+                          "Flat_Size_m2": "14.0",
+                          "Further_Information": "",
+                          "Name_of_Block": "Tak Cheung HousenTak Sui HousenTak Kei HousenTak Yu HousenTak Loong HousenTak Shan HousenTak Yiu HousenTak Ying HousenTak Pui Housen",
+                          "No_of_Blocks": "9",
+                          "No_of_Rental_Flats": "8.0",
+                          "Property_Management": "Good Excel Property Consultant Ltd G/F Carport Building Tak Long Estate Kowloon Telephone: 2856 6225 Fax: 2856 6100",
+                          "Region_Name": "Kowloon West",
+                          "Type_of_Block": "Non-standard",
+                          "Type_of_Estate": "Public Rental Housing",
+                          "Year_of_Intake": "2013"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/LocationProfileResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "XML response. The publisher documents this response format but does not specify an XML element structure.",
+                  "type": "string"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "description": "CSV response. The publisher documents this response format but does not specify a CSV header, quoting, or row layout.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Success. Response format is selected by the format path parameter. JSON is described below; the publisher also documents CSV and XML, but does not provide their response layouts."
+          },
+          "400": {
+            "description": "Bad Request. The publisher documents the status code but does not specify an error response structure."
+          },
+          "500": {
+            "description": "Internal Server Error. The publisher documents the status code but does not specify an error response structure."
+          }
+        },
+        "summary": "Get location and profile data"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.housingauthority.gov.hk/psi/rest"
+    }
+  ]
+}

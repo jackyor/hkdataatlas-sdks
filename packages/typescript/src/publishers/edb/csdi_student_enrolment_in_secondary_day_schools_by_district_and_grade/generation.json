@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "edb-csdi-student-enrolment-in-secondary-day-schools-by-district-and-grade",
+  "sourceSha256": "1fc22a39772b70988ad9baf4943f855dfa8aa0b34925116417128b1dd56ddf81",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/edb_rcd_1633336508088_48919/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/edb_rcd_1633336508088_48919/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/edb_rcd_1633336508088_48919/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

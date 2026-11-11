@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "archsd-csdi-government-buildings-and-facilities-maintained-by-archsd",
+  "sourceSha256": "8eddcb9a28ad70442a028d4c1bd03d1148c42e5fca37a6e03e686524de0b0c3f",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/archsd_rcd_1629267205233_15823/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/archsd_rcd_1629267205233_15823/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/archsd_rcd_1629267205233_15823/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

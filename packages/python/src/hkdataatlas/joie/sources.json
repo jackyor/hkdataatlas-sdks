@@ -1,0 +1,64 @@
+{
+  "publisherKey": "joie",
+  "publisherName": "Joie (Taxi Fleet Licensee)",
+  "sources": [
+    {
+      "id": "joie-taxi-fleet-information-joie",
+      "publisherKey": "joie",
+      "publisherName": "Joie (Taxi Fleet Licensee)",
+      "familyKey": "taxi-fleet-information-joie",
+      "name": "Taxi Fleet Information (Joie)",
+      "apiTitle": "JOIE Open Data API",
+      "json": "joie/taxi-fleet-information-joie/openapi.json",
+      "yaml": "joie/taxi-fleet-information-joie/openapi.yaml",
+      "file": "joie/taxi-fleet-information-joie/openapi.json",
+      "sha256": "1020e5d3f8b64f0ff4073a94a81e472f823d14f06bd0ad369d3ef8bc7bf247d4",
+      "jsonSha256": "1020e5d3f8b64f0ff4073a94a81e472f823d14f06bd0ad369d3ef8bc7bf247d4",
+      "yamlSha256": "9ae745c4e9e033a5acfd53eeeb8d28b37d368911394631dcfceec355935f1027",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "taxi_fleet_information_joie",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1020e5d3f8b64f0ff4073a94a81e472f823d14f06bd0ad369d3ef8bc7bf247d4"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-joie/Joie_spec.pdf",
+        "canonicalJsonSha256": "1020e5d3f8b64f0ff4073a94a81e472f823d14f06bd0ad369d3ef8bc7bf247d4",
+        "originalRepresentationSha256": "1020e5d3f8b64f0ff4073a94a81e472f823d14f06bd0ad369d3ef8bc7bf247d4",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "taxi_fleet_information_joie"
+    }
+  ]
+}

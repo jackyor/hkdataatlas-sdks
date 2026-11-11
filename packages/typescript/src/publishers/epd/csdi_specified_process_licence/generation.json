@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "epd-csdi-specified-process-licence",
+  "sourceSha256": "1593eb9cceedb29faac6f29be15afe0d4e85cf810e5ef5dd384b1ec1757d1784",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/epd_rcd_1696985921148_35462/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1696985921148_35462/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1696985921148_35462/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

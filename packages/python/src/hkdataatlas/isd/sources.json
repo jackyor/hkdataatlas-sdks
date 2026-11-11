@@ -1,0 +1,64 @@
+{
+  "publisherKey": "isd",
+  "publisherName": "Information Services Department",
+  "sources": [
+    {
+      "id": "isd-csdi-office-addresses-and-open-hours",
+      "publisherKey": "isd",
+      "publisherName": "Information Services Department",
+      "familyKey": "csdi-office-addresses-and-open-hours",
+      "name": "Office Addresses and Open Hours",
+      "apiTitle": "Information Services Department \u2014 Office Addresses and Open Hours",
+      "json": "isd/csdi-office-addresses-and-open-hours/openapi.json",
+      "yaml": "isd/csdi-office-addresses-and-open-hours/openapi.yaml",
+      "file": "isd/csdi-office-addresses-and-open-hours/openapi.json",
+      "sha256": "26b32b301342c27097324fe81ae0766158f22d13d18bf7bee422466e93db605c",
+      "jsonSha256": "26b32b301342c27097324fe81ae0766158f22d13d18bf7bee422466e93db605c",
+      "yamlSha256": "03b9f908681105428b52703eaef2d27297ad8f516025337f8395d6de78a1be07",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_office_addresses_and_open_hours",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "26b32b301342c27097324fe81ae0766158f22d13d18bf7bee422466e93db605c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=isd_rcd_1635413642316_96944",
+        "canonicalJsonSha256": "26b32b301342c27097324fe81ae0766158f22d13d18bf7bee422466e93db605c",
+        "originalRepresentationSha256": "26b32b301342c27097324fe81ae0766158f22d13d18bf7bee422466e93db605c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_office_addresses_and_open_hours"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "isd-csdi-office-addresses-and-open-hours",
+  "sourceSha256": "26b32b301342c27097324fe81ae0766158f22d13d18bf7bee422466e93db605c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/isd_rcd_1635413642316_96944/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/isd_rcd_1635413642316_96944/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/isd_rcd_1635413642316_96944/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

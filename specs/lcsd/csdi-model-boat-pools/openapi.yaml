@@ -1,0 +1,362 @@
+openapi: 3.1.0
+info:
+  title: Leisure and Cultural Services Department — Model Boat Pools
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/lcsd_rcd_1670384919201_85025/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: geotagging
+              value: 0
+          x-choice-count: 1
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1670384919201_85025/FeatureServer?f=pjson
+          sha256: ff6f84090025a0123f130a844015acc00a8a55143deff1561b868050f910c508
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1670384919201_85025/FeatureServer/0?f=pjson
+          sha256: c61176ff54456ea6c8363e2ec12be67ec594c39b3a98bb895098eb6d94057ab9
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        District_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: District_en
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        District_cn:
+          description: "Publisher field type: esriFieldTypeString"
+          title: District_cn
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Name_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name_en
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Name_cn:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name_cn
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Address_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address_en
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Address_cn:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address_cn
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        GIHS:
+          description: "Publisher field type: esriFieldTypeString"
+          title: GIHS
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Facilities_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Facilities_en
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Facilities_b5:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Facilities_b5
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Ancillary_facilities_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Ancillary_facilities_en
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Ancillary_facilities_cn:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Ancillary_facilities_cn
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Opening_hours_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Opening_hours_en
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Opening_hours_cn:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Opening_hours_cn
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Phone:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Phone
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Remarks_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Remarks_en
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Remarks_cn:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Remarks_cn
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Longitude:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Longitude
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Latitude:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Latitude
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Longitude_dec:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Longitude_dec
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        Latitude_dec:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Latitude_dec
+          type:
+            - string
+            - "null"
+          maxLength: 5000
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: geotagging
+    protocol: arcgis
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=lcsd_rcd_1670384919201_85025
+    sha256: cdc5ad50d213ff70c2826a89c041bb6853fe1c0d63b66e19c59fe07329e0b90b
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1670384919201_85025/FeatureServer?f=pjson
+    sha256: ff6f84090025a0123f130a844015acc00a8a55143deff1561b868050f910c508
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/lcsd_rcd_1670384919201_85025/FeatureServer/0?f=pjson
+    sha256: c61176ff54456ea6c8363e2ec12be67ec594c39b3a98bb895098eb6d94057ab9
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1670384919201_85025/MapServer/WFSServer?service=WFS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-c517dfb19118c84e9a736b62
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1670384919201_85025/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    - serviceId: csdi-service-c517dfb19118c84e9a736b62
+      protocol: wfs
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WFS GetCapabilities
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1670384919201_85025/MapServer/WMSServer?service=WMS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-e12bbf729140588505c47c24
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/lcsd_rcd_1670384919201_85025/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    - serviceId: csdi-service-e12bbf729140588505c47c24
+      protocol: wms
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WMS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 3
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

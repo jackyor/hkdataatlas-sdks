@@ -1,0 +1,32 @@
+{
+  "sourceId": "landsd-imagery-map-api",
+  "publisherKey": "landsd",
+  "family": "imagery_map_api",
+  "status": "generated",
+  "key": "da7a7a9bf152dd11a03447100027b46c9fbd9d56e0968519d6b84e92f2c63b2d",
+  "sourceSha256": "18fd4971846ca5592cbd79b3fa9f7be3f666eea5633ca83cff9826a0a1a20feb",
+  "derivedInputSha256": "c0c236e8e856fd41e374a1259fb29749d440519b53a12372f5f3fb6b1ed704c4",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/gs/api/{version}/xyz/imagery/{sr}/{z}/{x}/{y}.png",
+      "operationId": "getImageryMapTile",
+      "tags": []
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/landsd-imagery-map-api.log",
+  "outputs": {
+    "__init__.py": "dd0de4ccbbc5ee8f41a4faa571361babced210b1b5309c4d1e221246d6dc5e30",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_imagery_map_tile.py": "ff05560838492ea112a5c0783d7858f05d81eafc37511315731c94aa0e36a124",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e15140460446c974dfba3ed048e9c4d651184d93c8a472a456a666c792c0b806",
+    "models/get_imagery_map_tile_sr.py": "4bea56fbfa650a03fe601cc722e95cc74be4e95cc25c9aef06d1cddd78528493",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "sourceId": "hkma-exchange-fund-bills-and-notes-indicative-pricings",
+  "publisherKey": "hkma",
+  "family": "exchange_fund_bills_and_notes_indicative_pricings",
+  "status": "generated",
+  "key": "0f26c1989fb0f3c527fb70fde1d5698da87db9c8fe1ceb39871f80fe80e6bdbd",
+  "sourceSha256": "156ce90e8f90987a12cf0724857c3edffc3806708474fe6fba3881833d9f33f9",
+  "derivedInputSha256": "e922b0143d11abd82acf929b77f708d5712df2855659f22d6531c37458129e41",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/efbn-indicative-price",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-exchange-fund-bills-and-notes-indicative-pricings.log",
+  "outputs": {
+    "__init__.py": "512ae9212137350e4e573697e11c3d9a4dab0a8a9a7fc41be07f7e66b2e5828e",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_efbn_indicative_price.py": "9267093fa66d66f7266d78600ee4c5a4e4b78e8d0bc6785de7e6e92079f4a65e",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "4493575bbde427c54817ea20d3262028ed4c8e973ff91d00926711e69522076a",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/record.py": "277f1ca09e75ab64d418ef209cf286d787613e9fee34b9ab4a7d65c41e629c64",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/segment.py": "794e2ac988fafa8c4e97e34f7d791b2d04ff604b8a7c5fb06828286c28004c7e",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

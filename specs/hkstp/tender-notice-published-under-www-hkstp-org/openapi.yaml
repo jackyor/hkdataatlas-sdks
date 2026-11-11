@@ -1,0 +1,56 @@
+components:
+  schemas:
+    TenderNotice:
+      description: A tender notice record.
+      properties:
+        file_link:
+          description: URL of the tender file.
+          format: uri
+          type: string
+        post_date:
+          description: Posting date of the tender.
+          type: string
+        title:
+          description: Title of the tender.
+          type: string
+      type: object
+    TenderNoticeResponse:
+      description: The documented response is an object with a value field containing a list of tender notices. The example illustrates the response but does not establish universal requiredness or a closed object.
+      properties:
+        value:
+          description: List of tender notices.
+          items:
+            $ref: "#/components/schemas/TenderNotice"
+          type: array
+      type: object
+externalDocs:
+  description: HKSTPC Tender Notice API documentation
+  url: https://opendata.hkstp.org/doc/corp-info/HKSTP-API-corp-website-tender-notice.pdf
+info:
+  description: Documentation describes a JSON response for tender notices but does not specify an HTTP method or request parameters. The GET operation below is supported by the documented resource URL; no authentication requirements are documented. The version value is a metadata placeholder, not a publisher API version.
+  title: HKSTPC Tender Notice API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /corporate/info/v1/tendernotice:
+    get:
+      description: The publisher documents this resource URL and a JSON response containing a value list. No request parameters are documented.
+      operationId: getTenderNotices
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                publishedExample:
+                  summary: Tender notice example from the documentation
+                  value:
+                    value:
+                      - file_link: https://hkstp-web3-umbraco-cms.azurewebsites.net/media/qufd2ng3/rfp_website_tender-rfb_2023_-omu_258-final.pdf
+                        post_date: 14 Aug 2023
+                        title: "Request for Proposal (RFP) On Commercial Letting - Retail, Food & Beverage Shops in Hong Kong Science Park (Ref. No.: RFP/2023/OMU/258)"
+              schema:
+                $ref: "#/components/schemas/TenderNoticeResponse"
+          description: Tender notice response.
+      summary: Retrieve tender notices
+servers:
+  - url: https://opendata.hkstp.org

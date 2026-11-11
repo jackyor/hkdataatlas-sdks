@@ -1,0 +1,1065 @@
+{
+  "components": {
+    "schemas": {
+      "BillRecord": {
+        "description": "Bill record fields from the publisher's data dictionary. The dictionary does not state field requiredness or a complete response envelope; fields are therefore not required by this schema. DateTime values are documented with the format YYYY-MM-DDThh:mm:ss (ISO 8601); the dictionary does not specify a timezone.",
+        "properties": {
+          "additional_information_chi": {
+            "description": "Additional information in Chinese.",
+            "type": "string"
+          },
+          "additional_information_eng": {
+            "description": "Additional information in English.",
+            "type": "string"
+          },
+          "bill_content_url_2_chi": {
+            "description": "Second URL of the content of the bill in Chinese.",
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_content_url_2_eng": {
+            "description": "Second URL of the content of the bill in English.",
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_content_url_3_chi": {
+            "description": "Third URL of the content of the bill in Chinese.",
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_content_url_3_eng": {
+            "description": "Third URL of the content of the bill in English.",
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_content_url_chi": {
+            "description": "URL of the content of the bill in Chinese.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/bills/b201804201.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_content_url_eng": {
+            "description": "URL of the content of the bill in English.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/bills/b201804201.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_gazette_date": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Gazette date of the bill.",
+            "examples": [
+              "2018-04-20T00:00:00"
+            ]
+          },
+          "bill_gazette_date_2": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Second gazette date of the bill."
+          },
+          "bill_gazette_date_3": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Third gazette date of the bill."
+          },
+          "bill_title_chi": {
+            "description": "Title of the bill in Chinese.",
+            "examples": [
+              "2018 年稅務(修訂)(第 3 號)條例草案"
+            ],
+            "type": "string"
+          },
+          "bill_title_eng": {
+            "description": "Title of the bill in English.",
+            "examples": [
+              "Inland Revenue (Amendment) (No. 3) Bill 2018"
+            ],
+            "type": "string"
+          },
+          "bills_committee_formation_date": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Formation date of the bills committee.",
+            "examples": [
+              "2018-05-04T00:00:00"
+            ]
+          },
+          "bills_committee_report_url_chi": {
+            "description": "URL of the Chinese report of the bills committee.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/bc/bc08/reports/bc0820181024cb1-38-c.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "bills_committee_report_url_eng": {
+            "description": "URL of the English report of the bills committee.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/bc/bc08/reports/bc0820181024cb1-38-e.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "bills_committee_title_chi": {
+            "description": "Chinese title of the bills committee.",
+            "examples": [
+              "2018 年稅務(修訂)(第 3 號)條例草案委員會"
+            ],
+            "type": "string"
+          },
+          "bills_committee_title_eng": {
+            "description": "English title of the bills committee.",
+            "examples": [
+              "Bills Committee on Inland Revenue (Amendment) (No. 3) Bill 2018"
+            ],
+            "type": "string"
+          },
+          "bills_committee_url_chi": {
+            "description": "URL of the Chinese home page of the bills committee.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/bc/bc08/general/bc08.htm"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "bills_committee_url_eng": {
+            "description": "URL of the English home page of the bills committee.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/bc/bc08/general/bc08.htm"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "first_reading_date": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Date of the First Reading of the bill.",
+            "examples": [
+              "2018-05-02T00:00:00"
+            ]
+          },
+          "first_reading_date_2": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Second date of the First Reading of the bill."
+          },
+          "first_reading_date_2_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the second date of the First Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "first_reading_date_2_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the second date of the First Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "first_reading_date_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the First Reading of the bill.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/counmtg/hansard/cm20180502-translate-e.pdf#nameddest=b1r01"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "first_reading_date_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the First Reading of the bill.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/counmtg/hansard/cm20180502-translate-e.pdf#nameddest=b1r01"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "internal_key": {
+            "description": "Bill identifier.",
+            "examples": [
+              "06635"
+            ],
+            "type": "string"
+          },
+          "legco_brief_file_reference": {
+            "description": "File reference of the Legislative Council Brief.",
+            "examples": [
+              "ITC CR 5/1/2168/18"
+            ],
+            "type": "string"
+          },
+          "legco_brief_url_chi": {
+            "description": "URL of the Legislative Council Brief in Chinese.",
+            "examples": [
+              "http://library.legco.gov.hk:1080/search~S10?/.bills/br/1,1,1,B/l962~bills/br&FF=&1,0,,1,0"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "legco_brief_url_eng": {
+            "description": "URL of the Legislative Council Brief in English.",
+            "examples": [
+              "http://library.legco.gov.hk:1080/search~S10?/.blls/bri/1,1,1,B/l962~blls/bri&FF=&1,0,,0,0"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "ordinace_gazette_content_url_eng": {
+            "description": "URL of the content of the ordinance in the Gazette in English. The property spelling follows the publisher dictionary, which spells this name “ordinace”.",
+            "examples": [
+              "https://www.legco.gov.hk/yr18-19/english/ord/2018ord029-e.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "ordinance_content_url_chi": {
+            "description": "URL of the content of the ordinance in Chinese.",
+            "examples": [
+              "https://www.elegislation.gov.hk/hk/cap112?_lang=zh-Hant-HK"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "ordinance_content_url_eng": {
+            "description": "URL of the content of the ordinance in English.",
+            "examples": [
+              "https://www.elegislation.gov.hk/hk/cap112?_lang=en"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "ordinance_gazette_content_url_chi": {
+            "description": "URL of the content of the ordinance in the Gazette in Chinese. The dictionary's printed property name is line-wrapped as “ordinance_gazette_content_url_chi”.",
+            "examples": [
+              "https://www.legco.gov.hk/yr18-19/chinese/ord/2018ord029-c.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "ordinance_gazette_date": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Gazette date of the ordinance.",
+            "examples": [
+              "2018-11-02T00:00:00"
+            ]
+          },
+          "ordinance_title_chi": {
+            "description": "Title of the ordinance in Chinese.",
+            "examples": [
+              "稅務條例"
+            ],
+            "type": "string"
+          },
+          "ordinance_title_eng": {
+            "description": "Title of the ordinance in English.",
+            "examples": [
+              "Inland Revenue Ordinance"
+            ],
+            "type": "string"
+          },
+          "ordinance_year_number_chi": {
+            "description": "Ordinance number in Chinese.",
+            "examples": [
+              "2018 年第 29 號條例"
+            ],
+            "type": "string"
+          },
+          "ordinance_year_number_eng": {
+            "description": "Ordinance number in English.",
+            "examples": [
+              "Ord. No. 29 of 2018"
+            ],
+            "type": "string"
+          },
+          "proposed_by_chi": {
+            "description": "Name of the proposer in Chinese.",
+            "examples": [
+              "創新及科技局局長"
+            ],
+            "type": "string"
+          },
+          "proposed_by_eng": {
+            "description": "Name of the proposer in English.",
+            "examples": [
+              "Secretary for Innovation and Technology"
+            ],
+            "type": "string"
+          },
+          "remarks_chi": {
+            "description": "Remarks in Chinese.",
+            "type": "string"
+          },
+          "remarks_eng": {
+            "description": "Remarks in English.",
+            "type": "string"
+          },
+          "second_reading_date": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Date of the Second Reading of the bill.",
+            "examples": [
+              "2020-06-10T00:00:00"
+            ]
+          },
+          "second_reading_date_2": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Second date of the Second Reading of the bill."
+          },
+          "second_reading_date_2_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the second date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_2_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the second date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_3": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Third date of the Second Reading of the bill."
+          },
+          "second_reading_date_3_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the third date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_3_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the third date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_4": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Fourth date of the Second Reading of the bill."
+          },
+          "second_reading_date_4_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the fourth date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_4_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the fourth date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_5": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Fifth date of the Second Reading of the bill."
+          },
+          "second_reading_date_5_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the fifth date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_5_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the fifth date of the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "third_reading_date": {
+            "$ref": "#/components/schemas/DocumentedDateTime",
+            "description": "Date of the Third Reading of the bill.",
+            "examples": [
+              "2020-06-10T00:00:00"
+            ]
+          },
+          "third_reading_date_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the Third Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "third_reading_date_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the Third Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "DocumentedDateTime": {
+        "description": "Publisher-documented DateTime represented as YYYY-MM-DDThh:mm:ss (ISO 8601).",
+        "format": "date-time",
+        "type": "string"
+      },
+      "ObservedBillRecord": {
+        "description": "Observed response-record derivative of the publisher PDF dictionary. It retains documented Text and local DateTime representations, allows null only where present in the complete saved body, and omits URI formatting only on fields with observed empty strings. The documented BillRecord component remains unchanged.",
+        "properties": {
+          "additional_information_chi": {
+            "description": "Additional information in Chinese.",
+            "type": "string"
+          },
+          "additional_information_eng": {
+            "description": "Additional information in English.",
+            "type": "string"
+          },
+          "bill_content_url_2_chi": {
+            "description": "Second URL of the content of the bill in Chinese. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "bill_content_url_2_eng": {
+            "description": "Second URL of the content of the bill in English. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "bill_content_url_3_chi": {
+            "description": "Third URL of the content of the bill in Chinese. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "bill_content_url_3_eng": {
+            "description": "Third URL of the content of the bill in English. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "bill_content_url_chi": {
+            "description": "URL of the content of the bill in Chinese.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/bills/b201804201.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_content_url_eng": {
+            "description": "URL of the content of the bill in English.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/bills/b201804201.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "bill_gazette_date": {
+            "$ref": "#/components/schemas/ObservedLocalDateTime",
+            "description": "Gazette date of the bill.",
+            "examples": [
+              "2018-04-20T00:00:00"
+            ]
+          },
+          "bill_gazette_date_2": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Second gazette date of the bill."
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "bill_gazette_date_3": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Third gazette date of the bill."
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "bill_title_chi": {
+            "description": "Title of the bill in Chinese.",
+            "examples": [
+              "2018 年稅務(修訂)(第 3 號)條例草案"
+            ],
+            "type": "string"
+          },
+          "bill_title_eng": {
+            "description": "Title of the bill in English.",
+            "examples": [
+              "Inland Revenue (Amendment) (No. 3) Bill 2018"
+            ],
+            "type": "string"
+          },
+          "bills_committee_formation_date": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Formation date of the bills committee.",
+                "examples": [
+                  "2018-05-04T00:00:00"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "bills_committee_report_url_chi": {
+            "description": "URL of the Chinese report of the bills committee. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/bc/bc08/reports/bc0820181024cb1-38-c.pdf"
+            ],
+            "type": "string"
+          },
+          "bills_committee_report_url_eng": {
+            "description": "URL of the English report of the bills committee. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/bc/bc08/reports/bc0820181024cb1-38-e.pdf"
+            ],
+            "type": "string"
+          },
+          "bills_committee_title_chi": {
+            "description": "Chinese title of the bills committee.",
+            "examples": [
+              "2018 年稅務(修訂)(第 3 號)條例草案委員會"
+            ],
+            "type": "string"
+          },
+          "bills_committee_title_eng": {
+            "description": "English title of the bills committee.",
+            "examples": [
+              "Bills Committee on Inland Revenue (Amendment) (No. 3) Bill 2018"
+            ],
+            "type": "string"
+          },
+          "bills_committee_url_chi": {
+            "description": "URL of the Chinese home page of the bills committee. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/bc/bc08/general/bc08.htm"
+            ],
+            "type": "string"
+          },
+          "bills_committee_url_eng": {
+            "description": "URL of the English home page of the bills committee. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/bc/bc08/general/bc08.htm"
+            ],
+            "type": "string"
+          },
+          "first_reading_date": {
+            "$ref": "#/components/schemas/ObservedLocalDateTime",
+            "description": "Date of the First Reading of the bill.",
+            "examples": [
+              "2018-05-02T00:00:00"
+            ]
+          },
+          "first_reading_date_2": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Second date of the First Reading of the bill."
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "first_reading_date_2_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the second date of the First Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "first_reading_date_2_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the second date of the First Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "first_reading_date_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the First Reading of the bill.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/chinese/counmtg/hansard/cm20180502-translate-e.pdf#nameddest=b1r01"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "first_reading_date_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the First Reading of the bill.",
+            "examples": [
+              "http://www.legco.gov.hk/yr17-18/english/counmtg/hansard/cm20180502-translate-e.pdf#nameddest=b1r01"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "internal_key": {
+            "description": "Bill identifier.",
+            "examples": [
+              "06635"
+            ],
+            "type": "string"
+          },
+          "legco_brief_file_reference": {
+            "description": "File reference of the Legislative Council Brief.",
+            "examples": [
+              "ITC CR 5/1/2168/18"
+            ],
+            "type": "string"
+          },
+          "legco_brief_url_chi": {
+            "description": "URL of the Legislative Council Brief in Chinese. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "http://library.legco.gov.hk:1080/search~S10?/.bills/br/1,1,1,B/l962~bills/br&FF=&1,0,,1,0"
+            ],
+            "type": "string"
+          },
+          "legco_brief_url_eng": {
+            "description": "URL of the Legislative Council Brief in English. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "http://library.legco.gov.hk:1080/search~S10?/.blls/bri/1,1,1,B/l962~blls/bri&FF=&1,0,,0,0"
+            ],
+            "type": "string"
+          },
+          "ordinace_gazette_content_url_eng": {
+            "description": "URL of the content of the ordinance in the Gazette in English. The property spelling follows the publisher dictionary, which spells this name “ordinace”.",
+            "examples": [
+              "https://www.legco.gov.hk/yr18-19/english/ord/2018ord029-e.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "ordinance_content_url_chi": {
+            "description": "URL of the content of the ordinance in Chinese. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "https://www.elegislation.gov.hk/hk/cap112?_lang=zh-Hant-HK"
+            ],
+            "type": "string"
+          },
+          "ordinance_content_url_eng": {
+            "description": "URL of the content of the ordinance in English. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "examples": [
+              "https://www.elegislation.gov.hk/hk/cap112?_lang=en"
+            ],
+            "type": "string"
+          },
+          "ordinance_gazette_content_url_chi": {
+            "description": "URL of the content of the ordinance in the Gazette in Chinese. The dictionary's printed property name is line-wrapped as “ordinance_gazette_content_url_chi”.",
+            "examples": [
+              "https://www.legco.gov.hk/yr18-19/chinese/ord/2018ord029-c.pdf"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "ordinance_gazette_date": {
+            "$ref": "#/components/schemas/ObservedLocalDateTime",
+            "description": "Gazette date of the ordinance.",
+            "examples": [
+              "2018-11-02T00:00:00"
+            ]
+          },
+          "ordinance_title_chi": {
+            "description": "Title of the ordinance in Chinese.",
+            "examples": [
+              "稅務條例"
+            ],
+            "type": "string"
+          },
+          "ordinance_title_eng": {
+            "description": "Title of the ordinance in English.",
+            "examples": [
+              "Inland Revenue Ordinance"
+            ],
+            "type": "string"
+          },
+          "ordinance_year_number_chi": {
+            "description": "Ordinance number in Chinese.",
+            "examples": [
+              "2018 年第 29 號條例"
+            ],
+            "type": "string"
+          },
+          "ordinance_year_number_eng": {
+            "description": "Ordinance number in English.",
+            "examples": [
+              "Ord. No. 29 of 2018"
+            ],
+            "type": "string"
+          },
+          "proposed_by_chi": {
+            "description": "Name of the proposer in Chinese.",
+            "examples": [
+              "創新及科技局局長"
+            ],
+            "type": "string"
+          },
+          "proposed_by_eng": {
+            "description": "Name of the proposer in English.",
+            "examples": [
+              "Secretary for Innovation and Technology"
+            ],
+            "type": "string"
+          },
+          "remarks_chi": {
+            "description": "Remarks in Chinese.",
+            "type": "string"
+          },
+          "remarks_eng": {
+            "description": "Remarks in English.",
+            "type": "string"
+          },
+          "second_reading_date": {
+            "$ref": "#/components/schemas/ObservedLocalDateTime",
+            "description": "Date of the Second Reading of the bill.",
+            "examples": [
+              "2020-06-10T00:00:00"
+            ]
+          },
+          "second_reading_date_2": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Second date of the Second Reading of the bill."
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "second_reading_date_2_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the second date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_2_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the second date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_3": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Third date of the Second Reading of the bill."
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "second_reading_date_3_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the third date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_3_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the third date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_4": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Fourth date of the Second Reading of the bill."
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "second_reading_date_4_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the fourth date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_4_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the fourth date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_5": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ObservedLocalDateTime",
+                "description": "Fifth date of the Second Reading of the bill."
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Publisher-documented field representation plus null observed in the complete retained response; optionality is not inferred from this sample."
+          },
+          "second_reading_date_5_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the fifth date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_5_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the fifth date of the Second Reading of the bill. Publisher dictionary type is Text; the complete retained response includes empty strings, so the generated absolute-URI format constraint is not applied in this observed derivative.",
+            "type": "string"
+          },
+          "second_reading_date_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "second_reading_date_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the Second Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "third_reading_date": {
+            "$ref": "#/components/schemas/ObservedLocalDateTime",
+            "description": "Date of the Third Reading of the bill.",
+            "examples": [
+              "2020-06-10T00:00:00"
+            ]
+          },
+          "third_reading_date_hansard_url_chi": {
+            "description": "URL of the Chinese Hansard regarding the Third Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          },
+          "third_reading_date_hansard_url_eng": {
+            "description": "URL of the English Hansard regarding the Third Reading of the bill.",
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ObservedLocalDateTime": {
+        "type": "string",
+        "description": "The PDF specifies YYYY-MM-DDThh:mm:ss without a timezone, and the retained response uses these local timestamp strings. RFC3339 date-time format is not asserted; values are not coerced or assigned a timezone."
+      },
+      "ObservedBillsResponse": {
+        "type": "object",
+        "description": "Envelope observed in one complete successful retained publisher JSON response. The PDF defines record fields but does not define this envelope. Properties remain optional; no universal response guarantee is implied.",
+        "properties": {
+          "odata.metadata": {
+            "type": "string"
+          },
+          "odata.count": {
+            "type": "string",
+            "description": "Observed string representation; no numeric coercion or undocumented lexical restriction."
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ObservedBillRecord"
+            }
+          }
+        },
+        "x-observed-response-evidence": {
+          "bodySha256": "ba251a0cd30dcc52213a1645ff80b94552f8dde9a8f977728d3a77998fe90df3",
+          "bodyBytes": 185940,
+          "completeBody": true,
+          "requestUrl": "https://app.legco.gov.hk/BillsDB/odata/Vbills?%24format=json&%24inlinecount=allpages&%24filter=bill_gazette_date+ge+datetime%271997-07-01%27+and+bill_gazette_date+lt+datetime%271998-07-01%27",
+          "observedAt": "2026-11-10T15:16:18.971Z",
+          "completionReceiptSha256": "0450e6b2ed2620a022457565fda951fba3dac92d1d9979f9f3e5b10ecedf57da",
+          "scope": "Observed response envelope and field null alternatives; publisher PDF remains the documented record source"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Legislative Council Bills Database data dictionary",
+    "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-bills-db-en.pdf"
+  },
+  "info": {
+    "description": "The source documentation provides a field dictionary for bill records, but does not document an HTTP operation, request parameters, authentication, or a response envelope. The catalogue associates the dataset with the literal read-only resource URL https://app.legco.gov.hk/BillsDB/odata/Vbills and provides downloadable JSON and XML resources, but explicitly warns that these associations do not establish an API contract. No executable HTTP operation is specified here. The version value is a metadata placeholder, not a publisher API version.\n\nThis maintained derivative additionally exposes exact catalogue-published read-only retrieval links with their native formats and selector combinations. The publisher field dictionary remains contextual when the complete response envelope is unspecified.",
+    "title": "Legislative Council Bills Database",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/BillsDB/odata/Vbills": {
+      "get": {
+        "operationId": "retrieveBillsGazettedDuringTheProvisionalLegislativeCouncil19971998BillsdbOdataVbills",
+        "summary": "Retrieve Bills Database",
+        "description": "Read-only retrieval of exact publisher-listed resources, beginning with https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%271997-07-01%27+and+bill_gazette_date+lt+datetime%271998-07-01%27. The complete evidenced URLs and native formats are retained in x-published-resource-requests; only their recorded selector combinations are evidenced. These are published retrieval links; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified. The JSON response envelope and eight nullable date alternatives are observations from one complete retained response, separate from the PDF-defined record fields. Other selector results and XML payload structure remain unassessed.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "x-published-resource-requests": [
+          {
+            "resourceId": "04a8a870-14aa-4e3d-a058-1d6f549c69e0",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%271997-07-01%27+and+bill_gazette_date+lt+datetime%271998-07-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "085a574d-e75e-4809-8974-432c18d5459b",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+lt+datetime%271997-07-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "09bc3095-d7a6-4dd0-9fbf-c198f956a4ca",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272012-10-01%27+and+bill_gazette_date+lt+datetime%272016-10-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "0ccb87c3-9717-432e-b02d-a89ddec6b1d3",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272026-01-01%27+and+bill_gazette_date+lt+datetime%272030-01-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "1a8bf94d-e4ef-43d8-ba43-cd07458455bb",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%271998-07-01%27+and+bill_gazette_date+lt+datetime%272000-10-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "285ec868-7a4f-4e4a-a081-1b6874ec1285",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%271998-07-01%27+and+bill_gazette_date+lt+datetime%272000-10-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "2e3d2e93-b041-4c9f-ac60-4d3141606adf",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272004-10-01%27+and+bill_gazette_date+lt+datetime%272008-10-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "351d73cc-7412-4b47-8af6-f60a3bd375df",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "4ebb5424-cae6-4a04-8a3f-911b27d67f77",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272022-01-01%27+and+bill_gazette_date+lt+datetime%272026-01-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "4f14b089-abed-473a-a6ca-2b2109acdacc",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%271997-07-01%27+and+bill_gazette_date+lt+datetime%271998-07-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "5d5dc7fd-146f-46d1-abba-446d16537f7f",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272016-10-01%27+and+bill_gazette_date+lt+datetime%272022-01-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "62f064c1-d9dc-4ca2-b643-b1e126ab02d4",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "720bef1d-ebc8-4429-b9d6-92049fa02d89",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+lt+datetime%271997-07-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "778ff9df-84c6-4174-a4c5-599cda8af060",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272008-10-01%27+and+bill_gazette_date+lt+datetime%272012-10-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "85c4537b-67ee-47c9-931c-4eea2474ae87",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272022-01-01%27+and+bill_gazette_date+lt+datetime%272026-01-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "a469f742-3616-4dbc-8c01-f1bf13994e1f",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272012-10-01%27+and+bill_gazette_date+lt+datetime%272016-10-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "bb95be44-7f6c-4eb6-a557-e81fa166c332",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272016-10-01%27+and+bill_gazette_date+lt+datetime%272022-01-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "be57f2e8-5f59-4898-85b2-6f9fef2b42f9",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272004-10-01%27+and+bill_gazette_date+lt+datetime%272008-10-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "c5a7d7ef-b9af-4ead-a8c2-dfaf69d027c0",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272008-10-01%27+and+bill_gazette_date+lt+datetime%272012-10-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "c79ec6ae-2086-44e4-b709-afa05c9dde58",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=xml&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272000-10-01%27+and+bill_gazette_date+lt+datetime%272004-10-01%27",
+            "format": "XML",
+            "method": "GET"
+          },
+          {
+            "resourceId": "e3b7d3a6-ad54-4d41-a1ed-2b9f7d6d614f",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272026-01-01%27+and+bill_gazette_date+lt+datetime%272030-01-01%27",
+            "format": "JSON",
+            "method": "GET"
+          },
+          {
+            "resourceId": "ee8660f8-5c55-4204-b036-d744534ba945",
+            "url": "https://app.legco.gov.hk/BillsDB/odata/Vbills?$format=json&$inlinecount=allpages&$filter=bill_gazette_date+ge+datetime%272000-10-01%27+and+bill_gazette_date+lt+datetime%272004-10-01%27",
+            "format": "JSON",
+            "method": "GET"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObservedBillsResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "xml"
+              ]
+            },
+            "description": "Literal selectors from exact published resource URLs. Only combinations retained in x-published-resource-requests are evidenced; other combinations are unknown."
+          },
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selectors from exact published resource URLs. Only combinations retained in x-published-resource-requests are evidenced; other combinations are unknown."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "bill_gazette_date ge datetime'1997-07-01' and bill_gazette_date lt datetime'1998-07-01'",
+                "bill_gazette_date lt datetime'1997-07-01'",
+                "bill_gazette_date ge datetime'2012-10-01' and bill_gazette_date lt datetime'2016-10-01'",
+                "bill_gazette_date ge datetime'2026-01-01' and bill_gazette_date lt datetime'2030-01-01'",
+                "bill_gazette_date ge datetime'1998-07-01' and bill_gazette_date lt datetime'2000-10-01'",
+                "bill_gazette_date ge datetime'2004-10-01' and bill_gazette_date lt datetime'2008-10-01'",
+                "bill_gazette_date ge datetime'2022-01-01' and bill_gazette_date lt datetime'2026-01-01'",
+                "bill_gazette_date ge datetime'2016-10-01' and bill_gazette_date lt datetime'2022-01-01'",
+                "bill_gazette_date ge datetime'2008-10-01' and bill_gazette_date lt datetime'2012-10-01'",
+                "bill_gazette_date ge datetime'2000-10-01' and bill_gazette_date lt datetime'2004-10-01'"
+              ]
+            },
+            "description": "Literal selectors from exact published resource URLs. Only combinations retained in x-published-resource-requests are evidenced; other combinations are unknown."
+          }
+        ]
+      }
+    }
+  }
+}

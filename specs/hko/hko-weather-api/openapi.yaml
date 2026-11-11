@@ -1,0 +1,909 @@
+components:
+  schemas:
+    CurrentWeatherReport:
+      description: Current Weather Report (rhrread). Parameters may be missing when values are null or unavailable; UV index may be an empty string when no data is available.
+      properties:
+        humidity:
+          description: Humidity observations.
+          items:
+            $ref: "#/components/schemas/WeatherObservation"
+          type: array
+        icon:
+          description: Weather icon list; see https://www.hko.gov.hk/textonly/v2/explain/wxicon_e.htm.
+          items:
+            type: integer
+          type: array
+        iconUpdateTime:
+          $ref: "#/components/schemas/Timestamp"
+        lightning:
+          properties:
+            endTime:
+              $ref: "#/components/schemas/Timestamp"
+            occur:
+              description: Whether lightning occurred.
+              type: boolean
+            place:
+              description: Location.
+              type: string
+            startTime:
+              $ref: "#/components/schemas/Timestamp"
+          type: object
+        mintempFrom00To09:
+          description: Minimum temperature from midnight to 9 am; exact JSON structure is not specified.
+          type:
+            - string
+            - number
+            - object
+        rainfall:
+          properties:
+            endTime:
+              $ref: "#/components/schemas/Timestamp"
+            place:
+              description: Rainfall observation locations and records.
+              items:
+                properties:
+                  Main:
+                    description: Maintenance flag (TRUE/FALSE).
+                    type: boolean
+                  max:
+                    description: Maximum rainfall record.
+                    type:
+                      - string
+                      - number
+                  min:
+                    description: Minimum rainfall record.
+                    type:
+                      - string
+                      - number
+                  place:
+                    description: Location.
+                    type: string
+                type: object
+              type: array
+            startTime:
+              $ref: "#/components/schemas/Timestamp"
+            unit:
+              type: string
+          type: object
+        rainfallFrom00To12:
+          description: Accumulated rainfall at HKO from midnight to noon; exact JSON structure is not specified.
+          type:
+            - string
+            - number
+            - object
+        rainfallJanuaryToLastMonth:
+          description: Accumulated rainfall from January to last month; exact JSON structure is not specified.
+          type:
+            - string
+            - number
+            - object
+        rainfallLastMonth:
+          description: Rainfall in last month; exact JSON structure is not specified.
+          type:
+            - string
+            - number
+            - object
+        rainstormReminder:
+          description: Rainstorm Reminder; exact JSON structure is not specified.
+          type:
+            - string
+            - object
+            - array
+        specialWxTips:
+          description: Special Weather Tips.
+          items:
+            type: string
+          type: array
+        tcmessage:
+          description: Message of tropical cyclone position.
+          items:
+            type: string
+          type: array
+        temperature:
+          description: Temperature observations.
+          items:
+            $ref: "#/components/schemas/WeatherObservation"
+          type: array
+        uvindex:
+          properties:
+            desc:
+              type: string
+            message:
+              type: string
+            place:
+              type: string
+            recordDesc:
+              type: string
+            updateTime:
+              $ref: "#/components/schemas/Timestamp"
+            value:
+              type:
+                - string
+                - number
+          type: object
+        warningMessage:
+          description: Warning messages; an empty string is returned if no warning-message data is available.
+          items:
+            type: string
+          type: array
+      type: object
+    FeltEarthTremorReport:
+      description: Locally Felt Earth Tremor Report (feltearthquake).
+      properties:
+        details:
+          description: Earthquake details.
+          type: string
+        intensity:
+          description: Intensity of the earthquake.
+          type: string
+        lat:
+          description: Latitude.
+          type: number
+        lon:
+          description: Longitude.
+          type: number
+        mag:
+          description: Richter magnitude scale.
+          type: number
+        ptime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Date and time of the earthquake.
+        region:
+          description: Region of the earthquake.
+          type: string
+        updateTime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Last update time.
+      type: object
+    HourlyRainfallReport:
+      properties:
+        hourlyRainfall:
+          description: Rainfall amount during the one-hour period ending at observation time.
+          items:
+            $ref: "#/components/schemas/HourlyRainfallStation"
+          type: array
+        obsTime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Observation time.
+      type: object
+    HourlyRainfallStation:
+      properties:
+        automaticWeatherStation:
+          description: Automatic weather station name.
+          type: string
+        automaticWeatherStationID:
+          description: Automatic weather station ID for this dataset.
+          type: string
+        unit:
+          description: Unit of rainfall amount.
+          type: string
+        value:
+          description: The publisher describes this as an integer total rainfall amount, but the example encodes values as strings, including "M" during maintenance. Both the documented integer and observed string representations are allowed.
+          type:
+            - string
+            - integer
+      type: object
+    LocalWeatherForecast:
+      description: Local Weather Forecast (flw).
+      properties:
+        fireDangerWarning:
+          description: Fire Danger Warning Message.
+          type: string
+        forecastDesc:
+          description: Forecast Description.
+          type: string
+        forecastPeriod:
+          description: Forecast Period.
+          type: string
+        generalSituation:
+          description: General Situation.
+          type: string
+        outlook:
+          description: Outlook.
+          type: string
+        tcInfo:
+          description: Tropical Cyclone Information; exact structure is not detailed.
+          type: string
+        updateTime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Update time.
+      type: object
+    LunarDateConversion:
+      examples:
+        - LunarDate: 二月初十
+          LunarYear: 癸卯年，兔
+      properties:
+        LunarDate:
+          description: "Lunar date, in Traditional Chinese only. Example: 二月初十."
+          type: string
+        LunarYear:
+          description: "Lunar year; Gan-Zhi and zodiac are in Traditional Chinese only. Example: 癸卯年，兔."
+          type: string
+      type: object
+    NineDayForecast:
+      description: 9-day Weather Forecast (fnd).
+      properties:
+        weatherForecast:
+          description: List of forecast entries.
+          items:
+            properties:
+              ForecastIcon:
+                description: Forecast weather icon; see https://www.hko.gov.hk/textonly/v2/explain/wxicon_e.htm.
+                type:
+                  - string
+                  - integer
+              PSR:
+                description: Probability of Significant Rain. Documented values include High, Medium High, Medium, Medium Low and Low; this list is not established as exhaustive.
+                type: string
+              forecastDate:
+                description: Forecast date, YYYYMMDD.
+                type: string
+              forecastMaxrh:
+                description: Forecast maximum relative humidity; the source does not specify its exact JSON wire type.
+                type:
+                  - string
+                  - number
+                  - object
+              forecastMaxtemp:
+                description: Forecast maximum temperature; the source does not specify its exact JSON wire type.
+                type:
+                  - string
+                  - number
+                  - object
+              forecastMinrh:
+                description: Forecast minimum relative humidity; the source does not specify its exact JSON wire type.
+                type:
+                  - string
+                  - number
+                  - object
+              forecastMintemp:
+                description: Forecast minimum temperature; the source does not specify its exact JSON wire type.
+                type:
+                  - string
+                  - number
+                  - object
+              forecastWeather:
+                description: Forecast weather.
+                type: string
+              forecastWind:
+                description: Forecast wind.
+                type: string
+              seaTemp:
+                $ref: "#/components/schemas/TemperatureMeasurement"
+                description: Sea surface temperature.
+              soilTemp:
+                description: Soil temperature measurements.
+                items:
+                  $ref: "#/components/schemas/TemperatureMeasurement"
+                type: array
+              week:
+                description: Week.
+                type: string
+            type: object
+          type: array
+      type: object
+    QuickEarthquakeMessage:
+      description: Quick Earthquake Messages (qem).
+      properties:
+        lat:
+          description: Latitude.
+          type: number
+        lon:
+          description: Longitude.
+          type: number
+        mag:
+          description: Richter magnitude scale.
+          type: number
+        ptime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Earthquake date and time.
+        region:
+          description: Region.
+          type: string
+        updateTime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Last update time.
+      type: object
+    SpecialWeatherTips:
+      properties:
+        swt:
+          items:
+            properties:
+              desc:
+                description: Tips content.
+                type: string
+              updateTime:
+                $ref: "#/components/schemas/Timestamp"
+                description: Tips update time.
+            type: object
+          type: array
+      type: object
+    TabularOpenData:
+      description: Generic documented JSON table shape for several climate and weather datasets; fields and values vary by dataset.
+      properties:
+        data:
+          description: Rows of tabular data; cell types are not specified.
+          items:
+            items:
+              type:
+                - string
+                - number
+                - "null"
+            type: array
+          type: array
+        fields:
+          description: Field names.
+          items:
+            type: string
+          type: array
+        legend:
+          description: Legend values where supplied.
+          items:
+            type: string
+          type: array
+        type:
+          description: Dataset type labels, documented for temperature datasets.
+          items:
+            type: string
+          type: array
+      type: object
+    TemperatureMeasurement:
+      properties:
+        depth:
+          description: Depth value for soil temperature where supplied.
+          type:
+            - string
+            - number
+        place:
+          description: Location.
+          type: string
+        recordTime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Record time.
+        unit:
+          description: Unit.
+          type: string
+        value:
+          description: Measurement value; exact JSON wire type is not specified.
+          type:
+            - string
+            - number
+      type: object
+    Timestamp:
+      description: Timestamp examples use YYYY-MM-DD'T'hh:mm:ssZ notation and include the +08:00 offset.
+      examples:
+        - 2020-09-01T08:19:00+08:00
+      type: string
+    WarningInformationEntry:
+      properties:
+        contents:
+          description: Warning message contents.
+          items:
+            type: string
+          type: array
+        subtype:
+          description: "Subtype is documented only for fire danger, tropical cyclone and rainstorm warnings. WFIRE: WFIREY (Yellow Fire), WFIRER (Red Fire). WRAIN: WRAINA (Amber), WRAINR (Red), WRAINB (Black). WTCSGNL: TC1 (No. 1), TC3 (No. 3), TC8NE (No. 8 North East), TC8SE (No. 8 South East), TC8SW (No. 8 South West), TC8NW (No. 8 North West), TC9 (No. 9), TC10 (No. 10), CANCEL (Cancel All Signals)."
+          type: string
+        updateTime:
+          $ref: "#/components/schemas/Timestamp"
+        warningStatementCode:
+          description: "Warning statement code. Documented codes: WFIRE (Fire Danger Warning), WFROST (Frost Warning), WHOT (Hot Weather Warning), WCOLD (Cold Weather Warning), WMSGNL (Strong Monsoon Signal), WTCPRE8 (Pre-no.8 Special Announcement), WRAIN (Rainstorm Warning Signal), WFNTSA (Special Announcement on Flooding in the northern New Territories), WL (Landslip Warning), WTCSGNL (Tropical Cyclone Warning Signal), WTMW (Tsunami Warning), WTS (Thunderstorm Warning)."
+          type: string
+      type: object
+    WarningSummaryEntry:
+      properties:
+        actionCode:
+          description: Action code. Documented values include ISSUE, REISSUE (for WCOLD, WHOT and WFNTSA), CANCEL, EXTEND (WTS) and UPDATE (WTS), with applicability depending on warning.
+          type: string
+        code:
+          description: Warning code or signal subtype code.
+          type: string
+        expireTime:
+          $ref: "#/components/schemas/Timestamp"
+          description: Expiry time, when supplied; this property may be absent.
+        issueTime:
+          $ref: "#/components/schemas/Timestamp"
+        name:
+          description: Warning name.
+          type: string
+        type:
+          description: Warning type where supplied.
+          type: string
+        updateTime:
+          $ref: "#/components/schemas/Timestamp"
+      type: object
+    WeatherObservation:
+      properties:
+        place:
+          description: Location.
+          type: string
+        recordTime:
+          $ref: "#/components/schemas/Timestamp"
+        unit:
+          type: string
+        value:
+          description: Observation value.
+          type:
+            - string
+            - number
+      type: object
+    WeatherRadiationReport:
+      additionalProperties:
+        description: Potential station/attribute report values; exact value structures are not specified universally.
+        type:
+          - string
+          - number
+          - object
+          - array
+          - "null"
+      description: |-
+        Weather and Radiation Level Report (RYES). The report uses type keys formed from a documented station name and attribute, optionally followed by other-attribute identifiers. Only available attributes are included for each station; unavailable attributes may be omitted or returned as an empty string. Exact values are not uniformly specified.
+
+        Publisher RYES dynamic-key dictionaries and availability rule (verbatim retained source; the inline 1 after Attribute is the following footnote, not a wire-key suffix):
+
+        Weather and Radiation Level RYES { Report type: data,
+
+        type: data, ... type: data, }
+
+        Format of "type": {Station} + {Attribute}1 {OtherAttribute}
+
+        -----
+
+        {Station} list: CheungChau: Cheung Chau ChekLapKok: Chek Lap Kok PingChau: Ping Chau HKO: Hong Kong Observatory HongKongPark: Hong Kong Park WongChukHang: Wong Chuk Hang HappyValley: Happy Valley TseungKwanO: Tseung Kwan O KatO: Kat O KowloonCity: Kowloon City KingsPark: Kings Park KwunTong: Kwun Tong LauFauShan: Lau Fau Shan TaiMeiTuk: Tai Mei Tuk KaiTakRunwayPark: Kai Tak Runway Park ShekKong: Shek Kong ShaTin: Sha Tin SaiKung: Sai Kung ShauKeiWan: Shau Kei Wan ShamShuiPo: Sham Shui Po ShaTauKok: Sha Tau Kok Stanley: Stanley SaiWanHo: Sai Wan Ho TapMun: Tap Mun TsimBeiTsui: Tsim Bei Tsui TaKwuLing: Ta Kwu Ling TaiPo: Tai Po TuenMun: Tuen Mun TsuenWanShingMunValley: Tsuen Wan Shing Mun Valley TsuenWanHoKoon: Tsuen Wan Ho Koon TsingYi: Tsing Yi WongTaiSin: Wong Tai Sin YuenLongPark: Yuen Long Park YuenNgFan: Yuen Ng Fan
+
+        -----
+
+        {Attribute} list: LocationName: Station MaxTemp: Maximum air temperature (Celsius) ReadingsMaxTemp: Maximum air temperature (Celsius) ReadingsMaxRH: Maximum relative humidity (%) ReadingsAvgRainfall: Average rainfall (mm) ReadingsAccumRainfall: Total rainfall since 1st January (mm) Microsieverts: Average ambient gamma radiation dose rate (microsievert/hour) MinTemp: Minimum air temperature (Celsius) ReadingsMaxUVIndex: Maximum UV index ReadingsMinGrassTemp: Grass minimum temperature (Celsius) ReadingsMinRH: Minimum relative humidity (%) ReadingsRainfall: Rainfall (mm) ReadingsMeanUVIndex: Mean UV index ReadingsSunShine: Duration of sunshine(Hours) ReadingsMinTemp: Minimum air temperature (Celsius)
+
+        {OtherAttribute} list: BulletinDate: Bulletin date (YYYYMMDD) BulletinTime: Bulletin time (HHMM) HongKongDesc: Description of average ambient gamma radiation dose rate taken outdoors in Hong Kong NoteDesc: Note NoteDesc1: Note1 NoteDesc2: Note2 NoteDesc3: Note3 ReportTimeInfoDate: Information date (YYYYMMDD)
+
+        1. Only available attributes include in response for each station. Unavailable
+
+        attributes will not be included or empty string will be returned.
+      properties:
+        type:
+          description: The illustrative report shows the type value data repeated; type representation is not specified consistently.
+          items:
+            type: string
+          type:
+            - string
+            - array
+      type: object
+    WeatherWarningInformation:
+      properties:
+        details:
+          description: Warning detail entries.
+          items:
+            $ref: "#/components/schemas/WarningInformationEntry"
+          type: array
+      type: object
+    WeatherWarningSummary:
+      description: Weather Warning Summary (warnsum). Warning properties may be missing when null or unavailable.
+      properties:
+        WCOLD:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WFIRE:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WFNTSA:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WFROST:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WHOT:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WL:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WMSGNL:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WRAIN:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WTCSGNL:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WTMW:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+        WTS:
+          $ref: "#/components/schemas/WarningSummaryEntry"
+      type: object
+externalDocs:
+  description: Hong Kong Observatory Open Data API Documentation
+  url: https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf
+info:
+  description: Hong Kong Observatory Open Data API documentation, version date September 2025. Authentication requirements are not specified in the documentation.
+  title: Hong Kong Observatory Open Data API
+  version: "1.13"
+openapi: 3.1.0
+paths:
+  /earthquake.php:
+    get:
+      description: Returns quick earthquake messages (qem) or a locally felt earth tremor report (feltearthquake), selected by dataType.
+      operationId: getEarthquakeInformation
+      parameters:
+        - description: "Dataset selector: qem (Quick Earthquake Messages) or feltearthquake (Locally Felt Earth Tremor Report)."
+          in: query
+          name: dataType
+          required: true
+          schema:
+            enum:
+              - qem
+              - feltearthquake
+            type: string
+        - description: Response language. Default language is English.
+          in: query
+          name: lang
+          required: true
+          schema:
+            default: en
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/QuickEarthquakeMessage"
+                  - $ref: "#/components/schemas/FeltEarthTremorReport"
+          description: JSON earthquake response; fields depend on dataType.
+      summary: Earthquake information
+  /hourlyRainfall.php:
+    get:
+      description: Rainfall measured during the one-hour period ending at observation time. Data are provisional and have undergone only limited validation. Rainfall for the Hong Kong Observatory station in this dataset differs from the official climatological database and other weather bulletins.
+      operationId: getHourlyRainfall
+      parameters:
+        - description: Response language. Default language is English.
+          in: query
+          name: lang
+          required: true
+          schema:
+            default: en
+            enum:
+              - tc
+              - en
+              - sc
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                hourlyRainfall:
+                  - automaticWeatherStation: Lau Fau Shan
+                    automaticWeatherStationID: RF001
+                    unit: mm
+                    value: "0"
+                  - automaticWeatherStation: Shui Pin Wai
+                    automaticWeatherStationID: N12
+                    unit: mm
+                    value: M
+                obsTime: 2022-09-01T08:00:00+08:00
+              schema:
+                $ref: "#/components/schemas/HourlyRainfallReport"
+          description: JSON rainfall report. A rainfall value may be "M" during system maintenance when data are temporarily unavailable.
+      summary: Rainfall in the past hour from automatic weather stations
+  /lunardate.php:
+    get:
+      operationId: convertGregorianLunarDate
+      parameters:
+        - description: Date in YYYY-MM-DD format. The documented accepted range is January 1 through December 31 of the current year plus two years.
+          example: 2023-03-01
+          in: query
+          name: date
+          required: true
+          schema:
+            format: date
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                LunarDate: 二月初十
+                LunarYear: 癸卯年，兔
+              schema:
+                $ref: "#/components/schemas/LunarDateConversion"
+          description: JSON lunar calendar conversion result.
+      summary: Gregorian–Lunar calendar conversion
+  /opendata.php:
+    get:
+      description: Returns a documented climate and weather dataset. JSON or CSV is documented for applicable selectors. Parameter applicability, station assignments, and year ranges depend on dataType. The associated predicted hourly astronomical tides CSV file layout is described in the text/csv response and is not a universal CSV contract.
+      operationId: getClimateWeatherOpenData
+      parameters:
+        - description: "Dataset selector: HHOT (hourly astronomical tide heights), HLT (astronomical high and low tides), SRS (sunrise, sun transit and sunset), MRS (moonrise, moon transit and moonset), LHL (cloud-to-ground and cloud-to-cloud lightning count), LTMV (latest 10-minute mean visibility), CLMTEMP (daily mean temperature), CLMMAXT (daily maximum temperature), CLMMINT (daily minimum temperature), or RYES (Weather and Radiation Level Report)."
+          in: query
+          name: dataType
+          required: true
+          schema:
+            enum:
+              - HHOT
+              - HLT
+              - SRS
+              - MRS
+              - LHL
+              - LTMV
+              - CLMTEMP
+              - CLMMAXT
+              - CLMMINT
+              - RYES
+            type: string
+        - description: Return format. CSV is documented as the default for dataset tables; selector-specific availability is described in the source.
+          in: query
+          name: rformat
+          schema:
+            default: csv
+            enum:
+              - json
+              - csv
+            type: string
+        - description: |-
+            Dataset-specific station code. HHOT and HLT use their listed tide station set; CLMTEMP, CLMMAXT and CLMMINT use the daily-temperature station set; RYES uses its separately documented station set. Applicable only for selectors which list station.
+
+            Accepted station code/name set for HHOT and HLT (same set in both publisher request tables; table text retained verbatim):
+
+            | station | CCH | Station code: |
+            |---|---|---|
+            |  | CLK | CCH: Cheung Chau |
+            |  | CMW | CLK: Chek Lap Kok |
+            |  | KCT | CMW: Chi Ma Wan |
+            |  | KLW | KCT: Kwai Chung |
+            |  | LOP | KLW: Ko Lau Wan |
+            |  | MWC | LOP: Lok On Pai |
+            |  | QUB | MWC: Ma Wan |
+            |  | SPW | QUB: Quarry Bay |
+            |  | TAO | SPW: Shek Pik |
+            |  | TBT | TAO: Tai O |
+            |  | TMW | TBT: Tsim Bei Tsui |
+            |  | TPK | TMW: Tai Miu Wan |
+            |  | WAG | TPK: Tai Po Kau WAG: Waglan Island |
+
+            Accepted station code/name set for CLMTEMP, CLMMAXT and CLMMINT (same set in the three publisher request tables; CLMTEMP table retained verbatim):
+
+            | station | CCH | CCH: Cheung Chau |
+            |  | CWB | CWB: Clear Water Bay |
+            |  | HKA | HKA: Hong Kong International Airport |
+            |  | HKO | HKO: Hong Kong Observatory |
+            |  | HKP | HKP: Hong Kong Park |
+            |  | HKS | HKS: Wong Chuk Hang |
+            |  | HPV | HPV: Happy Valley |
+            |  | JKB | JKB: Tseung Kwan O |
+            |  | KLT | KLT: Kowloon City |
+            |  | KP | KP: King's Park |
+            |  | KSC | KSC: Kau Sai Chau |
+            |  | KTG | KTG: Kwun Tong |
+            |  | LFS | LFS: Lau Fau Shan |
+            |  | NGP | NGP: Ngong Ping |
+            |  | PEN | PEN: Peng Chau |
+            |  | PLC | PLC: Tai Mei Tuk |
+            |  | SE1 | SE1: Kai Tak Runway Park |
+            |  | SEK | SEK: Shek Kong |
+            |  | SHA | SHA: Sha Tin |
+            |  | SKG | SKG: Sai Kung |
+            |  | SKW | SKW: Shau Kei Wan |
+            |  | SSH | SSH: Sheung Shui |
+            |  | SSP | SSP: Sham Shui Po |
+            |  | STY | STY: Stanley |
+            |  | TC | TC: Tate's Cairn |
+            |  | TKL | TKL: Ta Kwu Ling |
+            |  | TMS | TMS: Tai Mo Shan |
+            |  | TPO | TPO: Tai Po (Conservation Studies Centre) |
+            |  | TU1 | TU1: Tuen Mun Children and Juvenile Home |
+            |  | TW | TW: Tsuen Wan Shing Mun Valley |
+            |  | TWN | TWN: Tsuen Wan |
+            |  | TY1 | TY1: New Tsing Yi Station |
+
+            -----
+
+            | TYW | TYW: Pak Tam Chung (Tsak Yue Wu) |
+            |---|---|
+            | VP1 | VP1: The Peak |
+            | WGL | WGL: Waglan Island |
+            | WLP | WLP: Wetland Park |
+            | WTS | WTS: Wong Tai Sin |
+            | YCT | YCT: Tai Po (Yuan Chau Tsai Park) |
+            | YLP | YLP: Yuen Long Park |
+
+            RYES separately documented accepted station set (retained table layout; accepted-value and description columns are not necessarily row-aligned after extraction):
+
+            | station | CLK | CCH: Cheung Chau |
+            |  | CCH | CLK: Chek Lap Kok |
+            |  | HKO | EPC: Ping Chau |
+            |  | HPV | HKO: Hong Kong Observatory |
+            |  | HKP | HKP: Hong Kong Park |
+            |  | SE1 | HKS: Wong Chuk Hang |
+            |  | KAT | HPV: Happy Valley |
+            |  | KP | JKB: Tseung Kwan O |
+            |  | KLT | KAT: Kat O |
+            |  | KTG | KLT: Kowloon City |
+            |  | LFS | KP: Kings Park |
+            |  | EPC | KTG: Kwun Tong |
+            |  | SKG | LFS: Lau Fau Shan |
+            |  | SWH | PLC: Tai Mei Tuk |
+            |  | STK | SE1: Kai Tak Runway Park |
+            |  | SHA | SEK: Shek Kong |
+            |  | SSP | SHA: Sha Tin |
+
+            -----
+
+            | SKW | SKG: Sai Kung |
+            |---|---|
+            | SEK | SKW: Shau Kei Wan |
+            | STY | SSP: Sham Shui Po |
+            | TKL | STK: Sha Tau Kok |
+            | PLC | STY: Stanley |
+            | TAP | SWH: Sai Wan Ho |
+            | JKB | TAP: Tap Mun |
+            | TBT | TBT: Tsim Bei Tsui |
+            | TY1 | TKL: Ta Kwu Ling |
+            | TWN | TUN: Tuen Mun |
+            | TW | TW: Tsuen Wan Shing Mun Valley |
+            | TUN | TWN: Tsuen Wan Ho Koon |
+            | HKS | TY1: Tsing Yi |
+            | WTS | WTS: Wong Tai Sin |
+            | YCT | YCT: Tai Po |
+            | YLP | YLP: Yuen Long Park |
+            | YNF | YNF: Yuen Ng Fan |
+          in: query
+          name: station
+          schema:
+            description: Accepted codes depend on dataType. See the dataset-specific station descriptions.
+            type: string
+        - description: "Year filter. HHOT and HLT: 2022–2024. MRS: 2018–2024. For CLMTEMP, CLMMAXT and CLMMINT, the default is all available years and ranges depend on station: CCH 1992–current; CWB 2018–current; HKA 1997–current; HKO 1884–current excluding 1940–1946; HKP 2007–current; HKS 1989–current; HPV 2008–current; JKB 1991–current; KLT 2008–current; KP 1992–current; KSC 2008–current; KTG 2009–current; LFS 1985–current; NGP 2003–current; PEN 2004–current; PLC 1993–current; SE1 2014–current; SEK 1996–current; SHA 1984–current; SKG 1993–current; SKW 2007–current; SSH 2004–current; SSP 2010–current; STY 2009–current; TC 1997–current; TKL 1988–current; TMS 1997–current; TPO 1999–current; TU1 2007–current; TW 2010–current; TWN 2006–current; TY1 2010–current; TYW 1995–current; VP1 2003–current; WGL 1989–current; WLP 2005–current; WTS 2009–current; YCT 2022–current; YLP 2015–current. Current-year bounds are dynamic."
+          in: query
+          name: year
+          schema:
+            type: integer
+        - description: Optional month (1–12); pass with year where the selected dataset supports it.
+          in: query
+          name: month
+          schema:
+            maximum: 12
+            minimum: 1
+            type: integer
+        - description: Optional day (1–31); pass with year and month where supported.
+          in: query
+          name: day
+          schema:
+            maximum: 31
+            minimum: 1
+            type: integer
+        - description: Optional hour (1–24), documented for HHOT and HLT; pass with year, month and day.
+          in: query
+          name: hour
+          schema:
+            maximum: 24
+            minimum: 1
+            type: integer
+        - description: Language parameter listed for LHL, LTMV and RYES. English is explicitly the default for RYES; default or availability for other selectors follows their request tables.
+          in: query
+          name: lang
+          schema:
+            default: en
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: RYES report date, from 20190910 through yesterday (dynamic upper bound). Data are available after 01:30 GMT+0800 on the following day.
+          in: query
+          name: date
+          schema:
+            examples:
+              - "20190910"
+            pattern: ^[0-9]{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/TabularOpenData"
+                  - $ref: "#/components/schemas/WeatherRadiationReport"
+            text/csv:
+              schema:
+                description: "CSV output; layouts vary by dataset. For the associated predicted HHOT data file: row 1 is the header; fields 1–2 are MM and DD, and fields 3–26 represent 01:00 through 24:00 HKT. Subsequent rows contain month, day, and predicted astronomical tide height for each hour starting at 01:00 HKT. There are 366 rows, or 367 in a leap year. Time is Hong Kong Time (UTC+8); heights are metres above Chart Datum, 0.146 m below Hong Kong Principal Datum."
+                type: string
+          description: Dataset response in JSON or CSV, as supported by dataType and rformat. The CSV layout description applies specifically to the associated predicted HHOT tides file.
+      summary: Climate and weather open data
+  /weather.php:
+    get:
+      description: Returns one of the documented weather datasets selected by dataType. Documented fields may be missing when null or unavailable; the Current Weather Report may return an empty string for UV index when no data is available.
+      operationId: getWeatherInformation
+      parameters:
+        - description: "Dataset selector: flw (Local Weather Forecast), fnd (9-day Weather Forecast), rhrread (Current Weather Report), warnsum (Weather Warning Summary), warningInfo (Weather Warning Information), or swt (Special Weather Tips)."
+          in: query
+          name: dataType
+          required: true
+          schema:
+            enum:
+              - flw
+              - fnd
+              - rhrread
+              - warnsum
+              - warningInfo
+              - swt
+            type: string
+        - description: Response language. Default language is English.
+          in: query
+          name: lang
+          required: true
+          schema:
+            default: en
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                specialWeatherTips:
+                  summary: Publisher sample only; not real data
+                  value:
+                    swt:
+                      - desc: The Hong Kong Observatory announces that the Tropical Cyclone Warning Signal Number 8 is expected to be issued at or before 4:07 p.m. today (24 Sep 2020).
+                        updateTime: 2020-09-24T14:10:00+08:00
+                warningInfo:
+                  summary: Reconstructed representative structure from the publisher sample; the parsed source layout is damaged, so this is not verbatim JSON.
+                  value:
+                    details:
+                      - contents:
+                          - The Strong Wind Signal, No. 3, was issued at 11:15 a.m.
+                        subtype: TC3
+                        updateTime: 2020-09-24T11:15:00+08:00
+                        warningStatementCode: WTCSGNL
+                      - contents:
+                          - Red Rainstorm Warning Signal has been issued at 11:15 a.m.
+                        subtype: WRAINR
+                        updateTime: 2020-09-24T11:15:00+08:00
+                        warningStatementCode: WRAIN
+                      - contents:
+                          - The fire danger warning is Red and the fire risk is Extreme.
+                        subtype: WFIRER
+                        updateTime: 2020-09-24T11:15:00+08:00
+                        warningStatementCode: WFIRE
+                weatherWarningSummary:
+                  summary: Publisher sample only; not real data
+                  value:
+                    WFROST:
+                      actionCode: ISSUE
+                      code: WFROST
+                      issueTime: 2020-09-24T11:15:00+08:00
+                      name: Frost Warning
+                      updateTime: 2020-09-24T11:15:00+08:00
+                    WRAIN:
+                      actionCode: ISSUE
+                      code: WRAINR
+                      issueTime: 2020-09-24T11:15:00+08:00
+                      name: Rainstorm Warning Signal
+                      type: Red
+                      updateTime: 2020-09-24T11:15:00+08:00
+                    WTCSGNL:
+                      actionCode: ISSUE
+                      code: TC3
+                      issueTime: 2020-09-24T11:15:00+08:00
+                      name: Tropical Cyclone Warning Signal
+                      type: Strong Wind Signal No. 3
+                      updateTime: 2020-09-24T11:15:00+08:00
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/LocalWeatherForecast"
+                  - $ref: "#/components/schemas/NineDayForecast"
+                  - $ref: "#/components/schemas/CurrentWeatherReport"
+                  - $ref: "#/components/schemas/WeatherWarningSummary"
+                  - $ref: "#/components/schemas/WeatherWarningInformation"
+                  - $ref: "#/components/schemas/SpecialWeatherTips"
+          description: |-
+            JSON response. The object structure depends on dataType.
+
+            Representative warningInfo publisher sample fragment, retained verbatim below. The publisher labels these illustrative samples, not real data. This extracted fragment has incomplete container delimiters and is not asserted to be standalone valid JSON or a reconstructed full response:
+
+            "contents": ["Landslip Warning\\n\\nLandslip Warning issued at 11:15 a.m."],
+
+            "warningStatementCode": "WL", "updateTime": "2020-09-24T11:15:00+08:00" }, {
+      summary: Weather information
+servers:
+  - url: https://data.weather.gov.hk/weatherAPI/opendata

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "pland-csdi-boundaries-of-new-towns-service-3",
+  "sourceSha256": "4699f2873e80b6839d2c6bfbbc0176b72b1f57a745b77a5c469a7e592deadedb",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/pland_rcd_1634281414408_50485/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1634281414408_50485/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1634281414408_50485/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

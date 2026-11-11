@@ -1,0 +1,64 @@
+{
+  "publisherKey": "cmab",
+  "publisherName": "Constitutional and Mainland Affairs Bureau",
+  "sources": [
+    {
+      "id": "cmab-csdi-information-of-hong-kong-offices-in-the-mainland-and-taiwan",
+      "publisherKey": "cmab",
+      "publisherName": "Constitutional and Mainland Affairs Bureau",
+      "familyKey": "csdi-information-of-hong-kong-offices-in-the-mainland-and-taiwan",
+      "name": "Information of Hong Kong Offices in the Mainland and Taiwan",
+      "apiTitle": "Constitutional and Mainland Affairs Bureau \u2014 Information of Hong Kong Offices in the Mainland and Taiwan",
+      "json": "cmab/csdi-information-of-hong-kong-offices-in-the-mainland-and-taiwan/openapi.json",
+      "yaml": "cmab/csdi-information-of-hong-kong-offices-in-the-mainland-and-taiwan/openapi.yaml",
+      "file": "cmab/csdi-information-of-hong-kong-offices-in-the-mainland-and-taiwan/openapi.json",
+      "sha256": "c8916e94a682d925be636066177a230640e827c70b835f1aa23357249ffbe469",
+      "jsonSha256": "c8916e94a682d925be636066177a230640e827c70b835f1aa23357249ffbe469",
+      "yamlSha256": "00f389dcb019efcda8cb70f7ab5db30095f93e48e761183c7a882083b88c3bf8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_hong_kong_offices_in_the_mainland_and_taiwan",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c8916e94a682d925be636066177a230640e827c70b835f1aa23357249ffbe469"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=cmab_rcd_1632885529072_51988",
+        "canonicalJsonSha256": "c8916e94a682d925be636066177a230640e827c70b835f1aa23357249ffbe469",
+        "originalRepresentationSha256": "c8916e94a682d925be636066177a230640e827c70b835f1aa23357249ffbe469",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_hong_kong_offices_in_the_mainland_and_taiwan"
+    }
+  ]
+}

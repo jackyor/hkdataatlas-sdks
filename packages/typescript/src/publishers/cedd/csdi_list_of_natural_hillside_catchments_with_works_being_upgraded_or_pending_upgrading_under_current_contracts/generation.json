@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cedd-csdi-list-of-natural-hillside-catchments-with-works-being-upgraded-or-pending-upgrading-under-current-contracts",
+  "sourceSha256": "03a2c96570e87cdbf385f6a83be5d5e3ad7645bcb5177899d3af6237059fd220",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cedd_rcd_1636520077654_856/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636520077654_856/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636520077654_856/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "dpo-iam-smart-news-alerts",
+  "sourceSha256": "2b7162878f241f94164b79433a9e5d632cb8035fb70742716dd8c205d8b522c9",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/ogcmn/service/list/catwc/OGCMN*",
+      "operationId": "listNotifications"
+    },
+    {
+      "method": "GET",
+      "path": "/ogcmn/service/noti/detail/{notification-id}",
+      "operationId": "getNotificationDetail"
+    }
+  ],
+  "normalizations": []
+}

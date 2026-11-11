@@ -1,0 +1,2729 @@
+openapi: 3.1.0
+info:
+  title: Planning Department — 2020 Area Assessments of Industrial Land in the Territory
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: AA
+              value: 0
+            choice2:
+              summary: Table_2b
+              value: 1000
+            choice3:
+              summary: Table_3a
+              value: 1001
+            choice4:
+              summary: Table_3b
+              value: 1002
+            choice5:
+              summary: Table_3c
+              value: 1003
+            choice6:
+              summary: Table_3d
+              value: 1004
+            choice7:
+              summary: Table_3e
+              value: 1005
+            choice8:
+              summary: Table_4
+              value: 1006
+            choice9:
+              summary: Table_5a
+              value: 1007
+            choice10:
+              summary: Table_5b
+              value: 1008
+            choice11:
+              summary: Table_6
+              value: 1009
+            choice12:
+              summary: Table_7
+              value: 1010
+            choice13:
+              summary: Table_8a
+              value: 1011
+            choice14:
+              summary: Table_8b
+              value: 1012
+            choice15:
+              summary: Table_8c
+              value: 1013
+            choice16:
+              summary: Table_8d
+              value: 1014
+            choice17:
+              summary: Table_9
+              value: 1015
+            choice18:
+              summary: Table_2a
+              value: 1016
+            choice19:
+              summary: Table_1
+              value: 1017
+          x-choice-count: 19
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+            - 1000
+            - 1001
+            - 1002
+            - 1003
+            - 1004
+            - 1005
+            - 1006
+            - 1007
+            - 1008
+            - 1009
+            - 1010
+            - 1011
+            - 1012
+            - 1013
+            - 1014
+            - 1015
+            - 1016
+            - 1017
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer?f=pjson
+          sha256: 3349a514328c83c5bc7ee16692e3345a2a72f81f2b3d9ed4b60915b3e0bf20bd
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/0?f=pjson
+          sha256: 86adffaa39a12f49c88459d4fc6bcc19638ad9393217b8c228137e351490b549
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1000?f=pjson
+          sha256: 3d1730138d9af0552cbb98b188161fd0bdd83006d28ce517b1951381336dc80c
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1001?f=pjson
+          sha256: c1abcca4be7512e69d8364e2641db80743195bef33be1a8badce4c51e33370ef
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1002?f=pjson
+          sha256: 1e428882ec6bde9986664c24deca61319ae1ce49e8cb4f3096f02cb11c83eded
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1003?f=pjson
+          sha256: 0a33ac1020e8bb45ac77d294acf413a56567c02303c833d6b3128256008a3d93
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1004?f=pjson
+          sha256: f3e67b20d9e10da788b44e84224afada62b92d95f42f85c494c323f38140f475
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1005?f=pjson
+          sha256: 86a6b066c1fc946648e498dd4d3068fc34c437668205d1e86a6a61deb6b5b793
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1006?f=pjson
+          sha256: c4f8ddef3f86cebdf12cd021de7ff2ec8de19f29489d0c9e6aead9d98f26657f
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1007?f=pjson
+          sha256: 3a47e33d2177aa9a9917efddccfaf9f9459a46357fa2ef80ca93bf639899feb0
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1008?f=pjson
+          sha256: 8f9a70d9ad89f83aeb269a97bfe53adcf5d97d7bddfae09f3bb070b89ce89f64
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1009?f=pjson
+          sha256: d7dc2508b4c08028a7f4d70a168cd9932385d8305cae35aebee720b7988e1db0
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1010?f=pjson
+          sha256: e2e61e4e47a0a6a5f16baee5e57fbaa63a0c8f159c77c14c937ade11726fa9cd
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1011?f=pjson
+          sha256: ca79023fcac36677fb2645f3f492c041ce3db6bdcbeaefe254187de9111456a2
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1012?f=pjson
+          sha256: 12a1b279ac5af843e2d407f7b62b1869246ef51cc177e2ac8cab38d67c403bbb
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1013?f=pjson
+          sha256: 1ad1e4e8a9c4a7fb7b0a7b82de8b6c20521d2cce0fae7daa213468635dc73266
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1014?f=pjson
+          sha256: f84705a255d2597f3bb2e3c5a3c600403e115173b3d1d1fc0cdc87187f3516ff
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1015?f=pjson
+          sha256: 16fa387e4b3997fc7d49d5685cf5ae14f15f8004efff13034c70cd6ff8bb584e
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1016?f=pjson
+          sha256: 6471e59f358da8c432c3dc1a5d1108b11716b476291332f160b139361dbae340
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1017?f=pjson
+          sha256: 2be4ef0638c6e699cc555f24352164b0c75abc8bdf02a0f50a69e12fc7ddade7
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/pland_rcd_1634282623835_82856/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: AA
+              value: csdi:AA
+            choice2:
+              summary: Table_2b
+              value: csdi:Table_2b
+            choice3:
+              summary: Table_3a
+              value: csdi:Table_3a
+            choice4:
+              summary: Table_3b
+              value: csdi:Table_3b
+            choice5:
+              summary: Table_3c
+              value: csdi:Table_3c
+            choice6:
+              summary: Table_3d
+              value: csdi:Table_3d
+            choice7:
+              summary: Table_3e
+              value: csdi:Table_3e
+            choice8:
+              summary: Table_4
+              value: csdi:Table_4
+            choice9:
+              summary: Table_5a
+              value: csdi:Table_5a
+            choice10:
+              summary: Table_5b
+              value: csdi:Table_5b
+            choice11:
+              summary: Table_6
+              value: csdi:Table_6
+            choice12:
+              summary: Table_7
+              value: csdi:Table_7
+            choice13:
+              summary: Table_8a
+              value: csdi:Table_8a
+            choice14:
+              summary: Table_8b
+              value: csdi:Table_8b
+            choice15:
+              summary: Table_8c
+              value: csdi:Table_8c
+            choice16:
+              summary: Table_8d
+              value: csdi:Table_8d
+            choice17:
+              summary: Table_9
+              value: csdi:Table_9
+            choice18:
+              summary: Table_2a
+              value: csdi:Table_2a
+            choice19:
+              summary: Table_1
+              value: csdi:Table_1
+          x-choice-count: 19
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::2326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::2326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634282623835_82856/MapServer/WFSServer?service=WFS&request=GetCapabilities
+          sha256: e88f16c30500f4ae31e1f5e4fa8614c9877050688a3acdf1c2c670f56e590cfb
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+        - url: https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634282623835_82856/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType
+          sha256: bf340085e3ac054800388add211f2976e7fd56dcead95ec3bad4014ccfa51414
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-feature-type
+          parseStatus: pass
+          kind: wfs-feature-type
+  /server/services/common/pland_rcd_1634282623835_82856/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: AA
+              value: AA
+          x-choice-count: 1
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.943440,22.238093,114.265518,22.510088
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+        - EPSG:2326
+        - EPSG:102140
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634282623835_82856/MapServer/WMSServer?service=WMS&request=GetCapabilities
+          sha256: 0ac6c952e2ee5460d7260bd7290c986c5d19ca6e0e211ccdd1cb359f0ec9a0e4
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Area_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Area_Code
+          type:
+            - string
+            - "null"
+          maxLength: 3
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 32
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1000Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        No_of_IBs_single_ownership:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_of_IBs_single_ownership
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_single_ownership:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: GFA_in_IBs_single_ownership
+          type:
+            - number
+            - "null"
+        No_of_IBs_multiple_ownership:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_of_IBs_multiple_ownership
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_multiple_ownership:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: GFA_in_IBs_multiple_ownership
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1001Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Manufacturing_Workshop:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Manufacturing_Workshop
+          type:
+            - number
+            - "null"
+        Warehouse_Storage:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Warehouse_Storage
+          type:
+            - number
+            - "null"
+        Office:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Office
+          type:
+            - number
+            - "null"
+        Others_:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Others
+          type:
+            - number
+            - "null"
+        Vacant_Under_renovation:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Vacant_Under_renovation
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1002Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Food_products_and_beverages:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Food_products_and_beverages
+          type:
+            - number
+            - "null"
+        Printing_factory:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Printing_factory
+          type:
+            - number
+            - "null"
+        Vehicle_repairing_washing:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Vehicle_repairing_washing
+          type:
+            - number
+            - "null"
+        Workshop_miscellaneous:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Workshop_miscellaneous
+          type:
+            - number
+            - "null"
+        Workshop_without_specified_type:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Workshop_without_specified_type
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1003Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        General_storage:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: General_storage
+          type:
+            - number
+            - "null"
+        Logistic_warehouse:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Logistic_warehouse
+          type:
+            - number
+            - "null"
+        Storage_miscellaneous:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Storage_miscellaneous
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1004Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Office_solely_used:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Office_solely_used
+          type:
+            - number
+            - "null"
+        Office_other_predominant_use:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Office_other_predominant_use
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1005Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Shop_and_services:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shop_and_services
+          type:
+            - number
+            - "null"
+        Data_centre:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Data_centre
+          type:
+            - number
+            - "null"
+        Showroom:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Showroom
+          type:
+            - number
+            - "null"
+        Research_centre:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Research_centre
+          type:
+            - number
+            - "null"
+        Eating_place:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Eating_place
+          type:
+            - number
+            - "null"
+        Miscellaneous:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Miscellaneous
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1006Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        No_of_units_found_subdivided:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_of_units_found_subdivided
+          type:
+            - number
+            - "null"
+        GFA_involved:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: GFA_involved
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1007Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Manufacturing_Workshop:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Manufacturing_Workshop
+          type:
+            - number
+            - "null"
+        Warehouse_Storage:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Warehouse_Storage
+          type:
+            - number
+            - "null"
+        Office:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Office
+          type:
+            - number
+            - "null"
+        Others_:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Others
+          type:
+            - number
+            - "null"
+        Vacant_Under_renovation:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Vacant_Under_renovation
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1008Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Manufacturing_Workshop:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Manufacturing_Workshop
+          type:
+            - number
+            - "null"
+        Warehouse_Storage:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Warehouse_Storage
+          type:
+            - number
+            - "null"
+        Office:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Office
+          type:
+            - number
+            - "null"
+        Others_:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Others
+          type:
+            - number
+            - "null"
+        Vacant_Under_renovation:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Vacant_Under_renovation
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1009Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Year_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_2
+          type:
+            - number
+            - "null"
+        Year_2_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_2_5
+          type:
+            - number
+            - "null"
+        Year_5_10:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_5_10
+          type:
+            - number
+            - "null"
+        Year_10_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_10_20
+          type:
+            - number
+            - "null"
+        Year_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_20
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1010Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Year_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_5
+          type:
+            - number
+            - "null"
+        Year_5_7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_5_7
+          type:
+            - number
+            - "null"
+        Year_7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Year_7
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1011Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Intended_to_relocate:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Intended_to_relocate
+          type:
+            - number
+            - "null"
+        Not_intended_to_relocate:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Not_intended_to_relocate
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1012Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Low_rent_Owner_occupier:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Low_rent_Owner_occupier
+          type:
+            - number
+            - "null"
+        Good_IB_condition_management:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Good_IB_condition_management
+          type:
+            - number
+            - "null"
+        Good_facility_transport:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Good_facility_transport
+          type:
+            - number
+            - "null"
+        No_alternative_location:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_alternative_location
+          type:
+            - number
+            - "null"
+        Others_:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Others
+          type:
+            - number
+            - "null"
+        No_decision_yet:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_decision_yet
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1013Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Same_area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Same_area
+          type:
+            - number
+            - "null"
+        Other_area_in_HK:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Other_area_in_HK
+          type:
+            - number
+            - "null"
+        Outside_HK:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Outside_HK
+          type:
+            - number
+            - "null"
+        No_decision_yet_Unknown:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_decision_yet_Unknown
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1014Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Intended:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Intended
+          type:
+            - number
+            - "null"
+        Not_intended:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Not_intended
+          type:
+            - number
+            - "null"
+        No_decision_yet:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_decision_yet
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1015Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Estimated_no_of_workers_engaged:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Estimated_no_of_workers_engaged
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1016Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        No_of_IBs_before_1987:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_of_IBs_before_1987
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_before_1987:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: GFA_in_IBs_before_1987
+          type:
+            - number
+            - "null"
+        No_of_IBs_in_after_1987:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_of_IBs_in_after_1987
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_in_after_1987:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: GFA_in_IBs_in_after_1987
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1017Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        AA_Code:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Code
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: "Publisher field type: esriFieldTypeString"
+          title: AA_Title
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Land_area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Land_area
+          type:
+            - number
+            - "null"
+        No_of_IBs:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: No_of_IBs
+          type:
+            - number
+            - "null"
+        Total_GFA:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Total_GFA
+          type:
+            - number
+            - "null"
+        Total_no_of_units:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Total_no_of_units
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    WfsMapServerWfsAAAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Shape:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        Area_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 3
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 32
+        Shape_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Shape_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable2bAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        No_of_IBs_single_ownership:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_single_ownership:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        No_of_IBs_multiple_ownership:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_multiple_ownership:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable3aAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Manufacturing_Workshop:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Warehouse_Storage:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Office:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Others_:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Vacant_Under_renovation:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable3bAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Food_products_and_beverages:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Printing_factory:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Vehicle_repairing_washing:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Workshop_miscellaneous:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Workshop_without_specified_type:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable3cAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        General_storage:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Logistic_warehouse:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Storage_miscellaneous:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable3dAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Office_solely_used:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Office_other_predominant_use:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable3eAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Shop_and_services:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Data_centre:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Showroom:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Research_centre:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Eating_place:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Miscellaneous:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable4Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        No_of_units_found_subdivided:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        GFA_involved:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable5aAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Manufacturing_Workshop:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Warehouse_Storage:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Office:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Others_:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Vacant_Under_renovation:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable5bAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Manufacturing_Workshop:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Warehouse_Storage:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Office:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Others_:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Vacant_Under_renovation:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable6Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Year_2:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Year_2_5:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Year_5_10:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Year_10_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Year_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable7Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Year_5:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Year_5_7:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Year_7:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable8aAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Intended_to_relocate:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Not_intended_to_relocate:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable8bAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Low_rent_Owner_occupier:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Good_IB_condition_management:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Good_facility_transport:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        No_alternative_location:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Others_:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        No_decision_yet:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable8cAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Same_area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Other_area_in_HK:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Outside_HK:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        No_decision_yet_Unknown:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable8dAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Intended:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Not_intended:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        No_decision_yet:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable9Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Estimated_no_of_workers_engaged:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable2aAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        No_of_IBs_before_1987:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_before_1987:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        No_of_IBs_in_after_1987:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        GFA_in_IBs_in_after_1987:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsTable1Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        AA_Code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        AA_Title:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Land_area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        No_of_IBs:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Total_GFA:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Total_no_of_units:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/WfsMapServerWfsAAAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable2bAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable3aAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable3bAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable3cAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable3dAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable3eAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable4Attributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable5aAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable5bAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable6Attributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable7Attributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable8aAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable8bAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable8cAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable8dAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable9Attributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable2aAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsTable1Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: AA
+    protocol: arcgis
+  - id: 1000
+    title: Table_2b
+    protocol: arcgis
+  - id: 1001
+    title: Table_3a
+    protocol: arcgis
+  - id: 1002
+    title: Table_3b
+    protocol: arcgis
+  - id: 1003
+    title: Table_3c
+    protocol: arcgis
+  - id: 1004
+    title: Table_3d
+    protocol: arcgis
+  - id: 1005
+    title: Table_3e
+    protocol: arcgis
+  - id: 1006
+    title: Table_4
+    protocol: arcgis
+  - id: 1007
+    title: Table_5a
+    protocol: arcgis
+  - id: 1008
+    title: Table_5b
+    protocol: arcgis
+  - id: 1009
+    title: Table_6
+    protocol: arcgis
+  - id: 1010
+    title: Table_7
+    protocol: arcgis
+  - id: 1011
+    title: Table_8a
+    protocol: arcgis
+  - id: 1012
+    title: Table_8b
+    protocol: arcgis
+  - id: 1013
+    title: Table_8c
+    protocol: arcgis
+  - id: 1014
+    title: Table_8d
+    protocol: arcgis
+  - id: 1015
+    title: Table_9
+    protocol: arcgis
+  - id: 1016
+    title: Table_2a
+    protocol: arcgis
+  - id: 1017
+    title: Table_1
+    protocol: arcgis
+  - id: csdi:AA
+    title: AA
+    protocol: wfs
+  - id: csdi:Table_2b
+    title: Table_2b
+    protocol: wfs
+  - id: csdi:Table_3a
+    title: Table_3a
+    protocol: wfs
+  - id: csdi:Table_3b
+    title: Table_3b
+    protocol: wfs
+  - id: csdi:Table_3c
+    title: Table_3c
+    protocol: wfs
+  - id: csdi:Table_3d
+    title: Table_3d
+    protocol: wfs
+  - id: csdi:Table_3e
+    title: Table_3e
+    protocol: wfs
+  - id: csdi:Table_4
+    title: Table_4
+    protocol: wfs
+  - id: csdi:Table_5a
+    title: Table_5a
+    protocol: wfs
+  - id: csdi:Table_5b
+    title: Table_5b
+    protocol: wfs
+  - id: csdi:Table_6
+    title: Table_6
+    protocol: wfs
+  - id: csdi:Table_7
+    title: Table_7
+    protocol: wfs
+  - id: csdi:Table_8a
+    title: Table_8a
+    protocol: wfs
+  - id: csdi:Table_8b
+    title: Table_8b
+    protocol: wfs
+  - id: csdi:Table_8c
+    title: Table_8c
+    protocol: wfs
+  - id: csdi:Table_8d
+    title: Table_8d
+    protocol: wfs
+  - id: csdi:Table_9
+    title: Table_9
+    protocol: wfs
+  - id: csdi:Table_2a
+    title: Table_2a
+    protocol: wfs
+  - id: csdi:Table_1
+    title: Table_1
+    protocol: wfs
+  - id: AA
+    title: AA
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.943440"
+        miny: "22.238093"
+        maxx: "114.265518"
+        maxy: "22.510088"
+      - CRS: EPSG:4326
+        minx: "22.238093"
+        miny: "113.943440"
+        maxx: "22.510088"
+        maxy: "114.265518"
+      - CRS: EPSG:2326
+        minx: "810889.615000"
+        miny: "812502.258000"
+        maxx: "840990.882000"
+        maxy: "845641.851700"
+      - CRS: EPSG:102140
+        minx: "810889.615000"
+        miny: "812502.258000"
+        maxx: "840990.882000"
+        maxy: "845641.851700"
+      - CRS: CRS:84
+        minx: "113.943440"
+        miny: "22.238093"
+        maxx: "114.265518"
+        maxy: "22.510088"
+      - CRS: EPSG:4326
+        minx: "22.238093"
+        miny: "113.943440"
+        maxx: "22.510088"
+        maxy: "114.265518"
+      - CRS: EPSG:2326
+        minx: "810889.615000"
+        miny: "812502.258000"
+        maxx: "840990.882000"
+        maxy: "845641.851700"
+      - CRS: EPSG:102140
+        minx: "810889.615000"
+        miny: "812502.258000"
+        maxx: "840990.882000"
+        maxy: "845641.851700"
+    styles:
+      - id: default
+        title: AA
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=pland_rcd_1634282623835_82856
+    sha256: 71a394767a0baf93d443ea68af8f1babe987942ea89d6e4e8cdebee414c098d3
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer?f=pjson
+    sha256: 3349a514328c83c5bc7ee16692e3345a2a72f81f2b3d9ed4b60915b3e0bf20bd
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/0?f=pjson
+    sha256: 86adffaa39a12f49c88459d4fc6bcc19638ad9393217b8c228137e351490b549
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1000?f=pjson
+    sha256: 3d1730138d9af0552cbb98b188161fd0bdd83006d28ce517b1951381336dc80c
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1001?f=pjson
+    sha256: c1abcca4be7512e69d8364e2641db80743195bef33be1a8badce4c51e33370ef
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1002?f=pjson
+    sha256: 1e428882ec6bde9986664c24deca61319ae1ce49e8cb4f3096f02cb11c83eded
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1003?f=pjson
+    sha256: 0a33ac1020e8bb45ac77d294acf413a56567c02303c833d6b3128256008a3d93
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1004?f=pjson
+    sha256: f3e67b20d9e10da788b44e84224afada62b92d95f42f85c494c323f38140f475
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1005?f=pjson
+    sha256: 86a6b066c1fc946648e498dd4d3068fc34c437668205d1e86a6a61deb6b5b793
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1006?f=pjson
+    sha256: c4f8ddef3f86cebdf12cd021de7ff2ec8de19f29489d0c9e6aead9d98f26657f
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1007?f=pjson
+    sha256: 3a47e33d2177aa9a9917efddccfaf9f9459a46357fa2ef80ca93bf639899feb0
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1008?f=pjson
+    sha256: 8f9a70d9ad89f83aeb269a97bfe53adcf5d97d7bddfae09f3bb070b89ce89f64
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1009?f=pjson
+    sha256: d7dc2508b4c08028a7f4d70a168cd9932385d8305cae35aebee720b7988e1db0
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1010?f=pjson
+    sha256: e2e61e4e47a0a6a5f16baee5e57fbaa63a0c8f159c77c14c937ade11726fa9cd
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1011?f=pjson
+    sha256: ca79023fcac36677fb2645f3f492c041ce3db6bdcbeaefe254187de9111456a2
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1012?f=pjson
+    sha256: 12a1b279ac5af843e2d407f7b62b1869246ef51cc177e2ac8cab38d67c403bbb
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1013?f=pjson
+    sha256: 1ad1e4e8a9c4a7fb7b0a7b82de8b6c20521d2cce0fae7daa213468635dc73266
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1014?f=pjson
+    sha256: f84705a255d2597f3bb2e3c5a3c600403e115173b3d1d1fc0cdc87187f3516ff
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1015?f=pjson
+    sha256: 16fa387e4b3997fc7d49d5685cf5ae14f15f8004efff13034c70cd6ff8bb584e
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1016?f=pjson
+    sha256: 6471e59f358da8c432c3dc1a5d1108b11716b476291332f160b139361dbae340
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/1017?f=pjson
+    sha256: 2be4ef0638c6e699cc555f24352164b0c75abc8bdf02a0f50a69e12fc7ddade7
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634282623835_82856/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    sha256: e88f16c30500f4ae31e1f5e4fa8614c9877050688a3acdf1c2c670f56e590cfb
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+  - url: https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634282623835_82856/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType
+    sha256: bf340085e3ac054800388add211f2976e7fd56dcead95ec3bad4014ccfa51414
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-feature-type
+    parseStatus: pass
+    kind: wfs-feature-type
+  - url: https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634282623835_82856/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    sha256: 0ac6c952e2ee5460d7260bd7290c986c5d19ca6e0e211ccdd1cb359f0ec9a0e4
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols: []
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 24
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

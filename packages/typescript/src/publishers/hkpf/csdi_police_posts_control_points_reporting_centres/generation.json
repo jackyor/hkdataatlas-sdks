@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hkpf-csdi-police-posts-control-points-reporting-centres",
+  "sourceSha256": "fc73605238dbad646595bb010509ed8be5e5b5d16a3af12433835843701876e9",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/police_rcd_1639562152446_99332/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/police_rcd_1639562152446_99332/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/police_rcd_1639562152446_99332/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

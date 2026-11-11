@@ -1,0 +1,33 @@
+{
+  "sourceId": "landsd-map-label-api",
+  "publisherKey": "landsd",
+  "family": "map_label_api",
+  "status": "generated",
+  "key": "3f6fff5ee9c1f44b764329f13b03bcbd604b2edadc562081da492f53bbe48c0d",
+  "sourceSha256": "6885f30f4cbc8634122dcbdbf5ac0e1b26def9a52130846760dc9f417f38ab79",
+  "derivedInputSha256": "daae1b91379f3570172261fc208a62409647bcd27342798e5b976288c6da2f47",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/gs/api/{version}/xyz/label/hk/{lang}/{sr}/{z}/{x}/{y}.png",
+      "operationId": "getMapLabelTile",
+      "tags": []
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/landsd-map-label-api.log",
+  "outputs": {
+    "__init__.py": "34ea7df65d578bb56438ec3cfdeb14c7c3ddf0b689154efb8ea1b561cb056374",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_map_label_tile.py": "3518bbc59cd9107c18c32f94808963ea6a5f39c597f90f832322e254760fb4ea",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "bd483d5202d65f778535381dee97bfe987fab0fe2b761c1dacc6772d3450a64a",
+    "models/get_map_label_tile_lang.py": "07d543b181f4ca5c56593de9cc74ffd41e99eb1e32683f229f1988e3b672afe7",
+    "models/get_map_label_tile_sr.py": "9b692571fb52ce68e7204301f0c90831285dce4057d55b60a3e2c5fad625c5fd",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

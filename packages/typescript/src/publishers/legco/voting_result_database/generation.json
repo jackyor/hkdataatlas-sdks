@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "legco-voting-result-database",
+  "sourceSha256": "7f8c26302fbc1c9aedd64be9208ed288697651df6fb7d4446ab08362b9c1b3b5",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/vrdb/odata/vVotingResult",
+      "operationId": "retrieveTheVotingResultsOfTheFinanceCommitteeOfTheFifthLegislativeCouncil20122016VrdbOdataVvotingresult"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

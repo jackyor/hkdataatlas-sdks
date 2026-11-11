@@ -1,0 +1,135 @@
+components:
+  schemas:
+    Transaction:
+      description: A GSH Flats 2018 transaction. Wire property names follow the documented API example; the data dictionary provides field meanings and declared types. Its numeric fields are documented as numeric, while the example encodes these values as strings, so both representations are allowed.
+      properties:
+        asp_sign_date:
+          description: Date of Agreement for Sale and Purchase (ASP). Data dictionary format is dd-mm-yyyy; the example representation is 01/02/2019, which uses slashes and does not match that stated format.
+          type: string
+        block_name:
+          description: Block name of the purchased flat.
+          type: string
+        court_name:
+          description: Court name of the purchased flat.
+          type: string
+        flat_num:
+          description: Flat number of the purchased flat.
+          type: string
+        floor_num:
+          description: Floor number of the purchased flat.
+          type: string
+        sale_price:
+          anyOf:
+            - type: number
+            - type: string
+          description: Sale price of the purchased flat. The data dictionary declares a numeric value (precision pattern shown as 999999999999999.99); the documented example encodes it as a string.
+        saleable_area:
+          anyOf:
+            - type: number
+            - type: string
+          description: Saleable area of the purchased flat in square meters. The data dictionary declares a numeric value (precision pattern shown as 9999999.999); the documented example encodes it as a string.
+        scheme_name:
+          description: Subsidised home ownership scheme.
+          type: string
+        scheme_type:
+          description: Subsidised home ownership scheme type. The data dictionary lists GSH as a possible value.
+          type: string
+      type: object
+    TransactionsResponse:
+      description: The documented response contains a data array. The source does not state whether this example exhausts all response properties or whether all transaction fields are always present.
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/Transaction"
+          type: array
+      type: object
+externalDocs:
+  description: Official data specification
+  url: https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_G18_data_dictionary.pdf
+info:
+  description: API for transaction data for Green Form Subsidised Home Ownership Scheme (GSH) Flats 2018. The source documentation is version 2.0 dated 25 July 2024. It states that authentication is not required and that responses may be JSON, CSV, or XML. The documented example and data dictionary describe JSON. The document’s sample is malformed and inconsistently laid out; the JSON response schema below reflects the documented data fields, while the example is not presented as authoritative verbatim JSON.
+  title: Transactions in the Sale of GSH Flats 2018
+  version: "2.0"
+openapi: 3.1.0
+paths:
+  /psi/rest/export/{dataresource}/{lang}/{sc}:
+    get:
+      description: Returns sales transaction data for the specified resource and language. The Simplified Chinese documentation states that this dataset does not provide Simplified Chinese data and returns Traditional Chinese instead.
+      operationId: getGsh2018SaleTransactions
+      parameters:
+        - description: Dataset resource identifier.
+          example: ssfs-sale-transactions-G18
+          in: path
+          name: dataresource
+          required: true
+          schema:
+            const: ssfs-sale-transactions-G18
+            type: string
+        - description: "Response language: English or Traditional Chinese."
+          examples:
+            english:
+              value: en
+            traditionalChinese:
+              value: tc
+          in: path
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+            type: string
+        - description: Response file format.
+          examples:
+            csv:
+              value: csv
+            json:
+              value: json
+            xml:
+              value: xml
+          in: path
+          name: sc
+          required: true
+          schema:
+            enum:
+              - json
+              - csv
+              - xml
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedExample:
+                  description: The source example visibly associates the following values with the documented fields, but its layout and JSON syntax are corrupted; this is a reconstruction, not verbatim authoritative publisher JSON.
+                  summary: Reconstructed from the source's malformed, interleaved example
+                  value:
+                    data:
+                      - asp_sign_date: 01/02/2019
+                        block_name: BLOCK 4
+                        court_name: LAI TSUI COURT
+                        flat_num: "10"
+                        floor_num: "37"
+                        sale_price: "1840400.0"
+                        saleable_area: "26.1"
+                        scheme_name: Sale of Green Form Subsidised Home Ownership Scheme Flats 2018 (GSH Sale 2018)
+                        scheme_type: GSH
+              schema:
+                $ref: "#/components/schemas/TransactionsResponse"
+            application/xml:
+              schema:
+                description: XML representation of the transaction dataset; an XML structure is not specified.
+                type: string
+            text/csv:
+              schema:
+                description: CSV representation of the transaction dataset; a CSV field-level serialization is not specified.
+                type: string
+          description: Success. JSON, CSV, and XML response formats are documented. The data dictionary describes the JSON transaction fields.
+        "400":
+          description: Bad Request.
+        "500":
+          description: Internal Server Error.
+      summary: Get GSH Flats 2018 sale transactions
+servers:
+  - url: https://data.housingauthority.gov.hk

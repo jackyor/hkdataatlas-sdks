@@ -1,0 +1,367 @@
+components:
+  schemas:
+    DataResponse:
+      description: Envelope structure shown by the publisher's response example; fields and completeness may vary.
+      properties:
+        dataSet:
+          items:
+            $ref: "#/components/schemas/TradeRecord"
+          type: array
+        header:
+          $ref: "#/components/schemas/ResponseHeader"
+      type: object
+    ResponseCount:
+      properties:
+        durationSeconds:
+          type: number
+        finished:
+          format: date-time
+          type: string
+        noOfRecords:
+          type: integer
+        started:
+          format: date-time
+          type: string
+      type: object
+    ResponseHeader:
+      properties:
+        count:
+          $ref: "#/components/schemas/ResponseCount"
+        status:
+          $ref: "#/components/schemas/ResponseStatus"
+        tablenote:
+          description: Table footnotes. The publisher's example notes that monthly sums may differ from cumulative totals due to adjustments, totals may differ due to rounding, and countries of consignment with nil records are omitted.
+          items:
+            type: string
+          type: array
+        title:
+          description: Title of the returned table.
+          type: string
+      type: object
+    ResponseStatus:
+      description: Response status values documented by the publisher.
+      examples:
+        - code: 0
+          description: Query success
+          name: Success
+        - code: 1
+          description: Validation error
+          name: Fail
+        - code: 2
+          description: Usage limit is reached
+          name: Usage limit
+        - code: 3
+          description: Server is busy at this moment
+          name: Server busy
+        - code: 4
+          description: Access denied
+          name: Access denied
+      properties:
+        apiHelp:
+          description: API help link shown in the response example.
+          format: uri
+          type: string
+        code:
+          description: "Documented status code: 0 query success, 1 validation error, 2 usage limit reached, 3 server busy, and 4 access denied."
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+          type: integer
+        description:
+          description: Status description.
+          type: string
+        name:
+          description: Status name.
+          type: string
+      type: object
+    TradeRecord:
+      description: Trade data record illustrated in the documented response. The documented example encodes `ttype` as an integer although request trade-type values are shown as codes; `figure` is shown as a string. Language-dependent description and unit property names vary with the selected language.
+      properties:
+        cc:
+          description: Consignment code.
+          type: string
+        ccDescEN:
+          description: Consignment description; language suffix varies with `lang`.
+          type: string
+        ccRegion:
+          type: string
+        ccRegionDsecEN:
+          description: Consignment-region description; language suffix varies with `lang`.
+          type: string
+        co:
+          description: Origin code, if present.
+          type: string
+        coDescEN:
+          description: Origin description; language suffix varies with `lang`.
+          type: string
+        coRegion:
+          type: string
+        coRegionDsecEN:
+          description: Origin-region description; language suffix varies with `lang`.
+          type: string
+        code:
+          description: Commodity code.
+          type: string
+        codeDsecEN:
+          description: Commodity description; language suffix varies with `lang`.
+          type: string
+        codeclass:
+          description: Commodity classification code.
+          type: string
+        figure:
+          description: Statistical value, represented as a string in the documented response sample.
+          type: string
+        freq:
+          description: Frequency code.
+          type: string
+        period:
+          description: Annual or monthly period code.
+          type: string
+        sv:
+          description: Statistics selection code.
+          type: string
+        svDescEN:
+          description: Statistics description; language suffix varies with `lang`.
+          type: string
+        tm:
+          type: string
+        tmDsecEN:
+          description: Transport mode description; language suffix varies with `lang`.
+          type: string
+        ttype:
+          anyOf:
+            - type: integer
+            - type: string
+          description: Trade type; the documented response sample uses an integer while request values are codes.
+        ttypeDescEN:
+          description: Trade type description in English; language-specific suffix varies with `lang`.
+          type: string
+        unitEN:
+          description: Unit; language suffix varies with `lang`.
+          type: string
+      type: object
+externalDocs:
+  description: Official Trade-IDDS API enquiry documentation
+  url: https://tradeidds.censtatd.gov.hk/MetadataLink/ApiSpec/API_eng.pdf
+info:
+  description: Retrieve Hong Kong external merchandise trade statistics as JSON. API usage is subject to limits that may be adjusted without prior notice. Authentication requirements are not specified. The version value is a metadata placeholder, not a publisher API version.
+  title: Trade-Interactive Data Dissemination Service (Trade-IDDS) API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /api/get:
+    get:
+      description: The publisher documents a GET data request and a JSON response. Parameters and values are case-insensitive. The `period` range is inclusive; annual values use YYYY and monthly values use YYYYMM. The response includes textual descriptions in the selected language. Nil/default or unspecified values are documented for several optional selectors. Usage limits may be adjusted without prior notice. See the official documentation for Annex 1 origin and consignment codes and Annex 2 commodity classification references.
+      operationId: getTradeStatistics
+      parameters:
+        - description: Language for descriptions in the data response.
+          in: query
+          name: lang
+          required: true
+          schema:
+            enum:
+              - EN
+              - TC
+              - SC
+            type: string
+        - description: Statistics selection; multiple values are allowed. Returned with a textual description in `svDsecXX` and unit in `unitXX`; the value is in `figure`.
+          examples:
+            annualValue:
+              summary: Annual or year-to-date value
+              value:
+                - VCy
+            monthlyValue:
+              summary: Monthly value
+              value:
+                - VCm
+          explode: false
+          in: query
+          name: sv
+          required: true
+          schema:
+            items:
+              enum:
+                - VCm
+                - QCm
+                - VCy
+                - QCy
+              type: string
+            minItems: 1
+            type: array
+          style: form
+        - description: "Frequency: annual or monthly."
+          in: query
+          name: freq
+          required: true
+          schema:
+            enum:
+              - A
+              - M
+            type: string
+        - description: Inclusive period range. For annual frequency use `YYYY,YYYY` (for example, `2015,2017`); for monthly frequency use `YYYYMM,YYYYMM` (for example, `201701,201712`).
+          in: query
+          name: period
+          required: true
+          schema:
+            examples:
+              - 2015,2017
+              - 201701,201712
+            type: string
+        - description: Trade type. The publisher also documents `ALL` as a value.
+          in: query
+          name: ttype
+          required: true
+          schema:
+            enum:
+              - "1"
+              - "2"
+              - "3"
+              - "4"
+              - "5"
+              - ALL
+            examples:
+              - "1"
+              - "4"
+            type: string
+        - description: Transport mode. Nil (default or unspecified) is documented; `Y` means Yes. The response description uses `tmDsecXX`.
+          in: query
+          name: tm
+          required: false
+          schema:
+            enum:
+              - Y
+            type: string
+        - description: Origin class. Nil (default or unspecified) is documented. `R` selects Region and `C` selects Country/Territory; when `co` is supplied, this class determines the applicable code set.
+          in: query
+          name: coclass
+          required: false
+          schema:
+            enum:
+              - R
+              - C
+            type: string
+        - description: Origin codes; multiple values are allowed. Nil (default or unspecified) is documented. Region selections allow at most 1 code; Country/Territory selections allow at most 30. `ALL` is shown for all origins. See Annex 1 for codes. Response descriptions use `coRegionDsecXX` for regions and `coDsecXX` for Country/Territory.
+          examples:
+            allOrigins:
+              summary: All origins
+              value:
+                - ALL
+            chineseMainland:
+              summary: Chinese Mainland
+              value:
+                - CN
+          explode: false
+          in: query
+          name: co
+          required: false
+          schema:
+            items:
+              type: string
+            maxItems: 30
+            type: array
+          style: form
+        - description: Consignment class. Nil (default or unspecified) is documented. `R` selects Region and `C` selects Country/Territory; when `cc` is supplied, this class determines the applicable code set.
+          in: query
+          name: ccclass
+          required: false
+          schema:
+            enum:
+              - R
+              - C
+            type: string
+        - description: Consignment codes; multiple values are allowed. Nil (default or unspecified) is documented. Region selections allow at most 1 code; Country/Territory selections allow at most 30. See Annex 1 for codes. Response descriptions use `ccRegionDsecXX` for regions and `ccDsecXX` for Country/Territory.
+          explode: false
+          in: query
+          name: cc
+          required: false
+          schema:
+            items:
+              type: string
+            maxItems: 30
+            type: array
+          style: form
+        - description: "Commodity classification. Nil (default or unspecified) is documented. Select a classification and level: HKHS, HKHS2, HKHS4, HKHS6, HKHS8, SITC, SITC1, SITC2, SITC3, SITC5, or EUC (End-Use Category). Annex 2 links to classification references."
+          in: query
+          name: codeclass
+          required: false
+          schema:
+            enum:
+              - HKHS
+              - HKHS2
+              - HKHS4
+              - HKHS6
+              - HKHS8
+              - SITC
+              - SITC1
+              - SITC2
+              - SITC3
+              - SITC5
+              - EUC
+            type: string
+        - description: Commodity codes; multiple values are allowed, with a maximum of 20. Nil (default or unspecified) is documented. For HKHS and SITC consult Annex 2; for EUC the publisher says codes need not be specified. Response descriptions use `codeDsecXX`.
+          explode: false
+          in: query
+          name: code
+          required: false
+          schema:
+            items:
+              type: string
+            maxItems: 20
+            type: array
+          style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                successfulQuery:
+                  summary: Documented successful monthly total-exports response
+                  value:
+                    dataSet:
+                      - cc: CN
+                        ccDescEN: CHINESE MAINLAND
+                        figure: "194542691"
+                        freq: M
+                        period: "201805"
+                        sv: VCm
+                        svDescEN: Value (Monthly)
+                        ttype: 4
+                        ttypeDescEN: Total Exports
+                        unitEN: HK$ '000
+                      - cc: CN
+                        ccDescEN: CHINESE MAINLAND
+                        figure: "186190690"
+                        freq: M
+                        period: "201806"
+                        sv: VCm
+                        svDescEN: Value (Monthly)
+                        ttype: 4
+                        ttypeDescEN: Total Exports
+                        unitEN: HK$ '000
+                    header:
+                      count:
+                        durationSeconds: 0.3594354
+                        finished: 2018-11-16T09:40:06.9110315+08:00
+                        noOfRecords: 2
+                        started: 2018-11-16T09:40:06.5515961+08:00
+                      status:
+                        apiHelp: https://tradeidds.censtatd.gov.hk/PageID/ApiSpec
+                        code: 0
+                        description: Query success
+                        name: Success
+                      tablenote:
+                        - The exported JSON is mainly used for data exchange, please read the corresponding footnote in the original statistical table.
+                        - Adjustments relating to earlier months of a particular year are incorporated in the cumulative totals of that year only. It follows that the sums of the monthly figures may differ from the cumulative totals.
+                        - Hong Kong's external merchandise trade statistics are compiled based on information contained in import/export declarations. The Hong Kong Special Administrative Region is a separate customs territory, as stated in "The Basic Law of the Hong Kong Special Administrative Region of the People's Republic of China". Import/export declaration is also required of Hong Kong's merchandise trade with Chinese Mainland, and statistics relating to this are included in Hong Kong's external merchandise trade statistics.
+                        - Figures may not add up to total due to rounding.
+                        - Countries of consignment with nil records is omitted.
+                      title: Total exports by Selected Destinations, May 2018 - Jun 2018
+              schema:
+                $ref: "#/components/schemas/DataResponse"
+          description: JSON data response. The body status reports query success or an error condition; the documentation does not specify HTTP status mappings for those status codes.
+      summary: Get trade statistics
+servers:
+  - url: https://tradeidds.censtatd.gov.hk

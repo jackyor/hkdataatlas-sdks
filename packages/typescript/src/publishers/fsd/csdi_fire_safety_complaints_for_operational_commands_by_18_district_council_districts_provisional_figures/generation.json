@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "fsd-csdi-fire-safety-complaints-for-operational-commands-by-18-district-council-districts-provisional-figures",
+  "sourceSha256": "cc6266ffe009e17db9a43212ccb3f7045c7774c582328b34fdda1d4308b041b7",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hkfsd_rcd_1695958176304_93222/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkfsd_rcd_1695958176304_93222/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkfsd_rcd_1695958176304_93222/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

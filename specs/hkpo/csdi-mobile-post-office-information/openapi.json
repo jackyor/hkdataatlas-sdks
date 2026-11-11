@@ -1,0 +1,563 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Hongkong Post — Mobile Post Office Information",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/hkpo_rcd_1638773566771_76062/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "MPO",
+                "value": 0
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/hkpo_rcd_1638773566771_76062/FeatureServer?f=pjson",
+            "sha256": "06719a449b0f84c762f1f4e2fd4f23e4e4123cda94866aae6a06f400556c670a",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/hkpo_rcd_1638773566771_76062/FeatureServer/0?f=pjson",
+            "sha256": "e83d702ffb06dce07af9b27ce04ec4a8e09f88a3852e9bf14929c77a61bd2dbb",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "DatasetEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Dataset",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "DatasetTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "數據集",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "NameEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Facility Name",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "AddressEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Address",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "NameTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "設施名稱",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "AddressTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "地址",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "DistrictEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1000
+          },
+          "DistrictTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "地區",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "ServiceDayEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Service Day",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1000
+          },
+          "ServiceDayTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "服務日子",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "ServiceScheduleEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Service Schedule",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "ServiceScheduleTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "服務時間表",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "TelephoneEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Telephone",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "TelephoneTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "聯絡電話",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "FaxEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Fax Number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "FaxTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "傳真號碼",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "EmailAddressEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Email Address",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "EmailAddressTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "電郵地址",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "WebsiteEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Website",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "WebsiteTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "網頁",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "RemarksEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Remarks",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "RemarksTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "備註",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "Northing": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Northing / 坐標北",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Easting": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Easting / 坐標東",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Latitude": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Latitude / 緯度",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Longitude": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Longitude / 經度",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LastUpdate": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "Last Updated Date / 最後更新日期"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "MPO",
+      "protocol": "arcgis"
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=hkpo_rcd_1638773566771_76062",
+      "sha256": "739bc18f82ed224406a2db725b760cf7f73a38f24eefa0d5e879d2fb2629e031",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/hkpo_rcd_1638773566771_76062/FeatureServer?f=pjson",
+      "sha256": "06719a449b0f84c762f1f4e2fd4f23e4e4123cda94866aae6a06f400556c670a",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/hkpo_rcd_1638773566771_76062/FeatureServer/0?f=pjson",
+      "sha256": "e83d702ffb06dce07af9b27ce04ec4a8e09f88a3852e9bf14929c77a61bd2dbb",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [
+      {
+        "code": "metadata_http_not_200",
+        "url": "https://portal.csdi.gov.hk/server/services/common/hkpo_rcd_1638773566771_76062/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+        "httpStatus": 403
+      },
+      {
+        "serviceId": "csdi-service-d7c7e2da562d7927b918c423",
+        "code": "discovery_metadata_error",
+        "reason": "Metadata request status http_error",
+        "url": "https://portal.csdi.gov.hk/server/services/common/hkpo_rcd_1638773566771_76062/MapServer/WFSServer?service=WFS&request=GetCapabilities"
+      },
+      {
+        "serviceId": "csdi-service-d7c7e2da562d7927b918c423",
+        "protocol": "wfs",
+        "code": "unsupported_or_incomplete_native_contract",
+        "reason": "No retained parseable WFS GetCapabilities"
+      },
+      {
+        "code": "metadata_http_not_200",
+        "url": "https://portal.csdi.gov.hk/server/services/common/hkpo_rcd_1638773566771_76062/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+        "httpStatus": 403
+      },
+      {
+        "serviceId": "csdi-service-d3e1dab66f711afe9faf1e77",
+        "code": "discovery_metadata_error",
+        "reason": "Metadata request status http_error",
+        "url": "https://portal.csdi.gov.hk/server/services/common/hkpo_rcd_1638773566771_76062/MapServer/WMSServer?service=WMS&request=GetCapabilities"
+      },
+      {
+        "serviceId": "csdi-service-d3e1dab66f711afe9faf1e77",
+        "protocol": "wms",
+        "code": "unsupported_or_incomplete_native_contract",
+        "reason": "No retained parseable WMS GetCapabilities"
+      }
+    ],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 3
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

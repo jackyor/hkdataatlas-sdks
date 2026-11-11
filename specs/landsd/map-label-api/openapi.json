@@ -1,0 +1,143 @@
+{
+  "externalDocs": {
+    "description": "Official Map Label API documentation",
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/apidoc/MapLabelAPI"
+  },
+  "info": {
+    "description": "An XYZ map tile service returning PNG tiles with place-name labels for overlaying on a basemap. The API URL format specifies version v1.0.0; this is the API version, not an OpenAPI document version. The existing domain https://mapapi.geodata.gov.hk is scheduled for deprecation on 15 March 2027; the documented current service domain is https://mapapi.hkmapservice.gov.hk. Zoom levels are documented as 8–20 for HK80 and 0–20 for WGS84. Avoid large volumes of requests within a short period. Use is subject to LandsD Map API terms and IP rights notice; the publisher requires attribution (“Map from Lands Department”) and a Lands Department logo on the map face. TLS 1.2 is required. Authentication requirements are not specified in the source.",
+    "title": "LandsD Map Label API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/gs/api/{version}/xyz/label/hk/{lang}/{sr}/{z}/{x}/{y}.png": {
+      "get": {
+        "description": "Returns a map tile under the XYZ tile scheme. The publisher documents PNG output. Version v1.0.0 is currently documented and versions may change; old versions may be removed without notice. Check the official documentation for supported versions.",
+        "externalDocs": {
+          "description": "Official Map Label API documentation",
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/apidoc/MapLabelAPI"
+        },
+        "operationId": "getMapLabelTile",
+        "parameters": [
+          {
+            "description": "API version. Currently documented as v1.0.0; may be updated, and old versions may be removed without notice.",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "example": "v1.0.0",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Language of place-name labels.",
+            "examples": {
+              "english": {
+                "description": "Place names in English",
+                "value": "en"
+              },
+              "simplifiedChinese": {
+                "description": "Place names in Simplified Chinese",
+                "value": "sc"
+              },
+              "traditionalChinese": {
+                "description": "Place names in Traditional Chinese",
+                "value": "tc"
+              }
+            },
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Spatial reference system.",
+            "in": "path",
+            "name": "sr",
+            "required": true,
+            "schema": {
+              "enum": [
+                "WGS84",
+                "HK80"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Zoom level under the XYZ tile scheme. The supported range depends on the spatial reference system: 0–20 for WGS84 and 8–20 for HK80.",
+            "in": "path",
+            "name": "z",
+            "required": true,
+            "schema": {
+              "maximum": 20,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "X position of the map tile under the XYZ tile scheme.",
+            "in": "path",
+            "name": "x",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Y position of the map tile under the XYZ tile scheme.",
+            "in": "path",
+            "name": "y",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "image/png": {
+                "examples": {
+                  "documentedTileRequest": {
+                    "description": "The documentation provides this example URL but does not include the PNG response bytes.",
+                    "externalValue": "https://mapapi.hkmapservice.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/WGS84/17/107104/57177.png",
+                    "summary": "Documented example URL"
+                  }
+                },
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "OK. A map tile is returned in PNG format."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "servers": [
+          {
+            "url": "https://mapapi.hkmapservice.gov.hk"
+          }
+        ],
+        "summary": "Retrieve a labelled map tile"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://mapapi.hkmapservice.gov.hk"
+    }
+  ]
+}

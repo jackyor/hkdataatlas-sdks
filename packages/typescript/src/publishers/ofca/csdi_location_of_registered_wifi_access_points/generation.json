@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ofca-csdi-location-of-registered-wifi-access-points",
+  "sourceSha256": "9948a3c3f1caa927e40e09e4f3c839d5d5fdc14d22a65f9a9e7a12c26327438c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ofca_rcd_1632191339349_48637/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ofca_rcd_1632191339349_48637/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ofca_rcd_1632191339349_48637/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

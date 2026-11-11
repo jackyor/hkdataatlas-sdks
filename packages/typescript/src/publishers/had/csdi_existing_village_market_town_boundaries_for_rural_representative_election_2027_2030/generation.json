@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "had-csdi-existing-village-market-town-boundaries-for-rural-representative-election-2027-2030",
+  "sourceSha256": "267202ede43ea8946d9c49f7fb16f0c588190495b4f0456576a32d842d76409c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/had_rcd_1698201058480_40217/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1698201058480_40217/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1698201058480_40217/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

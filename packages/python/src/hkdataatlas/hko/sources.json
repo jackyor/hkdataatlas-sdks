@@ -1,0 +1,2791 @@
+{
+  "publisherKey": "hko",
+  "publisherName": "Hong Kong Observatory",
+  "sources": [
+    {
+      "id": "hko-hko-weather-api",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "hko-weather-api",
+      "name": "Hong Kong Observatory Open Data API",
+      "apiTitle": "Hong Kong Observatory Open Data API",
+      "json": "hko/hko-weather-api/openapi.json",
+      "yaml": "hko/hko-weather-api/openapi.yaml",
+      "file": "hko/hko-weather-api/openapi.json",
+      "sha256": "a1f0c5225012dcb5156bafd94a74f46dea161259d1c613b5c245917dd564e957",
+      "jsonSha256": "a1f0c5225012dcb5156bafd94a74f46dea161259d1c613b5c245917dd564e957",
+      "yamlSha256": "5f2b061338991f28fcb81c52e8210078191adbb2523d283aa328d0ddb4d3ba7f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.13",
+      "namespace": "hko_weather_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a1f0c5225012dcb5156bafd94a74f46dea161259d1c613b5c245917dd564e957"
+        },
+        "sourceContent": {
+          "status": "reported_findings_resolved",
+          "kind": "requested_targeted_narrative_check_not_machine_model_receipt",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 5,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf",
+        "canonicalJsonSha256": "a1f0c5225012dcb5156bafd94a74f46dea161259d1c613b5c245917dd564e957",
+        "originalRepresentationSha256": "a1f0c5225012dcb5156bafd94a74f46dea161259d1c613b5c245917dd564e957",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "hko_weather_api"
+    },
+    {
+      "id": "hko-smart-lampposts-real-time-experimental-meteorological-data-post-quality-che",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "smart-lampposts-real-time-experimental-meteorological-data-post-quality-che",
+      "name": "Smart lampposts real-time experimental meteorological data (Post quality checks)",
+      "apiTitle": "Smart Lamppost Experimental Meteorological Data API",
+      "json": "hko/smart-lampposts-real-time-experimental-meteorological-data-post-quality-che/openapi.json",
+      "yaml": "hko/smart-lampposts-real-time-experimental-meteorological-data-post-quality-che/openapi.yaml",
+      "file": "hko/smart-lampposts-real-time-experimental-meteorological-data-post-quality-che/openapi.json",
+      "sha256": "361ce486a911f5a2dc7cf83b7a89aeef1d3cc500d0929276ca2ba6b97baa76c2",
+      "jsonSha256": "361ce486a911f5a2dc7cf83b7a89aeef1d3cc500d0929276ca2ba6b97baa76c2",
+      "yamlSha256": "9d472838ba08e5095decc11d7ced938a6c461aae511102f2c37e92da9cd7c492",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "smart_lampposts_real_time_experimental_meteorological_data_post_quality_che",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "361ce486a911f5a2dc7cf83b7a89aeef1d3cc500d0929276ca2ba6b97baa76c2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.hko.gov.hk/common/hko_data/smart-lamppost/files/smart_lamppost_data_spec.pdf",
+        "canonicalJsonSha256": "361ce486a911f5a2dc7cf83b7a89aeef1d3cc500d0929276ca2ba6b97baa76c2",
+        "originalRepresentationSha256": "361ce486a911f5a2dc7cf83b7a89aeef1d3cc500d0929276ca2ba6b97baa76c2",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "smart_lampposts_real_time_experimental_meteorological_data_post_quality_che"
+    },
+    {
+      "id": "hko-csdi-hong-kong-observatory-resource-centre",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-hong-kong-observatory-resource-centre",
+      "name": "Hong Kong Observatory\nresource centre",
+      "apiTitle": "Hong Kong Observatory \u2014 Hong Kong Observatory\nresource centre",
+      "json": "hko/csdi-hong-kong-observatory-resource-centre/openapi.json",
+      "yaml": "hko/csdi-hong-kong-observatory-resource-centre/openapi.yaml",
+      "file": "hko/csdi-hong-kong-observatory-resource-centre/openapi.json",
+      "sha256": "e55fbf35445afe1de3f4c4aceb1b702b6342bc4a0325c5e0b09a501eafc01a86",
+      "jsonSha256": "e55fbf35445afe1de3f4c4aceb1b702b6342bc4a0325c5e0b09a501eafc01a86",
+      "yamlSha256": "0f34e8e54299000b290d6cf9f7109204dc7376d1be01ecb4a45735dc23061d61",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_hong_kong_observatory_resource_centre",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e55fbf35445afe1de3f4c4aceb1b702b6342bc4a0325c5e0b09a501eafc01a86"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1629267205235_11788",
+        "canonicalJsonSha256": "e55fbf35445afe1de3f4c4aceb1b702b6342bc4a0325c5e0b09a501eafc01a86",
+        "originalRepresentationSha256": "e55fbf35445afe1de3f4c4aceb1b702b6342bc4a0325c5e0b09a501eafc01a86",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_hong_kong_observatory_resource_centre"
+    },
+    {
+      "id": "hko-csdi-current-weather-report",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-current-weather-report",
+      "name": "Current weather report",
+      "apiTitle": "Hong Kong Observatory \u2014 Current weather report",
+      "json": "hko/csdi-current-weather-report/openapi.json",
+      "yaml": "hko/csdi-current-weather-report/openapi.yaml",
+      "file": "hko/csdi-current-weather-report/openapi.json",
+      "sha256": "2dfc8f8fa3fdb838716c9587fe58c196f13ed08acb145118aef2c5b389463dca",
+      "jsonSha256": "2dfc8f8fa3fdb838716c9587fe58c196f13ed08acb145118aef2c5b389463dca",
+      "yamlSha256": "865a14de2322ea65ecb3ee2e38931f784604377365a4505fd08f1f52ee995a39",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_current_weather_report",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2dfc8f8fa3fdb838716c9587fe58c196f13ed08acb145118aef2c5b389463dca"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634806665997_63899",
+        "canonicalJsonSha256": "2dfc8f8fa3fdb838716c9587fe58c196f13ed08acb145118aef2c5b389463dca",
+        "originalRepresentationSha256": "2dfc8f8fa3fdb838716c9587fe58c196f13ed08acb145118aef2c5b389463dca",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_current_weather_report"
+    },
+    {
+      "id": "hko-csdi-predicted-tidal-information-hourly-heights-of-astronomical-tides",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-predicted-tidal-information-hourly-heights-of-astronomical-tides",
+      "name": "Predicted tidal information (Hourly heights of astronomical tides)",
+      "apiTitle": "Hong Kong Observatory \u2014 Predicted tidal information (Hourly heights of astronomical tides)",
+      "json": "hko/csdi-predicted-tidal-information-hourly-heights-of-astronomical-tides/openapi.json",
+      "yaml": "hko/csdi-predicted-tidal-information-hourly-heights-of-astronomical-tides/openapi.yaml",
+      "file": "hko/csdi-predicted-tidal-information-hourly-heights-of-astronomical-tides/openapi.json",
+      "sha256": "4a9bb851561f05342d7ab274315adb794c6e4c1704d6ca605e9c123eaec75e18",
+      "jsonSha256": "4a9bb851561f05342d7ab274315adb794c6e4c1704d6ca605e9c123eaec75e18",
+      "yamlSha256": "3c436058b3a8f1a4232fe6055c731b52c3cf8b3d2307c47d96486d929bb9712e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_predicted_tidal_information_hourly_heights_of_astronomical_tides",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4a9bb851561f05342d7ab274315adb794c6e4c1704d6ca605e9c123eaec75e18"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634808062104_80740",
+        "canonicalJsonSha256": "4a9bb851561f05342d7ab274315adb794c6e4c1704d6ca605e9c123eaec75e18",
+        "originalRepresentationSha256": "4a9bb851561f05342d7ab274315adb794c6e4c1704d6ca605e9c123eaec75e18",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_predicted_tidal_information_hourly_heights_of_astronomical_tides"
+    },
+    {
+      "id": "hko-csdi-predicted-tidal-information-times-and-heights-of-astronomical-high-and-low-tides",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-predicted-tidal-information-times-and-heights-of-astronomical-high-and-low-tides",
+      "name": "Predicted tidal information (Times and heights of astronomical high and low tides)",
+      "apiTitle": "Hong Kong Observatory \u2014 Predicted tidal information (Times and heights of astronomical high and low tides)",
+      "json": "hko/csdi-predicted-tidal-information-times-and-heights-of-astronomical-high-and-low-tides/openapi.json",
+      "yaml": "hko/csdi-predicted-tidal-information-times-and-heights-of-astronomical-high-and-low-tides/openapi.yaml",
+      "file": "hko/csdi-predicted-tidal-information-times-and-heights-of-astronomical-high-and-low-tides/openapi.json",
+      "sha256": "7d3ac500e560338dd0bf0346f7ba7417e6855e0834fa3d42df34f66a5caba0fc",
+      "jsonSha256": "7d3ac500e560338dd0bf0346f7ba7417e6855e0834fa3d42df34f66a5caba0fc",
+      "yamlSha256": "8b34b49c908ae4e0b03dfeaeebbaa05a75b4e68f7d45987195b8030e280c315c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_predicted_tidal_information_times_and_heights_of_astronomical_high_and_low_tides",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "7d3ac500e560338dd0bf0346f7ba7417e6855e0834fa3d42df34f66a5caba0fc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634809240679_79523",
+        "canonicalJsonSha256": "7d3ac500e560338dd0bf0346f7ba7417e6855e0834fa3d42df34f66a5caba0fc",
+        "originalRepresentationSha256": "7d3ac500e560338dd0bf0346f7ba7417e6855e0834fa3d42df34f66a5caba0fc",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_predicted_tidal_information_times_and_heights_of_astronomical_high_and_low_tides"
+    },
+    {
+      "id": "hko-csdi-daily-maximum-mean-and-minimum-temperatures",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-maximum-mean-and-minimum-temperatures",
+      "name": "Daily maximum, mean and minimum temperatures",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily maximum, mean and minimum temperatures",
+      "json": "hko/csdi-daily-maximum-mean-and-minimum-temperatures/openapi.json",
+      "yaml": "hko/csdi-daily-maximum-mean-and-minimum-temperatures/openapi.yaml",
+      "file": "hko/csdi-daily-maximum-mean-and-minimum-temperatures/openapi.json",
+      "sha256": "b791aa83486099195fcc920076d6b2d2151833e88ad70203a36d63759adea70f",
+      "jsonSha256": "b791aa83486099195fcc920076d6b2d2151833e88ad70203a36d63759adea70f",
+      "yamlSha256": "df35ed91fb187a2492aa1e28cbc87b6cc2adf8d19adc65958831de2c4f390df9",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_maximum_mean_and_minimum_temperatures",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b791aa83486099195fcc920076d6b2d2151833e88ad70203a36d63759adea70f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634871488130_57930",
+        "canonicalJsonSha256": "b791aa83486099195fcc920076d6b2d2151833e88ad70203a36d63759adea70f",
+        "originalRepresentationSha256": "b791aa83486099195fcc920076d6b2d2151833e88ad70203a36d63759adea70f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_maximum_mean_and_minimum_temperatures"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-visibility",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-visibility",
+      "name": "Regional weather in Hong Kong \u2013 the latest 10-minute mean visibility",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the latest 10-minute mean visibility",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-visibility/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-visibility/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-visibility/openapi.json",
+      "sha256": "6b1feb7b895f7a32c9ef282c21df1c4d6e2dd0ddf7ea1df19c3ed39a713b3cfd",
+      "jsonSha256": "6b1feb7b895f7a32c9ef282c21df1c4d6e2dd0ddf7ea1df19c3ed39a713b3cfd",
+      "yamlSha256": "8a14dc3feb082a3a8fd4349b1bc34f81eec2c6f2ad165ba9712ce0a7284e76d1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_latest_10_minute_mean_visibility",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6b1feb7b895f7a32c9ef282c21df1c4d6e2dd0ddf7ea1df19c3ed39a713b3cfd"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634872644049_34294",
+        "canonicalJsonSha256": "6b1feb7b895f7a32c9ef282c21df1c4d6e2dd0ddf7ea1df19c3ed39a713b3cfd",
+        "originalRepresentationSha256": "6b1feb7b895f7a32c9ef282c21df1c4d6e2dd0ddf7ea1df19c3ed39a713b3cfd",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_latest_10_minute_mean_visibility"
+    },
+    {
+      "id": "hko-csdi-lightning-count-over-hong-kong-territory-in-the-past-hour",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-lightning-count-over-hong-kong-territory-in-the-past-hour",
+      "name": "Lightning count over Hong Kong territory in the past hour",
+      "apiTitle": "Hong Kong Observatory \u2014 Lightning count over Hong Kong territory in the past hour",
+      "json": "hko/csdi-lightning-count-over-hong-kong-territory-in-the-past-hour/openapi.json",
+      "yaml": "hko/csdi-lightning-count-over-hong-kong-territory-in-the-past-hour/openapi.yaml",
+      "file": "hko/csdi-lightning-count-over-hong-kong-territory-in-the-past-hour/openapi.json",
+      "sha256": "c50be748770cb0c508e9bf763d9681bb9d1c29e05b030417b7392a69d0563f55",
+      "jsonSha256": "c50be748770cb0c508e9bf763d9681bb9d1c29e05b030417b7392a69d0563f55",
+      "yamlSha256": "4de5a68a16f9700e92fbe3aa9a2be764d66a3adee6362eccc9b4f920b96ae446",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_lightning_count_over_hong_kong_territory_in_the_past_hour",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c50be748770cb0c508e9bf763d9681bb9d1c29e05b030417b7392a69d0563f55"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634873173020_67522",
+        "canonicalJsonSha256": "c50be748770cb0c508e9bf763d9681bb9d1c29e05b030417b7392a69d0563f55",
+        "originalRepresentationSha256": "c50be748770cb0c508e9bf763d9681bb9d1c29e05b030417b7392a69d0563f55",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_lightning_count_over_hong_kong_territory_in_the_past_hour"
+    },
+    {
+      "id": "hko-csdi-smart-lampposts-real-time-experimental-meteorological-data-post-quality-checks",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-smart-lampposts-real-time-experimental-meteorological-data-post-quality-checks",
+      "name": "Smart lampposts real-time experimental meteorological data (Post quality checks)",
+      "apiTitle": "Hong Kong Observatory \u2014 Smart lampposts real-time experimental meteorological data (Post quality checks)",
+      "json": "hko/csdi-smart-lampposts-real-time-experimental-meteorological-data-post-quality-checks/openapi.json",
+      "yaml": "hko/csdi-smart-lampposts-real-time-experimental-meteorological-data-post-quality-checks/openapi.yaml",
+      "file": "hko/csdi-smart-lampposts-real-time-experimental-meteorological-data-post-quality-checks/openapi.json",
+      "sha256": "65edccdb43dd4748ecf1be3d917fe0c87b341f18689c2803e81bc1ede0b4791e",
+      "jsonSha256": "65edccdb43dd4748ecf1be3d917fe0c87b341f18689c2803e81bc1ede0b4791e",
+      "yamlSha256": "9a3cd50d7b3bd39d0b0559ab9b866b234422e0511eff45ab6ffaa8fa080bed33",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_smart_lampposts_real_time_experimental_meteorological_data_post_quality_checks",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "65edccdb43dd4748ecf1be3d917fe0c87b341f18689c2803e81bc1ede0b4791e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634873892309_46072",
+        "canonicalJsonSha256": "65edccdb43dd4748ecf1be3d917fe0c87b341f18689c2803e81bc1ede0b4791e",
+        "originalRepresentationSha256": "65edccdb43dd4748ecf1be3d917fe0c87b341f18689c2803e81bc1ede0b4791e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_smart_lampposts_real_time_experimental_meteorological_data_post_quality_checks"
+    },
+    {
+      "id": "hko-csdi-latest-tidal-information",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-latest-tidal-information",
+      "name": "Latest tidal information",
+      "apiTitle": "Hong Kong Observatory \u2014 Latest tidal information",
+      "json": "hko/csdi-latest-tidal-information/openapi.json",
+      "yaml": "hko/csdi-latest-tidal-information/openapi.yaml",
+      "file": "hko/csdi-latest-tidal-information/openapi.json",
+      "sha256": "ddacae938266aac70498225f55b98d625331cea57f0a385e35c40b7bca67f6b7",
+      "jsonSha256": "ddacae938266aac70498225f55b98d625331cea57f0a385e35c40b7bca67f6b7",
+      "yamlSha256": "302de2d0b03f1bc7dd6501a0bead9b94f6a0b7e3c5a1bfd168c3fa6198b4449a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_latest_tidal_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ddacae938266aac70498225f55b98d625331cea57f0a385e35c40b7bca67f6b7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634874483073_96594",
+        "canonicalJsonSha256": "ddacae938266aac70498225f55b98d625331cea57f0a385e35c40b7bca67f6b7",
+        "originalRepresentationSha256": "ddacae938266aac70498225f55b98d625331cea57f0a385e35c40b7bca67f6b7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_latest_tidal_information"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-air-temperature",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-air-temperature",
+      "name": "Regional weather in Hong Kong \u2013 the latest 1-minute mean air temperature",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the latest 1-minute mean air temperature",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-air-temperature/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-air-temperature/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-air-temperature/openapi.json",
+      "sha256": "5418d16a65447800544ff9ce0f7e210a188cdde8fd81ad91abf0409b09b7dd0d",
+      "jsonSha256": "5418d16a65447800544ff9ce0f7e210a188cdde8fd81ad91abf0409b09b7dd0d",
+      "yamlSha256": "40f2eceb99a6804c3b82d471dfb4c2ae2fc8ca60bfd1474b2bf84d70caa3b368",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_air_temperature",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5418d16a65447800544ff9ce0f7e210a188cdde8fd81ad91abf0409b09b7dd0d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634874829534_64181",
+        "canonicalJsonSha256": "5418d16a65447800544ff9ce0f7e210a188cdde8fd81ad91abf0409b09b7dd0d",
+        "originalRepresentationSha256": "5418d16a65447800544ff9ce0f7e210a188cdde8fd81ad91abf0409b09b7dd0d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_air_temperature"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-relative-humidity",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-relative-humidity",
+      "name": "Regional weather in Hong Kong \u2013 the latest 1-minute mean relative humidity",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the latest 1-minute mean relative humidity",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-relative-humidity/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-relative-humidity/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-relative-humidity/openapi.json",
+      "sha256": "255924938788811977c0cc9f70e7e1d8e94c5285c10ccc169427bba0ce97c409",
+      "jsonSha256": "255924938788811977c0cc9f70e7e1d8e94c5285c10ccc169427bba0ce97c409",
+      "yamlSha256": "ef34efb831adc29280af6160d692bd95a027013ab1ce23f12aecde860b28b3e7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_relative_humidity",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "255924938788811977c0cc9f70e7e1d8e94c5285c10ccc169427bba0ce97c409"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634875711587_25731",
+        "canonicalJsonSha256": "255924938788811977c0cc9f70e7e1d8e94c5285c10ccc169427bba0ce97c409",
+        "originalRepresentationSha256": "255924938788811977c0cc9f70e7e1d8e94c5285c10ccc169427bba0ce97c409",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_relative_humidity"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-maximum-and-minimum-air-temperature-from-1-minute-mean-temperatures-since-midnight",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-maximum-and-minimum-air-temperature-from-1-minute-mean-temperatures-since-midnight",
+      "name": "Regional weather in Hong Kong \u2013 the maximum and minimum air temperature from 1-minute mean temperatures since midnight",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the maximum and minimum air temperature from 1-minute mean temperatures since midnight",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-maximum-and-minimum-air-temperature-from-1-minute-mean-temperatures-since-midnight/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-maximum-and-minimum-air-temperature-from-1-minute-mean-temperatures-since-midnight/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-maximum-and-minimum-air-temperature-from-1-minute-mean-temperatures-since-midnight/openapi.json",
+      "sha256": "47f47fc5a0593050f8b05efb9fb0af285125ec93b2352328fbc83122698dda59",
+      "jsonSha256": "47f47fc5a0593050f8b05efb9fb0af285125ec93b2352328fbc83122698dda59",
+      "yamlSha256": "b5a836a331d79ab7c708b0792b4ce00e81124315499afe3ef96744f8da997348",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_maximum_and_minimum_air_temperature_from_1_minute_mean_temperatures_since_midnight",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "47f47fc5a0593050f8b05efb9fb0af285125ec93b2352328fbc83122698dda59"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634881066952_39720",
+        "canonicalJsonSha256": "47f47fc5a0593050f8b05efb9fb0af285125ec93b2352328fbc83122698dda59",
+        "originalRepresentationSha256": "47f47fc5a0593050f8b05efb9fb0af285125ec93b2352328fbc83122698dda59",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_maximum_and_minimum_air_temperature_from_1_minute_mean_temperatures_since_midnight"
+    },
+    {
+      "id": "hko-csdi-weather-and-radiation-level-report",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-weather-and-radiation-level-report",
+      "name": "Weather and radiation level report",
+      "apiTitle": "Hong Kong Observatory \u2014 Weather and radiation level report",
+      "json": "hko/csdi-weather-and-radiation-level-report/openapi.json",
+      "yaml": "hko/csdi-weather-and-radiation-level-report/openapi.yaml",
+      "file": "hko/csdi-weather-and-radiation-level-report/openapi.json",
+      "sha256": "fc2a432c3a25e2e401f3c8de1300575774c254fee311d4c23e784ccc914137b3",
+      "jsonSha256": "fc2a432c3a25e2e401f3c8de1300575774c254fee311d4c23e784ccc914137b3",
+      "yamlSha256": "4c6496481a450015eee8ba36c281f34ee9518ab5f93810ab6c08833ecbfa0ec8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_weather_and_radiation_level_report",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fc2a432c3a25e2e401f3c8de1300575774c254fee311d4c23e784ccc914137b3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634894644471_40765",
+        "canonicalJsonSha256": "fc2a432c3a25e2e401f3c8de1300575774c254fee311d4c23e784ccc914137b3",
+        "originalRepresentationSha256": "fc2a432c3a25e2e401f3c8de1300575774c254fee311d4c23e784ccc914137b3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_weather_and_radiation_level_report"
+    },
+    {
+      "id": "hko-csdi-latest-15-minute-mean-uv-index-from-7-00-a-m-to-6-00-p-m-hong-kong-time",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-latest-15-minute-mean-uv-index-from-7-00-a-m-to-6-00-p-m-hong-kong-time",
+      "name": "Latest 15-minute mean UV index from 7:00 a.m. to 6:00 p.m. Hong Kong time",
+      "apiTitle": "Hong Kong Observatory \u2014 Latest 15-minute mean UV index from 7:00 a.m. to 6:00 p.m. Hong Kong time",
+      "json": "hko/csdi-latest-15-minute-mean-uv-index-from-7-00-a-m-to-6-00-p-m-hong-kong-time/openapi.json",
+      "yaml": "hko/csdi-latest-15-minute-mean-uv-index-from-7-00-a-m-to-6-00-p-m-hong-kong-time/openapi.yaml",
+      "file": "hko/csdi-latest-15-minute-mean-uv-index-from-7-00-a-m-to-6-00-p-m-hong-kong-time/openapi.json",
+      "sha256": "c5aaf19650cac43f7511cd45c01dd7aa7a147c1ae3c7c3fb2757c3e467c21deb",
+      "jsonSha256": "c5aaf19650cac43f7511cd45c01dd7aa7a147c1ae3c7c3fb2757c3e467c21deb",
+      "yamlSha256": "fd24a6c00e797e5a28c24f4e9a7747ba776e5b5d546f4861f303d0414d8fd9f4",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_latest_15_minute_mean_uv_index_from_7_00_a_m_to_6_00_p_m_hong_kong_time",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c5aaf19650cac43f7511cd45c01dd7aa7a147c1ae3c7c3fb2757c3e467c21deb"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634894904080_80327",
+        "canonicalJsonSha256": "c5aaf19650cac43f7511cd45c01dd7aa7a147c1ae3c7c3fb2757c3e467c21deb",
+        "originalRepresentationSha256": "c5aaf19650cac43f7511cd45c01dd7aa7a147c1ae3c7c3fb2757c3e467c21deb",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_latest_15_minute_mean_uv_index_from_7_00_a_m_to_6_00_p_m_hong_kong_time"
+    },
+    {
+      "id": "hko-csdi-daily-global-solar-radiation",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-global-solar-radiation",
+      "name": "Daily global solar radiation",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily global solar radiation",
+      "json": "hko/csdi-daily-global-solar-radiation/openapi.json",
+      "yaml": "hko/csdi-daily-global-solar-radiation/openapi.yaml",
+      "file": "hko/csdi-daily-global-solar-radiation/openapi.json",
+      "sha256": "824c4588d9fc5941bb0f1f1b4d54c6e7606f8d5c70b95ed6ab1cc135b8566319",
+      "jsonSha256": "824c4588d9fc5941bb0f1f1b4d54c6e7606f8d5c70b95ed6ab1cc135b8566319",
+      "yamlSha256": "49ca0792dffc45ef49165016da8ea2c7a890f9f6a6b8fa93db19f87d920b7e3a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_global_solar_radiation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "824c4588d9fc5941bb0f1f1b4d54c6e7606f8d5c70b95ed6ab1cc135b8566319"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634895198482_85118",
+        "canonicalJsonSha256": "824c4588d9fc5941bb0f1f1b4d54c6e7606f8d5c70b95ed6ab1cc135b8566319",
+        "originalRepresentationSha256": "824c4588d9fc5941bb0f1f1b4d54c6e7606f8d5c70b95ed6ab1cc135b8566319",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_global_solar_radiation"
+    },
+    {
+      "id": "hko-csdi-daily-total-bright-sunshine-hours",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-total-bright-sunshine-hours",
+      "name": "Daily total bright sunshine (hours)",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily total bright sunshine (hours)",
+      "json": "hko/csdi-daily-total-bright-sunshine-hours/openapi.json",
+      "yaml": "hko/csdi-daily-total-bright-sunshine-hours/openapi.yaml",
+      "file": "hko/csdi-daily-total-bright-sunshine-hours/openapi.json",
+      "sha256": "b5422c279be5a530e8caec56b807fad9af782b775399d4e08604516e484aa555",
+      "jsonSha256": "b5422c279be5a530e8caec56b807fad9af782b775399d4e08604516e484aa555",
+      "yamlSha256": "364e92525f1d850c3450023a9d12eff0f664139b7b258ac63f22cf4e4775b414",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_total_bright_sunshine_hours",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b5422c279be5a530e8caec56b807fad9af782b775399d4e08604516e484aa555"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634895435740_37531",
+        "canonicalJsonSha256": "b5422c279be5a530e8caec56b807fad9af782b775399d4e08604516e484aa555",
+        "originalRepresentationSha256": "b5422c279be5a530e8caec56b807fad9af782b775399d4e08604516e484aa555",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_total_bright_sunshine_hours"
+    },
+    {
+      "id": "hko-csdi-daily-maximum-and-mean-uv-indices",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-maximum-and-mean-uv-indices",
+      "name": "Daily maximum and mean UV indices",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily maximum and mean UV indices",
+      "json": "hko/csdi-daily-maximum-and-mean-uv-indices/openapi.json",
+      "yaml": "hko/csdi-daily-maximum-and-mean-uv-indices/openapi.yaml",
+      "file": "hko/csdi-daily-maximum-and-mean-uv-indices/openapi.json",
+      "sha256": "4c7b3eb1014f7f1f2be596b8098162e5ad3cf41946010acc322d538f660fd4a1",
+      "jsonSha256": "4c7b3eb1014f7f1f2be596b8098162e5ad3cf41946010acc322d538f660fd4a1",
+      "yamlSha256": "ef5bdb1613a7f7cbd9a99c05acc6c9db5766fb5910c9595bc9428fa10659ad23",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_maximum_and_mean_uv_indices",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4c7b3eb1014f7f1f2be596b8098162e5ad3cf41946010acc322d538f660fd4a1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634953489673_27292",
+        "canonicalJsonSha256": "4c7b3eb1014f7f1f2be596b8098162e5ad3cf41946010acc322d538f660fd4a1",
+        "originalRepresentationSha256": "4c7b3eb1014f7f1f2be596b8098162e5ad3cf41946010acc322d538f660fd4a1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_maximum_and_mean_uv_indices"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-wind-direction-and-wind-speed-and-maximum-gust",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-wind-direction-and-wind-speed-and-maximum-gust",
+      "name": "Regional weather in Hong Kong \u2013 the latest 10-minute mean wind direction and wind speed and maximum gust",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the latest 10-minute mean wind direction and wind speed and maximum gust",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-wind-direction-and-wind-speed-and-maximum-gust/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-wind-direction-and-wind-speed-and-maximum-gust/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-latest-10-minute-mean-wind-direction-and-wind-speed-and-maximum-gust/openapi.json",
+      "sha256": "28f083cee5abeff541f37fdd725aef1ce99db8e958ac64c831e8f229c64bf743",
+      "jsonSha256": "28f083cee5abeff541f37fdd725aef1ce99db8e958ac64c831e8f229c64bf743",
+      "yamlSha256": "0879508ff90669e7c48385c15f932dfc449de7d5595d0c7068678634718bfb76",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_latest_10_minute_mean_wind_direction_and_wind_speed_and_maximum_gust",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "28f083cee5abeff541f37fdd725aef1ce99db8e958ac64c831e8f229c64bf743"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634953844424_88011",
+        "canonicalJsonSha256": "28f083cee5abeff541f37fdd725aef1ce99db8e958ac64c831e8f229c64bf743",
+        "originalRepresentationSha256": "28f083cee5abeff541f37fdd725aef1ce99db8e958ac64c831e8f229c64bf743",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_latest_10_minute_mean_wind_direction_and_wind_speed_and_maximum_gust"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-sea-level-pressure",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-sea-level-pressure",
+      "name": "Regional weather in Hong Kong \u2013 the latest 1-minute mean sea level pressure",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the latest 1-minute mean sea level pressure",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-sea-level-pressure/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-sea-level-pressure/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-sea-level-pressure/openapi.json",
+      "sha256": "8477acf2291ba3dc4069d100662fd683e1c6333279608b9b1387410b84e910ee",
+      "jsonSha256": "8477acf2291ba3dc4069d100662fd683e1c6333279608b9b1387410b84e910ee",
+      "yamlSha256": "aa7408f46f192d4422f8ed0b71fd206de627f809714d896611793f60f8bc03f7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_sea_level_pressure",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8477acf2291ba3dc4069d100662fd683e1c6333279608b9b1387410b84e910ee"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634954951621_38375",
+        "canonicalJsonSha256": "8477acf2291ba3dc4069d100662fd683e1c6333279608b9b1387410b84e910ee",
+        "originalRepresentationSha256": "8477acf2291ba3dc4069d100662fd683e1c6333279608b9b1387410b84e910ee",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_sea_level_pressure"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-latest-1-minute-global-solar-radiation-and-direct-solar-radiation-and-diffuse-radiation",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-latest-1-minute-global-solar-radiation-and-direct-solar-radiation-and-diffuse-radiation",
+      "name": "Regional weather in Hong Kong \u2013 the latest 1-minute global solar radiation and direct solar radiation and diffuse radiation",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the latest 1-minute global solar radiation and direct solar radiation and diffuse radiation",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-global-solar-radiation-and-direct-solar-radiation-and-diffuse-radiation/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-global-solar-radiation-and-direct-solar-radiation-and-diffuse-radiation/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-global-solar-radiation-and-direct-solar-radiation-and-diffuse-radiation/openapi.json",
+      "sha256": "3cdd424809dd70e10f6a461ac686529d7a2845293c36cb20d008923b412956de",
+      "jsonSha256": "3cdd424809dd70e10f6a461ac686529d7a2845293c36cb20d008923b412956de",
+      "yamlSha256": "de1a6b8d6660ce6dba28e95baed62fd696058d4f72bb4699ec35de5d022ce75a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_global_solar_radiation_and_direct_solar_radiation_and_diffuse_radiation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3cdd424809dd70e10f6a461ac686529d7a2845293c36cb20d008923b412956de"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634955430532_53971",
+        "canonicalJsonSha256": "3cdd424809dd70e10f6a461ac686529d7a2845293c36cb20d008923b412956de",
+        "originalRepresentationSha256": "3cdd424809dd70e10f6a461ac686529d7a2845293c36cb20d008923b412956de",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_global_solar_radiation_and_direct_solar_radiation_and_diffuse_radiation"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-grass-temperature-from-5-00-p-m-to-8-00-a-m-the-following-date-hong-kong-time",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-grass-temperature-from-5-00-p-m-to-8-00-a-m-the-following-date-hong-kong-time",
+      "name": "Regional weather in Hong Kong \u2013 the latest 1-minute mean grass temperature from 5:00 p.m. to 8:00 a.m. the following date Hong Kong time",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong \u2013 the latest 1-minute mean grass temperature from 5:00 p.m. to 8:00 a.m. the following date Hong Kong time",
+      "json": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-grass-temperature-from-5-00-p-m-to-8-00-a-m-the-following-date-hong-kong-time/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-grass-temperature-from-5-00-p-m-to-8-00-a-m-the-following-date-hong-kong-time/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-the-latest-1-minute-mean-grass-temperature-from-5-00-p-m-to-8-00-a-m-the-following-date-hong-kong-time/openapi.json",
+      "sha256": "85243bdf5616001490fb0fd01ea4c6a189fdd4db82ae1a472791ba3a3b2692af",
+      "jsonSha256": "85243bdf5616001490fb0fd01ea4c6a189fdd4db82ae1a472791ba3a3b2692af",
+      "yamlSha256": "b39a95e18445713cf2ad0368e8d44e9d2a20cb09524f866e3576900293c22eea",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_grass_temperature_from_5_00_p_m_to_8_00_a_m_the_following_date_hong_kong_time",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "85243bdf5616001490fb0fd01ea4c6a189fdd4db82ae1a472791ba3a3b2692af"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634955821131_79239",
+        "canonicalJsonSha256": "85243bdf5616001490fb0fd01ea4c6a189fdd4db82ae1a472791ba3a3b2692af",
+        "originalRepresentationSha256": "85243bdf5616001490fb0fd01ea4c6a189fdd4db82ae1a472791ba3a3b2692af",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_the_latest_1_minute_mean_grass_temperature_from_5_00_p_m_to_8_00_a_m_the_following_date_hong_kong_time"
+    },
+    {
+      "id": "hko-csdi-daily-mean-wind-speed",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-mean-wind-speed",
+      "name": "Daily mean wind speed",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily mean wind speed",
+      "json": "hko/csdi-daily-mean-wind-speed/openapi.json",
+      "yaml": "hko/csdi-daily-mean-wind-speed/openapi.yaml",
+      "file": "hko/csdi-daily-mean-wind-speed/openapi.json",
+      "sha256": "a4778d647ca3258b38a2156447832847a2e9c0a23ad8180e38f999ddd9847ea7",
+      "jsonSha256": "a4778d647ca3258b38a2156447832847a2e9c0a23ad8180e38f999ddd9847ea7",
+      "yamlSha256": "dd752111f0f2aa25cf09b4692da835f0edc24d7bbd6e51c95f4c19f0bce754a8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_mean_wind_speed",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a4778d647ca3258b38a2156447832847a2e9c0a23ad8180e38f999ddd9847ea7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634956165798_53328",
+        "canonicalJsonSha256": "a4778d647ca3258b38a2156447832847a2e9c0a23ad8180e38f999ddd9847ea7",
+        "originalRepresentationSha256": "a4778d647ca3258b38a2156447832847a2e9c0a23ad8180e38f999ddd9847ea7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_mean_wind_speed"
+    },
+    {
+      "id": "hko-csdi-daily-prevailing-wind-direction",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-prevailing-wind-direction",
+      "name": "Daily prevailing wind direction",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily prevailing wind direction",
+      "json": "hko/csdi-daily-prevailing-wind-direction/openapi.json",
+      "yaml": "hko/csdi-daily-prevailing-wind-direction/openapi.yaml",
+      "file": "hko/csdi-daily-prevailing-wind-direction/openapi.json",
+      "sha256": "37f86019cc6cc76d3e5757fb78930670e6db2d39d6ed29b8230e848ead55218b",
+      "jsonSha256": "37f86019cc6cc76d3e5757fb78930670e6db2d39d6ed29b8230e848ead55218b",
+      "yamlSha256": "d9e839201f182d72531202b99fe518f6e30ce6cc9bf72b30a5170b37f3ca35c2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_prevailing_wind_direction",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "37f86019cc6cc76d3e5757fb78930670e6db2d39d6ed29b8230e848ead55218b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634956495142_43387",
+        "canonicalJsonSha256": "37f86019cc6cc76d3e5757fb78930670e6db2d39d6ed29b8230e848ead55218b",
+        "originalRepresentationSha256": "37f86019cc6cc76d3e5757fb78930670e6db2d39d6ed29b8230e848ead55218b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_prevailing_wind_direction"
+    },
+    {
+      "id": "hko-csdi-regional-weather-in-hong-kong-past-24-hour-temperature-difference",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-regional-weather-in-hong-kong-past-24-hour-temperature-difference",
+      "name": "Regional weather in Hong Kong - past 24-hour temperature difference",
+      "apiTitle": "Hong Kong Observatory \u2014 Regional weather in Hong Kong - past 24-hour temperature difference",
+      "json": "hko/csdi-regional-weather-in-hong-kong-past-24-hour-temperature-difference/openapi.json",
+      "yaml": "hko/csdi-regional-weather-in-hong-kong-past-24-hour-temperature-difference/openapi.yaml",
+      "file": "hko/csdi-regional-weather-in-hong-kong-past-24-hour-temperature-difference/openapi.json",
+      "sha256": "ada4d4c99dcdd449e86ae03947679388c448dd893418c1a329c7cae2e5c0d72a",
+      "jsonSha256": "ada4d4c99dcdd449e86ae03947679388c448dd893418c1a329c7cae2e5c0d72a",
+      "yamlSha256": "bf2f5d5465f5e32ee6e383c917757ddbb531134ec7231bead9d3ee48fc91459a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_regional_weather_in_hong_kong_past_24_hour_temperature_difference",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ada4d4c99dcdd449e86ae03947679388c448dd893418c1a329c7cae2e5c0d72a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634957986804_49802",
+        "canonicalJsonSha256": "ada4d4c99dcdd449e86ae03947679388c448dd893418c1a329c7cae2e5c0d72a",
+        "originalRepresentationSha256": "ada4d4c99dcdd449e86ae03947679388c448dd893418c1a329c7cae2e5c0d72a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_regional_weather_in_hong_kong_past_24_hour_temperature_difference"
+    },
+    {
+      "id": "hko-csdi-gridded-rainfall-nowcast-in-hong-kong",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-gridded-rainfall-nowcast-in-hong-kong",
+      "name": "Gridded rainfall nowcast in Hong Kong",
+      "apiTitle": "Hong Kong Observatory \u2014 Gridded rainfall nowcast in Hong Kong",
+      "json": "hko/csdi-gridded-rainfall-nowcast-in-hong-kong/openapi.json",
+      "yaml": "hko/csdi-gridded-rainfall-nowcast-in-hong-kong/openapi.yaml",
+      "file": "hko/csdi-gridded-rainfall-nowcast-in-hong-kong/openapi.json",
+      "sha256": "3db132e984a74a074298436d0d30b614deacfdbfbf4ba751da50d684988873b0",
+      "jsonSha256": "3db132e984a74a074298436d0d30b614deacfdbfbf4ba751da50d684988873b0",
+      "yamlSha256": "f3c4657701b5a468e15b35b4e08847bc2aea07de4f810cca85346adb3265b2be",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_gridded_rainfall_nowcast_in_hong_kong",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3db132e984a74a074298436d0d30b614deacfdbfbf4ba751da50d684988873b0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634958531320_87755",
+        "canonicalJsonSha256": "3db132e984a74a074298436d0d30b614deacfdbfbf4ba751da50d684988873b0",
+        "originalRepresentationSha256": "3db132e984a74a074298436d0d30b614deacfdbfbf4ba751da50d684988873b0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_gridded_rainfall_nowcast_in_hong_kong"
+    },
+    {
+      "id": "hko-csdi-daily-total-rainfall",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-total-rainfall",
+      "name": "Daily total rainfall",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily total rainfall",
+      "json": "hko/csdi-daily-total-rainfall/openapi.json",
+      "yaml": "hko/csdi-daily-total-rainfall/openapi.yaml",
+      "file": "hko/csdi-daily-total-rainfall/openapi.json",
+      "sha256": "03b3b37fb28ffa2ffd1507d2ab359a4a26f19a867689f5bbd014d711428e8797",
+      "jsonSha256": "03b3b37fb28ffa2ffd1507d2ab359a4a26f19a867689f5bbd014d711428e8797",
+      "yamlSha256": "4465c96b70716a4de0e715ecf52cabae3ab52f4d5a84be6c770e02a91653888a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_total_rainfall",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "03b3b37fb28ffa2ffd1507d2ab359a4a26f19a867689f5bbd014d711428e8797"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634958957456_52030",
+        "canonicalJsonSha256": "03b3b37fb28ffa2ffd1507d2ab359a4a26f19a867689f5bbd014d711428e8797",
+        "originalRepresentationSha256": "03b3b37fb28ffa2ffd1507d2ab359a4a26f19a867689f5bbd014d711428e8797",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_total_rainfall"
+    },
+    {
+      "id": "hko-csdi-daily-mean-relative-humidity",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-mean-relative-humidity",
+      "name": "Daily mean relative humidity",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily mean relative humidity",
+      "json": "hko/csdi-daily-mean-relative-humidity/openapi.json",
+      "yaml": "hko/csdi-daily-mean-relative-humidity/openapi.yaml",
+      "file": "hko/csdi-daily-mean-relative-humidity/openapi.json",
+      "sha256": "4aa15e298ce9c869981967dd12f5de7bf00a44e80bca56f5e2b3c5b7e89ed06e",
+      "jsonSha256": "4aa15e298ce9c869981967dd12f5de7bf00a44e80bca56f5e2b3c5b7e89ed06e",
+      "yamlSha256": "9deb1a8a629696382d7af0d5377dce8f61ee61790742d55d2080e1a12ba89655",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_mean_relative_humidity",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4aa15e298ce9c869981967dd12f5de7bf00a44e80bca56f5e2b3c5b7e89ed06e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634959251858_57351",
+        "canonicalJsonSha256": "4aa15e298ce9c869981967dd12f5de7bf00a44e80bca56f5e2b3c5b7e89ed06e",
+        "originalRepresentationSha256": "4aa15e298ce9c869981967dd12f5de7bf00a44e80bca56f5e2b3c5b7e89ed06e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_mean_relative_humidity"
+    },
+    {
+      "id": "hko-csdi-daily-total-evaporation",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-total-evaporation",
+      "name": "Daily total evaporation",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily total evaporation",
+      "json": "hko/csdi-daily-total-evaporation/openapi.json",
+      "yaml": "hko/csdi-daily-total-evaporation/openapi.yaml",
+      "file": "hko/csdi-daily-total-evaporation/openapi.json",
+      "sha256": "24de56ad5015d795cd91bdfd84036c75165615362052c1ad0025f80981d09916",
+      "jsonSha256": "24de56ad5015d795cd91bdfd84036c75165615362052c1ad0025f80981d09916",
+      "yamlSha256": "39abd9c207e2e3671cdc2d378cc9863076ec4ffcff6f67d7e35fd363dda5e3b7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_total_evaporation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "24de56ad5015d795cd91bdfd84036c75165615362052c1ad0025f80981d09916"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634959749264_32378",
+        "canonicalJsonSha256": "24de56ad5015d795cd91bdfd84036c75165615362052c1ad0025f80981d09916",
+        "originalRepresentationSha256": "24de56ad5015d795cd91bdfd84036c75165615362052c1ad0025f80981d09916",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_total_evaporation"
+    },
+    {
+      "id": "hko-csdi-daily-mean-amount-of-cloud",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-mean-amount-of-cloud",
+      "name": "Daily mean amount of cloud",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily mean amount of cloud",
+      "json": "hko/csdi-daily-mean-amount-of-cloud/openapi.json",
+      "yaml": "hko/csdi-daily-mean-amount-of-cloud/openapi.yaml",
+      "file": "hko/csdi-daily-mean-amount-of-cloud/openapi.json",
+      "sha256": "dc6734ca3c93b87bee5e19cd35456cd89dfc1fd980b3eb115fe15169930e9847",
+      "jsonSha256": "dc6734ca3c93b87bee5e19cd35456cd89dfc1fd980b3eb115fe15169930e9847",
+      "yamlSha256": "1dd8e763878a933b78012291a7db10bac77f5eb96a8f736179961fcbe466030c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_mean_amount_of_cloud",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "dc6734ca3c93b87bee5e19cd35456cd89dfc1fd980b3eb115fe15169930e9847"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634959858263_18690",
+        "canonicalJsonSha256": "dc6734ca3c93b87bee5e19cd35456cd89dfc1fd980b3eb115fe15169930e9847",
+        "originalRepresentationSha256": "dc6734ca3c93b87bee5e19cd35456cd89dfc1fd980b3eb115fe15169930e9847",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_mean_amount_of_cloud"
+    },
+    {
+      "id": "hko-csdi-daily-mean-pressure",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-mean-pressure",
+      "name": "Daily mean pressure",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily mean pressure",
+      "json": "hko/csdi-daily-mean-pressure/openapi.json",
+      "yaml": "hko/csdi-daily-mean-pressure/openapi.yaml",
+      "file": "hko/csdi-daily-mean-pressure/openapi.json",
+      "sha256": "821c1922303fd37021d6686b0e61c0311efba14b5ae2c061f35b87ae4c5bc1c0",
+      "jsonSha256": "821c1922303fd37021d6686b0e61c0311efba14b5ae2c061f35b87ae4c5bc1c0",
+      "yamlSha256": "6494997a8a183f61c3733c75e21cba513030617cd952d401fda2e3bc15309d25",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_mean_pressure",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "821c1922303fd37021d6686b0e61c0311efba14b5ae2c061f35b87ae4c5bc1c0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634960001885_89970",
+        "canonicalJsonSha256": "821c1922303fd37021d6686b0e61c0311efba14b5ae2c061f35b87ae4c5bc1c0",
+        "originalRepresentationSha256": "821c1922303fd37021d6686b0e61c0311efba14b5ae2c061f35b87ae4c5bc1c0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_mean_pressure"
+    },
+    {
+      "id": "hko-csdi-daily-mean-dew-point-temperature",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-mean-dew-point-temperature",
+      "name": "Daily mean dew point temperature",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily mean dew point temperature",
+      "json": "hko/csdi-daily-mean-dew-point-temperature/openapi.json",
+      "yaml": "hko/csdi-daily-mean-dew-point-temperature/openapi.yaml",
+      "file": "hko/csdi-daily-mean-dew-point-temperature/openapi.json",
+      "sha256": "4505b37513072ad0e37de67ccb83714203f9c8ef2bb859934bfffc1b0371f8f7",
+      "jsonSha256": "4505b37513072ad0e37de67ccb83714203f9c8ef2bb859934bfffc1b0371f8f7",
+      "yamlSha256": "18d6b29c963591fbc13002f8cfe9a9b23436e50f0571d9a5b62f9b9f60d01095",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_mean_dew_point_temperature",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4505b37513072ad0e37de67ccb83714203f9c8ef2bb859934bfffc1b0371f8f7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634960124704_66104",
+        "canonicalJsonSha256": "4505b37513072ad0e37de67ccb83714203f9c8ef2bb859934bfffc1b0371f8f7",
+        "originalRepresentationSha256": "4505b37513072ad0e37de67ccb83714203f9c8ef2bb859934bfffc1b0371f8f7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_mean_dew_point_temperature"
+    },
+    {
+      "id": "hko-csdi-daily-mean-wet-bulb-temperature",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-mean-wet-bulb-temperature",
+      "name": "Daily mean wet bulb temperature",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily mean wet bulb temperature",
+      "json": "hko/csdi-daily-mean-wet-bulb-temperature/openapi.json",
+      "yaml": "hko/csdi-daily-mean-wet-bulb-temperature/openapi.yaml",
+      "file": "hko/csdi-daily-mean-wet-bulb-temperature/openapi.json",
+      "sha256": "30fcf93b2007127088603fea786e507f35a18b578657d497bef33706f630daab",
+      "jsonSha256": "30fcf93b2007127088603fea786e507f35a18b578657d497bef33706f630daab",
+      "yamlSha256": "ac6c18b7fe0752600e7271c789d77eada5f6d9d624402eb20bb80e50c35e48b3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_mean_wet_bulb_temperature",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "30fcf93b2007127088603fea786e507f35a18b578657d497bef33706f630daab"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634960262967_38001",
+        "canonicalJsonSha256": "30fcf93b2007127088603fea786e507f35a18b578657d497bef33706f630daab",
+        "originalRepresentationSha256": "30fcf93b2007127088603fea786e507f35a18b578657d497bef33706f630daab",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_mean_wet_bulb_temperature"
+    },
+    {
+      "id": "hko-csdi-network-of-weather-stations-in-hong-kong",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-network-of-weather-stations-in-hong-kong",
+      "name": "Network of Weather Stations in Hong Kong",
+      "apiTitle": "Hong Kong Observatory \u2014 Network of Weather Stations in Hong Kong",
+      "json": "hko/csdi-network-of-weather-stations-in-hong-kong/openapi.json",
+      "yaml": "hko/csdi-network-of-weather-stations-in-hong-kong/openapi.yaml",
+      "file": "hko/csdi-network-of-weather-stations-in-hong-kong/openapi.json",
+      "sha256": "db3aaeb9752ebca48907fd89ecfdc0398cdf6565c3de1c1550b29adcfc6e72e4",
+      "jsonSha256": "db3aaeb9752ebca48907fd89ecfdc0398cdf6565c3de1c1550b29adcfc6e72e4",
+      "yamlSha256": "6afbf9d82e5880bc054a68c3c919d36401109e601decad8c2882eb21c99af309",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_network_of_weather_stations_in_hong_kong",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "db3aaeb9752ebca48907fd89ecfdc0398cdf6565c3de1c1550b29adcfc6e72e4"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1634995599372_15888",
+        "canonicalJsonSha256": "db3aaeb9752ebca48907fd89ecfdc0398cdf6565c3de1c1550b29adcfc6e72e4",
+        "originalRepresentationSha256": "db3aaeb9752ebca48907fd89ecfdc0398cdf6565c3de1c1550b29adcfc6e72e4",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_network_of_weather_stations_in_hong_kong"
+    },
+    {
+      "id": "hko-csdi-rainfall-in-the-past-hour-from-automatic-weather-station",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-rainfall-in-the-past-hour-from-automatic-weather-station",
+      "name": "Rainfall in the past hour from Automatic Weather Station",
+      "apiTitle": "Hong Kong Observatory \u2014 Rainfall in the past hour from Automatic Weather Station",
+      "json": "hko/csdi-rainfall-in-the-past-hour-from-automatic-weather-station/openapi.json",
+      "yaml": "hko/csdi-rainfall-in-the-past-hour-from-automatic-weather-station/openapi.yaml",
+      "file": "hko/csdi-rainfall-in-the-past-hour-from-automatic-weather-station/openapi.json",
+      "sha256": "6bb1f43718ec5cfeb4873b51267e4847df68adeb4c7407d446e3f1a915191f84",
+      "jsonSha256": "6bb1f43718ec5cfeb4873b51267e4847df68adeb4c7407d446e3f1a915191f84",
+      "yamlSha256": "3a1d24390d49c3ce6f6ac660f4a64f5c4791e9a3663534afa83e0474062122a5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_rainfall_in_the_past_hour_from_automatic_weather_station",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6bb1f43718ec5cfeb4873b51267e4847df68adeb4c7407d446e3f1a915191f84"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1666097185091_14408",
+        "canonicalJsonSha256": "6bb1f43718ec5cfeb4873b51267e4847df68adeb4c7407d446e3f1a915191f84",
+        "originalRepresentationSha256": "6bb1f43718ec5cfeb4873b51267e4847df68adeb4c7407d446e3f1a915191f84",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_rainfall_in_the_past_hour_from_automatic_weather_station"
+    },
+    {
+      "id": "hko-csdi-daily-maximum-and-mean-hong-kong-heat-index",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-maximum-and-mean-hong-kong-heat-index",
+      "name": "Daily maximum and mean Hong Kong Heat Index",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily maximum and mean Hong Kong Heat Index",
+      "json": "hko/csdi-daily-maximum-and-mean-hong-kong-heat-index/openapi.json",
+      "yaml": "hko/csdi-daily-maximum-and-mean-hong-kong-heat-index/openapi.yaml",
+      "file": "hko/csdi-daily-maximum-and-mean-hong-kong-heat-index/openapi.json",
+      "sha256": "b32cea5f067a2d68cfc572d4f3f9314059c4e1803079b5d70237c4ab73c92990",
+      "jsonSha256": "b32cea5f067a2d68cfc572d4f3f9314059c4e1803079b5d70237c4ab73c92990",
+      "yamlSha256": "d8d0d2ec471689669feff9f6d5e16ebf909069da3f93ef9a4db073433082537c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_maximum_and_mean_hong_kong_heat_index",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b32cea5f067a2d68cfc572d4f3f9314059c4e1803079b5d70237c4ab73c92990"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1666097966566_45632",
+        "canonicalJsonSha256": "b32cea5f067a2d68cfc572d4f3f9314059c4e1803079b5d70237c4ab73c92990",
+        "originalRepresentationSha256": "b32cea5f067a2d68cfc572d4f3f9314059c4e1803079b5d70237c4ab73c92990",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_maximum_and_mean_hong_kong_heat_index"
+    },
+    {
+      "id": "hko-csdi-daily-grass-minimum-temperature",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-grass-minimum-temperature",
+      "name": "Daily grass minimum temperature",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily grass minimum temperature",
+      "json": "hko/csdi-daily-grass-minimum-temperature/openapi.json",
+      "yaml": "hko/csdi-daily-grass-minimum-temperature/openapi.yaml",
+      "file": "hko/csdi-daily-grass-minimum-temperature/openapi.json",
+      "sha256": "ef7c9dacd6f62c8c8a47acda52e373a1a7119ca6580636cbbb0792910fc55cfb",
+      "jsonSha256": "ef7c9dacd6f62c8c8a47acda52e373a1a7119ca6580636cbbb0792910fc55cfb",
+      "yamlSha256": "a521aec02c206d16617a87795338e94da88db69ee0991bdd5063e4ebd3f4c39c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_grass_minimum_temperature",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ef7c9dacd6f62c8c8a47acda52e373a1a7119ca6580636cbbb0792910fc55cfb"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1698120125340_31822",
+        "canonicalJsonSha256": "ef7c9dacd6f62c8c8a47acda52e373a1a7119ca6580636cbbb0792910fc55cfb",
+        "originalRepresentationSha256": "ef7c9dacd6f62c8c8a47acda52e373a1a7119ca6580636cbbb0792910fc55cfb",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_grass_minimum_temperature"
+    },
+    {
+      "id": "hko-csdi-daily-mean-sea-temperature",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-mean-sea-temperature",
+      "name": "Daily mean sea temperature",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily mean sea temperature",
+      "json": "hko/csdi-daily-mean-sea-temperature/openapi.json",
+      "yaml": "hko/csdi-daily-mean-sea-temperature/openapi.yaml",
+      "file": "hko/csdi-daily-mean-sea-temperature/openapi.json",
+      "sha256": "3f084e4aaf8b74a81be40739d4510a7c3abff15e283cc5b7ddf1ede2271593b8",
+      "jsonSha256": "3f084e4aaf8b74a81be40739d4510a7c3abff15e283cc5b7ddf1ede2271593b8",
+      "yamlSha256": "5ff0c70290ea70cd2cefa9342967e3bb5403310f35293d398bd6ef3f92cdd61f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_mean_sea_temperature",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3f084e4aaf8b74a81be40739d4510a7c3abff15e283cc5b7ddf1ede2271593b8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1698120226004_79920",
+        "canonicalJsonSha256": "3f084e4aaf8b74a81be40739d4510a7c3abff15e283cc5b7ddf1ede2271593b8",
+        "originalRepresentationSha256": "3f084e4aaf8b74a81be40739d4510a7c3abff15e283cc5b7ddf1ede2271593b8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_mean_sea_temperature"
+    },
+    {
+      "id": "hko-csdi-daily-number-of-hours-of-reduced-visibility",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-number-of-hours-of-reduced-visibility",
+      "name": "Daily number of hours of reduced visibility",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily number of hours of reduced visibility",
+      "json": "hko/csdi-daily-number-of-hours-of-reduced-visibility/openapi.json",
+      "yaml": "hko/csdi-daily-number-of-hours-of-reduced-visibility/openapi.yaml",
+      "file": "hko/csdi-daily-number-of-hours-of-reduced-visibility/openapi.json",
+      "sha256": "16554c3633aceec58617e15a169d1ff43414dbf092b6eb76bf1bbf4f44d7038a",
+      "jsonSha256": "16554c3633aceec58617e15a169d1ff43414dbf092b6eb76bf1bbf4f44d7038a",
+      "yamlSha256": "59cbb04d6d62d27df2d2fa8dca600b95f7c27593634004c9e56a978f4b44cf33",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_number_of_hours_of_reduced_visibility",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "16554c3633aceec58617e15a169d1ff43414dbf092b6eb76bf1bbf4f44d7038a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1698120368052_69557",
+        "canonicalJsonSha256": "16554c3633aceec58617e15a169d1ff43414dbf092b6eb76bf1bbf4f44d7038a",
+        "originalRepresentationSha256": "16554c3633aceec58617e15a169d1ff43414dbf092b6eb76bf1bbf4f44d7038a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_number_of_hours_of_reduced_visibility"
+    },
+    {
+      "id": "hko-csdi-hourly-ambient-gamma-radiation-level-in-hong-kong",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-hourly-ambient-gamma-radiation-level-in-hong-kong",
+      "name": "Hourly ambient gamma radiation level in Hong Kong",
+      "apiTitle": "Hong Kong Observatory \u2014 Hourly ambient gamma radiation level in Hong Kong",
+      "json": "hko/csdi-hourly-ambient-gamma-radiation-level-in-hong-kong/openapi.json",
+      "yaml": "hko/csdi-hourly-ambient-gamma-radiation-level-in-hong-kong/openapi.yaml",
+      "file": "hko/csdi-hourly-ambient-gamma-radiation-level-in-hong-kong/openapi.json",
+      "sha256": "a9ebbf8de4dc46cbdd55b67d008d3ef6d48ff17abc7416ca62794dfc05d25bb9",
+      "jsonSha256": "a9ebbf8de4dc46cbdd55b67d008d3ef6d48ff17abc7416ca62794dfc05d25bb9",
+      "yamlSha256": "9e8c4f3660c5aeb500905a1d3ce8cdcf711695c4e5f346d1507ab9fb8d3734e3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_hourly_ambient_gamma_radiation_level_in_hong_kong",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a9ebbf8de4dc46cbdd55b67d008d3ef6d48ff17abc7416ca62794dfc05d25bb9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1728440162898_50333",
+        "canonicalJsonSha256": "a9ebbf8de4dc46cbdd55b67d008d3ef6d48ff17abc7416ca62794dfc05d25bb9",
+        "originalRepresentationSha256": "a9ebbf8de4dc46cbdd55b67d008d3ef6d48ff17abc7416ca62794dfc05d25bb9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_hourly_ambient_gamma_radiation_level_in_hong_kong"
+    },
+    {
+      "id": "hko-csdi-daily-total-cloud-to-cloud-lightning-count-over-hong-kong-territory",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-total-cloud-to-cloud-lightning-count-over-hong-kong-territory",
+      "name": "Daily total cloud-to-cloud lightning count over Hong Kong territory",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily total cloud-to-cloud lightning count over Hong Kong territory",
+      "json": "hko/csdi-daily-total-cloud-to-cloud-lightning-count-over-hong-kong-territory/openapi.json",
+      "yaml": "hko/csdi-daily-total-cloud-to-cloud-lightning-count-over-hong-kong-territory/openapi.yaml",
+      "file": "hko/csdi-daily-total-cloud-to-cloud-lightning-count-over-hong-kong-territory/openapi.json",
+      "sha256": "3094feabae3b7046e17f9c2ff3b694faa751374f18f66973be8f7eb6219d4ad6",
+      "jsonSha256": "3094feabae3b7046e17f9c2ff3b694faa751374f18f66973be8f7eb6219d4ad6",
+      "yamlSha256": "d9b71003943134ed1c8d7ff0758d7f396cbeab9d8b20ccdd2e00e244cc613d9f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_total_cloud_to_cloud_lightning_count_over_hong_kong_territory",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3094feabae3b7046e17f9c2ff3b694faa751374f18f66973be8f7eb6219d4ad6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1730254406552_99567",
+        "canonicalJsonSha256": "3094feabae3b7046e17f9c2ff3b694faa751374f18f66973be8f7eb6219d4ad6",
+        "originalRepresentationSha256": "3094feabae3b7046e17f9c2ff3b694faa751374f18f66973be8f7eb6219d4ad6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_total_cloud_to_cloud_lightning_count_over_hong_kong_territory"
+    },
+    {
+      "id": "hko-csdi-daily-total-cloud-to-ground-lightning-count-over-hong-kong-territory",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-daily-total-cloud-to-ground-lightning-count-over-hong-kong-territory",
+      "name": "Daily total cloud-to-ground lightning count over Hong Kong territory",
+      "apiTitle": "Hong Kong Observatory \u2014 Daily total cloud-to-ground lightning count over Hong Kong territory",
+      "json": "hko/csdi-daily-total-cloud-to-ground-lightning-count-over-hong-kong-territory/openapi.json",
+      "yaml": "hko/csdi-daily-total-cloud-to-ground-lightning-count-over-hong-kong-territory/openapi.yaml",
+      "file": "hko/csdi-daily-total-cloud-to-ground-lightning-count-over-hong-kong-territory/openapi.json",
+      "sha256": "41395364d45787ee9f582133644333c027b7dff996a5454cd8384780394654cc",
+      "jsonSha256": "41395364d45787ee9f582133644333c027b7dff996a5454cd8384780394654cc",
+      "yamlSha256": "3bcad4e4119d27ae23c78a53a04405ba9e8d0e02f42eef5de385fd01dbe9bf7e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_daily_total_cloud_to_ground_lightning_count_over_hong_kong_territory",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "41395364d45787ee9f582133644333c027b7dff996a5454cd8384780394654cc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1730255054388_94554",
+        "canonicalJsonSha256": "41395364d45787ee9f582133644333c027b7dff996a5454cd8384780394654cc",
+        "originalRepresentationSha256": "41395364d45787ee9f582133644333c027b7dff996a5454cd8384780394654cc",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_daily_total_cloud_to_ground_lightning_count_over_hong_kong_territory"
+    },
+    {
+      "id": "hko-csdi-monthly-total-potential-evapotranspiration",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-monthly-total-potential-evapotranspiration",
+      "name": "Monthly total potential evapotranspiration",
+      "apiTitle": "Hong Kong Observatory \u2014 Monthly total potential evapotranspiration",
+      "json": "hko/csdi-monthly-total-potential-evapotranspiration/openapi.json",
+      "yaml": "hko/csdi-monthly-total-potential-evapotranspiration/openapi.yaml",
+      "file": "hko/csdi-monthly-total-potential-evapotranspiration/openapi.json",
+      "sha256": "1771f3750ee9dfb13d7df3f0c228e39d1fc71060968998486b1da32877cc7ce3",
+      "jsonSha256": "1771f3750ee9dfb13d7df3f0c228e39d1fc71060968998486b1da32877cc7ce3",
+      "yamlSha256": "a805065bc63011d69c26b538c1ce34b4035a00a0ec1e1c3ee5b313dead31f5b7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_monthly_total_potential_evapotranspiration",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1771f3750ee9dfb13d7df3f0c228e39d1fc71060968998486b1da32877cc7ce3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1730255150971_35617",
+        "canonicalJsonSha256": "1771f3750ee9dfb13d7df3f0c228e39d1fc71060968998486b1da32877cc7ce3",
+        "originalRepresentationSha256": "1771f3750ee9dfb13d7df3f0c228e39d1fc71060968998486b1da32877cc7ce3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_monthly_total_potential_evapotranspiration"
+    },
+    {
+      "id": "hko-csdi-hong-kong-heat-index",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-hong-kong-heat-index",
+      "name": "Hong Kong Heat Index",
+      "apiTitle": "Hong Kong Observatory \u2014 Hong Kong Heat Index",
+      "json": "hko/csdi-hong-kong-heat-index/openapi.json",
+      "yaml": "hko/csdi-hong-kong-heat-index/openapi.yaml",
+      "file": "hko/csdi-hong-kong-heat-index/openapi.json",
+      "sha256": "f244cd3e73e2abc4131d9ae14940cbdd4d45946162e1f059c0a2c819834660be",
+      "jsonSha256": "f244cd3e73e2abc4131d9ae14940cbdd4d45946162e1f059c0a2c819834660be",
+      "yamlSha256": "3c5e015f6f04ac0ff4a72127d481698cd3954f935951041f7f16db62b427ceca",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_hong_kong_heat_index",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f244cd3e73e2abc4131d9ae14940cbdd4d45946162e1f059c0a2c819834660be"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1787711252202_42844",
+        "canonicalJsonSha256": "f244cd3e73e2abc4131d9ae14940cbdd4d45946162e1f059c0a2c819834660be",
+        "originalRepresentationSha256": "f244cd3e73e2abc4131d9ae14940cbdd4d45946162e1f059c0a2c819834660be",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_hong_kong_heat_index"
+    },
+    {
+      "id": "hko-csdi-wet-bulb-globe-temperature",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "csdi-wet-bulb-globe-temperature",
+      "name": "Wet Bulb Globe Temperature",
+      "apiTitle": "Hong Kong Observatory \u2014 Wet Bulb Globe Temperature",
+      "json": "hko/csdi-wet-bulb-globe-temperature/openapi.json",
+      "yaml": "hko/csdi-wet-bulb-globe-temperature/openapi.yaml",
+      "file": "hko/csdi-wet-bulb-globe-temperature/openapi.json",
+      "sha256": "97495e4b471208b1c3c2615048cac8f2f4752cee06f15a10d20c07f90b57c291",
+      "jsonSha256": "97495e4b471208b1c3c2615048cac8f2f4752cee06f15a10d20c07f90b57c291",
+      "yamlSha256": "f88b0bb9d7a6ec86adc7263e06ebaf5fa27f76ba60b4439bb73840bf2e1b2069",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_wet_bulb_globe_temperature",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "97495e4b471208b1c3c2615048cac8f2f4752cee06f15a10d20c07f90b57c291"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hko_rcd_1787711553255_13100",
+        "canonicalJsonSha256": "97495e4b471208b1c3c2615048cac8f2f4752cee06f15a10d20c07f90b57c291",
+        "originalRepresentationSha256": "97495e4b471208b1c3c2615048cac8f2f4752cee06f15a10d20c07f90b57c291",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_wet_bulb_globe_temperature"
+    },
+    {
+      "id": "hko-tropical-cyclone-track-information",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "tropical-cyclone-track-information",
+      "name": "Tropical cyclone track information",
+      "apiTitle": "Hong Kong Observatory Tropical Cyclone Track Information",
+      "json": "hko/tropical-cyclone-track-information/openapi.json",
+      "yaml": "hko/tropical-cyclone-track-information/openapi.yaml",
+      "file": "hko/tropical-cyclone-track-information/openapi.json",
+      "sha256": "32f804340c884b073f974b470b7a8cae17176e20e2dec82f1fdb8c4f44bfbdf7",
+      "jsonSha256": "32f804340c884b073f974b470b7a8cae17176e20e2dec82f1fdb8c4f44bfbdf7",
+      "yamlSha256": "8db32e1ec34f79582498c8917f24de802f1e003e120640c2809f2b44485b7b69",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "tropical_cyclone_track_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "32f804340c884b073f974b470b7a8cae17176e20e2dec82f1fdb8c4f44bfbdf7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.weather.gov.hk/wxinfo/currwx/HKO_TCTrackInfo_DataDictionary_en.pdf",
+        "canonicalJsonSha256": "32f804340c884b073f974b470b7a8cae17176e20e2dec82f1fdb8c4f44bfbdf7",
+        "originalRepresentationSha256": "3259e3c90b2c132d55bf32c17c5a9256008cba2afad4156e9e35513e7f376833",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "tropical_cyclone_track_information"
+    },
+    {
+      "id": "hko-tropical-cyclone-best-track-data-post-analysis",
+      "publisherKey": "hko",
+      "publisherName": "Hong Kong Observatory",
+      "familyKey": "tropical-cyclone-best-track-data-post-analysis",
+      "name": "Tropical cyclone best track data (post analysis)",
+      "apiTitle": "Tropical Cyclone Best Track Data (Post-analysis)",
+      "json": "hko/tropical-cyclone-best-track-data-post-analysis/openapi.json",
+      "yaml": "hko/tropical-cyclone-best-track-data-post-analysis/openapi.yaml",
+      "file": "hko/tropical-cyclone-best-track-data-post-analysis/openapi.json",
+      "sha256": "32209f2258f09f16814d9b80f75ba7115df3cad928a9554bbb6c0a1e45f25b19",
+      "jsonSha256": "32209f2258f09f16814d9b80f75ba7115df3cad928a9554bbb6c0a1e45f25b19",
+      "yamlSha256": "d92278b024d3517555151a1b11cfd818539dbb74a0ed7e4671ebde7432d9d8f6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "tropical_cyclone_best_track_data_post_analysis",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "32209f2258f09f16814d9b80f75ba7115df3cad928a9554bbb6c0a1e45f25b19"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 41,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.weather.gov.hk/weatherAPI/doc/data_dictionary_tropical_cyclone_best_track_data_post_analysis.pdf",
+        "canonicalJsonSha256": "32209f2258f09f16814d9b80f75ba7115df3cad928a9554bbb6c0a1e45f25b19",
+        "originalRepresentationSha256": "6b955248ed7b2056400e15142a426c2673db6ae6a823f5c1189b9220fd2be151",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "tropical_cyclone_best_track_data_post_analysis"
+    }
+  ]
+}

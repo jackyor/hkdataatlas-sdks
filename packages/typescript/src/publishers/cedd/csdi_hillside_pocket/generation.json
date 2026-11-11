@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cedd-csdi-hillside-pocket",
+  "sourceSha256": "9063b33f0d65719bb22c4f35bd77fbf56be116030d9dbba3a68181a8a8d8125f",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cedd_rcd_1636520449775_32820/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636520449775_32820/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636520449775_32820/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "dsd-csdi-drainage-records-service-10",
+  "sourceSha256": "1e9c9def9a3b2265e496f2824026220f0ea5da8d9f523d918a84db602f0a469a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/dsd_rcd_1629267205231_66675/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/dsd_rcd_1629267205231_66675/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/dsd_rcd_1629267205231_66675/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,1007 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Town Planning Board — Planning Applications under Sections 12A, 16 and 17 and planning appeals under Section 17B of the Town Planning Ordinance",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "AMEND_PAST",
+                "value": 0
+              },
+              "choice2": {
+                "summary": "AMEND_CRT",
+                "value": 1
+              },
+              "choice3": {
+                "summary": "APP_PAST",
+                "value": 2
+              },
+              "choice4": {
+                "summary": "APP_CRT",
+                "value": 3
+              }
+            },
+            "x-choice-count": 4
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://www.ozp.tpb.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer?f=pjson",
+            "sha256": "b2438f3035d909fefb82fcb8d9345ecd85a227aa43c616b4091f378de1787fe6",
+            "httpStatus": 200,
+            "contentType": "text/plain; charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/0?f=pjson",
+            "sha256": "fac81c5371e076538b30365f28ba973a5c00d0fff4b60cb4bf3c20ab0e0ca20c",
+            "httpStatus": 200,
+            "contentType": "text/plain; charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/1?f=pjson",
+            "sha256": "980688c6b9d328f997212ce1098cf1cc82327c22ea5b7ca0b7637609b1f41d71",
+            "httpStatus": 200,
+            "contentType": "text/plain; charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/2?f=pjson",
+            "sha256": "a01a95ab2798eebdc0a1e9f62ff80cd396059fa9a08d72c5e3fadf5c58f225f9",
+            "httpStatus": 200,
+            "contentType": "text/plain; charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/3?f=pjson",
+            "sha256": "19f6ff5c2c680b9c72d4ad82d40e96b26cd656a69ba80126235e7d079a4dd398",
+            "httpStatus": 200,
+            "contentType": "text/plain; charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "CASE_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Application case number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "FI_NO": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Further information number",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "DPO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District planning office",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "SCHM_CODE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OZP scheme code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "OZP_PLN_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OZP plan number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "STATUS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Case status code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "PROP_AMEND": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Proposed Amendment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "LOCAT_ADDR": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Location address of application",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "S12A_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Latest s.12A decision code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "S12A_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Date of latest s.12A latest decision",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "LST_UPLOAD": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "Last upload date"
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Perimeter in meters",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Area in sq. meters",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "Feature ID",
+            "type": "integer"
+          },
+          "CASE_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Application case number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "FI_NO": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Further information number",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "DPO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District planning office",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "SCHM_CODE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OZP scheme code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "OZP_PLN_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OZP plan number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "STATUS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Case status code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "PROP_AMEND": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Proposed Amendment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "LOCAT_ADDR": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Location address of application",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "S12A_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Latest s.12A decision code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "S12A_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Date of latest s.12A latest decision",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "LST_UPLOAD": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "Last upload date"
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Perimeter in meters",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Area in sq. meters",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer2Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "Feature ID",
+            "type": "integer"
+          },
+          "CASE_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Application case number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "TYPE_CODE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Application type code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "FI_NO": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Further information number",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "DPO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District planning office",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "SCHM_CODE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OZP scheme code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "OZP_PLN_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OZP plan number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "STATUS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Case status code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "APLY_USE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Applied use",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "LOCAT_ADDR": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Location address of application",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "APPEAL_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Appeal number",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "S16_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Latest s.16 decision code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "S16_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Date of latest s.16 decision",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "S17_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Latest s.17 decision code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "S17_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Date of latest s.17 decision",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "APL_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Latest s.17B decision code",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "APL_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Date of latest s.17B decision",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "LST_UPLOAD": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "Last upload date"
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Perimeter in meters",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Area in sq. meters",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer3Attributes": {
+        "type": "object",
+        "properties": {
+          "OZP_PLN_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OZP_PLN_NO",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "CASE_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CASE_NO",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "TYPE_CODE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE_CODE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "FI_NO": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FI_NO",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "DPO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "DPO",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "SCHM_CODE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SCHM_CODE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "STATUS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "STATUS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "APLY_USE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "APLY_USE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "LOCAT_ADDR": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LOCAT_ADDR",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "APPEAL_NO": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "APPEAL_NO",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "S16_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "S16_DECI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "S16_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "S16_D_DATE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "S17_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "S17_DECI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "S17_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "S17_D_DATE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "APL_DECI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "APL_DECI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "APL_D_DATE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "APL_D_DATE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "LST_UPLOAD": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LST_UPLOAD"
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape.STArea()",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape.STLength()",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "AMEND_PAST",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1,
+      "title": "AMEND_CRT",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 2,
+      "title": "APP_PAST",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 3,
+      "title": "APP_CRT",
+      "protocol": "arcgis"
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=7fc6e859-48a7-5a94-bb71-b1c08145d7fd",
+      "sha256": "40740d17f61a37e6487d75cbbeb2b009e4f1f55b5d2f5fe60f3513fa1185cd95",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer?f=pjson",
+      "sha256": "b2438f3035d909fefb82fcb8d9345ecd85a227aa43c616b4091f378de1787fe6",
+      "httpStatus": 200,
+      "contentType": "text/plain; charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/0?f=pjson",
+      "sha256": "fac81c5371e076538b30365f28ba973a5c00d0fff4b60cb4bf3c20ab0e0ca20c",
+      "httpStatus": 200,
+      "contentType": "text/plain; charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/1?f=pjson",
+      "sha256": "980688c6b9d328f997212ce1098cf1cc82327c22ea5b7ca0b7637609b1f41d71",
+      "httpStatus": 200,
+      "contentType": "text/plain; charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/2?f=pjson",
+      "sha256": "a01a95ab2798eebdc0a1e9f62ff80cd396059fa9a08d72c5e3fadf5c58f225f9",
+      "httpStatus": 200,
+      "contentType": "text/plain; charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://www.ozp.tpb.gov.hk/arcgis2/rest/services/DATA/APP_AMEND_CSDI/FeatureServer/3?f=pjson",
+      "sha256": "19f6ff5c2c680b9c72d4ad82d40e96b26cd656a69ba80126235e7d079a4dd398",
+      "httpStatus": 200,
+      "contentType": "text/plain; charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 6
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

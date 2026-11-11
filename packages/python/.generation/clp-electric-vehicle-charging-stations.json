@@ -1,0 +1,35 @@
+{
+  "sourceId": "clp-electric-vehicle-charging-stations",
+  "publisherKey": "clp",
+  "family": "electric_vehicle_charging_stations",
+  "status": "generated",
+  "key": "69083a170dfbd191fe6149f5660dcc2017b76e34e702e12aff0771448fe305b0",
+  "sourceSha256": "6e3fc81a057577e9a2c185d90fcecb246c54b1170626aecfb1c56155c617302b",
+  "derivedInputSha256": "6e3fc81a057577e9a2c185d90fcecb246c54b1170626aecfb1c56155c617302b",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/evcharger/list",
+      "operationId": "retrieveElectricVehicleChargingStationsJsonEvchargerList",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/clp-electric-vehicle-charging-stations.log",
+  "outputs": {
+    "__init__.py": "eb6f840e62a23c1538402b81fa5f7fc48447f7fc00c0320d4635fb4e88470023",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/retrieve_electric_vehicle_charging_stations_json_evcharger_list.py": "8bc51ca5cb09cef9d6fa6a1128739c60972efb56c77db7c2576c983a0f0c5ee1",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "f9ec3b82b79321c1885ebdabea5ae2a56fc822b10fe29b31e52386a1c28890a6",
+    "models/charger.py": "8e31e126ecbd4678a7671aadbe8901d7aeb369b6951dfb6c36cf27260d46b075",
+    "models/data.py": "a6297efc17d4fc5e956acc060908dcb2cb56f6238e778c47766dac8cea697b73",
+    "models/geo_location_result.py": "3c8c50de74667592c1626f26db96df595b22f4e84c0387d28df397ce9b5c315e",
+    "models/sample_response.py": "a63baec6b0e9bf70600a065c7154518a40db760f2c0f9870280541f81ab90857",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

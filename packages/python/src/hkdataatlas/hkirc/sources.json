@@ -1,0 +1,64 @@
+{
+  "publisherKey": "hkirc",
+  "publisherName": "Hong Kong Internet Registration Corporation Limited",
+  "sources": [
+    {
+      "id": "hkirc-number-of-registered-hk-and-domain-names",
+      "publisherKey": "hkirc",
+      "publisherName": "Hong Kong Internet Registration Corporation Limited",
+      "familyKey": "number-of-registered-hk-and-domain-names",
+      "name": "Number of Registered .hk and .\u9999\u6e2f Domain Names",
+      "apiTitle": "Number of Registered .hk and .\u9999\u6e2f Domain Names",
+      "json": "hkirc/number-of-registered-hk-and-domain-names/openapi.json",
+      "yaml": "hkirc/number-of-registered-hk-and-domain-names/openapi.yaml",
+      "file": "hkirc/number-of-registered-hk-and-domain-names/openapi.json",
+      "sha256": "d01244a6a0b5842c56ac73a68786d54fa0deb43ef7654589c33e630746caad1e",
+      "jsonSha256": "d01244a6a0b5842c56ac73a68786d54fa0deb43ef7654589c33e630746caad1e",
+      "yamlSha256": "86bf7c02c3a587ada90e9e3e0c04cade55714f84114bfd2860f1edd922f222ba",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "number_of_registered_hk_and_domain_names",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d01244a6a0b5842c56ac73a68786d54fa0deb43ef7654589c33e630746caad1e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.hkirc.hk/datagovhk/DataDictionary_en.pdf",
+        "canonicalJsonSha256": "d01244a6a0b5842c56ac73a68786d54fa0deb43ef7654589c33e630746caad1e",
+        "originalRepresentationSha256": "237282c7f284e72a7d040b0b6ec07c4214a702a8f67582acafd2b92d1ff8df4a",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "number_of_registered_hk_and_domain_names"
+    }
+  ]
+}

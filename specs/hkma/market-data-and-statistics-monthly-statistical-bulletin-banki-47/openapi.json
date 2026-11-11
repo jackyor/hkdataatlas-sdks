@@ -1,0 +1,256 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Capital adequacy",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/banking/capital-adequacy",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/banking",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/capital-adequacy": {
+      "get": {
+        "summary": "Retrieve data of Capital adequacy",
+        "parameters": [
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "end_of_quarter": {
+            "type": "string",
+            "description": "Reportingperiod for end of quarter. Publisher OpenAPIlabels a full date, but the retained officialresponse returns YYYY-MM (for example2026-06). A plain string preserves both monthlyperiods and full dates without fabricating a day or adding an undocumented lexicalpattern."
+          },
+          "com_eqt_t1cap_ratio": {
+            "type": "number"
+          },
+          "t1cap_ratio": {
+            "type": "number"
+          },
+          "total_cap_ratio": {
+            "type": "number"
+          },
+          "leverage_ratio": {
+            "type": "number"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  },
+  "x-source-evidence": {
+    "url": "https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/T0314-swagger.json",
+    "currentPublisherDocumentSha256": "49e04c3111d233d3af234f014f256eea9befe3cd803862b5c9d17b80f6c10acd",
+    "originalJsonSha256": "49e04c3111d233d3af234f014f256eea9befe3cd803862b5c9d17b80f6c10acd",
+    "classification": "publisher_contract_and_observed_response_compatibility_derivative",
+    "change": "Incorrect full-date format removed; reportingperiod remains a plain string without a fabricatedday",
+    "retainedOfficialResponseSha256": [
+      "848a0bf71cdcb9da01006f23245b54b0b644aeaf353b012f12b4096dbf0b0292"
+    ],
+    "limitation": "Observed response representations establish bounded compatibility; universal source completeness is not asserted."
+  }
+}

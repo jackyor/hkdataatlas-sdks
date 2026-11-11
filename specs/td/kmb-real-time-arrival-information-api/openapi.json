@@ -1,0 +1,1203 @@
+{
+  "components": {
+    "parameters": {
+      "StopId": {
+        "description": "16-character representation of a bus stop. Case-sensitive.",
+        "example": "A3ADFCDF8487ADB9",
+        "in": "path",
+        "name": "stop_id",
+        "required": true,
+        "schema": {
+          "maxLength": 16,
+          "minLength": 16,
+          "type": "string"
+        }
+      }
+    },
+    "responses": {
+      "InternalServerError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiExecutionError"
+            }
+          }
+        },
+        "description": "Internal Server Error"
+      },
+      "InvalidParameters": {
+        "content": {
+          "application/json": {
+            "example": {
+              "code": "422",
+              "message": "Invalid/Missing parameter(s)"
+            },
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "description": "See message in the response body. Error response uses the same HTTP response code in the JSON body and includes an error message."
+      }
+    },
+    "schemas": {
+      "ApiExecutionError": {
+        "description": "Common API execution error JSON body from publisher specification section11: a corresponding HTTP response code and error message. No specific HTTP500 example is documented.",
+        "properties": {
+          "code": {
+            "description": "Corresponding HTTP response code; the publisher common error example represents code as a string.",
+            "type": "string"
+          },
+          "message": {
+            "description": "Error message.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Error": {
+        "properties": {
+          "code": {
+            "description": "Response code, represented as a string in the documented example.",
+            "example": "422",
+            "type": "string"
+          },
+          "message": {
+            "description": "Error message.",
+            "example": "Invalid/Missing parameter(s)",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Eta": {
+        "properties": {
+          "co": {
+            "description": "Bus company; documented value is KMB.",
+            "example": "KMB",
+            "type": "string"
+          },
+          "data_timestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "dest_en": {
+            "description": "Route destination in English.",
+            "type": "string"
+          },
+          "dest_sc": {
+            "description": "Route destination in Simplified Chinese.",
+            "type": "string"
+          },
+          "dest_tc": {
+            "description": "Route destination in Traditional Chinese.",
+            "type": "string"
+          },
+          "dir": {
+            "description": "Route direction: I is inbound and O is outbound.",
+            "enum": [
+              "I",
+              "O"
+            ],
+            "example": "O",
+            "type": "string"
+          },
+          "eta": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Timestamp"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Next ETA timestamp, or null when no ETA is available, as shown for a route with limited operating days."
+          },
+          "eta_seq": {
+            "description": "Sequence number of ETA.",
+            "example": 1,
+            "type": "integer"
+          },
+          "rmk_en": {
+            "description": "ETA remark in English.",
+            "examples": [
+              "",
+              "Scheduled Bus",
+              "This route only operates on Sundays and Public Holidays"
+            ],
+            "type": "string"
+          },
+          "rmk_sc": {
+            "description": "ETA remark in Simplified Chinese.",
+            "examples": [
+              "",
+              "原定班次"
+            ],
+            "type": "string"
+          },
+          "rmk_tc": {
+            "description": "ETA remark in Traditional Chinese.",
+            "examples": [
+              "",
+              "原定班次"
+            ],
+            "type": "string"
+          },
+          "route": {
+            "description": "Bus route number.",
+            "example": "40",
+            "type": "string"
+          },
+          "seq": {
+            "description": "Stop sequence number of a bus route.",
+            "example": 7,
+            "type": "integer"
+          },
+          "service_type": {
+            "description": "Service type. The data dictionary declares String, whereas ETA API examples use both string and integer representations.",
+            "examples": [
+              1,
+              "1"
+            ],
+            "type": [
+              "integer",
+              "string"
+            ]
+          },
+          "stop": {
+            "description": "ID of a bus stop.",
+            "example": "A60AE774B09A5E44",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "EtaResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Eta"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "maxProperties": 0,
+                    "type": "object"
+                  }
+                ],
+                "description": "The API examples show an array of records. The companion dictionary sections2.3/2.4 also explicitly say an empty data object denotes unavailable data; both documented representations are permitted."
+              },
+              "type": {
+                "const": "ETA"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "ResponseEnvelope": {
+        "properties": {
+          "generated_timestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "type": {
+            "description": "Identifier of the API response.",
+            "type": "string"
+          },
+          "version": {
+            "description": "Version number of the returned JSON, in major.minor format.",
+            "example": "1.0",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Route": {
+        "description": "An empty data object denotes data not available.",
+        "properties": {
+          "bound": {
+            "description": "Route direction: I is inbound and O is outbound.",
+            "enum": [
+              "I",
+              "O"
+            ],
+            "example": "O",
+            "type": "string"
+          },
+          "co": {
+            "description": "Bus company. The value is documented as KMB, including bus route services of KMB and LWB.",
+            "example": "KMB",
+            "type": "string"
+          },
+          "data_timestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "dest_en": {
+            "description": "Route destination in English.",
+            "type": "string"
+          },
+          "dest_sc": {
+            "description": "Route destination in Simplified Chinese.",
+            "type": "string"
+          },
+          "dest_tc": {
+            "description": "Route destination in Traditional Chinese.",
+            "type": "string"
+          },
+          "orig_en": {
+            "description": "Route origin in English.",
+            "type": "string"
+          },
+          "orig_sc": {
+            "description": "Route origin in Simplified Chinese.",
+            "type": "string"
+          },
+          "orig_tc": {
+            "description": "Route origin in Traditional Chinese.",
+            "type": "string"
+          },
+          "route": {
+            "description": "Bus route number; route services of KMB and LWB are included.",
+            "example": "74B",
+            "type": "string"
+          },
+          "service_type": {
+            "description": "Service type of the bus route.",
+            "example": "1",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RouteEtaResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Eta"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "maxProperties": 0,
+                    "type": "object"
+                  }
+                ],
+                "description": "The API examples show an array of records. The companion dictionary sections2.3/2.4 also explicitly say an empty data object denotes unavailable data; both documented representations are permitted."
+              },
+              "type": {
+                "const": "RouteETA"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "RouteListResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "items": {
+                  "$ref": "#/components/schemas/Route"
+                },
+                "type": "array"
+              },
+              "type": {
+                "const": "RouteList"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "RouteResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "$ref": "#/components/schemas/Route"
+              },
+              "type": {
+                "const": "Route"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "RouteStop": {
+        "properties": {
+          "bound": {
+            "description": "Route direction: I is inbound and O is outbound.",
+            "enum": [
+              "I",
+              "O"
+            ],
+            "example": "O",
+            "type": "string"
+          },
+          "co": {
+            "description": "Bus company; documented value is KMB.",
+            "example": "KMB",
+            "type": "string"
+          },
+          "data_timestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "route": {
+            "description": "Bus route number.",
+            "example": "1A",
+            "type": "string"
+          },
+          "seq": {
+            "description": "Stop sequence number of a bus route. The publisher declares Numeric and shows numeric examples. One retained documented route-stop response contains 35 string seq values; this observed runtime discrepancy is represented alongside the declared integer type, without claiming a universal encoding.",
+            "example": 1,
+            "type": [
+              "integer",
+              "string"
+            ]
+          },
+          "service_type": {
+            "description": "Service type of the bus route. The dictionary declares String; ETA examples elsewhere show numeric service_type values.",
+            "example": "1",
+            "type": "string"
+          },
+          "stop": {
+            "description": "ID of a bus stop.",
+            "example": "A3ADFCDF8487ADB9",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "RouteStopListResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/RouteStop"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "maxProperties": 0,
+                    "type": "object"
+                  }
+                ],
+                "description": "The API examples show an array of records. The companion dictionary sections2.3/2.4 also explicitly say an empty data object denotes unavailable data; both documented representations are permitted."
+              },
+              "type": {
+                "const": "RouteStopList"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "RouteStopResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/RouteStop"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "maxProperties": 0,
+                    "type": "object"
+                  }
+                ],
+                "description": "The API examples show an array of records. The companion dictionary sections2.3/2.4 also explicitly say an empty data object denotes unavailable data; both documented representations are permitted."
+              },
+              "type": {
+                "const": "RouteStop"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "Stop": {
+        "description": "The data dictionary declares latitude and longitude as strings; API examples also represent them as JSON numbers. Both representations are allowed.",
+        "properties": {
+          "data_timestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "lat": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "description": "Latitude in decimal degrees using WGS84. The data dictionary declares String, while examples show both strings and numbers."
+          },
+          "long": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "description": "Longitude in decimal degrees using WGS84. The data dictionary declares String, while examples show both strings and numbers."
+          },
+          "name_en": {
+            "description": "Bus stop name in English.",
+            "type": "string"
+          },
+          "name_sc": {
+            "description": "Bus stop name in Simplified Chinese.",
+            "type": "string"
+          },
+          "name_tc": {
+            "description": "Bus stop name in Traditional Chinese.",
+            "type": "string"
+          },
+          "stop": {
+            "description": "ID of a bus stop.",
+            "example": "A3ADFCDF8487ADB9",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "StopEtaResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Eta"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "maxProperties": 0,
+                    "type": "object"
+                  }
+                ],
+                "description": "The API examples show an array of records. The companion dictionary sections2.3/2.4 also explicitly say an empty data object denotes unavailable data; both documented representations are permitted."
+              },
+              "type": {
+                "const": "StopETA"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "StopListResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "items": {
+                  "$ref": "#/components/schemas/Stop"
+                },
+                "type": "array"
+              },
+              "type": {
+                "const": "StopList"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "StopResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ResponseEnvelope"
+          },
+          {
+            "properties": {
+              "data": {
+                "$ref": "#/components/schemas/Stop"
+              },
+              "type": {
+                "const": "Stop"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "Timestamp": {
+        "description": "Date-time timestamp with time zone in ISO 8601 format.",
+        "examples": [
+          "2020-11-29T11:40:48+08:00",
+          "2021-03-18T13:39:46+08:00"
+        ],
+        "format": "date-time",
+        "type": "string"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API specification",
+    "url": "https://data.etabus.gov.hk/datagovhk/kmb_eta_api_specification.pdf"
+  },
+  "info": {
+    "description": "API specifications version 1.05, dated 23 October 2024. Returns KMB route and stop information and estimated arrival information. Static route, stop, and route-stop APIs are updated daily at 05:00. The documentation does not specify authentication. Response examples are illustrative and do not establish complete response contracts.",
+    "title": "KMB Real-time Arrival Information API",
+    "version": "1.05"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/v1/transport/kmb/eta/{stop_id}/{route}/{service_type}": {
+      "get": {
+        "description": "Returns ETA information for the specified stop, route, and service type. Results may also include ETA data for other service types of the same route number when they share the stop. Up to three ETA records may be returned for each direction.",
+        "operationId": "getEta",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/StopId"
+          },
+          {
+            "description": "The route number of the respective bus company. Case-sensitive.",
+            "example": "40",
+            "in": "path",
+            "name": "route",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Service type of the bus route. Returned ETA data may also include other service types of the same route when they share the bus stop.",
+            "example": "1",
+            "in": "path",
+            "name": "service_type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "co": "KMB",
+                      "data_timestamp": "2021-03-04T17:22:15+08:00",
+                      "dest_en": "LAGUNA CITY",
+                      "dest_sc": "丽港城",
+                      "dest_tc": "麗港城",
+                      "dir": "O",
+                      "eta": "2021-03-04T17:25:51+08:00",
+                      "eta_seq": 1,
+                      "rmk_en": "",
+                      "rmk_sc": "",
+                      "rmk_tc": "",
+                      "route": "40",
+                      "seq": 7,
+                      "service_type": 1,
+                      "stop": "A60AE774B09A5E44"
+                    },
+                    {
+                      "co": "KMB",
+                      "data_timestamp": "2021-03-04T17:22:15+08:00",
+                      "dest_en": "LAGUNA CITY",
+                      "dest_sc": "丽港城",
+                      "dest_tc": "麗港城",
+                      "dir": "O",
+                      "eta": "2021-03-04T17:41:44+08:00",
+                      "eta_seq": 2,
+                      "rmk_en": "Scheduled Bus",
+                      "rmk_sc": "原定班次",
+                      "rmk_tc": "原定班次",
+                      "route": "40",
+                      "seq": 7,
+                      "service_type": 1,
+                      "stop": "A60AE774B09A5E44"
+                    }
+                  ],
+                  "generated_timestamp": "2021-03-04T17:22:35+08:00",
+                  "type": "ETA",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/EtaResponse"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "Get ETA for a route at a stop"
+      }
+    },
+    "/v1/transport/kmb/route-eta/{route}/{service_type}": {
+      "get": {
+        "description": "Returns ETA information for all stops on the specified route. The data format is the same as the ETA API. Returned ETA information may also include other service types of the same route number when they share the same bus stop.",
+        "operationId": "getRouteEta",
+        "parameters": [
+          {
+            "description": "The route number of the respective bus company. Case-sensitive.",
+            "example": "3M",
+            "in": "path",
+            "name": "route",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The service type of the bus route.",
+            "example": "1",
+            "in": "path",
+            "name": "service_type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "co": "KMB",
+                      "data_timestamp": "2021-03-18T13:39:46+08:00",
+                      "dest_en": "CHOI WAN",
+                      "dest_sc": "彩云",
+                      "dest_tc": "彩雲",
+                      "dir": "O",
+                      "eta": "2021-03-18T13:50:00+08:00",
+                      "eta_seq": 1,
+                      "rmk_en": "Scheduled Bus",
+                      "rmk_sc": "原定班次",
+                      "rmk_tc": "原定班次",
+                      "route": "3M",
+                      "seq": 1,
+                      "service_type": 1
+                    }
+                  ],
+                  "generated_timestamp": "2021-03-18T13:39:53+08:00",
+                  "type": "RouteETA",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RouteEtaResponse"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "Get ETA for a route"
+      }
+    },
+    "/v1/transport/kmb/route-stop": {
+      "get": {
+        "description": "Returns stop information for all routes. Updated daily at 05:00.",
+        "operationId": "getRouteStopList",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "bound": "O",
+                      "co": "KMB",
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "route": "1A",
+                      "seq": 1,
+                      "service_type": "1",
+                      "stop": "A3ADFCDF8487ADB9"
+                    },
+                    {
+                      "bound": "O",
+                      "co": "KMB",
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "route": "1A",
+                      "seq": 34,
+                      "service_type": "1",
+                      "stop": "DCFF4041D0C0ACF8"
+                    },
+                    {
+                      "bound": "O",
+                      "co": "KMB",
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "route": "2",
+                      "seq": 1,
+                      "service_type": "1",
+                      "stop": "25BD7B50919AA221"
+                    }
+                  ],
+                  "generated_timestamp": "2020-11-29T11:40:48+08:00",
+                  "type": "RouteStopList",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RouteStopListResponse"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "List route stops"
+      }
+    },
+    "/v1/transport/kmb/route-stop/{route}/{direction}/{service_type}": {
+      "get": {
+        "description": "Returns stop information for the specified route, direction, and service type. Updated daily at 05:00. Route number and direction are case-sensitive.",
+        "operationId": "getRouteStops",
+        "parameters": [
+          {
+            "description": "The route number of the respective bus company. Case-sensitive.",
+            "example": "1A",
+            "in": "path",
+            "name": "route",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Direction of the specified route. Case-sensitive; inbound is toward the origin and outbound is toward the destination.",
+            "example": "outbound",
+            "in": "path",
+            "name": "direction",
+            "required": true,
+            "schema": {
+              "enum": [
+                "inbound",
+                "outbound"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The service type of the bus route.",
+            "example": "1",
+            "in": "path",
+            "name": "service_type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "bound": "O",
+                      "co": "KMB",
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "route": "1A",
+                      "seq": 1,
+                      "service_type": "1",
+                      "stop": "A3ADFCDF8487ADB9"
+                    },
+                    {
+                      "bound": "O",
+                      "co": "KMB",
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "route": "1A",
+                      "seq": 34,
+                      "service_type": "1",
+                      "stop": "DCFF4041D0C0ACF8"
+                    }
+                  ],
+                  "generated_timestamp": "2020-11-29T11:40:48+08:00",
+                  "type": "RouteStop",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RouteStopResponse"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "Get stops for a route"
+      }
+    },
+    "/v1/transport/kmb/route/": {
+      "get": {
+        "description": "Returns all bus routes of KMB. Updated daily at 05:00. Request URLs and parameters are case-sensitive.",
+        "operationId": "getRouteList",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "bound": "O",
+                      "co": "KMB",
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "dest_en": "TAI PO CENTRAL",
+                      "dest_sc": "大埔中心",
+                      "dest_tc": "大埔中心",
+                      "orig_en": "KOWLOON BAY",
+                      "orig_sc": "九龙湾",
+                      "orig_tc": "九龍灣",
+                      "route": "74B",
+                      "service_type": "1"
+                    },
+                    {
+                      "bound": "I",
+                      "co": "KMB",
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "dest_en": "KWUN TONG FERRY",
+                      "dest_sc": "观塘码头",
+                      "dest_tc": "觀塘碼頭",
+                      "orig_en": "TAI PO CENTRAL",
+                      "orig_sc": "大埔中心",
+                      "orig_tc": "大埔中心",
+                      "route": "74B",
+                      "service_type": "1"
+                    }
+                  ],
+                  "generated_timestamp": "2020-11-29T11:40:48+08:00",
+                  "type": "RouteList",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RouteListResponse"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "List routes"
+      }
+    },
+    "/v1/transport/kmb/route/{route}/{direction}/{service_type}": {
+      "get": {
+        "description": "Returns information for the specified KMB operating route, direction, and service type. Updated daily at 05:00. Route number and direction are case-sensitive.",
+        "operationId": "getRoute",
+        "parameters": [
+          {
+            "description": "The route number of the respective bus company. Case-sensitive.",
+            "example": "74B",
+            "in": "path",
+            "name": "route",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Direction of the specified route. Case-sensitive.",
+            "example": "outbound",
+            "in": "path",
+            "name": "direction",
+            "required": true,
+            "schema": {
+              "enum": [
+                "outbound",
+                "inbound"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The service type of the bus route.",
+            "example": "1",
+            "in": "path",
+            "name": "service_type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "bound": "O",
+                    "co": "KMB",
+                    "data_timestamp": "2020-11-29T11:40:00+08:00",
+                    "dest_en": "TAI PO CENTRAL",
+                    "dest_sc": "大埔中心",
+                    "dest_tc": "大埔中心",
+                    "orig_en": "KOWLOON BAY",
+                    "orig_sc": "九龙湾",
+                    "orig_tc": "九龍灣",
+                    "route": "74B",
+                    "service_type": "1"
+                  },
+                  "generated_timestamp": "2020-11-29T11:40:48+08:00",
+                  "type": "Route",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RouteResponse"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "Get route information"
+      }
+    },
+    "/v1/transport/kmb/stop": {
+      "get": {
+        "description": "Returns all bus stop information at once. Updated daily at 05:00.",
+        "operationId": "getStopList",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "lat": 22.318856,
+                      "long": 114.231353,
+                      "name_en": "SAU MAU PING (CENTRAL)",
+                      "name_sc": "中秀茂坪",
+                      "name_tc": "中秀茂坪",
+                      "stop": "A3ADFCDF8487ADB9"
+                    },
+                    {
+                      "data_timestamp": "2020-11-29T11:40:00+08:00",
+                      "lat": "22.316738",
+                      "long": "114.233354",
+                      "name_en": "SAU ON HOUSE",
+                      "name_sc": "秀安楼",
+                      "name_tc": "秀安樓",
+                      "stop": "6F106FD26B684372"
+                    }
+                  ],
+                  "generated_timestamp": "2020-11-29T11:40:48+08:00",
+                  "type": "StopList",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/StopListResponse"
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "List stops"
+      }
+    },
+    "/v1/transport/kmb/stop-eta/{stop_id}": {
+      "get": {
+        "description": "Returns ETA information for all routes at the specified stop. Returned ETA information for a route/service type may also be included for other service types of the same route number when they share the bus stop.",
+        "operationId": "getStopEta",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/StopId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "co": "KMB",
+                      "data_timestamp": "2021-03-18T12:21:15+08:00",
+                      "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
+                      "dest_sc": "尖沙咀东(么地道)",
+                      "dest_tc": "尖沙咀東(麼地道)",
+                      "dir": "I",
+                      "eta": "2021-03-18T12:31:59+08:00",
+                      "eta_seq": 1,
+                      "rmk_en": "Scheduled Bus",
+                      "rmk_sc": "原定班次",
+                      "rmk_tc": "原定班次",
+                      "route": "234X",
+                      "seq": 2,
+                      "service_type": 1
+                    },
+                    {
+                      "co": "KMB",
+                      "data_timestamp": "2021-03-18T12:21:15+08:00",
+                      "dest_en": "YU CHUI COURT",
+                      "dest_sc": "愉翠苑",
+                      "dest_tc": "愉翠苑",
+                      "dir": "I",
+                      "eta": null,
+                      "eta_seq": 1,
+                      "rmk_en": "This route only operates on Sundays and Public Holidays",
+                      "rmk_sc": "服务只限于星期日及公众假期",
+                      "rmk_tc": "服務只限於星期日及公眾假期",
+                      "route": "N48",
+                      "seq": 2,
+                      "service_type": 1
+                    }
+                  ],
+                  "generated_timestamp": "2021-03-18T12:21:38+08:00",
+                  "type": "StopETA",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/StopEtaResponse"
+                }
+              }
+            },
+            "description": "Success. An ETA may have a null eta value, for example when the route only operates on Sundays and public holidays."
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "Get ETA for all routes at a stop"
+      }
+    },
+    "/v1/transport/kmb/stop/{stop_id}": {
+      "get": {
+        "description": "Returns information for a bus stop identified by its 16-character ID. The Route-Stop API can be used to find a corresponding stop ID. Updated daily at 05:00.",
+        "operationId": "getStop",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/StopId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "data_timestamp": "2020-11-29T11:40:00+08:00",
+                    "lat": 22.318856,
+                    "long": 114.231353,
+                    "name_en": "SAU MAU PING (CENTRAL)",
+                    "name_sc": "中秀茂坪",
+                    "name_tc": "中秀茂坪",
+                    "stop": "A3ADFCDF8487ADB9"
+                  },
+                  "generated_timestamp": "2020-11-29T11:40:48+08:00",
+                  "type": "Stop",
+                  "version": "1.0"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/StopResponse"
+                }
+              }
+            },
+            "description": "Success. An empty data object denotes that data was not found."
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidParameters"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "summary": "Get stop information"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.etabus.gov.hk"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "pland-csdi-2020-area-assessments-of-industrial-land-in-the-territory",
+  "sourceSha256": "b0eea72d4187f91a568848ccacc8fd167066a9228554ecc4d06a5ca2ed9cfde2",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/pland_rcd_1634282623835_82856/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1634282623835_82856/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1634282623835_82856/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

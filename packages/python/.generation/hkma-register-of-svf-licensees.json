@@ -1,0 +1,44 @@
+{
+  "sourceId": "hkma-register-of-svf-licensees",
+  "publisherKey": "hkma",
+  "family": "register_of_svf_licensees",
+  "status": "generated",
+  "key": "59cc2aa83dc5639fd82253e6f3689035e547deb6dadd68a94d8ad246d1f7a3f0",
+  "sourceSha256": "51e5f0ddf60259ea35e17b759d30410dd754e114e84bccb2234f857863492dcd",
+  "derivedInputSha256": "7f8ddda71245c4d93275916be85535473348e75be18d86261ab31193c51b68be",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/register-svf-licensees",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-register-of-svf-licensees.log",
+  "outputs": {
+    "__init__.py": "7768b21c02cd7b0b418628842b531606074421c43305bb9568e0d6be3cd8338e",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_register_svf_licensees.py": "945aef295069538f1f20d66f95c41dc51b86683c42ef91bbddfb7a5a0f33406f",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "dd906018ad07f4b2fe6317be6a2ce52882e36a1f50394807a8f35b281dc15c65",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/lang.py": "b6c27f2eb5db4b63ee7b292b8bc3415cea1ca3277126ba19bc2d6751ef9812d8",
+    "models/record.py": "a69bd88f8762d24dbd955773a352b712202933955c2207e853ae7a1971159fe4",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/segment.py": "1bcd86d84a9daf90d3a970dd70d2547a191485b17374429d9a619274518c2eaa",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "sourceId": "housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-2",
+  "publisherKey": "housing",
+  "family": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_2",
+  "status": "generated",
+  "key": "28b3d79f369944c78aa874bb1ebdfeeee253cee7eddcea082b4abeac004cce2f",
+  "sourceSha256": "b7104b56271cfb5cd2caf4962756ead3e2a5a4c11b0fc248bfe731818b4aa9db",
+  "derivedInputSha256": "b7104b56271cfb5cd2caf4962756ead3e2a5a4c11b0fc248bfe731818b4aa9db",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/export/{dataresource}/{lang}/{format}",
+      "operationId": "getGsh2023SaleTransactions",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-2.log",
+  "outputs": {
+    "__init__.py": "cefb624666e58106b0e3e6f4e5e1e917f0aeae853dc8b202fe9de70848cd22f1",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_gsh_2023_sale_transactions.py": "38fe7aa542c7b02014fd9264e6e735a414596f8991227cb4adac52a423dd2a7e",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "008a59a23198b0ed787d2cd2502454ddcb72e68b6727377bd7a8db83cf641dfc",
+    "models/get_gsh_2023_sale_transactions_dataresource.py": "b1056d48c64e1b0d2f1421b0884c1b47872b29a151684a005a0394eff7113a87",
+    "models/get_gsh_2023_sale_transactions_format.py": "fc865d87c42f13285e6404088e78b3830dc9b3c5002536533f33687492db70fb",
+    "models/get_gsh_2023_sale_transactions_lang.py": "61d2375e88a7b2f03ce8d266c7a46ce254556720f8eb64ec16a7e9d85b1da243",
+    "models/transaction.py": "d27c61fe23c85b21647e93297c496c5ac2d1a76963338b4807bda10ee9c28dd6",
+    "models/transactions_response.py": "8b1ff419e324fc39828824e29720b36167565976fc6ec5d992eb8a05ee2d05a3",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

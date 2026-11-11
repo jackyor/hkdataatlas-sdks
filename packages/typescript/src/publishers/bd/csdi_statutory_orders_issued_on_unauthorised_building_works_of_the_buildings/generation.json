@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "bd-csdi-statutory-orders-issued-on-unauthorised-building-works-of-the-buildings",
+  "sourceSha256": "e4973008638ab2548bee0f76b19d63ba74bd58b53862db24758241f3cd15b57d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/bd_rcd_1631167624557_40796/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1631167624557_40796/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1631167624557_40796/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

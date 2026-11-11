@@ -1,0 +1,611 @@
+openapi: 3.0.0
+info:
+  title: Data template on international reserves and foreign currency liquidity
+  description: "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/ef-fc-resv-assets/data-intreserve-fcliquidity"
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/ef-fc-resv-assets
+    variables: {}
+paths:
+  /data-intreserve-fcliquidity:
+    get:
+      summary: Retrieve data of Data template on international reserves and foreign currency liquidity
+      parameters:
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Record"
+          description: ""
+    Record:
+      title: Record
+      type: object
+      properties:
+        end_of_month:
+          type: string
+          format: date
+        ora:
+          type: number
+        ora_fcrsv:
+          type: number
+        ora_fcrsv_sec:
+          type: number
+        ora_fcrsv_sec_hqinhk:
+          type: number
+        ora_fcrsv_tcd:
+          type: number
+        ora_fcrsv_ tcd_cbank:
+          type: number
+        ora_fcrsv_tcd_hqinhk:
+          type: number
+        ora_fcrsv_tcd_hqinhk_locabd:
+          type: number
+        ora_fcrsv_tcd_hqouthk:
+          type: number
+        ora_fcrsv_tcd_hqouthk_lochk:
+          type: number
+        ora_imfrsvpos:
+          type: number
+        ora_sdr:
+          type: number
+        ora_gold:
+          type: number
+        ora_gold_oz:
+          type: number
+        ora_othra:
+          type: number
+        ora_othra_finderiv:
+          type: number
+        ora_othra_loannonbkresd:
+          type: number
+        ora_othra_other:
+          type: number
+        ofca:
+          type: number
+        ofca_secnotinora:
+          type: number
+        ofca_depnotinora:
+          type: number
+        ofca_loannotinora:
+          type: number
+        ofca_finderivnotinora:
+          type: number
+        ofca_goldnotinora:
+          type: number
+        ofca_other:
+          type: number
+        psnd_fclsd:
+          type: number
+        psnd_fclsd_upto1m:
+          type: number
+        psnd_fclsd_1mto3m:
+          type: number
+        psnd_fclsd_3mto1y:
+          type: number
+        psnd_fclsd_ofprin:
+          type: number
+        psnd_fclsd_ofprin_upto1m:
+          type: number
+        psnd_fclsd_ofprin_1mto3m:
+          type: number
+        psnd_fclsd_ofprin_3mto1y:
+          type: number
+        psnd_fclsd_ofint:
+          type: number
+        psnd_fclsd_ofint_upto1m:
+          type: number
+        psnd_fclsd_ofint_1mto3m:
+          type: number
+        psnd_fclsd_ofint_3mto1y:
+          type: number
+        psnd_fclsd_ifprin:
+          type: number
+        psnd_fclsd_ifprin_upto1m:
+          type: number
+        psnd_fclsd_ifprin_1mto3m:
+          type: number
+        psnd_fclsd_ifprin_3mto1y:
+          type: number
+        psnd_fclsd_ifint:
+          type: number
+        psnd_fclsd_ifint_upto1m:
+          type: number
+        psnd_fclsd_ifint_1mto3m:
+          type: number
+        psnd_fclsd_ifint_3mto1y:
+          type: number
+        psnd_aslp:
+          type: number
+        psnd_aslp_upto1m:
+          type: number
+        psnd_aslp_1mto3m:
+          type: number
+        psnd_aslp_3mto1y:
+          type: number
+        psnd_aslp_shpos:
+          type: number
+        psnd_aslp_shpos_upto1m:
+          type: number
+        psnd_aslp_shpos_1mto3m:
+          type: number
+        psnd_aslp_shpos_3mto1y:
+          type: number
+        psnd_aslp_lgpos:
+          type: number
+        psnd_aslp_lgpos_upto1m:
+          type: number
+        psnd_aslp_lgpos_1mto3m:
+          type: number
+        psnd_aslp_lgpos_3mto1y:
+          type: number
+        psnd_oth:
+          type: number
+        psnd_oth_upto1m:
+          type: number
+        psnd_oth_1mto3m:
+          type: number
+        psnd_oth_3mto1y:
+          type: number
+        psnd_oth_ofrepos:
+          type: number
+        psnd_oth_ofrepos_upto1m:
+          type: number
+        psnd_oth_ofrepos_1mto3m:
+          type: number
+        psnd_oth_ofrepos_3mto1y:
+          type: number
+        psnd_oth_ifrrepos:
+          type: number
+        psnd_oth_ifrrepos_upto1m:
+          type: number
+        psnd_oth_ifrrepos_1mto3m:
+          type: number
+        psnd_oth_ifrrepos_3mto1y:
+          type: number
+        psnd_oth_tracrneg:
+          type: number
+        psnd_oth_tracrneg_upto1m:
+          type: number
+        psnd_oth_tracrneg_1mto3m:
+          type: number
+        psnd_oth_tracrneg_3mto1y:
+          type: number
+        psnd_oth_tracrpos:
+          type: number
+        psnd_oth_tracrpos_upto1m:
+          type: number
+        psnd_oth_tracrpos_1mto3m:
+          type: number
+        psnd_oth_tracrpos_3mto1y:
+          type: number
+        psnd_oth_acctpay:
+          type: number
+        psnd_oth_acctpay_upto1m:
+          type: number
+        psnd_oth_acctpay_1mto3m:
+          type: number
+        psnd_oth_acctpay_3mto1y:
+          type: number
+        psnd_oth_acctrecv:
+          type: number
+        psnd_oth_acctrecv_upto1m:
+          type: number
+        psnd_oth_acctrecv_1mto3m:
+          type: number
+        psnd_oth_acctrecv_3mto1y:
+          type: number
+        csnd_clfc:
+          type: number
+        csnd_clfc_upto1m:
+          type: number
+        csnd_clfc_1mto3m:
+          type: number
+        csnd_clfc_3mto1y:
+          type: number
+        csnd_clfc_cgdf1y:
+          type: number
+        csnd_clfc_cgdf1y_upto1m:
+          type: number
+        csnd_clfc_cgdf1y_1mto3m:
+          type: number
+        csnd_clfc_cgdf1y_3mto1y:
+          type: number
+        csnd_clfc_othcl:
+          type: number
+        csnd_clfc_othcl_upto1m:
+          type: number
+        csnd_clfc_othcl_1mto3m:
+          type: number
+        csnd_clfc_othcl_3mto1y:
+          type: number
+        csnd_fcsecwembopt:
+          type: number
+        csnd_uduccrlby:
+          type: number
+        csnd_uduccrlby_upto1m:
+          type: number
+        csnd_uduccrlby_1mto3m:
+          type: number
+        csnd_uduccrlby_3mto1y:
+          type: number
+        csnd_uduccrlby_oth:
+          type: number
+        csnd_uduccrlby_oth_upto1m:
+          type: number
+        csnd_uduccrlby_oth_1mto3m:
+          type: number
+        csnd_uduccrlby_oth_3mto1y:
+          type: number
+        csnd_uduccrlby_oth_auth:
+          type: number
+        csnd_uduccrlby_oth_auth_upto1m:
+          type: number
+        csnd_uduccrlby_oth_auth_1mto3m:
+          type: number
+        csnd_uduccrlby_oth_auth_3mto1y:
+          type: number
+        csnd_uduccrlby_oth_bis:
+          type: number
+        csnd_uduccrlby_oth_bis_upto1m:
+          type: number
+        csnd_uduccrlby_oth_bis_1mto3m:
+          type: number
+        csnd_uduccrlby_oth_bis_3mto1y:
+          type: number
+        csnd_uduccrlby_oth_imf:
+          type: number
+        csnd_uduccrlby_oth_imf_upto1m:
+          type: number
+        csnd_uduccrlby_oth_imf_1mto3m:
+          type: number
+        csnd_uduccrlby_oth_imf_3mto1y:
+          type: number
+        csnd_uduccrlby_oth_iorg:
+          type: number
+        csnd_uduccrlby_oth_iorg_upto1m:
+          type: number
+        csnd_uduccrlby_oth_iorg_1mto3m:
+          type: number
+        csnd_uduccrlby_oth_iorg_3mto1y:
+          type: number
+        csnd_uduccrlby_bkinhk:
+          type: number
+        csnd_uduccrlby_bkinhk_upto1m:
+          type: number
+        csnd_uduccrlby_bkinhk_1mto3m:
+          type: number
+        csnd_uduccrlby_bkinhk_3mto1y:
+          type: number
+        csnd_uduccrlby_bkouthk:
+          type: number
+        csnd_uduccrlby_bkouthk_upto1m:
+          type: number
+        csnd_uduccrlby_bkouthk_1mto3m:
+          type: number
+        csnd_uduccrlby_bkouthk_3mto1y:
+          type: number
+        csnd_uduccrlto:
+          type: number
+        csnd_uduccrlto_upto1m:
+          type: number
+        csnd_uduccrlto_1mto3m:
+          type: number
+        csnd_uduccrlto_3mto1y:
+          type: number
+        csnd_uduccrlto_oth:
+          type: number
+        csnd_uduccrlto_oth_upto1m:
+          type: number
+        csnd_uduccrlto_oth_1mto3m:
+          type: number
+        csnd_uduccrlto_oth_3mto1y:
+          type: number
+        csnd_uduccrlto_oth_auth:
+          type: number
+        csnd_uduccrlto_oth_auth_upto1m:
+          type: number
+        csnd_uduccrlto_oth_auth_1mto3m:
+          type: number
+        csnd_uduccrlto_oth_auth_3mto1y:
+          type: number
+        csnd_uduccrlto_oth_bis:
+          type: number
+        csnd_uduccrlto_oth_bis_upto1m:
+          type: number
+        csnd_uduccrlto_oth_bis_1mto3m:
+          type: number
+        csnd_uduccrlto_oth_bis_3mto1y:
+          type: number
+        csnd_uduccrlto_oth_imf:
+          type: number
+        csnd_uduccrlto_oth_imf_upto1m:
+          type: number
+        csnd_uduccrlto_oth_imf_1mto3m:
+          type: number
+        csnd_uduccrlto_oth_imf_3mto1y:
+          type: number
+        csnd_uduccrlto_oth_iorg:
+          type: number
+        csnd_uduccrlto_oth_iorg_upto1m:
+          type: number
+        csnd_uduccrlto_oth_iorg_1mto3m:
+          type: number
+        csnd_uduccrlto_oth_iorg_3mto1y:
+          type: number
+        csnd_uduccrlto_bkinhk:
+          type: number
+        csnd_uduccrlto_bkinhk_upto1m:
+          type: number
+        csnd_uduccrlto_bkinhk_1mto3m:
+          type: number
+        csnd_uduccrlto_bkinhk_3mto1y:
+          type: number
+        csnd_uduccrlto_bkouthk:
+          type: number
+        csnd_uduccrlto_bkouthk_upto1m:
+          type: number
+        csnd_uduccrlto_bkouthk_1mto3m:
+          type: number
+        csnd_uduccrlto_bkouthk_3mto1y:
+          type: number
+        csnd_aslp:
+          type: number
+        csnd_aslp_upto1m:
+          type: number
+        csnd_aslp_1mto3m:
+          type: number
+        csnd_aslp_3mto1y:
+          type: number
+        csnd_aslp_sp:
+          type: number
+        csnd_aslp_sp_upto1m:
+          type: number
+        csnd_aslp_sp_1mto3m:
+          type: number
+        csnd_aslp_sp_3mto1y:
+          type: number
+        csnd_aslp_sp_bp:
+          type: number
+        csnd_aslp_sp_bp_upto1m:
+          type: number
+        csnd_aslp_sp_bp_1mto3m:
+          type: number
+        csnd_aslp_sp_bp_3mto1y:
+          type: number
+        csnd_aslp_sp_wc:
+          type: number
+        csnd_aslp_sp_wc_upto1m:
+          type: number
+        csnd_aslp_sp_wc_1mto3m:
+          type: number
+        csnd_aslp_sp_wc_3mto1y:
+          type: number
+        csnd_aslp_lp:
+          type: number
+        csnd_aslp_lp_upto1m:
+          type: number
+        csnd_aslp_lp_1mto3m:
+          type: number
+        csnd_aslp_lp_3mto1y:
+          type: number
+        csnd_aslp_lp_bc:
+          type: number
+        csnd_aslp_lp_bc_upto1m:
+          type: number
+        csnd_aslp_lp_bc_1mto3m:
+          type: number
+        csnd_aslp_lp_bc_3mto1y:
+          type: number
+        csnd_aslp_lp_wp:
+          type: number
+        csnd_aslp_lp_wp_upto1m:
+          type: number
+        csnd_aslp_lp_wp_1mto3m:
+          type: number
+        csnd_aslp_lp_wp_3mto1y:
+          type: number
+        mm_spt_stdcd:
+          type: number
+        mm_spt_fid:
+          type: number
+        mm_spt_fid_ndf:
+          type: number
+        mm_spt_fid_ndf_sp:
+          type: number
+        mm_spt_fid_ndf_lp:
+          type: number
+        mm_spt_fid_oi:
+          type: number
+        mm_spt_pa:
+          type: number
+        mm_spt_pa_ra:
+          type: number
+        mm_spt_pa_ofca:
+          type: number
+        mm_spt_slr:
+          type: number
+        mm_spt_slr_lr_insi:
+          type: number
+        mm_spt_slr_lr_notinsi:
+          type: number
+        mm_spt_slr_ba_insi:
+          type: number
+        mm_spt_slr_ba_notinsi:
+          type: number
+        mm_spt_fda:
+          type: number
+        mm_spt_fda_forw:
+          type: number
+        mm_spt_fda_fut:
+          type: number
+        mm_spt_fda_swp:
+          type: number
+        mm_spt_fda_opt:
+          type: number
+        mm_spt_fda_oth:
+          type: number
+        mm_spt_dergt1y:
+          type: number
+        mm_spt_dergt1y_aslpf:
+          type: number
+        mm_spt_dergt1y_aslpf_sp:
+          type: number
+        mm_spt_dergt1y_aslpf_lp:
+          type: number
+        mm_spt_dergt1y_aslpfo:
+          type: number
+        mm_spt_dergt1y_aslpfo_sp:
+          type: number
+        mm_spt_dergt1y_aslpfo_sp_bp:
+          type: number
+        mm_spt_dergt1y_aslpfo_sp_wc:
+          type: number
+        mm_spt_dergt1y_aslpfo_lp:
+          type: number
+        mm_spt_dergt1y_aslpfo_lp_bc:
+          type: number
+        mm_spt_dergt1y_aslpfo_lp_wp:
+          type: number
+        mm_lfd_ccr:
+          type: number
+        mm_lfd_ccr_insdr:
+          type: number
+        mm_lfd_ccr_insdr_eur:
+          type: number
+        mm_lfd_ccr_insdr_jpy:
+          type: number
+        mm_lfd_ccr_insdr_gbp:
+          type: number
+        mm_lfd_ccr_insdr_usd:
+          type: number
+        mm_lfd_ccr_notinsdr:
+          type: number
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"

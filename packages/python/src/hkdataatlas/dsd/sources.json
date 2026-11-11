@@ -1,0 +1,2442 @@
+{
+  "publisherKey": "dsd",
+  "publisherName": "Drainage Services Department",
+  "sources": [
+    {
+      "id": "dsd-csdi-drainage-records",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records/openapi.json",
+      "yaml": "dsd/csdi-drainage-records/openapi.yaml",
+      "file": "dsd/csdi-drainage-records/openapi.json",
+      "sha256": "49b2cec7a020c950a666a45d3d4d5199cf94c97e9af18a73c9262c181d6313ed",
+      "jsonSha256": "49b2cec7a020c950a666a45d3d4d5199cf94c97e9af18a73c9262c181d6313ed",
+      "yamlSha256": "0ebacbd48fe450154d8ba08f2c64a552d75cb4785b2e004f24b3e90d301cfaba",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "49b2cec7a020c950a666a45d3d4d5199cf94c97e9af18a73c9262c181d6313ed"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_10022",
+        "canonicalJsonSha256": "49b2cec7a020c950a666a45d3d4d5199cf94c97e9af18a73c9262c181d6313ed",
+        "originalRepresentationSha256": "49b2cec7a020c950a666a45d3d4d5199cf94c97e9af18a73c9262c181d6313ed",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-2",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-2",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-2/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-2/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-2/openapi.json",
+      "sha256": "8648f1718ea814f21992d400be8be1149e0236afe7d31906f3749b43f368b2e8",
+      "jsonSha256": "8648f1718ea814f21992d400be8be1149e0236afe7d31906f3749b43f368b2e8",
+      "yamlSha256": "03fe8bbeab3558bc024ce56630daffb42d1fd9676bf0f4c24b463764ba112a06",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8648f1718ea814f21992d400be8be1149e0236afe7d31906f3749b43f368b2e8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_12104",
+        "canonicalJsonSha256": "8648f1718ea814f21992d400be8be1149e0236afe7d31906f3749b43f368b2e8",
+        "originalRepresentationSha256": "8648f1718ea814f21992d400be8be1149e0236afe7d31906f3749b43f368b2e8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_2"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-4",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-4",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-4/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-4/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-4/openapi.json",
+      "sha256": "0b87562626a874b3ee9f75694d518df02a50a2c406163f78bfbdeedb83148f8a",
+      "jsonSha256": "0b87562626a874b3ee9f75694d518df02a50a2c406163f78bfbdeedb83148f8a",
+      "yamlSha256": "bbf3c8a87bbb7ffbbb5f3f8e8fec4a4f69cd2668c97b48777e4b67f19bd95f54",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0b87562626a874b3ee9f75694d518df02a50a2c406163f78bfbdeedb83148f8a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_21184",
+        "canonicalJsonSha256": "0b87562626a874b3ee9f75694d518df02a50a2c406163f78bfbdeedb83148f8a",
+        "originalRepresentationSha256": "0b87562626a874b3ee9f75694d518df02a50a2c406163f78bfbdeedb83148f8a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_4"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-5",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-5",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-5/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-5/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-5/openapi.json",
+      "sha256": "7c15f3fd85d8dd9728f248271558d03799f671f1a4dcd99ba141562f206e8944",
+      "jsonSha256": "7c15f3fd85d8dd9728f248271558d03799f671f1a4dcd99ba141562f206e8944",
+      "yamlSha256": "c780e3f05d72bc1af3d91c707bfe43d14a4f8d2484de0a192ca99cc19c6decb5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_5",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "7c15f3fd85d8dd9728f248271558d03799f671f1a4dcd99ba141562f206e8944"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_26571",
+        "canonicalJsonSha256": "7c15f3fd85d8dd9728f248271558d03799f671f1a4dcd99ba141562f206e8944",
+        "originalRepresentationSha256": "7c15f3fd85d8dd9728f248271558d03799f671f1a4dcd99ba141562f206e8944",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_5"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-6",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-6",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-6/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-6/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-6/openapi.json",
+      "sha256": "594f819e9fea2ff47f8eaf339cd0cec21d7b73d3d54ddaceb7c7cfa120e2012d",
+      "jsonSha256": "594f819e9fea2ff47f8eaf339cd0cec21d7b73d3d54ddaceb7c7cfa120e2012d",
+      "yamlSha256": "d7e6bc108126feeb17e21c2dcc658005b9ef04c532d61b906a1b916df0d10e41",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_6",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "594f819e9fea2ff47f8eaf339cd0cec21d7b73d3d54ddaceb7c7cfa120e2012d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_34166",
+        "canonicalJsonSha256": "594f819e9fea2ff47f8eaf339cd0cec21d7b73d3d54ddaceb7c7cfa120e2012d",
+        "originalRepresentationSha256": "594f819e9fea2ff47f8eaf339cd0cec21d7b73d3d54ddaceb7c7cfa120e2012d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_6"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-7",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-7",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-7/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-7/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-7/openapi.json",
+      "sha256": "d537377f045e0e5c20a318499b83c6fc258b9f354e3c475131fd7313f0875cd6",
+      "jsonSha256": "d537377f045e0e5c20a318499b83c6fc258b9f354e3c475131fd7313f0875cd6",
+      "yamlSha256": "86f14f1dc8962ec54c6201eb987fda60ff99eb7b5aaa91a9740297c62e50e311",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_7",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d537377f045e0e5c20a318499b83c6fc258b9f354e3c475131fd7313f0875cd6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_36707",
+        "canonicalJsonSha256": "d537377f045e0e5c20a318499b83c6fc258b9f354e3c475131fd7313f0875cd6",
+        "originalRepresentationSha256": "d537377f045e0e5c20a318499b83c6fc258b9f354e3c475131fd7313f0875cd6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_7"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-8",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-8",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-8/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-8/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-8/openapi.json",
+      "sha256": "9b38ea3d7387e2c65ea4dbf67bd7b4ab243adc41c7b0f2f3c125254197402807",
+      "jsonSha256": "9b38ea3d7387e2c65ea4dbf67bd7b4ab243adc41c7b0f2f3c125254197402807",
+      "yamlSha256": "1b040466eeeebc8d1e1841ddadc0c418ac0eeac1bf2b3b59850d7e11e25c8871",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_8",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "9b38ea3d7387e2c65ea4dbf67bd7b4ab243adc41c7b0f2f3c125254197402807"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_39480",
+        "canonicalJsonSha256": "9b38ea3d7387e2c65ea4dbf67bd7b4ab243adc41c7b0f2f3c125254197402807",
+        "originalRepresentationSha256": "9b38ea3d7387e2c65ea4dbf67bd7b4ab243adc41c7b0f2f3c125254197402807",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_8"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-9",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-9",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-9/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-9/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-9/openapi.json",
+      "sha256": "838877dec88be12ae2aa226767add8953bc77cebacd56d9c069e0518955c06c5",
+      "jsonSha256": "838877dec88be12ae2aa226767add8953bc77cebacd56d9c069e0518955c06c5",
+      "yamlSha256": "3ee0582f1c2cf2e8fd5818b4b1db659f10c235e6d14394a697c3b353649e3805",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_9",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "838877dec88be12ae2aa226767add8953bc77cebacd56d9c069e0518955c06c5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_40669",
+        "canonicalJsonSha256": "838877dec88be12ae2aa226767add8953bc77cebacd56d9c069e0518955c06c5",
+        "originalRepresentationSha256": "838877dec88be12ae2aa226767add8953bc77cebacd56d9c069e0518955c06c5",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_9"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-10",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-10",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-10/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-10/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-10/openapi.json",
+      "sha256": "1e9c9def9a3b2265e496f2824026220f0ea5da8d9f523d918a84db602f0a469a",
+      "jsonSha256": "1e9c9def9a3b2265e496f2824026220f0ea5da8d9f523d918a84db602f0a469a",
+      "yamlSha256": "965d053157efe8758faea2dc69e2811d33daef684ce0ec611fd61d71f136d14c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_10",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1e9c9def9a3b2265e496f2824026220f0ea5da8d9f523d918a84db602f0a469a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_66675",
+        "canonicalJsonSha256": "1e9c9def9a3b2265e496f2824026220f0ea5da8d9f523d918a84db602f0a469a",
+        "originalRepresentationSha256": "1e9c9def9a3b2265e496f2824026220f0ea5da8d9f523d918a84db602f0a469a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_10"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-11",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-11",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-11/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-11/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-11/openapi.json",
+      "sha256": "f280a96ac20d7f3597a2643dc7114695460f43e695fc6dee06a70a276f949196",
+      "jsonSha256": "f280a96ac20d7f3597a2643dc7114695460f43e695fc6dee06a70a276f949196",
+      "yamlSha256": "7ce53851bb3c5d67ad915e98fd56bb48cd6ac38be2362d708845b9c2c9c78f1b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_11",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f280a96ac20d7f3597a2643dc7114695460f43e695fc6dee06a70a276f949196"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_69065",
+        "canonicalJsonSha256": "f280a96ac20d7f3597a2643dc7114695460f43e695fc6dee06a70a276f949196",
+        "originalRepresentationSha256": "f280a96ac20d7f3597a2643dc7114695460f43e695fc6dee06a70a276f949196",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_11"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-12",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-12",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-12/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-12/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-12/openapi.json",
+      "sha256": "518037beda55f24cbd38eecb39286ce61d12b6e682b1dc937c2d792164060ce6",
+      "jsonSha256": "518037beda55f24cbd38eecb39286ce61d12b6e682b1dc937c2d792164060ce6",
+      "yamlSha256": "b1cfbf8e528795e2ef3d386795adcb8ede2134a2c0a80bbceacb67134aef5b57",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_12",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "518037beda55f24cbd38eecb39286ce61d12b6e682b1dc937c2d792164060ce6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_73963",
+        "canonicalJsonSha256": "518037beda55f24cbd38eecb39286ce61d12b6e682b1dc937c2d792164060ce6",
+        "originalRepresentationSha256": "518037beda55f24cbd38eecb39286ce61d12b6e682b1dc937c2d792164060ce6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_12"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-13",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-13",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-13/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-13/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-13/openapi.json",
+      "sha256": "b3be1fde001992aa8f64c2664a578e3c85ae1c11930e050fa3250c008f04f824",
+      "jsonSha256": "b3be1fde001992aa8f64c2664a578e3c85ae1c11930e050fa3250c008f04f824",
+      "yamlSha256": "03cead77ed73527a87dad36e2f0fb795c6443201c904b28c17d5459c717e6a50",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_13",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b3be1fde001992aa8f64c2664a578e3c85ae1c11930e050fa3250c008f04f824"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_75257",
+        "canonicalJsonSha256": "b3be1fde001992aa8f64c2664a578e3c85ae1c11930e050fa3250c008f04f824",
+        "originalRepresentationSha256": "b3be1fde001992aa8f64c2664a578e3c85ae1c11930e050fa3250c008f04f824",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_13"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-14",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-14",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-14/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-14/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-14/openapi.json",
+      "sha256": "c7fb5f2d08953580efc70d8b06f612fa14cacf297c8b3ed36604e7e127172133",
+      "jsonSha256": "c7fb5f2d08953580efc70d8b06f612fa14cacf297c8b3ed36604e7e127172133",
+      "yamlSha256": "c5031238a09ada6e3087e6fa76d8acd061e560be0d27c8e9ffacde511b97b248",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_14",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c7fb5f2d08953580efc70d8b06f612fa14cacf297c8b3ed36604e7e127172133"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_84346",
+        "canonicalJsonSha256": "c7fb5f2d08953580efc70d8b06f612fa14cacf297c8b3ed36604e7e127172133",
+        "originalRepresentationSha256": "c7fb5f2d08953580efc70d8b06f612fa14cacf297c8b3ed36604e7e127172133",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_14"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-15",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-15",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-15/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-15/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-15/openapi.json",
+      "sha256": "33af724a994da0d7f455874cdf60000b698f9e98e002f56dc3a9b8afb8e95e0b",
+      "jsonSha256": "33af724a994da0d7f455874cdf60000b698f9e98e002f56dc3a9b8afb8e95e0b",
+      "yamlSha256": "9a24185a0f44e460dce49555eca1549048d92d84bbedd7b4a1526d00230f0de0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_15",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "33af724a994da0d7f455874cdf60000b698f9e98e002f56dc3a9b8afb8e95e0b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_8534",
+        "canonicalJsonSha256": "33af724a994da0d7f455874cdf60000b698f9e98e002f56dc3a9b8afb8e95e0b",
+        "originalRepresentationSha256": "33af724a994da0d7f455874cdf60000b698f9e98e002f56dc3a9b8afb8e95e0b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_15"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-16",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-16",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-16/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-16/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-16/openapi.json",
+      "sha256": "17a5ad8c9d28bbda00c79caba8b52dcfa981fe6c9a69d4c9ef86d80e35b95b43",
+      "jsonSha256": "17a5ad8c9d28bbda00c79caba8b52dcfa981fe6c9a69d4c9ef86d80e35b95b43",
+      "yamlSha256": "bda34807f5db00f2b45ae424db182a919ef8b2642e5d56b6729139e27a3525e6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_16",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "17a5ad8c9d28bbda00c79caba8b52dcfa981fe6c9a69d4c9ef86d80e35b95b43"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205231_8931",
+        "canonicalJsonSha256": "17a5ad8c9d28bbda00c79caba8b52dcfa981fe6c9a69d4c9ef86d80e35b95b43",
+        "originalRepresentationSha256": "17a5ad8c9d28bbda00c79caba8b52dcfa981fe6c9a69d4c9ef86d80e35b95b43",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_16"
+    },
+    {
+      "id": "dsd-csdi-list-of-facilities-sewage-treatment-facilities-stormwater-pumping-stations-and-inflatable-dams",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-list-of-facilities-sewage-treatment-facilities-stormwater-pumping-stations-and-inflatable-dams",
+      "name": "List of Facilities (Sewage Treatment Facilities, Stormwater Pumping Stations and Inflatable Dams)",
+      "apiTitle": "Drainage Services Department \u2014 List of Facilities (Sewage Treatment Facilities, Stormwater Pumping Stations and Inflatable Dams)",
+      "json": "dsd/csdi-list-of-facilities-sewage-treatment-facilities-stormwater-pumping-stations-and-inflatable-dams/openapi.json",
+      "yaml": "dsd/csdi-list-of-facilities-sewage-treatment-facilities-stormwater-pumping-stations-and-inflatable-dams/openapi.yaml",
+      "file": "dsd/csdi-list-of-facilities-sewage-treatment-facilities-stormwater-pumping-stations-and-inflatable-dams/openapi.json",
+      "sha256": "514b881d0eadbde45266fb419f0b784adbd6cf828f6cb6e75f60911b898731f9",
+      "jsonSha256": "514b881d0eadbde45266fb419f0b784adbd6cf828f6cb6e75f60911b898731f9",
+      "yamlSha256": "03b066e1f13b28a5bdb7f952a6257812e8b0ba2f1de2715a26540f7c162ffd66",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_facilities_sewage_treatment_facilities_stormwater_pumping_stations_and_inflatable_dams",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "514b881d0eadbde45266fb419f0b784adbd6cf828f6cb6e75f60911b898731f9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_11360",
+        "canonicalJsonSha256": "514b881d0eadbde45266fb419f0b784adbd6cf828f6cb6e75f60911b898731f9",
+        "originalRepresentationSha256": "514b881d0eadbde45266fb419f0b784adbd6cf828f6cb6e75f60911b898731f9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_facilities_sewage_treatment_facilities_stormwater_pumping_stations_and_inflatable_dams"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-17",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-17",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-17/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-17/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-17/openapi.json",
+      "sha256": "f548b03de8790e78bc2a203ec73fd74d5d50e9e983e734df30bf60c8c0588ff1",
+      "jsonSha256": "f548b03de8790e78bc2a203ec73fd74d5d50e9e983e734df30bf60c8c0588ff1",
+      "yamlSha256": "5ab2119713a01371d4e8b369586b591b43abd802b06a3eadc909ace552974aff",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_17",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f548b03de8790e78bc2a203ec73fd74d5d50e9e983e734df30bf60c8c0588ff1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_15861",
+        "canonicalJsonSha256": "f548b03de8790e78bc2a203ec73fd74d5d50e9e983e734df30bf60c8c0588ff1",
+        "originalRepresentationSha256": "f548b03de8790e78bc2a203ec73fd74d5d50e9e983e734df30bf60c8c0588ff1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_17"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-18",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-18",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-18/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-18/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-18/openapi.json",
+      "sha256": "c36c51838f27c07c8c919264faa4d8f673e45a92315aca47ede74b47d41ff5ca",
+      "jsonSha256": "c36c51838f27c07c8c919264faa4d8f673e45a92315aca47ede74b47d41ff5ca",
+      "yamlSha256": "1e778a11214007c75c56b1e50eb2009742bd16e3bfe90b6e9f3fa6f7e248ca0f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_18",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c36c51838f27c07c8c919264faa4d8f673e45a92315aca47ede74b47d41ff5ca"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_22725",
+        "canonicalJsonSha256": "c36c51838f27c07c8c919264faa4d8f673e45a92315aca47ede74b47d41ff5ca",
+        "originalRepresentationSha256": "c36c51838f27c07c8c919264faa4d8f673e45a92315aca47ede74b47d41ff5ca",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_18"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-19",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-19",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-19/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-19/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-19/openapi.json",
+      "sha256": "2dc83ab5395c984e94980e1ebbc93a857a1499cf776cc8e4d8e29ead500f78f6",
+      "jsonSha256": "2dc83ab5395c984e94980e1ebbc93a857a1499cf776cc8e4d8e29ead500f78f6",
+      "yamlSha256": "0e733a111e9bcfba1db32d357902c3ddcd3e8f58350ff648c6608018f6465af4",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_19",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2dc83ab5395c984e94980e1ebbc93a857a1499cf776cc8e4d8e29ead500f78f6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_26863",
+        "canonicalJsonSha256": "2dc83ab5395c984e94980e1ebbc93a857a1499cf776cc8e4d8e29ead500f78f6",
+        "originalRepresentationSha256": "2dc83ab5395c984e94980e1ebbc93a857a1499cf776cc8e4d8e29ead500f78f6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_19"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-20",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-20",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-20/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-20/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-20/openapi.json",
+      "sha256": "519e0ae1da63769f02c21ab6de063099263c4c3626f5fedeabf56d29fb88c89a",
+      "jsonSha256": "519e0ae1da63769f02c21ab6de063099263c4c3626f5fedeabf56d29fb88c89a",
+      "yamlSha256": "444b4f06e7265f7b902a2ef84272729611ca62f632b36f16202ae7a80d15b880",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_20",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "519e0ae1da63769f02c21ab6de063099263c4c3626f5fedeabf56d29fb88c89a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_34441",
+        "canonicalJsonSha256": "519e0ae1da63769f02c21ab6de063099263c4c3626f5fedeabf56d29fb88c89a",
+        "originalRepresentationSha256": "519e0ae1da63769f02c21ab6de063099263c4c3626f5fedeabf56d29fb88c89a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_20"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-21",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-21",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-21/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-21/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-21/openapi.json",
+      "sha256": "36bb5fbf391972f2fc040e38dfdcffb4eb2b0cffbbe6654b5297f6729369a2a4",
+      "jsonSha256": "36bb5fbf391972f2fc040e38dfdcffb4eb2b0cffbbe6654b5297f6729369a2a4",
+      "yamlSha256": "8896e1da8bd00a7b62dc0d5d4e74cee52d026c7eb15bb8ef85024abe0d8ec38a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_21",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "36bb5fbf391972f2fc040e38dfdcffb4eb2b0cffbbe6654b5297f6729369a2a4"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_35333",
+        "canonicalJsonSha256": "36bb5fbf391972f2fc040e38dfdcffb4eb2b0cffbbe6654b5297f6729369a2a4",
+        "originalRepresentationSha256": "36bb5fbf391972f2fc040e38dfdcffb4eb2b0cffbbe6654b5297f6729369a2a4",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_21"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-22",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-22",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-22/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-22/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-22/openapi.json",
+      "sha256": "de85fc953a0cf275983c46769e5263debda1288345b768bd8a1e3a7c473994af",
+      "jsonSha256": "de85fc953a0cf275983c46769e5263debda1288345b768bd8a1e3a7c473994af",
+      "yamlSha256": "4435753916467bcccf6affbc07c8e82654b5cc58008d0ba118bd2530ac4a4bbb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_22",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "de85fc953a0cf275983c46769e5263debda1288345b768bd8a1e3a7c473994af"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_35872",
+        "canonicalJsonSha256": "de85fc953a0cf275983c46769e5263debda1288345b768bd8a1e3a7c473994af",
+        "originalRepresentationSha256": "de85fc953a0cf275983c46769e5263debda1288345b768bd8a1e3a7c473994af",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_22"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-23",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-23",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-23/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-23/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-23/openapi.json",
+      "sha256": "5bedcf52ab50f9c69a370a98f196d07cac4c40772301277a3f61712857168782",
+      "jsonSha256": "5bedcf52ab50f9c69a370a98f196d07cac4c40772301277a3f61712857168782",
+      "yamlSha256": "8e420c7478f4a30046fec942191a64f43f1b111bdfec2ede6a00a67c6db6beb0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_23",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5bedcf52ab50f9c69a370a98f196d07cac4c40772301277a3f61712857168782"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_48916",
+        "canonicalJsonSha256": "5bedcf52ab50f9c69a370a98f196d07cac4c40772301277a3f61712857168782",
+        "originalRepresentationSha256": "5bedcf52ab50f9c69a370a98f196d07cac4c40772301277a3f61712857168782",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_23"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-24",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-24",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-24/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-24/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-24/openapi.json",
+      "sha256": "5affbc3e6c21dc127b883b72be134af1003104cb7ad326e3e54661ec2f37a2ac",
+      "jsonSha256": "5affbc3e6c21dc127b883b72be134af1003104cb7ad326e3e54661ec2f37a2ac",
+      "yamlSha256": "7a1ad4a8329a89109f261b81638db89cec8fe31b4241b56a9b283015ec0c91fe",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_24",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5affbc3e6c21dc127b883b72be134af1003104cb7ad326e3e54661ec2f37a2ac"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_54825",
+        "canonicalJsonSha256": "5affbc3e6c21dc127b883b72be134af1003104cb7ad326e3e54661ec2f37a2ac",
+        "originalRepresentationSha256": "5affbc3e6c21dc127b883b72be134af1003104cb7ad326e3e54661ec2f37a2ac",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_24"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-25",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-25",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-25/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-25/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-25/openapi.json",
+      "sha256": "76746c60bc3b2f8e7f35bd6fc29a1a41d34fb4a2a7904023a16718d8e7d9e0d1",
+      "jsonSha256": "76746c60bc3b2f8e7f35bd6fc29a1a41d34fb4a2a7904023a16718d8e7d9e0d1",
+      "yamlSha256": "cc38b248f547b295ae562d97ff721548a6c42c17aaf3fb2635f71ac0974a7795",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_25",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "76746c60bc3b2f8e7f35bd6fc29a1a41d34fb4a2a7904023a16718d8e7d9e0d1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_5680",
+        "canonicalJsonSha256": "76746c60bc3b2f8e7f35bd6fc29a1a41d34fb4a2a7904023a16718d8e7d9e0d1",
+        "originalRepresentationSha256": "76746c60bc3b2f8e7f35bd6fc29a1a41d34fb4a2a7904023a16718d8e7d9e0d1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_25"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-26",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-26",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-26/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-26/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-26/openapi.json",
+      "sha256": "280e0edfc8c9e76105f3019d6ffbc6701758495414aec7946ee2eb880aabd25d",
+      "jsonSha256": "280e0edfc8c9e76105f3019d6ffbc6701758495414aec7946ee2eb880aabd25d",
+      "yamlSha256": "69c81379ff69b6061a15a1ddfb9b13e6dcfb8d4cc0aa2d15d1afc2eda77c6c53",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_26",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "280e0edfc8c9e76105f3019d6ffbc6701758495414aec7946ee2eb880aabd25d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_59112",
+        "canonicalJsonSha256": "280e0edfc8c9e76105f3019d6ffbc6701758495414aec7946ee2eb880aabd25d",
+        "originalRepresentationSha256": "280e0edfc8c9e76105f3019d6ffbc6701758495414aec7946ee2eb880aabd25d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_26"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-27",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-27",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-27/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-27/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-27/openapi.json",
+      "sha256": "7bfca5443c4215dcf5ff84161ffb43dabdbc058bc7441dedd4a564888be4a81c",
+      "jsonSha256": "7bfca5443c4215dcf5ff84161ffb43dabdbc058bc7441dedd4a564888be4a81c",
+      "yamlSha256": "7578666d9ee6f553c33730315eb102b6772ca113d7e1a9a074d7ae7dc998f4f3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_27",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "7bfca5443c4215dcf5ff84161ffb43dabdbc058bc7441dedd4a564888be4a81c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_64331",
+        "canonicalJsonSha256": "7bfca5443c4215dcf5ff84161ffb43dabdbc058bc7441dedd4a564888be4a81c",
+        "originalRepresentationSha256": "7bfca5443c4215dcf5ff84161ffb43dabdbc058bc7441dedd4a564888be4a81c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_27"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-28",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-28",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-28/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-28/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-28/openapi.json",
+      "sha256": "be07cd5208331a5f1bcb164b91d20ed812dc2ce55c9f7a6fa7d888813815a45e",
+      "jsonSha256": "be07cd5208331a5f1bcb164b91d20ed812dc2ce55c9f7a6fa7d888813815a45e",
+      "yamlSha256": "ac8833d6e02e1fb9cef2527a1fb6c8b1bc7f3ed6973ff6ba8bb66ca3eb8a50ea",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_28",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "be07cd5208331a5f1bcb164b91d20ed812dc2ce55c9f7a6fa7d888813815a45e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_7614",
+        "canonicalJsonSha256": "be07cd5208331a5f1bcb164b91d20ed812dc2ce55c9f7a6fa7d888813815a45e",
+        "originalRepresentationSha256": "be07cd5208331a5f1bcb164b91d20ed812dc2ce55c9f7a6fa7d888813815a45e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_28"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-29",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-29",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-29/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-29/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-29/openapi.json",
+      "sha256": "8ebf7d95c38b77d23d4cb6ec85239e49780c25a6382dcf2bae1a333bc5ba72f4",
+      "jsonSha256": "8ebf7d95c38b77d23d4cb6ec85239e49780c25a6382dcf2bae1a333bc5ba72f4",
+      "yamlSha256": "fda45057fd971ef85e7e505bf37371093244edec202d80ebfc025d91eca50463",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_29",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8ebf7d95c38b77d23d4cb6ec85239e49780c25a6382dcf2bae1a333bc5ba72f4"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_81245",
+        "canonicalJsonSha256": "8ebf7d95c38b77d23d4cb6ec85239e49780c25a6382dcf2bae1a333bc5ba72f4",
+        "originalRepresentationSha256": "8ebf7d95c38b77d23d4cb6ec85239e49780c25a6382dcf2bae1a333bc5ba72f4",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_29"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-30",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-30",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-30/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-30/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-30/openapi.json",
+      "sha256": "de55c742452ee58b0c4ad18591e2098583b35119d521af2ef1cc5c9efec2f90b",
+      "jsonSha256": "de55c742452ee58b0c4ad18591e2098583b35119d521af2ef1cc5c9efec2f90b",
+      "yamlSha256": "7f6f278ac4bf5e8538dfeafc8f492f2d8f18eb44f4b858e138d3bf8b9bd4c9b1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_30",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "de55c742452ee58b0c4ad18591e2098583b35119d521af2ef1cc5c9efec2f90b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_81348",
+        "canonicalJsonSha256": "de55c742452ee58b0c4ad18591e2098583b35119d521af2ef1cc5c9efec2f90b",
+        "originalRepresentationSha256": "de55c742452ee58b0c4ad18591e2098583b35119d521af2ef1cc5c9efec2f90b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_30"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-31",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-31",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-31/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-31/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-31/openapi.json",
+      "sha256": "1f488e0ab10502a65dc7d761df2dc73c00e91ee6568576c3e81c53b85198c1e0",
+      "jsonSha256": "1f488e0ab10502a65dc7d761df2dc73c00e91ee6568576c3e81c53b85198c1e0",
+      "yamlSha256": "ec3a8f036f8f4a58c9d9012ac9fa26b4cf64b799342e6c87f98d84f867f0c8b0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_31",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1f488e0ab10502a65dc7d761df2dc73c00e91ee6568576c3e81c53b85198c1e0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_85526",
+        "canonicalJsonSha256": "1f488e0ab10502a65dc7d761df2dc73c00e91ee6568576c3e81c53b85198c1e0",
+        "originalRepresentationSha256": "1f488e0ab10502a65dc7d761df2dc73c00e91ee6568576c3e81c53b85198c1e0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_31"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-32",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-32",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-32/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-32/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-32/openapi.json",
+      "sha256": "17e2fd57dfcf65aa20a27b8c9f838e44a5e3c0c6cc16219d254ff0aae30f3e77",
+      "jsonSha256": "17e2fd57dfcf65aa20a27b8c9f838e44a5e3c0c6cc16219d254ff0aae30f3e77",
+      "yamlSha256": "17951f49e520f7d0a0e10302e56cf8bd6a4c6f10e74fd1f6a15181e39a42e72e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_32",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "17e2fd57dfcf65aa20a27b8c9f838e44a5e3c0c6cc16219d254ff0aae30f3e77"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_8813",
+        "canonicalJsonSha256": "17e2fd57dfcf65aa20a27b8c9f838e44a5e3c0c6cc16219d254ff0aae30f3e77",
+        "originalRepresentationSha256": "17e2fd57dfcf65aa20a27b8c9f838e44a5e3c0c6cc16219d254ff0aae30f3e77",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_32"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-33",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-33",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-33/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-33/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-33/openapi.json",
+      "sha256": "99ecca9b1f04f9ab1e1df1371f20af0cccb6509e13fccf65a99e5ca53464dd5f",
+      "jsonSha256": "99ecca9b1f04f9ab1e1df1371f20af0cccb6509e13fccf65a99e5ca53464dd5f",
+      "yamlSha256": "06c26d7b6be78b91939a6ae6020a4956a70dcf9dfa7e6230fa24dea4cdeb5e7f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_33",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "99ecca9b1f04f9ab1e1df1371f20af0cccb6509e13fccf65a99e5ca53464dd5f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_91205",
+        "canonicalJsonSha256": "99ecca9b1f04f9ab1e1df1371f20af0cccb6509e13fccf65a99e5ca53464dd5f",
+        "originalRepresentationSha256": "99ecca9b1f04f9ab1e1df1371f20af0cccb6509e13fccf65a99e5ca53464dd5f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_33"
+    },
+    {
+      "id": "dsd-csdi-drainage-records-service-34",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-drainage-records-service-34",
+      "name": "Drainage Records",
+      "apiTitle": "Drainage Services Department \u2014 Drainage Records",
+      "json": "dsd/csdi-drainage-records-service-34/openapi.json",
+      "yaml": "dsd/csdi-drainage-records-service-34/openapi.yaml",
+      "file": "dsd/csdi-drainage-records-service-34/openapi.json",
+      "sha256": "2da3f8372045b2a62113908aedf3f2c5cc6704a697073bd33e21f71ed06dee1a",
+      "jsonSha256": "2da3f8372045b2a62113908aedf3f2c5cc6704a697073bd33e21f71ed06dee1a",
+      "yamlSha256": "909181a0d1dec1247f4139f90026df9cca3a293e94d89e84f8b12fc4b35b619b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_drainage_records_service_34",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2da3f8372045b2a62113908aedf3f2c5cc6704a697073bd33e21f71ed06dee1a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1629267205232_98738",
+        "canonicalJsonSha256": "2da3f8372045b2a62113908aedf3f2c5cc6704a697073bd33e21f71ed06dee1a",
+        "originalRepresentationSha256": "2da3f8372045b2a62113908aedf3f2c5cc6704a697073bd33e21f71ed06dee1a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_drainage_records_service_34"
+    },
+    {
+      "id": "dsd-csdi-the-number-of-public-enquiries-and-complaints-received-by-the-drainage-services-department",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-the-number-of-public-enquiries-and-complaints-received-by-the-drainage-services-department",
+      "name": "The Number of Public Enquiries and Complaints received by the Drainage Services Department",
+      "apiTitle": "Drainage Services Department \u2014 The Number of Public Enquiries and Complaints received by the Drainage Services Department",
+      "json": "dsd/csdi-the-number-of-public-enquiries-and-complaints-received-by-the-drainage-services-department/openapi.json",
+      "yaml": "dsd/csdi-the-number-of-public-enquiries-and-complaints-received-by-the-drainage-services-department/openapi.yaml",
+      "file": "dsd/csdi-the-number-of-public-enquiries-and-complaints-received-by-the-drainage-services-department/openapi.json",
+      "sha256": "0952997d350d4556f3cdbfa2639f86b0c81228143b9070be4d8f5f19b838bc81",
+      "jsonSha256": "0952997d350d4556f3cdbfa2639f86b0c81228143b9070be4d8f5f19b838bc81",
+      "yamlSha256": "466589629743781ba1844a8505b9a0bf9824ef86572cabf61e524bca2dca2538",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_the_number_of_public_enquiries_and_complaints_received_by_the_drainage_services_department",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0952997d350d4556f3cdbfa2639f86b0c81228143b9070be4d8f5f19b838bc81"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1665744324325_76637",
+        "canonicalJsonSha256": "0952997d350d4556f3cdbfa2639f86b0c81228143b9070be4d8f5f19b838bc81",
+        "originalRepresentationSha256": "0952997d350d4556f3cdbfa2639f86b0c81228143b9070be4d8f5f19b838bc81",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_the_number_of_public_enquiries_and_complaints_received_by_the_drainage_services_department"
+    },
+    {
+      "id": "dsd-csdi-tree-dsd",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-tree-dsd",
+      "name": "Tree (DSD)",
+      "apiTitle": "Drainage Services Department \u2014 Tree (DSD)",
+      "json": "dsd/csdi-tree-dsd/openapi.json",
+      "yaml": "dsd/csdi-tree-dsd/openapi.yaml",
+      "file": "dsd/csdi-tree-dsd/openapi.json",
+      "sha256": "db52b83ff079add55ca685e3fcebdb5c28f97e5c516ccaef9d0dee04934b06f0",
+      "jsonSha256": "db52b83ff079add55ca685e3fcebdb5c28f97e5c516ccaef9d0dee04934b06f0",
+      "yamlSha256": "470f9f8fc6ce8a77586b2d50718abb7425557fe70402be0d1fcfeac8d5cf5d49",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_tree_dsd",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "db52b83ff079add55ca685e3fcebdb5c28f97e5c516ccaef9d0dee04934b06f0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1728458555477_44280",
+        "canonicalJsonSha256": "db52b83ff079add55ca685e3fcebdb5c28f97e5c516ccaef9d0dee04934b06f0",
+        "originalRepresentationSha256": "db52b83ff079add55ca685e3fcebdb5c28f97e5c516ccaef9d0dee04934b06f0",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_tree_dsd"
+    },
+    {
+      "id": "dsd-csdi-dsd-facilities-self-guided-tour",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-dsd-facilities-self-guided-tour",
+      "name": "DSD Facilities Self-Guided Tour",
+      "apiTitle": "Drainage Services Department \u2014 DSD Facilities Self-Guided Tour",
+      "json": "dsd/csdi-dsd-facilities-self-guided-tour/openapi.json",
+      "yaml": "dsd/csdi-dsd-facilities-self-guided-tour/openapi.yaml",
+      "file": "dsd/csdi-dsd-facilities-self-guided-tour/openapi.json",
+      "sha256": "1ac4f9bebbf6358955bf700ff5b0cbe587ad872521e3f62fcc26b4f8c326574e",
+      "jsonSha256": "1ac4f9bebbf6358955bf700ff5b0cbe587ad872521e3f62fcc26b4f8c326574e",
+      "yamlSha256": "85ae0c5c9b3d27332e2788ba6d5cc0313415b31c885f879136b3031b26733cb5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_dsd_facilities_self_guided_tour",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1ac4f9bebbf6358955bf700ff5b0cbe587ad872521e3f62fcc26b4f8c326574e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1728879302472_28930",
+        "canonicalJsonSha256": "1ac4f9bebbf6358955bf700ff5b0cbe587ad872521e3f62fcc26b4f8c326574e",
+        "originalRepresentationSha256": "1ac4f9bebbf6358955bf700ff5b0cbe587ad872521e3f62fcc26b4f8c326574e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_dsd_facilities_self_guided_tour"
+    },
+    {
+      "id": "dsd-csdi-ecodms-river-channels",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-ecodms-river-channels",
+      "name": "EcoDMS - River Channels",
+      "apiTitle": "Drainage Services Department \u2014 EcoDMS - River Channels",
+      "json": "dsd/csdi-ecodms-river-channels/openapi.json",
+      "yaml": "dsd/csdi-ecodms-river-channels/openapi.yaml",
+      "file": "dsd/csdi-ecodms-river-channels/openapi.json",
+      "sha256": "b8ba9d13dac30854879a76e323aacde85483f2bd8bf79b12849f21f29522a960",
+      "jsonSha256": "b8ba9d13dac30854879a76e323aacde85483f2bd8bf79b12849f21f29522a960",
+      "yamlSha256": "5c58f798f5f8c5ff1052e48bd229380c688c5945bb4db35dce69bb8579d5450e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ecodms_river_channels",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b8ba9d13dac30854879a76e323aacde85483f2bd8bf79b12849f21f29522a960"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1728890497211_26217",
+        "canonicalJsonSha256": "b8ba9d13dac30854879a76e323aacde85483f2bd8bf79b12849f21f29522a960",
+        "originalRepresentationSha256": "b8ba9d13dac30854879a76e323aacde85483f2bd8bf79b12849f21f29522a960",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ecodms_river_channels"
+    },
+    {
+      "id": "dsd-csdi-flooding-blackspots",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-flooding-blackspots",
+      "name": "Flooding Blackspots",
+      "apiTitle": "Drainage Services Department \u2014 Flooding Blackspots",
+      "json": "dsd/csdi-flooding-blackspots/openapi.json",
+      "yaml": "dsd/csdi-flooding-blackspots/openapi.yaml",
+      "file": "dsd/csdi-flooding-blackspots/openapi.json",
+      "sha256": "d2a0f94a43707a798f0b2d3d02ebee8b248218bc0caf29ac7f563a71a11d84dc",
+      "jsonSha256": "d2a0f94a43707a798f0b2d3d02ebee8b248218bc0caf29ac7f563a71a11d84dc",
+      "yamlSha256": "9e0bfc08c8feb077bba02d43a759be0d3c78dad897c91f689cef0d5dadf4c38d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_flooding_blackspots",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d2a0f94a43707a798f0b2d3d02ebee8b248218bc0caf29ac7f563a71a11d84dc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1728891975004_392",
+        "canonicalJsonSha256": "d2a0f94a43707a798f0b2d3d02ebee8b248218bc0caf29ac7f563a71a11d84dc",
+        "originalRepresentationSha256": "d2a0f94a43707a798f0b2d3d02ebee8b248218bc0caf29ac7f563a71a11d84dc",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_flooding_blackspots"
+    },
+    {
+      "id": "dsd-csdi-coastal-low-lying-or-windy-residential-areas",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-coastal-low-lying-or-windy-residential-areas",
+      "name": "Coastal Low-lying or Windy Residential Areas",
+      "apiTitle": "Drainage Services Department \u2014 Coastal Low-lying or Windy Residential Areas",
+      "json": "dsd/csdi-coastal-low-lying-or-windy-residential-areas/openapi.json",
+      "yaml": "dsd/csdi-coastal-low-lying-or-windy-residential-areas/openapi.yaml",
+      "file": "dsd/csdi-coastal-low-lying-or-windy-residential-areas/openapi.json",
+      "sha256": "3cc5399bce2d8b143f5da03fc4bf60069c97004f9d9dd146720a0c1fbdc01345",
+      "jsonSha256": "3cc5399bce2d8b143f5da03fc4bf60069c97004f9d9dd146720a0c1fbdc01345",
+      "yamlSha256": "460d359cf1ff6ce5fbf812d7743b64775ce5b16e7df1ace97c6047e970be44b7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_coastal_low_lying_or_windy_residential_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3cc5399bce2d8b143f5da03fc4bf60069c97004f9d9dd146720a0c1fbdc01345"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1728893209259_45363",
+        "canonicalJsonSha256": "3cc5399bce2d8b143f5da03fc4bf60069c97004f9d9dd146720a0c1fbdc01345",
+        "originalRepresentationSha256": "3cc5399bce2d8b143f5da03fc4bf60069c97004f9d9dd146720a0c1fbdc01345",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_coastal_low_lying_or_windy_residential_areas"
+    },
+    {
+      "id": "dsd-csdi-engineered-channel",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-engineered-channel",
+      "name": "Engineered Channel",
+      "apiTitle": "Drainage Services Department \u2014 Engineered Channel",
+      "json": "dsd/csdi-engineered-channel/openapi.json",
+      "yaml": "dsd/csdi-engineered-channel/openapi.yaml",
+      "file": "dsd/csdi-engineered-channel/openapi.json",
+      "sha256": "12f982cf3c703dc760aaaa794ea9f7a3f3705fa234ae8303afcc323a5c76b1f7",
+      "jsonSha256": "12f982cf3c703dc760aaaa794ea9f7a3f3705fa234ae8303afcc323a5c76b1f7",
+      "yamlSha256": "da1e9f8123af9fb8e5240122202eb45879710cb07d75a9fa2a84e9fae1b1fbcb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_engineered_channel",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "12f982cf3c703dc760aaaa794ea9f7a3f3705fa234ae8303afcc323a5c76b1f7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1742963120722_16615",
+        "canonicalJsonSha256": "12f982cf3c703dc760aaaa794ea9f7a3f3705fa234ae8303afcc323a5c76b1f7",
+        "originalRepresentationSha256": "12f982cf3c703dc760aaaa794ea9f7a3f3705fa234ae8303afcc323a5c76b1f7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_engineered_channel"
+    },
+    {
+      "id": "dsd-csdi-open-space-dsd",
+      "publisherKey": "dsd",
+      "publisherName": "Drainage Services Department",
+      "familyKey": "csdi-open-space-dsd",
+      "name": "Open Space (DSD)",
+      "apiTitle": "Drainage Services Department \u2014 Open Space (DSD)",
+      "json": "dsd/csdi-open-space-dsd/openapi.json",
+      "yaml": "dsd/csdi-open-space-dsd/openapi.yaml",
+      "file": "dsd/csdi-open-space-dsd/openapi.json",
+      "sha256": "14853130f8892d12d4f9db6cbb30593df23501421a65d395c6bcbc1d7495b358",
+      "jsonSha256": "14853130f8892d12d4f9db6cbb30593df23501421a65d395c6bcbc1d7495b358",
+      "yamlSha256": "a9b8ae3bf7ce339e09cb56b7a20e2b30af2abf931e1858503485bbc3f37a1a2b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_open_space_dsd",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "14853130f8892d12d4f9db6cbb30593df23501421a65d395c6bcbc1d7495b358"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=dsd_rcd_1742963207048_69643",
+        "canonicalJsonSha256": "14853130f8892d12d4f9db6cbb30593df23501421a65d395c6bcbc1d7495b358",
+        "originalRepresentationSha256": "14853130f8892d12d4f9db6cbb30593df23501421a65d395c6bcbc1d7495b358",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_open_space_dsd"
+    }
+  ]
+}

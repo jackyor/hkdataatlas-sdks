@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cas-csdi-path-information-of-cas-cadet-corps-country-parks-patrolling-duties-cppd",
+  "sourceSha256": "6af914787399416ce721919fe25b3d9adea19e9e16f05ded90de4913d9b61617",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cas_rcd_1640314367622_49195/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cas_rcd_1640314367622_49195/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cas_rcd_1640314367622_49195/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

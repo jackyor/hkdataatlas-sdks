@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cedd-csdi-geo-raingauge-data",
+  "sourceSha256": "a1b1a8fbf2e0f1eb7578e282777a2966a318eb75c6f9f67a06fa851902f52a4b",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cedd_rcd_1636517963140_47030/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636517963140_47030/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636517963140_47030/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

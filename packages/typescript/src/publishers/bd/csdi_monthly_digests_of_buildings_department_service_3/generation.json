@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "bd-csdi-monthly-digests-of-buildings-department-service-3",
+  "sourceSha256": "5ceb121783c1ab5f8c22e8c7d44d1bd9afbb0859682faf9ef6bd33570a39361d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/bd_rcd_1629267205235_33875/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1629267205235_33875/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/bd_rcd_1629267205235_33875/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

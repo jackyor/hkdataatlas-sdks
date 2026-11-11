@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "housing-csdi-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-scheme-flats-of-ching-fu-court-dip-tsui-court",
+  "sourceSha256": "33fb494ab77fa62237f187248db78524e0ee3abd47654d7edd4c94c919602454",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/housingauthority_rcd_1765179382707_22882/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/housingauthority_rcd_1765179382707_22882/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/housingauthority_rcd_1765179382707_22882/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+components:
+  schemas:
+    CarparkVacancy:
+      properties:
+        carpark:
+          description: The code of carpark.
+          type: string
+        privateCar:
+          description: Object enclosing EV vacancy information.
+          properties:
+            vacancyEV:
+              description: Number of available EV parking spaces for the public.
+              type: integer
+          type: object
+      type: object
+    EvVacancyResponse:
+      description: Response structure shown in the publisher example; the documentation does not state that this sample is exhaustive.
+      properties:
+        value:
+          description: List of objects.
+          items:
+            $ref: "#/components/schemas/CarparkVacancy"
+          type: array
+      type: object
+externalDocs:
+  description: Official API documentation
+  url: https://opendata.hkstp.org/doc/carpark/HKSTP-API-carpark-ev-vacancy.pdf
+info:
+  description: Provides the number of available EV parking spaces in Hong Kong Science Park. The version value is a metadata placeholder; the publisher does not document an API version.
+  title: HKSTPC Carpark utilization API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /carpark/v1/ev-vacancy:
+    get:
+      description: Returns a JSON list of carpark vacancy information. Authentication requirements are not documented.
+      operationId: getEvVacancy
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  summary: Publisher response example
+                  value:
+                    value:
+                      - carpark: P1
+                        privateCar:
+                          vacancyEV: 0
+              schema:
+                $ref: "#/components/schemas/EvVacancyResponse"
+          description: JSON response containing EV vacancy information.
+      summary: Get EV parking vacancy
+servers:
+  - url: https://opendata.hkstp.org

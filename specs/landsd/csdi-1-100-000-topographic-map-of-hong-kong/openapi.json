@@ -1,0 +1,4970 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Lands Department — 1:100 000 Topographic Map of Hong Kong",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "BDRYANNO",
+                "value": 0
+              },
+              "choice2": {
+                "summary": "LANDPOLY",
+                "value": 1
+              },
+              "choice3": {
+                "summary": "TSPTSYMBOL",
+                "value": 10
+              },
+              "choice4": {
+                "summary": "Relationship_Table",
+                "value": 1000
+              },
+              "choice5": {
+                "summary": "GeoName",
+                "value": 1001
+              },
+              "choice6": {
+                "summary": "ELEVANNO",
+                "value": 11
+              },
+              "choice7": {
+                "summary": "ELEVLINE",
+                "value": 12
+              },
+              "choice8": {
+                "summary": "FACIANNO",
+                "value": 13
+              },
+              "choice9": {
+                "summary": "BDRYLINE",
+                "value": 14
+              },
+              "choice10": {
+                "summary": "ELEVPOLY",
+                "value": 15
+              },
+              "choice11": {
+                "summary": "ELEVSYMBOL",
+                "value": 16
+              },
+              "choice12": {
+                "summary": "FACIPOLY",
+                "value": 2
+              },
+              "choice13": {
+                "summary": "TSPTLINE",
+                "value": 3
+              },
+              "choice14": {
+                "summary": "PLACANNO",
+                "value": 4
+              },
+              "choice15": {
+                "summary": "HYDRPOLY",
+                "value": 5
+              },
+              "choice16": {
+                "summary": "HYDRLINE",
+                "value": 6
+              },
+              "choice17": {
+                "summary": "HYDRANNO",
+                "value": 7
+              },
+              "choice18": {
+                "summary": "TSPTANNO",
+                "value": 8
+              },
+              "choice19": {
+                "summary": "BLDGPOLY",
+                "value": 9
+              }
+            },
+            "x-choice-count": 19
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0,
+              1,
+              10,
+              1000,
+              1001,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer?f=pjson",
+            "sha256": "6d5e38bcc8cd95c6d783060a2a8be25e1e0ab8936944865f50655af6fafd98e6",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/0?f=pjson",
+            "sha256": "a0e64a3af55a79ea80a681fcf2017ac115a0afd64a10ab3527d012c0fbc46ddc",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/1000?f=pjson",
+            "sha256": "0e3a8c52b412a506b7b8699b74bb6f3176fabee7b7368abbf9301b71203fcda0",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/1001?f=pjson",
+            "sha256": "05fa3e449849e4aaaf3628279080b4799934559dd9454ede7650088ecdd144a7",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/10?f=pjson",
+            "sha256": "25adfdf6ef80f55a1b15c52a963597557200434fb7566f15a9059840e367c584",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/11?f=pjson",
+            "sha256": "580d66fe02c1a6bfd514ce7be0bbfe188c3875ee8bab6c67fa885541d7594eb2",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/12?f=pjson",
+            "sha256": "4dfb3fa886cf046154cc5ba722588b429af2d687407be9052ff4aaae426d11cb",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/13?f=pjson",
+            "sha256": "7659271664a532af58bb683cfb2d0e1eda05b48acb8413f64b676c9feccc1464",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/14?f=pjson",
+            "sha256": "fc90b9b78d9294162699feb20273417cc0b3d3ba6937658b9afdca66ad8de9d7",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/15?f=pjson",
+            "sha256": "e3f61db7f55195429a00700197808cd678ddb52c3d87150ab16c295fce4ea017",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/16?f=pjson",
+            "sha256": "770e417dd844b53b48db3c6dd41ed162dff967b65514e29212b442c1b05b829c",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/1?f=pjson",
+            "sha256": "979ad2650cb959e9881e3cbc696211656b29cac17aa3776331114b11b0963c05",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/2?f=pjson",
+            "sha256": "ad29d387d2e78fe4d84872660d150b2b07a15f184fed1be23aeb386a53df6498",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/3?f=pjson",
+            "sha256": "25ea427c7afafc94d0246b5e3bc91d2f1e933b9216ef91cc122c48ad0bf52807",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/4?f=pjson",
+            "sha256": "e481c4934eaa8c1a70e4c9702463eafdbfbe1be9e54e2e35c21d451cbe3c2db9",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/5?f=pjson",
+            "sha256": "c08705e26bf60ec6585ceb437ddf1ba294f609fa5c6a73f4fedee12802b10f3b",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/6?f=pjson",
+            "sha256": "b2abdb0b97857f2386997f4d075ed628c802fcd59d64d38cb0908a90143e8d56",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/7?f=pjson",
+            "sha256": "b61717a437ea62d50abfdb5249564ce144f7b8f667512565afeec0e03eb08e53",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/8?f=pjson",
+            "sha256": "2eb3cf1738e75f6d300fc58fef5665d59c44008674a7bcef708f7300b6d822d1",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/9?f=pjson",
+            "sha256": "aa8b7ffaa3038fe4ae24d0f2543292f671a51cc1f0fef213c3e208aeeb924a3c",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/landsd_rcd_1637221267230_27829/MapServer/WMSServer": {
+      "get": {
+        "operationId": "WmsMapServerGetMap",
+        "tags": [
+          "WMS"
+        ],
+        "summary": "Render a map image",
+        "description": "Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WMS"
+              ]
+            },
+            "example": "WMS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact advertised WMS version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1.3.0"
+              ]
+            },
+            "example": "1.3.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only GetMap operation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetMap"
+              ]
+            },
+            "example": "GetMap"
+          },
+          {
+            "name": "layers",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "LANDPOLY",
+                "value": "LANDPOLY"
+              },
+              "choice2": {
+                "summary": "FACIPOLY",
+                "value": "FACIPOLY"
+              },
+              "choice3": {
+                "summary": "HYDRPOLY",
+                "value": "HYDRPOLY"
+              },
+              "choice4": {
+                "summary": "BLDGPOLY",
+                "value": "BLDGPOLY"
+              },
+              "choice5": {
+                "summary": "ELEVPOLY",
+                "value": "ELEVPOLY"
+              },
+              "choice6": {
+                "summary": "TSPTLINE",
+                "value": "TSPTLINE"
+              },
+              "choice7": {
+                "summary": "HYDRLINE",
+                "value": "HYDRLINE"
+              },
+              "choice8": {
+                "summary": "ELEVLINE",
+                "value": "ELEVLINE"
+              },
+              "choice9": {
+                "summary": "BDRYLINE",
+                "value": "BDRYLINE"
+              },
+              "choice10": {
+                "summary": "BDRYANNO",
+                "value": "BDRYANNO"
+              },
+              "choice11": {
+                "summary": "PLACANNO",
+                "value": "PLACANNO"
+              },
+              "choice12": {
+                "summary": "HYDRANNO",
+                "value": "HYDRANNO"
+              },
+              "choice13": {
+                "summary": "TSPTANNO",
+                "value": "TSPTANNO"
+              },
+              "choice14": {
+                "summary": "TSPTSYMBOL",
+                "value": "TSPTSYMBOL"
+              },
+              "choice15": {
+                "summary": "ELEVANNO",
+                "value": "ELEVANNO"
+              },
+              "choice16": {
+                "summary": "FACIANNO",
+                "value": "FACIANNO"
+              },
+              "choice17": {
+                "summary": "ELEVSYMBOL",
+                "value": "ELEVSYMBOL"
+              }
+            },
+            "x-choice-count": 17
+          },
+          {
+            "name": "styles",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated style names; an empty string selects the standard default style.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Advertised GetMap representation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "image/bmp",
+                "image/jpeg",
+                "image/tiff",
+                "image/png",
+                "image/png8",
+                "image/png24",
+                "image/png32",
+                "image/gif",
+                "image/svg+xml"
+              ]
+            },
+            "example": "image/png"
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Requested image width in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Requested image height in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "required": true,
+            "description": "Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "CRS:84"
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "required": true,
+            "description": "minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "113.775272,22.087664,114.531620,22.627006"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/tiff": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png24": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png32": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+        },
+        "x-advertised-crss": [
+          "CRS:84",
+          "EPSG:4326",
+          "EPSG:2326",
+          "EPSG:102140"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637221267230_27829/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+            "sha256": "81466be6d79236f4f2f8fd6a8e087d6d8acfd46369feb722aba9e245b671b70d",
+            "httpStatus": 200,
+            "contentType": "text/xml",
+            "role": "wms-capabilities",
+            "parseStatus": "pass",
+            "kind": "wms-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Angle": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Angle",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "AnnotationClassID": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "AnnotationClassID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Bold": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Bold",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterWidth": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterWidth",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FlipAngle": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FlipAngle",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontLeading": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FontLeading",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FontName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "FontSize": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "FontSize",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Italic": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Italic",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Status": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Status",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TextString": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TextString",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 29
+          },
+          "Underline": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Underline",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "WordSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "WordSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 9
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer10Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1000Attributes": {
+        "type": "object",
+        "properties": {
+          "GEONAMEID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GEONAMEID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 14
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICID",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1001Attributes": {
+        "type": "object",
+        "properties": {
+          "CHINESENAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CHINESENAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 30
+          },
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ENGLISHNAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ENGLISHNAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 49
+          },
+          "GEONAMEID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GEONAMEID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GEOREFCODE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GEOREFCODE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer11Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Angle": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Angle",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "AnnotationClassID": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "AnnotationClassID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Bold": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Bold",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterWidth": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterWidth",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FlipAngle": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FlipAngle",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontLeading": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FontLeading",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FontName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 5
+          },
+          "FontSize": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "FontSize",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Italic": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Italic",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Status": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Status",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TextString": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "TextString",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Underline": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Underline",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "WordSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "WordSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer12Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "HEIGHT": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "HEIGHT",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer13Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Angle": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Angle",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "AnnotationClassID": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "AnnotationClassID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Bold": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Bold",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterWidth": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterWidth",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FlipAngle": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FlipAngle",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontLeading": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FontLeading",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FontName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "FontSize": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "FontSize",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Italic": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Italic",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Status": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Status",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TextString": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TextString",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 21
+          },
+          "Underline": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Underline",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "WordSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "WordSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer14Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer15Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer16Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "HEIGHT": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "HEIGHT",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TRIGNAME": {
+            "description": "Publisher field type: esriFieldTypeSingle",
+            "title": "TRIGNAME",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer2Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer3Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 14
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer4Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Angle": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Angle",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "AnnotationClassID": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "AnnotationClassID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Bold": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Bold",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterSpacing": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "CharacterSpacing",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "CharacterWidth": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterWidth",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FlipAngle": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FlipAngle",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontLeading": {
+            "description": "Publisher field type: esriFieldTypeSingle",
+            "title": "FontLeading",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "FontName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FontName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "FontSize": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "FontSize",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Italic": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Italic",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Status": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Status",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TextString": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TextString",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 32
+          },
+          "Underline": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Underline",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "WordSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "WordSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer5Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 11
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer6Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 11
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer7Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Angle": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Angle",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "AnnotationClassID": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "AnnotationClassID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Bold": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Bold",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterWidth": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterWidth",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FlipAngle": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FlipAngle",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontLeading": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FontLeading",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FontName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "FontSize": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "FontSize",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Italic": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Italic",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Status": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Status",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TextString": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TextString",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "Underline": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Underline",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "WordSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "WordSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer8Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 6
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "ANNOSYMID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "ANNOSYMID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Angle": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Angle",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "AnnotationClassID": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "AnnotationClassID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Bold": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Bold",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CharacterSpacing": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "CharacterSpacing",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "CharacterWidth": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "CharacterWidth",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FlipAngle": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FlipAngle",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontLeading": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FontLeading",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FontName": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "FontName",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "FontSize": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "FontSize",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Italic": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Italic",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Status": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Status",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TextString": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TextString",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 59
+          },
+          "Underline": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Underline",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "WordSpacing": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "WordSpacing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer9Attributes": {
+        "type": "object",
+        "properties": {
+          "CLASS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "CLASS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "EASTING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "EASTING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LASTUPDATEDATE": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "LASTUPDATEDATE",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NORTHING": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NORTHING",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "PHYSICALSTATUS": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PHYSICALSTATUS",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PRIORITY": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "PRIORITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SOURCE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "SOURCE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "SUBCAT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SUBCAT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "GRAPHICDATASET": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRAPHICDATASET",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 9
+          },
+          "GRAPHICID": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GRAPHICID",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "BDRYANNO",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1,
+      "title": "LANDPOLY",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 10,
+      "title": "TSPTSYMBOL",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1000,
+      "title": "Relationship_Table",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1001,
+      "title": "GeoName",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 11,
+      "title": "ELEVANNO",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 12,
+      "title": "ELEVLINE",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 13,
+      "title": "FACIANNO",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 14,
+      "title": "BDRYLINE",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 15,
+      "title": "ELEVPOLY",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 16,
+      "title": "ELEVSYMBOL",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 2,
+      "title": "FACIPOLY",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 3,
+      "title": "TSPTLINE",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 4,
+      "title": "PLACANNO",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 5,
+      "title": "HYDRPOLY",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 6,
+      "title": "HYDRLINE",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 7,
+      "title": "HYDRANNO",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 8,
+      "title": "TSPTANNO",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 9,
+      "title": "BLDGPOLY",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "LANDPOLY",
+      "title": "LANDPOLY",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.839681",
+          "miny": "22.165425",
+          "maxx": "114.436746",
+          "maxy": "22.562572"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.165425",
+          "miny": "113.839681",
+          "maxx": "22.562572",
+          "maxy": "114.436746"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "802862.812000",
+          "miny": "801839.125100",
+          "maxx": "846802.895000",
+          "maxy": "863250.125100"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "802862.812000",
+          "miny": "801839.125100",
+          "maxx": "846802.895000",
+          "maxy": "863250.125100"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "LANDPOLY"
+        }
+      ]
+    },
+    {
+      "id": "FACIPOLY",
+      "title": "FACIPOLY",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.860086",
+          "miny": "22.200720",
+          "maxx": "114.325587",
+          "maxy": "22.546501"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.200720",
+          "miny": "113.860086",
+          "maxx": "22.546501",
+          "maxy": "114.325587"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "806766.694000",
+          "miny": "803934.110000",
+          "maxx": "845023.229000",
+          "maxy": "851818.637000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "806766.694000",
+          "miny": "803934.110000",
+          "maxx": "845023.229000",
+          "maxy": "851818.637000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "FACIPOLY"
+        }
+      ]
+    },
+    {
+      "id": "HYDRPOLY",
+      "title": "HYDRPOLY",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "HYDRPOLY"
+        }
+      ]
+    },
+    {
+      "id": "BLDGPOLY",
+      "title": "BLDGPOLY",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.843379",
+          "miny": "22.157744",
+          "maxx": "114.434026",
+          "maxy": "22.560444"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.157744",
+          "miny": "113.843379",
+          "maxx": "22.560444",
+          "maxy": "114.434026"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "802011.319000",
+          "miny": "802218.998000",
+          "maxx": "846567.255000",
+          "maxy": "862970.792000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "802011.319000",
+          "miny": "802218.998000",
+          "maxx": "846567.255000",
+          "maxy": "862970.792000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "BLDGPOLY"
+        }
+      ]
+    },
+    {
+      "id": "ELEVPOLY",
+      "title": "ELEVPOLY",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.831742",
+          "miny": "22.155143",
+          "maxx": "114.439539",
+          "maxy": "22.563373"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.155143",
+          "miny": "113.831742",
+          "maxx": "22.563373",
+          "maxy": "114.439539"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "801726.047000",
+          "miny": "801022.778000",
+          "maxx": "846891.560000",
+          "maxy": "863537.257000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "801726.047000",
+          "miny": "801022.778000",
+          "maxx": "846891.560000",
+          "maxy": "863537.257000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "ELEVPOLY"
+        }
+      ]
+    },
+    {
+      "id": "TSPTLINE",
+      "title": "TSPTLINE",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.839656",
+          "miny": "22.157702",
+          "maxx": "114.438844",
+          "maxy": "22.563205"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.157702",
+          "miny": "113.839656",
+          "maxx": "22.563205",
+          "maxy": "114.438844"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "802007.544000",
+          "miny": "801836.779000",
+          "maxx": "846873.013100",
+          "maxy": "863465.789000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "802007.544000",
+          "miny": "801836.779000",
+          "maxx": "846873.013100",
+          "maxy": "863465.789000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "TSPTLINE"
+        }
+      ]
+    },
+    {
+      "id": "HYDRLINE",
+      "title": "HYDRLINE",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.777235",
+          "miny": "22.089973",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.089973",
+          "miny": "113.777235",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794523.084000",
+          "miny": "795435.374000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794523.084000",
+          "miny": "795435.374000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "HYDRLINE"
+        }
+      ]
+    },
+    {
+      "id": "ELEVLINE",
+      "title": "ELEVLINE",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.832460",
+          "miny": "22.157857",
+          "maxx": "114.402045",
+          "maxy": "22.560774"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.157857",
+          "miny": "113.832460",
+          "maxx": "22.560774",
+          "maxy": "114.402045"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "802026.447000",
+          "miny": "801095.924000",
+          "maxx": "846603.765000",
+          "maxy": "859681.233000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "802026.447000",
+          "miny": "801095.924000",
+          "maxx": "846603.765000",
+          "maxy": "859681.233000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "ELEVLINE"
+        }
+      ]
+    },
+    {
+      "id": "BDRYLINE",
+      "title": "BDRYLINE",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.813750",
+          "miny": "22.138054",
+          "maxx": "114.500939",
+          "maxy": "22.569932"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.138054",
+          "miny": "113.813750",
+          "maxx": "22.569932",
+          "maxy": "114.500939"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "799838.000000",
+          "miny": "799174.000000",
+          "maxx": "847618.000000",
+          "maxy": "869851.000000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "799838.000000",
+          "miny": "799174.000000",
+          "maxx": "847618.000000",
+          "maxy": "869851.000000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "BDRYLINE"
+        }
+      ]
+    },
+    {
+      "id": "BDRYANNO",
+      "title": "BDRYANNO",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.888521",
+          "miny": "22.290087",
+          "maxx": "114.235041",
+          "maxy": "22.541105"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.290087",
+          "miny": "113.888521",
+          "maxx": "22.541105",
+          "maxy": "114.235041"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "816657.088100",
+          "miny": "806858.038000",
+          "maxx": "844425.603300",
+          "maxy": "842504.669400"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "816657.088100",
+          "miny": "806858.038000",
+          "maxx": "844425.603300",
+          "maxy": "842504.669400"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "BDRYANNO"
+        }
+      ]
+    },
+    {
+      "id": "PLACANNO",
+      "title": "PLACANNO",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.824012",
+          "miny": "22.152668",
+          "maxx": "114.443645",
+          "maxy": "22.562644"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.152668",
+          "miny": "113.824012",
+          "maxx": "22.562644",
+          "maxy": "114.443645"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "801453.727100",
+          "miny": "800227.539400",
+          "maxx": "846810.912500",
+          "maxy": "863959.653800"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "801453.727100",
+          "miny": "800227.539400",
+          "maxx": "846810.912500",
+          "maxy": "863959.653800"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "PLACANNO"
+        }
+      ]
+    },
+    {
+      "id": "HYDRANNO",
+      "title": "HYDRANNO",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "114.000453",
+          "miny": "22.294306",
+          "maxx": "114.000506",
+          "maxy": "22.296052"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.294306",
+          "miny": "114.000453",
+          "maxx": "22.296052",
+          "maxy": "114.000506"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "817106.517300",
+          "miny": "818340.397000",
+          "maxx": "817299.834100",
+          "maxy": "818345.707000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "817106.517300",
+          "miny": "818340.397000",
+          "maxx": "817299.834100",
+          "maxy": "818345.707000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "HYDRANNO"
+        }
+      ]
+    },
+    {
+      "id": "TSPTANNO",
+      "title": "TSPTANNO",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.865793",
+          "miny": "22.247871",
+          "maxx": "114.222825",
+          "maxy": "22.474300"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.247871",
+          "miny": "113.865793",
+          "maxx": "22.474300",
+          "maxy": "114.222825"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "811986.873600",
+          "miny": "804504.486800",
+          "maxx": "837027.781000",
+          "maxy": "841250.224000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "811986.873600",
+          "miny": "804504.486800",
+          "maxx": "837027.781000",
+          "maxy": "841250.224000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "TSPTANNO"
+        }
+      ]
+    },
+    {
+      "id": "TSPTSYMBOL",
+      "title": "TSPTSYMBOL",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.882818",
+          "miny": "22.225960",
+          "maxx": "114.323514",
+          "maxy": "22.523023"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.225960",
+          "miny": "113.882818",
+          "maxx": "22.523023",
+          "maxy": "114.323514"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "809556.916000",
+          "miny": "806267.364000",
+          "maxx": "842423.298000",
+          "maxy": "851607.926000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "809556.916000",
+          "miny": "806267.364000",
+          "maxx": "842423.298000",
+          "maxy": "851607.926000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "TSPTSYMBOL"
+        }
+      ]
+    },
+    {
+      "id": "ELEVANNO",
+      "title": "ELEVANNO",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.850327",
+          "miny": "22.157096",
+          "maxx": "114.425949",
+          "maxy": "22.553025"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.157096",
+          "miny": "113.850327",
+          "maxx": "22.553025",
+          "maxy": "114.425949"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "801938.015300",
+          "miny": "802931.848000",
+          "maxx": "845745.696300",
+          "maxy": "862141.342000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "801938.015300",
+          "miny": "802931.848000",
+          "maxx": "845745.696300",
+          "maxy": "862141.342000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "ELEVANNO"
+        }
+      ]
+    },
+    {
+      "id": "FACIANNO",
+      "title": "FACIANNO",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "114.044306",
+          "miny": "22.235415",
+          "maxx": "114.204588",
+          "maxy": "22.401290"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.235415",
+          "miny": "114.044306",
+          "maxx": "22.401290",
+          "maxy": "114.204588"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "810580.416500",
+          "miny": "822869.893000",
+          "maxx": "828942.765800",
+          "maxy": "839374.656200"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "810580.416500",
+          "miny": "822869.893000",
+          "maxx": "828942.765800",
+          "maxy": "839374.656200"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "FACIANNO"
+        }
+      ]
+    },
+    {
+      "id": "ELEVSYMBOL",
+      "title": "ELEVSYMBOL",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.775272",
+          "miny": "22.087664",
+          "maxx": "114.531620",
+          "maxy": "22.627006"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.087664",
+          "miny": "113.775272",
+          "maxx": "22.627006",
+          "maxy": "114.531620"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "794267.836000",
+          "miny": "795233.577000",
+          "maxx": "853938.358000",
+          "maxy": "872991.536000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.852661",
+          "miny": "22.155873",
+          "maxx": "114.425923",
+          "maxy": "22.551800"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.155873",
+          "miny": "113.852661",
+          "maxx": "22.551800",
+          "maxy": "114.425923"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "801802.129000",
+          "miny": "803171.574000",
+          "maxx": "845610.070000",
+          "maxy": "862138.863000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "801802.129000",
+          "miny": "803171.574000",
+          "maxx": "845610.070000",
+          "maxy": "862138.863000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "ELEVSYMBOL"
+        }
+      ]
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=landsd_rcd_1637221267230_27829",
+      "sha256": "a96d6fa81811c679100898a3108f1f68adefa6310f01f7e719281e055a91040e",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer?f=pjson",
+      "sha256": "6d5e38bcc8cd95c6d783060a2a8be25e1e0ab8936944865f50655af6fafd98e6",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/0?f=pjson",
+      "sha256": "a0e64a3af55a79ea80a681fcf2017ac115a0afd64a10ab3527d012c0fbc46ddc",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/1000?f=pjson",
+      "sha256": "0e3a8c52b412a506b7b8699b74bb6f3176fabee7b7368abbf9301b71203fcda0",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/1001?f=pjson",
+      "sha256": "05fa3e449849e4aaaf3628279080b4799934559dd9454ede7650088ecdd144a7",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/10?f=pjson",
+      "sha256": "25adfdf6ef80f55a1b15c52a963597557200434fb7566f15a9059840e367c584",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/11?f=pjson",
+      "sha256": "580d66fe02c1a6bfd514ce7be0bbfe188c3875ee8bab6c67fa885541d7594eb2",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/12?f=pjson",
+      "sha256": "4dfb3fa886cf046154cc5ba722588b429af2d687407be9052ff4aaae426d11cb",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/13?f=pjson",
+      "sha256": "7659271664a532af58bb683cfb2d0e1eda05b48acb8413f64b676c9feccc1464",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/14?f=pjson",
+      "sha256": "fc90b9b78d9294162699feb20273417cc0b3d3ba6937658b9afdca66ad8de9d7",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/15?f=pjson",
+      "sha256": "e3f61db7f55195429a00700197808cd678ddb52c3d87150ab16c295fce4ea017",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/16?f=pjson",
+      "sha256": "770e417dd844b53b48db3c6dd41ed162dff967b65514e29212b442c1b05b829c",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/1?f=pjson",
+      "sha256": "979ad2650cb959e9881e3cbc696211656b29cac17aa3776331114b11b0963c05",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/2?f=pjson",
+      "sha256": "ad29d387d2e78fe4d84872660d150b2b07a15f184fed1be23aeb386a53df6498",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/3?f=pjson",
+      "sha256": "25ea427c7afafc94d0246b5e3bc91d2f1e933b9216ef91cc122c48ad0bf52807",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/4?f=pjson",
+      "sha256": "e481c4934eaa8c1a70e4c9702463eafdbfbe1be9e54e2e35c21d451cbe3c2db9",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/5?f=pjson",
+      "sha256": "c08705e26bf60ec6585ceb437ddf1ba294f609fa5c6a73f4fedee12802b10f3b",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/6?f=pjson",
+      "sha256": "b2abdb0b97857f2386997f4d075ed628c802fcd59d64d38cb0908a90143e8d56",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/7?f=pjson",
+      "sha256": "b61717a437ea62d50abfdb5249564ce144f7b8f667512565afeec0e03eb08e53",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/8?f=pjson",
+      "sha256": "2eb3cf1738e75f6d300fc58fef5665d59c44008674a7bcef708f7300b6d822d1",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637221267230_27829/FeatureServer/9?f=pjson",
+      "sha256": "aa8b7ffaa3038fe4ae24d0f2543292f671a51cc1f0fef213c3e208aeeb924a3c",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637221267230_27829/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+      "sha256": "81466be6d79236f4f2f8fd6a8e087d6d8acfd46369feb722aba9e245b671b70d",
+      "httpStatus": 200,
+      "contentType": "text/xml",
+      "role": "wms-capabilities",
+      "parseStatus": "pass",
+      "kind": "wms-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [
+      {
+        "code": "metadata_http_not_200",
+        "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637221267230_27829/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+        "httpStatus": 403
+      },
+      {
+        "serviceId": "csdi-service-dc87de4d833f5c0abfdcbc36",
+        "code": "discovery_metadata_error",
+        "reason": "Metadata request status http_error",
+        "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637221267230_27829/MapServer/WFSServer?service=WFS&request=GetCapabilities"
+      },
+      {
+        "serviceId": "csdi-service-dc87de4d833f5c0abfdcbc36",
+        "protocol": "wfs",
+        "code": "unsupported_or_incomplete_native_contract",
+        "reason": "No retained parseable WFS GetCapabilities"
+      }
+    ],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 22
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

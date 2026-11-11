@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "emsd-csdi-buildings-issued-with-energy-audit-form-for-the-buildings-energy-efficiency-ordinance",
+  "sourceSha256": "a758bfe483c5b428fe9a3ac2bd8c0a982a32773e2999b0fd1faec25d065d5f1b",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/emsd_rcd_1697187130508_67035/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1697187130508_67035/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1697187130508_67035/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

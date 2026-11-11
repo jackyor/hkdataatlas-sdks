@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ugc-csdi-staff-number-headcount-in-academic-departments-of-ugc-funded-universities-by-source-of-salary-funding-university-staff-grade-and-mode-of-employment",
+  "sourceSha256": "48cca0604b5e8f38fdbbda2b35cb8c7762f6269adda3b8ebdaecefc7f1cf5b5c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ugc_rcd_1728985293662_96501/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ugc_rcd_1728985293662_96501/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ugc_rcd_1728985293662_96501/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

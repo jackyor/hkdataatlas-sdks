@@ -1,0 +1,44 @@
+{
+  "sourceId": "hkma-hkma-ai-related-trustees-corrected",
+  "publisherKey": "hkma",
+  "family": "hkma_ai_related_trustees_corrected",
+  "status": "generated",
+  "key": "09333c6a10abeff63ed9b32362403861198b624ded742f5f9a0e84e73ab02320",
+  "sourceSha256": "30e248f855436d5f988ea16203a0449a19b4b84e8ec0b09c234ef2d1c44f280d",
+  "derivedInputSha256": "30e248f855436d5f988ea16203a0449a19b4b84e8ec0b09c234ef2d1c44f280d",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/ai-related-trustees",
+      "operationId": "getAiRelatedTrustees",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-hkma-ai-related-trustees-corrected.log",
+  "outputs": {
+    "__init__.py": "dee336c4b1a747b26cdb4c906ae8e772710d7809e07470d229abf94a3b53f8b4",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_ai_related_trustees.py": "e6a65003e7559568766399033af0bcd52427b5048b6bc52cd1757af9494b6253",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "dd906018ad07f4b2fe6317be6a2ce52882e36a1f50394807a8f35b281dc15c65",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/lang.py": "b6c27f2eb5db4b63ee7b292b8bc3415cea1ca3277126ba19bc2d6751ef9812d8",
+    "models/record.py": "d984a3c9a983f08d831de7e388a5561cf196b2bcda3121c0f2a86ecb6e1d7569",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/segment.py": "3cf5e3b05a2167aed5e1612e9b508d61261f61273f896fb880ff65a4617f9083",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

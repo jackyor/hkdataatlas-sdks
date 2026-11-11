@@ -1,0 +1,36 @@
+{
+  "sourceId": "housing-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-g",
+  "publisherKey": "housing",
+  "family": "transactions_in_the_resale_of_green_form_subsidised_home_ownership_scheme_g",
+  "status": "generated",
+  "key": "dd93e57b235159e6348adc64346b0699998295e380e7a246f8fbadf31a483fc1",
+  "sourceSha256": "fe069714db09fa2acb4e42fca0554cffcecdd1a5f631e1cd629a3ebfb464b539",
+  "derivedInputSha256": "fe069714db09fa2acb4e42fca0554cffcecdd1a5f631e1cd629a3ebfb464b539",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/psi/rest/export/{dataresource}/{lang}/{format}",
+      "operationId": "getGshResaleTransactions",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/housing-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-g.log",
+  "outputs": {
+    "__init__.py": "cdd4ca99bb82d078e11152358887aedf670a33ed6fe8dec9111b2c27e5f24f75",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_gsh_resale_transactions.py": "577c1b1d56e6878a4784cd8b4a049b53870ba53d4d067f9f5611298512d4bcf1",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "960466ffca10e72df747d54151b357330ced445306a4270a4468f6fdf51f6cae",
+    "models/get_gsh_resale_transactions_dataresource.py": "d7af9fd8980ee12cbfdda01df41628e6ebb69c2971b22215e25a2e5947d35ca5",
+    "models/get_gsh_resale_transactions_format.py": "b673a61ba55d603999d309e0acf27f92433b784fa6dc03acf1801cd1a615fd96",
+    "models/get_gsh_resale_transactions_lang.py": "908a39c62721691d998051d5e4e73bd41f3ac5ce301517cf80c34974f8e82968",
+    "models/transaction.py": "8ffbe2ac6a044ff382f776a16d72e24befd34189ea453cfae4c39d2095d412b3",
+    "models/transactions_response.py": "6d7bbcd0f41ef4c39ce3f6d2ed36a9d8ee8e83cccb2de5e33ecf6eb0d03a6376",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

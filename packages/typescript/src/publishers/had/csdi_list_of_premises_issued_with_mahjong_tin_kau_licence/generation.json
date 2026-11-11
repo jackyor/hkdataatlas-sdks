@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "had-csdi-list-of-premises-issued-with-mahjong-tin-kau-licence",
+  "sourceSha256": "e5cddfdd19d1f9d27ab9f711fc11f2d29884b1a47f0ad367dfd2c6011123f4b4",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/had_rcd_1700728329252_66287/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1700728329252_66287/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1700728329252_66287/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

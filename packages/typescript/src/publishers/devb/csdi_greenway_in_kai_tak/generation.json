@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "devb-csdi-greenway-in-kai-tak",
+  "sourceSha256": "7de424dcf6b278aae575a6c79f411cf89902f6956f8f7ea11490b37752007b04",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/devb_wb_rcd_1732687928039_22095/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_wb_rcd_1732687928039_22095/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_wb_rcd_1732687928039_22095/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

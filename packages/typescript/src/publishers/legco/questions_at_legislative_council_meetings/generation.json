@@ -1,0 +1,35 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "legco-questions-at-legislative-council-meetings",
+  "sourceSha256": "2058378c0f466280bc8c8868eb536b5e24873b901120496d912eba048b4880a9",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/QuestionsDB/odata/ViewWrittenQuestionsEng",
+      "operationId": "retrieveWrittenQuestionsRaisedAtTheLegislativeCouncilMeetingsEnglishVersionQuestionsdbOdataViewwrittenquestionseng"
+    },
+    {
+      "method": "GET",
+      "path": "/QuestionsDB/odata/ViewOralQuestionsChi",
+      "operationId": "retrieveOralQuestionsOfTheFifthLegislativeCouncil20122016ChineseVersionQuestionsdbOdataVieworalquestionschi"
+    },
+    {
+      "method": "GET",
+      "path": "/QuestionsDB/odata/ViewOralQuestionsEng",
+      "operationId": "retrieveOralQuestionsOfTheFifthLegislativeCouncil20122016EnglishVersionQuestionsdbOdataVieworalquestionseng"
+    },
+    {
+      "method": "GET",
+      "path": "/QuestionsDB/odata/ViewWrittenQuestionsChi",
+      "operationId": "retrieveWrittenQuestionsOfTheSeventhLegislativeCouncil20222025ChineseVersionQuestionsdbOdataViewwrittenquestionschi"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

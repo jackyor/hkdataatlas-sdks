@@ -1,0 +1,1691 @@
+openapi: 3.1.0
+info:
+  title: Census and Statistics Department — 2021 Population Census (Statistics and Boundaries of New Towns)
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/censtatd_rcd_1695181913136_27614/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: NewTown_21C
+              value: 0
+          x-choice-count: 1
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1695181913136_27614/FeatureServer?f=pjson
+          sha256: fba004f73b093f430a4106d7588ea307ea62021b150a7b9ac1627182ecd4bf4c
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1695181913136_27614/FeatureServer/0?f=pjson
+          sha256: 5bcdd1837d1d846045b183558f13f83ec85fb5e105528f2a8a96dd2cf45e9fde
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/censtatd_rcd_1695181913136_27614/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: NewTown_21C
+              value: NewTown_21C
+          x-choice-count: 1
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.912081,22.261727,114.281110,22.522046
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+        - EPSG:2326
+        - EPSG:102140
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1695181913136_27614/MapServer/WMSServer?service=wms&request=GetCapabilities
+          sha256: 9ac0e226ddc7d4da7a03628098688433e90f59145dfa7588d86d4057e25f8e65
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        adhz:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: adhz
+          type:
+            - number
+            - "null"
+        age_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: age_1
+          type:
+            - number
+            - "null"
+        age_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: age_2
+          type:
+            - number
+            - "null"
+        age_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: age_3
+          type:
+            - number
+            - "null"
+        age_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: age_4
+          type:
+            - number
+            - "null"
+        age_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: age_5
+          type:
+            - number
+            - "null"
+        born_chi:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: born_chi
+          type:
+            - number
+            - "null"
+        born_else:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: born_else
+          type:
+            - number
+            - "null"
+        born_hk:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: born_hk
+          type:
+            - number
+            - "null"
+        dh:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh
+          type:
+            - number
+            - "null"
+        dh_co:
+          description: "Publisher field type: esriFieldTypeString"
+          title: dh_co
+          type:
+            - string
+            - "null"
+          maxLength: 3
+        dh_emp:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_emp
+          type:
+            - number
+            - "null"
+        dh_non:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_non
+          type:
+            - number
+            - "null"
+        dh_ocm:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_ocm
+          type:
+            - number
+            - "null"
+        dh_ocwm:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_ocwm
+          type:
+            - number
+            - "null"
+        dh_pri:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_pri
+          type:
+            - number
+            - "null"
+        dh_pub:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_pub
+          type:
+            - number
+            - "null"
+        dh_r0:
+          description: "Publisher field type: esriFieldTypeString"
+          title: dh_r0
+          type:
+            - string
+            - "null"
+          maxLength: 2
+        dh_r1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_r1
+          type:
+            - number
+            - "null"
+        dh_r2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_r2
+          type:
+            - number
+            - "null"
+        dh_r3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_r3
+          type:
+            - number
+            - "null"
+        dh_r4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_r4
+          type:
+            - number
+            - "null"
+        dh_r5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_r5
+          type:
+            - number
+            - "null"
+        dh_r6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_r6
+          type:
+            - number
+            - "null"
+        dh_rf:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_rf
+          type:
+            - number
+            - "null"
+        dh_s:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_s
+          type:
+            - number
+            - "null"
+        dh_st:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_st
+          type:
+            - number
+            - "null"
+        dh_tem:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dh_tem
+          type:
+            - number
+            - "null"
+        dhc_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_1
+          type:
+            - number
+            - "null"
+        dhc_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_2
+          type:
+            - number
+            - "null"
+        dhc_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_3
+          type:
+            - number
+            - "null"
+        dhc_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_4
+          type:
+            - number
+            - "null"
+        dhc_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_5
+          type:
+            - number
+            - "null"
+        dhc_6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_6
+          type:
+            - number
+            - "null"
+        dhc_7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_7
+          type:
+            - number
+            - "null"
+        dhc_8:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhc_8
+          type:
+            - number
+            - "null"
+        dhi_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_1
+          type:
+            - number
+            - "null"
+        dhi_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_2
+          type:
+            - number
+            - "null"
+        dhi_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_3
+          type:
+            - number
+            - "null"
+        dhi_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_4
+          type:
+            - number
+            - "null"
+        dhi_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_5
+          type:
+            - number
+            - "null"
+        dhi_6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_6
+          type:
+            - number
+            - "null"
+        dhi_7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_7
+          type:
+            - number
+            - "null"
+        dhi_e1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_e1
+          type:
+            - number
+            - "null"
+        dhi_e2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_e2
+          type:
+            - number
+            - "null"
+        dhi_e3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_e3
+          type:
+            - number
+            - "null"
+        dhi_e4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_e4
+          type:
+            - number
+            - "null"
+        dhi_e5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_e5
+          type:
+            - number
+            - "null"
+        dhi_e6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_e6
+          type:
+            - number
+            - "null"
+        dhi_e7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhi_e7
+          type:
+            - number
+            - "null"
+        dhm_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_1
+          type:
+            - number
+            - "null"
+        dhm_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_2
+          type:
+            - number
+            - "null"
+        dhm_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_3
+          type:
+            - number
+            - "null"
+        dhm_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_4
+          type:
+            - number
+            - "null"
+        dhm_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_5
+          type:
+            - number
+            - "null"
+        dhm_6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_6
+          type:
+            - number
+            - "null"
+        dhm_7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_7
+          type:
+            - number
+            - "null"
+        dhm_loan:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_loan
+          type:
+            - number
+            - "null"
+        dhm_lr:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhm_lr
+          type:
+            - number
+            - "null"
+        dhr_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhr_1
+          type:
+            - number
+            - "null"
+        dhr_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhr_2
+          type:
+            - number
+            - "null"
+        dhr_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhr_3
+          type:
+            - number
+            - "null"
+        dhr_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhr_4
+          type:
+            - number
+            - "null"
+        dhz_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhz_1
+          type:
+            - number
+            - "null"
+        dhz_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhz_2
+          type:
+            - number
+            - "null"
+        dhz_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhz_3
+          type:
+            - number
+            - "null"
+        dhz_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhz_4
+          type:
+            - number
+            - "null"
+        dhz_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhz_5
+          type:
+            - number
+            - "null"
+        dhz_6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dhz_6
+          type:
+            - number
+            - "null"
+        dm_r:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dm_r
+          type:
+            - number
+            - "null"
+        dmr_ir:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: dmr_ir
+          type:
+            - number
+            - "null"
+        edu_deg:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: edu_deg
+          type:
+            - number
+            - "null"
+        edu_dip:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: edu_dip
+          type:
+            - number
+            - "null"
+        edu_lsed:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: edu_lsed
+          type:
+            - number
+            - "null"
+        edu_prepri:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: edu_prepri
+          type:
+            - number
+            - "null"
+        edu_pri:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: edu_pri
+          type:
+            - number
+            - "null"
+        edu_sub:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: edu_sub
+          type:
+            - number
+            - "null"
+        edu_usec:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: edu_usec
+          type:
+            - number
+            - "null"
+        ethn_chi:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ethn_chi
+          type:
+            - number
+            - "null"
+        ethn_ind:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ethn_ind
+          type:
+            - number
+            - "null"
+        ethn_oth:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ethn_oth
+          type:
+            - number
+            - "null"
+        ethn_phi:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ethn_phi
+          type:
+            - number
+            - "null"
+        ethn_wh:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ethn_wh
+          type:
+            - string
+            - "null"
+          maxLength: 4
+        fa_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: fa_m
+          type:
+            - number
+            - "null"
+        lf_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: lf_f
+          type:
+            - number
+            - "null"
+        lf_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: lf_m
+          type:
+            - number
+            - "null"
+        lfpr_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: lfpr_f
+          type:
+            - number
+            - "null"
+        lfpr_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: lfpr_m
+          type:
+            - number
+            - "null"
+        lfpr_t:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: lfpr_t
+          type:
+            - number
+            - "null"
+        ma_econhh:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ma_econhh
+          type:
+            - number
+            - "null"
+        ma_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ma_f
+          type:
+            - number
+            - "null"
+        ma_hh:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ma_hh
+          type:
+            - number
+            - "null"
+        ma_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ma_m
+          type:
+            - number
+            - "null"
+        mearn_xfdh_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdh_1
+          type:
+            - number
+            - "null"
+        mearn_xfdh_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdh_2
+          type:
+            - number
+            - "null"
+        mearn_xfdh_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdh_3
+          type:
+            - number
+            - "null"
+        mearn_xfdh_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdh_4
+          type:
+            - number
+            - "null"
+        mearn_xfdh_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdh_5
+          type:
+            - number
+            - "null"
+        mearn_xfdh_6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdh_6
+          type:
+            - number
+            - "null"
+        mearn_xfdh_7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdh_7
+          type:
+            - number
+            - "null"
+        mearn_xfdhfw_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdhfw_1
+          type:
+            - number
+            - "null"
+        mearn_xfdhfw_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdhfw_2
+          type:
+            - number
+            - "null"
+        mearn_xfdhfw_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdhfw_3
+          type:
+            - number
+            - "null"
+        mearn_xfdhfw_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdhfw_4
+          type:
+            - number
+            - "null"
+        mearn_xfdhfw_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdhfw_5
+          type:
+            - number
+            - "null"
+        mearn_xfdhfw_6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdhfw_6
+          type:
+            - number
+            - "null"
+        mearn_xfdhfw_7:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mearn_xfdhfw_7
+          type:
+            - number
+            - "null"
+        mmearn_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mmearn_f
+          type:
+            - number
+            - "null"
+        mmearn_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mmearn_m
+          type:
+            - number
+            - "null"
+        mmearn_xfdh_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mmearn_xfdh_f
+          type:
+            - number
+            - "null"
+        mmearn_xfdh_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: mmearn_xfdh_m
+          type:
+            - number
+            - "null"
+        ms_div_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_div_f
+          type:
+            - number
+            - "null"
+        ms_div_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_div_m
+          type:
+            - number
+            - "null"
+        ms_m_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_m_f
+          type:
+            - number
+            - "null"
+        ms_ma_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_ma_m
+          type:
+            - number
+            - "null"
+        ms_nm_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_nm_f
+          type:
+            - number
+            - "null"
+        ms_nm_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_nm_m
+          type:
+            - number
+            - "null"
+        ms_sep_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_sep_f
+          type:
+            - number
+            - "null"
+        ms_sep_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_sep_m
+          type:
+            - number
+            - "null"
+        ms_win_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_win_f
+          type:
+            - number
+            - "null"
+        ms_win_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ms_win_m
+          type:
+            - number
+            - "null"
+        newtown:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: newtown
+          type:
+            - number
+            - "null"
+        newtown_chi:
+          description: "Publisher field type: esriFieldTypeString"
+          title: newtown_chi
+          type:
+            - string
+            - "null"
+          maxLength: 33
+        newtown_eng:
+          description: "Publisher field type: esriFieldTypeString"
+          title: newtown_eng
+          type:
+            - string
+            - "null"
+          maxLength: 42
+        nwp_care:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: nwp_care
+          type:
+            - number
+            - "null"
+        nwp_hm:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: nwp_hm
+          type:
+            - number
+            - "null"
+        nwp_oth:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: nwp_oth
+          type:
+            - number
+            - "null"
+        nwp_re:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: nwp_re
+          type:
+            - number
+            - "null"
+        nwp_st:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: nwp_st
+          type:
+            - number
+            - "null"
+        oq_non:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: oq_non
+          type:
+            - number
+            - "null"
+        oq_pri:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: oq_pri
+          type:
+            - number
+            - "null"
+        oq_pub:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: oq_pub
+          type:
+            - number
+            - "null"
+        oq_s:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: oq_s
+          type:
+            - number
+            - "null"
+        oq_tem:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: oq_tem
+          type:
+            - number
+            - "null"
+        pls_diff_hk:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pls_diff_hk
+          type:
+            - number
+            - "null"
+        pls_diff_kln:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pls_diff_kln
+          type:
+            - number
+            - "null"
+        pls_diff_nt:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pls_diff_nt
+          type:
+            - number
+            - "null"
+        pls_same:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pls_same
+          type:
+            - number
+            - "null"
+        plw_diff_hk:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_diff_hk
+          type:
+            - number
+            - "null"
+        plw_diff_kln:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_diff_kln
+          type:
+            - number
+            - "null"
+        plw_diff_nt:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_diff_nt
+          type:
+            - number
+            - "null"
+        plw_diff_oth:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_diff_oth
+          type:
+            - number
+            - "null"
+        plw_hm:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_hm
+          type:
+            - number
+            - "null"
+        plw_nofix:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_nofix
+          type:
+            - number
+            - "null"
+        plw_out:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_out
+          type:
+            - number
+            - "null"
+        plw_same:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: plw_same
+          type:
+            - number
+            - "null"
+        pm_hk:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pm_hk
+          type:
+            - number
+            - "null"
+        pm_kln:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pm_kln
+          type:
+            - number
+            - "null"
+        pm_nt:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pm_nt
+          type:
+            - number
+            - "null"
+        pm_oth:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pm_oth
+          type:
+            - number
+            - "null"
+        pm_out:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pm_out
+          type:
+            - number
+            - "null"
+        pm_same:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pm_same
+          type:
+            - number
+            - "null"
+        pm_samearea:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pm_samearea
+          type:
+            - number
+            - "null"
+        pop_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pop_f
+          type:
+            - number
+            - "null"
+        pop_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pop_m
+          type:
+            - number
+            - "null"
+        pop_non:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pop_non
+          type:
+            - number
+            - "null"
+        pop_pri:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pop_pri
+          type:
+            - number
+            - "null"
+        pop_pub:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pop_pub
+          type:
+            - number
+            - "null"
+        pop_s:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pop_s
+          type:
+            - number
+            - "null"
+        pop_tem:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: pop_tem
+          type:
+            - number
+            - "null"
+        readchi_ablepctn:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: readchi_ablepctn
+          type:
+            - number
+            - "null"
+        readeng_ablepctn:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: readeng_ablepctn
+          type:
+            - number
+            - "null"
+        s_diff_oth:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: s_diff_oth
+          type:
+            - number
+            - "null"
+        sr:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: sr
+          type:
+            - number
+            - "null"
+        t_lf:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: t_lf
+          type:
+            - number
+            - "null"
+        t_ma:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: t_ma
+          type:
+            - number
+            - "null"
+        t_mmearn:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: t_mmearn
+          type:
+            - number
+            - "null"
+        t_mmearn_xfdh:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: t_mmearn_xfdh
+          type:
+            - number
+            - "null"
+        t_nwp:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: t_nwp
+          type:
+            - number
+            - "null"
+        t_pop:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: t_pop
+          type:
+            - number
+            - "null"
+        t_wp:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: t_wp
+          type:
+            - number
+            - "null"
+        ul_can:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ul_can
+          type:
+            - number
+            - "null"
+        ul_eng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ul_eng
+          type:
+            - number
+            - "null"
+        ul_oth:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ul_oth
+          type:
+            - number
+            - "null"
+        ul_othchi:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ul_othchi
+          type:
+            - number
+            - "null"
+        ul_put:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: ul_put
+          type:
+            - number
+            - "null"
+        whr_1:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: whr_1
+          type:
+            - number
+            - "null"
+        whr_2:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: whr_2
+          type:
+            - number
+            - "null"
+        whr_3:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: whr_3
+          type:
+            - number
+            - "null"
+        whr_4:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: whr_4
+          type:
+            - number
+            - "null"
+        whr_5:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: whr_5
+          type:
+            - number
+            - "null"
+        whr_6:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: whr_6
+          type:
+            - number
+            - "null"
+        wp_a:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_a
+          type:
+            - number
+            - "null"
+        wp_b:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_b
+          type:
+            - number
+            - "null"
+        wp_c:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_c
+          type:
+            - number
+            - "null"
+        wp_d:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_d
+          type:
+            - number
+            - "null"
+        wp_e:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_e
+          type:
+            - number
+            - "null"
+        wp_ee:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_ee
+          type:
+            - number
+            - "null"
+        wp_er:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_er
+          type:
+            - number
+            - "null"
+        wp_f:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_f
+          type:
+            - number
+            - "null"
+        wp_fw:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_fw
+          type:
+            - number
+            - "null"
+        wp_g:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_g
+          type:
+            - number
+            - "null"
+        wp_h:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_h
+          type:
+            - number
+            - "null"
+        wp_i:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_i
+          type:
+            - number
+            - "null"
+        wp_j:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_j
+          type:
+            - number
+            - "null"
+        wp_k:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_k
+          type:
+            - number
+            - "null"
+        wp_l:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_l
+          type:
+            - number
+            - "null"
+        wp_m:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_m
+          type:
+            - number
+            - "null"
+        wp_n:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_n
+          type:
+            - number
+            - "null"
+        wp_o:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_o
+          type:
+            - number
+            - "null"
+        wp_p:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_p
+          type:
+            - number
+            - "null"
+        wp_q:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_q
+          type:
+            - number
+            - "null"
+        wp_r:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_r
+          type:
+            - number
+            - "null"
+        wp_s:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_s
+          type:
+            - number
+            - "null"
+        wp_se:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_se
+          type:
+            - number
+            - "null"
+        wp_t:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: wp_t
+          type:
+            - number
+            - "null"
+        writechi_ablepctn:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: writechi_ablepctn
+          type:
+            - number
+            - "null"
+        writeeng_ablepctn:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: writeeng_ablepctn
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: NewTown_21C
+    protocol: arcgis
+  - id: NewTown_21C
+    title: NewTown_21C
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.912081"
+        miny: "22.261727"
+        maxx: "114.281110"
+        maxy: "22.522046"
+      - CRS: EPSG:4326
+        minx: "22.261727"
+        miny: "113.912081"
+        maxx: "22.522046"
+        maxy: "114.281110"
+      - CRS: EPSG:2326
+        minx: "813512.098000"
+        miny: "809277.926100"
+        maxx: "842315.124000"
+        maxy: "847245.243000"
+      - CRS: EPSG:102140
+        minx: "813512.098000"
+        miny: "809277.926100"
+        maxx: "842315.124000"
+        maxy: "847245.243000"
+      - CRS: CRS:84
+        minx: "113.912081"
+        miny: "22.261727"
+        maxx: "114.281110"
+        maxy: "22.522046"
+      - CRS: EPSG:4326
+        minx: "22.261727"
+        miny: "113.912081"
+        maxx: "22.522046"
+        maxy: "114.281110"
+      - CRS: EPSG:2326
+        minx: "813512.098000"
+        miny: "809277.926100"
+        maxx: "842315.124000"
+        maxy: "847245.243000"
+      - CRS: EPSG:102140
+        minx: "813512.098000"
+        miny: "809277.926100"
+        maxx: "842315.124000"
+        maxy: "847245.243000"
+    styles:
+      - id: default
+        title: NewTown_21C
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=censtatd_rcd_1695181913136_27614
+    sha256: cc6a9979afceb4b1197c6d07cf9ea4325b2b619d1143629a8802278d20c7ac6c
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1695181913136_27614/FeatureServer?f=pjson
+    sha256: fba004f73b093f430a4106d7588ea307ea62021b150a7b9ac1627182ecd4bf4c
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1695181913136_27614/FeatureServer/0?f=pjson
+    sha256: 5bcdd1837d1d846045b183558f13f83ec85fb5e105528f2a8a96dd2cf45e9fde
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1695181913136_27614/MapServer/WMSServer?service=wms&request=GetCapabilities
+    sha256: 9ac0e226ddc7d4da7a03628098688433e90f59145dfa7588d86d4057e25f8e65
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1695181913136_27614/MapServer/WFSServer?service=WFS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-de503ff708464d382b2b95f0
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1695181913136_27614/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    - serviceId: csdi-service-de503ff708464d382b2b95f0
+      protocol: wfs
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WFS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 4
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

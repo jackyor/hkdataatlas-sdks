@@ -1,0 +1,32 @@
+{
+  "sourceId": "landsd-identify-api",
+  "publisherKey": "landsd",
+  "family": "identify_api",
+  "status": "generated",
+  "key": "d8690fef903a174a0fb6c7bf35af14d5c617dfdd2a63124ec8347f7c415a43a0",
+  "sourceSha256": "8b5e2d65c0f6d4e1c970a8e74df7428d2e9823e88b6fb9a4a1993ceb7eb4b62c",
+  "derivedInputSha256": "8b5e2d65c0f6d4e1c970a8e74df7428d2e9823e88b6fb9a4a1993ceb7eb4b62c",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/{version}/identify",
+      "operationId": "identifyFacility",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/landsd-identify-api.log",
+  "outputs": {
+    "__init__.py": "6208cbcaf55c6cf16193b624584abb6bb8943ea7c938d1d167c9f7a4c0a20909",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/identify_facility.py": "27b2bacb1d41617695b5849451d129fa3a072f1de0d1c82388e5de53eda342b2",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "810cd2d5bc659688a43e70d18be722f6517a67d267a221922e8be9d1f6d0c7f7",
+    "models/identify_facility_lang.py": "845ff9c36b35e326172923b38314d69c274eae4ce5e5e0a43a2e7dac95efd644",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

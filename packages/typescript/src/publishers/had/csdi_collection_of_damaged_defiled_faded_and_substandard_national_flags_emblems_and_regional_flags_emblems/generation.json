@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "had-csdi-collection-of-damaged-defiled-faded-and-substandard-national-flags-emblems-and-regional-flags-emblems",
+  "sourceSha256": "863e3ec614917c96411026f6fa67fe704f8e1f227a2c2ad2d26d6c9c2f769705",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/had_rcd_1731057674188_95771/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1731057674188_95771/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1731057674188_95771/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

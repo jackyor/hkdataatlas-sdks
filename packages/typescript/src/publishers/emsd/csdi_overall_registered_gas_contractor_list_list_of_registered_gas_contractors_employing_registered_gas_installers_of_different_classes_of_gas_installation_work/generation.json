@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "emsd-csdi-overall-registered-gas-contractor-list-list-of-registered-gas-contractors-employing-registered-gas-installers-of-different-classes-of-gas-installation-work",
+  "sourceSha256": "8067790c431c7b4eecdf073ff3afcf1888652108fd2e36a340a79ea532769ed6",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/emsd_rcd_1662607446560_96806/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1662607446560_96806/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1662607446560_96806/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

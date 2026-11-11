@@ -1,0 +1,42 @@
+{
+  "sourceId": "hkma-market-data-and-statistics-monthly-statistical-bulletin-monet",
+  "publisherKey": "hkma",
+  "family": "market_data_and_statistics_monthly_statistical_bulletin_monet",
+  "status": "generated",
+  "key": "b4e8c05d2d22104798d0df692b77d8ea71cea41af0715fe3447282bbffcd67b6",
+  "sourceSha256": "e35f28365036cc28538d65edde70a61f16a72915fc33e2b3d7a558311924cb8e",
+  "derivedInputSha256": "516da46b23d7c78d6fee37ed7db1ba0f41b05a2227a84dd2429fefc013e6a2cb",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/market-operation-periodaverage",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-market-data-and-statistics-monthly-statistical-bulletin-monet.log",
+  "outputs": {
+    "__init__.py": "3898dabfc0ca1599fd1073b35788cdf0e81762b7761787fd02a42a1ec6924526",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_market_operation_periodaverage.py": "0abc8b28d46bd1d745a16b7c521e45827efacf94a1485ec787a7537d96606b3f",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e0016b03f9f9dd4db7bb99d6e9d31ac094aef4cb7b9c98d9f75c75cb7107ff31",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/record.py": "9a38d9cef18ae3da6c02abae068f97eb20f613aefdd97982e3e50f0900e6c4d2",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

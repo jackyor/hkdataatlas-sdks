@@ -1,0 +1,53 @@
+components:
+  schemas:
+    TechnologyCompaniesResponse:
+      description: Response fields documented by the publisher. The example is representative and does not establish that these are the only response properties.
+      properties:
+        item:
+          description: Technology Companies.
+          type: string
+        value:
+          description: Total number, represented as a string in the documented example.
+          type: string
+      type: object
+externalDocs:
+  description: Official API documentation
+  url: https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-technology-companies.pdf
+info:
+  description: Returns the number of technology companies. The version value is a metadata placeholder and is not a publisher API version.
+  title: Number of Technology Companies API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /corporate/figures/technologycompanies/v1/:
+    get:
+      operationId: getTechnologyCompaniesCount
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documented:
+                  summary: Documented example response
+                  value:
+                    item: technology companies
+                    value: "700"
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/TechnologyCompaniesResponse"
+                  - type: object
+                    properties:
+                      item:
+                        type: string
+                        const: ""
+                      value:
+                        type: "null"
+                    required:
+                      - item
+                      - value
+                    additionalProperties: false
+                description: Publisher documentation describes string item/value data. The retained response additionally returns the exact empty-data variant {item:"",value:null}; this variant does not establish useful/nonempty data availability.
+          description: JSON response containing an item and its value.
+      summary: Get number of technology companies
+servers:
+  - url: https://opendata.hkstp.org

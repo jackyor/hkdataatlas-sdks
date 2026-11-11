@@ -1,0 +1,157 @@
+{
+  "components": {
+    "schemas": {
+      "AvailableSessionRecord": {
+        "description": "Field dictionary for a record describing an available session of a turf soccer pitch. The source does not establish the complete response structure, field requiredness, or whether these fields are all present in every record. The catalogue lists the JSON resource at https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/turf-soccer-pitch/file.",
+        "properties": {
+          "Available_Courts": {
+            "description": "Count of available courts. The dictionary documents the data type as Number.",
+            "type": "number"
+          },
+          "Available_Date": {
+            "description": "Available date, documented as date format yyyy-mm-dd.",
+            "format": "date",
+            "type": "string"
+          },
+          "District_Name_EN": {
+            "description": "District in English.",
+            "enum": [
+              "Central & Western",
+              "Eastern",
+              "Islands",
+              "Kowloon City",
+              "Kwai Tsing",
+              "Kwun Tong",
+              "North",
+              "Sai Kung",
+              "Sham Shui Po",
+              "Sha Tin",
+              "Southern",
+              "Tai Po",
+              "Tsuen Wan",
+              "Tuen Mun",
+              "Wan Chai",
+              "Wong Tai Sin",
+              "Yau Tsim Mong",
+              "Yuen Long"
+            ],
+            "type": "string"
+          },
+          "District_Name_TC": {
+            "description": "District in Traditional Chinese.",
+            "enum": [
+              "中西區",
+              "東區",
+              "離島區",
+              "九龍城區",
+              "葵青區",
+              "觀塘區",
+              "北區",
+              "西貢區",
+              "深水埗區",
+              "沙田區",
+              "南區",
+              "大埔區",
+              "荃灣區",
+              "屯門區",
+              "灣仔區",
+              "黃大仙區",
+              "油尖旺區",
+              "元朗區"
+            ],
+            "type": "string"
+          },
+          "Facility_Location_Name_EN": {
+            "description": "Facility location in English.",
+            "type": "string"
+          },
+          "Facility_Location_Name_TC": {
+            "description": "Facility location in Traditional Chinese.",
+            "type": "string"
+          },
+          "Facility_Type_Name_EN": {
+            "description": "Facility type in English.",
+            "type": "string"
+          },
+          "Facility_Type_Name_TC": {
+            "description": "Facility type in Traditional Chinese.",
+            "type": "string"
+          },
+          "Session_End_Time": {
+            "description": "Available session end time, documented as time format hh:mm.",
+            "type": "string"
+          },
+          "Session_Start_Time": {
+            "description": "Available session start time, documented as time format hh:mm.",
+            "type": "string"
+          },
+          "Venue_Address_EN": {
+            "description": "Venue address in English. The dictionary does not specify a data type.",
+            "type": "string"
+          },
+          "Venue_Address_TC": {
+            "description": "Venue address in Traditional Chinese. The dictionary does not specify a data type.",
+            "type": "string"
+          },
+          "Venue_Latitude": {
+            "description": "Venue latitude. The dictionary gives the example 22.3193; the example is not stated as a constraint.",
+            "type": "number"
+          },
+          "Venue_Longitude": {
+            "description": "Venue longitude. The dictionary gives the example 114.17403; the example is not stated as a constraint.",
+            "type": "number"
+          },
+          "Venue_Name_EN": {
+            "description": "Venue name in English.",
+            "type": "string"
+          },
+          "Venue_Name_TC": {
+            "description": "Venue name in Traditional Chinese.",
+            "type": "string"
+          },
+          "Venue_Phone_No.": {
+            "description": "Venue telephone number. The dictionary gives the example 3954 5150; it does not specify a data type.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Publisher data specification and field dictionary",
+    "url": "https://www.lcsd.gov.hk/datagovhk/facility/facility-tsp_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "The publisher documents a data dictionary for turf soccer pitch availability and a catalogue-listed JSON resource URL, but does not document an HTTP operation, request parameters, or a complete response contract. The literal resource URL is included as a read-only GET retrieval link; no URL template or authentication behavior is specified. The metadata version value is a placeholder and is not a publisher API version.",
+    "title": "Available Session of Turf Soccer Pitches",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/rest/cms/api/v1/publ/contents/open-data/turf-soccer-pitch/file": {
+      "get": {
+        "operationId": "retrieveAvailableSessionOfTurfSoccerPitchesByVenueRestCmsApiV1PublContentsOpenDataTurfSoccerPitchFile",
+        "summary": "Retrieve Available Session of Turf Soccer Pitches by Venue",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/turf-soccer-pitch/file. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://data.smartplay.lcsd.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

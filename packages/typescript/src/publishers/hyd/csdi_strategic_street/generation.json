@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hyd-csdi-strategic-street",
+  "sourceSha256": "1b6ac1ec3e56b55b72833eb5739dbee0d68f364a1059e3a9343ef47de48fd474",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hyd_rcd_1632361405484_23178/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1632361405484_23178/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1632361405484_23178/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

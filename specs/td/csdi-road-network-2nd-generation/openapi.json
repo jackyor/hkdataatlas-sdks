@@ -1,0 +1,4148 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Transport Department — Road Network (2nd Generation)",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "VEHICLE_RESTRICTION",
+                "value": 0
+              },
+              "choice2": {
+                "summary": "TRAFFIC_FEATURES",
+                "value": 1
+              },
+              "choice3": {
+                "summary": "CENTERLINE",
+                "value": 10
+              },
+              "choice4": {
+                "summary": "TUN_BRIDGE_TOLL",
+                "value": 1000
+              },
+              "choice5": {
+                "summary": "GISP_ON_STREET_PARKING",
+                "value": 1001
+              },
+              "choice6": {
+                "summary": "TUN_BRIDGE_TV_TOLL",
+                "value": 1002
+              },
+              "choice7": {
+                "summary": "TURN",
+                "value": 11
+              },
+              "choice8": {
+                "summary": "INTERSECTION",
+                "value": 12
+              },
+              "choice9": {
+                "summary": "ONSTREETPARK",
+                "value": 13
+              },
+              "choice10": {
+                "summary": "SPEED_LIMIT",
+                "value": 2
+              },
+              "choice11": {
+                "summary": "RUN_IN_OUT",
+                "value": 3
+              },
+              "choice12": {
+                "summary": "ROUNDABOUT",
+                "value": 4
+              },
+              "choice13": {
+                "summary": "PROHIBITION",
+                "value": 5
+              },
+              "choice14": {
+                "summary": "PERMIT",
+                "value": 6
+              },
+              "choice15": {
+                "summary": "PEDESTRIAN_ZONE",
+                "value": 7
+              },
+              "choice16": {
+                "summary": "NSR",
+                "value": 8
+              },
+              "choice17": {
+                "summary": "BUS_ONLY_LANE",
+                "value": 9
+              }
+            },
+            "x-choice-count": 17
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0,
+              1,
+              10,
+              1000,
+              1001,
+              1002,
+              11,
+              12,
+              13,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer?f=pjson",
+            "sha256": "a3c32f82c72cae99cba4bf842db59cd675827369c58edfd7a90bdd0fb6e42b39",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/0?f=pjson",
+            "sha256": "b13445a8892abace055e21bdc3925ed11d4017cc13db3acb15ad0e7c622c9e10",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1000?f=pjson",
+            "sha256": "5ce6735e39728ed54e217917881e6c43d109422348a30dc0ab40e74d65539765",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1001?f=pjson",
+            "sha256": "4984f4f7610f10c593e81019579a898e9404096306e5914a14d8c959bf175ef7",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1002?f=pjson",
+            "sha256": "9bbb0d4a533d5dc3618ab71ba6396425ef34c7b335f900bfc7d3dfc8e90ba275",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/10?f=pjson",
+            "sha256": "1a35a329dd2734d15f978bffa0990cc4e19c211b04e5f11d9966d3bf50be1b3e",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/11?f=pjson",
+            "sha256": "3f8ca10b703c38781da22e1086e295b465c2a24621e8b4451b4b631ff6d6592b",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/12?f=pjson",
+            "sha256": "2714c647bacbe8bce6e79515ee26160da81e888b4517b26039ea5f5e8c6a0488",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/13?f=pjson",
+            "sha256": "a552a4c8c46dd0b0cb90a50a026254ed09dba8308f5a01eb71130ebf9579779e",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1?f=pjson",
+            "sha256": "22aafd449282be75b83dac469c1332fbe84c000820417980210284ce9780f027",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/2?f=pjson",
+            "sha256": "16aa7a76e4ba8db9a6a074d56b870107774abe058b54a20d6562920823f96670",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/3?f=pjson",
+            "sha256": "ec50d3ba2ee56e862875836fb8baca235f0ea63889c1bb0643420e354efd2e1e",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/4?f=pjson",
+            "sha256": "ec05498a6aa32a3b6784165968b4446b46cd3f6d79a1d30322fc61a067d693e8",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/5?f=pjson",
+            "sha256": "4a7f7596e2f5c1f435507b3b6976f5290d3550995e369329315bcd479861ca8a",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/6?f=pjson",
+            "sha256": "de59b7d181b75514064a65f51ee924aaf5e0a948bbb74ad237d31753755bcdee",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/7?f=pjson",
+            "sha256": "c6955cdc5b6234a40b05592f366dc2634299833bceb84552caaf5626f7d3220d",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/8?f=pjson",
+            "sha256": "5aa2bb9c52679106496a683d3a1ed40eaa2c4faadec21b47839261430514ece8",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/9?f=pjson",
+            "sha256": "77ce8017f978acb9852541b9e87c2b11c7b002e97c323c629a1140a311577ae9",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/td_rcd_1638949160594_2844/MapServer/WMSServer": {
+      "get": {
+        "operationId": "WmsMapServerGetMap",
+        "tags": [
+          "WMS"
+        ],
+        "summary": "Render a map image",
+        "description": "Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WMS"
+              ]
+            },
+            "example": "WMS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact advertised WMS version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1.3.0"
+              ]
+            },
+            "example": "1.3.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only GetMap operation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetMap"
+              ]
+            },
+            "example": "GetMap"
+          },
+          {
+            "name": "layers",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "SPEED_LIMIT",
+                "value": "SPEED_LIMIT"
+              },
+              "choice2": {
+                "summary": "PEDESTRIAN_ZONE",
+                "value": "PEDESTRIAN_ZONE"
+              },
+              "choice3": {
+                "summary": "NSR",
+                "value": "NSR"
+              },
+              "choice4": {
+                "summary": "BUS_ONLY_LANE",
+                "value": "BUS_ONLY_LANE"
+              },
+              "choice5": {
+                "summary": "CENTERLINE",
+                "value": "CENTERLINE"
+              },
+              "choice6": {
+                "summary": "TURN",
+                "value": "TURN"
+              },
+              "choice7": {
+                "summary": "VEHICLE_RESTRICTION",
+                "value": "VEHICLE_RESTRICTION"
+              },
+              "choice8": {
+                "summary": "TRAFFIC_FEATURES",
+                "value": "TRAFFIC_FEATURES"
+              },
+              "choice9": {
+                "summary": "RUN_IN_OUT",
+                "value": "RUN_IN_OUT"
+              },
+              "choice10": {
+                "summary": "ROUNDABOUT",
+                "value": "ROUNDABOUT"
+              },
+              "choice11": {
+                "summary": "PROHIBITION",
+                "value": "PROHIBITION"
+              },
+              "choice12": {
+                "summary": "PERMIT",
+                "value": "PERMIT"
+              },
+              "choice13": {
+                "summary": "INTERSECTION",
+                "value": "INTERSECTION"
+              },
+              "choice14": {
+                "summary": "ONSTREETPARK",
+                "value": "ONSTREETPARK"
+              }
+            },
+            "x-choice-count": 14
+          },
+          {
+            "name": "styles",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated style names; an empty string selects the standard default style.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Advertised GetMap representation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "image/bmp",
+                "image/jpeg",
+                "image/tiff",
+                "image/png",
+                "image/png8",
+                "image/png24",
+                "image/png32",
+                "image/gif",
+                "image/svg+xml"
+              ]
+            },
+            "example": "image/png"
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Requested image width in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Requested image height in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "required": true,
+            "description": "Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "CRS:84"
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "required": true,
+            "description": "minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "113.847113,22.205640,114.369465,22.560146"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/tiff": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png24": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png32": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+        },
+        "x-advertised-crss": [
+          "CRS:84",
+          "EPSG:4326",
+          "EPSG:2326",
+          "EPSG:102140"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/td_rcd_1638949160594_2844/MapServer/WMSServer?service=wms&request=GetCapabilities",
+            "sha256": "830e4d924a8b0444b996e42b5589bff19c7ae9b84bc54ecac5fd4bc5a07a3372",
+            "httpStatus": 200,
+            "contentType": "text/xml",
+            "role": "wms-capabilities",
+            "parseStatus": "pass",
+            "kind": "wms-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "ROAD_ROUTE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ROAD_ROUTE_ID",
+            "type": "integer"
+          },
+          "MAX_AXLE_WEIGHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MAX_AXLE_WEIGHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "VR_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "VR_ID",
+            "type": "integer"
+          },
+          "MAX_LENGTH": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MAX_LENGTH",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "MAX_WEIGHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MAX_WEIGHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "MAX_HEIGHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MAX_HEIGHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "MAX_WIDTH": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MAX_WIDTH",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "BOUND": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BOUND",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "FEATURE_TYPE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "FEATURE TYPE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FEATURE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "FEATURE_ID",
+            "type": "integer"
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "RD_ID_1": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_1",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_3": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_3",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_4": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_4",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_5": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_5",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_6": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_6",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "TUN_BRIDGE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "TUN_BRIDGE_ID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "RD_ID_7": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_7",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_8": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_8",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_9": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_9",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer10Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "STREET_ENAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "STREET_ENAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "STREET_CNAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "STREET_CNAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "ELEVATION": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "ELEVATION",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "ST_CODE": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ST_CODE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EXIT_NUM": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EXIT_NUM",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "ROUTE_NUM": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "ROUTE_NUM",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "ROUTE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ROUTE_ID",
+            "type": "integer"
+          },
+          "TRAVEL_DIRECTION": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "TRAVEL_DIRECTION",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "ALIAS_ENAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ALIAS_ENAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "ALIAS_CNAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "ALIAS_CNAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1000Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "TUNNEL_BRIDGE_NAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TUNNEL_BRIDGE_NAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "TUNNEL_BRIDGE_CHINESE_NAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TUNNEL_BRIDGE_CHINESE_NAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "FEATURE_ID_1": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "FEATURE_ID_1",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FEATURE_ID_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "FEATURE_ID_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EFFECTIVE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "EFFECTIVE_DATE"
+          },
+          "GAZETTED_TOLL": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GAZETTED_TOLL",
+            "type": "number"
+          },
+          "CONCESSION_TOLL": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "CONCESSION_TOLL",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "VEHICLE_CLASS_DESCRIPTION": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "VEHICLE_CLASS_DESCRIPTION",
+            "type": "string",
+            "maxLength": 5
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1000
+          },
+          "LAST_UPDATED_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPDATED_DATE"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1001Attributes": {
+        "type": "object",
+        "properties": {
+          "FEATUREID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "FEATUREID",
+            "type": "integer"
+          },
+          "STREET_NAME_ENG": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "STREET_NAME_ENG",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "STREET_NAME_CHI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "STREET_NAME_CHI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "METER_NONMETER": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "METER_NONMETER",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "CAPACITY": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "CAPACITY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "VEHICLE_TYPE_DESCRIPTION_1": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "VEHICLE_TYPE_DESCRIPTION_1",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "VEHICLE_TYPE_DESCRIPTION_2": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "VEHICLE_TYPE_DESCRIPTION_2",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "PARK_METER_PERIOD_DESC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "PARK_METER_PERIOD_DESC",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "OPERATIVE_HOUR_ENG": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OPERATIVE_HOUR_ENG",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 600
+          },
+          "OPERATIVE_HOUR_CHI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OPERATIVE_HOUR_CHI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 600
+          },
+          "IRNP_REMARKS_ENG": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "IRNP_REMARKS_ENG",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 300
+          },
+          "IRNP_REMARKS_CHI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "IRNP_REMARKS_CHI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 300
+          },
+          "OT_OPER_HR_DESC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OT_OPER_HR_DESC",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 600
+          },
+          "OT_OPER_HR_DESC_CHI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OT_OPER_HR_DESC_CHI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 600
+          },
+          "OT_IRNP_REMARKS_ENG": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OT_IRNP_REMARKS_ENG",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 300
+          },
+          "OT_IRNP_REMARKS_CHI": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OT_IRNP_REMARKS_CHI",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 300
+          },
+          "X_COOR": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "X_COOR",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Y_COOR": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Y_COOR",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LAST_UPDATE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPDATE_DATE"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1002Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "TUNNEL_BRIDGE_NAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TUNNEL_BRIDGE_NAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "TUNNEL_BRIDGE_CHINESE_NAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TUNNEL_BRIDGE_CHINESE_NAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "FEATURE_ID_1": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "FEATURE_ID_1",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "FEATURE_ID_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "FEATURE_ID_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EFFECTIVE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "EFFECTIVE_DATE"
+          },
+          "DAY_OF_WEEK": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "DAY_OF_WEEK",
+            "type": "string",
+            "maxLength": 5
+          },
+          "START_TIME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "START_TIME",
+            "type": "string",
+            "maxLength": 8
+          },
+          "END_TIME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "END_TIME",
+            "type": "string",
+            "maxLength": 8
+          },
+          "GAZETTED_TOLL": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GAZETTED_TOLL",
+            "type": "number"
+          },
+          "VEHICLE_CLASS_DESCRIPTION": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "VEHICLE_CLASS_DESCRIPTION",
+            "type": "string",
+            "maxLength": 5
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1000
+          },
+          "LAST_UPDATED_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPDATED_DATE"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer11Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "EDGE1END": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Edge1End",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "EDGE1FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge1FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE1FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge1FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE1POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge1Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "EDGE2FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge2FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE2FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge2FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE2POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge2Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "EDGE3FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge3FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE3FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge3FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE3POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge3Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "EDGE4FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge4FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE4FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge4FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE4POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge4Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "EDGE5FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge5FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE5FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge5FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE5POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge5Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "EDGE6FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge6FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE6FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge6FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE6POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge6Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "EDGE7FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge7FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE7FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge7FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE7POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge7Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "EDGE8FCID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge8FCID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE8FID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Edge8FID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EDGE8POS": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Edge8Pos",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NO_TURN": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "NO_TURN",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "TURN_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "TURN_ID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EXC_VEH_TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EXC_VEH_TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "INC_VEH_TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "INC_VEH_TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "PART_TIME_REST": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "PART_TIME_REST",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "EFF_ALL_DAYS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EFF_ALL_DAYS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "OTHER_REST_TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OTHER_REST_TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer12Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "INT_ID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "INT_ID",
+            "type": "string",
+            "maxLength": 50
+          },
+          "INT_TYPE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "INT_TYPE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "INT_ENAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "INT_ENAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "INT_CNAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "INT_CNAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "RD_ID_1": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_1",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_3": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_3",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_4": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_4",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_5": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_5",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_6": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_6",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "RD_ID_7": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_7",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_8": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_8",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_9": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_9",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_10": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_10",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer13Attributes": {
+        "type": "object",
+        "properties": {
+          "FEATUREID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "FEATUREID",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE"
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer2Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "SPEED_LIMIT_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "SPEED_LIMIT_ID",
+            "type": "integer"
+          },
+          "ROAD_ROUTE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ROAD_ROUTE_ID",
+            "type": "integer"
+          },
+          "SPEED_LIMIT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SPEED_LIMIT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "BOUND": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BOUND",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer3Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "RUN_IN_OUT_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RUN_IN_OUT_ID",
+            "type": "integer"
+          },
+          "RUN_IN_OUT_TYPE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "RUN_IN_OUT_TYPE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "PARKING_ID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "PARKING_ID",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "BUILDING_ENAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BUILDING_ENAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "BUILDING_CNAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BUILDING_CNAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "RD_ID_1": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_1",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_3": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_3",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_4": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_4",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "BUILDING_ADDRESS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BUILDING_ADDRESS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer4Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "R_ABOUT_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "R_ABOUT_ID",
+            "type": "integer"
+          },
+          "R_ABOUT_ENAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "R_ABOUT_ENAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "R_ABOUT_CNAME": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "R_ABOUT_CNAME",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "R_ABOUT_TYPE": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "R_ABOUT_TYPE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "GRADED": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GRADED",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "SIGNALIZED": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SIGNALIZED",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "NO_OF_ARM": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "NO_OF_ARM",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_1": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_1",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_3": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_3",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_4": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_4",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_5": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_5",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_6": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_6",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_7": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_7",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_8": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_8",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_9": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_9",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "RD_ID_10": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "RD_ID_10",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer5Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "PROHIBITION_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "PROHIBITION_ID",
+            "type": "integer"
+          },
+          "EXC_VEH_TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EXC_VEH_TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "INC_VEH_TYPE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "INC_VEH_TYPE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "PART_TIME_PROHIBITION": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "PART_TIME_PROHIBITION",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "EFF_ALL_DAYS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EFF_ALL_DAYS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "OTHER_REST_TYPE_GV": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OTHER_REST_TYPE_GV",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "ROAD_ROUTE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ROAD_ROUTE_ID",
+            "type": "integer"
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "BOUND": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BOUND",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer6Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "PERMIT_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "PERMIT_ID",
+            "type": "integer"
+          },
+          "ROAD_ROUTE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ROAD_ROUTE_ID",
+            "type": "integer"
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "BOUND": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BOUND",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer7Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "ROAD_ROUTE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ROAD_ROUTE_ID",
+            "type": "integer"
+          },
+          "TIME_ZONE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TIME_ZONE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "EFFECTIVE_DAY": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EFFECTIVE_DAY",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "PED_ZONE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "PED_ZONE_ID",
+            "type": "integer"
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer8Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "VEHICLE_TYPE": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "VEHICLE_TYPE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TIME_ZONE": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "TIME_ZONE",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "EFFECTIVE_DAY": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "EFFECTIVE_DAY",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "NSR_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "NSR_ID",
+            "type": "integer"
+          },
+          "ST_CODE_1": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ST_CODE_1",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "ST_CODE_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ST_CODE_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "ST_CODE_3": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ST_CODE_3",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "ST_CODE_4": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ST_CODE_4",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "ST_CODE_5": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ST_CODE_5",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "ST_CODE_6": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ST_CODE_6",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer9Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "ROAD_ROUTE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "ROAD_ROUTE_ID",
+            "type": "integer"
+          },
+          "TIME_ZONE": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TIME_ZONE",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "EFFECTIVE_DAY": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "EFFECTIVE_DAY",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8
+          },
+          "REMARKS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "REMARKS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "BUS_ONLY_LANE_ID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BUS_ONLY_LANE_ID",
+            "type": "integer"
+          },
+          "CRE_DATE": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "CRE_DATE"
+          },
+          "LAST_UPD_DATE_V": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "LAST_UPD_DATE_V"
+          },
+          "BOUND": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BOUND",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "VEHICLE_RESTRICTION",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1,
+      "title": "TRAFFIC_FEATURES",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 10,
+      "title": "CENTERLINE",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1000,
+      "title": "TUN_BRIDGE_TOLL",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1001,
+      "title": "GISP_ON_STREET_PARKING",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1002,
+      "title": "TUN_BRIDGE_TV_TOLL",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 11,
+      "title": "TURN",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 12,
+      "title": "INTERSECTION",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 13,
+      "title": "ONSTREETPARK",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 2,
+      "title": "SPEED_LIMIT",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 3,
+      "title": "RUN_IN_OUT",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 4,
+      "title": "ROUNDABOUT",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 5,
+      "title": "PROHIBITION",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 6,
+      "title": "PERMIT",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 7,
+      "title": "PEDESTRIAN_ZONE",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 8,
+      "title": "NSR",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 9,
+      "title": "BUS_ONLY_LANE",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "SPEED_LIMIT",
+      "title": "SPEED_LIMIT",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847124",
+          "miny": "22.235095",
+          "maxx": "114.273372",
+          "maxy": "22.555499"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.235095",
+          "miny": "113.847124",
+          "maxx": "22.555499",
+          "maxy": "114.273372"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "810576.100000",
+          "miny": "802603.000000",
+          "maxx": "846019.669540",
+          "maxy": "846446.812000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "810576.100000",
+          "miny": "802603.000000",
+          "maxx": "846019.669540",
+          "maxy": "846446.812000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "SPEED_LIMIT"
+        }
+      ]
+    },
+    {
+      "id": "PEDESTRIAN_ZONE",
+      "title": "PEDESTRIAN_ZONE",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "114.026294",
+          "miny": "22.219881",
+          "maxx": "114.210144",
+          "maxy": "22.507036"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.219881",
+          "miny": "114.026294",
+          "maxx": "22.507036",
+          "maxy": "114.210144"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "808862.000000",
+          "miny": "821027.000000",
+          "maxx": "840652.911700",
+          "maxy": "839944.342900"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "808862.000000",
+          "miny": "821027.000000",
+          "maxx": "840652.911700",
+          "maxy": "839944.342900"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "PEDESTRIAN_ZONE"
+        }
+      ]
+    },
+    {
+      "id": "NSR",
+      "title": "NSR",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.859124",
+          "miny": "22.212943",
+          "maxx": "114.325719",
+          "maxy": "22.555242"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.212943",
+          "miny": "113.859124",
+          "maxx": "22.555242",
+          "maxy": "114.325719"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "808120.400000",
+          "miny": "803837.218239",
+          "maxx": "845991.127280",
+          "maxy": "851831.250000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "808120.400000",
+          "miny": "803837.218239",
+          "maxx": "845991.127280",
+          "maxy": "851831.250000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "NSR"
+        }
+      ]
+    },
+    {
+      "id": "BUS_ONLY_LANE",
+      "title": "BUS_ONLY_LANE",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.963329",
+          "miny": "22.247495",
+          "maxx": "114.256946",
+          "maxy": "22.504278"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.247495",
+          "miny": "113.963329",
+          "maxx": "22.504278",
+          "maxy": "114.256946"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "811927.700000",
+          "miny": "814547.700000",
+          "maxx": "840347.463540",
+          "maxy": "844760.173530"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "811927.700000",
+          "miny": "814547.700000",
+          "maxx": "840347.463540",
+          "maxy": "844760.173530"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "BUS_ONLY_LANE"
+        }
+      ]
+    },
+    {
+      "id": "CENTERLINE",
+      "title": "CENTERLINE",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "CENTERLINE"
+        }
+      ]
+    },
+    {
+      "id": "TURN",
+      "title": "TURN",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.859506",
+          "miny": "22.206566",
+          "maxx": "114.334399",
+          "maxy": "22.554576"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.206566",
+          "miny": "113.859506",
+          "maxx": "22.554576",
+          "maxy": "114.334399"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807414.200000",
+          "miny": "803876.400000",
+          "maxx": "845917.422170",
+          "maxy": "852724.158300"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807414.200000",
+          "miny": "803876.400000",
+          "maxx": "845917.422170",
+          "maxy": "852724.158300"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "TURN"
+        }
+      ]
+    },
+    {
+      "id": "VEHICLE_RESTRICTION",
+      "title": "VEHICLE_RESTRICTION",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.915387",
+          "miny": "22.219052",
+          "maxx": "114.268985",
+          "maxy": "22.555455"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.219052",
+          "miny": "113.915387",
+          "maxx": "22.555455",
+          "maxy": "114.268985"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "808785.800000",
+          "miny": "809624.600000",
+          "maxx": "846014.750760",
+          "maxy": "845995.608720"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "808785.800000",
+          "miny": "809624.600000",
+          "maxx": "846014.750760",
+          "maxy": "845995.608720"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "VEHICLE_RESTRICTION"
+        }
+      ]
+    },
+    {
+      "id": "TRAFFIC_FEATURES",
+      "title": "TRAFFIC_FEATURES",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.860290",
+          "miny": "22.206328",
+          "maxx": "114.334426",
+          "maxy": "22.554672"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.206328",
+          "miny": "113.860290",
+          "maxx": "22.554672",
+          "maxy": "114.334426"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807387.600000",
+          "miny": "803957.100000",
+          "maxx": "845928.006530",
+          "maxy": "852726.904600"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807387.600000",
+          "miny": "803957.100000",
+          "maxx": "845928.006530",
+          "maxy": "852726.904600"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "TRAFFIC_FEATURES"
+        }
+      ]
+    },
+    {
+      "id": "RUN_IN_OUT",
+      "title": "RUN_IN_OUT",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.920529",
+          "miny": "22.221571",
+          "maxx": "114.274415",
+          "maxy": "22.509229"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.221571",
+          "miny": "113.920529",
+          "maxx": "22.509229",
+          "maxy": "114.274415"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "809063.900000",
+          "miny": "810144.600000",
+          "maxx": "840895.756600",
+          "maxy": "846557.434700"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "809063.900000",
+          "miny": "810144.600000",
+          "maxx": "840895.756600",
+          "maxy": "846557.434700"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "RUN_IN_OUT"
+        }
+      ]
+    },
+    {
+      "id": "ROUNDABOUT",
+      "title": "ROUNDABOUT",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.901361",
+          "miny": "22.217309",
+          "maxx": "114.328176",
+          "maxy": "22.549695"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.217309",
+          "miny": "113.901361",
+          "maxx": "22.549695",
+          "maxy": "114.328176"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "808595.400000",
+          "miny": "808180.700000",
+          "maxx": "845376.879880",
+          "maxy": "852084.541600"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "808595.400000",
+          "miny": "808180.700000",
+          "maxx": "845376.879880",
+          "maxy": "852084.541600"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "ROUNDABOUT"
+        }
+      ]
+    },
+    {
+      "id": "PROHIBITION",
+      "title": "PROHIBITION",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.859811",
+          "miny": "22.217085",
+          "maxx": "114.325936",
+          "maxy": "22.555388"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.217085",
+          "miny": "113.859811",
+          "maxx": "22.555388",
+          "maxy": "114.325936"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "808578.900000",
+          "miny": "803908.000000",
+          "maxx": "846007.336560",
+          "maxy": "851853.534500"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "808578.900000",
+          "miny": "803908.000000",
+          "maxx": "846007.336560",
+          "maxy": "851853.534500"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "PROHIBITION"
+        }
+      ]
+    },
+    {
+      "id": "PERMIT",
+      "title": "PERMIT",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.931642",
+          "miny": "22.271046",
+          "maxx": "114.218123",
+          "maxy": "22.550689"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.271046",
+          "miny": "113.931642",
+          "maxx": "22.550689",
+          "maxy": "114.218123"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "814540.700000",
+          "miny": "811295.700000",
+          "maxx": "845486.995910",
+          "maxy": "840764.073450"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "814540.700000",
+          "miny": "811295.700000",
+          "maxx": "845486.995910",
+          "maxy": "840764.073450"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "PERMIT"
+        }
+      ]
+    },
+    {
+      "id": "INTERSECTION",
+      "title": "INTERSECTION",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847123",
+          "miny": "22.205640",
+          "maxx": "114.369356",
+          "maxy": "22.556055"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847123",
+          "maxx": "22.556055",
+          "maxy": "114.369356"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846081.187110",
+          "maxy": "856319.640420"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846081.187110",
+          "maxy": "856319.640420"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "INTERSECTION"
+        }
+      ]
+    },
+    {
+      "id": "ONSTREETPARK",
+      "title": "ONSTREETPARK",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.847113",
+          "miny": "22.205640",
+          "maxx": "114.369465",
+          "maxy": "22.560146"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.205640",
+          "miny": "113.847113",
+          "maxx": "22.560146",
+          "maxy": "114.369465"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807314.400000",
+          "miny": "802603.000000",
+          "maxx": "846534.255320",
+          "maxy": "856330.289920"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.859611",
+          "miny": "22.212947",
+          "maxx": "114.334599",
+          "maxy": "22.554627"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.212947",
+          "miny": "113.859611",
+          "maxx": "22.554627",
+          "maxy": "114.334599"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "808120.800000",
+          "miny": "803887.200000",
+          "maxx": "845923.100400",
+          "maxy": "852744.744300"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "808120.800000",
+          "miny": "803887.200000",
+          "maxx": "845923.100400",
+          "maxy": "852744.744300"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "ONSTREETPARK"
+        }
+      ]
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=td_rcd_1638949160594_2844",
+      "sha256": "1b9ca71d40725b612f6b096dc392adf92b0f7f106b4c905e35da3b3a1e7ec84e",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer?f=pjson",
+      "sha256": "a3c32f82c72cae99cba4bf842db59cd675827369c58edfd7a90bdd0fb6e42b39",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/0?f=pjson",
+      "sha256": "b13445a8892abace055e21bdc3925ed11d4017cc13db3acb15ad0e7c622c9e10",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1000?f=pjson",
+      "sha256": "5ce6735e39728ed54e217917881e6c43d109422348a30dc0ab40e74d65539765",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1001?f=pjson",
+      "sha256": "4984f4f7610f10c593e81019579a898e9404096306e5914a14d8c959bf175ef7",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1002?f=pjson",
+      "sha256": "9bbb0d4a533d5dc3618ab71ba6396425ef34c7b335f900bfc7d3dfc8e90ba275",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/10?f=pjson",
+      "sha256": "1a35a329dd2734d15f978bffa0990cc4e19c211b04e5f11d9966d3bf50be1b3e",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/11?f=pjson",
+      "sha256": "3f8ca10b703c38781da22e1086e295b465c2a24621e8b4451b4b631ff6d6592b",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/12?f=pjson",
+      "sha256": "2714c647bacbe8bce6e79515ee26160da81e888b4517b26039ea5f5e8c6a0488",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/13?f=pjson",
+      "sha256": "a552a4c8c46dd0b0cb90a50a026254ed09dba8308f5a01eb71130ebf9579779e",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/1?f=pjson",
+      "sha256": "22aafd449282be75b83dac469c1332fbe84c000820417980210284ce9780f027",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/2?f=pjson",
+      "sha256": "16aa7a76e4ba8db9a6a074d56b870107774abe058b54a20d6562920823f96670",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/3?f=pjson",
+      "sha256": "ec50d3ba2ee56e862875836fb8baca235f0ea63889c1bb0643420e354efd2e1e",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/4?f=pjson",
+      "sha256": "ec05498a6aa32a3b6784165968b4446b46cd3f6d79a1d30322fc61a067d693e8",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/5?f=pjson",
+      "sha256": "4a7f7596e2f5c1f435507b3b6976f5290d3550995e369329315bcd479861ca8a",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/6?f=pjson",
+      "sha256": "de59b7d181b75514064a65f51ee924aaf5e0a948bbb74ad237d31753755bcdee",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/7?f=pjson",
+      "sha256": "c6955cdc5b6234a40b05592f366dc2634299833bceb84552caaf5626f7d3220d",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/8?f=pjson",
+      "sha256": "5aa2bb9c52679106496a683d3a1ed40eaa2c4faadec21b47839261430514ece8",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638949160594_2844/FeatureServer/9?f=pjson",
+      "sha256": "77ce8017f978acb9852541b9e87c2b11c7b002e97c323c629a1140a311577ae9",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/td_rcd_1638949160594_2844/MapServer/WMSServer?service=wms&request=GetCapabilities",
+      "sha256": "830e4d924a8b0444b996e42b5589bff19c7ae9b84bc54ecac5fd4bc5a07a3372",
+      "httpStatus": 200,
+      "contentType": "text/xml",
+      "role": "wms-capabilities",
+      "parseStatus": "pass",
+      "kind": "wms-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [
+      {
+        "code": "metadata_http_not_200",
+        "url": "https://portal.csdi.gov.hk/server/services/common/td_rcd_1638949160594_2844/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+        "httpStatus": 403
+      },
+      {
+        "serviceId": "csdi-service-f2d7354f5723e2aca06193ba",
+        "code": "discovery_metadata_error",
+        "reason": "Metadata request status http_error",
+        "url": "https://portal.csdi.gov.hk/server/services/common/td_rcd_1638949160594_2844/MapServer/WFSServer?service=WFS&request=GetCapabilities"
+      },
+      {
+        "serviceId": "csdi-service-f2d7354f5723e2aca06193ba",
+        "protocol": "wfs",
+        "code": "unsupported_or_incomplete_native_contract",
+        "reason": "No retained parseable WFS GetCapabilities"
+      }
+    ],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 20
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

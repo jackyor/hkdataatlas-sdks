@@ -1,0 +1,383 @@
+openapi: 3.0.0
+info:
+  title: "HKTR Data Disclosure – Interest Rate Derivatives-positions "
+  description: "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/financial-market-infra/trade-repository/hktr-data-disclose-ir"
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/financial-market-infra/trade-repository
+    variables: {}
+paths:
+  /hktr-data-disclose-ir:
+    get:
+      summary: "Retrieve data of HKTR Data Disclosure – Interest Rate Derivatives-positions "
+      parameters:
+        - name: segment
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Segment"
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Record"
+          description: ""
+    Record:
+      title: Record
+      type: object
+      properties:
+        end_of_date:
+          type: string
+          format: date
+        on_total_asset_class:
+          type: number
+        on_prod_b_swap:
+          type: number
+        on_prod_ff:
+          type: number
+        on_prod_oi_swap:
+          type: number
+        on_prod_intend_clear_b_swap:
+          type: number
+        on_prod_intend_clear_ff:
+          type: number
+        on_prod_intend_clear_oi_swap:
+          type: number
+        on_prod_not_intend_clear_b_swap:
+          type: number
+        on_prod_not_intend_clear_ff:
+          type: number
+        on_prod_not_intend_clear_oi_swap:
+          type: number
+        on_prod_usd_b_swap:
+          type: number
+        on_prod_usd_ff:
+          type: number
+        on_prod_usd_oi_swap:
+          type: number
+        on_prod_cny_b_swap:
+          type: number
+        on_prod_cny_ff:
+          type: number
+        on_prod_cny_oi_swap:
+          type: number
+        on_prod_eur_b_swap:
+          type: number
+        on_prod_eur_ff:
+          type: number
+        on_prod_eur_oi_swap:
+          type: number
+        on_prod_gbp_b_swap:
+          type: number
+        on_prod_gbp_ff:
+          type: number
+        on_prod_gbp_oi_swap:
+          type: number
+        on_prod_jpy_b_swap:
+          type: number
+        on_prod_jpy_ff:
+          type: number
+        on_prod_jpy_oi_swap:
+          type: number
+        on_prod_hkd_b_swap:
+          type: number
+        on_prod_hkd_ff:
+          type: number
+        on_prod_hkd_oi_swap:
+          type: number
+        on_prod_other_curr_b_swap:
+          type: number
+        on_prod_other_curr_ff:
+          type: number
+        on_prod_other_curr_oi_swap:
+          type: number
+        on_prod_0yr_1yr_b_swap:
+          type: number
+        on_prod_0yr_1yr_ff:
+          type: number
+        on_prod_0yr_1yr_oi_swap:
+          type: number
+        on_prod_1yr_2yr_b_swap:
+          type: number
+        on_prod_1yr_2yr_ff:
+          type: number
+        on_prod_1yr_2yr_oi_swap:
+          type: number
+        on_prod_2yr_5yr_b_swap:
+          type: number
+        on_prod_2yr_5yr_ff:
+          type: number
+        on_prod_2yr_5yr_oi_swap:
+          type: number
+        on_prod_5yr_10yr_b_swap:
+          type: number
+        on_prod_5yr_10yr_ff:
+          type: number
+        on_prod_5yr_10yr_oi_swap:
+          type: number
+        on_prod_10yr_15yr_b_swap:
+          type: number
+        on_prod_10yr_15yr_ff:
+          type: number
+        on_prod_10yr_15yr_oi_swap:
+          type: number
+        on_prod_15yr_20yr_b_swap:
+          type: number
+        on_prod_15yr_20yr_ff:
+          type: number
+        on_prod_15yr_20yr_oi_swap:
+          type: number
+        on_prod_20yr_more_b_swap:
+          type: number
+        on_prod_20yr_more_ff:
+          type: number
+        on_prod_20yr_more_oi_swap:
+          type: number
+        not_total_asset_class:
+          type: number
+        not_prod_b_swap:
+          type: number
+        not_prod_ff:
+          type: number
+        not_prod_oi_swap:
+          type: number
+        not_prod_intend_clear_b_swap:
+          type: number
+        not_prod_intend_clear_ff:
+          type: number
+        not_prod_intend_clear_oi_swap:
+          type: number
+        not_prod_not_intend_clear_b_swap:
+          type: number
+        not_prod_not_intend_clear_ff:
+          type: number
+        not_prod_not_intend_clear_oi_swap:
+          type: number
+        not_prod_usd_b_swap:
+          type: number
+        not_prod_usd_ff:
+          type: number
+        not_prod_usd_oi_swap:
+          type: number
+        not_prod_cny_b_swap:
+          type: number
+        not_prod_cny_ff:
+          type: number
+        not_prod_cny_oi_swap:
+          type: number
+        not_prod_eur_b_swap:
+          type: number
+        not_prod_eur_ff:
+          type: number
+        not_prod_eur_oi_swap:
+          type: number
+        not_prod_gbp_b_swap:
+          type: number
+        not_prod_gbp_ff:
+          type: number
+        not_prod_gbp_oi_swap:
+          type: number
+        not_prod_jpy_b_swap:
+          type: number
+        not_prod_jpy_ff:
+          type: number
+        not_prod_jpy_oi_swap:
+          type: number
+        not_prod_hkd_b_swap:
+          type: number
+        not_prod_hkd_ff:
+          type: number
+        not_prod_hkd_oi_swap:
+          type: number
+        not_prod_other_curr_b_swap:
+          type: number
+        not_prod_other_curr_ff:
+          type: number
+        not_prod_other_curr_oi_swap:
+          type: number
+        not_prod_0yr_1yr_b_swap:
+          type: number
+        not_prod_0yr_1yr_ff:
+          type: number
+        not_prod_0yr_1yr_oi_swap:
+          type: number
+        not_prod_1yr_2yr_b_swap:
+          type: number
+        not_prod_1yr_2yr_ff:
+          type: number
+        not_prod_1yr_2yr_oi_swap:
+          type: number
+        not_prod_2yr_5yr_b_swap:
+          type: number
+        not_prod_2yr_5yr_ff:
+          type: number
+        not_prod_2yr_5yr_oi_swap:
+          type: number
+        not_prod_5yr_10yr_b_swap:
+          type: number
+        not_prod_5yr_10yr_ff:
+          type: number
+        not_prod_5yr_10yr_oi_swap:
+          type: number
+        not_prod_10yr_15yr_b_swap:
+          type: number
+        not_prod_10yr_15yr_ff:
+          type: number
+        not_prod_10yr_15yr_oi_swap:
+          type: number
+        not_prod_15yr_20yr_b_swap:
+          type: number
+        not_prod_15yr_20yr_ff:
+          type: number
+        not_prod_15yr_20yr_oi_swap:
+          type: number
+        not_prod_20yr_more_b_swap:
+          type: number
+        not_prod_20yr_more_ff:
+          type: number
+        not_prod_20yr_more_oi_swap:
+          type: number
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    Segment:
+      title: segment
+      enum:
+        - positions
+        - turnover
+      type: string
+      example: positions
+      x-enum-elements:
+        - name: positions
+          description: ""
+        - name: turnover
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"

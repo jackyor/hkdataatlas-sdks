@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ld-csdi-information-of-occupational-medicine-unit",
+  "sourceSha256": "23484a0e3d1ac8173f425403ba04726964af28938244edfe8c67d89c96caaa7c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/labour_rcd_1635320226161_4333/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/labour_rcd_1635320226161_4333/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/labour_rcd_1635320226161_4333/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

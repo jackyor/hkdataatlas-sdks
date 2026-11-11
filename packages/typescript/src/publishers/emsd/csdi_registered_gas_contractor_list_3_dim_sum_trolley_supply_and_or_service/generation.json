@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "emsd-csdi-registered-gas-contractor-list-3-dim-sum-trolley-supply-and-or-service",
+  "sourceSha256": "486e0169932dfd183f45b03e2c7d618e1fe575ad9914029d62e3096fbb9dc12b",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/emsd_rcd_1662607313685_41012/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1662607313685_41012/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1662607313685_41012/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "sourceId": "hkma-market-data-and-statistics-monthly-statistical-bulletin-gover-5",
+  "publisherKey": "hkma",
+  "family": "market_data_and_statistics_monthly_statistical_bulletin_gover_5",
+  "status": "generated",
+  "key": "fda6aa78757f6e867209365e68a661d1662b48ab41ad8f360d49892a38ec2a3b",
+  "sourceSha256": "ebd352417d96a4ba0d898ccc3d11f51dac63e22017d4aad79e3d3886874f0ff9",
+  "derivedInputSha256": "a09a2b0af79813a03e868d370a9ded04e3b84d19da1c31ca0d9211f3d4709573",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/out-amt-gov-bonds-remaining-tenor",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-market-data-and-statistics-monthly-statistical-bulletin-gover-5.log",
+  "outputs": {
+    "__init__.py": "f497f5da0d8361e12ca7518ada9ac2e28a15560599cd9a94247181daa33bf4d8",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_out_amt_gov_bonds_remaining_tenor.py": "ab4f19873f0db4474639e40b10c357e4723414432ff81983e4b370d06d9c2dfa",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e0016b03f9f9dd4db7bb99d6e9d31ac094aef4cb7b9c98d9f75c75cb7107ff31",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/record.py": "e6b81097b88fd35f355db403ac72ecb3d05d88cd82ccdb217a907f6f9afc7244",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

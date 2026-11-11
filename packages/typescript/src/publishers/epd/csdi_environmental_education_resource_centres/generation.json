@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "epd-csdi-environmental-education-resource-centres",
+  "sourceSha256": "485c808bcd37db9fd6927ceb5c01f2b2a5dd730d32516d0fe23616ed06ccc86c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/epd_rcd_1629267205214_97455/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1629267205214_97455/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1629267205214_97455/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

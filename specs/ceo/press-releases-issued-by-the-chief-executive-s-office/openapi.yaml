@@ -1,0 +1,105 @@
+components:
+  schemas:
+    PressRelease:
+      description: Documented press-release fields. The source does not define additional response properties or an exhaustive object contract.
+      properties:
+        date:
+          description: "Date in D.M.YYYY format. Publisher table label: Date; lowercase JSON wire key observed in the saved response."
+          examples:
+            - 2.1.2019
+          type: string
+        description:
+          description: "Content of the Press Release. Publisher table label: Description; lowercase JSON wire key observed in the saved response."
+          type: string
+        link:
+          description: "Link of the Press Release. Publisher table label: Link; lowercase JSON wire key observed in the saved response."
+          type: string
+        title:
+          description: "Heading of the Press Release. Publisher table label: Title; lowercase JSON wire key observed in the saved response."
+          type: string
+      required:
+        - title
+        - link
+        - date
+        - description
+      type: object
+externalDocs:
+  description: Publisher API data dictionary
+  url: https://www.ceo.gov.hk/public/open-data/en/press/data_dict_press_release.pdf
+info:
+  description: Search the Chief Executive's Office press releases. The version value is a metadata placeholder, not a publisher API version. All times are HKT (GMT+8). If start and end are omitted, the last six months of press releases are returned; at most 400 records are returned. The documentation does not specify authentication or response media type.
+  title: Press releases issued by the Chief Executive's Office
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /v1/pressrelease/search:
+    get:
+      description: Returns press releases issued by the Chief Executive's Office. The documented request selects English-language press releases of type press from official CE. The API documentation does not define the complete response envelope.
+      operationId: searchPressReleases
+      parameters:
+        - description: Language selector. The documented request uses en. Catalog resource listings also identify tc (Traditional Chinese) and sc (Simplified Chinese) variants.
+          example: en
+          in: query
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: Official identifier. The documented request uses CE.
+          example: CE
+          in: query
+          name: official
+          required: true
+          schema:
+            const: CE
+            type: string
+        - description: Release type. The documented request uses press.
+          example: press
+          in: query
+          name: type
+          required: true
+          schema:
+            const: press
+            type: string
+        - description: Inclusive start date in YYYYMMDD format, e.g. 20190102. Earliest accepted date is 1 July 2017. Must be used together with end.
+          in: query
+          name: start
+          required: false
+          schema:
+            examples:
+              - "20190102"
+            pattern: ^\d{8}$
+            type: string
+        - description: Inclusive end date in YYYYMMDD format, e.g. 20190109. Latest accepted date is today. Must be used together with start.
+          in: query
+          name: end
+          required: false
+          schema:
+            examples:
+              - "20190109"
+            pattern: ^\d{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                description: Object/results envelope observed in one source-backed saved response. Additional properties remain allowed; no universal envelope requiredness is inferred.
+                properties:
+                  results:
+                    description: Documented record fields in the observed results array. Saved response contains four records; observation is not an exhaustive contract.
+                    items:
+                      $ref: "#/components/schemas/PressRelease"
+                    type: array
+                  returned-count:
+                    description: Observed envelope key; universal type and requiredness are not specified by the publisher dictionary.
+                  total-count:
+                    description: Observed envelope key; universal type and requiredness are not specified by the publisher dictionary.
+                type: object
+          description: Successful search. The documentation supplies field definitions for press-release records but does not specify the enclosing response structure. Outer object/results envelope is corroborated by one saved source-backed query, rather than specified by the field dictionary.
+      summary: Search press releases
+servers:
+  - url: https://api.data.gov.hk

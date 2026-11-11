@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hospital-csdi-list-of-chinese-medicine-clinics-cum-training-and-research-centres",
+  "sourceSha256": "b1ffa99da0bcf37de400251db44d3a167ab34ffcee0818c32ccc5bedecb624b7",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/fhb_rcd_1636944642063_75501/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fhb_rcd_1636944642063_75501/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fhb_rcd_1636944642063_75501/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

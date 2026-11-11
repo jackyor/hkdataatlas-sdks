@@ -1,0 +1,33 @@
+{
+  "sourceId": "hkstp-hkstpc-company-directory",
+  "publisherKey": "hkstp",
+  "family": "hkstpc_company_directory",
+  "status": "generated",
+  "key": "39148dcee89be34e0dfb7e0647e18c02ae1bfb2a876de5987f705f6c99af0594",
+  "sourceSha256": "62db40ee059a646f5b19f19d5b771c44907800c2012271528c43c084ed26fbda",
+  "derivedInputSha256": "2312be5688bbefa99fec13d660a6f2301a4ef8d85670ef5c8bdb5cb418609178",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/corporate/companydirectory/v1/",
+      "operationId": "getCompanyDirectory",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkstp-hkstpc-company-directory.log",
+  "outputs": {
+    "__init__.py": "4ca4b51ab8da979470dbe4447833bdbdfa37579fa854e74d3608deccc4c48541",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_company_directory.py": "49c0d3d89cba609d40c63914b6049fd4efdc7e39acd5e9bfe5c5221f4ccb2748",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "fcee890f810f3311d73401f12382a674c39f60b484e0f72f47892b0f9cb7bb02",
+    "models/company_directory_response.py": "143c111ed87380fb5123a2ae6f762858b85fcb195b56cd1696c6e21958157206",
+    "models/company_profile.py": "7f80b8c15733e4c8bc134558abe6d0b2b2bedb174cd940cbf1287e9ca292d4cb",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

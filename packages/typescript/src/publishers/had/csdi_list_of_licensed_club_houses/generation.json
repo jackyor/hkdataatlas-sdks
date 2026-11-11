@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "had-csdi-list-of-licensed-club-houses",
+  "sourceSha256": "4ad2521bd1348a6cadeabb5a9d98cab8c773e5fac9f5341899a0aed96c612e0b",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/had_rcd_1639474881869_90085/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1639474881869_90085/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/had_rcd_1639474881869_90085/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

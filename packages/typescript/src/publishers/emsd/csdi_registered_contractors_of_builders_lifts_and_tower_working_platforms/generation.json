@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "emsd-csdi-registered-contractors-of-builders-lifts-and-tower-working-platforms",
+  "sourceSha256": "bd7c4068e7ee40cf0cbea8f814cf3cb52fbffd713565b2213474ee7e93e3f438",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/emsd_rcd_1664943556173_52047/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/emsd_rcd_1664943556173_52047/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

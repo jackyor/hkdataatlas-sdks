@@ -1,0 +1,258 @@
+components:
+  schemas:
+    EstimatedArrival:
+      properties:
+        departed:
+          description: "Indicates whether the departure has departed from the first stop of the route: 1 if yes, otherwise 0."
+          type: integer
+        estimatedArrivalTime:
+          description: Datetime; the documented sample uses YYYY-MM-DD HH:MM:SS.
+          type: string
+        generateTime:
+          description: Datetime; the documented sample uses YYYY-MM-DD HH:MM:SS.
+          type: string
+        noGPS:
+          description: "Indicates whether the bus for that departure has GPS positioning equipment installed: 1 if installed, otherwise 0."
+          type: integer
+        routeVariantName:
+          type: string
+        wheelChair:
+          description: "Indicates whether the bus for that departure can be easily accessed by wheelchair: 1 if it can, otherwise 0."
+          type: integer
+      type: object
+    EstimatedArrivalsResponse:
+      properties:
+        estimatedArrivals:
+          description: This property does not exist if estimated arrival time for the route is currently unavailable.
+          items:
+            $ref: "#/components/schemas/EstimatedArrival"
+          type: array
+        message:
+          type: string
+      type: object
+    Route:
+      properties:
+        overnightRoute:
+          description: "Indicates whether the route is an overnight route: 1 if yes, otherwise 0."
+          type: integer
+        routeId:
+          anyOf:
+            - type: integer
+            - type: string
+          description: Declared as Integer; the documented sample represents the identifier as a string.
+          examples:
+            - 2
+            - "2"
+        routeName_c:
+          type: string
+        routeName_e:
+          type: string
+        routeName_s:
+          type: string
+        routeNo:
+          type: string
+        specialRoute:
+          description: "Indicates whether the route is a special route: 1 if yes, otherwise 0."
+          type: integer
+      type: object
+    Stop:
+      description: The documentation declares latitude, longitude and fares as Number, while its sample represents them as strings.
+      properties:
+        fare:
+          anyOf:
+            - type: number
+            - type: string
+          description: Fare from Monday to Saturday, except public holidays. Declared as Number; represented as a string in the sample.
+          examples:
+            - 15
+            - "15.0"
+        fareHoliday:
+          anyOf:
+            - type: number
+            - type: string
+          description: Fare on Sunday and public holidays. Declared as Number; represented as a string in the sample.
+          examples:
+            - 25
+            - "25.0"
+        latitude:
+          anyOf:
+            - type: number
+            - type: string
+          description: Declared as Number; represented as a string in the sample.
+          examples:
+            - 22.314569
+            - "22.31456900"
+        longitude:
+          anyOf:
+            - type: number
+            - type: string
+          description: Declared as Number; represented as a string in the sample.
+          examples:
+            - 113.93661
+            - "113.93661000"
+        someDepartureObserveOnly:
+          description: "Indicates whether the stop on this route is some-departure-observe-only: 1 if yes, otherwise 0."
+          type: integer
+        stopId:
+          anyOf:
+            - type: integer
+            - type: string
+          description: Declared as Integer; the documented sample represents the identifier as a string.
+          examples:
+            - 117
+            - "117"
+        stopLocation_c:
+          type: string
+        stopLocation_e:
+          type: string
+        stopLocation_s:
+          type: string
+        stopName_c:
+          type: string
+        stopName_e:
+          type: string
+        stopName_s:
+          type: string
+      type: object
+externalDocs:
+  url: http://www.nlb.com.hk/datagovhk/BusServiceOpenAPIDocumentation2.0.pdf
+info:
+  description: API documentation for New Lantao Bus Company (1973) Limited. Last updated 2022-07-05.
+  title: New Lantao Bus Company Bus Service Open API
+  version: "2.0"
+openapi: 3.1.0
+paths:
+  /route.php:
+    get:
+      operationId: getRouteList
+      parameters:
+        - description: Selects the route-list action.
+          example: list
+          in: query
+          name: action
+          required: true
+          schema:
+            const: list
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    routes:
+                      - overnightRoute: 0
+                        routeId: "2"
+                        routeName_c: 大澳 > 梅窩碼頭
+                        routeName_e: Tai O > Mui Wo Ferry Pier
+                        routeName_s: 大澳 > 梅窝码头
+                        routeNo: "1"
+                        specialRoute: 0
+              schema:
+                properties:
+                  routes:
+                    items:
+                      $ref: "#/components/schemas/Route"
+                    type: array
+                type: object
+          description: Route list.
+      summary: Get list of all routes
+  /stop.php:
+    get:
+      description: The `list` action returns stops ordered by stop sequence of the route. The `estimatedArrivals` action returns arrival information. Scheduled arrival time is calculated from the timetable; actual departure time may change subject to operational adjustment. Estimated arrival time is calculated from historical data, not real-time traffic data. The `estimatedArrivals` property does not exist if the bus estimated arrival time for that route is currently unavailable.
+      operationId: getRouteStopsOrEstimatedArrivals
+      parameters:
+        - description: Selects the operation.
+          examples:
+            estimatedArrivals:
+              value: estimatedArrivals
+            list:
+              value: list
+          in: query
+          name: action
+          required: true
+          schema:
+            enum:
+              - list
+              - estimatedArrivals
+            type: string
+        - description: Route identifier; required for both documented actions.
+          example: 32
+          in: query
+          name: routeId
+          required: true
+          schema:
+            type: integer
+        - description: Stop identifier; required when action is `estimatedArrivals` and not documented for action `list`.
+          example: 4
+          in: query
+          name: stopId
+          required: false
+          schema:
+            type: integer
+        - description: Response language; required when action is `estimatedArrivals` and not documented for action `list`. `en` means English, `zh` Traditional Chinese, and `cn` Simplified Chinese.
+          examples:
+            english:
+              value: en
+            simplifiedChinese:
+              value: cn
+            traditionalChinese:
+              value: zh
+          in: query
+          name: language
+          required: false
+          schema:
+            enum:
+              - en
+              - zh
+              - cn
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                estimatedArrivals:
+                  summary: Sample estimated arrivals response
+                  value:
+                    estimatedArrivals:
+                      - departed: 1
+                        estimatedArrivalTime: 2018-01-01 08:05:00
+                        generateTime: 2018-01-01 08:00:00
+                        noGPS: 0
+                        routeVariantName: "Via: Mui Wo Old Town"
+                        wheelChair: 1
+                    message: ""
+                stops:
+                  summary: Sample stops response
+                  value:
+                    stops:
+                      - fare: "15.0"
+                        fareHoliday: "25.0"
+                        latitude: "22.31456900"
+                        longitude: "113.93661000"
+                        someDepartureObserveOnly: 0
+                        stopId: "117"
+                        stopLocation_c: 暢達路
+                        stopLocation_e: Cheong Tat Road
+                        stopLocation_s: 畅达路
+                        stopName_c: 機場(客運大樓)
+                        stopName_e: Airport (Passenger Terminal Building)
+                        stopName_s: 机场(客运大楼)
+              schema:
+                anyOf:
+                  - description: Response for `action=list`.
+                    properties:
+                      stops:
+                        description: Stops are ordered by stop sequence of the route.
+                        items:
+                          $ref: "#/components/schemas/Stop"
+                        type: array
+                    type: object
+                  - $ref: "#/components/schemas/EstimatedArrivalsResponse"
+                    description: Response for `action=estimatedArrivals`. The `estimatedArrivals` property may be absent when arrival times are unavailable.
+          description: Depending on `action`, returns the route's stops or estimated arrivals.
+      summary: Get stops of a route or estimated arrivals for a stop
+servers:
+  - url: https://rt.data.gov.hk/v2/transport/nlb/

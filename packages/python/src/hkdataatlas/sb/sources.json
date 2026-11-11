@@ -1,0 +1,702 @@
+{
+  "publisherKey": "sb",
+  "publisherName": "Security Bureau",
+  "sources": [
+    {
+      "id": "sb-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse",
+      "name": "Customised yearly statistical tables of the Central Registry of Drug Abuse (CRDA)",
+      "apiTitle": "CRDA Statistical Tables Customization Service",
+      "json": "sb/customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse/openapi.json",
+      "yaml": "sb/customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse/openapi.yaml",
+      "file": "sb/customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse/openapi.json",
+      "sha256": "b47be18f3ad676e061d67e7f2ab9d72394cc87a4db7ee29287c417963e309769",
+      "jsonSha256": "b47be18f3ad676e061d67e7f2ab9d72394cc87a4db7ee29287c417963e309769",
+      "yamlSha256": "67e8fd4e845873f23256cb4b9894ecf16240ab5e65f438d7c88e1ebab0fcc200",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "customised_yearly_statistical_tables_of_the_central_registry_of_drug_abuse",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b47be18f3ad676e061d67e7f2ab9d72394cc87a4db7ee29287c417963e309769"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.nd.gov.hk/en/data-specification.pdf",
+        "canonicalJsonSha256": "b47be18f3ad676e061d67e7f2ab9d72394cc87a4db7ee29287c417963e309769",
+        "originalRepresentationSha256": "b47be18f3ad676e061d67e7f2ab9d72394cc87a4db7ee29287c417963e309769",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "customised_yearly_statistical_tables_of_the_central_registry_of_drug_abuse"
+    },
+    {
+      "id": "sb-csdi-list-of-major-drug-treatment-and-rehabilitation-service-units",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-list-of-major-drug-treatment-and-rehabilitation-service-units",
+      "name": "List of major drug treatment and rehabilitation service units",
+      "apiTitle": "Security Bureau \u2014 List of major drug treatment and rehabilitation service units",
+      "json": "sb/csdi-list-of-major-drug-treatment-and-rehabilitation-service-units/openapi.json",
+      "yaml": "sb/csdi-list-of-major-drug-treatment-and-rehabilitation-service-units/openapi.yaml",
+      "file": "sb/csdi-list-of-major-drug-treatment-and-rehabilitation-service-units/openapi.json",
+      "sha256": "e004e3e55ded9b0364ee5ce824e5d135c8f564fd53db361fb1d6ef4cc7c351c2",
+      "jsonSha256": "e004e3e55ded9b0364ee5ce824e5d135c8f564fd53db361fb1d6ef4cc7c351c2",
+      "yamlSha256": "4623fdd44b802b6773f37b5de8eff37675b903a66a7acde96d1ebd4891f53ecd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_major_drug_treatment_and_rehabilitation_service_units",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e004e3e55ded9b0364ee5ce824e5d135c8f564fd53db361fb1d6ef4cc7c351c2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1633580236462_76633",
+        "canonicalJsonSha256": "e004e3e55ded9b0364ee5ce824e5d135c8f564fd53db361fb1d6ef4cc7c351c2",
+        "originalRepresentationSha256": "e004e3e55ded9b0364ee5ce824e5d135c8f564fd53db361fb1d6ef4cc7c351c2",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_major_drug_treatment_and_rehabilitation_service_units"
+    },
+    {
+      "id": "sb-csdi-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse-crda",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse-crda",
+      "name": "Customised yearly statistical tables of the Central Registry of Drug Abuse (CRDA)",
+      "apiTitle": "Security Bureau \u2014 Customised yearly statistical tables of the Central Registry of Drug Abuse (CRDA)",
+      "json": "sb/csdi-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse-crda/openapi.json",
+      "yaml": "sb/csdi-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse-crda/openapi.yaml",
+      "file": "sb/csdi-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse-crda/openapi.json",
+      "sha256": "239f3aca24f0f36beab26a1adeea6425909a295cf5236fa5a18cdfa69947bc28",
+      "jsonSha256": "239f3aca24f0f36beab26a1adeea6425909a295cf5236fa5a18cdfa69947bc28",
+      "yamlSha256": "48c42a1e32fbea9b347736f9d5a31f31a010f9694d52de8831104bf3090249e3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_customised_yearly_statistical_tables_of_the_central_registry_of_drug_abuse_crda",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "239f3aca24f0f36beab26a1adeea6425909a295cf5236fa5a18cdfa69947bc28"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1633580602816_87360",
+        "canonicalJsonSha256": "239f3aca24f0f36beab26a1adeea6425909a295cf5236fa5a18cdfa69947bc28",
+        "originalRepresentationSha256": "239f3aca24f0f36beab26a1adeea6425909a295cf5236fa5a18cdfa69947bc28",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_customised_yearly_statistical_tables_of_the_central_registry_of_drug_abuse_crda"
+    },
+    {
+      "id": "sb-csdi-central-registry-of-drug-abuse-crda-quarterly-statistics",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-central-registry-of-drug-abuse-crda-quarterly-statistics",
+      "name": "Central Registry of Drug Abuse (CRDA) quarterly statistics",
+      "apiTitle": "Security Bureau \u2014 Central Registry of Drug Abuse (CRDA) quarterly statistics",
+      "json": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics/openapi.json",
+      "yaml": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics/openapi.yaml",
+      "file": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics/openapi.json",
+      "sha256": "37397a387202e2f8c89f79d630332c9fd58e306f7d33d1e819af3b6995356e76",
+      "jsonSha256": "37397a387202e2f8c89f79d630332c9fd58e306f7d33d1e819af3b6995356e76",
+      "yamlSha256": "5c3533a28178f37b729c6a5c97c064c966e2aa1bad34751da73dac14d8e58d5f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_central_registry_of_drug_abuse_crda_quarterly_statistics",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "37397a387202e2f8c89f79d630332c9fd58e306f7d33d1e819af3b6995356e76"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1633580775355_58926",
+        "canonicalJsonSha256": "37397a387202e2f8c89f79d630332c9fd58e306f7d33d1e819af3b6995356e76",
+        "originalRepresentationSha256": "37397a387202e2f8c89f79d630332c9fd58e306f7d33d1e819af3b6995356e76",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_central_registry_of_drug_abuse_crda_quarterly_statistics"
+    },
+    {
+      "id": "sb-csdi-central-registry-of-drug-abuse-crda-annual-report-tables",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-central-registry-of-drug-abuse-crda-annual-report-tables",
+      "name": "Central Registry of Drug Abuse (CRDA) annual report - tables",
+      "apiTitle": "Security Bureau \u2014 Central Registry of Drug Abuse (CRDA) annual report - tables",
+      "json": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables/openapi.json",
+      "yaml": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables/openapi.yaml",
+      "file": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables/openapi.json",
+      "sha256": "535acdf1700461e43b7e9d037e1a7aef04fd91f1d4d050d9144cbf22d2e45b7a",
+      "jsonSha256": "535acdf1700461e43b7e9d037e1a7aef04fd91f1d4d050d9144cbf22d2e45b7a",
+      "yamlSha256": "4204519d66bee44e9418f0f2dd93455207ef62d0b3516be3d0cf0211f402b12e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_central_registry_of_drug_abuse_crda_annual_report_tables",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "535acdf1700461e43b7e9d037e1a7aef04fd91f1d4d050d9144cbf22d2e45b7a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1633581068224_27550",
+        "canonicalJsonSha256": "535acdf1700461e43b7e9d037e1a7aef04fd91f1d4d050d9144cbf22d2e45b7a",
+        "originalRepresentationSha256": "535acdf1700461e43b7e9d037e1a7aef04fd91f1d4d050d9144cbf22d2e45b7a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_central_registry_of_drug_abuse_crda_annual_report_tables"
+    },
+    {
+      "id": "sb-csdi-survey-of-drug-use-among-students",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-survey-of-drug-use-among-students",
+      "name": "Survey of Drug Use among Students",
+      "apiTitle": "Security Bureau \u2014 Survey of Drug Use among Students",
+      "json": "sb/csdi-survey-of-drug-use-among-students/openapi.json",
+      "yaml": "sb/csdi-survey-of-drug-use-among-students/openapi.yaml",
+      "file": "sb/csdi-survey-of-drug-use-among-students/openapi.json",
+      "sha256": "4854d03d28a62ec3bf969d2ec67c63c723e2a3273dcd0cca4d7a91dd1be6a925",
+      "jsonSha256": "4854d03d28a62ec3bf969d2ec67c63c723e2a3273dcd0cca4d7a91dd1be6a925",
+      "yamlSha256": "2ea3a41f86b92d021d00ece3a913aec586046ea70256ff957c6baf9bf39bcb9c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_survey_of_drug_use_among_students",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4854d03d28a62ec3bf969d2ec67c63c723e2a3273dcd0cca4d7a91dd1be6a925"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1633582398233_51661",
+        "canonicalJsonSha256": "4854d03d28a62ec3bf969d2ec67c63c723e2a3273dcd0cca4d7a91dd1be6a925",
+        "originalRepresentationSha256": "4854d03d28a62ec3bf969d2ec67c63c723e2a3273dcd0cca4d7a91dd1be6a925",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_survey_of_drug_use_among_students"
+    },
+    {
+      "id": "sb-csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-2",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-2",
+      "name": "Central Registry of Drug Abuse (CRDA) annual report - tables",
+      "apiTitle": "Security Bureau \u2014 Central Registry of Drug Abuse (CRDA) annual report - tables",
+      "json": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-2/openapi.json",
+      "yaml": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-2/openapi.yaml",
+      "file": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-2/openapi.json",
+      "sha256": "e83e63476990bcb31725c6f13e319721b4ecd1ea6de1bcd4aa25cc487d437b1d",
+      "jsonSha256": "e83e63476990bcb31725c6f13e319721b4ecd1ea6de1bcd4aa25cc487d437b1d",
+      "yamlSha256": "c256185164f025f9493a8dedbc2cf8b66e1f4276aaa3b5f54d709b0bd95a0653",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_central_registry_of_drug_abuse_crda_annual_report_tables_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e83e63476990bcb31725c6f13e319721b4ecd1ea6de1bcd4aa25cc487d437b1d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1639131755988_81744",
+        "canonicalJsonSha256": "e83e63476990bcb31725c6f13e319721b4ecd1ea6de1bcd4aa25cc487d437b1d",
+        "originalRepresentationSha256": "e83e63476990bcb31725c6f13e319721b4ecd1ea6de1bcd4aa25cc487d437b1d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_central_registry_of_drug_abuse_crda_annual_report_tables_service_2"
+    },
+    {
+      "id": "sb-csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-3",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-3",
+      "name": "Central Registry of Drug Abuse (CRDA) annual report - tables",
+      "apiTitle": "Security Bureau \u2014 Central Registry of Drug Abuse (CRDA) annual report - tables",
+      "json": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-3/openapi.json",
+      "yaml": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-3/openapi.yaml",
+      "file": "sb/csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-3/openapi.json",
+      "sha256": "6e323f3f6c7fb2004148f7c7f6f768a9aa706ed86d37ec11e1340365c1f07d57",
+      "jsonSha256": "6e323f3f6c7fb2004148f7c7f6f768a9aa706ed86d37ec11e1340365c1f07d57",
+      "yamlSha256": "f7e7a5631b02c6ff5fa4e8344a42a32c7473b161a7bc743dd38f56692276c4b3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_central_registry_of_drug_abuse_crda_annual_report_tables_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6e323f3f6c7fb2004148f7c7f6f768a9aa706ed86d37ec11e1340365c1f07d57"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1639131905038_70120",
+        "canonicalJsonSha256": "6e323f3f6c7fb2004148f7c7f6f768a9aa706ed86d37ec11e1340365c1f07d57",
+        "originalRepresentationSha256": "6e323f3f6c7fb2004148f7c7f6f768a9aa706ed86d37ec11e1340365c1f07d57",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_central_registry_of_drug_abuse_crda_annual_report_tables_service_3"
+    },
+    {
+      "id": "sb-csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-2",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-2",
+      "name": "Central Registry of Drug Abuse (CRDA) quarterly statistics",
+      "apiTitle": "Security Bureau \u2014 Central Registry of Drug Abuse (CRDA) quarterly statistics",
+      "json": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-2/openapi.json",
+      "yaml": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-2/openapi.yaml",
+      "file": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-2/openapi.json",
+      "sha256": "1db1ca77b2c4abbb0c8023c6c99747f951b28813a9590451ab5ccfad2c951f71",
+      "jsonSha256": "1db1ca77b2c4abbb0c8023c6c99747f951b28813a9590451ab5ccfad2c951f71",
+      "yamlSha256": "7fb87ca7f7ca20166f47ae10ed5f2d5ac1160cd5a22adb7cfc5fe63d64925121",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_central_registry_of_drug_abuse_crda_quarterly_statistics_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1db1ca77b2c4abbb0c8023c6c99747f951b28813a9590451ab5ccfad2c951f71"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1639132112609_61555",
+        "canonicalJsonSha256": "1db1ca77b2c4abbb0c8023c6c99747f951b28813a9590451ab5ccfad2c951f71",
+        "originalRepresentationSha256": "1db1ca77b2c4abbb0c8023c6c99747f951b28813a9590451ab5ccfad2c951f71",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_central_registry_of_drug_abuse_crda_quarterly_statistics_service_2"
+    },
+    {
+      "id": "sb-csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-3",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-3",
+      "name": "Central Registry of Drug Abuse (CRDA) quarterly statistics",
+      "apiTitle": "Security Bureau \u2014 Central Registry of Drug Abuse (CRDA) quarterly statistics",
+      "json": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-3/openapi.json",
+      "yaml": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-3/openapi.yaml",
+      "file": "sb/csdi-central-registry-of-drug-abuse-crda-quarterly-statistics-service-3/openapi.json",
+      "sha256": "1a18079fade3cec73a22e338d4ac5ec3e33de28fb0860c26516f6a122f67750d",
+      "jsonSha256": "1a18079fade3cec73a22e338d4ac5ec3e33de28fb0860c26516f6a122f67750d",
+      "yamlSha256": "7a7f43c13de13d8a6718c5500b55006d1f3d715e894514eeab47f9cbd1e1c5cc",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_central_registry_of_drug_abuse_crda_quarterly_statistics_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1a18079fade3cec73a22e338d4ac5ec3e33de28fb0860c26516f6a122f67750d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1639132246842_93991",
+        "canonicalJsonSha256": "1a18079fade3cec73a22e338d4ac5ec3e33de28fb0860c26516f6a122f67750d",
+        "originalRepresentationSha256": "1a18079fade3cec73a22e338d4ac5ec3e33de28fb0860c26516f6a122f67750d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_central_registry_of_drug_abuse_crda_quarterly_statistics_service_3"
+    },
+    {
+      "id": "sb-csdi-security-and-guarding-services-industry-authority-list-of-licensed-security-companies",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-security-and-guarding-services-industry-authority-list-of-licensed-security-companies",
+      "name": "Security and Guarding Services Industry Authority - List of licensed security companies",
+      "apiTitle": "Security Bureau \u2014 Security and Guarding Services Industry Authority - List of licensed security companies",
+      "json": "sb/csdi-security-and-guarding-services-industry-authority-list-of-licensed-security-companies/openapi.json",
+      "yaml": "sb/csdi-security-and-guarding-services-industry-authority-list-of-licensed-security-companies/openapi.yaml",
+      "file": "sb/csdi-security-and-guarding-services-industry-authority-list-of-licensed-security-companies/openapi.json",
+      "sha256": "75fb7a62ae00dae87ce7ededbfe159613408d10e5a9b1e21fb4785e721fb3013",
+      "jsonSha256": "75fb7a62ae00dae87ce7ededbfe159613408d10e5a9b1e21fb4785e721fb3013",
+      "yamlSha256": "a6496230eb339c08feb4478cb16d9d20d955c0b35e767525b659474e3f80dcf5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_security_and_guarding_services_industry_authority_list_of_licensed_security_companies",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "75fb7a62ae00dae87ce7ededbfe159613408d10e5a9b1e21fb4785e721fb3013"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1665457853051_75717",
+        "canonicalJsonSha256": "75fb7a62ae00dae87ce7ededbfe159613408d10e5a9b1e21fb4785e721fb3013",
+        "originalRepresentationSha256": "75fb7a62ae00dae87ce7ededbfe159613408d10e5a9b1e21fb4785e721fb3013",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_security_and_guarding_services_industry_authority_list_of_licensed_security_companies"
+    },
+    {
+      "id": "sb-csdi-information-of-the-hong-kong-jockey-club-drug-infocentre",
+      "publisherKey": "sb",
+      "publisherName": "Security Bureau",
+      "familyKey": "csdi-information-of-the-hong-kong-jockey-club-drug-infocentre",
+      "name": "Information of the Hong Kong Jockey Club Drug InfoCentre",
+      "apiTitle": "Security Bureau \u2014 Information of the Hong Kong Jockey Club Drug InfoCentre",
+      "json": "sb/csdi-information-of-the-hong-kong-jockey-club-drug-infocentre/openapi.json",
+      "yaml": "sb/csdi-information-of-the-hong-kong-jockey-club-drug-infocentre/openapi.yaml",
+      "file": "sb/csdi-information-of-the-hong-kong-jockey-club-drug-infocentre/openapi.json",
+      "sha256": "3bbf6d07041130d06956992fd00b8006eb05cb4b5bb160b9a02c03a173f234ff",
+      "jsonSha256": "3bbf6d07041130d06956992fd00b8006eb05cb4b5bb160b9a02c03a173f234ff",
+      "yamlSha256": "de3e4b27027886c0ca280405f783d9115f9b572905885f6bd1621ad4a1aaa9b0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_of_the_hong_kong_jockey_club_drug_infocentre",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3bbf6d07041130d06956992fd00b8006eb05cb4b5bb160b9a02c03a173f234ff"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=sb_rcd_1696560693187_48731",
+        "canonicalJsonSha256": "3bbf6d07041130d06956992fd00b8006eb05cb4b5bb160b9a02c03a173f234ff",
+        "originalRepresentationSha256": "3bbf6d07041130d06956992fd00b8006eb05cb4b5bb160b9a02c03a173f234ff",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_of_the_hong_kong_jockey_club_drug_infocentre"
+    }
+  ]
+}

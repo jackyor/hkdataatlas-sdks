@@ -1,0 +1,42 @@
+{
+  "sourceId": "hkma-clearing-house-figures-in-1935-2002-yearly",
+  "publisherKey": "hkma",
+  "family": "clearing_house_figures_in_1935_2002_yearly",
+  "status": "generated",
+  "key": "7e2c741b6b7b66069fac2730499aa2928b4f50ffa005306accce017e03db13c1",
+  "sourceSha256": "c3f4b06628b181464d9fabd374d39ea0bfa7125fc66ba05a86307b680914f623",
+  "derivedInputSha256": "40a9b4ee95dcfb712469c93ae5d243d84c32c1ca62c99d2f15df90a2b59aca77",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/hkimr/clearhouse-year",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-clearing-house-figures-in-1935-2002-yearly.log",
+  "outputs": {
+    "__init__.py": "ade3c0c63fd20d81d63845d899fc5c984a99cb7d880664fdf97f2fb775ff4891",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_hkimr_clearhouse_year.py": "f670bdf16bc9d2d1273a8f97c70efc2788b6b1d0dd318f65a6846de16f744ec5",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e0016b03f9f9dd4db7bb99d6e9d31ac094aef4cb7b9c98d9f75c75cb7107ff31",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/record.py": "9958603c138cfdeaf8c575c3d7b7d457cff3dbbd8bfa54e825a1a1fbf2e7d329",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

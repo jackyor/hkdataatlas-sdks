@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "fehd-csdi-register-of-private-columbaria",
+  "sourceSha256": "ecc1647d8cd438092ef8df4ee674383214366014f35b756b30d72506c0628279",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/fehd_rcd_1635493168417_96986/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1635493168417_96986/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fehd_rcd_1635493168417_96986/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

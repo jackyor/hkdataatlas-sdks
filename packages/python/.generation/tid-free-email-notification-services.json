@@ -1,0 +1,45 @@
+{
+  "sourceId": "tid-free-email-notification-services",
+  "publisherKey": "tid",
+  "family": "free_email_notification_services",
+  "status": "generated",
+  "key": "e645a1bae8ae1cecb21fa35384123b5a59e50c3a2aeea1498a44ae2ef6e445cc",
+  "sourceSha256": "36c7fb46e2963a9b70ba1ee4ad9d288b8d9b6848e2b1a25c02f897977813c701",
+  "derivedInputSha256": "36c7fb46e2963a9b70ba1ee4ad9d288b8d9b6848e2b1a25c02f897977813c701",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/service/utf/messageFromUsTc.do",
+      "operationId": "retrieveInformationUpdateRelatedToTradeAndIndustryDepartmentTraditionalChineseServiceUtfMessagefromustcDo",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/service/utf/messageFromUsSc.do",
+      "operationId": "retrieveInformationUpdateRelatedToTradeAndIndustryDepartmentSimplifiedChineseServiceUtfMessagefromusscDo",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/service/utf/messageFromUsEn.do",
+      "operationId": "retrieveInformationUpdateRelatedToTradeAndIndustryDepartmentEnglishServiceUtfMessagefromusenDo",
+      "tags": []
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/tid-free-email-notification-services.log",
+  "outputs": {
+    "__init__.py": "7892a339df7f6acec63ed6382cf1d9c3b3007e2ec80e296d606dc03063cddb26",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/retrieve_information_update_related_to_trade_and_industry_department_english_service_utf_messagefromusen_do.py": "4f275736d7da2c88970076b577732612844581f0dc1d842cba863e5b44f83ce9",
+    "api/default/retrieve_information_update_related_to_trade_and_industry_department_simplified_chinese_service_utf_messagefromussc_do.py": "12f6a56b31e55f72266f3a1e2770a6429d5614d9b304fef8c42486e4d0a48cc0",
+    "api/default/retrieve_information_update_related_to_trade_and_industry_department_traditional_chinese_service_utf_messagefromustc_do.py": "5ab31215b72a697660e4df9e4cdd7ab34cadcef42f250f6bd0dae164067c9e2a",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "ebd901b09b27f90713ea5bf24b4da4bcfc3629a63be9f71f94e2d3e9251cc2f0",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

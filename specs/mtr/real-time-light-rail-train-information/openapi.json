@@ -1,0 +1,349 @@
+{
+  "components": {
+    "schemas": {
+      "Platform": {
+        "description": "Information for a platform and its routes.",
+        "properties": {
+          "platform_id": {
+            "description": "Platform ID of each station.",
+            "type": "integer"
+          },
+          "route_list": {
+            "description": "Array of route information for the platform.",
+            "items": {
+              "$ref": "#/components/schemas/Route"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "Route": {
+        "description": "Train and route information. For regular routes, the route number is obtained from route_no. For special routes, special is 1 and the route number should be obtained from additionalInfo1, not route_no.",
+        "properties": {
+          "additionalInfo1": {
+            "description": "Route number information for a special route. Examples in the dictionary include values such as 751P* and SPR; SPR means Special/特別車. The API example also shows 507*.",
+            "type": "string"
+          },
+          "arrival_departure": {
+            "description": "A means the time acts as remaining arrival time for a normal station; D means the time acts as remaining departure time for a terminal station.",
+            "examples": [
+              "A"
+            ],
+            "type": "string"
+          },
+          "dest_ch": {
+            "description": "Destination of the route in Chinese.",
+            "type": "string"
+          },
+          "dest_en": {
+            "description": "Destination of the route in English.",
+            "type": "string"
+          },
+          "routeRemarkChi2": {
+            "description": "Remark for this route in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "routeRemarkEng2": {
+            "description": "Remark for the route in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "route_no": {
+            "description": "Route number.",
+            "type": "string"
+          },
+          "special": {
+            "description": "Indicates whether the route is special: 0 is regular; 1 is special.",
+            "type": "integer"
+          },
+          "stop": {
+            "description": "Indicates whether the line is stopped.",
+            "type": "integer"
+          },
+          "time_ch": {
+            "description": "Arrival/departure time in Chinese. '正在離開' means the train is departing from the terminus soon; '即將抵達' means the train is arriving soon; '-' means the train is arriving or departing.",
+            "type": "string"
+          },
+          "time_en": {
+            "description": "Arrival/departure time in English. 'departing' means the train is departing from the terminus soon; 'arriving' means the train is arriving soon; '-' means the train is arriving or departing.",
+            "type": "string"
+          },
+          "train_length": {
+            "description": "Length of the train.",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "ScheduleResponse": {
+        "description": "JSON response with system status, system time, and platform list. The documentation does not declare all properties universally required.",
+        "properties": {
+          "platform_list": {
+            "description": "Array of platform information.",
+            "items": {
+              "$ref": "#/components/schemas/Platform"
+            },
+            "type": "array"
+          },
+          "status": {
+            "description": "System status code: 1 means normal; 0 means error or alert.",
+            "type": "integer"
+          },
+          "system_time": {
+            "description": "System date and time in yyyy-MM-dd HH:mm:ss format.",
+            "examples": [
+              "2025-12-26 11:15:51"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Light Rail Next Train API Specification",
+    "url": "https://opendata.mtr.com.hk/doc/LR_Next_Train_API_Spec_v1.1.pdf"
+  },
+  "info": {
+    "description": "Returns Light Rail train arrival schedule information by selected station. The companion data dictionary is version 1.2 (5 Jul 2026) and documents returned fields and station identifiers. Authentication requirements are not specified in the source documentation.",
+    "title": "Light Rail Next Train API",
+    "version": "1.1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/getSchedule": {
+      "get": {
+        "description": "Returns train arrival schedule information for the selected Light Rail station. When with_special is omitted, only regular routes are returned.",
+        "externalDocs": {
+          "description": "Data Dictionary for Light Rail Next Train API",
+          "url": "https://opendata.mtr.com.hk/doc/LR_Next_Train_DataDictionary_v1.2.pdf"
+        },
+        "operationId": "getLightRailNextTrainSchedule",
+        "parameters": [
+          {
+            "description": "Station ID of a Light Rail station. The companion data dictionary lists station IDs and English and Chinese station names.",
+            "example": 600,
+            "in": "query",
+            "name": "station_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Whether to include special routes in the train-time information. 0 returns regular routes only; 1 returns regular and special routes. If omitted, only regular routes are returned.",
+            "example": 1,
+            "in": "query",
+            "name": "with_special",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "const": 0
+                },
+                {
+                  "const": 1
+                }
+              ],
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedExample": {
+                    "description": "Reconstructed from the example split across pages in the specification; sample values are illustrative and do not establish universal requiredness.",
+                    "summary": "Documented success response excerpt",
+                    "value": {
+                      "platform_list": [
+                        {
+                          "platform_id": 1,
+                          "route_list": [
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "兆康",
+                              "dest_en": "Siu Hong",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "615P",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "-",
+                              "time_en": "-",
+                              "train_length": 1
+                            },
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "元朗",
+                              "dest_en": "Yuen Long",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "615",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "5 分鐘",
+                              "time_en": "5 min",
+                              "train_length": 1
+                            },
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "兆康",
+                              "dest_en": "Siu Hong",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "505",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "5 分鐘",
+                              "time_en": "5 min",
+                              "train_length": 2
+                            },
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "田景",
+                              "dest_en": "Tin King",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "507",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "7 分鐘",
+                              "time_en": "7 min",
+                              "train_length": 1
+                            },
+                            {
+                              "additionalInfo1": "507*",
+                              "arrival_departure": "A",
+                              "dest_ch": "田景",
+                              "dest_en": "Tin King",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "901",
+                              "special": 1,
+                              "stop": 0,
+                              "time_ch": "8 分鐘",
+                              "time_en": "8 min",
+                              "train_length": 1
+                            },
+                            {
+                              "additionalInfo1": "SPR",
+                              "arrival_departure": "A",
+                              "dest_ch": "田景",
+                              "dest_en": "Tin King",
+                              "routeRemarkChi2": "特別綫由天逸開出，行751綫前往兆康。到達兆康後，改行507P綫前往屯門碼頭。",
+                              "routeRemarkEng2": "Special route going from Tin Yat to Siu Hong as Route 751. Then reform to Route 507P heading to Tuen Mun Ferry Pier. ",
+                              "route_no": "902",
+                              "special": 1,
+                              "stop": 0,
+                              "time_ch": "7 分鐘",
+                              "time_en": "7 min",
+                              "train_length": 1
+                            }
+                          ]
+                        },
+                        {
+                          "platform_id": 2,
+                          "route_list": [
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "屯門碼頭",
+                              "dest_en": "Tuen Mun Ferry Pier",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "615P",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "2 分鐘",
+                              "time_en": "2 min",
+                              "train_length": 1
+                            },
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "三聖",
+                              "dest_en": "Sam Shing",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "505",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "5 分鐘",
+                              "time_en": "5 min",
+                              "train_length": 1
+                            },
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "屯門碼頭",
+                              "dest_en": "Tuen Mun Ferry Pier",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "615",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "5 分鐘",
+                              "time_en": "5 min",
+                              "train_length": 1
+                            },
+                            {
+                              "additionalInfo1": "",
+                              "arrival_departure": "A",
+                              "dest_ch": "屯門碼頭",
+                              "dest_en": "Tuen Mun Ferry Pier",
+                              "routeRemarkChi2": null,
+                              "routeRemarkEng2": null,
+                              "route_no": "507",
+                              "special": 0,
+                              "stop": 0,
+                              "time_ch": "8 分鐘",
+                              "time_en": "8 min",
+                              "train_length": 2
+                            }
+                          ]
+                        }
+                      ],
+                      "status": 1,
+                      "system_time": "2025-12-26 11:15:51"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleResponse"
+                }
+              }
+            },
+            "description": "Success. The documented example is a multi-page excerpt; it illustrates the response structure but is not asserted to be a complete response."
+          },
+          "429": {
+            "description": "Too Many Requests."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "summary": "Get Light Rail next train schedule"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://rt.data.gov.hk/v1/transport/mtr/lrt"
+    }
+  ]
+}

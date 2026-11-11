@@ -1,0 +1,54 @@
+{
+  "sourceId": "nlb-bus-service-of-new-lantao-bus-company-1973-limited-first-generation",
+  "publisherKey": "nlb",
+  "family": "bus_service_of_new_lantao_bus_company_1973_limited_first_generation",
+  "status": "generated",
+  "key": "9c375b0c8f31230226c68f2c3cea149bbf2b5a8c0e15382bd2c8801d1163185b",
+  "sourceSha256": "ba299a92186351e1137252c5831f11e57de668aa382631893106c281e1a28901",
+  "derivedInputSha256": "55e5d469f6e0621ffe661d43d0f559151013c8d774fd6256a5329befa6e69fff",
+  "normalizations": [
+    {
+      "pointer": "/paths/~1route.php/post/parameters/0/schema",
+      "rule": "const_to_singleton_enum"
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "post",
+      "path": "/route.php",
+      "operationId": "listRoutes",
+      "tags": []
+    },
+    {
+      "method": "post",
+      "path": "/stop.php",
+      "operationId": "stopOperations",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/nlb-bus-service-of-new-lantao-bus-company-1973-limited-first-generation.log",
+  "outputs": {
+    "__init__.py": "a5fee6297fe4d2b372ea745d2072b2c3e8714c32eaeebc0a39a54944303e106d",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/list_routes.py": "7860e0d70cb8c2de17bd37e5db74e979c57db9f094133370d754b70d5e1e2421",
+    "api/default/stop_operations.py": "f4afc8bcb0c40bd50570f22e1e056237426c1b84405b695684c2d8888c30c9b0",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "887834761aecf4267c4b0b352da7531b388a17c893ef1176774030861af605cc",
+    "models/estimated_arrival.py": "194f371889ff20f95d54e51221a0473721d71da9cea2e1c6991492c549646554",
+    "models/estimated_arrivals_request.py": "d0475cd2c31a60acb1aa226dac211bfc7aa6abd9fba0cff48945d469fc8b987f",
+    "models/estimated_arrivals_request_language.py": "ba847c6dd11a67632df7527e4977db933ab55a94e3abfd2ac098d59023d60f26",
+    "models/estimated_arrivals_response.py": "0725388acd30800efe608d8ac9652564fdea02ce68b23842dc967b1346c74c6a",
+    "models/list_routes_action.py": "a4483da418e6cd0ffea35180f7e36f4b88f19ea8521e07f4e69455fefbb68394",
+    "models/route.py": "384bda8faba849d365a8025f4f2aff20734793ad8970d060ab42f57f99dd0f3d",
+    "models/route_stops_request.py": "fce5894622c2751d27ded810660bff774824d86a15e21d6effa66254e093628d",
+    "models/routes_response.py": "64d3fd441862a8c843e177f34dd1f2b7f2b3b65a487f810f7995fc5bb0aeeac6",
+    "models/stop.py": "c7e94cf6c886ac66f9b20eb14c3323176aec67a722bc15bdcb54e1d8a3525440",
+    "models/stop_operations_action.py": "082e655614f31d2c6cd5fa24ba5d34750febab1e538660e40b3ac96bfcd2fc6c",
+    "models/stops_response.py": "57162bc7fa52293d3af711a93ffb8df0c19be243692cad13e547c743bfd70c05",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

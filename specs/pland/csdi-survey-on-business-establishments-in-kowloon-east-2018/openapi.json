@@ -1,0 +1,5486 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Planning Department — Survey on Business Establishments in Kowloon East 2018",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "KBBA_KTBA",
+                "value": 0
+              },
+              "choice2": {
+                "summary": "Table_3_47",
+                "value": 1000
+              },
+              "choice3": {
+                "summary": "Table_3_26",
+                "value": 1001
+              },
+              "choice4": {
+                "summary": "Table_3_2",
+                "value": 1002
+              },
+              "choice5": {
+                "summary": "Table_2_88",
+                "value": 1003
+              },
+              "choice6": {
+                "summary": "Table_2_70",
+                "value": 1004
+              },
+              "choice7": {
+                "summary": "Table_2_61",
+                "value": 1005
+              },
+              "choice8": {
+                "summary": "Table_2_58",
+                "value": 1006
+              },
+              "choice9": {
+                "summary": "Table_2_41",
+                "value": 1007
+              },
+              "choice10": {
+                "summary": "Table_2_3",
+                "value": 1008
+              },
+              "choice11": {
+                "summary": "Table_2_27",
+                "value": 1009
+              },
+              "choice12": {
+                "summary": "Table_2_24",
+                "value": 1010
+              },
+              "choice13": {
+                "summary": "Table_2_109",
+                "value": 1011
+              },
+              "choice14": {
+                "summary": "Table_2_96",
+                "value": 1012
+              },
+              "choice15": {
+                "summary": "Table_2_68",
+                "value": 1013
+              },
+              "choice16": {
+                "summary": "Table_2_20",
+                "value": 1014
+              },
+              "choice17": {
+                "summary": "Table_2_16",
+                "value": 1015
+              },
+              "choice18": {
+                "summary": "Table_2_11",
+                "value": 1016
+              },
+              "choice19": {
+                "summary": "Table_2_10",
+                "value": 1017
+              }
+            },
+            "x-choice-count": 19
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0,
+              1000,
+              1001,
+              1002,
+              1003,
+              1004,
+              1005,
+              1006,
+              1007,
+              1008,
+              1009,
+              1010,
+              1011,
+              1012,
+              1013,
+              1014,
+              1015,
+              1016,
+              1017
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer?f=pjson",
+            "sha256": "42092fd8e8a5b6cfee698172998565a6f13ee6beb313586a98ca311060e0fa81",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/0?f=pjson",
+            "sha256": "c71f731d547cdeea3cc1563d5b23788abbd7a8ef28cabdfc1c005abbb9fde9e7",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1000?f=pjson",
+            "sha256": "ad736108315784b3f91aa0671239c0054012fdbcc5ee113364ed38d58a9da922",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1001?f=pjson",
+            "sha256": "797f38c81f9c456662d9821394ed951ce49f8c167a5ff94f6df8cd617b2f5f57",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1002?f=pjson",
+            "sha256": "3a3f2b7775928f7b45adabd53f07bd2d2d8e67a04c0a15d8dc2ded6278946dcd",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1003?f=pjson",
+            "sha256": "062a01c2d3df889368acd32d9d848d2e1e9661fa4a81944c3a422fa6ef0f8127",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1004?f=pjson",
+            "sha256": "5c8324e7e37cc38fb50196e81800cbe2699a0be6ccab81a19f9313b722f1d61a",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1005?f=pjson",
+            "sha256": "ef797a7794817387481219ac0015f7614fcea42e2e03ac23b9c93a47a5241107",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1006?f=pjson",
+            "sha256": "ac8682ca391273c4f3103946c5f4338d81595330b9103ed00eb60980587cba7d",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1007?f=pjson",
+            "sha256": "df8339ebb326e8ddb38e36e333e3301b2df77256f863d6528be3b659c223375e",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1008?f=pjson",
+            "sha256": "8422ef7d7c212689055142c388712a03fde4c5277896b2b730d73666434a88a4",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1009?f=pjson",
+            "sha256": "8b77f7f8ad83661f6e45f3994c385b99d53489af8437564bb7eb7d6943ddaa82",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1010?f=pjson",
+            "sha256": "5c71711e644845cb899075954d1727678249e190a21737399adf258eadc04956",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1011?f=pjson",
+            "sha256": "78fa01c68c513d8766cb27c99864ac13cc5a168923bc436a1dfb3b4f0b363b9f",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1012?f=pjson",
+            "sha256": "108b54dab69300af4d4d600ca795d5f99d632eebb479bab841bc191662e9dec1",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1013?f=pjson",
+            "sha256": "a263ea6a880dd01283d182ded0536d66b1085dd1eb2ac7f9b28d874990e6bdc5",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1014?f=pjson",
+            "sha256": "65fa80e8f8d0c256898c7be3f515dc603722e374e829c00360a5616adc204f82",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1015?f=pjson",
+            "sha256": "4a991262d17b116220d843ad35d259a38413444c3fa651fe356041f79ce1d649",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1016?f=pjson",
+            "sha256": "2a3fb55c6e206c87d188287dcd15bbe5f9ed9e87a9338b74a852e091d0f91836",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1017?f=pjson",
+            "sha256": "45c2e71371518112bfcf6bcaad21b87e5df3f1187cd3b55621c32e7c7150472d",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/pland_rcd_1634281537638_10054/MapServer/WFSServer": {
+      "get": {
+        "operationId": "WfsMapServerGetFeature",
+        "tags": [
+          "WFS"
+        ],
+        "summary": "Retrieve published features",
+        "description": "One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WFS"
+              ]
+            },
+            "example": "WFS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact capabilities version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2.0.0"
+              ]
+            },
+            "example": "2.0.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only operation advertised by GetCapabilities.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetFeature"
+              ]
+            },
+            "example": "GetFeature"
+          },
+          {
+            "name": "typeNames",
+            "in": "query",
+            "required": true,
+            "description": "Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "KBBA_KTBA",
+                "value": "csdi:KBBA_KTBA"
+              },
+              "choice2": {
+                "summary": "Table_3_47",
+                "value": "csdi:Table_3_47"
+              },
+              "choice3": {
+                "summary": "Table_3_26",
+                "value": "csdi:Table_3_26"
+              },
+              "choice4": {
+                "summary": "Table_3_2",
+                "value": "csdi:Table_3_2"
+              },
+              "choice5": {
+                "summary": "Table_2_88",
+                "value": "csdi:Table_2_88"
+              },
+              "choice6": {
+                "summary": "Table_2_70",
+                "value": "csdi:Table_2_70"
+              },
+              "choice7": {
+                "summary": "Table_2_61",
+                "value": "csdi:Table_2_61"
+              },
+              "choice8": {
+                "summary": "Table_2_58",
+                "value": "csdi:Table_2_58"
+              },
+              "choice9": {
+                "summary": "Table_2_41",
+                "value": "csdi:Table_2_41"
+              },
+              "choice10": {
+                "summary": "Table_2_3",
+                "value": "csdi:Table_2_3"
+              },
+              "choice11": {
+                "summary": "Table_2_27",
+                "value": "csdi:Table_2_27"
+              },
+              "choice12": {
+                "summary": "Table_2_24",
+                "value": "csdi:Table_2_24"
+              },
+              "choice13": {
+                "summary": "Table_2_109",
+                "value": "csdi:Table_2_109"
+              },
+              "choice14": {
+                "summary": "Table_2_96",
+                "value": "csdi:Table_2_96"
+              },
+              "choice15": {
+                "summary": "Table_2_68",
+                "value": "csdi:Table_2_68"
+              },
+              "choice16": {
+                "summary": "Table_2_20",
+                "value": "csdi:Table_2_20"
+              },
+              "choice17": {
+                "summary": "Table_2_16",
+                "value": "csdi:Table_2_16"
+              },
+              "choice18": {
+                "summary": "Table_2_11",
+                "value": "csdi:Table_2_11"
+              },
+              "choice19": {
+                "summary": "Table_2_10",
+                "value": "csdi:Table_2_10"
+              }
+            },
+            "x-choice-count": 19
+          },
+          {
+            "name": "outputFormat",
+            "in": "query",
+            "required": false,
+            "description": "Advertised native representation; JSON, GML, CSV and images are kept distinct.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GML32",
+                "GML32+ZIP",
+                "GML32+GZIP",
+                "application/gml+xml; version=3.2",
+                "GML3",
+                "GML3+ZIP",
+                "GML3+GZIP",
+                "text/xml; subtype=gml/3.1.1",
+                "GML2",
+                "GML2+ZIP",
+                "GML2+GZIP",
+                "text/xml; subtype=gml/2.1.2",
+                "GEOJSON",
+                "GEOJSON+ZIP",
+                "GEOJSON+GZIP",
+                "ESRIGEOJSON",
+                "ESRIGEOJSON+ZIP",
+                "ESRIGEOJSON+GZIP",
+                "KML",
+                "application/vnd.google-earth.kml xml",
+                "application/vnd.google-earth.kml+xml",
+                "KMZ",
+                "application/vnd.google-earth.kmz",
+                "SHAPE+ZIP",
+                "CSV",
+                "CSV+ZIP",
+                "CSV+GZIP",
+                "Geopackage",
+                "Geopackage+ZIP"
+              ]
+            },
+            "example": "GEOJSON"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "OGC bounded feature limit; example requests one feature without claiming a server-wide bound.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "srsName",
+            "in": "query",
+            "required": false,
+            "description": "Output CRS choices advertised by at least one feature type; support may vary by selected type.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "urn:ogc:def:crs:EPSG::2326"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/gml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/vnd.google-earth.kml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "description": "Native Geopackage+ZIP output; wire media type/fields are not constrained."
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "description": "Native CSV; row/column wire conformance is not inferred from JSON schemas."
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://docs.ogc.org/is/09-025r2/09-025r2.html"
+        },
+        "x-advertised-crss": [
+          "urn:ogc:def:crs:EPSG::2326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634281537638_10054/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+            "sha256": "71ab9006ff617a5711981ae73f40468353fa11165a24a4d5568015a830d947b0",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-capabilities",
+            "parseStatus": "pass",
+            "kind": "wfs-capabilities"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634281537638_10054/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType",
+            "sha256": "b44740a4e0c0c4cbf0a6371b6173811cf19b1a81ec5c6147e6cadf8e94207017",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-feature-type",
+            "parseStatus": "pass",
+            "kind": "wfs-feature-type"
+          }
+        ]
+      }
+    },
+    "/server/services/common/pland_rcd_1634281537638_10054/MapServer/WMSServer": {
+      "get": {
+        "operationId": "WmsMapServerGetMap",
+        "tags": [
+          "WMS"
+        ],
+        "summary": "Render a map image",
+        "description": "Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WMS"
+              ]
+            },
+            "example": "WMS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact advertised WMS version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1.3.0"
+              ]
+            },
+            "example": "1.3.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only GetMap operation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetMap"
+              ]
+            },
+            "example": "GetMap"
+          },
+          {
+            "name": "layers",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "KBBA_KTBA",
+                "value": "KBBA_KTBA"
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "styles",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated style names; an empty string selects the standard default style.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Advertised GetMap representation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "image/bmp",
+                "image/jpeg",
+                "image/tiff",
+                "image/png",
+                "image/png8",
+                "image/png24",
+                "image/png32",
+                "image/gif",
+                "image/svg+xml"
+              ]
+            },
+            "example": "image/png"
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Requested image width in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Requested image height in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "required": true,
+            "description": "Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "CRS:84"
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "required": true,
+            "description": "minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "114.207079,22.313058,114.219295,22.325889"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/tiff": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png24": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png32": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+        },
+        "x-advertised-crss": [
+          "CRS:84",
+          "EPSG:4326",
+          "EPSG:2326",
+          "EPSG:102140"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634281537638_10054/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+            "sha256": "162de2ac0ce7ba311c5df9e61dc5b4bdda1af4766b68f7e224582986ffbae538",
+            "httpStatus": 200,
+            "contentType": "text/xml",
+            "role": "wms-capabilities",
+            "parseStatus": "pass",
+            "kind": "wms-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Area_Tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_Tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Area_Sc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_Sc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1000Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "No_of_establishments": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "No_of_establishments",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1001Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "No_of_establishments": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "No_of_establishments",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1002Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "No_of_establishments": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "No_of_establishments",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1003Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Very_unlikely": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Very_unlikely",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_unlikely": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Quite_unlikely",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_likely": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Quite_likely",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Very_likely": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Very_likely",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Uncertain": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Uncertain",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1004Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Very_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Very_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Quite_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Quite_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Very_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Very_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1005Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Cost": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Cost",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Cost_Low_occupancy_operational_cost": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Cost_Low_occupancy_operational_cost",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Premises",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_suitable_premises": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Premises_suitable premises",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_public_transport": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_public_transport",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_parking": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_parking",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_cross_boundary",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_like_business": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration_like_business",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_regular_contacts": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration_regular_contacts",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_supporting_services": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration_supporting_services",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environment": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Environment",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environment_environmental_quality": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Environment_environmental_quality",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Prestige",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige_Prestigious_location": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Prestige_Prestigious_location",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_parent_company": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others_parent_company",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_building_quality_management": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others_building_quality_management",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_development_potential": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others_development_potential",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_relocation_head_office": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Others_relocation_head_office",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Others_Fung_Shui": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others_Fung_Shui",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1006Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Present_location_much_worse": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Present_location_much_worse",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Present_location_little_worse": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Present_location_little_worse",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "More_or_less_the_same": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "More_or_less_the_same",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Present_location_little_better": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Present_location_little_better",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Present_location_much_better": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Present_location_much_better",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1007Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Year_s_2": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Year_s_2",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Year_2_5": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Year_2_5",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Year_5_10": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Year_5_10",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Year_l_10": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Year_l_10",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1008Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Manufacturing": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Manufacturing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Construction": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Construction",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Import_export_trades": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Import_export_trades",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Restaurants_hotels": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Restaurants_hotels",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Transportation_storage": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Transportation_storage",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Telecommunications_services": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Telecommunications_services",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Banking": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Banking",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Banking_set_up_insurance_agents": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Banking_set_up_insurance_agents",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Banking_excluding_insurance_agents": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Banking_excluding_insurance_agents",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Real_estate": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Real_estate",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Publishing": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Publishing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Healthcare_services": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Healthcare_services",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Social_personal_services": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Social_personal_services",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Waste_management": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Waste_management",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1009Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Own": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Own",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Rent": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Rent",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Rent_free": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Rent_free",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1010Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Working_from_home_Yes": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Working_from_home_Yes",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Working_from_home_No": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Working_from_home_No",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Practice_of_hot_desking_Yes": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Practice_of_hot_desking_Yes",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Practice_of_hot_desking_No": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Practice_of_hot_desking_No",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shared_office_Yes": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Shared_office_Yes",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shared_office_No": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Shared_office_No",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1011Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Industrial_building": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Industrial_building",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Office_building",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_office_building": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Industrial_office_building",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shop": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Shop",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Residential_building": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Residential_building",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Uncertain": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Uncertain",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1012Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Cost": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Cost",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Cost_occupancy_operational_cost": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Cost_occupancy_operational_cost",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Premises",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_suitable_premises_floor_space": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Premises_suitable_premises_floor_space",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_renew": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Premises_renew",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_Poor_building": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Premises_Poor_building",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_Redevelopment": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Premises_Redevelopment",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_Poor_local_transport": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_Poor_local_transport",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_Inadequate_parking": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_Inadequate_parking",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_Poor_cross_boundary": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_Poor_cross-boundary",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration economies",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_head_office": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration_economies_head_office",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_Far_regular_contacts": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration_economies_Far_regular_contacts",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_Far_like_business": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Agglomeration_economies_Far_like_business",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_Insufficient_supporting": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Agglomeration_economies_Insufficient_supporting",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Environment_and_amenities": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Environment and amenities",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environment_Poor_quality": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Environment_Poor_quality",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Prestige",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige_Location_not_prestigious": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Prestige_Location_not_prestigious",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_Reduce_in_scope": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others_Reduce_in_scope",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_Bought_new_property": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Others_Bought_new_property",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_sell_property": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Others_sell_property",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Others_Fung_Shui": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Others_Fung_Shui",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1013Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Occupancy_cost_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Occupancy_cost_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Occupancy_cost_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Occupancy_cost_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Occupancy_cost_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Occupancy_cost_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Occupancy_cost_No_comment": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Occupancy_cost_No_comment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Operational_cost_general_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Operational_cost_general_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Operational_cost_general_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Operational_cost_general_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Operational_cost_general_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Operational_cost_general_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Operational_cost_general_No_comment": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Operational_cost_general_No_comment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Choices_suitable_premises_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_suitable_premises_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_suitable_premises_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_suitable_premises_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_suitable_premises_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_suitable_premises_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_suitable_premises_No_comment": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_suitable_premises_No_comment",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_cross_boundary_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_cross_boundary_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_cross_boundary_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_No_comment": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_cross_boundary_No_comment",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_local_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_local_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_local_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_No_comment": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Accessibility_local_No_comment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Accessibility_KE_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_KE_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_KE_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_KE_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_KE_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_KE_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_KENo_comment": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Accessibility_KENo_comment",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_clients_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_clients_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_clients_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_No_comment": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Proximity_clients_No_comment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Proximity_government_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_government_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_government_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_government_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_government_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_government_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_government_No_comment": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Proximity_government_No_comment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Presence_like_businesses_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Presence_like_businesses_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Presence_like_businesses_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Presence_like_businesses_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Presence_like_businesses_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Presence_like_businesses_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Presence_like_businesses_No_comment": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Presence_like_businesses_No_comment",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_supporting_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_supporting_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Proximity_supporting_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_No_comment": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Proximity_supporting_No_comment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Choices_retail_eating_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_retail_eating_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_retail_eating_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_retail_eating_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_retail_eating_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_retail_eating_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_retail_eating_No_comment": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Choices_retail_eating_No_comment",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environmental_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Environmental_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environmental_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Environmental_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environmental_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Environmental_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Vibrant_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Vibrant_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Vibrant_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Vibrant_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Vibrant_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Vibrant_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_satisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Prestigious_location_satisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_Neutral": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Prestigious_location_Neutral",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_dissatisfied": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Prestigious_location_dissatisfied",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_No_comment": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Prestigious_location_No_comment",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1014Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Area_100": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_100",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_100_199": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_100_199",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_200_299": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_200_299",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_300_399": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_300_399",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_400_499": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_400_499",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_500_599": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_500_599",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_600_699": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_600_699",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_700_799": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_700_799",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_800_899": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_800_899",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_900_999": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_900_999",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_1000": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_1000",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Information_cannot_be_provided": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Information_cannot_be_provided",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1015Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Person_1_4": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Person_1_4",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_5_9": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Person_5_9",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_10_19": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Person_10_19",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_20_49": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Person_20_49",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_50_99": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Person_50_99",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_100": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Person_100",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Information_cannot_be_provided": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Information_cannot_be_provided",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1016Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Industrial_building_sq_m": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Industrial_building_sq_m",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_building_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Industrial_building_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_office_building_sq_m": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Industrial_office_building_sq_m",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_office_building_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Industrial_office_building_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_Total_sq_m": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Office_building_Total_sq_m",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_Total_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Office_building_Total_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_A_sq_m": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Office_building_A_sq_m",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_A_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Office_building_A_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_B_C_sq_m": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Office_building_B_C_sq_m",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Office_building_B_C_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Office_building_B_C_sq_ft",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "New_wholesale_conversion_building_sq_m": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "New_wholesale_conversion_building_sq_m",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "New_wholesale_conversion_building_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "New_wholesale_conversion_building_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1017Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Area_En",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Area_smaller_100_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_smaller_100_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_100_199_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_100_199_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_200_249_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_200_249_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_250_499_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_250_499_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_500_999_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_500_999_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_1000_2999_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_1000_2999_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_3000_4999_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_3000_4999_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_5000_9999_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_5000_9999_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_larger_10000_sq_ft": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "Area_larger_10000_sq_ft",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Information_cannot_be_provided": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Information_cannot_be_provided",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                    }
+                  ]
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsKBBAKTBAAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Shape": {
+            "description": "Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type."
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Area_Tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Area_Sc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable347Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "No_of_establishments": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable326Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "No_of_establishments": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable32Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "No_of_establishments": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable288Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Very_unlikely": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_unlikely": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_likely": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Very_likely": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Uncertain": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable270Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Very_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Quite_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Very_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable261Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Cost": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Cost_Low_occupancy_operational_cost": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_suitable_premises": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_public_transport": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_parking": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_like_business": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_regular_contacts": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_supporting_services": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environment": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environment_environmental_quality": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige_Prestigious_location": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_parent_company": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_building_quality_management": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_development_potential": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_relocation_head_office": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Others_Fung_Shui": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable258Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Present_location_much_worse": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Present_location_little_worse": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "More_or_less_the_same": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Present_location_little_better": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Present_location_much_better": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable241Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Year_s_2": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Year_2_5": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Year_5_10": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Year_l_10": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable23Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Manufacturing": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Construction": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Import_export_trades": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Restaurants_hotels": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Transportation_storage": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Telecommunications_services": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Banking": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Banking_set_up_insurance_agents": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Banking_excluding_insurance_agents": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Real_estate": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Publishing": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Healthcare_services": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Social_personal_services": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Waste_management": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable227Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Own": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Rent": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Rent_free": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable224Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Working_from_home_Yes": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Working_from_home_No": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Practice_of_hot_desking_Yes": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Practice_of_hot_desking_No": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shared_office_Yes": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shared_office_No": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable2109Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Industrial_building": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_office_building": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Shop": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Residential_building": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Uncertain": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable296Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Cost": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Cost_occupancy_operational_cost": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_suitable_premises_floor_space": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_renew": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_Poor_building": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Premises_Redevelopment": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_Poor_local_transport": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_Inadequate_parking": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_Poor_cross_boundary": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_head_office": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_Far_regular_contacts": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_Far_like_business": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Agglomeration_economies_Insufficient_supporting": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Environment_and_amenities": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environment_Poor_quality": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestige_Location_not_prestigious": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_Reduce_in_scope": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_Bought_new_property": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Others_sell_property": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Others_Fung_Shui": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable268Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Occupancy_cost_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Occupancy_cost_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Occupancy_cost_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Occupancy_cost_No_comment": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Operational_cost_general_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Operational_cost_general_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Operational_cost_general_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Operational_cost_general_No_comment": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Choices_suitable_premises_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_suitable_premises_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_suitable_premises_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_suitable_premises_No_comment": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_cross_boundary_No_comment": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_local_No_comment": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Accessibility_KE_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_KE_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_KE_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Accessibility_KENo_comment": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_clients_No_comment": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Proximity_government_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_government_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_government_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_government_No_comment": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Presence_like_businesses_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Presence_like_businesses_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Presence_like_businesses_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Presence_like_businesses_No_comment": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Proximity_supporting_No_comment": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Choices_retail_eating_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_retail_eating_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_retail_eating_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Choices_retail_eating_No_comment": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environmental_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environmental_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Environmental_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Vibrant_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Vibrant_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Vibrant_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_satisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_Neutral": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_dissatisfied": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Prestigious_location_No_comment": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable220Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Area_100": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_100_199": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_200_299": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_300_399": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_400_499": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_500_599": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_600_699": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_700_799": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_800_899": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_900_999": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_1000": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Information_cannot_be_provided": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable216Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Person_1_4": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_5_9": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_10_19": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_20_49": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_50_99": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Person_100": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Information_cannot_be_provided": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable211Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Industrial_building_sq_m": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_building_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_office_building_sq_m": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Industrial_office_building_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_Total_sq_m": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_Total_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_A_sq_m": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_A_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Office_building_B_C_sq_m": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Office_building_B_C_sq_ft": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "New_wholesale_conversion_building_sq_m": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "New_wholesale_conversion_building_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsTable210Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Area_En": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          },
+          "Area_smaller_100_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_100_199_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_200_249_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_250_499_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_500_999_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_1000_2999_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_3000_4999_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_5000_9999_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Area_larger_10000_sq_ft": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "Information_cannot_be_provided": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 8000
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsFeatureCollection": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsKBBAKTBAAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable347Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable326Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable32Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable288Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable270Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable261Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable258Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable241Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable23Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable227Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable224Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable2109Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable296Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable268Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable220Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable216Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable211Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsTable210Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "KBBA_KTBA",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1000,
+      "title": "Table_3_47",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1001,
+      "title": "Table_3_26",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1002,
+      "title": "Table_3_2",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1003,
+      "title": "Table_2_88",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1004,
+      "title": "Table_2_70",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1005,
+      "title": "Table_2_61",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1006,
+      "title": "Table_2_58",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1007,
+      "title": "Table_2_41",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1008,
+      "title": "Table_2_3",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1009,
+      "title": "Table_2_27",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1010,
+      "title": "Table_2_24",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1011,
+      "title": "Table_2_109",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1012,
+      "title": "Table_2_96",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1013,
+      "title": "Table_2_68",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1014,
+      "title": "Table_2_20",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1015,
+      "title": "Table_2_16",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1016,
+      "title": "Table_2_11",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1017,
+      "title": "Table_2_10",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "csdi:KBBA_KTBA",
+      "title": "KBBA_KTBA",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_3_47",
+      "title": "Table_3_47",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_3_26",
+      "title": "Table_3_26",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_3_2",
+      "title": "Table_3_2",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_88",
+      "title": "Table_2_88",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_70",
+      "title": "Table_2_70",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_61",
+      "title": "Table_2_61",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_58",
+      "title": "Table_2_58",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_41",
+      "title": "Table_2_41",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_3",
+      "title": "Table_2_3",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_27",
+      "title": "Table_2_27",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_24",
+      "title": "Table_2_24",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_109",
+      "title": "Table_2_109",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_96",
+      "title": "Table_2_96",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_68",
+      "title": "Table_2_68",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_20",
+      "title": "Table_2_20",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_16",
+      "title": "Table_2_16",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_11",
+      "title": "Table_2_11",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:Table_2_10",
+      "title": "Table_2_10",
+      "protocol": "wfs"
+    },
+    {
+      "id": "KBBA_KTBA",
+      "title": "KBBA_KTBA",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "114.207079",
+          "miny": "22.313058",
+          "maxx": "114.219295",
+          "maxy": "22.325889"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.313058",
+          "miny": "114.207079",
+          "maxx": "22.325889",
+          "maxy": "114.219295"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "819172.710600",
+          "miny": "839633.089400",
+          "maxx": "820593.378900",
+          "maxy": "840891.386200"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "819172.710600",
+          "miny": "839633.089400",
+          "maxx": "820593.378900",
+          "maxy": "840891.386200"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "114.207079",
+          "miny": "22.313058",
+          "maxx": "114.219295",
+          "maxy": "22.325889"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.313058",
+          "miny": "114.207079",
+          "maxx": "22.325889",
+          "maxy": "114.219295"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "819172.710600",
+          "miny": "839633.089400",
+          "maxx": "820593.378900",
+          "maxy": "840891.386200"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "819172.710600",
+          "miny": "839633.089400",
+          "maxx": "820593.378900",
+          "maxy": "840891.386200"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "KBBA_KTBA"
+        }
+      ]
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=pland_rcd_1634281537638_10054",
+      "sha256": "e6658364740eb1e5b42f1e4554cbde05bcffa1dbf43e8c57c94f0c576d5a3d46",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer?f=pjson",
+      "sha256": "42092fd8e8a5b6cfee698172998565a6f13ee6beb313586a98ca311060e0fa81",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/0?f=pjson",
+      "sha256": "c71f731d547cdeea3cc1563d5b23788abbd7a8ef28cabdfc1c005abbb9fde9e7",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1000?f=pjson",
+      "sha256": "ad736108315784b3f91aa0671239c0054012fdbcc5ee113364ed38d58a9da922",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1001?f=pjson",
+      "sha256": "797f38c81f9c456662d9821394ed951ce49f8c167a5ff94f6df8cd617b2f5f57",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1002?f=pjson",
+      "sha256": "3a3f2b7775928f7b45adabd53f07bd2d2d8e67a04c0a15d8dc2ded6278946dcd",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1003?f=pjson",
+      "sha256": "062a01c2d3df889368acd32d9d848d2e1e9661fa4a81944c3a422fa6ef0f8127",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1004?f=pjson",
+      "sha256": "5c8324e7e37cc38fb50196e81800cbe2699a0be6ccab81a19f9313b722f1d61a",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1005?f=pjson",
+      "sha256": "ef797a7794817387481219ac0015f7614fcea42e2e03ac23b9c93a47a5241107",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1006?f=pjson",
+      "sha256": "ac8682ca391273c4f3103946c5f4338d81595330b9103ed00eb60980587cba7d",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1007?f=pjson",
+      "sha256": "df8339ebb326e8ddb38e36e333e3301b2df77256f863d6528be3b659c223375e",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1008?f=pjson",
+      "sha256": "8422ef7d7c212689055142c388712a03fde4c5277896b2b730d73666434a88a4",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1009?f=pjson",
+      "sha256": "8b77f7f8ad83661f6e45f3994c385b99d53489af8437564bb7eb7d6943ddaa82",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1010?f=pjson",
+      "sha256": "5c71711e644845cb899075954d1727678249e190a21737399adf258eadc04956",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1011?f=pjson",
+      "sha256": "78fa01c68c513d8766cb27c99864ac13cc5a168923bc436a1dfb3b4f0b363b9f",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1012?f=pjson",
+      "sha256": "108b54dab69300af4d4d600ca795d5f99d632eebb479bab841bc191662e9dec1",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1013?f=pjson",
+      "sha256": "a263ea6a880dd01283d182ded0536d66b1085dd1eb2ac7f9b28d874990e6bdc5",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1014?f=pjson",
+      "sha256": "65fa80e8f8d0c256898c7be3f515dc603722e374e829c00360a5616adc204f82",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1015?f=pjson",
+      "sha256": "4a991262d17b116220d843ad35d259a38413444c3fa651fe356041f79ce1d649",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1016?f=pjson",
+      "sha256": "2a3fb55c6e206c87d188287dcd15bbe5f9ed9e87a9338b74a852e091d0f91836",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/pland_rcd_1634281537638_10054/FeatureServer/1017?f=pjson",
+      "sha256": "45c2e71371518112bfcf6bcaad21b87e5df3f1187cd3b55621c32e7c7150472d",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634281537638_10054/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+      "sha256": "71ab9006ff617a5711981ae73f40468353fa11165a24a4d5568015a830d947b0",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-capabilities",
+      "parseStatus": "pass",
+      "kind": "wfs-capabilities"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634281537638_10054/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType",
+      "sha256": "b44740a4e0c0c4cbf0a6371b6173811cf19b1a81ec5c6147e6cadf8e94207017",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-feature-type",
+      "parseStatus": "pass",
+      "kind": "wfs-feature-type"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/pland_rcd_1634281537638_10054/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+      "sha256": "162de2ac0ce7ba311c5df9e61dc5b4bdda1af4766b68f7e224582986ffbae538",
+      "httpStatus": 200,
+      "contentType": "text/xml",
+      "role": "wms-capabilities",
+      "parseStatus": "pass",
+      "kind": "wms-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 24
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

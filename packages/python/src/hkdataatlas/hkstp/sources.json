@@ -1,0 +1,854 @@
+{
+  "publisherKey": "hkstp",
+  "publisherName": "Hong Kong Science and Technology Parks Corporation",
+  "sources": [
+    {
+      "id": "hkstp-talent-pool-and-recruitment",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "talent-pool-and-recruitment",
+      "name": "Talent Pool and Recruitment",
+      "apiTitle": "Talent Pool and Recruitment API",
+      "json": "hkstp/talent-pool-and-recruitment/openapi.json",
+      "yaml": "hkstp/talent-pool-and-recruitment/openapi.yaml",
+      "file": "hkstp/talent-pool-and-recruitment/openapi.json",
+      "sha256": "203cce9191d841c30e8fb8c2408b8e2de64d607862609cc13f7ac7867278197e",
+      "jsonSha256": "203cce9191d841c30e8fb8c2408b8e2de64d607862609cc13f7ac7867278197e",
+      "yamlSha256": "5603eb779e7ae2c5e8ff1b6bf2fd89ece9807452b18954319dd71196f0ad8fcb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "talent_pool_and_recruitment",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "203cce9191d841c30e8fb8c2408b8e2de64d607862609cc13f7ac7867278197e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corporate/HKSTP-API-hkstp-hksp-job-post.pdf",
+        "canonicalJsonSha256": "203cce9191d841c30e8fb8c2408b8e2de64d607862609cc13f7ac7867278197e",
+        "originalRepresentationSha256": "d7c085124b04ac73003f07d02fbeb3cb060f584464d174d34333ca2aab164913",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "c8172bc508093f179ec31c62173892d01888ea179c2985505ca9ebb859bd400b",
+          "canonicalJsonSha256": "203cce9191d841c30e8fb8c2408b8e2de64d607862609cc13f7ac7867278197e",
+          "currentSourceUrl": "https://opendata.hkstp.org/doc/corporate/HKSTP-API-hkstp-hksp-job-post.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "talent_pool_and_recruitment"
+    },
+    {
+      "id": "hkstp-public-transportation-means-available-to-from-hong-kong-science-park",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "public-transportation-means-available-to-from-hong-kong-science-park",
+      "name": "Public transportation means available to/from Hong Kong Science Park",
+      "apiTitle": "HKSTPC Available Public Transportation API",
+      "json": "hkstp/public-transportation-means-available-to-from-hong-kong-science-park/openapi.json",
+      "yaml": "hkstp/public-transportation-means-available-to-from-hong-kong-science-park/openapi.yaml",
+      "file": "hkstp/public-transportation-means-available-to-from-hong-kong-science-park/openapi.json",
+      "sha256": "b4ee3c15181270440bc19fd3b59a81dabff6816fb8ada57fd760b538e85c302b",
+      "jsonSha256": "b4ee3c15181270440bc19fd3b59a81dabff6816fb8ada57fd760b538e85c302b",
+      "yamlSha256": "81ba1906297b6c0fe930d283b0ddecdc2dc7f5fb30de9cc0774d92b3f00b508d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "public_transportation_means_available_to_from_hong_kong_science_park",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b4ee3c15181270440bc19fd3b59a81dabff6816fb8ada57fd760b538e85c302b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/park-info/HKSTP-API-public-transportation-list.pdf",
+        "canonicalJsonSha256": "b4ee3c15181270440bc19fd3b59a81dabff6816fb8ada57fd760b538e85c302b",
+        "originalRepresentationSha256": "ef7b3b6d9b02696980914c0d4be57478e8a074695351ce6eea0fe93bbacd6606",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "public_transportation_means_available_to_from_hong_kong_science_park"
+    },
+    {
+      "id": "hkstp-events-happening-in-hong-kong-science-park",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "events-happening-in-hong-kong-science-park",
+      "name": "Events happening in Hong Kong Science Park",
+      "apiTitle": "HKSTPC Events happening in Hong Kong Science Park API",
+      "json": "hkstp/events-happening-in-hong-kong-science-park/openapi.json",
+      "yaml": "hkstp/events-happening-in-hong-kong-science-park/openapi.yaml",
+      "file": "hkstp/events-happening-in-hong-kong-science-park/openapi.json",
+      "sha256": "9c1810999a23356130a3f7d3ff21b91b244650532151148fd804efd223aab579",
+      "jsonSha256": "9c1810999a23356130a3f7d3ff21b91b244650532151148fd804efd223aab579",
+      "yamlSha256": "05ca5db6fdcbc55649b93cb26f8758f9ed4752ffff3acb857844adc02572beeb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "events_happening_in_hong_kong_science_park",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "9c1810999a23356130a3f7d3ff21b91b244650532151148fd804efd223aab579"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corp-info/HKSTP-API-corp-website-upcoming-event.pdf",
+        "canonicalJsonSha256": "9c1810999a23356130a3f7d3ff21b91b244650532151148fd804efd223aab579",
+        "originalRepresentationSha256": "160f9401f22721d57b5f6461b0a243544b8de48c3e7c833c03c9c6b38914057f",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "b7b51d4b2588a5fee605aec25b25e86e461dee27ee515346936f2c89dc6e4ae8",
+          "canonicalJsonSha256": "9c1810999a23356130a3f7d3ff21b91b244650532151148fd804efd223aab579",
+          "currentSourceUrl": "https://opendata.hkstp.org/doc/corp-info/HKSTP-API-corp-website-upcoming-event.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "events_happening_in_hong_kong_science_park"
+    },
+    {
+      "id": "hkstp-number-of-technology-companies",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "number-of-technology-companies",
+      "name": "Number of Technology Companies",
+      "apiTitle": "Number of Technology Companies API",
+      "json": "hkstp/number-of-technology-companies/openapi.json",
+      "yaml": "hkstp/number-of-technology-companies/openapi.yaml",
+      "file": "hkstp/number-of-technology-companies/openapi.json",
+      "sha256": "8c7088998eae6d4ece8cfd1dbe51283dcc4f1bdc9cb397069b2356b13c7fbd48",
+      "jsonSha256": "8c7088998eae6d4ece8cfd1dbe51283dcc4f1bdc9cb397069b2356b13c7fbd48",
+      "yamlSha256": "aad2f6e59fbfbe9eaff9537a1c4b88d888c44f53d90258d12268199fbe10643e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "number_of_technology_companies",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8c7088998eae6d4ece8cfd1dbe51283dcc4f1bdc9cb397069b2356b13c7fbd48"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-technology-companies.pdf",
+        "canonicalJsonSha256": "8c7088998eae6d4ece8cfd1dbe51283dcc4f1bdc9cb397069b2356b13c7fbd48",
+        "originalRepresentationSha256": "667017985a8cf04be0d1a15f9479d388f78ea5fd115e2970903c35ee9664e5f4",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "694ae2b0649d5f1cf772a4ac044992449a60be4409fc71b8e0fc4b7e64534caf",
+          "canonicalJsonSha256": "8c7088998eae6d4ece8cfd1dbe51283dcc4f1bdc9cb397069b2356b13c7fbd48",
+          "currentSourceUrl": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-technology-companies.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "number_of_technology_companies"
+    },
+    {
+      "id": "hkstp-number-of-incubation-graduates",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "number-of-incubation-graduates",
+      "name": "Number of Incubation Graduates",
+      "apiTitle": "Number of Incubation Graduates API",
+      "json": "hkstp/number-of-incubation-graduates/openapi.json",
+      "yaml": "hkstp/number-of-incubation-graduates/openapi.yaml",
+      "file": "hkstp/number-of-incubation-graduates/openapi.json",
+      "sha256": "6a2fff5a31a3a01bf16e7f94c8399d85ad97f0eaf750fbb365abdafeeca1248b",
+      "jsonSha256": "6a2fff5a31a3a01bf16e7f94c8399d85ad97f0eaf750fbb365abdafeeca1248b",
+      "yamlSha256": "481c1f1be2e724e1b19593b04cc5f30d3a89243c94fc7335d66f99983e03d94f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "number_of_incubation_graduates",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6a2fff5a31a3a01bf16e7f94c8399d85ad97f0eaf750fbb365abdafeeca1248b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-incubation-graduates.pdf",
+        "canonicalJsonSha256": "6a2fff5a31a3a01bf16e7f94c8399d85ad97f0eaf750fbb365abdafeeca1248b",
+        "originalRepresentationSha256": "b82663fa9f6633359d96c22f31568b90932c78f515acfc104e77373968658ba9",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "5f4c3202b980a50632ad096790ec29bd4b3554f0b51328de92550b82747b8bb4",
+          "canonicalJsonSha256": "6a2fff5a31a3a01bf16e7f94c8399d85ad97f0eaf750fbb365abdafeeca1248b",
+          "currentSourceUrl": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-incubation-graduates.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "number_of_incubation_graduates"
+    },
+    {
+      "id": "hkstp-carpark-availability-space-available",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "carpark-availability-space-available",
+      "name": "HKSTP Carpark availability \u2013 Space available",
+      "apiTitle": "HKSTPC Carpark Vacancy API",
+      "json": "hkstp/carpark-availability-space-available/openapi.json",
+      "yaml": "hkstp/carpark-availability-space-available/openapi.yaml",
+      "file": "hkstp/carpark-availability-space-available/openapi.json",
+      "sha256": "b890da4d09aafe48a6ae4c325238053fbcf53adc57babe4af2717da23161877a",
+      "jsonSha256": "b890da4d09aafe48a6ae4c325238053fbcf53adc57babe4af2717da23161877a",
+      "yamlSha256": "6821c8d8cc0e4215b2157707ebddfc4313b94b701ffaf92c45b6d0dccf4521b0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "carpark_availability_space_available",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b890da4d09aafe48a6ae4c325238053fbcf53adc57babe4af2717da23161877a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/carpark/HKSTP-API-carpark-vacancy.pdf",
+        "canonicalJsonSha256": "b890da4d09aafe48a6ae4c325238053fbcf53adc57babe4af2717da23161877a",
+        "originalRepresentationSha256": "8991f77058257f3f4d69f25159078b9b74bc5cb5ca5ec2b7cec87df80665f2e7",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "carpark_availability_space_available"
+    },
+    {
+      "id": "hkstp-direct-investment-raised-by-park-companies-since-fy17-18",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "direct-investment-raised-by-park-companies-since-fy17-18",
+      "name": "Direct Investment raised by Park companies since FY17/18",
+      "apiTitle": "Direct Investment Raised in Previous Fiscal Year API",
+      "json": "hkstp/direct-investment-raised-by-park-companies-since-fy17-18/openapi.json",
+      "yaml": "hkstp/direct-investment-raised-by-park-companies-since-fy17-18/openapi.yaml",
+      "file": "hkstp/direct-investment-raised-by-park-companies-since-fy17-18/openapi.json",
+      "sha256": "92b627f070e768181093dd0c5cb93cec6a944cde7e43371dc42490b9f0e88d4d",
+      "jsonSha256": "92b627f070e768181093dd0c5cb93cec6a944cde7e43371dc42490b9f0e88d4d",
+      "yamlSha256": "6cc2287845d9e7a552d91535158266f08473b5cb2cb15af13e23011c3ed047a7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "direct_investment_raised_by_park_companies_since_fy17_18",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "92b627f070e768181093dd0c5cb93cec6a944cde7e43371dc42490b9f0e88d4d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-direct-investment-raised.pdf",
+        "canonicalJsonSha256": "92b627f070e768181093dd0c5cb93cec6a944cde7e43371dc42490b9f0e88d4d",
+        "originalRepresentationSha256": "bd54d3624c4eab4bf585e0fc5bb37858e0403e18517cb474abc9e04213ad37db",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "5d364e0f8f2e037d1fdc6677a5e0db109839433bf49b6d2037687841a3bd755d",
+          "canonicalJsonSha256": "92b627f070e768181093dd0c5cb93cec6a944cde7e43371dc42490b9f0e88d4d",
+          "currentSourceUrl": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-direct-investment-raised.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "direct_investment_raised_by_park_companies_since_fy17_18"
+    },
+    {
+      "id": "hkstp-tender-notice-published-under-www-hkstp-org",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "tender-notice-published-under-www-hkstp-org",
+      "name": "Tender Notice published under www.hkstp.org",
+      "apiTitle": "HKSTPC Tender Notice API",
+      "json": "hkstp/tender-notice-published-under-www-hkstp-org/openapi.json",
+      "yaml": "hkstp/tender-notice-published-under-www-hkstp-org/openapi.yaml",
+      "file": "hkstp/tender-notice-published-under-www-hkstp-org/openapi.json",
+      "sha256": "87a9d892285315085309c70bc88709b442e1583435f7027483369f0d63074dbc",
+      "jsonSha256": "87a9d892285315085309c70bc88709b442e1583435f7027483369f0d63074dbc",
+      "yamlSha256": "fe0ef0e8db11fb01098196423916e11b9a0869b5782b4cf3d3378f4749f82ce8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "tender_notice_published_under_www_hkstp_org",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "87a9d892285315085309c70bc88709b442e1583435f7027483369f0d63074dbc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corp-info/HKSTP-API-corp-website-tender-notice.pdf",
+        "canonicalJsonSha256": "87a9d892285315085309c70bc88709b442e1583435f7027483369f0d63074dbc",
+        "originalRepresentationSha256": "d7f7f83f69c20b220aab325741421ed7a0f2e7aa4de47bdbf4dc7c2700d8cb93",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "tender_notice_published_under_www_hkstp_org"
+    },
+    {
+      "id": "hkstp-number-of-r-d-practitioners",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "number-of-r-d-practitioners",
+      "name": "Number of R&D Practitioners",
+      "apiTitle": "Number of R&D Practitioners API",
+      "json": "hkstp/number-of-r-d-practitioners/openapi.json",
+      "yaml": "hkstp/number-of-r-d-practitioners/openapi.yaml",
+      "file": "hkstp/number-of-r-d-practitioners/openapi.json",
+      "sha256": "87cb0f08813405565e5b35def3041d4fb94ce5fdb67f76fda9f054d45e9e9ec7",
+      "jsonSha256": "87cb0f08813405565e5b35def3041d4fb94ce5fdb67f76fda9f054d45e9e9ec7",
+      "yamlSha256": "898c34ce50f381ababded5d1037ba722d1e48084e969488d3add88a7f9775a6a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "number_of_r_d_practitioners",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "87cb0f08813405565e5b35def3041d4fb94ce5fdb67f76fda9f054d45e9e9ec7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-rd-practitioners.pdf",
+        "canonicalJsonSha256": "87cb0f08813405565e5b35def3041d4fb94ce5fdb67f76fda9f054d45e9e9ec7",
+        "originalRepresentationSha256": "c935e942592248cacf509a0f82d421ba19e66a70c72da24b79aaab9bea1239f1",
+        "serialization": "Source and retained-response corrected derivative; prior canonical bytes and original source retained",
+        "sourceRefresh": {
+          "priorJsonSha256": "ebeb481944b31132c7253d3767ca5a9e9f7d3f077b8792212e35d4bf997d37c6",
+          "canonicalJsonSha256": "87cb0f08813405565e5b35def3041d4fb94ce5fdb67f76fda9f054d45e9e9ec7",
+          "currentSourceUrl": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-rd-practitioners.pdf",
+          "correctionIndexSha256": "83122927a4464eea8876fdb5e1e2b11eb9fb7789a5865f62c7d26c1a3ddd57e8"
+        }
+      },
+      "moduleName": "number_of_r_d_practitioners"
+    },
+    {
+      "id": "hkstp-carpark-space-utilization",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "carpark-space-utilization",
+      "name": "HKSTP Carpark space utilization",
+      "apiTitle": "HKSTPC Carpark Utilization API",
+      "json": "hkstp/carpark-space-utilization/openapi.json",
+      "yaml": "hkstp/carpark-space-utilization/openapi.yaml",
+      "file": "hkstp/carpark-space-utilization/openapi.json",
+      "sha256": "c710cf4c8a6ca7f9a944ae6e28aec63e3459ff2cdfea7795959f00e889dbdb1a",
+      "jsonSha256": "c710cf4c8a6ca7f9a944ae6e28aec63e3459ff2cdfea7795959f00e889dbdb1a",
+      "yamlSha256": "7530561546517c7a12c1f5663ee25a3a3a72560872dd28374695b65c2440cdc6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "carpark_space_utilization",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c710cf4c8a6ca7f9a944ae6e28aec63e3459ff2cdfea7795959f00e889dbdb1a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/carpark/HKSTP-API-carpark-utilization.pdf",
+        "canonicalJsonSha256": "c710cf4c8a6ca7f9a944ae6e28aec63e3459ff2cdfea7795959f00e889dbdb1a",
+        "originalRepresentationSha256": "079a86daabe203eb33d8c78863e06342037e76e1f8b23098c237deda3d04b5b0",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "carpark_space_utilization"
+    },
+    {
+      "id": "hkstp-lab-office-space",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "lab-office-space",
+      "name": "Lab & Office Space",
+      "apiTitle": "Lab & Office Space API",
+      "json": "hkstp/lab-office-space/openapi.json",
+      "yaml": "hkstp/lab-office-space/openapi.yaml",
+      "file": "hkstp/lab-office-space/openapi.json",
+      "sha256": "1ea9f70e2dd64ae149457ab71b8a1c05fd81383b7d8410c7fafb57f43c4db10c",
+      "jsonSha256": "1ea9f70e2dd64ae149457ab71b8a1c05fd81383b7d8410c7fafb57f43c4db10c",
+      "yamlSha256": "a77c0893bf44a92cf655333547da1035d33ee5943f33b3b421d704b34518490a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "lab_office_space",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1ea9f70e2dd64ae149457ab71b8a1c05fd81383b7d8410c7fafb57f43c4db10c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-lab-office-space.pdf",
+        "canonicalJsonSha256": "1ea9f70e2dd64ae149457ab71b8a1c05fd81383b7d8410c7fafb57f43c4db10c",
+        "originalRepresentationSha256": "a9e9e68615ef8f37473378e2f6549f1f1b82cc9b95274e6ac401610d8fb7c3b4",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "lab_office_space"
+    },
+    {
+      "id": "hkstp-restaurants-in-hong-kong-science-park",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "restaurants-in-hong-kong-science-park",
+      "name": "Restaurants in Hong Kong Science Park",
+      "apiTitle": "HKSTPC Restaurant List API",
+      "json": "hkstp/restaurants-in-hong-kong-science-park/openapi.json",
+      "yaml": "hkstp/restaurants-in-hong-kong-science-park/openapi.yaml",
+      "file": "hkstp/restaurants-in-hong-kong-science-park/openapi.json",
+      "sha256": "badde2b5daefe25c5c8d7791f07cfb233bf8368f65d7f04892234d9a2eec8313",
+      "jsonSha256": "badde2b5daefe25c5c8d7791f07cfb233bf8368f65d7f04892234d9a2eec8313",
+      "yamlSha256": "24d182e53e8884da65e0b5719b3ddd3a37aeeea178fab05c90dba3155ebd3f72",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "restaurants_in_hong_kong_science_park",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "badde2b5daefe25c5c8d7791f07cfb233bf8368f65d7f04892234d9a2eec8313"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/park-info/HKSTP-API-restaurant-list.pdf",
+        "canonicalJsonSha256": "badde2b5daefe25c5c8d7791f07cfb233bf8368f65d7f04892234d9a2eec8313",
+        "originalRepresentationSha256": "369a4c470668b2ca5a2de42a83d81c96cad53a87b5ff2bcb5d13f933b5ad992e",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "restaurants_in_hong_kong_science_park"
+    },
+    {
+      "id": "hkstp-hkstpc-company-directory",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "hkstpc-company-directory",
+      "name": "HKSTPC Company Directory",
+      "apiTitle": "HKSTPC Company Directory API",
+      "json": "hkstp/hkstpc-company-directory/openapi.json",
+      "yaml": "hkstp/hkstpc-company-directory/openapi.yaml",
+      "file": "hkstp/hkstpc-company-directory/openapi.json",
+      "sha256": "62db40ee059a646f5b19f19d5b771c44907800c2012271528c43c084ed26fbda",
+      "jsonSha256": "62db40ee059a646f5b19f19d5b771c44907800c2012271528c43c084ed26fbda",
+      "yamlSha256": "9c76172f70fcc8aa363429a933f657a934705432ba3593aac954c149aa09b197",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "hkstpc_company_directory",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "62db40ee059a646f5b19f19d5b771c44907800c2012271528c43c084ed26fbda"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/corporate/HKSTP-API-hkstp-company-directory.pdf",
+        "canonicalJsonSha256": "62db40ee059a646f5b19f19d5b771c44907800c2012271528c43c084ed26fbda",
+        "originalRepresentationSha256": "94ac3d69614398c84364bbfcd16b9a9f5c015cdd38b8ee87c4d2993626854aaa",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "hkstpc_company_directory"
+    },
+    {
+      "id": "hkstp-carpark-availability-space-ev-available",
+      "publisherKey": "hkstp",
+      "publisherName": "Hong Kong Science and Technology Parks Corporation",
+      "familyKey": "carpark-availability-space-ev-available",
+      "name": "HKSTP Carpark availability \u2013 Space (EV) available",
+      "apiTitle": "HKSTPC Carpark utilization API",
+      "json": "hkstp/carpark-availability-space-ev-available/openapi.json",
+      "yaml": "hkstp/carpark-availability-space-ev-available/openapi.yaml",
+      "file": "hkstp/carpark-availability-space-ev-available/openapi.json",
+      "sha256": "b619aaffd652da2d700a321aede65c0e4a36fba3551bac38fdf758caae45e59a",
+      "jsonSha256": "b619aaffd652da2d700a321aede65c0e4a36fba3551bac38fdf758caae45e59a",
+      "yamlSha256": "3b6e5ce98a6ea4375fe0c078bc25a8239f9edebe2006f448d5ac189f71f9d4c7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "carpark_availability_space_ev_available",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b619aaffd652da2d700a321aede65c0e4a36fba3551bac38fdf758caae45e59a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.hkstp.org/doc/carpark/HKSTP-API-carpark-ev-vacancy.pdf",
+        "canonicalJsonSha256": "b619aaffd652da2d700a321aede65c0e4a36fba3551bac38fdf758caae45e59a",
+        "originalRepresentationSha256": "70acc4f2cbe17ca4aef82b66e0722802a76a1bd9dbb0684b3558490fc649f529",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "carpark_availability_space_ev_available"
+    }
+  ]
+}

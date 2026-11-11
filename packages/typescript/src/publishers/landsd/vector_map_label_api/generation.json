@@ -1,0 +1,19 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "landsd-vector-map-label-api",
+  "sourceSha256": "59a0c1caefee3830b822877a97127976e251488b918bb971f9624cfdd127928a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/gs/api/{version}/vt/label/hk/{lang}/{sr}/resources/styles/root.json",
+      "operationId": "getMapPresentationStyle"
+    },
+    {
+      "method": "GET",
+      "path": "/gs/api/{version}/vt/label/hk/{lang}/{sr}/tile/{z}/{y}/{x}.pbf",
+      "operationId": "getVectorMapLabelTile"
+    }
+  ],
+  "normalizations": []
+}

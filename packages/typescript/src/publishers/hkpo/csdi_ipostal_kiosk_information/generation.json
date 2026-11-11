@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hkpo-csdi-ipostal-kiosk-information",
+  "sourceSha256": "c37996b2a0480315b9b39983374e7afcc2eea8f9b8969bea2d106c1496b4cc75",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hkpo_rcd_1639016844639_48104/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkpo_rcd_1639016844639_48104/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkpo_rcd_1639016844639_48104/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

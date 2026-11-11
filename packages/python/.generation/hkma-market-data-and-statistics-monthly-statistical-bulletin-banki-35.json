@@ -1,0 +1,43 @@
+{
+  "sourceId": "hkma-market-data-and-statistics-monthly-statistical-bulletin-banki-35",
+  "publisherKey": "hkma",
+  "family": "market_data_and_statistics_monthly_statistical_bulletin_banki_35",
+  "status": "generated",
+  "key": "bd3ef86604b9bb1a73df9fb4a319e8057a42353bda52118d0d3eeb782d7f52a4",
+  "sourceSha256": "574d4d0f554667602416bc6a3bab336b6dd2bb7dead1e9f170a37ea8c5e05d6c",
+  "derivedInputSha256": "f8656c1bcfde90347d473a6ea2fee93993927edcaa4af1f682694418f256321f",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/elc-pos-v-uk",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-market-data-and-statistics-monthly-statistical-bulletin-banki-35.log",
+  "outputs": {
+    "__init__.py": "4c94fbec0d5aee391b00412ad2557bd9823107c9abd825b60ccfbaab7aa00be9",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_elc_pos_v_uk.py": "7e9fe410ecb4d89b6df82d64eac70db1f0702e43610ed60f93599c64411b5a06",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "4493575bbde427c54817ea20d3262028ed4c8e973ff91d00926711e69522076a",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/record.py": "abfa252e5dfcc07c57493049e815c576362ea02526bd60220c3c3f365f82a380",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/segment.py": "6f7ccb0792e62528245b6ba9a47895fe806bb001b2788fb4902447e406599920",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,1274 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Development Bureau — Information on Old and Valuable Trees and Stonewall Trees",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/devb_wb_rcd_1629267205229_51162/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "geotagging",
+                "value": 0
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/devb_wb_rcd_1629267205229_51162/FeatureServer?f=pjson",
+            "sha256": "9cb3cda91f69716abdb5df8222f6edcadaddaef68cf124ac7abbe3fc38cfb56c",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/devb_wb_rcd_1629267205229_51162/FeatureServer/0?f=pjson",
+            "sha256": "7328855a58c9643ba49a077b98416daf689ddd977615399386050e5f98187021",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WFSServer": {
+      "get": {
+        "operationId": "WfsMapServerGetFeature",
+        "tags": [
+          "WFS"
+        ],
+        "summary": "Retrieve published features",
+        "description": "One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WFS"
+              ]
+            },
+            "example": "WFS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact capabilities version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2.0.0"
+              ]
+            },
+            "example": "2.0.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only operation advertised by GetCapabilities.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetFeature"
+              ]
+            },
+            "example": "GetFeature"
+          },
+          {
+            "name": "typeNames",
+            "in": "query",
+            "required": true,
+            "description": "Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "geotagging",
+                "value": "csdi:geotagging"
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "outputFormat",
+            "in": "query",
+            "required": false,
+            "description": "Advertised native representation; JSON, GML, CSV and images are kept distinct.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GML32",
+                "GML32+ZIP",
+                "GML32+GZIP",
+                "application/gml+xml; version=3.2",
+                "GML3",
+                "GML3+ZIP",
+                "GML3+GZIP",
+                "text/xml; subtype=gml/3.1.1",
+                "GML2",
+                "GML2+ZIP",
+                "GML2+GZIP",
+                "text/xml; subtype=gml/2.1.2",
+                "GEOJSON",
+                "GEOJSON+ZIP",
+                "GEOJSON+GZIP",
+                "ESRIGEOJSON",
+                "ESRIGEOJSON+ZIP",
+                "ESRIGEOJSON+GZIP",
+                "KML",
+                "application/vnd.google-earth.kml xml",
+                "application/vnd.google-earth.kml+xml",
+                "KMZ",
+                "application/vnd.google-earth.kmz",
+                "SHAPE+ZIP",
+                "CSV",
+                "CSV+ZIP",
+                "CSV+GZIP",
+                "Geopackage",
+                "Geopackage+ZIP"
+              ]
+            },
+            "example": "GEOJSON"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "OGC bounded feature limit; example requests one feature without claiming a server-wide bound.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "srsName",
+            "in": "query",
+            "required": false,
+            "description": "Output CRS choices advertised by at least one feature type; support may vary by selected type.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "urn:ogc:def:crs:EPSG::4326"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/gml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/vnd.google-earth.kml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "description": "Native Geopackage+ZIP output; wire media type/fields are not constrained."
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "description": "Native CSV; row/column wire conformance is not inferred from JSON schemas."
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://docs.ogc.org/is/09-025r2/09-025r2.html"
+        },
+        "x-advertised-crss": [
+          "urn:ogc:def:crs:EPSG::4326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+            "sha256": "ca726c6e84e210acdf1e2018e419d97edd7d532b9fb458386437942c2aebb484",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-capabilities",
+            "parseStatus": "pass",
+            "kind": "wfs-capabilities"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType&typeNames=csdi%3Ageotagging",
+            "sha256": "cadd69924c76f28820f2c6e558525d5d5df9d2788b3a3e9fef1eb786fe1b9915",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-feature-type",
+            "parseStatus": "pass",
+            "kind": "wfs-feature-type"
+          }
+        ]
+      }
+    },
+    "/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WMSServer": {
+      "get": {
+        "operationId": "WmsMapServerGetMap",
+        "tags": [
+          "WMS"
+        ],
+        "summary": "Render a map image",
+        "description": "Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WMS"
+              ]
+            },
+            "example": "WMS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact advertised WMS version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1.3.0"
+              ]
+            },
+            "example": "1.3.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only GetMap operation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetMap"
+              ]
+            },
+            "example": "GetMap"
+          },
+          {
+            "name": "layers",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "geotagging",
+                "value": "geotagging"
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "styles",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated style names; an empty string selects the standard default style.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Advertised GetMap representation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "image/bmp",
+                "image/jpeg",
+                "image/tiff",
+                "image/png",
+                "image/png8",
+                "image/png24",
+                "image/png32",
+                "image/gif",
+                "image/svg+xml"
+              ]
+            },
+            "example": "image/png"
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Requested image width in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Requested image height in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "required": true,
+            "description": "Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "CRS:84"
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "required": true,
+            "description": "minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "113.903071,22.206325,114.291478,22.550521"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/tiff": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png24": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png32": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+        },
+        "x-advertised-crss": [
+          "CRS:84",
+          "EPSG:4326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+            "sha256": "bba3549635e400fe3255a768d9d5841c433199b7db702b217e5c6f7c3310f899",
+            "httpStatus": 200,
+            "contentType": "text/xml",
+            "role": "wms-capabilities",
+            "parseStatus": "pass",
+            "kind": "wms-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "BBR": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BBR",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "Condition_CHS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Condition_CHS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "Condition_CHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Condition_CHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "Condition_EN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Condition_EN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "Department_Ref__No_": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Department_Ref__No_",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 34
+          },
+          "District_CHS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District_CHS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 17
+          },
+          "District_CHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District_CHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 17
+          },
+          "District_EN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "District_EN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 17
+          },
+          "Last_Inspection_Date": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Last_Inspection_Date",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "Location_CHS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Location_CHS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "Location_CHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Location_CHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "Location_EN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Location_EN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "MitigationMeasure_CHS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MitigationMeasure_CHS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 111
+          },
+          "MitigationMeasure_CHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MitigationMeasure_CHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 111
+          },
+          "MitigationMeasure_EN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "MitigationMeasure_EN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 104
+          },
+          "OVTNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OVTNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 49
+          },
+          "Responsible_Department_CHS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Responsible_Department_CHS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Responsible_Department_CHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Responsible_Department_CHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Responsible_Department_EN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Responsible_Department_EN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Species_CHS": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Species_CHS",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 26
+          },
+          "Species_CHT": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Species_CHT",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 26
+          },
+          "Species_EN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Species_EN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 55
+          },
+          "TR_no_": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "TR_no_",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 16
+          },
+          "Type": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Type",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 9
+          },
+          "XCoordinate": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "XCoordinate",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "YCoordinate": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "YCoordinate",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsgeotaggingAttributes": {
+        "type": "object",
+        "properties": {
+          "BBR": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1
+          },
+          "Condition_CHS": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "Condition_CHT": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "Condition_EN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "Department_Ref__No_": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 34
+          },
+          "District_CHS": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 17
+          },
+          "District_CHT": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 17
+          },
+          "District_EN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 17
+          },
+          "Last_Inspection_Date": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 10
+          },
+          "Location_CHS": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "Location_CHT": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "Location_EN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "MitigationMeasure_CHS": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 111
+          },
+          "MitigationMeasure_CHT": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 111
+          },
+          "MitigationMeasure_EN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 104
+          },
+          "OVTNo": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 49
+          },
+          "Responsible_Department_CHS": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Responsible_Department_CHT": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Responsible_Department_EN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "Species_CHS": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 26
+          },
+          "Species_CHT": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 26
+          },
+          "Species_EN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 55
+          },
+          "TR_no_": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 16
+          },
+          "Type": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 9
+          },
+          "XCoordinate": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "YCoordinate": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "SHAPE": {
+            "description": "Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type."
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsFeatureCollection": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsgeotaggingAttributes"
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "geotagging",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "csdi:geotagging",
+      "title": "geotagging",
+      "protocol": "wfs"
+    },
+    {
+      "id": "geotagging",
+      "title": "geotagging",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.903071",
+          "miny": "22.206325",
+          "maxx": "114.291478",
+          "maxy": "22.550521"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.206325",
+          "miny": "113.903071",
+          "maxx": "22.550521",
+          "maxy": "114.291478"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.903071",
+          "miny": "22.206325",
+          "maxx": "114.291478",
+          "maxy": "22.550521"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.206325",
+          "miny": "113.903071",
+          "maxx": "22.550521",
+          "maxy": "114.291478"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "geotagging"
+        }
+      ]
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=devb_wb_rcd_1629267205229_51162",
+      "sha256": "46d68e1a605e5f6e332a62c4a6c6228bcd448930f0cfbcd4b39ba448069fe483",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/devb_wb_rcd_1629267205229_51162/FeatureServer?f=pjson",
+      "sha256": "9cb3cda91f69716abdb5df8222f6edcadaddaef68cf124ac7abbe3fc38cfb56c",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/devb_wb_rcd_1629267205229_51162/FeatureServer/0?f=pjson",
+      "sha256": "7328855a58c9643ba49a077b98416daf689ddd977615399386050e5f98187021",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+      "sha256": "ca726c6e84e210acdf1e2018e419d97edd7d532b9fb458386437942c2aebb484",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-capabilities",
+      "parseStatus": "pass",
+      "kind": "wfs-capabilities"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType&typeNames=csdi%3Ageotagging",
+      "sha256": "cadd69924c76f28820f2c6e558525d5d5df9d2788b3a3e9fef1eb786fe1b9915",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-feature-type",
+      "parseStatus": "pass",
+      "kind": "wfs-feature-type"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/devb_wb_rcd_1629267205229_51162/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+      "sha256": "bba3549635e400fe3255a768d9d5841c433199b7db702b217e5c6f7c3310f899",
+      "httpStatus": 200,
+      "contentType": "text/xml",
+      "role": "wms-capabilities",
+      "parseStatus": "pass",
+      "kind": "wms-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 6
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

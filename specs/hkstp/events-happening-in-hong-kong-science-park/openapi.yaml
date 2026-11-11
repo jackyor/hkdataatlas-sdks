@@ -1,0 +1,74 @@
+components:
+  schemas:
+    UpcomingEvent:
+      properties:
+        event_date:
+          description: Start and/or End Date of the event.
+          type: string
+        event_link_EN:
+          description: URL to the event page in EN.
+          type: string
+        event_link_SC:
+          description: URL to the event page in CHS.
+          type:
+            - string
+            - "null"
+        event_link_TC:
+          description: URL to the event page in CHT.
+          type:
+            - string
+            - "null"
+        event_title_EN:
+          description: Title of the event in EN.
+          type: string
+        event_title_SC:
+          description: Title of the event in CHS.
+          type: string
+        event_title_TC:
+          description: Title of the event in CHT.
+          type: string
+      type: object
+    UpcomingEventsResponse:
+      description: Response object containing a value list of event objects.
+      properties:
+        value:
+          description: List of objects.
+          items:
+            $ref: "#/components/schemas/UpcomingEvent"
+          type: array
+      type: object
+externalDocs:
+  description: Official API documentation
+  url: https://opendata.hkstp.org/doc/corp-info/HKSTP-API-corp-website-upcoming-event.pdf
+info:
+  description: Provides information about upcoming events of Hong Kong Science and Technology Parks Corporation. The version value is a metadata placeholder, not a publisher API version. Authentication requirements are not specified in the documentation.
+  title: HKSTPC Events happening in Hong Kong Science Park API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /corporate/info/v1/upcomingevent:
+    get:
+      description: Returns event information in JSON.
+      operationId: getUpcomingEvents
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedEvent:
+                  summary: Documented response example
+                  value:
+                    value:
+                      - event_date: 6 - 7 November 2023
+                        event_link_EN: https://hkstp-web3-umbraco-cms.azurewebsites.net/our-community/events-and-happenings/market-discovery-programme-expand-in-china-with-confidence/
+                        event_link_SC: https://hkstp-web3-umbraco-cms.azurewebsites.net/zh-cn/our-community/events-and-happenings/market-discovery-programme-expand-in-china-with-confidence/
+                        event_link_TC: https://hkstp-web3-umbraco-cms.azurewebsites.net/zh-hk/our-community/events-and-happenings/market-discovery-programme-expand-in-china-with-confidence/
+                        event_title_EN: "Market Discovery Programme: Expand in China with Confidence"
+                        event_title_SC: 「拓新市场计划@香港科学园」：昂首阔步 进军中国
+                        event_title_TC: 「拓新市場計劃@香港科學園」：昂首闊步 進軍中國
+              schema:
+                $ref: "#/components/schemas/UpcomingEventsResponse"
+          description: Successful response containing a value list of events.
+      summary: Get upcoming events
+servers:
+  - url: https://opendata.hkstp.org

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "immd-csdi-registration-of-persons-offices",
+  "sourceSha256": "115e86e37fc0a8be75c6816de2b7f1c4addd75bda278b61bd0de0299292caa05",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/immd_rcd_1633320797426_38758/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/immd_rcd_1633320797426_38758/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/immd_rcd_1633320797426_38758/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

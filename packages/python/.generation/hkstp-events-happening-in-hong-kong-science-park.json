@@ -1,0 +1,33 @@
+{
+  "sourceId": "hkstp-events-happening-in-hong-kong-science-park",
+  "publisherKey": "hkstp",
+  "family": "events_happening_in_hong_kong_science_park",
+  "status": "generated",
+  "key": "89b227b4ba4c4298779120e058f532e33c5d0b11e4f10774ed7d013d7a755998",
+  "sourceSha256": "9c1810999a23356130a3f7d3ff21b91b244650532151148fd804efd223aab579",
+  "derivedInputSha256": "b91ac404c81bb388ece54f796e4c56b7a244803236629161a85e884ce394cda4",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/corporate/info/v1/upcomingevent",
+      "operationId": "getUpcomingEvents",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkstp-events-happening-in-hong-kong-science-park.log",
+  "outputs": {
+    "__init__.py": "fb26771ef6068ded1d6caf6e76a03794f136fd5e351efd2156e2fa573d553779",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_upcoming_events.py": "7e831ef26763c08abf6da16bffc7d83a975b51ff7c8469ec135b70490ac2a087",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "0d58253e542eff9a02d07eea9d6b12f0747b01dd2dd7e740e9124ffef3f2d99e",
+    "models/upcoming_event.py": "d5eba2bec4b2dd4e6398e8d6e7d5c59679d1388cb48971e628a57f35773a6bad",
+    "models/upcoming_events_response.py": "c25be0e83d0c3d9b6dbfcaeaf22cb5db61959b7e539c7e79664a0644d3fc8ee5",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

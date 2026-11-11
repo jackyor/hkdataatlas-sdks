@@ -1,0 +1,36 @@
+{
+  "sourceId": "housing-sale-transactions-under-the-tenants-purchase-scheme",
+  "publisherKey": "housing",
+  "family": "sale_transactions_under_the_tenants_purchase_scheme",
+  "status": "generated",
+  "key": "51565831ac0bba5e2ae02b858db703b8781220ba0bba14c194636be2e1fd2ec6",
+  "sourceSha256": "dc9be0cd94548805ac7036983421e61273ba48ed4d4fd67b08b99deb2f95d5fc",
+  "derivedInputSha256": "02ebc9c2d08810c798e1ee50f2f8c60194309202ce52772a3505ee117bd85f53",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/{dataresource}/{lang}/{format}",
+      "operationId": "getTpsSaleTransactions",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/housing-sale-transactions-under-the-tenants-purchase-scheme.log",
+  "outputs": {
+    "__init__.py": "e2e23e2ebe1697041b0237a4df809461d8803a13484f0fb7731048e10489d5d5",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_tps_sale_transactions.py": "db21d9480eb845811971e346e3edc61288ecfe614aa59b41058d79e6293865a5",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "4bae6d14c13e484f32ee196d3674a4dfe707656df0a4ffeabb50e7a4bcb5622f",
+    "models/get_tps_sale_transactions_dataresource.py": "7112ac03edcb8d2dec6bd3e0c79ee4372d538c7f601074108fe9add0a3cf9941",
+    "models/get_tps_sale_transactions_format.py": "85919d2586b49997788da5ec4ffafb5baa2eba8d83908af07066b427e67304c7",
+    "models/get_tps_sale_transactions_lang.py": "81fc83b98f7ac7282fa382e725efe36b4ad1a37a28466e09223b77d759a27fca",
+    "models/get_tps_sale_transactions_response_200.py": "339d2b02d2bd642dfc0b22592efe31409b586dc3ab26c8dd9b2342bbb08e705f",
+    "models/tps_sale_transaction.py": "1963010aafc151988116f33825473e43979af18c018aa5d492cd6eb445c7d39d",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

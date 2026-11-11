@@ -1,0 +1,64 @@
+components:
+  schemas:
+    CarparkUtilization:
+      properties:
+        carpark:
+          description: The name of the carpark.
+          type: string
+        privateCar:
+          $ref: "#/components/schemas/PrivateCarUtilization"
+      type: object
+    PrivateCarUtilization:
+      description: Enclosed elements include vacancy, vacancyEV (if applicable), and totalParkingSpace.
+      properties:
+        totalParkingSpace:
+          description: Total parking space in the carpark (including EV and Non-EV).
+          type: number
+        vacancy:
+          description: Available parking spaces for public (excluding EV).
+          type: number
+        vacancyEV:
+          description: Available EV parking spaces for public. Included if applicable.
+          type: number
+      type: object
+    UtilizationResponse:
+      description: Response object containing a list of carpark utilization entries.
+      properties:
+        value:
+          description: List of objects.
+          items:
+            $ref: "#/components/schemas/CarparkUtilization"
+          type: array
+      type: object
+externalDocs:
+  description: Official HKSTPC carpark utilization API documentation
+  url: https://opendata.hkstp.org/doc/carpark/HKSTP-API-carpark-utilization.pdf
+info:
+  description: Provides the number of available parking spaces in Hong Kong Science Park. The version is undocumented and is a metadata placeholder, not a publisher API version. Authentication requirements are not specified in the source.
+  title: HKSTPC Carpark Utilization API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /carpark/v1/utilization:
+    get:
+      operationId: getCarparkUtilization
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedResponse:
+                  summary: Example response from the documentation
+                  value:
+                    value:
+                      - carpark: P1
+                        privateCar:
+                          totalParkingSpace: 530
+                          vacancy: 57
+                          vacancyEV: 0
+              schema:
+                $ref: "#/components/schemas/UtilizationResponse"
+          description: JSON response containing carpark utilization.
+      summary: Get carpark utilization
+servers:
+  - url: https://opendata.hkstp.org

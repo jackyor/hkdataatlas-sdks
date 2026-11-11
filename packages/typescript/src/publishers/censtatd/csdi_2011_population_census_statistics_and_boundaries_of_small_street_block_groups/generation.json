@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-small-street-block-groups",
+  "sourceSha256": "1faa7ef095b192ead446978b1f69b14cc1884c119de48af49b0ca323ac74b675",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/censtatd_rcd_1629267205229_66380/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1629267205229_66380/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

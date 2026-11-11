@@ -1,0 +1,116 @@
+{
+  "externalDocs": {
+    "description": "Official Topographic Map API documentation",
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/apidoc/TopographicMapAPI"
+  },
+  "info": {
+    "contact": {
+      "email": "mapapi@landsd.gov.hk",
+      "name": "Map API Support Team, Lands Department"
+    },
+    "description": "Retrieves standard topographic map tiles in PNG format using the XYZ tile scheme. The service supports zoom levels 10–20. The API version currently documented in the URL is v1.0.0; this is the publisher's API version, not the OpenAPI metadata version. The legacy service domain https://mapapi.geodata.gov.hk is scheduled for deprecation on 15 March 2027; use the documented current domain. The publisher requires clients to use TLS 1.2 or later and cautions against large numbers of requests within a short period. Use is subject to LandsD Map API terms and conditions and IP rights notice; the publisher requires the Lands Department logo and copyright attribution (“Map from Lands Department”) on map applications. Authentication requirements are not specified.",
+    "termsOfService": "https://portal.csdi.gov.hk/csdi-webpage/doc/TNC",
+    "title": "LandsD Topographic Map API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/gs/api/{version}/xyz/basemap/{sr}/{z}/{x}/{y}.png": {
+      "get": {
+        "description": "Returns a map tile in PNG format for the specified spatial reference system and XYZ tile coordinates.",
+        "operationId": "getTopographicMapTile",
+        "parameters": [
+          {
+            "description": "API version. The documentation currently identifies v1.0.0. The publisher notes that versions may be updated, old versions may be removed at any time without notice, and clients should check the documentation for supported versions.",
+            "example": "v1.0.0",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Spatial reference system.",
+            "examples": {
+              "hk80": {
+                "value": "HK80"
+              },
+              "wgs84": {
+                "value": "WGS84"
+              }
+            },
+            "in": "path",
+            "name": "sr",
+            "required": true,
+            "schema": {
+              "enum": [
+                "WGS84",
+                "HK80"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Zoom level under the XYZ tile scheme. The documented supported range is 10–20.",
+            "example": 11,
+            "in": "path",
+            "name": "z",
+            "required": true,
+            "schema": {
+              "maximum": 20,
+              "minimum": 10,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "X position of the map tile under the XYZ tile scheme. No further constraints are specified.",
+            "example": 287,
+            "in": "path",
+            "name": "x",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Y position of the map tile under the XYZ tile scheme. No further constraints are specified.",
+            "example": 385,
+            "in": "path",
+            "name": "y",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "image/png": {
+                "example": "https://mapapi.hkmapservice.gov.hk/gs/api/v1.0.0/xyz/basemap/HK80/11/287/385.png",
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "OK. A map tile is returned in PNG format."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "summary": "Get a topographic map tile"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://mapapi.hkmapservice.gov.hk"
+    }
+  ]
+}

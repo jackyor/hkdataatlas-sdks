@@ -1,0 +1,231 @@
+{
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "description": "Transaction field names follow the source's JSON example. The data dictionary documents the following field meanings and declared types. Although the dictionary declares saleable area and transaction price as Numeric, the disrupted JSON example represents them as strings; both representations are allowed here to preserve that discrepancy. The dictionary specifies ASP date text in dd-mm-yyyy form, whereas the example shows 02/08/2021; the date format is therefore not constrained.",
+        "properties": {
+          "asp_sign_date": {
+            "description": "Date of Agreement for Sale and Purchase (ASP). The data dictionary specifies text in dd-mm-yyyy form, while the example shows 02/08/2021; the source representations differ.",
+            "type": "string"
+          },
+          "block_name": {
+            "description": "Block name of the purchased flat.",
+            "type": "string"
+          },
+          "court_estate_name": {
+            "description": "Court/Estate name of the purchased flat.",
+            "type": "string"
+          },
+          "flat_num": {
+            "description": "Flat number of the purchased flat.",
+            "type": "string"
+          },
+          "floor_num": {
+            "description": "Floor number of the purchased flat.",
+            "type": "string"
+          },
+          "sale_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Sale price of the purchased flat. The dictionary declares Numeric with notation <999999999999999.99>; the example represents this value as a string. Both documented representations are allowed.",
+            "examples": [
+              "3243400.0"
+            ]
+          },
+          "saleable_area": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Saleable area of the purchased flat in square meters. The dictionary declares Numeric with notation <9999999.999>; the example represents this value as a string. Both documented representations are allowed.",
+            "examples": [
+              "40.6"
+            ]
+          },
+          "scheme_name": {
+            "description": "Name of the subsidised home ownership scheme.",
+            "type": "string"
+          },
+          "scheme_type": {
+            "description": "Subsidised home ownership scheme type. The documented possible value is GSH.",
+            "examples": [
+              "GSH"
+            ],
+            "type": "string"
+          },
+          "wing": {
+            "description": "Wing of the purchased flat.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TransactionsResponse": {
+        "description": "JSON response containing transaction records. The source example shows a data array; requiredness of response properties is not specified.",
+        "properties": {
+          "data": {
+            "description": "Sale transaction records.",
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API data specification (PDF)",
+    "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_g20_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "API documentation version 2.0 dated 25 July 2024. Retrieves transactions in the sale of Green Form Subsidised Home Ownership Scheme (GSH) flats 2020/21. The documentation states that authentication is not required and that responses use UTF-8. The simplified-Chinese language option is documented, but this dataset does not provide simplified-Chinese data and returns Traditional Chinese instead.",
+    "title": "Transactions in the Sale of GSH Flats 2020/21",
+    "version": "2.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/psi/rest/export/{dataresource}/{lang}/{sc}": {
+      "get": {
+        "description": "Returns sales transaction data for GSH 2020/21. The documentation describes this web service as returning JSON; its resource-information table also lists JSON, CSV, and XML response formats. The documented example uses JSON. The Simplified Chinese option returns Traditional Chinese data because Simplified Chinese data is not provided for this dataset.",
+        "operationId": "getGsh202021SaleTransactions",
+        "parameters": [
+          {
+            "description": "Dataset resource identifier.",
+            "example": "ssfs-sale-transactions-g20",
+            "in": "path",
+            "name": "dataresource",
+            "required": true,
+            "schema": {
+              "enum": [
+                "ssfs-sale-transactions-g20"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response language.",
+            "examples": {
+              "english": {
+                "summary": "English",
+                "value": "en"
+              },
+              "traditionalChinese": {
+                "summary": "Traditional Chinese",
+                "value": "tc"
+              }
+            },
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response file format. The source documentation presents this as a mandatory path parameter and lists JSON, CSV, and XML. Simplified Chinese data is not provided for this dataset; the documentation says this option returns Traditional Chinese data.",
+            "examples": {
+              "csv": {
+                "summary": "CSV",
+                "value": "csv"
+              },
+              "json": {
+                "summary": "JSON",
+                "value": "json"
+              },
+              "xml": {
+                "summary": "XML",
+                "value": "xml"
+              }
+            },
+            "in": "path",
+            "name": "sc",
+            "required": true,
+            "schema": {
+              "enum": [
+                "json",
+                "csv",
+                "xml"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedRequestAndResponseFragment": {
+                    "description": "The PDF example is disrupted across its extracted layout. Only the reliably identifiable structure and values are represented here; this is not a verbatim authoritative complete response.",
+                    "summary": "Documented JSON response fragment",
+                    "value": {
+                      "data": [
+                        {
+                          "asp_sign_date": "02/08/2021",
+                          "block_name": "BLOCK 5",
+                          "court_estate_name": "KAI CHUEN COURT",
+                          "flat_num": "9",
+                          "floor_num": "39",
+                          "sale_price": "3243400.0",
+                          "saleable_area": "40.6",
+                          "scheme_name": " (GSH 2020/21) ",
+                          "scheme_type": "GSH",
+                          "wing": ""
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "XML representation of the dataset; XML element structure is not specified.",
+                  "type": "string"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "description": "CSV representation of the dataset; field-level CSV encoding is not specified.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Success. The source lists JSON, CSV, and XML as response formats. JSON data is described as an object containing a data array of transaction records. The example is visibly disrupted in the source document; the schema represents the documented record fields without treating the damaged example as an authoritative complete response."
+          },
+          "400": {
+            "description": "Bad Request. No response body structure is documented."
+          },
+          "500": {
+            "description": "Internal Server Error. No response body structure is documented."
+          }
+        },
+        "summary": "Get GSH 2020/21 sale transactions"
+      }
+    }
+  },
+  "security": [],
+  "servers": [
+    {
+      "url": "https://data.housingauthority.gov.hk"
+    }
+  ]
+}

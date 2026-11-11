@@ -1,0 +1,255 @@
+openapi: 3.0.0
+info:
+  title: Residential mortgage survey results
+  description: "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/banking/residential-mortgage-survey"
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/banking
+    variables: {}
+paths:
+  /residential-mortgage-survey:
+    get:
+      summary: Retrieve data of Residential mortgage survey results
+      parameters:
+        - name: segment
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Segment"
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Record"
+          description: ""
+    Record:
+      title: Record
+      type: object
+      properties:
+        end_of_month:
+          type: string
+          format: date
+        outstanding_loans_amt:
+          type: number
+        outstanding_loans_amt_mom:
+          type: number
+        outstanding_loans_amt_yoy:
+          type: number
+        outstanding_loans_cofin_gf_amt:
+          type: number
+        outstanding_loans_cofin_gf:
+          type: number
+        outstanding_loans_cofin_ps_amt:
+          type: number
+        outstanding_loans_cofin_ps:
+          type: number
+        delinquency_ratio:
+          type: number
+        delinquency_ratio_6mth:
+          type: number
+        resch_loan_ratio:
+          type: number
+        new_loans_app_received:
+          type: number
+        new_loans_app_received_mom:
+          type: number
+        new_loans_drawn_amt:
+          type: number
+        new_loans_drawn_amt_mom:
+          type: number
+        new_loans_drawn:
+          type: number
+        new_loans_drawn_mom:
+          type: number
+        new_loans_approved_amt:
+          type: number
+        new_loans_approved_amt_mom:
+          type: number
+        new_loans_approved:
+          type: number
+        new_loans_approved_mom:
+          type: number
+        new_loans_approved_avg_size:
+          type: number
+        new_loans_approved_lv_ratio:
+          type: number
+        new_loans_approved_contra_life:
+          type: number
+        new_loans_approved_cofin_amt:
+          type: number
+        new_loans_approved_cofin:
+          type: number
+        new_loans_approved_pt_amt_pri:
+          type: number
+        new_loans_approved_pt_amt_sec:
+          type: number
+        new_loans_approved_pt_amt_refin:
+          type: number
+        new_loans_approved_pt_primkt:
+          type: number
+        new_loans_approved_pt_secmkt:
+          type: number
+        new_loans_approved_pt_refin:
+          type: number
+        new_loans_approved_undrawn_amt:
+          type: number
+        new_loans_approved_undrawn:
+          type: number
+        ir_new_loans_approved_hibor:
+          type: number
+        ir_new_loans_approved_blr:
+          type: number
+        ir_new_loans_approved_fixed:
+          type: number
+        ir_new_loans_approved_other:
+          type: number
+        loan_wo_amt:
+          type: number
+        loan_wo_12mth_amt:
+          type: number
+        loan_wo_12mth_pa_outstand_loans:
+          type: string
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    Segment:
+      title: segment
+      enum:
+        - new
+        - old
+      type: string
+      example: new
+      x-enum-elements:
+        - name: new
+          description: ""
+        - name: old
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"

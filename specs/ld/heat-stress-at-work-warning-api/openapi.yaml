@@ -1,0 +1,98 @@
+components:
+  schemas:
+    EmptyResponse:
+      description: An empty object is returned when HSWW is not issued or when it has been cancelled for more than 60 minutes. This reflects the documented example; no closed-object constraint is imposed.
+      type: object
+    HeatStressAtWorkWarning:
+      description: Heat Stress at Work Warning object.
+      properties:
+        actionCode:
+          description: Action code. The documented values are ISSUE and CANCEL.
+          examples:
+            - ISSUE
+            - CANCEL
+          type: string
+        desc:
+          description: Warning description.
+          type: string
+        effectiveTime:
+          description: Effective time in the format YYYY-MM-DD'T'HH:mm:ssZ.
+          examples:
+            - 2020-05-15T11:00:00+08:00
+            - 2020-05-15T14:40:00+08:00
+          format: date-time
+          type: string
+        issueTime:
+          description: Issue time in the format YYYY-MM-DD'T'HH:mm:ssZ.
+          examples:
+            - 2020-05-15T10:55:00+08:00
+            - 2020-05-15T14:35:00+08:00
+          format: date-time
+          type: string
+        warningLevel:
+          description: Warning level. The documented code listing includes AMBER, RED, and BLACK. The cancellation example has an empty string; the source does not state whether these codes exhaust all possible values.
+          examples:
+            - AMBER
+            - ""
+          type: string
+      type: object
+    WarningResponse:
+      description: Response object shown when HSWW is issued or within the documented 60-minute period after cancellation.
+      properties:
+        hsww:
+          $ref: "#/components/schemas/HeatStressAtWorkWarning"
+      type: object
+externalDocs:
+  description: Heat Stress at Work Warning API Data Dictionary
+  url: https://data.weather.gov.hk/weatherAPI/doc/HSWW_API_Documentation.pdf
+info:
+  description: Returns the Heat Stress at Work Warning (HSWW) when it is issued or within 60 minutes after cancellation; at other times it returns an empty JSON object. The API version is not documented; “undocumented” is a metadata placeholder, not a publisher API version.
+  title: Heat Stress at Work Warning API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /hsww.php:
+    get:
+      description: The response includes the HSWW parameter when a warning is issued or for up to 60 minutes after cancellation (T+60 minutes of the issue time). Otherwise, an empty object is returned. The documented examples are samples only and are not real data. Authentication requirements are not specified in the source.
+      operationId: getHeatStressAtWorkWarning
+      parameters:
+        - description: Response language. The documented request URL uses `lang=en`; the source does not document other supported values.
+          example: en
+          in: query
+          name: lang
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                cancellation:
+                  summary: Cancellation of Heat Stress at Work Warning (sample only; not real data)
+                  value:
+                    hsww:
+                      actionCode: CANCEL
+                      desc: "A reminder from the Labour Department: The Heat Stress at Work Warning has been cancelled today at 2:40 pm."
+                      effectiveTime: 2020-05-15T14:40:00+08:00
+                      issueTime: 2020-05-15T14:35:00+08:00
+                      warningLevel: ""
+                issuance:
+                  summary: Issuance of Heat Stress at Work Warning (sample only; not real data)
+                  value:
+                    hsww:
+                      actionCode: ISSUE
+                      desc: "A reminder from the Labour Department: Amber Heat Stress at Work Warning is in effect today at 11:00 am, indicating that the heat stress in some work environments is high. Please take appropriate heat preventive measures."
+                      effectiveTime: 2020-05-15T11:00:00+08:00
+                      issueTime: 2020-05-15T10:55:00+08:00
+                      warningLevel: AMBER
+                notIssuedOrLongAfterCancellation:
+                  summary: Warning not issued or cancelled more than 60 minutes ago (sample only; not real data)
+                  value: {}
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/WarningResponse"
+                  - $ref: "#/components/schemas/EmptyResponse"
+          description: JSON response containing the warning when applicable, or an empty object otherwise.
+      summary: Get Heat Stress at Work Warning
+servers:
+  - url: https://data.weather.gov.hk/weatherAPI/opendata

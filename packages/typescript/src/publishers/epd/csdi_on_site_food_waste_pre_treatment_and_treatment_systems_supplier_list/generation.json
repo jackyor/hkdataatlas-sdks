@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "epd-csdi-on-site-food-waste-pre-treatment-and-treatment-systems-supplier-list",
+  "sourceSha256": "a53067dec43bc2284c5dcccd75a82ebd4c5efb36feeb26a2e1ac9fa8a42dcbc6",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/epd_rcd_1726710187543_56551/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1726710187543_56551/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1726710187543_56551/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

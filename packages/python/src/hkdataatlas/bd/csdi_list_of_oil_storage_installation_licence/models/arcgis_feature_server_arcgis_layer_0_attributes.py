@@ -1,0 +1,310 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Any, Self, TypeVar, cast
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="ArcgisFeatureServerArcgisLayer0Attributes")
+
+
+@_attrs_define
+class ArcgisFeatureServerArcgisLayer0Attributes:
+    """
+    Attributes:
+        objectid (int | Unset): Publisher field type: esriFieldTypeOID
+        dataset_en (None | str | Unset): Publisher field type: esriFieldTypeString
+        dataset_tc (None | str | Unset): Publisher field type: esriFieldTypeString
+        address_en (None | str | Unset): Publisher field type: esriFieldTypeString
+        address_tc (None | str | Unset): Publisher field type: esriFieldTypeString
+        district_en (None | str | Unset): Publisher field type: esriFieldTypeString
+        district_tc (None | str | Unset): Publisher field type: esriFieldTypeString
+        licence_no_en (None | str | Unset): Publisher field type: esriFieldTypeString
+        licence_no_tc (None | str | Unset): Publisher field type: esriFieldTypeString
+        northing (float | None | Unset): Publisher field type: esriFieldTypeDouble
+        easting (float | None | Unset): Publisher field type: esriFieldTypeDouble
+        latitude (float | None | Unset): Publisher field type: esriFieldTypeDouble
+        longitude (float | None | Unset): Publisher field type: esriFieldTypeDouble
+        last_update (Any | Unset): Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.
+    """
+
+    objectid: int | Unset = UNSET
+    dataset_en: None | str | Unset = UNSET
+    dataset_tc: None | str | Unset = UNSET
+    address_en: None | str | Unset = UNSET
+    address_tc: None | str | Unset = UNSET
+    district_en: None | str | Unset = UNSET
+    district_tc: None | str | Unset = UNSET
+    licence_no_en: None | str | Unset = UNSET
+    licence_no_tc: None | str | Unset = UNSET
+    northing: float | None | Unset = UNSET
+    easting: float | None | Unset = UNSET
+    latitude: float | None | Unset = UNSET
+    longitude: float | None | Unset = UNSET
+    last_update: Any | Unset = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        objectid = self.objectid
+
+        dataset_en: None | str | Unset
+        if isinstance(self.dataset_en, Unset):
+            dataset_en = UNSET
+        else:
+            dataset_en = self.dataset_en
+
+        dataset_tc: None | str | Unset
+        if isinstance(self.dataset_tc, Unset):
+            dataset_tc = UNSET
+        else:
+            dataset_tc = self.dataset_tc
+
+        address_en: None | str | Unset
+        if isinstance(self.address_en, Unset):
+            address_en = UNSET
+        else:
+            address_en = self.address_en
+
+        address_tc: None | str | Unset
+        if isinstance(self.address_tc, Unset):
+            address_tc = UNSET
+        else:
+            address_tc = self.address_tc
+
+        district_en: None | str | Unset
+        if isinstance(self.district_en, Unset):
+            district_en = UNSET
+        else:
+            district_en = self.district_en
+
+        district_tc: None | str | Unset
+        if isinstance(self.district_tc, Unset):
+            district_tc = UNSET
+        else:
+            district_tc = self.district_tc
+
+        licence_no_en: None | str | Unset
+        if isinstance(self.licence_no_en, Unset):
+            licence_no_en = UNSET
+        else:
+            licence_no_en = self.licence_no_en
+
+        licence_no_tc: None | str | Unset
+        if isinstance(self.licence_no_tc, Unset):
+            licence_no_tc = UNSET
+        else:
+            licence_no_tc = self.licence_no_tc
+
+        northing: float | None | Unset
+        if isinstance(self.northing, Unset):
+            northing = UNSET
+        else:
+            northing = self.northing
+
+        easting: float | None | Unset
+        if isinstance(self.easting, Unset):
+            easting = UNSET
+        else:
+            easting = self.easting
+
+        latitude: float | None | Unset
+        if isinstance(self.latitude, Unset):
+            latitude = UNSET
+        else:
+            latitude = self.latitude
+
+        longitude: float | None | Unset
+        if isinstance(self.longitude, Unset):
+            longitude = UNSET
+        else:
+            longitude = self.longitude
+
+        last_update = self.last_update
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update({})
+        if objectid is not UNSET:
+            field_dict["OBJECTID"] = objectid
+        if dataset_en is not UNSET:
+            field_dict["DatasetEN"] = dataset_en
+        if dataset_tc is not UNSET:
+            field_dict["DatasetTC"] = dataset_tc
+        if address_en is not UNSET:
+            field_dict["AddressEN"] = address_en
+        if address_tc is not UNSET:
+            field_dict["AddressTC"] = address_tc
+        if district_en is not UNSET:
+            field_dict["DistrictEN"] = district_en
+        if district_tc is not UNSET:
+            field_dict["DistrictTC"] = district_tc
+        if licence_no_en is not UNSET:
+            field_dict["Licence_No_EN"] = licence_no_en
+        if licence_no_tc is not UNSET:
+            field_dict["Licence_No_TC"] = licence_no_tc
+        if northing is not UNSET:
+            field_dict["Northing"] = northing
+        if easting is not UNSET:
+            field_dict["Easting"] = easting
+        if latitude is not UNSET:
+            field_dict["Latitude"] = latitude
+        if longitude is not UNSET:
+            field_dict["Longitude"] = longitude
+        if last_update is not UNSET:
+            field_dict["LastUpdate"] = last_update
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        d = dict(src_dict)
+        objectid = d.pop("OBJECTID", UNSET)
+
+        def _parse_dataset_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        dataset_en = _parse_dataset_en(d.pop("DatasetEN", UNSET))
+
+        def _parse_dataset_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        dataset_tc = _parse_dataset_tc(d.pop("DatasetTC", UNSET))
+
+        def _parse_address_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        address_en = _parse_address_en(d.pop("AddressEN", UNSET))
+
+        def _parse_address_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        address_tc = _parse_address_tc(d.pop("AddressTC", UNSET))
+
+        def _parse_district_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        district_en = _parse_district_en(d.pop("DistrictEN", UNSET))
+
+        def _parse_district_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        district_tc = _parse_district_tc(d.pop("DistrictTC", UNSET))
+
+        def _parse_licence_no_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        licence_no_en = _parse_licence_no_en(d.pop("Licence_No_EN", UNSET))
+
+        def _parse_licence_no_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        licence_no_tc = _parse_licence_no_tc(d.pop("Licence_No_TC", UNSET))
+
+        def _parse_northing(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        northing = _parse_northing(d.pop("Northing", UNSET))
+
+        def _parse_easting(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        easting = _parse_easting(d.pop("Easting", UNSET))
+
+        def _parse_latitude(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        latitude = _parse_latitude(d.pop("Latitude", UNSET))
+
+        def _parse_longitude(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        longitude = _parse_longitude(d.pop("Longitude", UNSET))
+
+        last_update = d.pop("LastUpdate", UNSET)
+
+        arcgis_feature_server_arcgis_layer_0_attributes = cls(
+            objectid=objectid,
+            dataset_en=dataset_en,
+            dataset_tc=dataset_tc,
+            address_en=address_en,
+            address_tc=address_tc,
+            district_en=district_en,
+            district_tc=district_tc,
+            licence_no_en=licence_no_en,
+            licence_no_tc=licence_no_tc,
+            northing=northing,
+            easting=easting,
+            latitude=latitude,
+            longitude=longitude,
+            last_update=last_update,
+        )
+
+        arcgis_feature_server_arcgis_layer_0_attributes.additional_properties = d
+        return arcgis_feature_server_arcgis_layer_0_attributes
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

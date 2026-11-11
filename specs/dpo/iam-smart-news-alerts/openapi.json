@@ -1,0 +1,282 @@
+{
+  "components": {
+    "schemas": {
+      "NotificationBodyItem": {
+        "additionalProperties": true,
+        "description": "A content item. For P (text), alt is not applicable and val is text content. For I (image), alt is an image description and val is an image URL. For A (URL), alt is a link description and val is a link URL.",
+        "properties": {
+          "alt": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "P",
+              "I",
+              "A"
+            ],
+            "type": "string"
+          },
+          "val": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "NotificationId": {
+        "description": "Unique identifier of the notification. The specification does not state a wire type.",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "NotificationListItem": {
+        "additionalProperties": true,
+        "description": "Fields documented for an item in the notification list. The specification does not state field requiredness or a complete response envelope.",
+        "properties": {
+          "exp_ts": {
+            "description": "Expiry time of the notification, in milliseconds since 1 January 1970.",
+            "type": "integer"
+          },
+          "id": {
+            "$ref": "#/components/schemas/NotificationId"
+          },
+          "schedule_ts": {
+            "description": "Effective time of the notification, in milliseconds since 1 January 1970.",
+            "type": "integer"
+          },
+          "source_id": {
+            "$ref": "#/components/schemas/SourceId"
+          },
+          "subject": {
+            "description": "Subject of the notification.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "SourceId": {
+        "description": "The first two or three letters identify the supplying organisation. These are documented prefixes, not complete closed identifier values; the retained detail value TD0001 is valid. Suffix syntax is undocumented.",
+        "type": "string",
+        "pattern": "^(?:CDD|EDB|EPD|FEH|GWF|HKC|HKO|HPF|HPO|IMM|IRD|LCS|RVD|SB|SFA|SWD|TD|WFH)",
+        "x-prefix-descriptions": {
+          "CDD": "Geotechnical Engineering Office",
+          "EDB": "Education Bureau",
+          "EPD": "Environmental Protection Department",
+          "FEH": "Food and Environmental Hygiene Department",
+          "GWF": "Digital Policy Office",
+          "HKC": "Hong Kong Computer Emergency Response Team Coordination Center",
+          "HKO": "Hong Kong Observatory",
+          "HPF": "Hong Kong Police Force",
+          "HPO": "Hong Kong Post",
+          "IMM": "Immigration Department",
+          "IRD": "Inland Revenue Department",
+          "LCS": "Leisure and Cultural Services Department",
+          "RVD": "Rating and Valuation Department",
+          "SB": "Security Bureau",
+          "SFA": "Working Family and Student Financial Assistance Agency",
+          "SWD": "Social Welfare Department",
+          "TD": "Transport Department",
+          "WFH": "Wi-Fi.HK"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Publisher data specification",
+    "url": "https://www.gov.hk/en/about/govdirectory/mobileapps/psi/iamsmart_newsandalerts/datasets/iAMSmartNews&AlertsDataSpec.pdf"
+  },
+  "info": {
+    "description": "HTTP API for listing and retrieving alert notifications issued by bureaux and departments via the “iAM Smart” News & Alerts feature. The version is undocumented; the placeholder is not a publisher API version. Authentication requirements are not specified. The list service covers notifications from the past seven days; requesting messages older than seven days results in an empty message list.",
+    "title": "\"iAM Smart\" News & Alerts",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/ogcmn/service/list/catwc/OGCMN*": {
+      "get": {
+        "description": "Lists alert notifications issued via “iAM Smart” News & Alerts. Only messages from the past seven days are available; requests for messages older than seven days result in an empty message list. The documented list response describes notification fields but does not specify a response envelope.",
+        "externalDocs": {
+          "description": "Publisher data specification",
+          "url": "https://www.gov.hk/en/about/govdirectory/mobileapps/psi/iamsmart_newsandalerts/datasets/iAMSmartNews&AlertsDataSpec.pdf"
+        },
+        "operationId": "listNotifications",
+        "parameters": [
+          {
+            "description": "Preferred language. If omitted, the list is returned in English.",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "default": "en",
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of notifications included in the list. If omitted, a maximum of 10 notifications are included. A larger number may be specified to obtain a full list of available notifications from the past seven days.",
+            "in": "query",
+            "name": "max",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number of the message list. If omitted, only messages on page 1 are displayed. Increase this parameter to navigate to additional pages when messages remain.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/x-javascript": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^\\s*NotiList\\([\\s\\S]*\\)\\s*;?\\s*$",
+                  "description": "Observed application/x-javascript JSONP. Decode only the exact NotiList callback argument as JSON; do not execute JavaScript. This response is not direct JSON."
+                },
+                "x-jsonp-callback": "NotiList",
+                "x-jsonp-argument-schema": {
+                  "oneOf": [
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/NotificationListItem"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "additionalProperties": true,
+                      "description": "A response object containing notification fields; the response envelope is not specified.",
+                      "properties": {
+                        "items": {
+                          "items": {
+                            "$ref": "#/components/schemas/NotificationListItem"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Notification list. The specification documents the fields of each item but does not establish the response envelope. Retained wire response is NotiList(JSON), not direct JSON."
+          }
+        },
+        "summary": "List notifications"
+      }
+    },
+    "/ogcmn/service/noti/detail/{notification-id}": {
+      "get": {
+        "description": "Retrieves the detailed alert notification identified by its unique identifier, which can be found in the notification list. The publisher documents the response fields and content-item representation, but does not specify a complete response envelope.",
+        "externalDocs": {
+          "description": "Publisher data specification",
+          "url": "https://www.gov.hk/en/about/govdirectory/mobileapps/psi/iamsmart_newsandalerts/datasets/iAMSmartNews&AlertsDataSpec.pdf"
+        },
+        "operationId": "getNotificationDetail",
+        "parameters": [
+          {
+            "description": "Unique identifier of the notification; it can be found in the list of “iAM Smart” News & Alerts.",
+            "in": "path",
+            "name": "notification-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/x-javascript": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^\\s*NotiDetail\\([\\s\\S]*\\)\\s*;?\\s*$",
+                  "description": "Observed application/x-javascript JSONP. Decode only the exact NotiDetail callback argument as JSON; do not execute JavaScript. This response is not direct JSON."
+                },
+                "x-jsonp-callback": "NotiDetail",
+                "x-jsonp-argument-schema": {
+                  "additionalProperties": true,
+                  "properties": {
+                    "body": {
+                      "description": "There could be any number of items in text (P), image (I), or URL (A) form.",
+                      "items": {
+                        "$ref": "#/components/schemas/NotificationBodyItem"
+                      },
+                      "type": "array"
+                    },
+                    "exp_ts": {
+                      "description": "Expiry time of the notification, in microseconds since 1 January 1970.",
+                      "type": "integer"
+                    },
+                    "id": {
+                      "$ref": "#/components/schemas/NotificationId"
+                    },
+                    "msg_en": {
+                      "description": "Message of the notification in English.",
+                      "type": "string"
+                    },
+                    "msg_sc": {
+                      "description": "Message of the notification in Simplified Chinese.",
+                      "type": "string"
+                    },
+                    "msg_tc": {
+                      "description": "Message of the notification in Traditional Chinese.",
+                      "type": "string"
+                    },
+                    "schedule_ts": {
+                      "description": "Effective time of the notification, in microseconds since 1 January 1970.",
+                      "type": "integer"
+                    },
+                    "source_id": {
+                      "$ref": "#/components/schemas/SourceId"
+                    },
+                    "subject_en": {
+                      "description": "Subject of the notification in English.",
+                      "type": "string"
+                    },
+                    "subject_sc": {
+                      "description": "Subject of the notification in Simplified Chinese.",
+                      "type": "string"
+                    },
+                    "subject_tc": {
+                      "description": "Subject of the notification in Traditional Chinese.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The documented content-format example gives the value R.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Detailed notification. The response envelope is not fully specified. Retained wire response is NotiDetail(JSON), not direct JSON."
+          }
+        },
+        "summary": "Get notification detail"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ogcmn.one.gov.hk"
+    }
+  ]
+}

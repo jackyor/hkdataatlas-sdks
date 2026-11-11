@@ -1,0 +1,408 @@
+components:
+  schemas:
+    ETARecord:
+      properties:
+        ETA:
+          description: Estimated time of arrival.
+          example: 2022-09-19T12:49:00+08:00
+          format: date-time
+          type: string
+        date:
+          description: Date of the session.
+          example: 2022-09-19
+          type: string
+        direction:
+          description: Direction of the route.
+          example: inbound
+          type: string
+        route_id:
+          description: Route ID. The companion dictionary declares String; the primary API response sample represents it as a number.
+          examples:
+            - 3
+          oneOf:
+            - type: string
+            - type: integer
+        session_time:
+          description: Session time.
+          example: 12:15:00
+          type: string
+      type: object
+    ETAResponse:
+      properties:
+        data:
+          description: Array of ETA records.
+          items:
+            $ref: "#/components/schemas/ETARecord"
+          type: array
+        generated_timestamp:
+          description: Initial generated time of the response before it is cached; date and time with time zone in ISO 8601 format.
+          example: 2022-09-19T12:20:33+08:00
+          format: date-time
+          type: string
+        type:
+          description: Corresponding API name; the dictionary says the value is always ETA.
+          example: ETA
+          type: string
+        version:
+          description: Version number in major and minor versioning format.
+          example: "1.2"
+          type: string
+      type: object
+    Pier:
+      properties:
+        lat:
+          description: Latitude of a pier location.
+          example: 22.22652
+          type: number
+        long:
+          description: Longitude of a pier location.
+          example: 114.109105
+          type: number
+        name_en:
+          description: Pier name in English.
+          example: Yung Shue Wan Pier
+          type: string
+        name_sc:
+          description: Pier name in Simplified Chinese.
+          example: 榕树湾渡轮码头
+          type: string
+        name_tc:
+          description: Pier name in Traditional Chinese.
+          example: 榕樹灣渡輪碼頭
+          type: string
+        pier_id:
+          description: Pier ID. The companion dictionary declares String; the primary API response sample represents it as a number.
+          examples:
+            - 3
+          oneOf:
+            - type: string
+            - type: integer
+      type: object
+    PierResponse:
+      properties:
+        data:
+          $ref: "#/components/schemas/Pier"
+        generated_timestamp:
+          description: Initial generated time of the response before it is cached; date and time with time zone in ISO 8601 format.
+          example: 2021-08-01T08:51:44+08:00
+          format: date-time
+          type: string
+        type:
+          description: Corresponding API name; the dictionary says the value is always Pier.
+          example: Pier
+          type: string
+        version:
+          description: Version number in major and minor versioning format.
+          example: "1.2"
+          type: string
+      type: object
+    Route:
+      properties:
+        destination_en:
+          description: Route destination in English.
+          example: Sok Kwu Wan
+          type: string
+        destination_sc:
+          description: Route destination in Simplified Chinese.
+          example: 索罟湾
+          type: string
+        destination_tc:
+          description: Route destination in Traditional Chinese.
+          example: 索罟灣
+          type: string
+        origin_en:
+          description: Route origin in English.
+          example: Central
+          type: string
+        origin_sc:
+          description: Route origin in Simplified Chinese.
+          example: 中环
+          type: string
+        origin_tc:
+          description: Route origin in Traditional Chinese.
+          example: 中環
+          type: string
+        route_id:
+          description: Route ID. The companion dictionary declares String; the primary API samples represent IDs as numbers.
+          examples:
+            - 1
+          oneOf:
+            - type: string
+            - type: integer
+        route_name_en:
+          description: Route name in English.
+          example: Central<=>Yung Shue Wan
+          type: string
+        route_name_sc:
+          description: Route name in Simplified Chinese.
+          example: 中环往来榕树湾
+          type: string
+        route_name_tc:
+          description: Route name in Traditional Chinese.
+          example: 中環往來榕樹灣
+          type: string
+      type: object
+    RouteResponse:
+      properties:
+        data:
+          description: Array of route objects.
+          items:
+            $ref: "#/components/schemas/Route"
+          type: array
+        generated_timestamp:
+          description: Initial generated time of the response before it is cached; date and time with time zone in ISO 8601 format.
+          example: 2021-08-01T08:51:44+08:00
+          format: date-time
+          type: string
+        type:
+          description: Corresponding API name; the dictionary says the value is always Route.
+          example: Route
+          type: string
+        version:
+          description: Version number in major and minor versioning format.
+          example: "1.2"
+          type: string
+      type: object
+externalDocs:
+  description: "Official API specification. Companion field dictionary: https://www.hkkfeta.com/datagovhk/HKKF_ETA_Data_Dictionary.pdf"
+  url: https://www.hkkfeta.com/datagovhk/HKKF_ETA_API_Specification.pdf
+info:
+  description: |-
+    API for HKKF pier and route information, timetables, estimated arrival times, and fare tables. The primary API specification is version 1.2 (September 2022). The companion data dictionary provides field descriptions and examples; where its declared types differ from the primary specification's samples, the discrepancy is noted.
+
+    Authentication is not specified in the retained API specification or associated dictionary; no authentication requirement or absence of authentication is asserted.
+  title: Hong Kong and Kowloon Ferry Limited Open Data API
+  version: "1.2"
+openapi: 3.1.0
+paths:
+  /opendata/eta/{route_id}/{direction}:
+    get:
+      description: Returns estimated arrival time and direction information for running ferries on the specified route. Documented route IDs are 1 (Central Pier 4–Sok Kwu Wan), 2 (Central Pier 4–Yung Shue Wan), 3 (Central Pier 6–Peng Chau), and 4 (Peng Chau–Hei Ling Chau). Valid directions are inbound (towards the origin; for example, Yung Shue Wan to Central Pier 4) and outbound (towards the destination). The companion dictionary declares data.route_id as a string, while the primary API sample represents it as a number; the schema permits either representation.
+      operationId: getEta
+      parameters:
+        - description: Route ID. The source parameter description says “ID represent the pier under HKKF,” while the endpoint and route descriptions identify it as a route ID.
+          example: 3
+          in: path
+          name: route_id
+          required: true
+          schema:
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+            type: integer
+        - description: Direction of the route.
+          example: inbound
+          in: path
+          name: direction
+          required: true
+          schema:
+            enum:
+              - inbound
+              - outbound
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  description: The retained PDF parse contains layout/text corruption. This normalized structural illustration is not a verbatim authoritative publisher JSON response; field definitions are documented separately in the associated data dictionary.
+                  summary: Illustrative reconstruction of a parsed publisher sample
+                  value:
+                    data:
+                      - ETA: 2022-09-19T12:49:00+08:00
+                        date: 2022-09-19
+                        direction: inbound
+                        route_id: 3
+                        session_time: 12:15:00
+                    generated_timestamp: 2022-09-19T12:20:33+08:00
+                    type: ETA
+                    version: "1.2"
+              schema:
+                $ref: "#/components/schemas/ETAResponse"
+          description: Success; response format JSON.
+        "422":
+          description: See message in response body.
+        "429":
+          description: Processing too many requests.
+        "500":
+          description: Internal Server Error.
+      summary: Get estimated arrival times
+  /opendata/fare_table/{route_id}:
+    get:
+      description: Returns the corresponding fare table for Monday to Saturday and public holidays in CSV format. Documented route IDs are 1 (Central Pier 4–Sok Kwu Wan), 2 (Central Pier 4–Yung Shue Wan), 3 (Central Pier 6–Peng Chau), and 4 (Peng Chau–Hei Ling Chau). The companion dictionary identifies ticket types and fare values but does not provide a complete CSV layout.
+      operationId: getFareTable
+      parameters:
+        - description: Route ID. The source parameter description says “ID represent the pier under HKKF,” while the endpoint and route descriptions identify it as a route ID.
+          example: 1
+          in: path
+          name: route_id
+          required: true
+          schema:
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+            type: integer
+      responses:
+        "200":
+          content:
+            text/csv:
+              schema:
+                description: CSV fare-table data. The companion dictionary identifies ticket types monthly_ticket, student_monthly_ticket, multi_ride_ticket, adult, child, elderly, and child under 3, and describes prices for Monday to Saturday and Sundays/public holidays. It does not provide a complete CSV layout.
+                type: string
+          description: Fare table in CSV format.
+      summary: Get route fare table
+  /opendata/pier/{pier_id}:
+    get:
+      description: Returns the respective pier information for a pier ID. Documented valid pier IDs are 1 (Central Pier 4), 2 (Central Pier 6), 3 (Yung Shue Wan), 4 (Peng Chau), 5 (Sok Kwu Wan), and 6 (Hei Ling Chau).
+      operationId: getPier
+      parameters:
+        - description: ID representing the pier under HKKF.
+          example: 3
+          in: path
+          name: pier_id
+          required: true
+          schema:
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+              - 5
+              - 6
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  description: The retained PDF parse contains layout/text corruption. This normalized structural illustration is not a verbatim authoritative publisher JSON response; field definitions are documented separately in the associated data dictionary.
+                  summary: Illustrative reconstruction of a parsed publisher sample
+                  value:
+                    data:
+                      lat: 22.22652
+                      long: 114.109105
+                      name_en: Yung Shue Wan
+                      name_sc: 榕树湾渡轮码头
+                      name_tc: 榕樹灣渡輪碼頭
+                      pier_id: 3
+                    generated_timestamp: 2021-08-01T08:51:44+08:00
+                    type: Pier
+                    version: "1.2"
+              schema:
+                $ref: "#/components/schemas/PierResponse"
+          description: Success; response format JSON.
+        "422":
+          description: See message in response body.
+        "429":
+          description: Processing too many requests.
+        "500":
+          description: Internal Server Error.
+      summary: Get pier information
+  /opendata/route:
+    get:
+      description: Returns a list of all routes owned by HKKF and their IDs.
+      operationId: listRoutes
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  description: The retained PDF parse contains layout/text corruption. This normalized structural illustration is not a verbatim authoritative publisher JSON response; field definitions are documented separately in the associated data dictionary.
+                  summary: Illustrative reconstruction of a parsed publisher sample
+                  value:
+                    data:
+                      - destination_en: Sok Kwu Wan
+                        destination_sc: 索罟湾
+                        destination_tc: 索罟灣
+                        origin_en: Central
+                        origin_sc: 中环
+                        origin_tc: 中環
+                        route_id: 1
+                        route_name_en: Central<=>Yung Shue Wan
+                        route_name_sc: 中环往来索罟灣
+                        route_name_tc: 中環往來索罟灣
+                      - destination_en: Yung Shue Wan
+                        destination_sc: 榕树湾
+                        destination_tc: 榕樹灣
+                        origin_en: Central
+                        origin_sc: 中环
+                        origin_tc: 中環
+                        route_id: 2
+                        route_name_en: " Central<=>Yung Shue Wan"
+                        route_name_sc: 中环往来榕树湾
+                        route_name_tc: 中環往來榕樹灣
+                      - destination_en: Peng Chau
+                        destination_sc: 坪洲
+                        destination_tc: 坪洲
+                        origin_en: Central
+                        origin_sc: 中环
+                        origin_tc: 中環
+                        route_id: 3
+                        route_name_en: Central <=>Peng Chau
+                        route_name_sc: 中环往来坪洲
+                        route_name_tc: 中環往來坪洲
+                      - destination_en: Hei Ling Chau
+                        destination_sc: 喜灵洲
+                        destination_tc: 喜靈洲
+                        origin_en: Peng Chau
+                        origin_sc: 坪洲
+                        origin_tc: 坪洲
+                        route_id: 4
+                        route_name_en: Peng Chau <=>Hei Ling Chau
+                        route_name_sc: 坪洲往来喜灵洲
+                        route_name_tc: 坪洲往來喜靈洲
+                    generated_timestamp: 2021-08-01T08:51:44+08:00
+                    type: Route
+                    version: "1.2"
+              schema:
+                $ref: "#/components/schemas/RouteResponse"
+          description: Success; response format JSON.
+        "422":
+          description: See message in response body.
+        "429":
+          description: Processing too many requests.
+        "500":
+          description: Internal Server Error.
+      summary: List routes
+  /opendata/time_table/{route_id}/{direction}:
+    get:
+      description: Returns the latest respective route timetable information in CSV format. Documented route IDs are 1 (Central Pier 4–Sok Kwu Wan), 2 (Central Pier 4–Yung Shue Wan), 3 (Central Pier 6–Peng Chau), and 4 (Peng Chau–Hei Ling Chau). The direction parameter is required; the specification does not establish an exhaustive set of allowed values.
+      operationId: getTimetable
+      parameters:
+        - description: Route ID. The source parameter description says “ID represent the pier under HKKF,” while the endpoint and route descriptions identify it as a route ID.
+          example: 1
+          in: path
+          name: route_id
+          required: true
+          schema:
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+            type: integer
+        - description: Direction of the route; no complete allowed-value list is specified.
+          example: inbound
+          in: path
+          name: direction
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            text/csv:
+              schema:
+                description: CSV timetable data. The companion dictionary describes route_id, direction, origin and destination names, timetable remarks in English and Chinese, and session-time lists for Monday to Saturday and Sundays/public holidays. It does not provide a complete CSV layout.
+                type: string
+          description: Latest route timetable in CSV format.
+      summary: Get route timetable
+servers:
+  - url: https://www.hkkfeta.com

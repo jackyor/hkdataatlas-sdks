@@ -1,0 +1,159 @@
+from http import HTTPStatus
+from typing import Any
+from urllib.parse import quote
+
+import httpx2
+
+from ... import errors
+from ...client import AuthenticatedClient, Client
+from ...models.get_map_label_tile_lang import (
+    GetMapLabelTileLang,
+)
+from ...models.get_map_label_tile_sr import (
+    GetMapLabelTileSr,
+)
+from ...types import Response
+
+
+def _get_kwargs(
+    version: str,
+    lang: GetMapLabelTileLang,
+    sr: GetMapLabelTileSr,
+    z: int,
+    x: int,
+    y: int,
+) -> dict[str, Any]:
+
+    _kwargs: dict[str, Any] = {
+        "method": "get",
+        "url": "/gs/api/{version}/xyz/label/hk/{lang}/{sr}/{z}/{x}/{y}.png".format(
+            version=quote(str(version), safe=""),
+            lang=quote(str(lang), safe=""),
+            sr=quote(str(sr), safe=""),
+            z=quote(str(z), safe=""),
+            x=quote(str(x), safe=""),
+            y=quote(str(y), safe=""),
+        ),
+    }
+
+    return _kwargs
+
+
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx2.Response
+) -> Any | None:
+    if response.status_code == 204:
+        return None
+
+    if response.status_code == 500:
+        return None
+
+    if client.raise_on_unexpected_status:
+        raise errors.UnexpectedStatus(response.status_code, response.content)
+    else:
+        return None
+
+
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx2.Response
+) -> Response[Any]:
+    return Response(
+        status_code=HTTPStatus(response.status_code),
+        content=response.content,
+        headers=response.headers,
+        parsed=_parse_response(client=client, response=response),
+    )
+
+
+def sync_detailed(
+    version: str,
+    lang: GetMapLabelTileLang,
+    sr: GetMapLabelTileSr,
+    z: int,
+    x: int,
+    y: int,
+    *,
+    client: AuthenticatedClient | Client,
+) -> Response[Any]:
+    """Retrieve a labelled map tile
+
+     Returns a map tile under the XYZ tile scheme. The publisher documents PNG output. Version v1.0.0 is
+    currently documented and versions may change; old versions may be removed without notice. Check the
+    official documentation for supported versions.
+
+    Args:
+        version (str):  Example: v1.0.0.
+        lang (GetMapLabelTileLang):
+        sr (GetMapLabelTileSr):
+        z (int):
+        x (int):
+        y (int):
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx2.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Response[Any]
+    """
+
+    kwargs = _get_kwargs(
+        version=version,
+        lang=lang,
+        sr=sr,
+        z=z,
+        x=x,
+        y=y,
+    )
+
+    response = client.get_httpx_client().request(
+        **kwargs,
+    )
+
+    return _build_response(client=client, response=response)
+
+
+async def asyncio_detailed(
+    version: str,
+    lang: GetMapLabelTileLang,
+    sr: GetMapLabelTileSr,
+    z: int,
+    x: int,
+    y: int,
+    *,
+    client: AuthenticatedClient | Client,
+) -> Response[Any]:
+    """Retrieve a labelled map tile
+
+     Returns a map tile under the XYZ tile scheme. The publisher documents PNG output. Version v1.0.0 is
+    currently documented and versions may change; old versions may be removed without notice. Check the
+    official documentation for supported versions.
+
+    Args:
+        version (str):  Example: v1.0.0.
+        lang (GetMapLabelTileLang):
+        sr (GetMapLabelTileSr):
+        z (int):
+        x (int):
+        y (int):
+
+    Raises:
+        errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
+        httpx2.TimeoutException: If the request takes longer than Client.timeout.
+
+    Returns:
+        Response[Any]
+    """
+
+    kwargs = _get_kwargs(
+        version=version,
+        lang=lang,
+        sr=sr,
+        z=z,
+        x=x,
+        y=y,
+    )
+
+    response = await client.get_async_httpx_client().request(**kwargs)
+
+    return _build_response(client=client, response=response)

@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "epd-csdi-schools-participating-in-the-waste-separation-and-recycling-scheme-in-schools",
+  "sourceSha256": "d5bb5fdbc8a08e97b6afbce83a750a4908716de77668fcd57ca9e6deaf64035d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/epd_rcd_1664938140599_40077/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

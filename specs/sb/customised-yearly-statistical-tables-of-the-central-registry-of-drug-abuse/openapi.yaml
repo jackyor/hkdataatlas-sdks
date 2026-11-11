@@ -1,0 +1,217 @@
+components:
+  schemas:
+    Warning:
+      description: Warning response for a bad request.
+      properties:
+        message:
+          description: Human-readable warning describing the request problem.
+          type: string
+      type: object
+externalDocs:
+  description: Official API data specification
+  url: https://www.nd.gov.hk/en/data-specification.pdf
+info:
+  description: Retrieves customized annual statistical tables for the Central Registry of Drug Abuse (CRDA). The source specification is version 1.0 dated 21 June 2019; this is the document version, not a documented API version. Each request processes one combination of reference period, reported-drug-abuser type and other selected data items. The source explicitly states that authentication is not required.
+  title: CRDA Statistical Tables Customization Service
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /psi_v1.php:
+    get:
+      description: Returns a customized statistical table as a UTF-8 CSV file. `period` and `period_earlier` must not be supplied together; `age` and `age_group` must not be supplied together. The specification's example request is `https://www.nd.gov.hk/en/psi_v1.php?period=2016-2025&abuser=00001`.
+      operationId: getCrdaStatistics
+      parameters:
+        - description: Recent reference period in yyyy-yyyy format. Do not combine with `period_earlier`.
+          in: query
+          name: period
+          required: false
+          schema:
+            enum:
+              - 2022-2025
+              - 2021-2025
+              - 2020-2025
+              - 2019-2025
+              - 2018-2025
+              - 2017-2025
+              - 2016-2025
+            type: string
+        - description: Earlier reference period in yyyy-yyyy format (years since 1986). Do not combine with `period`.
+          in: query
+          name: period_earlier
+          required: false
+          schema:
+            enum:
+              - 2011-2015
+              - 2006-2010
+              - 2001-2005
+              - 1996-2000
+              - 1991-1995
+              - 1986-1990
+            type: string
+        - description: Type of reported drug abusers.
+          examples:
+            allReported:
+              summary: All reported drug abusers
+              value: "00000"
+            newlyReported:
+              summary: Newly reported drug abusers
+              value: "00001"
+            previouslyReported:
+              summary: Previously reported drug abusers
+              value: "00002"
+          in: query
+          name: abuser
+          required: true
+          schema:
+            enum:
+              - "00001"
+              - "00002"
+              - "00000"
+            type: string
+        - description: Sex of reported drug abusers.
+          examples:
+            bothSexes:
+              summary: Both sexes
+              value: "00999"
+            female:
+              summary: Female
+              value: "00002"
+            male:
+              summary: Male
+              value: "00001"
+          in: query
+          name: sex
+          required: false
+          schema:
+            enum:
+              - "00001"
+              - "00002"
+              - "00999"
+            type: string
+        - description: Age type of reported drug abusers. Do not combine with `age_group`.
+          examples:
+            age16to20:
+              summary: Aged 16-20
+              value: "00002"
+            age21to30:
+              summary: Aged 21-30
+              value: "00003"
+            age31to40:
+              summary: Aged 31-40
+              value: "00004"
+            age41to50:
+              summary: Aged 41-50
+              value: "00005"
+            age51AndOver:
+              summary: Aged 51 and over
+              value: "00006"
+            allAges:
+              summary: All ages
+              value: "00999"
+            under16:
+              summary: Aged under 16
+              value: "00001"
+          in: query
+          name: age
+          required: false
+          schema:
+            enum:
+              - "00001"
+              - "00002"
+              - "00003"
+              - "00004"
+              - "00005"
+              - "00006"
+              - "00999"
+            type: string
+        - description: Age group of reported drug abusers. Do not combine with `age`.
+          examples:
+            age21AndOver:
+              summary: Aged 21 and over
+              value: "00102"
+            allAgeGroups:
+              summary: All age group
+              value: "00999"
+            under21:
+              summary: Aged under 21
+              value: "00101"
+          in: query
+          name: age_group
+          required: false
+          schema:
+            enum:
+              - "00101"
+              - "00102"
+              - "00999"
+            type: string
+        - description: Optional other data items. Multiple values may be supplied; the specification notes that `&` is used to add more parameters. The exact repeated-parameter encoding is not further specified.
+          examples:
+            availableItems:
+              summary: Documented other data item values
+              value:
+                - CT000315
+                - CT000341
+                - CT000320
+                - CT000318
+                - CT000305
+                - CT000308
+                - CT000313
+                - CT000310
+                - CT000312
+                - CT000314
+                - CT000439
+                - CT000440
+          explode: true
+          in: query
+          name: analysis_var
+          required: false
+          schema:
+            items:
+              enum:
+                - CT000315
+                - CT000341
+                - CT000320
+                - CT000318
+                - CT000305
+                - CT000308
+                - CT000313
+                - CT000310
+                - CT000312
+                - CT000314
+                - CT000439
+                - CT000440
+              type: string
+            type: array
+          style: form
+      responses:
+        "200":
+          content:
+            text/csv:
+              schema:
+                description: CSV file containing customized annual CRDA statistical tables. The specification documents CSV as the response format and describes data dictionary fields, but does not provide a complete CSV header-and-row wire schema.
+                type: string
+          description: Success. The `drug_statistics.csv` file is returned in UTF-8 encoding.
+        "400":
+          content:
+            application/json:
+              examples:
+                conflictingAgeFields:
+                  summary: Fields with similar meaning supplied together
+                  value:
+                    message: "Please select one of the following fields only: age or age_group."
+                invalidParameter:
+                  summary: Invalid value for a parameter
+                  value:
+                    message: "Invalid input of parameter: Type of reported drug abusers."
+                missingRequiredFields:
+                  summary: Mandatory fields were not inputted
+                  value:
+                    message: "Please input the following(s): Type of reported drug abusers,Reference Period"
+              schema:
+                $ref: "#/components/schemas/Warning"
+          description: Bad Request. The service returns a warning message to identify a request problem. Documented examples include invalid parameter values, omitted mandatory fields, and mutually exclusive fields.
+      security: []
+      summary: Get customized CRDA statistics
+servers:
+  - description: English-language resource base
+    url: https://www.nd.gov.hk/en

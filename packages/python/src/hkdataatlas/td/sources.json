@@ -1,0 +1,2583 @@
+{
+  "publisherKey": "td",
+  "publisherName": "Transport Department",
+  "sources": [
+    {
+      "id": "td-kmb-real-time-arrival-information-api",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "kmb-real-time-arrival-information-api",
+      "name": "KMB Real-time Arrival Information API",
+      "apiTitle": "KMB Real-time Arrival Information API",
+      "json": "td/kmb-real-time-arrival-information-api/openapi.json",
+      "yaml": "td/kmb-real-time-arrival-information-api/openapi.yaml",
+      "file": "td/kmb-real-time-arrival-information-api/openapi.json",
+      "sha256": "34e7eb54faaaecec2abdc2c975bc68c55926c1964a29d4eca36f0b4dcca82cc9",
+      "jsonSha256": "34e7eb54faaaecec2abdc2c975bc68c55926c1964a29d4eca36f0b4dcca82cc9",
+      "yamlSha256": "459170cd5f488832ffaaa3c557a3a1d9eb7d7e459de7f478c2628b0c9ff5504e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.05",
+      "namespace": "kmb_real_time_arrival_information_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "34e7eb54faaaecec2abdc2c975bc68c55926c1964a29d4eca36f0b4dcca82cc9"
+        },
+        "sourceContent": {
+          "status": "reported_findings_resolved",
+          "kind": "requested_targeted_narrative_check_not_machine_model_receipt",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 9,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.etabus.gov.hk/datagovhk/kmb_eta_api_specification.pdf",
+        "canonicalJsonSha256": "34e7eb54faaaecec2abdc2c975bc68c55926c1964a29d4eca36f0b4dcca82cc9",
+        "originalRepresentationSha256": "34e7eb54faaaecec2abdc2c975bc68c55926c1964a29d4eca36f0b4dcca82cc9",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "kmb_real_time_arrival_information_api"
+    },
+    {
+      "id": "td-real-time-arrival-data-of-green-minibuses-gmbs",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "real-time-arrival-data-of-green-minibuses-gmbs",
+      "name": "Real-time arrival data of green minibuses (GMBs)",
+      "apiTitle": "Green Minibus Real-Time Arrival Information System API",
+      "json": "td/real-time-arrival-data-of-green-minibuses-gmbs/openapi.json",
+      "yaml": "td/real-time-arrival-data-of-green-minibuses-gmbs/openapi.yaml",
+      "file": "td/real-time-arrival-data-of-green-minibuses-gmbs/openapi.json",
+      "sha256": "61a12b21ca982284e5b04923b5c13a0008a858ad70a8c0840b5ff0dbf53fe5ba",
+      "jsonSha256": "61a12b21ca982284e5b04923b5c13a0008a858ad70a8c0840b5ff0dbf53fe5ba",
+      "yamlSha256": "d9f96630ac2fb87729c4b3f5515e73add0fcccb80af2cfa4fde59e76d17092ec",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.1",
+      "namespace": "real_time_arrival_data_of_green_minibuses_gmbs",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "61a12b21ca982284e5b04923b5c13a0008a858ad70a8c0840b5ff0dbf53fe5ba"
+        },
+        "sourceContent": {
+          "status": "source_correction_bound_to_official_documentation",
+          "kind": "targeted_source_accuracy_correction",
+          "fullContentCompleteness": "not_established_by_targeted_correction"
+        },
+        "responseCoverage": {
+          "operations": 16,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.etagmb.gov.hk/static/GMB_ETA_API_Specification.pdf",
+        "canonicalJsonSha256": "61a12b21ca982284e5b04923b5c13a0008a858ad70a8c0840b5ff0dbf53fe5ba",
+        "originalRepresentationSha256": "b1d0d4ee6d64c2dc4a7c692374bf84e53378addf719fb4091614628c7246ae84",
+        "serialization": "Source-backed corrected derivative; original representation preserved in source history",
+        "currentUrl": "https://data.etagmb.gov.hk/static/GMB_ETA_API_Specification.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "b1d0d4ee6d64c2dc4a7c692374bf84e53378addf719fb4091614628c7246ae84",
+          "canonicalJsonSha256": "61a12b21ca982284e5b04923b5c13a0008a858ad70a8c0840b5ff0dbf53fe5ba",
+          "currentSourceUrl": "https://data.etagmb.gov.hk/static/GMB_ETA_API_Specification.pdf",
+          "documentationSources": [
+            {
+              "url": "https://data.etagmb.gov.hk/static/GMB_ETA_API_Specification.pdf",
+              "sha256": "af1a8e21abd60138705eb4e19ffcc9e6a355fec8086dbf8893bb12b21a938b79",
+              "kind": "publisher_document_bytes"
+            }
+          ],
+          "reason": {
+            "kind": "response_field_compatibility",
+            "patchPointers": [
+              "#/components/schemas/LastUpdateRouteListResponse/allOf/1/properties/data",
+              "#/components/schemas/LastUpdateSingleResponse/allOf/1/properties/data",
+              "#/components/schemas/LastUpdateStopListResponse/allOf/1/properties/data",
+              "#/components/schemas/Headway/properties/start_time",
+              "#/components/schemas/Headway/properties/end_time"
+            ]
+          }
+        }
+      },
+      "moduleName": "real_time_arrival_data_of_green_minibuses_gmbs"
+    },
+    {
+      "id": "td-traffic-data-from-traffic-data-analytics-system",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "traffic-data-from-traffic-data-analytics-system",
+      "name": "Traffic data from Traffic Data Analytics System",
+      "apiTitle": "Traffic Data from Traffic Data Analytics System API",
+      "json": "td/traffic-data-from-traffic-data-analytics-system/openapi.json",
+      "yaml": "td/traffic-data-from-traffic-data-analytics-system/openapi.yaml",
+      "file": "td/traffic-data-from-traffic-data-analytics-system/openapi.json",
+      "sha256": "a97b2ef3265ebae3c484d1f4d49b1bf60eea0aec4260afcdd1467a1bbead36c2",
+      "jsonSha256": "a97b2ef3265ebae3c484d1f4d49b1bf60eea0aec4260afcdd1467a1bbead36c2",
+      "yamlSha256": "73e4ca1f20ae68fe836a64d79a57b5a6031bb0b5f47985ed07905710ad15e3f2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.1",
+      "namespace": "traffic_data_from_traffic_data_analytics_system",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a97b2ef3265ebae3c484d1f4d49b1bf60eea0aec4260afcdd1467a1bbead36c2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://tdas-api.hkemobility.gov.hk/tdas/specification/TD_TDAS_API_Specifications.pdf",
+        "canonicalJsonSha256": "a97b2ef3265ebae3c484d1f4d49b1bf60eea0aec4260afcdd1467a1bbead36c2",
+        "originalRepresentationSha256": "a97b2ef3265ebae3c484d1f4d49b1bf60eea0aec4260afcdd1467a1bbead36c2",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "traffic_data_from_traffic_data_analytics_system"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office/openapi.json",
+      "sha256": "65236dd8e0c9d01264ab5b5f9b228d2fe675d4ebc73bca8c4022b2d6c58c7dbb",
+      "jsonSha256": "65236dd8e0c9d01264ab5b5f9b228d2fe675d4ebc73bca8c4022b2d6c58c7dbb",
+      "yamlSha256": "55f7f3a4c4092042db4ecfa91f4f7148502b5fab344019181ded34823c7bc66a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "65236dd8e0c9d01264ab5b5f9b228d2fe675d4ebc73bca8c4022b2d6c58c7dbb"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1629267205215_73295",
+        "canonicalJsonSha256": "65236dd8e0c9d01264ab5b5f9b228d2fe675d4ebc73bca8c4022b2d6c58c7dbb",
+        "originalRepresentationSha256": "65236dd8e0c9d01264ab5b5f9b228d2fe675d4ebc73bca8c4022b2d6c58c7dbb",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office"
+    },
+    {
+      "id": "td-csdi-cycling-information",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-cycling-information",
+      "name": "Cycling Information",
+      "apiTitle": "Transport Department \u2014 Cycling Information",
+      "json": "td/csdi-cycling-information/openapi.json",
+      "yaml": "td/csdi-cycling-information/openapi.yaml",
+      "file": "td/csdi-cycling-information/openapi.json",
+      "sha256": "e13454af29951d7cfc96e8cba16b5612bc9f7ccad70af45e20c7b436d07780fa",
+      "jsonSha256": "e13454af29951d7cfc96e8cba16b5612bc9f7ccad70af45e20c7b436d07780fa",
+      "yamlSha256": "290e226470a48639e8482a159edb380a7f0a539a14239b1449a45f9d9f23e00d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_cycling_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e13454af29951d7cfc96e8cba16b5612bc9f7ccad70af45e20c7b436d07780fa"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1629267205229_68005",
+        "canonicalJsonSha256": "e13454af29951d7cfc96e8cba16b5612bc9f7ccad70af45e20c7b436d07780fa",
+        "originalRepresentationSha256": "e13454af29951d7cfc96e8cba16b5612bc9f7ccad70af45e20c7b436d07780fa",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_cycling_information"
+    },
+    {
+      "id": "td-csdi-routes-and-fares-of-public-transport-geojson",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-routes-and-fares-of-public-transport-geojson",
+      "name": "Routes and fares of public transport (GeoJSON)",
+      "apiTitle": "Transport Department \u2014 Routes and fares of public transport (GeoJSON)",
+      "json": "td/csdi-routes-and-fares-of-public-transport-geojson/openapi.json",
+      "yaml": "td/csdi-routes-and-fares-of-public-transport-geojson/openapi.yaml",
+      "file": "td/csdi-routes-and-fares-of-public-transport-geojson/openapi.json",
+      "sha256": "ea03e0d15412daa349b0ebbe5fe14fbe41ba1e25f513d13c557414ba19b1a852",
+      "jsonSha256": "ea03e0d15412daa349b0ebbe5fe14fbe41ba1e25f513d13c557414ba19b1a852",
+      "yamlSha256": "6afdb32cb3aeb80334cc3cd9d11e654555a0be0c7b69fe53a90c3efabaff176b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_routes_and_fares_of_public_transport_geojson",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ea03e0d15412daa349b0ebbe5fe14fbe41ba1e25f513d13c557414ba19b1a852"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638844988873_41214",
+        "canonicalJsonSha256": "ea03e0d15412daa349b0ebbe5fe14fbe41ba1e25f513d13c557414ba19b1a852",
+        "originalRepresentationSha256": "ea03e0d15412daa349b0ebbe5fe14fbe41ba1e25f513d13c557414ba19b1a852",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_routes_and_fares_of_public_transport_geojson"
+    },
+    {
+      "id": "td-csdi-routes-and-fares-of-public-transport-geojson-service-2",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-routes-and-fares-of-public-transport-geojson-service-2",
+      "name": "Routes and fares of public transport (GeoJSON)",
+      "apiTitle": "Transport Department \u2014 Routes and fares of public transport (GeoJSON)",
+      "json": "td/csdi-routes-and-fares-of-public-transport-geojson-service-2/openapi.json",
+      "yaml": "td/csdi-routes-and-fares-of-public-transport-geojson-service-2/openapi.yaml",
+      "file": "td/csdi-routes-and-fares-of-public-transport-geojson-service-2/openapi.json",
+      "sha256": "2e97eb8f42f2bab1e382815b07388ac59f2c66f800bdad5f1fad04e944f9553d",
+      "jsonSha256": "2e97eb8f42f2bab1e382815b07388ac59f2c66f800bdad5f1fad04e944f9553d",
+      "yamlSha256": "d2c3a0962a61bf9e10b715511c88b6a464e347c74100d461198c5944e1949afc",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_routes_and_fares_of_public_transport_geojson_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2e97eb8f42f2bab1e382815b07388ac59f2c66f800bdad5f1fad04e944f9553d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638874475129_49745",
+        "canonicalJsonSha256": "2e97eb8f42f2bab1e382815b07388ac59f2c66f800bdad5f1fad04e944f9553d",
+        "originalRepresentationSha256": "2e97eb8f42f2bab1e382815b07388ac59f2c66f800bdad5f1fad04e944f9553d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_routes_and_fares_of_public_transport_geojson_service_2"
+    },
+    {
+      "id": "td-csdi-routes-and-fares-of-public-transport-geojson-service-3",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-routes-and-fares-of-public-transport-geojson-service-3",
+      "name": "Routes and fares of public transport (GeoJSON)",
+      "apiTitle": "Transport Department \u2014 Routes and fares of public transport (GeoJSON)",
+      "json": "td/csdi-routes-and-fares-of-public-transport-geojson-service-3/openapi.json",
+      "yaml": "td/csdi-routes-and-fares-of-public-transport-geojson-service-3/openapi.yaml",
+      "file": "td/csdi-routes-and-fares-of-public-transport-geojson-service-3/openapi.json",
+      "sha256": "23f4e189ae7986fab08aada7dd1ca11f7414eb19ba89004ac415d6cbf6cd08cd",
+      "jsonSha256": "23f4e189ae7986fab08aada7dd1ca11f7414eb19ba89004ac415d6cbf6cd08cd",
+      "yamlSha256": "608653cf68b9b815d00f94e82fe52f6585d5d84ed5517a44693894b1c0f54da8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_routes_and_fares_of_public_transport_geojson_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "23f4e189ae7986fab08aada7dd1ca11f7414eb19ba89004ac415d6cbf6cd08cd"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638874728005_80512",
+        "canonicalJsonSha256": "23f4e189ae7986fab08aada7dd1ca11f7414eb19ba89004ac415d6cbf6cd08cd",
+        "originalRepresentationSha256": "23f4e189ae7986fab08aada7dd1ca11f7414eb19ba89004ac415d6cbf6cd08cd",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_routes_and_fares_of_public_transport_geojson_service_3"
+    },
+    {
+      "id": "td-csdi-routes-and-fares-of-public-transport-geojson-service-4",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-routes-and-fares-of-public-transport-geojson-service-4",
+      "name": "Routes and fares of public transport (GeoJSON)",
+      "apiTitle": "Transport Department \u2014 Routes and fares of public transport (GeoJSON)",
+      "json": "td/csdi-routes-and-fares-of-public-transport-geojson-service-4/openapi.json",
+      "yaml": "td/csdi-routes-and-fares-of-public-transport-geojson-service-4/openapi.yaml",
+      "file": "td/csdi-routes-and-fares-of-public-transport-geojson-service-4/openapi.json",
+      "sha256": "07a2cace468193895cc12e8e2ce50f4f959080fac4ababd94bddee24b04da6b8",
+      "jsonSha256": "07a2cace468193895cc12e8e2ce50f4f959080fac4ababd94bddee24b04da6b8",
+      "yamlSha256": "1c3bdae1a568e5ddd8d937d71fb141debc390fb8cf218a198be361fbb960fa9c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_routes_and_fares_of_public_transport_geojson_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "07a2cace468193895cc12e8e2ce50f4f959080fac4ababd94bddee24b04da6b8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638875413253_59498",
+        "canonicalJsonSha256": "07a2cace468193895cc12e8e2ce50f4f959080fac4ababd94bddee24b04da6b8",
+        "originalRepresentationSha256": "07a2cace468193895cc12e8e2ce50f4f959080fac4ababd94bddee24b04da6b8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_routes_and_fares_of_public_transport_geojson_service_4"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-2",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-2",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-2/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-2/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-2/openapi.json",
+      "sha256": "4817fa31ae91fbacdcef93828062307c2615691b4e92a312672d9f15c86b0be8",
+      "jsonSha256": "4817fa31ae91fbacdcef93828062307c2615691b4e92a312672d9f15c86b0be8",
+      "yamlSha256": "30013de60790cff925ccad023d178c000029aeaea1a1c0a5ad55b3b78dc6abdd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4817fa31ae91fbacdcef93828062307c2615691b4e92a312672d9f15c86b0be8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638875588184_92924",
+        "canonicalJsonSha256": "4817fa31ae91fbacdcef93828062307c2615691b4e92a312672d9f15c86b0be8",
+        "originalRepresentationSha256": "4817fa31ae91fbacdcef93828062307c2615691b4e92a312672d9f15c86b0be8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_2"
+    },
+    {
+      "id": "td-csdi-traffic-aids-drawings-2nd-generation",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-traffic-aids-drawings-2nd-generation",
+      "name": "Traffic Aids Drawings (2nd generation)",
+      "apiTitle": "Transport Department \u2014 Traffic Aids Drawings (2nd generation)",
+      "json": "td/csdi-traffic-aids-drawings-2nd-generation/openapi.json",
+      "yaml": "td/csdi-traffic-aids-drawings-2nd-generation/openapi.yaml",
+      "file": "td/csdi-traffic-aids-drawings-2nd-generation/openapi.json",
+      "sha256": "366936ca22b633b15391990e6d24eb9b1f01b1356544b97382de5460f15c0be7",
+      "jsonSha256": "366936ca22b633b15391990e6d24eb9b1f01b1356544b97382de5460f15c0be7",
+      "yamlSha256": "d1ffea00a6917a2a0582591a317dbdbedb097b537c4533dded9258fa2e58b996",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_traffic_aids_drawings_2nd_generation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "366936ca22b633b15391990e6d24eb9b1f01b1356544b97382de5460f15c0be7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638928986276_39755",
+        "canonicalJsonSha256": "366936ca22b633b15391990e6d24eb9b1f01b1356544b97382de5460f15c0be7",
+        "originalRepresentationSha256": "366936ca22b633b15391990e6d24eb9b1f01b1356544b97382de5460f15c0be7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_traffic_aids_drawings_2nd_generation"
+    },
+    {
+      "id": "td-csdi-distribution-of-metered-parking-spaces-and-occupancy-of-those-installed-with-new-parking-meters",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-distribution-of-metered-parking-spaces-and-occupancy-of-those-installed-with-new-parking-meters",
+      "name": "Distribution of Metered Parking Spaces and Occupancy of those Installed with New Parking Meters",
+      "apiTitle": "Transport Department \u2014 Distribution of Metered Parking Spaces and Occupancy of those Installed with New Parking Meters",
+      "json": "td/csdi-distribution-of-metered-parking-spaces-and-occupancy-of-those-installed-with-new-parking-meters/openapi.json",
+      "yaml": "td/csdi-distribution-of-metered-parking-spaces-and-occupancy-of-those-installed-with-new-parking-meters/openapi.yaml",
+      "file": "td/csdi-distribution-of-metered-parking-spaces-and-occupancy-of-those-installed-with-new-parking-meters/openapi.json",
+      "sha256": "78d6a61e0a5b4511ab65feb22de7052ba9a598a60e1f2c15df798842d1a09fa7",
+      "jsonSha256": "78d6a61e0a5b4511ab65feb22de7052ba9a598a60e1f2c15df798842d1a09fa7",
+      "yamlSha256": "3ef899f75984b6a5c9554711c353ffeb4c30d56ef2564826d4f58eda2f39df52",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_distribution_of_metered_parking_spaces_and_occupancy_of_those_installed_with_new_parking_meters",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "78d6a61e0a5b4511ab65feb22de7052ba9a598a60e1f2c15df798842d1a09fa7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638930345315_81787",
+        "canonicalJsonSha256": "78d6a61e0a5b4511ab65feb22de7052ba9a598a60e1f2c15df798842d1a09fa7",
+        "originalRepresentationSha256": "78d6a61e0a5b4511ab65feb22de7052ba9a598a60e1f2c15df798842d1a09fa7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_distribution_of_metered_parking_spaces_and_occupancy_of_those_installed_with_new_parking_meters"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-3",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-3",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-3/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-3/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-3/openapi.json",
+      "sha256": "3741467e76b445648195f1d914dbc8d482be7698d74f68ef87ed4e343234ffdb",
+      "jsonSha256": "3741467e76b445648195f1d914dbc8d482be7698d74f68ef87ed4e343234ffdb",
+      "yamlSha256": "338adccdce39c38433760beeea293051784407da49632e35fa6a15cc5bafb116",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3741467e76b445648195f1d914dbc8d482be7698d74f68ef87ed4e343234ffdb"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638947495026_88232",
+        "canonicalJsonSha256": "3741467e76b445648195f1d914dbc8d482be7698d74f68ef87ed4e343234ffdb",
+        "originalRepresentationSha256": "3741467e76b445648195f1d914dbc8d482be7698d74f68ef87ed4e343234ffdb",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_3"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-4",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-4",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-4/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-4/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-4/openapi.json",
+      "sha256": "a4649c0649e3bff14322eceed1aeb4392da215167f1330c26ce364b4d623de6e",
+      "jsonSha256": "a4649c0649e3bff14322eceed1aeb4392da215167f1330c26ce364b4d623de6e",
+      "yamlSha256": "3d20a3bb9a2ba41295a4cb4fc67846c9fa109b338ba59231bfa28016121abbaf",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a4649c0649e3bff14322eceed1aeb4392da215167f1330c26ce364b4d623de6e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638947604067_89966",
+        "canonicalJsonSha256": "a4649c0649e3bff14322eceed1aeb4392da215167f1330c26ce364b4d623de6e",
+        "originalRepresentationSha256": "a4649c0649e3bff14322eceed1aeb4392da215167f1330c26ce364b4d623de6e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_4"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-5",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-5",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-5/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-5/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-5/openapi.json",
+      "sha256": "060b32494551dd3e788ce7f2e28b43ad20044c485f889e2dc67d2226176a3061",
+      "jsonSha256": "060b32494551dd3e788ce7f2e28b43ad20044c485f889e2dc67d2226176a3061",
+      "yamlSha256": "4ee47fdc9c9407aaeeeebe8d80b786117e0e5189984eb94c941b3fcae943507a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_5",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "060b32494551dd3e788ce7f2e28b43ad20044c485f889e2dc67d2226176a3061"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638947680151_17070",
+        "canonicalJsonSha256": "060b32494551dd3e788ce7f2e28b43ad20044c485f889e2dc67d2226176a3061",
+        "originalRepresentationSha256": "060b32494551dd3e788ce7f2e28b43ad20044c485f889e2dc67d2226176a3061",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_5"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-6",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-6",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-6/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-6/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-6/openapi.json",
+      "sha256": "a2d9ffd31e519b67558aaaadcc32038721ab635bdbca5fe173bdb8d60cb8284d",
+      "jsonSha256": "a2d9ffd31e519b67558aaaadcc32038721ab635bdbca5fe173bdb8d60cb8284d",
+      "yamlSha256": "893025308a962669afa208ab520f79b1578b3b8c0ff9c5c6b315ba220a6a7314",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_6",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a2d9ffd31e519b67558aaaadcc32038721ab635bdbca5fe173bdb8d60cb8284d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638947760180_17405",
+        "canonicalJsonSha256": "a2d9ffd31e519b67558aaaadcc32038721ab635bdbca5fe173bdb8d60cb8284d",
+        "originalRepresentationSha256": "a2d9ffd31e519b67558aaaadcc32038721ab635bdbca5fe173bdb8d60cb8284d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_6"
+    },
+    {
+      "id": "td-csdi-junction-blacksite-list",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-junction-blacksite-list",
+      "name": "Junction Blacksite List",
+      "apiTitle": "Transport Department \u2014 Junction Blacksite List",
+      "json": "td/csdi-junction-blacksite-list/openapi.json",
+      "yaml": "td/csdi-junction-blacksite-list/openapi.yaml",
+      "file": "td/csdi-junction-blacksite-list/openapi.json",
+      "sha256": "f6de1b4cd7a0c2178994bd04ac75474e5d3bb9ef5c71dcf0fc0e0c3efe1b7240",
+      "jsonSha256": "f6de1b4cd7a0c2178994bd04ac75474e5d3bb9ef5c71dcf0fc0e0c3efe1b7240",
+      "yamlSha256": "b244ff1b84b9681c741fc8baaa26457549d55921bd8afd9ebd815a8daed36885",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_junction_blacksite_list",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f6de1b4cd7a0c2178994bd04ac75474e5d3bb9ef5c71dcf0fc0e0c3efe1b7240"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638947917303_26860",
+        "canonicalJsonSha256": "f6de1b4cd7a0c2178994bd04ac75474e5d3bb9ef5c71dcf0fc0e0c3efe1b7240",
+        "originalRepresentationSha256": "f6de1b4cd7a0c2178994bd04ac75474e5d3bb9ef5c71dcf0fc0e0c3efe1b7240",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_junction_blacksite_list"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-7",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-7",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-7/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-7/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-7/openapi.json",
+      "sha256": "ca678f4109ca81aa7e7274ba4df96c342ab3159a8bc65ddab5676bc81ede34a8",
+      "jsonSha256": "ca678f4109ca81aa7e7274ba4df96c342ab3159a8bc65ddab5676bc81ede34a8",
+      "yamlSha256": "7da1de7dbb44c80a1d01701675cd872497aef0adc17511ff09352e4d5e962506",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_7",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ca678f4109ca81aa7e7274ba4df96c342ab3159a8bc65ddab5676bc81ede34a8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638948058365_31702",
+        "canonicalJsonSha256": "ca678f4109ca81aa7e7274ba4df96c342ab3159a8bc65ddab5676bc81ede34a8",
+        "originalRepresentationSha256": "ca678f4109ca81aa7e7274ba4df96c342ab3159a8bc65ddab5676bc81ede34a8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_7"
+    },
+    {
+      "id": "td-csdi-parking-vacancy-data",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-parking-vacancy-data",
+      "name": "Parking vacancy data",
+      "apiTitle": "Transport Department \u2014 Parking vacancy data",
+      "json": "td/csdi-parking-vacancy-data/openapi.json",
+      "yaml": "td/csdi-parking-vacancy-data/openapi.yaml",
+      "file": "td/csdi-parking-vacancy-data/openapi.json",
+      "sha256": "c77929123cfa0a0fd02dc4de6fac2fb88d9d8da65c0b12976e3840189d30cae6",
+      "jsonSha256": "c77929123cfa0a0fd02dc4de6fac2fb88d9d8da65c0b12976e3840189d30cae6",
+      "yamlSha256": "3f6bf63e43fa78df0eeb6207be18f2236ce225e1f59ba44ba1a82c289a444a78",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_parking_vacancy_data",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c77929123cfa0a0fd02dc4de6fac2fb88d9d8da65c0b12976e3840189d30cae6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638948197838_85279",
+        "canonicalJsonSha256": "c77929123cfa0a0fd02dc4de6fac2fb88d9d8da65c0b12976e3840189d30cae6",
+        "originalRepresentationSha256": "c77929123cfa0a0fd02dc4de6fac2fb88d9d8da65c0b12976e3840189d30cae6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_parking_vacancy_data"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-8",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-8",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-8/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-8/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-8/openapi.json",
+      "sha256": "5dbc967b8beb13d585df629dde7aa0d24381b00dbc9d32673c8d8c9ac064cb8d",
+      "jsonSha256": "5dbc967b8beb13d585df629dde7aa0d24381b00dbc9d32673c8d8c9ac064cb8d",
+      "yamlSha256": "a7375b0eac7c4a3aca1f2047450b12615e0cba3f0cf9471df0e4b969ef6e1f48",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_8",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5dbc967b8beb13d585df629dde7aa0d24381b00dbc9d32673c8d8c9ac064cb8d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638948282549_71559",
+        "canonicalJsonSha256": "5dbc967b8beb13d585df629dde7aa0d24381b00dbc9d32673c8d8c9ac064cb8d",
+        "originalRepresentationSha256": "5dbc967b8beb13d585df629dde7aa0d24381b00dbc9d32673c8d8c9ac064cb8d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_8"
+    },
+    {
+      "id": "td-csdi-road-network-2nd-generation",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-road-network-2nd-generation",
+      "name": "Road Network (2nd Generation)",
+      "apiTitle": "Transport Department \u2014 Road Network (2nd Generation)",
+      "json": "td/csdi-road-network-2nd-generation/openapi.json",
+      "yaml": "td/csdi-road-network-2nd-generation/openapi.yaml",
+      "file": "td/csdi-road-network-2nd-generation/openapi.json",
+      "sha256": "954c333ba1decf4046570b83fd29365e72943fed67ca6471074573bae3b4a690",
+      "jsonSha256": "954c333ba1decf4046570b83fd29365e72943fed67ca6471074573bae3b4a690",
+      "yamlSha256": "9c4ae09ea61c0c9d7b3ddf7cadd0d2a67839b1843b4330381d67270e84cc8c31",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_road_network_2nd_generation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "954c333ba1decf4046570b83fd29365e72943fed67ca6471074573bae3b4a690"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638949160594_2844",
+        "canonicalJsonSha256": "954c333ba1decf4046570b83fd29365e72943fed67ca6471074573bae3b4a690",
+        "originalRepresentationSha256": "954c333ba1decf4046570b83fd29365e72943fed67ca6471074573bae3b4a690",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_road_network_2nd_generation"
+    },
+    {
+      "id": "td-csdi-route-list-for-day-time-ban-for-roadworks",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-route-list-for-day-time-ban-for-roadworks",
+      "name": "Route list for day-time ban for roadworks",
+      "apiTitle": "Transport Department \u2014 Route list for day-time ban for roadworks",
+      "json": "td/csdi-route-list-for-day-time-ban-for-roadworks/openapi.json",
+      "yaml": "td/csdi-route-list-for-day-time-ban-for-roadworks/openapi.yaml",
+      "file": "td/csdi-route-list-for-day-time-ban-for-roadworks/openapi.json",
+      "sha256": "3c81501cc55f8f95e94b082c04c656a33bb8a999bcd8ea06656cdd3e600e7fc7",
+      "jsonSha256": "3c81501cc55f8f95e94b082c04c656a33bb8a999bcd8ea06656cdd3e600e7fc7",
+      "yamlSha256": "9ecae3d3f79c23abde3a108a2132329155002c6fe36694c30b093e68bfb0c446",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_route_list_for_day_time_ban_for_roadworks",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3c81501cc55f8f95e94b082c04c656a33bb8a999bcd8ea06656cdd3e600e7fc7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638949236257_12029",
+        "canonicalJsonSha256": "3c81501cc55f8f95e94b082c04c656a33bb8a999bcd8ea06656cdd3e600e7fc7",
+        "originalRepresentationSha256": "3c81501cc55f8f95e94b082c04c656a33bb8a999bcd8ea06656cdd3e600e7fc7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_route_list_for_day_time_ban_for_roadworks"
+    },
+    {
+      "id": "td-csdi-route-list-for-traffic-impact-assessment-for-roadworks",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-route-list-for-traffic-impact-assessment-for-roadworks",
+      "name": "Route list for Traffic Impact Assessment for roadworks",
+      "apiTitle": "Transport Department \u2014 Route list for Traffic Impact Assessment for roadworks",
+      "json": "td/csdi-route-list-for-traffic-impact-assessment-for-roadworks/openapi.json",
+      "yaml": "td/csdi-route-list-for-traffic-impact-assessment-for-roadworks/openapi.yaml",
+      "file": "td/csdi-route-list-for-traffic-impact-assessment-for-roadworks/openapi.json",
+      "sha256": "4b36a4edf3f31b928dd6435d4fe164ea26f51d4b2d9998ebbc1f20b2eaef22dc",
+      "jsonSha256": "4b36a4edf3f31b928dd6435d4fe164ea26f51d4b2d9998ebbc1f20b2eaef22dc",
+      "yamlSha256": "77460c5c61dd0405302cfb3e29c619e43ae21ecb8ed6864a6310f28d8aabcd18",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_route_list_for_traffic_impact_assessment_for_roadworks",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4b36a4edf3f31b928dd6435d4fe164ea26f51d4b2d9998ebbc1f20b2eaef22dc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638949305417_44708",
+        "canonicalJsonSha256": "4b36a4edf3f31b928dd6435d4fe164ea26f51d4b2d9998ebbc1f20b2eaef22dc",
+        "originalRepresentationSha256": "4b36a4edf3f31b928dd6435d4fe164ea26f51d4b2d9998ebbc1f20b2eaef22dc",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_route_list_for_traffic_impact_assessment_for_roadworks"
+    },
+    {
+      "id": "td-csdi-speed-map-panels-2nd-generation",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-speed-map-panels-2nd-generation",
+      "name": "Speed map panels (2nd Generation)",
+      "apiTitle": "Transport Department \u2014 Speed map panels (2nd Generation)",
+      "json": "td/csdi-speed-map-panels-2nd-generation/openapi.json",
+      "yaml": "td/csdi-speed-map-panels-2nd-generation/openapi.yaml",
+      "file": "td/csdi-speed-map-panels-2nd-generation/openapi.json",
+      "sha256": "770918733883c2285694b49508687eac3774542e850c22317f048599aef27252",
+      "jsonSha256": "770918733883c2285694b49508687eac3774542e850c22317f048599aef27252",
+      "yamlSha256": "4e703c6d870ce136bacf57b32b33f879cee03308681d54d779179b7ef93e6a60",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_speed_map_panels_2nd_generation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "770918733883c2285694b49508687eac3774542e850c22317f048599aef27252"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638949546121_53052",
+        "canonicalJsonSha256": "770918733883c2285694b49508687eac3774542e850c22317f048599aef27252",
+        "originalRepresentationSha256": "770918733883c2285694b49508687eac3774542e850c22317f048599aef27252",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_speed_map_panels_2nd_generation"
+    },
+    {
+      "id": "td-csdi-traffic-flow-census",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-traffic-flow-census",
+      "name": "Traffic Flow Census",
+      "apiTitle": "Transport Department \u2014 Traffic Flow Census",
+      "json": "td/csdi-traffic-flow-census/openapi.json",
+      "yaml": "td/csdi-traffic-flow-census/openapi.yaml",
+      "file": "td/csdi-traffic-flow-census/openapi.json",
+      "sha256": "f298a7b3b1ba7c37c9197feaa1ff5827ac5d61d55ddad2b14c6cd8373b546d78",
+      "jsonSha256": "f298a7b3b1ba7c37c9197feaa1ff5827ac5d61d55ddad2b14c6cd8373b546d78",
+      "yamlSha256": "59a71b26dba195e500ca0f4d4ff7b4bcded6f36f5607ee4b5256ec95e70a0a24",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_traffic_flow_census",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f298a7b3b1ba7c37c9197feaa1ff5827ac5d61d55ddad2b14c6cd8373b546d78"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638950691670_3837",
+        "canonicalJsonSha256": "f298a7b3b1ba7c37c9197feaa1ff5827ac5d61d55ddad2b14c6cd8373b546d78",
+        "originalRepresentationSha256": "f298a7b3b1ba7c37c9197feaa1ff5827ac5d61d55ddad2b14c6cd8373b546d78",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_traffic_flow_census"
+    },
+    {
+      "id": "td-csdi-traffic-snapshot-images",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-traffic-snapshot-images",
+      "name": "Traffic snapshot images",
+      "apiTitle": "Transport Department \u2014 Traffic snapshot images",
+      "json": "td/csdi-traffic-snapshot-images/openapi.json",
+      "yaml": "td/csdi-traffic-snapshot-images/openapi.yaml",
+      "file": "td/csdi-traffic-snapshot-images/openapi.json",
+      "sha256": "f7f5fa3968d089b4b2abebe752c27401ca87c196bcdeeccede9547d85c0dc6de",
+      "jsonSha256": "f7f5fa3968d089b4b2abebe752c27401ca87c196bcdeeccede9547d85c0dc6de",
+      "yamlSha256": "cb676391f2bfd7fa93d7ed24ccd14c00ce8632112a0a05415112e9277b09c6dd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_traffic_snapshot_images",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f7f5fa3968d089b4b2abebe752c27401ca87c196bcdeeccede9547d85c0dc6de"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638952287148_39267",
+        "canonicalJsonSha256": "f7f5fa3968d089b4b2abebe752c27401ca87c196bcdeeccede9547d85c0dc6de",
+        "originalRepresentationSha256": "f7f5fa3968d089b4b2abebe752c27401ca87c196bcdeeccede9547d85c0dc6de",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_traffic_snapshot_images"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-9",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-9",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-9/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-9/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-9/openapi.json",
+      "sha256": "e768cddcf8f08ec85c17d6b8397ed2a53b897840e532a48a9c0a4e819b3052dc",
+      "jsonSha256": "e768cddcf8f08ec85c17d6b8397ed2a53b897840e532a48a9c0a4e819b3052dc",
+      "yamlSha256": "7f4200cccbd19f9895fe85d0f111a503469c8b48f14a26ebb87e37396f90a7d4",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_9",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e768cddcf8f08ec85c17d6b8397ed2a53b897840e532a48a9c0a4e819b3052dc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1638952348150_58617",
+        "canonicalJsonSha256": "e768cddcf8f08ec85c17d6b8397ed2a53b897840e532a48a9c0a4e819b3052dc",
+        "originalRepresentationSha256": "e768cddcf8f08ec85c17d6b8397ed2a53b897840e532a48a9c0a4e819b3052dc",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_9"
+    },
+    {
+      "id": "td-csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-10",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-10",
+      "name": "Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "apiTitle": "Transport Department \u2014 Locations of Licensing and Driving Services Offices, Driving Test and Vehicle Examination Centres, Public Vehicles Unit and Driving-offence Points Office",
+      "json": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-10/openapi.json",
+      "yaml": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-10/openapi.yaml",
+      "file": "td/csdi-locations-of-licensing-and-driving-services-offices-driving-test-and-vehicle-examination-centres-public-vehicles-unit-and-driving-offence-points-office-service-10/openapi.json",
+      "sha256": "11ee359de3f3ac7096d7125f62865fbffefddaed59c9f7f6089faabe3e8e5db4",
+      "jsonSha256": "11ee359de3f3ac7096d7125f62865fbffefddaed59c9f7f6089faabe3e8e5db4",
+      "yamlSha256": "727ffe11abfd4dfeeef4f87d2f487bb5fe0a047c5ecda705211bdc11e2f06b03",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_10",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "11ee359de3f3ac7096d7125f62865fbffefddaed59c9f7f6089faabe3e8e5db4"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1640076873926_95495",
+        "canonicalJsonSha256": "11ee359de3f3ac7096d7125f62865fbffefddaed59c9f7f6089faabe3e8e5db4",
+        "originalRepresentationSha256": "11ee359de3f3ac7096d7125f62865fbffefddaed59c9f7f6089faabe3e8e5db4",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_licensing_and_driving_services_offices_driving_test_and_vehicle_examination_centres_public_vehicles_unit_and_driving_offence_points_office_service_10"
+    },
+    {
+      "id": "td-csdi-journey-time-indicators-2nd-generation",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-journey-time-indicators-2nd-generation",
+      "name": "Journey time indicators (2nd Generation)",
+      "apiTitle": "Transport Department \u2014 Journey time indicators (2nd Generation)",
+      "json": "td/csdi-journey-time-indicators-2nd-generation/openapi.json",
+      "yaml": "td/csdi-journey-time-indicators-2nd-generation/openapi.yaml",
+      "file": "td/csdi-journey-time-indicators-2nd-generation/openapi.json",
+      "sha256": "f9485463ff3a1e536171c69371ae57c82aab59dada7fc6883394c0e65b5db505",
+      "jsonSha256": "f9485463ff3a1e536171c69371ae57c82aab59dada7fc6883394c0e65b5db505",
+      "yamlSha256": "c98cd5c16e6250697f43675aa3d6a52b39fd2a561e182a32b79b373fa500a6bf",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_journey_time_indicators_2nd_generation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f9485463ff3a1e536171c69371ae57c82aab59dada7fc6883394c0e65b5db505"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671692669689_59165",
+        "canonicalJsonSha256": "f9485463ff3a1e536171c69371ae57c82aab59dada7fc6883394c0e65b5db505",
+        "originalRepresentationSha256": "f9485463ff3a1e536171c69371ae57c82aab59dada7fc6883394c0e65b5db505",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_journey_time_indicators_2nd_generation"
+    },
+    {
+      "id": "td-csdi-routes-and-fares-of-public-transport-geojson-service-5",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-routes-and-fares-of-public-transport-geojson-service-5",
+      "name": "Routes and fares of public transport (GeoJSON)",
+      "apiTitle": "Transport Department \u2014 Routes and fares of public transport (GeoJSON)",
+      "json": "td/csdi-routes-and-fares-of-public-transport-geojson-service-5/openapi.json",
+      "yaml": "td/csdi-routes-and-fares-of-public-transport-geojson-service-5/openapi.yaml",
+      "file": "td/csdi-routes-and-fares-of-public-transport-geojson-service-5/openapi.json",
+      "sha256": "a95393b812eda27c5f81f41ced94d03db2743968ca96b7decd4d8b0fe5352169",
+      "jsonSha256": "a95393b812eda27c5f81f41ced94d03db2743968ca96b7decd4d8b0fe5352169",
+      "yamlSha256": "fd85b0213c2ed4d23b4cb6841f46bb8ab8fecd16dc5678409c6aef0808ef85b4",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_routes_and_fares_of_public_transport_geojson_service_5",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a95393b812eda27c5f81f41ced94d03db2743968ca96b7decd4d8b0fe5352169"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671692797539_19916",
+        "canonicalJsonSha256": "a95393b812eda27c5f81f41ced94d03db2743968ca96b7decd4d8b0fe5352169",
+        "originalRepresentationSha256": "a95393b812eda27c5f81f41ced94d03db2743968ca96b7decd4d8b0fe5352169",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_routes_and_fares_of_public_transport_geojson_service_5"
+    },
+    {
+      "id": "td-csdi-routes-and-fares-of-public-transport-geojson-service-6",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-routes-and-fares-of-public-transport-geojson-service-6",
+      "name": "Routes and fares of public transport (GeoJSON)",
+      "apiTitle": "Transport Department \u2014 Routes and fares of public transport (GeoJSON)",
+      "json": "td/csdi-routes-and-fares-of-public-transport-geojson-service-6/openapi.json",
+      "yaml": "td/csdi-routes-and-fares-of-public-transport-geojson-service-6/openapi.yaml",
+      "file": "td/csdi-routes-and-fares-of-public-transport-geojson-service-6/openapi.json",
+      "sha256": "8338254684086001031d15c807204462fa164129e0d82ef6ec770b60898aa24c",
+      "jsonSha256": "8338254684086001031d15c807204462fa164129e0d82ef6ec770b60898aa24c",
+      "yamlSha256": "ff943a9742cfaf0e7d0e734004eb968ca536b73e88b1fec6e47dc7f9e053b561",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_routes_and_fares_of_public_transport_geojson_service_6",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8338254684086001031d15c807204462fa164129e0d82ef6ec770b60898aa24c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671692942064_66315",
+        "canonicalJsonSha256": "8338254684086001031d15c807204462fa164129e0d82ef6ec770b60898aa24c",
+        "originalRepresentationSha256": "8338254684086001031d15c807204462fa164129e0d82ef6ec770b60898aa24c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_routes_and_fares_of_public_transport_geojson_service_6"
+    },
+    {
+      "id": "td-csdi-location-and-occupancy-status-of-non-metered-on-street-parking-spaces-installed-with-sensors",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-location-and-occupancy-status-of-non-metered-on-street-parking-spaces-installed-with-sensors",
+      "name": "Location and occupancy status of non-metered on-street parking spaces installed with sensors",
+      "apiTitle": "Transport Department \u2014 Location and occupancy status of non-metered on-street parking spaces installed with sensors",
+      "json": "td/csdi-location-and-occupancy-status-of-non-metered-on-street-parking-spaces-installed-with-sensors/openapi.json",
+      "yaml": "td/csdi-location-and-occupancy-status-of-non-metered-on-street-parking-spaces-installed-with-sensors/openapi.yaml",
+      "file": "td/csdi-location-and-occupancy-status-of-non-metered-on-street-parking-spaces-installed-with-sensors/openapi.json",
+      "sha256": "07ea76be10afdf8c17e5b48bdee9b67560439f87042bb5b9baf0ba14a8c970d2",
+      "jsonSha256": "07ea76be10afdf8c17e5b48bdee9b67560439f87042bb5b9baf0ba14a8c970d2",
+      "yamlSha256": "a85f78fa9671918727c73461fc11fa036510519e1f269cc3137dbee02b2e2b23",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_location_and_occupancy_status_of_non_metered_on_street_parking_spaces_installed_with_sensors",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "07ea76be10afdf8c17e5b48bdee9b67560439f87042bb5b9baf0ba14a8c970d2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671693072228_72567",
+        "canonicalJsonSha256": "07ea76be10afdf8c17e5b48bdee9b67560439f87042bb5b9baf0ba14a8c970d2",
+        "originalRepresentationSha256": "07ea76be10afdf8c17e5b48bdee9b67560439f87042bb5b9baf0ba14a8c970d2",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_location_and_occupancy_status_of_non_metered_on_street_parking_spaces_installed_with_sensors"
+    },
+    {
+      "id": "td-csdi-traffic-data-of-strategic-major-roads",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-traffic-data-of-strategic-major-roads",
+      "name": "Traffic Data of Strategic / Major Roads",
+      "apiTitle": "Transport Department \u2014 Traffic Data of Strategic / Major Roads",
+      "json": "td/csdi-traffic-data-of-strategic-major-roads/openapi.json",
+      "yaml": "td/csdi-traffic-data-of-strategic-major-roads/openapi.yaml",
+      "file": "td/csdi-traffic-data-of-strategic-major-roads/openapi.json",
+      "sha256": "17d3596822a75d6be57029114567199d635ac1e3a75864a37a479bbd71e06941",
+      "jsonSha256": "17d3596822a75d6be57029114567199d635ac1e3a75864a37a479bbd71e06941",
+      "yamlSha256": "db1bee3cb2244b407d6e53ad1856561753845a5afe9ecdb649eeb2618d09aacb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_traffic_data_of_strategic_major_roads",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "17d3596822a75d6be57029114567199d635ac1e3a75864a37a479bbd71e06941"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671693191724_92214",
+        "canonicalJsonSha256": "17d3596822a75d6be57029114567199d635ac1e3a75864a37a479bbd71e06941",
+        "originalRepresentationSha256": "17d3596822a75d6be57029114567199d635ac1e3a75864a37a479bbd71e06941",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_traffic_data_of_strategic_major_roads"
+    },
+    {
+      "id": "td-csdi-junctions-with-red-light-camera-system-installed",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-junctions-with-red-light-camera-system-installed",
+      "name": "Junctions with Red Light Camera System installed",
+      "apiTitle": "Transport Department \u2014 Junctions with Red Light Camera System installed",
+      "json": "td/csdi-junctions-with-red-light-camera-system-installed/openapi.json",
+      "yaml": "td/csdi-junctions-with-red-light-camera-system-installed/openapi.yaml",
+      "file": "td/csdi-junctions-with-red-light-camera-system-installed/openapi.json",
+      "sha256": "ec2a8e77d5deea4a2e878f9969b312f85380f768ffedfcf3c89b3959c867526b",
+      "jsonSha256": "ec2a8e77d5deea4a2e878f9969b312f85380f768ffedfcf3c89b3959c867526b",
+      "yamlSha256": "7ff4db2c7bb84450dc75d345e4257d49b08df0a4c65e7bd27b3e0dcde1e5e6e2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_junctions_with_red_light_camera_system_installed",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ec2a8e77d5deea4a2e878f9969b312f85380f768ffedfcf3c89b3959c867526b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671693287017_1644",
+        "canonicalJsonSha256": "ec2a8e77d5deea4a2e878f9969b312f85380f768ffedfcf3c89b3959c867526b",
+        "originalRepresentationSha256": "ec2a8e77d5deea4a2e878f9969b312f85380f768ffedfcf3c89b3959c867526b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_junctions_with_red_light_camera_system_installed"
+    },
+    {
+      "id": "td-csdi-locations-of-speed-enforcement-camera-housing",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-locations-of-speed-enforcement-camera-housing",
+      "name": "Locations of Speed Enforcement Camera housing",
+      "apiTitle": "Transport Department \u2014 Locations of Speed Enforcement Camera housing",
+      "json": "td/csdi-locations-of-speed-enforcement-camera-housing/openapi.json",
+      "yaml": "td/csdi-locations-of-speed-enforcement-camera-housing/openapi.yaml",
+      "file": "td/csdi-locations-of-speed-enforcement-camera-housing/openapi.json",
+      "sha256": "04b8544fecdb40c8ce36ea444eea21cd0e8530ed5721e8c2f39ba4c4271c0772",
+      "jsonSha256": "04b8544fecdb40c8ce36ea444eea21cd0e8530ed5721e8c2f39ba4c4271c0772",
+      "yamlSha256": "a1e444b6d3306f855c3ea7b3344e3d3ea1d79100671e9510c90500e6a05b012c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_speed_enforcement_camera_housing",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "04b8544fecdb40c8ce36ea444eea21cd0e8530ed5721e8c2f39ba4c4271c0772"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671693428549_89372",
+        "canonicalJsonSha256": "04b8544fecdb40c8ce36ea444eea21cd0e8530ed5721e8c2f39ba4c4271c0772",
+        "originalRepresentationSha256": "04b8544fecdb40c8ce36ea444eea21cd0e8530ed5721e8c2f39ba4c4271c0772",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_speed_enforcement_camera_housing"
+    },
+    {
+      "id": "td-csdi-traffic-data-from-ai-video-analytics-system-of-cctvs",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-traffic-data-from-ai-video-analytics-system-of-cctvs",
+      "name": "Traffic data from AI Video Analytics System of CCTVs",
+      "apiTitle": "Transport Department \u2014 Traffic data from AI Video Analytics System of CCTVs",
+      "json": "td/csdi-traffic-data-from-ai-video-analytics-system-of-cctvs/openapi.json",
+      "yaml": "td/csdi-traffic-data-from-ai-video-analytics-system-of-cctvs/openapi.yaml",
+      "file": "td/csdi-traffic-data-from-ai-video-analytics-system-of-cctvs/openapi.json",
+      "sha256": "1880b25220bae17169d391d7c645d1757d03643e10fec0610b5f11b7e0d90943",
+      "jsonSha256": "1880b25220bae17169d391d7c645d1757d03643e10fec0610b5f11b7e0d90943",
+      "yamlSha256": "db22350b42f111b08e30c7fa68c5cc17c06ea032094f884ca99dbeade6b371eb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_traffic_data_from_ai_video_analytics_system_of_cctvs",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1880b25220bae17169d391d7c645d1757d03643e10fec0610b5f11b7e0d90943"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671693527354_28926",
+        "canonicalJsonSha256": "1880b25220bae17169d391d7c645d1757d03643e10fec0610b5f11b7e0d90943",
+        "originalRepresentationSha256": "1880b25220bae17169d391d7c645d1757d03643e10fec0610b5f11b7e0d90943",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_traffic_data_from_ai_video_analytics_system_of_cctvs"
+    },
+    {
+      "id": "td-csdi-traffic-data-collected-by-traffic-detectors-installed-at-smart-lampposts",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-traffic-data-collected-by-traffic-detectors-installed-at-smart-lampposts",
+      "name": "Traffic Data collected by Traffic Detectors Installed at Smart Lampposts",
+      "apiTitle": "Transport Department \u2014 Traffic Data collected by Traffic Detectors Installed at Smart Lampposts",
+      "json": "td/csdi-traffic-data-collected-by-traffic-detectors-installed-at-smart-lampposts/openapi.json",
+      "yaml": "td/csdi-traffic-data-collected-by-traffic-detectors-installed-at-smart-lampposts/openapi.yaml",
+      "file": "td/csdi-traffic-data-collected-by-traffic-detectors-installed-at-smart-lampposts/openapi.json",
+      "sha256": "6fe5ee846e62d562aed3dd30747e1bfe5781432d57ee9e95ecb2b6e05911da57",
+      "jsonSha256": "6fe5ee846e62d562aed3dd30747e1bfe5781432d57ee9e95ecb2b6e05911da57",
+      "yamlSha256": "c5d845a1344088156abfdca1655ada710018d314f1688991e1118392e847e704",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_traffic_data_collected_by_traffic_detectors_installed_at_smart_lampposts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6fe5ee846e62d562aed3dd30747e1bfe5781432d57ee9e95ecb2b6e05911da57"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1671693670072_72800",
+        "canonicalJsonSha256": "6fe5ee846e62d562aed3dd30747e1bfe5781432d57ee9e95ecb2b6e05911da57",
+        "originalRepresentationSha256": "6fe5ee846e62d562aed3dd30747e1bfe5781432d57ee9e95ecb2b6e05911da57",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_traffic_data_collected_by_traffic_detectors_installed_at_smart_lampposts"
+    },
+    {
+      "id": "td-csdi-tunnel-and-control-area-operators",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-tunnel-and-control-area-operators",
+      "name": "Tunnel and Control Area Operators",
+      "apiTitle": "Transport Department \u2014 Tunnel and Control Area Operators",
+      "json": "td/csdi-tunnel-and-control-area-operators/openapi.json",
+      "yaml": "td/csdi-tunnel-and-control-area-operators/openapi.yaml",
+      "file": "td/csdi-tunnel-and-control-area-operators/openapi.json",
+      "sha256": "086a9929380f8cab45d80f76504750851bc332ee2c9bdfc2a0a252d387818964",
+      "jsonSha256": "086a9929380f8cab45d80f76504750851bc332ee2c9bdfc2a0a252d387818964",
+      "yamlSha256": "5a88b5551c8eaefdb6d004705db36211a7c49601735bd9c19d5250f6fd14f94a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_tunnel_and_control_area_operators",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "086a9929380f8cab45d80f76504750851bc332ee2c9bdfc2a0a252d387818964"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1697081534887_201",
+        "canonicalJsonSha256": "086a9929380f8cab45d80f76504750851bc332ee2c9bdfc2a0a252d387818964",
+        "originalRepresentationSha256": "086a9929380f8cab45d80f76504750851bc332ee2c9bdfc2a0a252d387818964",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_tunnel_and_control_area_operators"
+    },
+    {
+      "id": "td-csdi-pedestrian-streets",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-pedestrian-streets",
+      "name": "Pedestrian Streets",
+      "apiTitle": "Transport Department \u2014 Pedestrian Streets",
+      "json": "td/csdi-pedestrian-streets/openapi.json",
+      "yaml": "td/csdi-pedestrian-streets/openapi.yaml",
+      "file": "td/csdi-pedestrian-streets/openapi.json",
+      "sha256": "61e17f573e0be3040ab39b4835fc05d7cfd30f083b26e5250a0cf77ecfcc4614",
+      "jsonSha256": "61e17f573e0be3040ab39b4835fc05d7cfd30f083b26e5250a0cf77ecfcc4614",
+      "yamlSha256": "384e030b92ba413a6b19bf3e696b21ff77436a567f585638fa93baab188b5b90",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_pedestrian_streets",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "61e17f573e0be3040ab39b4835fc05d7cfd30f083b26e5250a0cf77ecfcc4614"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1697081765097_37742",
+        "canonicalJsonSha256": "61e17f573e0be3040ab39b4835fc05d7cfd30f083b26e5250a0cf77ecfcc4614",
+        "originalRepresentationSha256": "61e17f573e0be3040ab39b4835fc05d7cfd30f083b26e5250a0cf77ecfcc4614",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_pedestrian_streets"
+    },
+    {
+      "id": "td-csdi-taxi-stands",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-taxi-stands",
+      "name": "Taxi Stands",
+      "apiTitle": "Transport Department \u2014 Taxi Stands",
+      "json": "td/csdi-taxi-stands/openapi.json",
+      "yaml": "td/csdi-taxi-stands/openapi.yaml",
+      "file": "td/csdi-taxi-stands/openapi.json",
+      "sha256": "501136b86e9a345d18da91b08adce4502187f1bfd10416c195589e4eb0f99905",
+      "jsonSha256": "501136b86e9a345d18da91b08adce4502187f1bfd10416c195589e4eb0f99905",
+      "yamlSha256": "b7afef8209585c3ce449b00423d451b4764faf26218f576505f01b396459d0de",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_taxi_stands",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "501136b86e9a345d18da91b08adce4502187f1bfd10416c195589e4eb0f99905"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1697081907714_17556",
+        "canonicalJsonSha256": "501136b86e9a345d18da91b08adce4502187f1bfd10416c195589e4eb0f99905",
+        "originalRepresentationSha256": "501136b86e9a345d18da91b08adce4502187f1bfd10416c195589e4eb0f99905",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_taxi_stands"
+    },
+    {
+      "id": "td-csdi-taxi-pick-up-drop-off-points",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-taxi-pick-up-drop-off-points",
+      "name": "Taxi Pick-up & Drop-off Points",
+      "apiTitle": "Transport Department \u2014 Taxi Pick-up & Drop-off Points",
+      "json": "td/csdi-taxi-pick-up-drop-off-points/openapi.json",
+      "yaml": "td/csdi-taxi-pick-up-drop-off-points/openapi.yaml",
+      "file": "td/csdi-taxi-pick-up-drop-off-points/openapi.json",
+      "sha256": "30e41c4f2f3f376fd9377b7fa294c6fc7f9fdead381583a6f2f390def777fb05",
+      "jsonSha256": "30e41c4f2f3f376fd9377b7fa294c6fc7f9fdead381583a6f2f390def777fb05",
+      "yamlSha256": "b2ae0babccd7394e67ffc02eda5b24a22bba6f50465641c20d599ddd257eeaec",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_taxi_pick_up_drop_off_points",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "30e41c4f2f3f376fd9377b7fa294c6fc7f9fdead381583a6f2f390def777fb05"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1697082382328_14459",
+        "canonicalJsonSha256": "30e41c4f2f3f376fd9377b7fa294c6fc7f9fdead381583a6f2f390def777fb05",
+        "originalRepresentationSha256": "30e41c4f2f3f376fd9377b7fa294c6fc7f9fdead381583a6f2f390def777fb05",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_taxi_pick_up_drop_off_points"
+    },
+    {
+      "id": "td-csdi-real-time-arrival-data-of-green-minibuses-gmbs",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-real-time-arrival-data-of-green-minibuses-gmbs",
+      "name": "Real-time arrival data of green minibuses (GMBs)",
+      "apiTitle": "Transport Department \u2014 Real-time arrival data of green minibuses (GMBs)",
+      "json": "td/csdi-real-time-arrival-data-of-green-minibuses-gmbs/openapi.json",
+      "yaml": "td/csdi-real-time-arrival-data-of-green-minibuses-gmbs/openapi.yaml",
+      "file": "td/csdi-real-time-arrival-data-of-green-minibuses-gmbs/openapi.json",
+      "sha256": "f56b60c019828e62ebdfbf1f05fd89c448651494faef713fce6912a9d80d9ae7",
+      "jsonSha256": "f56b60c019828e62ebdfbf1f05fd89c448651494faef713fce6912a9d80d9ae7",
+      "yamlSha256": "b821a9134b9858808e97f22fba636e46995a452f857a74996fbbe065aec82eeb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_real_time_arrival_data_of_green_minibuses_gmbs",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f56b60c019828e62ebdfbf1f05fd89c448651494faef713fce6912a9d80d9ae7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1697082463580_57453",
+        "canonicalJsonSha256": "f56b60c019828e62ebdfbf1f05fd89c448651494faef713fce6912a9d80d9ae7",
+        "originalRepresentationSha256": "f56b60c019828e62ebdfbf1f05fd89c448651494faef713fce6912a9d80d9ae7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_real_time_arrival_data_of_green_minibuses_gmbs"
+    },
+    {
+      "id": "td-csdi-roadworks-location-data",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-roadworks-location-data",
+      "name": "Roadworks location data",
+      "apiTitle": "Transport Department \u2014 Roadworks location data",
+      "json": "td/csdi-roadworks-location-data/openapi.json",
+      "yaml": "td/csdi-roadworks-location-data/openapi.yaml",
+      "file": "td/csdi-roadworks-location-data/openapi.json",
+      "sha256": "8cf0e226a9e41c204ea8fa60e1449742f31360ff6e5a19b630d11291d6f85b4f",
+      "jsonSha256": "8cf0e226a9e41c204ea8fa60e1449742f31360ff6e5a19b630d11291d6f85b4f",
+      "yamlSha256": "c597ac9613db280bcf014813413fcc966c2c5550861b657c759bd33906cef5a3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_roadworks_location_data",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8cf0e226a9e41c204ea8fa60e1449742f31360ff6e5a19b630d11291d6f85b4f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1760062790897_57588",
+        "canonicalJsonSha256": "8cf0e226a9e41c204ea8fa60e1449742f31360ff6e5a19b630d11291d6f85b4f",
+        "originalRepresentationSha256": "8cf0e226a9e41c204ea8fa60e1449742f31360ff6e5a19b630d11291d6f85b4f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_roadworks_location_data"
+    },
+    {
+      "id": "td-csdi-coordinate-of-fleet-taxi-stopping-places",
+      "publisherKey": "td",
+      "publisherName": "Transport Department",
+      "familyKey": "csdi-coordinate-of-fleet-taxi-stopping-places",
+      "name": "Coordinate of Fleet Taxi Stopping Places",
+      "apiTitle": "Transport Department \u2014 Coordinate of Fleet Taxi Stopping Places",
+      "json": "td/csdi-coordinate-of-fleet-taxi-stopping-places/openapi.json",
+      "yaml": "td/csdi-coordinate-of-fleet-taxi-stopping-places/openapi.yaml",
+      "file": "td/csdi-coordinate-of-fleet-taxi-stopping-places/openapi.json",
+      "sha256": "dc6c8853da9fb4c4b82bf683116316b8af7a3d0228ec7e2092d692b0d69eef18",
+      "jsonSha256": "dc6c8853da9fb4c4b82bf683116316b8af7a3d0228ec7e2092d692b0d69eef18",
+      "yamlSha256": "0c2d3d1f6e981952f46a3c07115ae9b0605971a6440071280bcfcfc5f7e8ef17",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_coordinate_of_fleet_taxi_stopping_places",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "dc6c8853da9fb4c4b82bf683116316b8af7a3d0228ec7e2092d692b0d69eef18"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=td_rcd_1760062901418_33580",
+        "canonicalJsonSha256": "dc6c8853da9fb4c4b82bf683116316b8af7a3d0228ec7e2092d692b0d69eef18",
+        "originalRepresentationSha256": "dc6c8853da9fb4c4b82bf683116316b8af7a3d0228ec7e2092d692b0d69eef18",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_coordinate_of_fleet_taxi_stopping_places"
+    }
+  ]
+}

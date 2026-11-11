@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hko-csdi-daily-maximum-and-mean-uv-indices",
+  "sourceSha256": "4c7b3eb1014f7f1f2be596b8098162e5ad3cf41946010acc322d538f660fd4a1",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hko_rcd_1634953489673_27292/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634953489673_27292/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hko_rcd_1634953489673_27292/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

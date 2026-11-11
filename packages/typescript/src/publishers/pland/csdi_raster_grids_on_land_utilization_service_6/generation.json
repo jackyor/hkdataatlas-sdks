@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "pland-csdi-raster-grids-on-land-utilization-service-6",
+  "sourceSha256": "ed0f50b5cf06800ae76321aa53f6cf4320aff40cbaf7ba86d894062461c1c50d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1696577406166_85973/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

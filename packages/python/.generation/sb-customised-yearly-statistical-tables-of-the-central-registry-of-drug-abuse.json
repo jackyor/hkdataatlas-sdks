@@ -1,0 +1,39 @@
+{
+  "sourceId": "sb-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse",
+  "publisherKey": "sb",
+  "family": "customised_yearly_statistical_tables_of_the_central_registry_of_drug_abuse",
+  "status": "generated",
+  "key": "f35fc1fdb82ac264b53e98ce1f1e4b73dab1162043d2914906dc5b6a540b114e",
+  "sourceSha256": "b47be18f3ad676e061d67e7f2ab9d72394cc87a4db7ee29287c417963e309769",
+  "derivedInputSha256": "b47be18f3ad676e061d67e7f2ab9d72394cc87a4db7ee29287c417963e309769",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/psi_v1.php",
+      "operationId": "getCrdaStatistics",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/sb-customised-yearly-statistical-tables-of-the-central-registry-of-drug-abuse.log",
+  "outputs": {
+    "__init__.py": "9cc3e5485a0cbfc81eb041efe09dc433b10c7d925771da5e9569756c53b2d9b5",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_crda_statistics.py": "350e76f16acafed5619acca6a2bc27d8346e7365de6fb918986e1c35b170f58f",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "5d2c021e962c38ec8808d1892038f41ddf4baede1a41f9bd147c3ee3727966fe",
+    "models/get_crda_statistics_abuser.py": "3673eb2c15396aec553148a2d6181c227ef1685c0e07f86ed943219967f25668",
+    "models/get_crda_statistics_age.py": "f3ac296c95bf9c4f0c3d9e2a8585f8d9262d50e9809582fa1e4edad3507cca4a",
+    "models/get_crda_statistics_age_group.py": "c77620be2539af478a480f873580b9969570107d32a7a70fcb3ccfbcce4b9475",
+    "models/get_crda_statistics_analysis_var_item.py": "347c4c39054854ce54570a07c429fcfc555ac6aeb0e57fb8f29dc13fb76390d8",
+    "models/get_crda_statistics_period.py": "dfd8df4ce47870493e399bfa5255e4a9f87b64ff558a5e76ccb2a36d5fccc35d",
+    "models/get_crda_statistics_period_earlier.py": "cc189ae1051a0cedf7efa7d1078d04652129e63c53eeae3924176595acdb5ee8",
+    "models/get_crda_statistics_sex.py": "2c7f5f31c17b12e20249201de278b8392b2b935910e92e8c5fdc23f04bc5a3e9",
+    "models/warning.py": "81ce1459b04eb6582374eedc3bd6cd43e6e902dabc9320b6bae9783b9bd755cc",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

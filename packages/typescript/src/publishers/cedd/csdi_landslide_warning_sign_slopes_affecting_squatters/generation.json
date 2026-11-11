@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cedd-csdi-landslide-warning-sign-slopes-affecting-squatters",
+  "sourceSha256": "560eda7ef118a03293f608ddc4124d0046257d6a65b110ca54b51af1ef174d9a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cedd_rcd_1636519970714_76890/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636519970714_76890/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636519970714_76890/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

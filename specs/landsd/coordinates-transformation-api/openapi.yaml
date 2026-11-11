@@ -1,0 +1,170 @@
+components:
+  schemas:
+    TransformationResult:
+      description: Publisher-documented return fields. Height fields marked with an asterisk are omitted when no input height is provided. The dictionary does not state that every other field is always present.
+      properties:
+        ErrorCode:
+          description: "Documented error codes: 1 missing mandatory variable; 2 unrecognized inSys / outSys value; 3 invalid input value(s); 4 coordinates out of range; 5 identical inSys and outSys value; 6 unrecognized northing/easting coordinates of UTM Grid / Grid Reference System; 7 unrecognized inUnit / outUnit value."
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            - 7
+          type: number
+        hkE:
+          description: Easting in HK1980 Grid Coordinates.
+          type: number
+        hkEllHgt:
+          description: Ellipsoidal height in HK1980 Geographical Coordinates; omitted if no input height is provided.
+          type: number
+        hkLat:
+          description: Latitude in HK1980 Geographical Coordinates.
+          type: number
+        hkLong:
+          description: Longitude in HK1980 Geographical Coordinates.
+          type: number
+        hkN:
+          description: Northing in HK1980 Grid Coordinates.
+          type: number
+        hkpd:
+          description: Height above the Hong Kong Principal Datum (HKPD); omitted if no input height is provided.
+          type: number
+        utmGridE:
+          description: Easting in UTM Grid System.
+          type: number
+        utmGridN:
+          description: Northing in UTM Grid System.
+          type: number
+        utmGridZone:
+          description: Zone value in UTM Grid System.
+          type: string
+        utmRefE:
+          description: Easting in UTM Grid Reference System.
+          type: string
+        utmRefN:
+          description: Northing in UTM Grid Reference System.
+          type: string
+        utmRefZone:
+          description: Zone value in UTM Grid Reference System.
+          type: string
+        wgsEllHgt:
+          description: Ellipsoidal height in WGS84 Geographical System; omitted if no input height is provided.
+          type: number
+        wgsLat:
+          description: Latitude in WGS84 Geographical Coordinates.
+          type: number
+        wgsLong:
+          description: Longitude in WGS84 Geographical Coordinates.
+          type: number
+      type: object
+externalDocs:
+  description: Publisher Data Dictionary for Coordinates Transformation API, version 2.0 (August 2017)
+  url: https://www.geodetic.gov.hk/transform/doc/DataDictionary.pdf
+info:
+  description: Transforms coordinates between documented coordinate systems. The metadata version is a placeholder, not a publisher API version. Applicable only to coordinates within Hong Kong; the publisher cautions against using results for applications requiring precise point positions. Authentication requirements are not documented. Request-variable requiredness depends on the input coordinate system; consult the parameter descriptions.
+  title: Coordinates Transformation API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /:
+    get:
+      description: "Provide input coordinates in the system selected by `inSys`; output systems are selected by `outSys`. The publisher documents a JSON return result and the following error codes: 1 missing mandatory variable; 2 unrecognized `inSys` / `outSys`; 3 invalid input value(s); 4 coordinates out of range; 5 identical `inSys` and `outSys`; 6 unrecognized UTM Grid or UTM Grid Reference northing/easting; 7 unrecognized `inUnit` / `outUnit`. The dictionary does not specify HTTP status codes or a response media type. For further guidance, see http://www.geodetic.gov.hk/transform/tformAPI_manual.pdf."
+      operationId: transformCoordinates
+      parameters:
+        - description: Input coordinate system (case-insensitive). Select one of the documented values. Its selection determines which coordinate parameters are mandatory.
+          in: query
+          name: inSys
+          required: true
+          schema:
+            enum:
+              - wgsgeog
+              - hkgeog
+              - hkgrid
+              - utmgrid
+              - utmref
+            type: string
+        - description: Output coordinate system (case-insensitive). Default is `all`, meaning all five documented coordinate systems. The dictionary also lists `wgsgeog`, `hkgeog`, `hkgrid`, `utmgrid`, and `utmref` as output choices.
+          in: query
+          name: outSys
+          required: false
+          schema:
+            default: all
+            enum:
+              - all
+              - wgsgeog
+              - hkgeog
+              - hkgrid
+              - utmgrid
+              - utmref
+            type: string
+        - description: Latitude. Required for `inSys=wgsgeog` or `hkgeog`; not required for grid or reference inputs. WGS84 latitude range is 22.13°–22.57° (decimal degrees); no range is stated here for HK1980 latitude.
+          in: query
+          name: lat
+          required: false
+          schema:
+            type: number
+        - description: Longitude. Required for `inSys=wgsgeog` or `hkgeog`; not required for grid or reference inputs. WGS84 longitude range is 113.82°–114.48° (decimal degrees); no range is stated here for HK1980 longitude.
+          in: query
+          name: long
+          required: false
+          schema:
+            type: number
+        - description: "Northing. Required for `inSys=hkgrid`, `utmgrid`, or `utmref`. HK1980 Grid range: 799000–848000 metres; UTM Grid range: 2450600–2498000 metres. For UTM Grid Reference, the northing and easting coordinate digit counts must be 3–5; ranges depend on zone and digit count as described in the Data Dictionary."
+          in: query
+          name: n
+          required: false
+          schema:
+            type: number
+        - description: "Easting. Required for `inSys=hkgrid`, `utmgrid`, or `utmref`. HK1980 Grid range: 799500–867500 metres. UTM Grid ranges: 791200–810000 metres in zone 49Q and 190000–243000 metres in zone 50Q. For UTM Grid Reference, the northing and easting coordinate digit counts must be 3–5; ranges depend on zone and digit count as described in the Data Dictionary."
+          in: query
+          name: e
+          required: false
+          schema:
+            type: number
+        - description: "Optional height for `wgsgeog`, `hkgeog`, or `hkgrid`; not required for `utmgrid` or `utmref`. Range −1000 to 10000 metres. Meaning depends on input system: WGS84 ellipsoidal height, HK1980 ellipsoidal height, or height above HKPD. If no input height is provided, height fields are absent from the return result."
+          in: query
+          name: h
+          required: false
+          schema:
+            maximum: 10000
+            minimum: -1000
+            type: number
+        - description: UTM zone. Required for `inSys=utmgrid` or `utmref`; not required for other input systems. UTM Grid values are `49Q` or `50Q`. UTM Grid Reference zone values are `49Q-GE`, `49Q-HE`, `50Q-JK`, `50Q-KK` in WGS84 datum and `49Q-GQ`, `49Q-HQ`, `50Q-JV`, `50Q-KV` in HK1980 datum.
+          in: query
+          name: zone
+          required: false
+          schema:
+            type: string
+        - description: "Input geographical-coordinate format; applies to `wgsgeog` / `hkgeog`. Default is `dms`. Documented formats: `dms` (degree-minute-second) and `decDeg` (decimal degree)."
+          in: query
+          name: inUnit
+          required: false
+          schema:
+            default: dms
+            enum:
+              - dms
+              - decDeg
+            type: string
+        - description: Output geographical-coordinate format. The dictionary documents `dms` (degree-minute-second), `decDeg` (decimal degree), and `decMin` (decimal minute). For minute, range is 0 to 59; for second, less than 60. The format is relevant to geographical-coordinate outputs.
+          in: query
+          name: outUnit
+          required: false
+          schema:
+            enum:
+              - dms
+              - decDeg
+              - decMin
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransformationResult"
+          description: JSON return result. The Data Dictionary does not specify an HTTP status mapping; this response documents the JSON result described by the publisher.
+      summary: Transform coordinates
+servers:
+  - url: http://www.geodetic.gov.hk/transform/v2/

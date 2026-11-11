@@ -1,0 +1,631 @@
+openapi: 3.1.0
+info:
+  title: Town Planning Board — Planning Applications under Sections 12A, 16 and 17 and planning appeals under Section 17B of the Town Planning Ordinance
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /arcgis2/services/DATA/APP_AMEND_CSDI/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: AMEND_PAST
+              value: APP_AMEND_CSDI:AMEND_PAST
+            choice2:
+              summary: AMEND_CRT
+              value: APP_AMEND_CSDI:AMEND_CRT
+            choice3:
+              summary: APP_PAST
+              value: APP_AMEND_CSDI:APP_PAST
+            choice4:
+              summary: APP_CRT
+              value: APP_AMEND_CSDI:APP_CRT
+          x-choice-count: 4
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::2326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::2326
+      servers:
+        - url: https://www.ozp.tpb.gov.hk:443
+      x-native-source-evidence:
+        - url: https://www.ozp.tpb.gov.hk/arcgis/services/DATA/APP_AMEND_CSDI/MapServer/WFSServer?service=WFS&request=GetCapabilities
+          sha256: 84b74ad1d2b7222bd5757341c4554273ced58c5eccd05613f8e1b1d8cec7f862
+          httpStatus: 200
+          contentType: text/xml; charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+        - url: https://www.ozp.tpb.gov.hk:443/arcgis2/services/DATA/APP_AMEND_CSDI/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+          sha256: a6869559bf7deeb78fffb0eadefed23831cd0c19737fddb8a3d8bdadca1ec3a7
+          httpStatus: 200
+          contentType: text/xml; charset=UTF-8
+          role: wfs-feature-type
+          parseStatus: pass
+          kind: wfs-feature-type
+components:
+  schemas:
+    WfsMapServerWfsAMENDPASTAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Application_case_number:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        Further_information_number:
+          description: Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        District_planning_office:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        OZP_scheme_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        OZP_plan_number:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 100
+        Case_status_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Proposed_Amendment:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        Location_address_of_application:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        Latest_s.12A_decision_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        Date_of_latest_s.12A_latest_decision:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Last_upload_date:
+          description: Native XSD type xsd:dateTime. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+        Feature_geometry_type:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        Perimeter_in_meters:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Area_in_sq._meters:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsAMENDCRTAttributes:
+      type: object
+      properties:
+        Feature_ID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Application_case_number:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        Further_information_number:
+          description: Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        District_planning_office:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        OZP_scheme_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        OZP_plan_number:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 100
+        Case_status_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Proposed_Amendment:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        Location_address_of_application:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        Latest_s.12A_decision_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        Date_of_latest_s.12A_latest_decision:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Last_upload_date:
+          description: Native XSD type xsd:dateTime. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+        Feature_geometry_type:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        Perimeter_in_meters:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Area_in_sq._meters:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsAPPPASTAttributes:
+      type: object
+      properties:
+        Feature_ID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Application_case_number:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        Application_type_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Further_information_number:
+          description: Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        District_planning_office:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        OZP_scheme_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        OZP_plan_number:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 100
+        Case_status_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Applied_use:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        Location_address_of_application:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        Appeal_number:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 100
+        Latest_s.16_decision_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        Date_of_latest_s.16_decision:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Latest_s.17_decision_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        Date_of_latest_s.17_decision:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Latest_s.17B_decision_code:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        Date_of_latest_s.17B_decision:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        Last_upload_date:
+          description: Native XSD type xsd:dateTime. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+        Feature_geometry_type:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        Perimeter_in_meters:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Area_in_sq._meters:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsAPPCRTAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CASE_NO:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        TYPE_CODE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        FI_NO:
+          description: Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        DPO:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        SCHM_CODE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        OZP_PLN_NO:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 100
+        STATUS:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        APLY_USE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        LOCAT_ADDR:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 4000
+        APPEAL_NO:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 100
+        S16_DECI:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        S16_D_DATE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        S17_DECI:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        S17_D_DATE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        APL_DECI:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        APL_D_DATE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 10
+        LST_UPLOAD:
+          description: Native XSD type xsd:dateTime. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+        Shape:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        Shape.STArea__:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Shape.STLength__:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/WfsMapServerWfsAMENDPASTAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsAMENDCRTAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsAPPPASTAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsAPPCRTAttributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: APP_AMEND_CSDI:AMEND_PAST
+    title: AMEND_PAST
+    protocol: wfs
+  - id: APP_AMEND_CSDI:AMEND_CRT
+    title: AMEND_CRT
+    protocol: wfs
+  - id: APP_AMEND_CSDI:APP_PAST
+    title: APP_PAST
+    protocol: wfs
+  - id: APP_AMEND_CSDI:APP_CRT
+    title: APP_CRT
+    protocol: wfs
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=7fc6e859-48a7-5a94-bb71-b1c08145d7fd
+    sha256: 40740d17f61a37e6487d75cbbeb2b009e4f1f55b5d2f5fe60f3513fa1185cd95
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://www.ozp.tpb.gov.hk/arcgis/services/DATA/APP_AMEND_CSDI/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    sha256: 84b74ad1d2b7222bd5757341c4554273ced58c5eccd05613f8e1b1d8cec7f862
+    httpStatus: 200
+    contentType: text/xml; charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+  - url: https://www.ozp.tpb.gov.hk:443/arcgis2/services/DATA/APP_AMEND_CSDI/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+    sha256: a6869559bf7deeb78fffb0eadefed23831cd0c19737fddb8a3d8bdadca1ec3a7
+    httpStatus: 200
+    contentType: text/xml; charset=UTF-8
+    role: wfs-feature-type
+    parseStatus: pass
+    kind: wfs-feature-type
+x-csdi-source-scope:
+  partialProtocols: []
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 3
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

@@ -1,0 +1,97 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Register of AMBs",
+    "description": "This API provides the register of Approved Money Brokers (AMBs).",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Hong Kong Monetary Authority",
+      "email": "webmaster@hkma.gov.hk"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/bank-svf-info"
+    }
+  ],
+  "paths": {
+    "/register-ambs": {
+      "get": {
+        "summary": "Register of AMBs",
+        "description": "This API provides the register of Approved Money Brokers (AMBs).",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "tc"
+              ],
+              "default": "en"
+            },
+            "description": "Language of the output"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "description": "Offset for pagination"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "datasize": {
+                          "type": "integer"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Name of Approved Money Brokers"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-source-evidence": {
+    "url": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/register-ambs/",
+    "sourceHtmlSha256": "0db1a03394b70c4c49800aea9bdd265cf6de256297aced47eb73e8bd37d09f0f",
+    "originalSourceUrl": "https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/register-ambs-swagger.json",
+    "originalJsonSha256": "e06d085351d99e03c80b39fe99f160fd9cc5901f19ed7d15811f3237f8db6844",
+    "classification": "source_corrected_derivative",
+    "change": "Correct the duplicated server/path join and remove the unsupported required segment language selector.",
+    "responseMeaning": "Publisher response schema preserved exactly; no new live schema fit established."
+  }
+}

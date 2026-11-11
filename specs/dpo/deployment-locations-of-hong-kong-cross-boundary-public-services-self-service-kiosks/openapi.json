@@ -1,0 +1,73 @@
+{
+  "components": {
+    "schemas": {
+      "KioskLocationCsvFields": {
+        "description": "Field dictionary for the CSV dataset; these fields describe CSV columns, not a guaranteed API response schema.",
+        "properties": {
+          "Address": {
+            "description": "Address of the Hong Kong Cross-boundary Public Services self-service kiosk.",
+            "type": "string"
+          },
+          "Latitude": {
+            "description": "Latitude of the Hong Kong Cross-boundary Public Services self-service kiosk.",
+            "type": "number"
+          },
+          "Location": {
+            "description": "Location of the Hong Kong Cross-boundary Public Services self-service kiosk.",
+            "type": "string"
+          },
+          "Longitude": {
+            "description": "Longitude of the Hong Kong Cross-boundary Public Services self-service kiosk.",
+            "type": "number"
+          },
+          "Opening Hours": {
+            "description": "Opening hours of the Hong Kong Cross-boundary Public Services self-service kiosk.",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-resource-links": {
+          "csdiPortal": "https://portal.csdi.gov.hk/geoportal/?datasetId=dpo_rcd_1729485151462_42239",
+          "csv": "https://www.crossboundaryservices.gov.hk/datagovhk/cbps_self_kiosks.csv"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Dataset data specification and field dictionary",
+    "url": "https://www.crossboundaryservices.gov.hk/datagovhk/cbpskiosk_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "The dataset provides kiosk deployment locations, addresses, coordinates and opening hours in CSV format. The version value is a metadata placeholder; no publisher API version is documented. The available documentation defines CSV fields but does not establish an executable HTTP API method, URL template, or response contract. Exact published resource links are listed under the field dictionary.",
+    "title": "Deployment Locations of Hong Kong Cross-boundary Public Services Self-service Kiosks",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/datagovhk/cbps_self_kiosks.csv": {
+      "get": {
+        "operationId": "retrieveDeploymentLocationsOfHongKongCrossBoundaryPublicServicesSelfServiceKiosksDatagovhkCbpsSelfKiosksCsv",
+        "summary": "Retrieve Deployment Locations of Hong Kong Cross-boundary Public Services Self-service Kiosks",
+        "description": "Read-only retrieval of the exact publisher-listed CSV resource https://www.crossboundaryservices.gov.hk/datagovhk/cbps_self_kiosks.csv. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://www.crossboundaryservices.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published CSV resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

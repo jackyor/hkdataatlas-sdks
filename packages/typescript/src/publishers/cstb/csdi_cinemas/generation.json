@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cstb-csdi-cinemas",
+  "sourceSha256": "e1faa762e16697762e65853252c369b83629c449104f746dfc62d48bc1aeec0a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cstb_rcd_1639635441187_63023/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cstb_rcd_1639635441187_63023/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cstb_rcd_1639635441187_63023/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

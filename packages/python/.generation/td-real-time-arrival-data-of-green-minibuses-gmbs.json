@@ -1,0 +1,263 @@
+{
+  "sourceId": "td-real-time-arrival-data-of-green-minibuses-gmbs",
+  "publisherKey": "td",
+  "family": "real_time_arrival_data_of_green_minibuses_gmbs",
+  "status": "generated",
+  "key": "bb8570134cc5174cf92d14dfb6ea5ecffbbf1b579164322667e58a3f231314d1",
+  "sourceSha256": "61a12b21ca982284e5b04923b5c13a0008a858ad70a8c0840b5ff0dbf53fe5ba",
+  "derivedInputSha256": "19b871db98661cae228354cd9e14c740ad3c95b14b961209da8e736c7095a2ad",
+  "normalizations": [
+    {
+      "pointer": "/components/schemas/LastUpdateRouteListResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/LastUpdateSingleResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/LastUpdateStopListResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopEtaByStopIdResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopEtaOccurrenceDisabled/properties/enabled",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopEtaOccurrenceEnabled/properties/enabled",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopEtaSequenceDisabled/properties/enabled",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopEtaSequenceEnabled/properties/enabled",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopEtaSequenceResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RoutesAllResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RoutesRegionalResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopEtaDisabled/properties/enabled",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopEtaEnabled/properties/enabled",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopEtaResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopRouteResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/eta/route-stop/{route_id}/{route_seq}/{stop_seq}",
+      "operationId": "getRouteStopEtaBySequence",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/eta/route-stop/{route_id}/{stop_id}",
+      "operationId": "getRouteStopEtaByStopId",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/eta/stop/{stop_id}",
+      "operationId": "getStopEta",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/last-update/route",
+      "operationId": "getLastUpdateForRoutes",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/last-update/route-stop",
+      "operationId": "getLastUpdateForRouteStops",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/last-update/route-stop/{route_id}/{route_seq}",
+      "operationId": "getLastUpdateForRouteStop",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/last-update/route/{region}",
+      "operationId": "getLastUpdateForRouteRegionOrId",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/last-update/route/{region}/{route_code}",
+      "operationId": "getLastUpdateForRouteOrRouteSequence",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/last-update/stop",
+      "operationId": "getLastUpdateForStops",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/last-update/stop/{stop_id}",
+      "operationId": "getLastUpdateForStop",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/route",
+      "operationId": "listAllRoutes",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/route-stop/{route_id}/{route_seq}",
+      "operationId": "getRouteStops",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/route/{region}",
+      "operationId": "getRegionalRoutesOrRouteById",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/route/{region}/{route_code}",
+      "operationId": "getRouteByRegionAndCode",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/stop-route/{stop_id}",
+      "operationId": "getRoutesAtStop",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/stop/{stop_id}",
+      "operationId": "getStop",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/td-real-time-arrival-data-of-green-minibuses-gmbs.log",
+  "outputs": {
+    "__init__.py": "1722418ff141f1a53c6621cc4769f5b8bfa8fe0cf203ab0a6e874d47aa9aea3d",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_last_update_for_route_or_route_sequence.py": "0a926c7a6dc3891b84430cd3dc1a4cd7b53e87f64d71e102ffd877e40f4749fd",
+    "api/default/get_last_update_for_route_region_or_id.py": "a53a6a8a089e0e19c131b424bc5c565ac0446d78fae33bff8bb62cbdce670261",
+    "api/default/get_last_update_for_route_stop.py": "365c865e330d76f5f1ce4e527eefab4d09e283afe43a4a5960ac0f9b83fb313b",
+    "api/default/get_last_update_for_route_stops.py": "61e8ee37742f3890730571c99bb32beb921363604884d248f4e7a8d441036415",
+    "api/default/get_last_update_for_routes.py": "d4f51a655169d7512fa711c7a4b176960da3f2dfab9f052e62845493ae794320",
+    "api/default/get_last_update_for_stop.py": "dd2aeab8a1612bcca5c10f49966088155486fbcd2b490b0e476947ec9141ce8c",
+    "api/default/get_last_update_for_stops.py": "1e84f97ebd6ec741a97f4a54a089bc60fd78f65b24fb361f7eae596c173acefa",
+    "api/default/get_regional_routes_or_route_by_id.py": "55a5a868930fde8452cf37e248935d31d27d9e7a2b63a9a1c39601389cbc866c",
+    "api/default/get_route_by_region_and_code.py": "9ba934a59fdec5e5fc08e28785bed8d9d49644c8d86bad54bb233a0a6d349373",
+    "api/default/get_route_stop_eta_by_sequence.py": "a3612acb1b21dec6d34502e99d4446e85a76a07b7303793decf8ac8d39dfb46c",
+    "api/default/get_route_stop_eta_by_stop_id.py": "c008a26f1ae085320932fc5a8f144c163bed392fd67068908356bfd19604d425",
+    "api/default/get_route_stops.py": "fc344e4351b3d1fa138aa70b3ebfc6df4e8e17c55fc27a756202243d753bf2d2",
+    "api/default/get_routes_at_stop.py": "8dcee7fcc220f47a347983a7b4a56075e01ea1a416ef95eedd34a90d1a1eecb8",
+    "api/default/get_stop.py": "e8d97f8efc53b90c41d3228385594fcdba0e60eaa36dcbdc7eeb0df9ad61bd31",
+    "api/default/get_stop_eta.py": "66b71bba09dcc732d1591fe30c9be9c8d5c0ea8a56a5f6f39f649a633edb1b40",
+    "api/default/list_all_routes.py": "8cfe1e83a46ccbc4700b9778a507e75707c6946cefefa7e762ddbee0d1cef081",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "ef4fcbbf0de50ae934f220d9ba4fca4b3a131bac9a1406515908afa3ba97b151",
+    "models/coordinates.py": "923de3ee8e42d735d0139d4e4fc8d8539c48d268c25248adb5ab2c3cbb170edb",
+    "models/direction.py": "3fb5be9560afe3a26b8f29a7e7894a8295ae1a38c56a24fddccc4acd68eda603",
+    "models/eta.py": "c81d8c35ef67bd1c1e3efb37f45d511de55868dc2c1f8031a57f98908515017b",
+    "models/get_last_update_for_route_or_route_sequence_region_type_0.py": "3407b3bb8e7a625e2836f60142e190559e19cbb60e7c76553bae3f294d260254",
+    "models/get_last_update_for_route_region_or_id_region_type_0.py": "0ebfd0a005da589b0d4f157877c38095075338a0b65ed689f0a314155ec9241e",
+    "models/get_regional_routes_or_route_by_id_region_type_0.py": "dcfb29f4fc1fdad2d64e86bd53ee73724b5b881c2e57b13c84740687730f0510",
+    "models/get_route_by_region_and_code_region.py": "1ceeeefbd6e641b04d13911541a241e836ac80a56ff6bfab683c5c2122aadf08",
+    "models/headway.py": "76c1e6140923e860f23aae4f7ad4aadc3d9098ea9228d0ae265324ba7e54a56a",
+    "models/last_update_route.py": "600e54d67d4c9b997efe2af25342b691c787e52a5680d7a3c0189fb139825667",
+    "models/last_update_route_list_response.py": "92ec6efa5543f188aaf86c3e04710da2c7c1bd2fbc5edb81995d9be84727bbba",
+    "models/last_update_route_list_response_data_type_0.py": "56ecf7539621bcf11397ba31f955ebf8cb0a2147dd8a45f17bfdb555dfb04ba6",
+    "models/last_update_route_list_response_type.py": "e07076ebe5f1cf27c1e7cee2d8b037eaade408b3731d524b633187d8d411dc1e",
+    "models/last_update_single_response.py": "4e8ffee861fe9b679af0bd11bb308c8efd48dbe31683f6f91aff426b36feb59a",
+    "models/last_update_single_response_data_type_0.py": "58090630877b4ce62e70cc6ddd720632159687e79502897a6169512d5ade66f5",
+    "models/last_update_single_response_data_type_1_item.py": "a4b28096eb3f4d297b39e0671f7872ca9e07f71cf4d5ade14170c06f7749cf50",
+    "models/last_update_single_response_type.py": "2396030b86f44f534d9998d24727e0f342cb815380afed25cb06acc24dbe5d42",
+    "models/last_update_stop.py": "05652526511de2f509c239521c7be2971ee3f8f33c09746a1669d762772af119",
+    "models/last_update_stop_list_response.py": "25539d0ca9cc7112495a2c18441ce3a2419133de70e8e4b2c868754d82072a6e",
+    "models/last_update_stop_list_response_data_type_0.py": "282078c07f00616e96b8ca5a8d85740b453f4b49ea913497c464aae7d70ef3db",
+    "models/last_update_stop_list_response_type.py": "0724ef04935d73a68418aa3fd94ed6707a6319c436d30cae1ef301b033cf193c",
+    "models/route.py": "3dc5de77b6946ab93a4a8ec8461be49cb13dbdcab52f118df5f1947b657c6d84",
+    "models/route_response.py": "ac8c6167df4b1d9569af395e7b55555203189f6eec70c6d0378accb3daedacaa",
+    "models/route_response_type.py": "5d7ae652e70e3cf1dfc5134eb230a8580bd320698ad3b666f172ab7da81f062c",
+    "models/route_stop.py": "148363090e37e7b8be5c195a960a2239e89c06d72489ccea3c347abd61e54e16",
+    "models/route_stop_eta_by_stop_id_response.py": "a78afd46d7c90395736b8437e3d4b59a2619d943f1bd67644b05452aa0cbe87d",
+    "models/route_stop_eta_by_stop_id_response_type.py": "ab512b0d56f939b2b9690ef340f534e4b6bd5638214d0de0423d53d45ab356ea",
+    "models/route_stop_eta_occurrence_disabled.py": "676090ecd5fb9ac72349e4a8f6ed123247c38688ae65cc6ff7e1757ad4135313",
+    "models/route_stop_eta_occurrence_enabled.py": "6ba63dfc0a29e641b251d56edfa797dd734371e2da7046e42abf3ce269cf079e",
+    "models/route_stop_eta_sequence_disabled.py": "fcc362e15532defdd59d2ba5f1db920002d1a0fe3a2d775ba954a9c0bdd2b673",
+    "models/route_stop_eta_sequence_enabled.py": "2f4f2949c5612276022b9043a799703339af07c3e20aaa3c21d2887cbe9d1ece",
+    "models/route_stop_eta_sequence_response.py": "15eb9c2d8af504bd16c3cf77af79e6820bed53fc01d0840eab8a09f38b6b99c2",
+    "models/route_stop_eta_sequence_response_type.py": "6cd0be52f14121cbef0cd9d04ae2c332965b6fb55bfa4da7af67e2dabb74db0f",
+    "models/route_stop_response.py": "8547e5a1a37481110bab3c71ff38e7f247f9f792070fa13469f007a34b41cb23",
+    "models/route_stop_response_data.py": "0c7ad859e794a8587118af389eaeb2796b11f290dd03d83c8d1932bd3ae0c6cf",
+    "models/route_stop_response_type.py": "4fe6ce79572876bd9f7646e0779c48123406771f966971e0806237f412c1eae5",
+    "models/routes_all_response.py": "218ffd166851a145b30fc66a8fa5add4e5aa57de2a95b9d553ba1dad49a0712c",
+    "models/routes_all_response_data.py": "0e203ee3e4e9088e6888bc8bc3c9d68c8c120a83b45aff3a42da0b69049dc290",
+    "models/routes_all_response_data_routes.py": "55ba262866a460f6951a1ea38a28d5f3203c34fb7b37b9d6dca9e8e23cc98082",
+    "models/routes_all_response_type.py": "642e8a0a3d5f00c2b24d5344d86366bba33a035910441aff9c9c38e4a1d23301",
+    "models/routes_regional_response.py": "cf13242d588a88f883a22ffac239a653c84786b5aa6dcf8763eea0572a04e64e",
+    "models/routes_regional_response_data.py": "835637e10f88a297433a079ba544cf1d21393f9d10b82180d929745044400eb6",
+    "models/routes_regional_response_type.py": "4a84e9da03802e056bddda9b8b7cc1ca20c93bbe940f063c2dfcfc3d6b4d422f",
+    "models/stop.py": "16c7f2ec325b87a50922a42e2e8c0410ce1a711f62bde961f91052b36f0bef6a",
+    "models/stop_coordinates.py": "758c614e9c2b5da1a55ef6a179274971ba2ea7f22ffe80336deadef6b4dd12f6",
+    "models/stop_eta_disabled.py": "8115ae492791de009e95f28ddb17d8109bef772224176b8bc633d611f97c7d4d",
+    "models/stop_eta_enabled.py": "71e8fb08e5caace77d2b02c85e4938a3d1e66040586fd1849833ab3fcd322b24",
+    "models/stop_eta_response.py": "2cc3360a2cd468632bbb9b0a9118546fad5ec709b2c687c5ab543b33d9f87dc3",
+    "models/stop_eta_response_type.py": "f40ddbd298d8ebbc7ac022b1196e379dbd8c19babc3c16a1506e6f00cea61d8e",
+    "models/stop_response.py": "ea7014e3e603bd9ebbb593c692f51054481ece139b5a60c0bbe532095c500a8d",
+    "models/stop_response_type.py": "95a376a8cbbef77a6054eae9db4b08004fd8b311b5e0cbf12a5aca8d4151fed9",
+    "models/stop_route.py": "eb0371809e135142a550426beacf0030377dd0edad58f90236c21440d30b822a",
+    "models/stop_route_response.py": "c175b058988b0324121cb0cc6cce8b801eaaf11755c9630672c6fbae7cc79e97",
+    "models/stop_route_response_type.py": "f4746fe02186ac9a616bc8b00222b604f167d8d3381eb44a454127422ce27c38",
+    "models/wrapper.py": "c22e594cc3fca5f3c20833e83a7f64783574e1ac7bda96f72707917c33e1a6d9",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

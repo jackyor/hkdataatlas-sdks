@@ -1,0 +1,41 @@
+{
+  "sourceId": "archsd-csdi-trees-on-simar-slopes-maintained-by-archsd",
+  "publisherKey": "archsd",
+  "family": "csdi_trees_on_simar_slopes_maintained_by_archsd",
+  "status": "generated",
+  "key": "5971fba5d3c6543a0aad891e9189f1d41cfffa74f4afa529271014e0d6ced0e5",
+  "sourceSha256": "fd74155965d0bdef98dc258cdd4303aaf69454b11e8f4f3b51eb40f6a99de61b",
+  "derivedInputSha256": "91b1fae78f4b4479daaa371e39c40d36b68161567f3187edff72f395f1812092",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/archsd_rcd_1629267205233_1276/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/archsd-csdi-trees-on-simar-slopes-maintained-by-archsd.log",
+  "outputs": {
+    "__init__.py": "9c940f4a5af03e399d7291cc6c08531dde9f795e52ac2a69649e4c0b49e25b85",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "e0a2f9716c2f8886ee83ac4053c877ea8e69a29fe6619377c367f814b5e5e975",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "b31a890d371159421448d2e7d2b5184f9681c12e83f856e99c79c70ef99f91fb",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "a3007b021798fcc0ae0cdbb8d0640b180142602e1447c75cccaf956ca874789d",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,53 @@
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/SearchNearbyAPI
+info:
+  description: HTTP API for finding facilities located within 1 km of a search location. The API guide identifies its current URL version as v1.0.0; this is not a documented OpenAPI metadata version. The guide cautions against sending large numbers of requests within a short period. Authentication is unspecified.
+  title: Search Nearby API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /searchNearby:
+    get:
+      description: Returns data in JSON format for facilities located within 1 km of the search location. Use HK80 coordinates for the search location. The API guide says its current URL version is v1.0.0 and warns that old versions may be removed without notice.
+      operationId: searchNearby
+      parameters:
+        - description: Coordinate value of HK80 Easting, in metres. The guide does not explicitly label query requiredness.
+          example: 835665
+          in: query
+          name: x
+          schema:
+            type: number
+        - description: Coordinate value of HK80 Northing, in metres. The guide does not explicitly label query requiredness.
+          example: 817198
+          in: query
+          name: y
+          schema:
+            type: number
+        - description: Language of the output JSON. The guide documents English and Traditional Chinese. The guide does not explicitly label query requiredness.
+          examples:
+            english:
+              summary: English
+              value: en
+            traditionalChinese:
+              summary: Traditional Chinese
+              value: zh
+          in: query
+          name: lang
+          schema:
+            enum:
+              - en
+              - zh
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: OK. The guide states that data is returned in JSON format but does not document the response object's fields or structure.
+        "400":
+          description: Bad Request, for example, invalid query parameters.
+        "500":
+          description: Internal Server Error.
+      summary: Search for nearby facilities
+servers:
+  - url: https://www.map.gov.hk/gs/api/v1.0.0

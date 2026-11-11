@@ -1,0 +1,57 @@
+{
+  "sourceId": "pland-csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance",
+  "publisherKey": "pland",
+  "family": "csdi_enforcement_and_prosecution_cases_completed_in_the_past_5_years_rollover_under_the_town_planning_ordinance",
+  "status": "generated",
+  "key": "6168b922cfc8508ae6dcdf94d955f02d97f2d3b51e8bec500e6984b23edcbbef",
+  "sourceSha256": "8777dc9c1402ec3e3cd25244b1d9a2ec7cf5e68d1eb89570d38b1b666b2dcd75",
+  "derivedInputSha256": "8eb835f8358a239afa769a6ced1c3b1f65e8754e0feb471f7270abdfa924aeba",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/pland_rcd_1706687725748_46633/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/pland_rcd_1706687725748_46633/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature",
+      "tags": [
+        "WFS"
+      ]
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/pland-csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance.log",
+  "outputs": {
+    "__init__.py": "38415a9df791f1aed14655eb46771e0c248102469bb8ad40d11187fe42b68656",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "af36f14fbe909493d3b7444268af9b32665b10a292fff7bf82ceba87e06474a5",
+    "api/wfs/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wfs/wfs_map_server_get_feature.py": "b6dccfa1cc9fd6abdd610451037fc01647d9ee86fc862afee36c896ee653e7f5",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "08996080df093b2e8529e6674238c03aa009eef1c2afa55b9e70b24a84ae3942",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "cfbaf09b403b5b61fac14c256f230a7ef0f8670af8b7c3550387a31cccd2d8ae",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "models/wfs_map_server_get_feature_output_format.py": "e4f57cb3890a02ce6dba52d2b0fcfc686179fd837b5c03300dff588d928d98d7",
+    "models/wfs_map_server_get_feature_request.py": "afc05e39db501a145c828df80073f57e52779c155b2631cb84b197d8532067c9",
+    "models/wfs_map_server_get_feature_service.py": "919ac8ccb249a9d757a7c1a39b3f3b0adc5377b9dafcac83c84789cd9972e9e8",
+    "models/wfs_map_server_get_feature_version.py": "1ad3a545490446ff0a487beea15c3c456473b4e63545161c573ade0f30e3014b",
+    "models/wfs_map_server_wfs_feature_collection.py": "b7fdfaa58f7e34a0c48a8d5b3ca0a53dd2e634639948261108f9b853f550b2e5",
+    "models/wfs_map_server_wfs_feature_collection_features_item.py": "1c635bc9763eff543903b122d687eeee7eb098d91ca28c9b2bdbc89fcd994ee6",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

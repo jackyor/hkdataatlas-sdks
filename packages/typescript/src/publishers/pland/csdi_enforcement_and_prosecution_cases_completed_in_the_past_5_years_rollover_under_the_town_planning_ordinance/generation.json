@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "pland-csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance",
+  "sourceSha256": "8777dc9c1402ec3e3cd25244b1d9a2ec7cf5e68d1eb89570d38b1b666b2dcd75",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/pland_rcd_1706687725748_46633/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/pland_rcd_1706687725748_46633/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

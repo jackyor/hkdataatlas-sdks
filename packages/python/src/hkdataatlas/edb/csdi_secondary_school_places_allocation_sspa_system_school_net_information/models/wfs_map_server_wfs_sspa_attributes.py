@@ -1,0 +1,1101 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Any, Self, TypeVar, cast
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="WfsMapServerWfsSSPAAttributes")
+
+
+@_attrs_define
+class WfsMapServerWfsSSPAAttributes:
+    """
+    Attributes:
+        shape (Any | Unset): Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from
+            its XML type.
+        objectid (int | Unset): Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON
+            queries.
+        dataset_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        dataset_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        name_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all JSON
+            queries.
+        address_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        name_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all JSON
+            queries.
+        address_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search01_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search01_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search02_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search02_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search03_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search03_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search04_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search04_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search05_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        search05_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch01_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch01_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch02_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch02_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch03_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch03_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch04_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch04_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch05_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch05_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch06_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch06_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch07_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch07_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch08_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch08_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch09_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch09_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch10_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch10_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch11_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch11_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch12_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch12_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch13_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch13_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch14_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch14_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch15_en (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        nsearch15_tc (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        lastupdate (None | str | Unset): Native XSD type . Requiredness is not projected from XML occurrence into all
+            JSON queries.
+        shape_length (float | None | Unset): Native XSD type xsd:double. Requiredness is not projected from XML
+            occurrence into all JSON queries.
+        shape_area (float | None | Unset): Native XSD type xsd:double. Requiredness is not projected from XML occurrence
+            into all JSON queries.
+    """
+
+    shape: Any | Unset = UNSET
+    objectid: int | Unset = UNSET
+    dataset_en: None | str | Unset = UNSET
+    dataset_tc: None | str | Unset = UNSET
+    name_en: None | str | Unset = UNSET
+    address_en: None | str | Unset = UNSET
+    name_tc: None | str | Unset = UNSET
+    address_tc: None | str | Unset = UNSET
+    search01_en: None | str | Unset = UNSET
+    search01_tc: None | str | Unset = UNSET
+    search02_en: None | str | Unset = UNSET
+    search02_tc: None | str | Unset = UNSET
+    search03_en: None | str | Unset = UNSET
+    search03_tc: None | str | Unset = UNSET
+    search04_en: None | str | Unset = UNSET
+    search04_tc: None | str | Unset = UNSET
+    search05_en: None | str | Unset = UNSET
+    search05_tc: None | str | Unset = UNSET
+    nsearch01_en: None | str | Unset = UNSET
+    nsearch01_tc: None | str | Unset = UNSET
+    nsearch02_en: None | str | Unset = UNSET
+    nsearch02_tc: None | str | Unset = UNSET
+    nsearch03_en: None | str | Unset = UNSET
+    nsearch03_tc: None | str | Unset = UNSET
+    nsearch04_en: None | str | Unset = UNSET
+    nsearch04_tc: None | str | Unset = UNSET
+    nsearch05_en: None | str | Unset = UNSET
+    nsearch05_tc: None | str | Unset = UNSET
+    nsearch06_en: None | str | Unset = UNSET
+    nsearch06_tc: None | str | Unset = UNSET
+    nsearch07_en: None | str | Unset = UNSET
+    nsearch07_tc: None | str | Unset = UNSET
+    nsearch08_en: None | str | Unset = UNSET
+    nsearch08_tc: None | str | Unset = UNSET
+    nsearch09_en: None | str | Unset = UNSET
+    nsearch09_tc: None | str | Unset = UNSET
+    nsearch10_en: None | str | Unset = UNSET
+    nsearch10_tc: None | str | Unset = UNSET
+    nsearch11_en: None | str | Unset = UNSET
+    nsearch11_tc: None | str | Unset = UNSET
+    nsearch12_en: None | str | Unset = UNSET
+    nsearch12_tc: None | str | Unset = UNSET
+    nsearch13_en: None | str | Unset = UNSET
+    nsearch13_tc: None | str | Unset = UNSET
+    nsearch14_en: None | str | Unset = UNSET
+    nsearch14_tc: None | str | Unset = UNSET
+    nsearch15_en: None | str | Unset = UNSET
+    nsearch15_tc: None | str | Unset = UNSET
+    lastupdate: None | str | Unset = UNSET
+    shape_length: float | None | Unset = UNSET
+    shape_area: float | None | Unset = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        shape = self.shape
+
+        objectid = self.objectid
+
+        dataset_en: None | str | Unset
+        if isinstance(self.dataset_en, Unset):
+            dataset_en = UNSET
+        else:
+            dataset_en = self.dataset_en
+
+        dataset_tc: None | str | Unset
+        if isinstance(self.dataset_tc, Unset):
+            dataset_tc = UNSET
+        else:
+            dataset_tc = self.dataset_tc
+
+        name_en: None | str | Unset
+        if isinstance(self.name_en, Unset):
+            name_en = UNSET
+        else:
+            name_en = self.name_en
+
+        address_en: None | str | Unset
+        if isinstance(self.address_en, Unset):
+            address_en = UNSET
+        else:
+            address_en = self.address_en
+
+        name_tc: None | str | Unset
+        if isinstance(self.name_tc, Unset):
+            name_tc = UNSET
+        else:
+            name_tc = self.name_tc
+
+        address_tc: None | str | Unset
+        if isinstance(self.address_tc, Unset):
+            address_tc = UNSET
+        else:
+            address_tc = self.address_tc
+
+        search01_en: None | str | Unset
+        if isinstance(self.search01_en, Unset):
+            search01_en = UNSET
+        else:
+            search01_en = self.search01_en
+
+        search01_tc: None | str | Unset
+        if isinstance(self.search01_tc, Unset):
+            search01_tc = UNSET
+        else:
+            search01_tc = self.search01_tc
+
+        search02_en: None | str | Unset
+        if isinstance(self.search02_en, Unset):
+            search02_en = UNSET
+        else:
+            search02_en = self.search02_en
+
+        search02_tc: None | str | Unset
+        if isinstance(self.search02_tc, Unset):
+            search02_tc = UNSET
+        else:
+            search02_tc = self.search02_tc
+
+        search03_en: None | str | Unset
+        if isinstance(self.search03_en, Unset):
+            search03_en = UNSET
+        else:
+            search03_en = self.search03_en
+
+        search03_tc: None | str | Unset
+        if isinstance(self.search03_tc, Unset):
+            search03_tc = UNSET
+        else:
+            search03_tc = self.search03_tc
+
+        search04_en: None | str | Unset
+        if isinstance(self.search04_en, Unset):
+            search04_en = UNSET
+        else:
+            search04_en = self.search04_en
+
+        search04_tc: None | str | Unset
+        if isinstance(self.search04_tc, Unset):
+            search04_tc = UNSET
+        else:
+            search04_tc = self.search04_tc
+
+        search05_en: None | str | Unset
+        if isinstance(self.search05_en, Unset):
+            search05_en = UNSET
+        else:
+            search05_en = self.search05_en
+
+        search05_tc: None | str | Unset
+        if isinstance(self.search05_tc, Unset):
+            search05_tc = UNSET
+        else:
+            search05_tc = self.search05_tc
+
+        nsearch01_en: None | str | Unset
+        if isinstance(self.nsearch01_en, Unset):
+            nsearch01_en = UNSET
+        else:
+            nsearch01_en = self.nsearch01_en
+
+        nsearch01_tc: None | str | Unset
+        if isinstance(self.nsearch01_tc, Unset):
+            nsearch01_tc = UNSET
+        else:
+            nsearch01_tc = self.nsearch01_tc
+
+        nsearch02_en: None | str | Unset
+        if isinstance(self.nsearch02_en, Unset):
+            nsearch02_en = UNSET
+        else:
+            nsearch02_en = self.nsearch02_en
+
+        nsearch02_tc: None | str | Unset
+        if isinstance(self.nsearch02_tc, Unset):
+            nsearch02_tc = UNSET
+        else:
+            nsearch02_tc = self.nsearch02_tc
+
+        nsearch03_en: None | str | Unset
+        if isinstance(self.nsearch03_en, Unset):
+            nsearch03_en = UNSET
+        else:
+            nsearch03_en = self.nsearch03_en
+
+        nsearch03_tc: None | str | Unset
+        if isinstance(self.nsearch03_tc, Unset):
+            nsearch03_tc = UNSET
+        else:
+            nsearch03_tc = self.nsearch03_tc
+
+        nsearch04_en: None | str | Unset
+        if isinstance(self.nsearch04_en, Unset):
+            nsearch04_en = UNSET
+        else:
+            nsearch04_en = self.nsearch04_en
+
+        nsearch04_tc: None | str | Unset
+        if isinstance(self.nsearch04_tc, Unset):
+            nsearch04_tc = UNSET
+        else:
+            nsearch04_tc = self.nsearch04_tc
+
+        nsearch05_en: None | str | Unset
+        if isinstance(self.nsearch05_en, Unset):
+            nsearch05_en = UNSET
+        else:
+            nsearch05_en = self.nsearch05_en
+
+        nsearch05_tc: None | str | Unset
+        if isinstance(self.nsearch05_tc, Unset):
+            nsearch05_tc = UNSET
+        else:
+            nsearch05_tc = self.nsearch05_tc
+
+        nsearch06_en: None | str | Unset
+        if isinstance(self.nsearch06_en, Unset):
+            nsearch06_en = UNSET
+        else:
+            nsearch06_en = self.nsearch06_en
+
+        nsearch06_tc: None | str | Unset
+        if isinstance(self.nsearch06_tc, Unset):
+            nsearch06_tc = UNSET
+        else:
+            nsearch06_tc = self.nsearch06_tc
+
+        nsearch07_en: None | str | Unset
+        if isinstance(self.nsearch07_en, Unset):
+            nsearch07_en = UNSET
+        else:
+            nsearch07_en = self.nsearch07_en
+
+        nsearch07_tc: None | str | Unset
+        if isinstance(self.nsearch07_tc, Unset):
+            nsearch07_tc = UNSET
+        else:
+            nsearch07_tc = self.nsearch07_tc
+
+        nsearch08_en: None | str | Unset
+        if isinstance(self.nsearch08_en, Unset):
+            nsearch08_en = UNSET
+        else:
+            nsearch08_en = self.nsearch08_en
+
+        nsearch08_tc: None | str | Unset
+        if isinstance(self.nsearch08_tc, Unset):
+            nsearch08_tc = UNSET
+        else:
+            nsearch08_tc = self.nsearch08_tc
+
+        nsearch09_en: None | str | Unset
+        if isinstance(self.nsearch09_en, Unset):
+            nsearch09_en = UNSET
+        else:
+            nsearch09_en = self.nsearch09_en
+
+        nsearch09_tc: None | str | Unset
+        if isinstance(self.nsearch09_tc, Unset):
+            nsearch09_tc = UNSET
+        else:
+            nsearch09_tc = self.nsearch09_tc
+
+        nsearch10_en: None | str | Unset
+        if isinstance(self.nsearch10_en, Unset):
+            nsearch10_en = UNSET
+        else:
+            nsearch10_en = self.nsearch10_en
+
+        nsearch10_tc: None | str | Unset
+        if isinstance(self.nsearch10_tc, Unset):
+            nsearch10_tc = UNSET
+        else:
+            nsearch10_tc = self.nsearch10_tc
+
+        nsearch11_en: None | str | Unset
+        if isinstance(self.nsearch11_en, Unset):
+            nsearch11_en = UNSET
+        else:
+            nsearch11_en = self.nsearch11_en
+
+        nsearch11_tc: None | str | Unset
+        if isinstance(self.nsearch11_tc, Unset):
+            nsearch11_tc = UNSET
+        else:
+            nsearch11_tc = self.nsearch11_tc
+
+        nsearch12_en: None | str | Unset
+        if isinstance(self.nsearch12_en, Unset):
+            nsearch12_en = UNSET
+        else:
+            nsearch12_en = self.nsearch12_en
+
+        nsearch12_tc: None | str | Unset
+        if isinstance(self.nsearch12_tc, Unset):
+            nsearch12_tc = UNSET
+        else:
+            nsearch12_tc = self.nsearch12_tc
+
+        nsearch13_en: None | str | Unset
+        if isinstance(self.nsearch13_en, Unset):
+            nsearch13_en = UNSET
+        else:
+            nsearch13_en = self.nsearch13_en
+
+        nsearch13_tc: None | str | Unset
+        if isinstance(self.nsearch13_tc, Unset):
+            nsearch13_tc = UNSET
+        else:
+            nsearch13_tc = self.nsearch13_tc
+
+        nsearch14_en: None | str | Unset
+        if isinstance(self.nsearch14_en, Unset):
+            nsearch14_en = UNSET
+        else:
+            nsearch14_en = self.nsearch14_en
+
+        nsearch14_tc: None | str | Unset
+        if isinstance(self.nsearch14_tc, Unset):
+            nsearch14_tc = UNSET
+        else:
+            nsearch14_tc = self.nsearch14_tc
+
+        nsearch15_en: None | str | Unset
+        if isinstance(self.nsearch15_en, Unset):
+            nsearch15_en = UNSET
+        else:
+            nsearch15_en = self.nsearch15_en
+
+        nsearch15_tc: None | str | Unset
+        if isinstance(self.nsearch15_tc, Unset):
+            nsearch15_tc = UNSET
+        else:
+            nsearch15_tc = self.nsearch15_tc
+
+        lastupdate: None | str | Unset
+        if isinstance(self.lastupdate, Unset):
+            lastupdate = UNSET
+        else:
+            lastupdate = self.lastupdate
+
+        shape_length: float | None | Unset
+        if isinstance(self.shape_length, Unset):
+            shape_length = UNSET
+        else:
+            shape_length = self.shape_length
+
+        shape_area: float | None | Unset
+        if isinstance(self.shape_area, Unset):
+            shape_area = UNSET
+        else:
+            shape_area = self.shape_area
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update({})
+        if shape is not UNSET:
+            field_dict["SHAPE"] = shape
+        if objectid is not UNSET:
+            field_dict["OBJECTID"] = objectid
+        if dataset_en is not UNSET:
+            field_dict["DATASET_EN"] = dataset_en
+        if dataset_tc is not UNSET:
+            field_dict["DATASET_TC"] = dataset_tc
+        if name_en is not UNSET:
+            field_dict["NAME_EN"] = name_en
+        if address_en is not UNSET:
+            field_dict["ADDRESS_EN"] = address_en
+        if name_tc is not UNSET:
+            field_dict["NAME_TC"] = name_tc
+        if address_tc is not UNSET:
+            field_dict["ADDRESS_TC"] = address_tc
+        if search01_en is not UNSET:
+            field_dict["SEARCH01_EN"] = search01_en
+        if search01_tc is not UNSET:
+            field_dict["SEARCH01_TC"] = search01_tc
+        if search02_en is not UNSET:
+            field_dict["SEARCH02_EN"] = search02_en
+        if search02_tc is not UNSET:
+            field_dict["SEARCH02_TC"] = search02_tc
+        if search03_en is not UNSET:
+            field_dict["SEARCH03_EN"] = search03_en
+        if search03_tc is not UNSET:
+            field_dict["SEARCH03_TC"] = search03_tc
+        if search04_en is not UNSET:
+            field_dict["SEARCH04_EN"] = search04_en
+        if search04_tc is not UNSET:
+            field_dict["SEARCH04_TC"] = search04_tc
+        if search05_en is not UNSET:
+            field_dict["SEARCH05_EN"] = search05_en
+        if search05_tc is not UNSET:
+            field_dict["SEARCH05_TC"] = search05_tc
+        if nsearch01_en is not UNSET:
+            field_dict["NSEARCH01_EN"] = nsearch01_en
+        if nsearch01_tc is not UNSET:
+            field_dict["NSEARCH01_TC"] = nsearch01_tc
+        if nsearch02_en is not UNSET:
+            field_dict["NSEARCH02_EN"] = nsearch02_en
+        if nsearch02_tc is not UNSET:
+            field_dict["NSEARCH02_TC"] = nsearch02_tc
+        if nsearch03_en is not UNSET:
+            field_dict["NSEARCH03_EN"] = nsearch03_en
+        if nsearch03_tc is not UNSET:
+            field_dict["NSEARCH03_TC"] = nsearch03_tc
+        if nsearch04_en is not UNSET:
+            field_dict["NSEARCH04_EN"] = nsearch04_en
+        if nsearch04_tc is not UNSET:
+            field_dict["NSEARCH04_TC"] = nsearch04_tc
+        if nsearch05_en is not UNSET:
+            field_dict["NSEARCH05_EN"] = nsearch05_en
+        if nsearch05_tc is not UNSET:
+            field_dict["NSEARCH05_TC"] = nsearch05_tc
+        if nsearch06_en is not UNSET:
+            field_dict["NSEARCH06_EN"] = nsearch06_en
+        if nsearch06_tc is not UNSET:
+            field_dict["NSEARCH06_TC"] = nsearch06_tc
+        if nsearch07_en is not UNSET:
+            field_dict["NSEARCH07_EN"] = nsearch07_en
+        if nsearch07_tc is not UNSET:
+            field_dict["NSEARCH07_TC"] = nsearch07_tc
+        if nsearch08_en is not UNSET:
+            field_dict["NSEARCH08_EN"] = nsearch08_en
+        if nsearch08_tc is not UNSET:
+            field_dict["NSEARCH08_TC"] = nsearch08_tc
+        if nsearch09_en is not UNSET:
+            field_dict["NSEARCH09_EN"] = nsearch09_en
+        if nsearch09_tc is not UNSET:
+            field_dict["NSEARCH09_TC"] = nsearch09_tc
+        if nsearch10_en is not UNSET:
+            field_dict["NSEARCH10_EN"] = nsearch10_en
+        if nsearch10_tc is not UNSET:
+            field_dict["NSEARCH10_TC"] = nsearch10_tc
+        if nsearch11_en is not UNSET:
+            field_dict["NSEARCH11_EN"] = nsearch11_en
+        if nsearch11_tc is not UNSET:
+            field_dict["NSEARCH11_TC"] = nsearch11_tc
+        if nsearch12_en is not UNSET:
+            field_dict["NSEARCH12_EN"] = nsearch12_en
+        if nsearch12_tc is not UNSET:
+            field_dict["NSEARCH12_TC"] = nsearch12_tc
+        if nsearch13_en is not UNSET:
+            field_dict["NSEARCH13_EN"] = nsearch13_en
+        if nsearch13_tc is not UNSET:
+            field_dict["NSEARCH13_TC"] = nsearch13_tc
+        if nsearch14_en is not UNSET:
+            field_dict["NSEARCH14_EN"] = nsearch14_en
+        if nsearch14_tc is not UNSET:
+            field_dict["NSEARCH14_TC"] = nsearch14_tc
+        if nsearch15_en is not UNSET:
+            field_dict["NSEARCH15_EN"] = nsearch15_en
+        if nsearch15_tc is not UNSET:
+            field_dict["NSEARCH15_TC"] = nsearch15_tc
+        if lastupdate is not UNSET:
+            field_dict["LASTUPDATE"] = lastupdate
+        if shape_length is not UNSET:
+            field_dict["SHAPE_Length"] = shape_length
+        if shape_area is not UNSET:
+            field_dict["SHAPE_Area"] = shape_area
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        d = dict(src_dict)
+        shape = d.pop("SHAPE", UNSET)
+
+        objectid = d.pop("OBJECTID", UNSET)
+
+        def _parse_dataset_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        dataset_en = _parse_dataset_en(d.pop("DATASET_EN", UNSET))
+
+        def _parse_dataset_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        dataset_tc = _parse_dataset_tc(d.pop("DATASET_TC", UNSET))
+
+        def _parse_name_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        name_en = _parse_name_en(d.pop("NAME_EN", UNSET))
+
+        def _parse_address_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        address_en = _parse_address_en(d.pop("ADDRESS_EN", UNSET))
+
+        def _parse_name_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        name_tc = _parse_name_tc(d.pop("NAME_TC", UNSET))
+
+        def _parse_address_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        address_tc = _parse_address_tc(d.pop("ADDRESS_TC", UNSET))
+
+        def _parse_search01_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search01_en = _parse_search01_en(d.pop("SEARCH01_EN", UNSET))
+
+        def _parse_search01_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search01_tc = _parse_search01_tc(d.pop("SEARCH01_TC", UNSET))
+
+        def _parse_search02_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search02_en = _parse_search02_en(d.pop("SEARCH02_EN", UNSET))
+
+        def _parse_search02_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search02_tc = _parse_search02_tc(d.pop("SEARCH02_TC", UNSET))
+
+        def _parse_search03_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search03_en = _parse_search03_en(d.pop("SEARCH03_EN", UNSET))
+
+        def _parse_search03_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search03_tc = _parse_search03_tc(d.pop("SEARCH03_TC", UNSET))
+
+        def _parse_search04_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search04_en = _parse_search04_en(d.pop("SEARCH04_EN", UNSET))
+
+        def _parse_search04_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search04_tc = _parse_search04_tc(d.pop("SEARCH04_TC", UNSET))
+
+        def _parse_search05_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search05_en = _parse_search05_en(d.pop("SEARCH05_EN", UNSET))
+
+        def _parse_search05_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        search05_tc = _parse_search05_tc(d.pop("SEARCH05_TC", UNSET))
+
+        def _parse_nsearch01_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch01_en = _parse_nsearch01_en(d.pop("NSEARCH01_EN", UNSET))
+
+        def _parse_nsearch01_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch01_tc = _parse_nsearch01_tc(d.pop("NSEARCH01_TC", UNSET))
+
+        def _parse_nsearch02_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch02_en = _parse_nsearch02_en(d.pop("NSEARCH02_EN", UNSET))
+
+        def _parse_nsearch02_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch02_tc = _parse_nsearch02_tc(d.pop("NSEARCH02_TC", UNSET))
+
+        def _parse_nsearch03_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch03_en = _parse_nsearch03_en(d.pop("NSEARCH03_EN", UNSET))
+
+        def _parse_nsearch03_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch03_tc = _parse_nsearch03_tc(d.pop("NSEARCH03_TC", UNSET))
+
+        def _parse_nsearch04_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch04_en = _parse_nsearch04_en(d.pop("NSEARCH04_EN", UNSET))
+
+        def _parse_nsearch04_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch04_tc = _parse_nsearch04_tc(d.pop("NSEARCH04_TC", UNSET))
+
+        def _parse_nsearch05_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch05_en = _parse_nsearch05_en(d.pop("NSEARCH05_EN", UNSET))
+
+        def _parse_nsearch05_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch05_tc = _parse_nsearch05_tc(d.pop("NSEARCH05_TC", UNSET))
+
+        def _parse_nsearch06_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch06_en = _parse_nsearch06_en(d.pop("NSEARCH06_EN", UNSET))
+
+        def _parse_nsearch06_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch06_tc = _parse_nsearch06_tc(d.pop("NSEARCH06_TC", UNSET))
+
+        def _parse_nsearch07_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch07_en = _parse_nsearch07_en(d.pop("NSEARCH07_EN", UNSET))
+
+        def _parse_nsearch07_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch07_tc = _parse_nsearch07_tc(d.pop("NSEARCH07_TC", UNSET))
+
+        def _parse_nsearch08_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch08_en = _parse_nsearch08_en(d.pop("NSEARCH08_EN", UNSET))
+
+        def _parse_nsearch08_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch08_tc = _parse_nsearch08_tc(d.pop("NSEARCH08_TC", UNSET))
+
+        def _parse_nsearch09_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch09_en = _parse_nsearch09_en(d.pop("NSEARCH09_EN", UNSET))
+
+        def _parse_nsearch09_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch09_tc = _parse_nsearch09_tc(d.pop("NSEARCH09_TC", UNSET))
+
+        def _parse_nsearch10_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch10_en = _parse_nsearch10_en(d.pop("NSEARCH10_EN", UNSET))
+
+        def _parse_nsearch10_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch10_tc = _parse_nsearch10_tc(d.pop("NSEARCH10_TC", UNSET))
+
+        def _parse_nsearch11_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch11_en = _parse_nsearch11_en(d.pop("NSEARCH11_EN", UNSET))
+
+        def _parse_nsearch11_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch11_tc = _parse_nsearch11_tc(d.pop("NSEARCH11_TC", UNSET))
+
+        def _parse_nsearch12_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch12_en = _parse_nsearch12_en(d.pop("NSEARCH12_EN", UNSET))
+
+        def _parse_nsearch12_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch12_tc = _parse_nsearch12_tc(d.pop("NSEARCH12_TC", UNSET))
+
+        def _parse_nsearch13_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch13_en = _parse_nsearch13_en(d.pop("NSEARCH13_EN", UNSET))
+
+        def _parse_nsearch13_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch13_tc = _parse_nsearch13_tc(d.pop("NSEARCH13_TC", UNSET))
+
+        def _parse_nsearch14_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch14_en = _parse_nsearch14_en(d.pop("NSEARCH14_EN", UNSET))
+
+        def _parse_nsearch14_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch14_tc = _parse_nsearch14_tc(d.pop("NSEARCH14_TC", UNSET))
+
+        def _parse_nsearch15_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch15_en = _parse_nsearch15_en(d.pop("NSEARCH15_EN", UNSET))
+
+        def _parse_nsearch15_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        nsearch15_tc = _parse_nsearch15_tc(d.pop("NSEARCH15_TC", UNSET))
+
+        def _parse_lastupdate(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        lastupdate = _parse_lastupdate(d.pop("LASTUPDATE", UNSET))
+
+        def _parse_shape_length(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        shape_length = _parse_shape_length(d.pop("SHAPE_Length", UNSET))
+
+        def _parse_shape_area(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        shape_area = _parse_shape_area(d.pop("SHAPE_Area", UNSET))
+
+        wfs_map_server_wfs_sspa_attributes = cls(
+            shape=shape,
+            objectid=objectid,
+            dataset_en=dataset_en,
+            dataset_tc=dataset_tc,
+            name_en=name_en,
+            address_en=address_en,
+            name_tc=name_tc,
+            address_tc=address_tc,
+            search01_en=search01_en,
+            search01_tc=search01_tc,
+            search02_en=search02_en,
+            search02_tc=search02_tc,
+            search03_en=search03_en,
+            search03_tc=search03_tc,
+            search04_en=search04_en,
+            search04_tc=search04_tc,
+            search05_en=search05_en,
+            search05_tc=search05_tc,
+            nsearch01_en=nsearch01_en,
+            nsearch01_tc=nsearch01_tc,
+            nsearch02_en=nsearch02_en,
+            nsearch02_tc=nsearch02_tc,
+            nsearch03_en=nsearch03_en,
+            nsearch03_tc=nsearch03_tc,
+            nsearch04_en=nsearch04_en,
+            nsearch04_tc=nsearch04_tc,
+            nsearch05_en=nsearch05_en,
+            nsearch05_tc=nsearch05_tc,
+            nsearch06_en=nsearch06_en,
+            nsearch06_tc=nsearch06_tc,
+            nsearch07_en=nsearch07_en,
+            nsearch07_tc=nsearch07_tc,
+            nsearch08_en=nsearch08_en,
+            nsearch08_tc=nsearch08_tc,
+            nsearch09_en=nsearch09_en,
+            nsearch09_tc=nsearch09_tc,
+            nsearch10_en=nsearch10_en,
+            nsearch10_tc=nsearch10_tc,
+            nsearch11_en=nsearch11_en,
+            nsearch11_tc=nsearch11_tc,
+            nsearch12_en=nsearch12_en,
+            nsearch12_tc=nsearch12_tc,
+            nsearch13_en=nsearch13_en,
+            nsearch13_tc=nsearch13_tc,
+            nsearch14_en=nsearch14_en,
+            nsearch14_tc=nsearch14_tc,
+            nsearch15_en=nsearch15_en,
+            nsearch15_tc=nsearch15_tc,
+            lastupdate=lastupdate,
+            shape_length=shape_length,
+            shape_area=shape_area,
+        )
+
+        wfs_map_server_wfs_sspa_attributes.additional_properties = d
+        return wfs_map_server_wfs_sspa_attributes
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

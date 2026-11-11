@@ -1,0 +1,211 @@
+openapi: 3.0.0
+info:
+  title: Loans and advances by type - Authorized institutions
+  description: "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/banking/loans-by-type-ais"
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/banking
+    variables: {}
+paths:
+  /loans-by-type-ais:
+    get:
+      summary: Retrieve data of Loans and advances by type - Authorized institutions
+      parameters:
+        - name: segment
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Segment"
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Record"
+          description: ""
+    Record:
+      title: Record
+      type: object
+      properties:
+        end_of_month:
+          type: string
+          format: date
+        imp_exp_reexp_fromhk_hkd:
+          type: number
+        imp_exp_reexp_fromhk_fc:
+          type: number
+        imp_exp_reexp_fromhk_total:
+          type: number
+        merch_trade_nonhk_hkd:
+          type: number
+        merch_trade_nonhk_fc:
+          type: number
+        merch_trade_nonhk_total:
+          type: number
+        loans_inhk_hkd:
+          type: number
+        loans_inhk_fc:
+          type: number
+        loans_inhk_total:
+          type: number
+        other_loans_outhk_hkd:
+          type: number
+        other_loans_outhk_fc:
+          type: number
+        other_loans_outhk_total:
+          type: number
+        other_loans_unkplace_hkd:
+          type: number
+        other_loans_unkplace_fc:
+          type: number
+        other_loans_unkplace_total:
+          type: number
+        total_loans_hkd:
+          type: number
+        total_loans_fc:
+          type: number
+        total_loans:
+          type: number
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    Segment:
+      title: segment
+      enum:
+        - new
+        - old
+      type: string
+      example: new
+      x-enum-elements:
+        - name: new
+          description: ""
+        - name: old
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"

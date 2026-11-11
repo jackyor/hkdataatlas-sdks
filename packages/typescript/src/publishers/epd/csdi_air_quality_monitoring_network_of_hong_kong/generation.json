@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "epd-csdi-air-quality-monitoring-network-of-hong-kong",
+  "sourceSha256": "f7b316bed5677bc4ae582c6a8776fc6b74569f6141cc27c8849d32a28eb9a311",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/epd_rcd_1629267205214_40635/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1629267205214_40635/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/epd_rcd_1629267205214_40635/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

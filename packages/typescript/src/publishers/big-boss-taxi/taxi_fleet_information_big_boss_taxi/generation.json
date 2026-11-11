@@ -1,0 +1,29 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "big-boss-taxi-taxi-fleet-information-big-boss-taxi",
+  "sourceSha256": "18ac51740edf847558a06b86e128df1b95f324b78c4f764fda788905de07aca5",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/api/opendata/get_data/",
+      "operationId": "getVehiclesWithinRadius"
+    },
+    {
+      "method": "POST",
+      "path": "/api/opendata/get_data/",
+      "operationId": "postGetVehiclesWithinRadius"
+    },
+    {
+      "method": "GET",
+      "path": "/api/opendata/get_data/all",
+      "operationId": "getAllVehicles"
+    },
+    {
+      "method": "POST",
+      "path": "/api/opendata/get_data/all",
+      "operationId": "postGetAllVehicles"
+    }
+  ],
+  "normalizations": []
+}

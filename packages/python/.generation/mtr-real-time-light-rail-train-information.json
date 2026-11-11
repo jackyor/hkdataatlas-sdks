@@ -1,0 +1,45 @@
+{
+  "sourceId": "mtr-real-time-light-rail-train-information",
+  "publisherKey": "mtr",
+  "family": "real_time_light_rail_train_information",
+  "status": "generated",
+  "key": "d104a948bb2b34cede6835b432309bf8615724774f235b0402e24b37a8cd1ebb",
+  "sourceSha256": "0fc0ce1a4183ebb151158a782361ee131c88754cd85d039a77c28f452f473b68",
+  "derivedInputSha256": "c29bd57e9014d3e96d1b41c21190b047128c76a911ea96b3257de9b68ae4a7fe",
+  "normalizations": [
+    {
+      "pointer": "/paths/~1getSchedule/get/parameters/1/schema/anyOf/0",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/paths/~1getSchedule/get/parameters/1/schema/anyOf/1",
+      "rule": "const_to_singleton_enum"
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/getSchedule",
+      "operationId": "getLightRailNextTrainSchedule",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/mtr-real-time-light-rail-train-information.log",
+  "outputs": {
+    "__init__.py": "e192c67a99dc029d6dad94665f44cbc6b8c67006770b3f6528d5709276f592fa",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_light_rail_next_train_schedule.py": "efe7a71419f4f4e8563ad8a5c84c5175e7f654840355abc5f36dc84d6a1e2fc0",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "0a9d719e83eaf657abb589a6202f33911578e24eb38055c948b6eb6df3f073be",
+    "models/get_light_rail_next_train_schedule_with_special_type_0.py": "8b7454e58c0bd298eb8c7a7e5aa11089a64c3b0dd591a51c49fc142e69c10f56",
+    "models/get_light_rail_next_train_schedule_with_special_type_1.py": "e82d142c4da9872a9b47e6e2f0384a802e894342f2613523993aa1d805ec121b",
+    "models/platform.py": "0934f3f892cf1cbcab0da6eaec1dc889d1ca18770cd3f18f1f95726ba5ca7aab",
+    "models/route.py": "2efa59e8eeb83df1fc1460796f6d78ceece29f6682c25c5a71b030f6e095552e",
+    "models/schedule_response.py": "b916a590b783d3a727c8d2d3676534d86ff04c7fd60a8b03af3410e13bf04a27",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

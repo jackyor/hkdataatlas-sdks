@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cso-chief-secretary-for-administration-my-blog",
+  "sourceSha256": "e91e77e5a115f6f17f00af7b6fd6c3e9ccedf272e2c95acb012fd627a9292140",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/cso/blog/search",
+      "operationId": "searchChiefSecretaryBlog"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/paths//cso/blog/search/get/parameters/lang",
+      "rule": "required-default-allOf",
+      "proof": "A schema S and allOf:[S] accept the same instances and preserve the default annotation; prevents default metadata from weakening mandatory query presence"
+    }
+  ]
+}

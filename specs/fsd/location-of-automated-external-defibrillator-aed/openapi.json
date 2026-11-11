@@ -1,0 +1,167 @@
+{
+  "components": {
+    "schemas": {
+      "AedCsvFields": {
+        "description": "Field dictionary for the CSV structure, represented as conceptual fields because the source does not establish exact CSV header names or quoting conventions. The data dictionary identifies an item containing the following information. These are documented field descriptions, not a guarantee that every field is populated in every record.",
+        "properties": {
+          "aedAddress": {
+            "description": "Detailed address of the AED.",
+            "type": "string"
+          },
+          "aedBrand": {
+            "description": "Brand name of the AED.",
+            "type": "string"
+          },
+          "aedModel": {
+            "description": "Model of the AED.",
+            "type": "string"
+          },
+          "aedName": {
+            "description": "Name of the location where the AED is installed.",
+            "type": "string"
+          },
+          "aedRemark": {
+            "description": "Other remark.",
+            "type": "string"
+          },
+          "detailedLocation": {
+            "description": "Exact location of the AED installed.",
+            "type": "string"
+          },
+          "groundLevelCategory": {
+            "description": "Whether the AED is installed at ground level. Documented values: Street Level or Non-Street Level.",
+            "enum": [
+              "Street Level",
+              "Non-Street Level"
+            ],
+            "type": "string"
+          },
+          "latitude": {
+            "description": "Latitude of the WGS84 coordinate system. The source declares Decimal.",
+            "type": "number"
+          },
+          "longitude": {
+            "description": "Longitude of the WGS84 coordinate system. The source declares Decimal.",
+            "type": "number"
+          },
+          "personAllowedToOperate": {
+            "description": "Type of people allowed to operate the AED. Documented values: Anyone, Staff Only, Trained Personnel Only, or Trained Staff Only.",
+            "enum": [
+              "Anyone",
+              "Staff Only",
+              "Trained Personnel Only",
+              "Trained Staff Only"
+            ],
+            "type": "string"
+          },
+          "personWithAccess": {
+            "description": "Person who has access to the AED. Documented values: Anyone, Staff Only, Accompanied By Staff Only, Teaching And Non-Teaching Staff, or Trained Staff Only.",
+            "enum": [
+              "Anyone",
+              "Staff Only",
+              "Accompanied By Staff Only",
+              "Teaching And Non-Teaching Staff",
+              "Trained Staff Only"
+            ],
+            "type": "string"
+          },
+          "serviceHourRemark": {
+            "description": "The service hour that the AED is accessible.",
+            "type": "string"
+          },
+          "usableByAnyone": {
+            "description": "Indicates whether the AED can be used by anybody. Documented values: Yes or No.",
+            "enum": [
+              "Yes",
+              "No"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "AED Location Data Specification, version 1.0, 28 January 2022",
+    "url": "https://www.hkfsd.gov.hk/datagovhk/data_dictionaries/DD_CARE_eng.pdf"
+  },
+  "info": {
+    "description": "Read-only retrieval of available automated external defibrillator (AED) location information in CSV format. The publisher documentation specifies GET on the resource URL and a Lang parameter. It does not specify authentication requirements or HTTP response status codes. The documentation identifies the response encoding as “No UTF-8,” an ambiguous wording retained here without further interpretation. Observe the publisher disclaimer at https://hkfsd.gov.hk/aed. For enquiries, the documentation lists caaso_padp@hkfsd.gov.hk. Version 1.0 is the data specification version dated 28 January 2022.",
+    "title": "AED Location Data",
+    "version": "1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/aed_api/export_aed.php": {
+      "get": {
+        "description": "Returns AED information as CSV. The documentation describes CSV with response encoding recorded as “No UTF-8.” The catalogue publishes language-specific retrieval URLs for English, Traditional Chinese, and Simplified Chinese; those links are resource examples, not separate endpoints.",
+        "operationId": "getAedInformation",
+        "parameters": [
+          {
+            "description": "Defines the display language. Defaults to EN (English).",
+            "examples": {
+              "english": {
+                "summary": "English",
+                "value": "EN"
+              },
+              "simplifiedChinese": {
+                "summary": "Simplified Chinese",
+                "value": "SC"
+              },
+              "traditionalChinese": {
+                "summary": "Traditional Chinese",
+                "value": "TC"
+              }
+            },
+            "in": "query",
+            "name": "Lang",
+            "required": false,
+            "schema": {
+              "default": "EN",
+              "enum": [
+                "EN",
+                "TC",
+                "SC"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "text/csv": {
+                "examples": {
+                  "englishResource": {
+                    "externalValue": "https://es.hkfsd.gov.hk/aed_api/export_aed.php?lang=EN",
+                    "summary": "Published English CSV resource"
+                  },
+                  "simplifiedChineseResource": {
+                    "externalValue": "https://es.hkfsd.gov.hk/aed_api/export_aed.php?lang=SC",
+                    "summary": "Published Simplified Chinese CSV resource"
+                  },
+                  "traditionalChineseResource": {
+                    "externalValue": "https://es.hkfsd.gov.hk/aed_api/export_aed.php?lang=TC",
+                    "summary": "Published Traditional Chinese CSV resource"
+                  }
+                },
+                "schema": {
+                  "description": "CSV document. The publisher's data dictionary describes the CSV fields but does not provide an example response or exact wire-header names.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "AED information in CSV format. The documentation does not specify an explicit HTTP status code; 200 is used here to describe the successful response."
+          }
+        },
+        "summary": "Get available AED information"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://es.hkfsd.gov.hk"
+    }
+  ]
+}

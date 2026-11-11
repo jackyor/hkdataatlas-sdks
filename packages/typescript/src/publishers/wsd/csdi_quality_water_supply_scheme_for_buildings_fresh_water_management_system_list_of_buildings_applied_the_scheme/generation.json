@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "wsd-csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-applied-the-scheme",
+  "sourceSha256": "020f1806e06897157cfb4d66ed9fe146ef6736e8337df21b6fc158ced08e8f32",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/wsd_rcd_1696488938021_78913/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1696488938021_78913/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1696488938021_78913/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

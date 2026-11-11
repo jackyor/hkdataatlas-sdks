@@ -1,0 +1,29 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "dpo-approved-fund-raising-activities",
+  "sourceSha256": "ac2bfc29725382a6d021fbd4ec67be92897f9dd20abeb37256b9bf06ed875f82",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/json",
+      "operationId": "getFundraisingActivitiesJson"
+    },
+    {
+      "method": "GET",
+      "path": "/xml",
+      "operationId": "getFundraisingActivitiesXml"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/paths//xml/get/responses/200/content/application/xml",
+      "rule": "text-media-raw-wire-response",
+      "sourceSchema": {
+        "description": "XML payload; the complete XML structure is not established by the available field dictionary.",
+        "type": "object"
+      },
+      "proof": "Native fetch exposes XML/text as text without a decoder; raw wire type is string. Canonical logical response model and source constraints remain unchanged in the preserved specification."
+    }
+  ]
+}

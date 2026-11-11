@@ -1,0 +1,34 @@
+{
+  "sourceId": "ceo-the-chief-executive-s-speeches-and-articles",
+  "publisherKey": "ceo",
+  "family": "the_chief_executive_s_speeches_and_articles",
+  "status": "generated",
+  "key": "ea78225c4ee3aaf90efefe54dad14eee503b7bb88a6954a395b9eddc386d69ca",
+  "sourceSha256": "84b764c6debd6dd65e27922f43d1e1b486c109b60eb730ca6a62131f0c3d5172",
+  "derivedInputSha256": "84b764c6debd6dd65e27922f43d1e1b486c109b60eb730ca6a62131f0c3d5172",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/v1/pressrelease/search",
+      "operationId": "searchChiefExecutiveSpeechesAndArticles",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/ceo-the-chief-executive-s-speeches-and-articles.log",
+  "outputs": {
+    "__init__.py": "851889d96db25cfbe558e600f2e1323f81b4900cc44e3c4b92054e373a9e68ae",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/search_chief_executive_speeches_and_articles.py": "cb85f584da72ab100aa709fbbd548b554724a68d632ce29b74da49796b8e2286",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e78bff13d92093c01a6f91c8d0955caffea6fc1af0fce6b94f2d1cd89d703cbf",
+    "models/search_chief_executive_speeches_and_articles_lang.py": "914d9e50de66f2ca8f887c0ee561e0b1f46c95317c06453aa953709ca02784b9",
+    "models/search_chief_executive_speeches_and_articles_response_200.py": "55ba78f316de4c4e6550dcb0c3294f326080aef9915a10756369452d065a8ecb",
+    "models/speech_article.py": "c7f2945f7f6a7cb30b957bf55cca060369cfda2e574f590d312a393407bc3451",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,731 @@
+openapi: 3.1.0
+info:
+  title: Fire Services Department — Record of convicted Target Mini-Storage Premises with common fire hazards and Fire Hazard Order has been issued by Courts and still in operation
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/hkfsd_rcd_1666327020607_90352/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: MSP_convicted_with_FHO_operating
+              value: 0
+          x-choice-count: 1
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/hkfsd_rcd_1666327020607_90352/FeatureServer?f=pjson
+          sha256: af6e2f5e77e3fd8e69efcb1ba2991e67c374f93f01bd67e22d84f85db9c47a27
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/hkfsd_rcd_1666327020607_90352/FeatureServer/0?f=pjson
+          sha256: 222aaa93d2647c8e242cfc0b9bf6f096ccf0dde2475c9733454eaa1c453751eb
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: MSP_convicted_with_FHO_operating
+              value: csdi:MSP_convicted_with_FHO_operating
+          x-choice-count: 1
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::4326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::4326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WFSServer?service=WFS&request=GetCapabilities
+          sha256: aa45fbe96e061bf6f4de7a409a6030a264d9f6af702b7c54926c270ea716546d
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+        - url: https://portal.csdi.gov.hk/server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType&typeNames=csdi%3AMSP_convicted_with_FHO_operating
+          sha256: 2814e1d507c01be9c45c6df053cc3c9a8f91ca7a151e982f223186b642f39b05
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-feature-type
+          parseStatus: pass
+          kind: wfs-feature-type
+  /server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: MSP_convicted_with_FHO_operating
+              value: MSP_convicted_with_FHO_operating
+          x-choice-count: 1
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.968506,22.248291,114.245911,22.457092
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WMSServer?service=WMS&request=GetCapabilities
+          sha256: b43c8d65c2b721b7990bd060816aad39f380c757dd41d2029fd566854b4de6a9
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Company_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Company_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Company_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Company_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Company_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Company_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Address_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Address_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Address_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Region_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Region_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Region_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Region_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Region_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Region_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Issue_date:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Issue_date
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Latitude:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Latitude
+          type:
+            - number
+            - "null"
+        Longitude:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Longitude
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    WfsMapServerWfsMSPconvictedwithFHOoperatingAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Shape:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+        Company_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Company_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Company_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Address_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Address_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Address_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Region_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Region_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Region_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Issue_date:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Latitude:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Longitude:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/WfsMapServerWfsMSPconvictedwithFHOoperatingAttributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: MSP_convicted_with_FHO_operating
+    protocol: arcgis
+  - id: csdi:MSP_convicted_with_FHO_operating
+    title: MSP_convicted_with_FHO_operating
+    protocol: wfs
+  - id: MSP_convicted_with_FHO_operating
+    title: MSP_convicted_with_FHO_operating
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+    bounds:
+      - CRS: CRS:84
+        minx: "113.968506"
+        miny: "22.248291"
+        maxx: "114.245911"
+        maxy: "22.457092"
+      - CRS: EPSG:4326
+        minx: "22.248291"
+        miny: "113.968506"
+        maxx: "22.457092"
+        maxy: "114.245911"
+      - CRS: CRS:84
+        minx: "113.968506"
+        miny: "22.248291"
+        maxx: "114.245911"
+        maxy: "22.457092"
+      - CRS: EPSG:4326
+        minx: "22.248291"
+        miny: "113.968506"
+        maxx: "22.457092"
+        maxy: "114.245911"
+    styles:
+      - id: default
+        title: MSP_convicted_with_FHO_operating
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=hkfsd_rcd_1666327020607_90352
+    sha256: 3027ce7159147e0121af3122b9bf19e47919a3d45cf4a624105e247c04654dbf
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/hkfsd_rcd_1666327020607_90352/FeatureServer?f=pjson
+    sha256: af6e2f5e77e3fd8e69efcb1ba2991e67c374f93f01bd67e22d84f85db9c47a27
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/hkfsd_rcd_1666327020607_90352/FeatureServer/0?f=pjson
+    sha256: 222aaa93d2647c8e242cfc0b9bf6f096ccf0dde2475c9733454eaa1c453751eb
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    sha256: aa45fbe96e061bf6f4de7a409a6030a264d9f6af702b7c54926c270ea716546d
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+  - url: https://portal.csdi.gov.hk/server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType&typeNames=csdi%3AMSP_convicted_with_FHO_operating
+    sha256: 2814e1d507c01be9c45c6df053cc3c9a8f91ca7a151e982f223186b642f39b05
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-feature-type
+    parseStatus: pass
+    kind: wfs-feature-type
+  - url: https://portal.csdi.gov.hk/server/services/common/hkfsd_rcd_1666327020607_90352/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    sha256: b43c8d65c2b721b7990bd060816aad39f380c757dd41d2029fd566854b4de6a9
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols: []
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 6
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

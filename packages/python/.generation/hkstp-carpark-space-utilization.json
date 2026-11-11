@@ -1,0 +1,34 @@
+{
+  "sourceId": "hkstp-carpark-space-utilization",
+  "publisherKey": "hkstp",
+  "family": "carpark_space_utilization",
+  "status": "generated",
+  "key": "e49754dfc86caf74b6e06158eec6d215cf7fff965fdd76ba288ae57f365ec07e",
+  "sourceSha256": "c710cf4c8a6ca7f9a944ae6e28aec63e3459ff2cdfea7795959f00e889dbdb1a",
+  "derivedInputSha256": "c710cf4c8a6ca7f9a944ae6e28aec63e3459ff2cdfea7795959f00e889dbdb1a",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/carpark/v1/utilization",
+      "operationId": "getCarparkUtilization",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkstp-carpark-space-utilization.log",
+  "outputs": {
+    "__init__.py": "ca550c723863bb6e470421ad0be3b88d3b250aff95723f5650370658d0cb776c",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_carpark_utilization.py": "372b5116bbabfb3efe85f9c9b9bf8fcc3d78d9540235827032c07690787c3175",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "897b6e646d935b0a2b043cb45f78c79ec5eed705e4d0d7b26bca4fd5c15210e8",
+    "models/carpark_utilization.py": "7ee5d1103693e197655eb66dd773fd5cfca101400a138bff65ce22929a102a12",
+    "models/private_car_utilization.py": "4217049e0b5e5ccb2c1f0bfbd95d55b9bee4e12de979404306c7d7265c0a4630",
+    "models/utilization_response.py": "a6d3972b87842547b4a6955961c554c353e1f99af51ef3382270ffae729c2fd4",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Information of branches of retail banks",
+    "description": "This API is providing the location and related information of Banks' branches.",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/bank-svf-info",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/banks-branch-locator": {
+      "get": {
+        "summary": "Retrieve information of Bank's Branches",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Lang"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "getBanksBranchLocator"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "district": {
+            "type": "string"
+          },
+          "bank_name": {
+            "type": "string"
+          },
+          "branch_name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "service_hours": {
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+              }
+            ],
+            "description": "Upstream documents a number; the preserved live sample uses a numeric decimal string. This derivative accepts both evidenced representations without response coercion."
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"
+              }
+            ],
+            "description": "Upstream documents a number; the preserved live sample uses a numeric decimal string. This derivative accepts both evidenced representations without response coercion."
+          },
+          "barrier-free_access": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "Lang": {
+        "title": "lang",
+        "enum": [
+          "en",
+          "tc",
+          "sc"
+        ],
+        "type": "string",
+        "example": "en",
+        "x-enum-elements": [
+          {
+            "name": "en",
+            "description": "Data in English"
+          },
+          {
+            "name": "tc",
+            "description": "Data in Traditional Chinese"
+          },
+          {
+            "name": "sc",
+            "description": "Data in Simplified Chinese"
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  },
+  "x-source-evidence": [
+    {
+      "sourceUrl": "https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/banks-branch-locator.json"
+    }
+  ],
+  "x-derivative": {
+    "kind": "evidence-bounded-correction",
+    "originalOpenapiVersion": "3.0.0",
+    "changes": [
+      {
+        "pointer": "#/components/schemas/Record/properties/latitude",
+        "from": {
+          "type": "number"
+        },
+        "to": "number or numeric decimal string",
+        "evidence": {
+          "sourceUrl": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/banks-branch-locator/",
+          "basis": "Upstream schema and observed response compatibility; the original publisher description remains unchanged."
+        }
+      },
+      {
+        "pointer": "#/components/schemas/Record/properties/longitude",
+        "from": {
+          "type": "number"
+        },
+        "to": "number or numeric decimal string",
+        "evidence": {
+          "sourceUrl": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/banks-branch-locator/",
+          "basis": "Upstream schema and observed response compatibility; the original publisher description remains unchanged."
+        }
+      },
+      {
+        "pointer": "#/components/schemas/Record/properties/service_hours/nullable",
+        "from": false,
+        "to": true,
+        "evidence": {
+          "sourceUrl": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/banks-branch-locator/",
+          "basis": "Upstream schema and observed response compatibility; the original publisher description remains unchanged."
+        },
+        "reason": "Recorded response contains null for this documented string field."
+      },
+      {
+        "pointer": "#/components/schemas/Record/properties/barrier-free_access/nullable",
+        "from": false,
+        "to": true,
+        "evidence": {
+          "sourceUrl": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/banks-branch-locator/",
+          "basis": "Upstream schema and observed response compatibility; the original publisher description remains unchanged."
+        },
+        "reason": "Recorded response contains null for this documented string field."
+      }
+    ],
+    "sourceFaithfulness": "Bounded corrections based on official documentation and observed response representations; complete source faithfulness is not established."
+  }
+}

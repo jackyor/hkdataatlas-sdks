@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cedd-csdi-registered-man-made-slopes",
+  "sourceSha256": "ca3eb7f74c97b69cfe419394ac8dea1e291e07b9f7a0001a72349b0bd4543858",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/cedd_rcd_1636517655915_91216/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636517655915_91216/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/cedd_rcd_1636517655915_91216/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

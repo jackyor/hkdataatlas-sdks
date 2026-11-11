@@ -1,0 +1,1210 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Hong Kong Observatory — Current weather report",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "current_weather_report_hong_kong",
+                "value": 0
+              },
+              "choice2": {
+                "summary": "current_weather_report_weather_station",
+                "value": 1
+              },
+              "choice3": {
+                "summary": "current_weather_report_rainfall",
+                "value": 2
+              },
+              "choice4": {
+                "summary": "current_weather_report_lightning",
+                "value": 3
+              }
+            },
+            "x-choice-count": 4
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer?f=pjson",
+            "sha256": "29d912d963890ca6d6c8d386dd7fafebec00bfc93d56070eaaa3dee238fb0f2d",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/0?f=pjson",
+            "sha256": "991d820fc6a8ae7807dec4a5e8d50808e1a77dd4f62314d90bb638b00889aef7",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/1?f=pjson",
+            "sha256": "d141af93fc198bdbe935bbe70097af890aa953ce9f9d17e7662866bf5fc86d25",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/2?f=pjson",
+            "sha256": "c2ca0b96df9dcea5c5233f88a5dbe609537176d8ae3e132868290a8974503a35",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/3?f=pjson",
+            "sha256": "c2f16aa73b79947da854472e1798d6ad526dbabe56526b84b9d9f95eb650ae96",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/hko_rcd_1634806665997_63899/MapServer/WFSServer": {
+      "get": {
+        "operationId": "WfsMapServerGetFeature",
+        "tags": [
+          "WFS"
+        ],
+        "summary": "Retrieve published features",
+        "description": "One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WFS"
+              ]
+            },
+            "example": "WFS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact capabilities version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2.0.0"
+              ]
+            },
+            "example": "2.0.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only operation advertised by GetCapabilities.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetFeature"
+              ]
+            },
+            "example": "GetFeature"
+          },
+          {
+            "name": "typeNames",
+            "in": "query",
+            "required": true,
+            "description": "Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "current_weather_report_weather_station",
+                "value": "csdi:current_weather_report_weather_station"
+              },
+              "choice2": {
+                "summary": "current_weather_report_lightning",
+                "value": "csdi:current_weather_report_lightning"
+              },
+              "choice3": {
+                "summary": "current_weather_report_rainfall",
+                "value": "csdi:current_weather_report_rainfall"
+              },
+              "choice4": {
+                "summary": "current_weather_report_hong_kong",
+                "value": "csdi:current_weather_report_hong_kong"
+              }
+            },
+            "x-choice-count": 4
+          },
+          {
+            "name": "outputFormat",
+            "in": "query",
+            "required": false,
+            "description": "Advertised native representation; JSON, GML, CSV and images are kept distinct.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GML32",
+                "GML32+ZIP",
+                "GML32+GZIP",
+                "application/gml+xml; version=3.2",
+                "GML3",
+                "GML3+ZIP",
+                "GML3+GZIP",
+                "text/xml; subtype=gml/3.1.1",
+                "GML2",
+                "GML2+ZIP",
+                "GML2+GZIP",
+                "text/xml; subtype=gml/2.1.2",
+                "GEOJSON",
+                "GEOJSON+ZIP",
+                "GEOJSON+GZIP",
+                "ESRIGEOJSON",
+                "ESRIGEOJSON+ZIP",
+                "ESRIGEOJSON+GZIP",
+                "KML",
+                "application/vnd.google-earth.kml xml",
+                "application/vnd.google-earth.kml+xml",
+                "KMZ",
+                "application/vnd.google-earth.kmz",
+                "SHAPE+ZIP",
+                "CSV",
+                "CSV+ZIP",
+                "CSV+GZIP",
+                "Geopackage",
+                "Geopackage+ZIP"
+              ]
+            },
+            "example": "GEOJSON"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "OGC bounded feature limit; example requests one feature without claiming a server-wide bound.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "srsName",
+            "in": "query",
+            "required": false,
+            "description": "Output CRS choices advertised by at least one feature type; support may vary by selected type.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "urn:ogc:def:crs:EPSG::4326"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/gml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/vnd.google-earth.kml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "description": "Native Geopackage+ZIP output; wire media type/fields are not constrained."
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "description": "Native CSV; row/column wire conformance is not inferred from JSON schemas."
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://docs.ogc.org/is/09-025r2/09-025r2.html"
+        },
+        "x-advertised-crss": [
+          "urn:ogc:def:crs:EPSG::4326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634806665997_63899/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+            "sha256": "833b6723672ca16fa834830d78cc051bc9f84345bf120b24d6a56791caf92428",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-capabilities",
+            "parseStatus": "pass",
+            "kind": "wfs-capabilities"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634806665997_63899/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType",
+            "sha256": "8f556a906d3887449f9f61e1a94db0da814f92cc40635cf8d37e69134fae600d",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-feature-type",
+            "parseStatus": "pass",
+            "kind": "wfs-feature-type"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "location_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_sc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_sc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "url",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "fid",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1Attributes": {
+        "type": "object",
+        "properties": {
+          "weather_station_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "weather_station_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "weather_station_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "weather_station_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "weather_station_sc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "weather_station_sc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "url",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "fid",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer2Attributes": {
+        "type": "object",
+        "properties": {
+          "location_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_sc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_sc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "url",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "fid",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer3Attributes": {
+        "type": "object",
+        "properties": {
+          "location_en": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_en",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_tc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_tc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_sc": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "location_sc",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "url",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "fid",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "SHAPE_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfscurrentweatherreportweatherstationAttributes": {
+        "type": "object",
+        "properties": {
+          "weather_station_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "weather_station_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "weather_station_sc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "SHAPE": {
+            "description": "Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type."
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfscurrentweatherreportlightningAttributes": {
+        "type": "object",
+        "properties": {
+          "location_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_sc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "SHAPE": {
+            "description": "Native geometry property gml:MultiCurvePropertyType; JSON geometry is not inferred from its XML type."
+          },
+          "SHAPE_Length": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfscurrentweatherreportrainfallAttributes": {
+        "type": "object",
+        "properties": {
+          "location_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_sc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "SHAPE": {
+            "description": "Native geometry property gml:MultiCurvePropertyType; JSON geometry is not inferred from its XML type."
+          },
+          "SHAPE_Length": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfscurrentweatherreporthongkongAttributes": {
+        "type": "object",
+        "properties": {
+          "location_en": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_tc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "location_sc": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "url": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048
+          },
+          "fid": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 20
+          },
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "SHAPE": {
+            "description": "Native geometry property gml:MultiCurvePropertyType; JSON geometry is not inferred from its XML type."
+          },
+          "SHAPE_Length": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsFeatureCollection": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfscurrentweatherreportweatherstationAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfscurrentweatherreportlightningAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfscurrentweatherreportrainfallAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfscurrentweatherreporthongkongAttributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "current_weather_report_hong_kong",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1,
+      "title": "current_weather_report_weather_station",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 2,
+      "title": "current_weather_report_rainfall",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 3,
+      "title": "current_weather_report_lightning",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "csdi:current_weather_report_weather_station",
+      "title": "current_weather_report_weather_station",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:current_weather_report_lightning",
+      "title": "current_weather_report_lightning",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:current_weather_report_rainfall",
+      "title": "current_weather_report_rainfall",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:current_weather_report_hong_kong",
+      "title": "current_weather_report_hong_kong",
+      "protocol": "wfs"
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=hko_rcd_1634806665997_63899",
+      "sha256": "2e7444617c67ef3994d8f6206242bbe442ef20c9667097844526499278d34494",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer?f=pjson",
+      "sha256": "29d912d963890ca6d6c8d386dd7fafebec00bfc93d56070eaaa3dee238fb0f2d",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/0?f=pjson",
+      "sha256": "991d820fc6a8ae7807dec4a5e8d50808e1a77dd4f62314d90bb638b00889aef7",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/1?f=pjson",
+      "sha256": "d141af93fc198bdbe935bbe70097af890aa953ce9f9d17e7662866bf5fc86d25",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/2?f=pjson",
+      "sha256": "c2ca0b96df9dcea5c5233f88a5dbe609537176d8ae3e132868290a8974503a35",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634806665997_63899/FeatureServer/3?f=pjson",
+      "sha256": "c2f16aa73b79947da854472e1798d6ad526dbabe56526b84b9d9f95eb650ae96",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634806665997_63899/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+      "sha256": "833b6723672ca16fa834830d78cc051bc9f84345bf120b24d6a56791caf92428",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-capabilities",
+      "parseStatus": "pass",
+      "kind": "wfs-capabilities"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634806665997_63899/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType",
+      "sha256": "8f556a906d3887449f9f61e1a94db0da814f92cc40635cf8d37e69134fae600d",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-feature-type",
+      "parseStatus": "pass",
+      "kind": "wfs-feature-type"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [
+      {
+        "code": "metadata_http_not_200",
+        "url": "https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634806665997_63899/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+        "httpStatus": 403
+      },
+      {
+        "serviceId": "csdi-service-da1500835dfa8ba5ca19b0ee",
+        "code": "discovery_metadata_error",
+        "reason": "Metadata request status http_error",
+        "url": "https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634806665997_63899/MapServer/WMSServer?service=WMS&request=GetCapabilities"
+      },
+      {
+        "serviceId": "csdi-service-da1500835dfa8ba5ca19b0ee",
+        "protocol": "wms",
+        "code": "unsupported_or_incomplete_native_contract",
+        "reason": "No retained parseable WMS GetCapabilities"
+      }
+    ],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 8
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

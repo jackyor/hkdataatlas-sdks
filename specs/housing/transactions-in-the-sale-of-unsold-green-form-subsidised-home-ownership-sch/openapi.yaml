@@ -1,0 +1,143 @@
+components:
+  schemas:
+    Transaction:
+      description: A transaction record. The data dictionary describes the fields below; its human-readable labels do not explicitly map every label to a JSON wire property. Wire names shown here are those present in the documented JSON example. The dictionary declares area and price as numeric, while the JSON example represents them as strings; both representations are allowed.
+      properties:
+        asp_sign_date:
+          description: Date of Agreement for Sale and Purchase (ASP). The dictionary gives the format as dd-mm-yyyy; the documented JSON example uses 25/07/2022.
+          type: string
+        block_name:
+          description: Block name of the purchased flat.
+          type: string
+        court_estate_name:
+          description: Court or estate name of the purchased flat.
+          type: string
+        flat_num:
+          description: Flat number of the purchased flat.
+          type: string
+        floor_num:
+          description: Floor number of the purchased flat.
+          type: string
+        sale_price:
+          anyOf:
+            - type: number
+            - type: string
+          description: Sale price of the purchased flat. The dictionary declares a numeric value with pattern precision notation 999999999999999.99, while the documented JSON example represents it as a string; either numeric or string representation is permitted.
+        saleable_area:
+          anyOf:
+            - type: number
+            - type: string
+          description: Saleable area in square metres. The dictionary declares a numeric value with pattern precision notation 9999999.999, while the documented JSON example represents it as a string; either numeric or string representation is permitted.
+        scheme_name:
+          description: Subsidised home ownership scheme name.
+          type: string
+        scheme_type:
+          description: Subsidised home ownership scheme type. The dictionary lists GSH as a possible value.
+          type: string
+        wing:
+          description: Wing of the purchased flat.
+          type: string
+      type: object
+    TransactionResponse:
+      description: JSON response containing sales transaction records. The example illustrates returned field names; the source does not specify universal requiredness for response properties.
+      properties:
+        data:
+          description: Sales transaction records.
+          items:
+            $ref: "#/components/schemas/Transaction"
+          type: array
+      type: object
+externalDocs:
+  description: API data specification
+  url: https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_e22_data_dictionary.pdf
+info:
+  description: API for sales transactions of unsold Green Form Subsidised Home Ownership Scheme flats of Ching Fu Court and Dip Tsui Court. The OpenAPI metadata version is undocumented and is not a publisher API version. The source documents version 2.0 dated 25 July 2024. Authentication is documented as not required.
+  title: Transactions in the Sale of Unsold Green Form Subsidised Home Ownership Scheme Flats
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /psi/rest/export/{dataresource}/{lang}/{format}:
+    get:
+      description: Returns transaction data for the documented dataset. The JSON response is documented with a data array. CSV and XML are also listed as supported response formats, but response-body structures for those formats are not specified. For simplified Chinese, the source states that this dataset returns Traditional Chinese data.
+      operationId: getSsfsSaleTransactionsE22
+      parameters:
+        - description: Dataset resource identifier.
+          example: ssfs-sale-transactions-e22
+          in: path
+          name: dataresource
+          required: true
+          schema:
+            enum:
+              - ssfs-sale-transactions-e22
+            type: string
+        - description: Response language.
+          examples:
+            english:
+              value: en
+            simplifiedChinese:
+              value: sc
+            traditionalChinese:
+              value: tc
+          in: path
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: Response file format.
+          examples:
+            csv:
+              value: csv
+            json:
+              value: json
+            xml:
+              value: xml
+          in: path
+          name: format
+          required: true
+          schema:
+            enum:
+              - json
+              - csv
+              - xml
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedExample:
+                  summary: Documented JSON response example
+                  value:
+                    data:
+                      - asp_sign_date: 25/07/2022
+                        block_name: BLOCK B
+                        court_estate_name: CHING FU COURT
+                        flat_num: "28"
+                        floor_num: "33"
+                        sale_price: "1090100.0"
+                        saleable_area: "17.4"
+                        scheme_name: Sale of Unsold Green Form Subsidised Home Ownership Scheme Flats of Ching Fu Court and Dip Tsui Court
+                        scheme_type: GSH
+                        wing: ""
+              schema:
+                $ref: "#/components/schemas/TransactionResponse"
+            application/xml:
+              schema:
+                description: XML response; the source lists XML as a supported format but does not specify its body structure.
+                type: string
+            text/csv:
+              schema:
+                description: CSV response; the source lists CSV as a supported format but does not specify its body structure.
+                type: string
+          description: Success.
+        "400":
+          description: Bad Request.
+        "500":
+          description: Internal Server Error.
+      summary: Get sales transaction data
+servers:
+  - url: https://data.housingauthority.gov.hk

@@ -1,0 +1,509 @@
+{
+  "components": {
+    "schemas": {
+      "VotingResultFieldDictionary": {
+        "description": "Dictionary of documented voting-result and Member-vote fields. This describes named fields, meanings, types and selected acceptable values, not a complete guarantee of a JSON response's shape or required properties.",
+        "properties": {
+          "constituency": {
+            "description": "Constituency of the Member. Data type: Text. Documented acceptable values: Geographical, Functional.",
+            "enum": [
+              "Geographical",
+              "Functional"
+            ],
+            "type": "string"
+          },
+          "display_order": {
+            "description": "Display order of the vote cast by the Member. Data type: Numeric. Example: 10.",
+            "examples": [
+              10
+            ],
+            "type": "integer"
+          },
+          "fc_abstain_count": {
+            "description": "Number of Members returned by functional constituencies who cast an Abstain vote. Numeric; example 0.",
+            "examples": [
+              0
+            ],
+            "type": "integer"
+          },
+          "fc_no_count": {
+            "description": "Number of Members returned by functional constituencies who cast a No vote. Numeric; example 13.",
+            "examples": [
+              13
+            ],
+            "type": "integer"
+          },
+          "fc_present_count": {
+            "description": "Number of Members returned by functional constituencies who were present. Numeric; example 35. Associated by the dictionary with vote_separate_mechanism.",
+            "examples": [
+              35
+            ],
+            "type": "integer"
+          },
+          "fc_result": {
+            "description": "Voting result in the group of Members returned by functional constituencies. Documented as Text when vote_separate_mechanism is Yes, or null when it is No. Acceptable text values: Passed, Negatived.",
+            "enum": [
+              "Passed",
+              "Negatived",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fc_vote_count": {
+            "description": "Number of Members returned by functional constituencies who cast a vote. Numeric; example 35.",
+            "examples": [
+              35
+            ],
+            "type": "integer"
+          },
+          "fc_yes_count": {
+            "description": "Number of Members returned by functional constituencies who cast a Yes vote. Numeric; example 22.",
+            "examples": [
+              22
+            ],
+            "type": "integer"
+          },
+          "gc_abstain_count": {
+            "description": "Number of Members returned by geographical constituencies who cast an Abstain vote. Numeric; example 1.",
+            "examples": [
+              1
+            ],
+            "type": "integer"
+          },
+          "gc_no_count": {
+            "description": "Number of Members returned by geographical constituencies who cast a No vote. Numeric; example 13.",
+            "examples": [
+              13
+            ],
+            "type": "integer"
+          },
+          "gc_present_count": {
+            "description": "Number of Members returned by geographical constituencies who were present. Numeric; example 35. The dictionary associates this and the following gc vote-count fields with vote_separate_mechanism; its repeated table text does not precisely specify conditional presence.",
+            "examples": [
+              35
+            ],
+            "type": "integer"
+          },
+          "gc_result": {
+            "description": "Voting result in the group of Members returned by geographical constituencies. Documented as Text when vote_separate_mechanism is Yes, or null when it is No. Acceptable text values: Passed, Negatived.",
+            "enum": [
+              "Passed",
+              "Negatived",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "gc_vote_count": {
+            "description": "Number of Members returned by geographical constituencies who cast a vote. Numeric; example 34.",
+            "examples": [
+              34
+            ],
+            "type": "integer"
+          },
+          "gc_yes_count": {
+            "description": "Number of Members returned by geographical constituencies who cast a Yes vote. Numeric; example 20.",
+            "examples": [
+              20
+            ],
+            "type": "integer"
+          },
+          "id": {
+            "description": "Voting result identifier. Data type is Numeric. Example: 123456.",
+            "examples": [
+              123456
+            ],
+            "type": "integer"
+          },
+          "motion_ch": {
+            "description": "Motion title in Chinese. Data type: Text. Example: 致謝議案.",
+            "examples": [
+              "致謝議案"
+            ],
+            "type": "string"
+          },
+          "motion_en": {
+            "description": "Motion title in English. Data type: Text. Example: MOTION.",
+            "examples": [
+              "MOTION"
+            ],
+            "type": "string"
+          },
+          "mover_ch": {
+            "description": "Mover of the motion in Chinese. Data type: Text. Acceptable values described as Member or Chinese. Example: 財經事務及庫務局局長.",
+            "examples": [
+              "財經事務及庫務局局長"
+            ],
+            "type": "string"
+          },
+          "mover_en": {
+            "description": "Mover of the motion in English. Data type: Text. Acceptable values described as Member or English. Example: Secretary the Treasury.",
+            "examples": [
+              "Secretary the Treasury"
+            ],
+            "type": "string"
+          },
+          "mover_type": {
+            "description": "Type of the mover. Data type: Text. Documented acceptable values: Public Officer, Member.",
+            "enum": [
+              "Public Officer",
+              "Member"
+            ],
+            "type": "string"
+          },
+          "name_ch": {
+            "description": "Member's name in Chinese. Data type: Text. Example: 陳大文.",
+            "examples": [
+              "陳大文"
+            ],
+            "type": "string"
+          },
+          "name_en": {
+            "description": "Member's name in English. Data type: Text. Example: Dr Chan.",
+            "examples": [
+              "Dr Chan"
+            ],
+            "type": "string"
+          },
+          "overall_abstain_count": {
+            "description": "Overall number of Members who cast an Abstain vote. Documented as null if vote_separate_mechanism is Yes, otherwise Numeric; example 1.",
+            "examples": [
+              1
+            ],
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "overall_no_count": {
+            "description": "Overall number of Members who cast a No vote. Documented as null if vote_separate_mechanism is Yes, otherwise Numeric; example 26.",
+            "examples": [
+              26
+            ],
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "overall_present_count": {
+            "description": "Overall number of Members who were present. Documented as null if vote_separate_mechanism is Yes, otherwise Numeric; example 70.",
+            "examples": [
+              70
+            ],
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "overall_result": {
+            "description": "Overall voting result. Data type: Text. Documented acceptable values: Passed, Negatived, Tied.",
+            "enum": [
+              "Passed",
+              "Negatived",
+              "Tied"
+            ],
+            "type": "string"
+          },
+          "overall_vote_count": {
+            "description": "Overall number of Members who cast a vote. Documented as null if vote_separate_mechanism is Yes, otherwise Numeric; example 69.",
+            "examples": [
+              69
+            ],
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "overall_yes_count": {
+            "description": "Overall number of Members who cast a Yes vote. Documented as null if vote_separate_mechanism is Yes, otherwise Numeric; example 42.",
+            "examples": [
+              42
+            ],
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "start_date": {
+            "description": "Meeting date. Data type is Date. Example: 2012-10-15T11:00:00. The documentation's Date label and example do not establish an exact wire date-time format.",
+            "examples": [
+              "2012-10-15T11:00:00"
+            ],
+            "type": "string"
+          },
+          "term_no": {
+            "description": "The term of the Legislative Council. Data type is Numeric. Example: 5.",
+            "examples": [
+              5
+            ],
+            "type": "integer"
+          },
+          "type": {
+            "description": "Meeting type. Documented acceptable values are Council Meeting, House Committee, Finance Committee, Public Works Subcommittee, and Establishment.",
+            "enum": [
+              "Council Meeting",
+              "House Committee",
+              "Finance Committee",
+              "Public Works Subcommittee",
+              "Establishment"
+            ],
+            "type": "string"
+          },
+          "vote": {
+            "description": "Vote cast by the Member. Data type: Text. Documented acceptable values: Present, Absent, Yes, No, Abstain.",
+            "enum": [
+              "Present",
+              "Absent",
+              "Yes",
+              "No",
+              "Abstain"
+            ],
+            "type": "string"
+          },
+          "vote_date": {
+            "description": "Date of voting. Data type is Date. Example: 2012-10-15T00:00:00; exact wire format is not further specified.",
+            "examples": [
+              "2012-10-15T00:00:00"
+            ],
+            "type": "string"
+          },
+          "vote_number": {
+            "description": "Vote number in the meeting. Data type is Numeric. Example: 1.",
+            "examples": [
+              1
+            ],
+            "type": "integer"
+          },
+          "vote_separate_mechanism": {
+            "description": "Indicates a motion requiring a majority vote of each of two groups of Members present: Members returned by functional constituencies and Members returned by geographical constituencies. Documented acceptable values: Yes, No.",
+            "enum": [
+              "Yes",
+              "No"
+            ],
+            "type": "string"
+          },
+          "vote_time": {
+            "description": "Time of voting. The source labels the data type Date. Example: 2012-10-15T14:26:18; the example representation is retained without asserting a specific format.",
+            "examples": [
+              "2012-10-15T14:26:18"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "VotingResultMemberObservation": {
+        "description": "An illustrative set of dictionary fields corresponding to a Member's vote; no properties are declared universally required.",
+        "properties": {
+          "constituency": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/constituency"
+          },
+          "display_order": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/display_order"
+          },
+          "name_ch": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/name_ch"
+          },
+          "name_en": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/name_en"
+          },
+          "vote": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/vote"
+          }
+        },
+        "type": "object"
+      },
+      "VotingResultRecordObservation": {
+        "description": "Illustrative record properties based on the voting-result dictionary; the source does not establish response envelope, completeness, or universal requiredness.",
+        "properties": {
+          "fc_abstain_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/fc_abstain_count"
+          },
+          "fc_no_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/fc_no_count"
+          },
+          "fc_present_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/fc_present_count"
+          },
+          "fc_result": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/fc_result"
+          },
+          "fc_vote_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/fc_vote_count"
+          },
+          "fc_yes_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/fc_yes_count"
+          },
+          "gc_abstain_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/gc_abstain_count"
+          },
+          "gc_no_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/gc_no_count"
+          },
+          "gc_present_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/gc_present_count"
+          },
+          "gc_result": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/gc_result"
+          },
+          "gc_vote_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/gc_vote_count"
+          },
+          "gc_yes_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/gc_yes_count"
+          },
+          "id": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/id"
+          },
+          "motion_ch": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/motion_ch"
+          },
+          "motion_en": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/motion_en"
+          },
+          "mover_ch": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/mover_ch"
+          },
+          "mover_en": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/mover_en"
+          },
+          "mover_type": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/mover_type"
+          },
+          "overall_abstain_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/overall_abstain_count"
+          },
+          "overall_no_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/overall_no_count"
+          },
+          "overall_present_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/overall_present_count"
+          },
+          "overall_result": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/overall_result"
+          },
+          "overall_vote_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/overall_vote_count"
+          },
+          "overall_yes_count": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/overall_yes_count"
+          },
+          "start_date": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/start_date"
+          },
+          "term_no": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/term_no"
+          },
+          "type": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/type"
+          },
+          "vote_date": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/vote_date"
+          },
+          "vote_number": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/vote_number"
+          },
+          "vote_separate_mechanism": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/vote_separate_mechanism"
+          },
+          "vote_time": {
+            "$ref": "#/components/schemas/VotingResultFieldDictionary/properties/vote_time"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "contact": {
+      "name": "Legislative Council"
+    },
+    "description": "The source bundle documents a voting-result data dictionary and associates the data with a catalogue collection endpoint, but does not document HTTP methods, request parameters, or the response envelope and wire-format structure. The catalogue's exact published JSON resource URL is available in the data dictionary's catalogue context. Authentication requirements are not specified. The version value is a metadata placeholder, not a publisher API version.",
+    "license": {
+      "name": "undocumented"
+    },
+    "title": "Legislative Council Voting Result Database",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/vrdb/odata/vVotingResult": {
+      "get": {
+        "operationId": "retrieveTheVotingResultsOfTheFinanceCommitteeOfTheFifthLegislativeCouncil20122016VrdbOdataVvotingresult",
+        "summary": "Retrieve The voting results of the Finance Committee of the Fifth Legislative Council (2012 - 2016)",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://app.legco.gov.hk/vrdb/odata/vVotingResult?$format=xml&$filter=type+eq+%27Finance+Committee%27+and+start_date+ge+datetime%272012-10-01%27+and+start_date+lt+datetime%272016-10-01%27&$inlinecount=allpages. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$format",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xml"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "type eq 'Finance Committee' and start_date ge datetime'2012-10-01' and start_date lt datetime'2016-10-01'"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Base associated with the catalogue's voting-result collection resource; endpoint behavior beyond the literal published URL is undocumented.",
+      "url": "https://app.legco.gov.hk/vrdb/odata"
+    }
+  ],
+  "externalDocs": {
+    "description": "Publisher data dictionary for voting-result fields. Catalogue records associate the data with the OData collection, but do not document its operation contract.",
+    "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-votingresult-db-en.pdf"
+  }
+}

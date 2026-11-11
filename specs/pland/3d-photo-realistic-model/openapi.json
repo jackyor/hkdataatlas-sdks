@@ -1,0 +1,179 @@
+{
+  "components": {
+    "schemas": {
+      "Tile": {
+        "properties": {
+          "fid": {
+            "description": "ID.",
+            "type": "integer"
+          },
+          "file_url": {
+            "description": "Path of file.",
+            "format": "uri",
+            "type": "string"
+          },
+          "grid_name": {
+            "description": "Index grid name.",
+            "type": "string"
+          },
+          "loc_en": {
+            "description": "Location name in English.",
+            "type": "string"
+          },
+          "loc_sc": {
+            "description": "Location name in Simplified Chinese.",
+            "type": "string"
+          },
+          "loc_tc": {
+            "description": "Location name in Traditional Chinese.",
+            "type": "string"
+          },
+          "modi_date": {
+            "description": "Modification date. The legacy dictionary spells the field Modi_date and specifies DD/MM/YYYY; its example and a bounded observation use modi_date, and the observation includes a time component.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TilesResponse": {
+        "description": "Legacy documented response structure. Field casing in the dictionary and example differs; the schema uses the casing shown in the example and observed response, without asserting that casing is universal for the current endpoint.",
+        "properties": {
+          "gridList": {
+            "description": "Multiple items may be returned when the coordinate falls into multiple tile files. The legacy specification says an empty array is returned when there is an error or criteria are not matched.",
+            "items": {
+              "$ref": "#/components/schemas/Tile"
+            },
+            "type": "array"
+          },
+          "msg": {
+            "description": "Success or failure information. The legacy dictionary labels this field Msg. Documented possible messages include \"Success\", \"No available 3D Model for Location Specified(e=834251&n=835501)\" and \"Invalid File Type(Only accept OBJ/OSGB/CESIUM)\".",
+            "type": "string"
+          },
+          "respCd": {
+            "description": "Response code: 0 = success, 1 = fail.",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Retrieves download URL(s) for 3D photo-realistic models using a location in the HK1980 Grid. The version value is an OpenAPI metadata placeholder, not a publisher API version. The legacy 2019 specification documents a different endpoint; the current resource description is used here and no redirect or migration statement is documented. Authentication requirements are not stated in the current resource description; the legacy specification says authentication is not required.",
+    "title": "3D Photo-realistic Model API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/plandapi/Tiles": {
+      "get": {
+        "description": "Returns model tile information for a supplied HK1980 Grid coordinate. The current resource description documents this endpoint. The legacy 2019 specification instead documents https://ppgis.pland.gov.hk/opd/api/3D-model-tile; no redirect or migration statement is documented. The legacy response dictionary is used for field context and may not fully describe the current response.",
+        "externalDocs": {
+          "description": "Current DATA.GOV.HK resource description",
+          "url": "https://data.gov.hk/en-data/dataset/hk-pland-pland1-3d-photo-realistic-model/resource/f4beb986-24d3-4a41-ba96-426f55325672"
+        },
+        "operationId": "get3DPhotoRealisticModelTiles",
+        "parameters": [
+          {
+            "description": "Easting in HK1980 Grid Coordinates, in metres. Documented range: 799500–867500. The legacy specification labels the parameter e and describes a default of 0, while the current resource description gives no default.",
+            "in": "query",
+            "name": "e",
+            "required": true,
+            "schema": {
+              "maximum": 867500,
+              "minimum": 799500,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Northing in HK1980 Grid Coordinates, in metres. Documented range: 799000–848000. The legacy specification describes a default of 0, while the current resource description gives no default.",
+            "in": "query",
+            "name": "n",
+            "required": true,
+            "schema": {
+              "maximum": 848000,
+              "minimum": 799000,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Optional requested model format.",
+            "in": "query",
+            "name": "fileType",
+            "required": false,
+            "schema": {
+              "enum": [
+                "OSGB",
+                "CESIUM",
+                "OBJ"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "boundedObservedResponse": {
+                    "description": "Observed for e=834251, n=815501 and fileType=OSGB only; not a publisher guarantee or complete response contract. The observed modi_date contains a time component, unlike the legacy dictionary's stated date format.",
+                    "summary": "One bounded response observation",
+                    "value": {
+                      "gridList": [
+                        {
+                          "grid_name": "tile_20_26",
+                          "modi_date": "21/02/2019 00:00"
+                        }
+                      ],
+                      "msg": "Success",
+                      "respCd": 0
+                    }
+                  },
+                  "legacyDocumentedExample": {
+                    "description": "The PDF's parsed example layout is disordered; this reconstruction preserves the legible values and is not a verbatim authoritative response.",
+                    "summary": "Legacy specification example (layout reconstructed from the parsed table)",
+                    "value": {
+                      "gridList": [
+                        {
+                          "fid": 87,
+                          "file_url": "https://ppgis.pland.gov.hk/3dpds/OpenData/OSGB/tile_20_26_OSGB.zip",
+                          "grid_name": "tile_20_26",
+                          "loc_en": "Wan Chai, Admiralty and Central",
+                          "loc_sc": "湾仔、金钟及中环",
+                          "loc_tc": "灣仔、金鐘及中環",
+                          "modi_date": "26/02/2019"
+                        }
+                      ],
+                      "msg": "Success",
+                      "respCd": 0
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/TilesResponse"
+                }
+              }
+            },
+            "description": "Successful response. The legacy specification documents a JSON response with a response code, message and grid list. It says gridList may contain multiple items when a coordinate falls into multiple tiles, and is empty on error or when criteria are not matched. Field-name casing differs between legacy dictionary entries (Msg, Modi_date) and its example (msg, modi_date); the dictionary also describes modi_date as DD/MM/YYYY, while a bounded response observation included a time component. These details are not asserted as a complete current response contract."
+          },
+          "400": {
+            "description": "Bad Request (documented by the legacy specification)."
+          },
+          "500": {
+            "description": "Internal Server Error (documented by the legacy specification)."
+          },
+          "503": {
+            "description": "The server is currently unavailable (documented by the legacy specification)."
+          }
+        },
+        "summary": "Get 3D photo-realistic model tile download URLs"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://pdmap.pland.gov.hk"
+    }
+  ]
+}

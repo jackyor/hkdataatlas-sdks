@@ -1,0 +1,32 @@
+{
+  "sourceId": "dpo-deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks",
+  "publisherKey": "dpo",
+  "family": "deployment_locations_of_hong_kong_cross_boundary_public_services_self_service_kiosks",
+  "status": "generated",
+  "key": "81e9d4f27204c635e59b300c8a315e4354b35c3b607623fdba321b31a8a84c56",
+  "sourceSha256": "2f0d9f4c201f363a27232073d6ec7a299e4ca0598353822306d3ed1a3bc8af3d",
+  "derivedInputSha256": "2f0d9f4c201f363a27232073d6ec7a299e4ca0598353822306d3ed1a3bc8af3d",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/datagovhk/cbps_self_kiosks.csv",
+      "operationId": "retrieveDeploymentLocationsOfHongKongCrossBoundaryPublicServicesSelfServiceKiosksDatagovhkCbpsSelfKiosksCsv",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/dpo-deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks.log",
+  "outputs": {
+    "__init__.py": "cd337f9139fe261ca3207949eb1f6a0c22589598f184bdcf49cfd8cfa634bbb3",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/retrieve_deployment_locations_of_hong_kong_cross_boundary_public_services_self_service_kiosks_datagovhk_cbps_self_kiosks_csv.py": "290a73666c922431c95e42b83d1a4a695fd59912c28dbe07913cb6f4cd1eb73c",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "80606eda4d1c9324e8d965c94bacfda0eed80f46ad34e669481a941dcfc4e2a2",
+    "models/kiosk_location_csv_fields.py": "be2811b0fa3e0a4c00937fcf514ba3043dd330bf8d445311de1d9ff6cdd7ba44",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

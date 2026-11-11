@@ -1,0 +1,210 @@
+openapi: 3.0.0
+info:
+  title: New issuance amount of Government Bonds under the Infrastructure Bond Programme and Government Sustainable Bond Programme – Denominated in other currencies
+  description: |-
+    For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/ibpgsbp/new-issuance-amt-gov-bonds-ibpgsbp-other-crncy
+
+    Partial operation description derived from the preserved publisher specification. Known response envelopes are preserved where safely separable; missing publisher record models remain explicitly unknown. Other unavailable response schemas are omitted. This does not establish a complete response contract or live API availability.
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/ibpgsbp
+    variables: {}
+paths:
+  /new-issuance-amt-gov-bonds-ibpgsbp-other-crncy:
+    get:
+      summary: Retrieve data of New issuance amount of Government Bonds under the Infrastructure Bond Programme and Government Sustainable Bond Programme – Denominated in other currencies
+      parameters:
+        - name: segment
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Segment"
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+              x-response-schema-status:
+                status: partial
+                reason: Documented response envelope preserved; record contents remain unknown because publisher record model definitions are missing.
+                missingReferences:
+                  - "#/components/schemas/USD"
+                  - "#/components/schemas/EUR"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+      operationId: getNewIssuanceAmtGovBondsIbpgsbpOtherCrncy
+components:
+  schemas:
+    Segment:
+      title: segment
+      enum:
+        - USD
+        - EUR
+      type: string
+      example: USD
+      x-enum-elements:
+        - name: USD
+          description: ""
+        - name: EUR
+          description: ""
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            description: "Record contents are unknown: the preserved publisher specification references record models that it does not define. No record properties are inferred."
+            x-response-schema-status:
+              status: unknown
+              missingReferences:
+                - "#/components/schemas/USD"
+                - "#/components/schemas/EUR"
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+x-coverage:
+  level: partial-operation-description
+  requestDefinitions: preserved-and-resolved
+  responseSchemas: partial; known envelope retained where safely separable; missing publisher record models explicitly unknown
+  liveCall: not_run
+  sourceFaithfulness: not_assessed
+  authentication: not_documented_unknown; no public-access claim added
+x-source-evidence:
+  - sourceUrl: https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/T100203-swagger.json
+    originalStatus: invalid
+x-unknown-response-record-schemas:
+  - path: /new-issuance-amt-gov-bonds-ibpgsbp-other-crncy
+    method: GET
+    statusCode: "200"
+    mediaType: application/json
+    missingReferences:
+      - "#/components/schemas/USD"
+      - "#/components/schemas/EUR"
+    sourceSchemaRef: "#/components/schemas/Response"
+    mode: known-envelope-unknown-record-items
+    projections:
+      - sourcePointer: "#/components/schemas/Result/properties/records/items"
+        missingReferences:
+          - "#/components/schemas/USD"
+          - "#/components/schemas/EUR"
+        replacement: unconstrained_schema_with_explicit_unknown_annotation
+x-omitted-response-schemas: []

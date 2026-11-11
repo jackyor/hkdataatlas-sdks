@@ -1,0 +1,64 @@
+{
+  "publisherKey": "wkcda",
+  "publisherName": "West Kowloon Cultural District Authority",
+  "sources": [
+    {
+      "id": "wkcda-car-park-information-of-west-kowloon-cultural-district-authoirty",
+      "publisherKey": "wkcda",
+      "publisherName": "West Kowloon Cultural District Authority",
+      "familyKey": "car-park-information-of-west-kowloon-cultural-district-authoirty",
+      "name": "Car Park Information of West Kowloon Cultural District Authoirty",
+      "apiTitle": "Car Park Information of West Kowloon Cultural District Authority",
+      "json": "wkcda/car-park-information-of-west-kowloon-cultural-district-authoirty/openapi.json",
+      "yaml": "wkcda/car-park-information-of-west-kowloon-cultural-district-authoirty/openapi.yaml",
+      "file": "wkcda/car-park-information-of-west-kowloon-cultural-district-authoirty/openapi.json",
+      "sha256": "107eedd5627398dd9785fa21e50d04eed0e8be774f0cdd3d87d74bc050d0bfa6",
+      "jsonSha256": "107eedd5627398dd9785fa21e50d04eed0e8be774f0cdd3d87d74bc050d0bfa6",
+      "yamlSha256": "1a7510b3a3982f9c1a0ede8c479335ec84b6c392e9dae5cb25a3d3293c8d9eed",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "car_park_information_of_west_kowloon_cultural_district_authoirty",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "107eedd5627398dd9785fa21e50d04eed0e8be774f0cdd3d87d74bc050d0bfa6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://openapi.westkowloon.hk/datagovhk/carpark",
+        "canonicalJsonSha256": "107eedd5627398dd9785fa21e50d04eed0e8be774f0cdd3d87d74bc050d0bfa6",
+        "originalRepresentationSha256": "b66acc467894b02724f42c29452b0ce87ea4bcb9620f304140c34ee18cd6c731",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "car_park_information_of_west_kowloon_cultural_district_authoirty"
+    }
+  ]
+}

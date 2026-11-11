@@ -1,0 +1,611 @@
+{
+  "components": {
+    "schemas": {
+      "Committee": {
+        "description": "Committee fields documented by the reference-data dictionary. Requiredness is not specified.",
+        "properties": {
+          "committee_code": {
+            "description": "Code of the committee. Example: BC/1/19.",
+            "examples": [
+              "BC/1/19"
+            ],
+            "type": "string"
+          },
+          "committee_id": {
+            "description": "Committee identifier. Example: 3072.",
+            "examples": [
+              3072
+            ],
+            "type": "number"
+          },
+          "home_url_chi": {
+            "description": "URL of the Chinese home page of the committee. The PDF example contains line wrapping within the URL; it is shown here normalized as a continuous URL.",
+            "examples": [
+              "https://www.legco.gov.hk/yr19-20/chinese/bc/bc01/general/bc01.htm"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "home_url_eng": {
+            "description": "URL of the English home page of the committee. The PDF example contains line wrapping within the URL; it is shown here normalized as a continuous URL.",
+            "examples": [
+              "https://www.legco.gov.hk/yr19-20/english/bc/bc01/general/bc01.htm"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "name_chi": {
+            "description": "Committee name in Chinese. Example: 《2019 年強制性公積金計劃(修訂)條例草案》委員會.",
+            "examples": [
+              "《2019 年強制性公積金計劃(修訂)條例草案》委員會"
+            ],
+            "type": "string"
+          },
+          "name_eng": {
+            "description": "Committee name in English. Example: Bills Committee on Mandatory Provident Fund Schemes (Amendment) Bill 2019.",
+            "examples": [
+              "Bills Committee on Mandatory Provident Fund Schemes (Amendment) Bill 2019"
+            ],
+            "type": "string"
+          },
+          "term_id": {
+            "description": "Term identifier. Example: 5.",
+            "examples": [
+              5
+            ],
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "Member": {
+        "description": "Member fields documented by the reference-data dictionary. Requiredness is not specified.",
+        "properties": {
+          "english_name": {
+            "description": "English name of the Member. Example: Abraham.",
+            "examples": [
+              "Abraham"
+            ],
+            "type": "string"
+          },
+          "firstname_chi": {
+            "description": "First name of the Member in Chinese. Example: 禮謙.",
+            "examples": [
+              "禮謙"
+            ],
+            "type": "string"
+          },
+          "firstname_eng": {
+            "description": "First name of the Member in English. Example: Lai-him.",
+            "examples": [
+              "Lai-him"
+            ],
+            "type": "string"
+          },
+          "honourable_chi": {
+            "description": "Honorific of the Member in Chinese. Example: GBS, JP.",
+            "examples": [
+              "GBS, JP"
+            ],
+            "type": "string"
+          },
+          "honourable_eng": {
+            "description": "Honorific of the Member in English. Example: GBS, JP.",
+            "examples": [
+              "GBS, JP"
+            ],
+            "type": "string"
+          },
+          "latest_term_id": {
+            "description": "The latest term that the Member belongs to. Example: 5.",
+            "examples": [
+              5
+            ],
+            "type": "number"
+          },
+          "member_id": {
+            "description": "Member identifier. Example: 187.",
+            "examples": [
+              187
+            ],
+            "type": "number"
+          },
+          "seq_num": {
+            "description": "Sequence number. Example: 4.",
+            "examples": [
+              4
+            ],
+            "type": "number"
+          },
+          "surname_chi": {
+            "description": "Surname of the Member in Chinese. Example: 石.",
+            "examples": [
+              "石"
+            ],
+            "type": "string"
+          },
+          "surname_eng": {
+            "description": "Surname of the Member in English. Example: SHEK.",
+            "examples": [
+              "SHEK"
+            ],
+            "type": "string"
+          },
+          "title_chi": {
+            "description": "Title of the Member in Chinese. Example: 議員.",
+            "examples": [
+              "議員"
+            ],
+            "type": "string"
+          },
+          "title_eng": {
+            "description": "Title of the Member in English. Example: Hon.",
+            "examples": [
+              "Hon"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "MemberTerm": {
+        "description": "Member-term association record. Requiredness is not specified.",
+        "properties": {
+          "member_id": {
+            "description": "Member identifier. Example: 187.",
+            "examples": [
+              187
+            ],
+            "type": "number"
+          },
+          "member_term_id": {
+            "description": "Record identifier. Example: 3581716.",
+            "examples": [
+              3581716
+            ],
+            "type": "number"
+          },
+          "term_id": {
+            "description": "Term identifier. Example: 5.",
+            "examples": [
+              5
+            ],
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "Membership": {
+        "description": "Committee membership record fields documented by the reference-data dictionary. Requiredness is not specified.",
+        "properties": {
+          "committee_id": {
+            "description": "Committee identifier. Example: 2567.",
+            "examples": [
+              2567
+            ],
+            "type": "number"
+          },
+          "id": {
+            "description": "Record identifier. Example: 23684.",
+            "examples": [
+              23684
+            ],
+            "type": "number"
+          },
+          "member_id": {
+            "description": "Member identifier. Example: 910.",
+            "examples": [
+              910
+            ],
+            "type": "number"
+          },
+          "membership_id": {
+            "description": "Membership identifier. Example: 38562.",
+            "examples": [
+              38562
+            ],
+            "type": "number"
+          },
+          "post_chi": {
+            "description": "Post name in Chinese. Example: 委員.",
+            "examples": [
+              "委員"
+            ],
+            "type": "string"
+          },
+          "post_end_date": {
+            "description": "End date of the post. Documented format: YYYY-MM-DDThh:mm:ss (ISO 8601).",
+            "examples": [
+              "2016-10-12T10:00:00"
+            ],
+            "format": "date-time",
+            "type": "string"
+          },
+          "post_eng": {
+            "description": "Post name in English. Example: Member.",
+            "examples": [
+              "Member"
+            ],
+            "type": "string"
+          },
+          "post_start_date": {
+            "description": "Start date of the post. Documented format: YYYY-MM-DDThh:mm:ss (ISO 8601). Example: 2016-10-12T10:00:00.",
+            "examples": [
+              "2016-10-12T10:00:00"
+            ],
+            "format": "date-time",
+            "type": "string"
+          },
+          "term_id": {
+            "description": "Term identifier. Example: 5.",
+            "examples": [
+              5
+            ],
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "Session": {
+        "description": "Session record fields documented by the reference-data dictionary. Requiredness is not specified.",
+        "properties": {
+          "end_date": {
+            "description": "End date of the session. Documented format: YYYY-MM-DDThh:mm:ss (ISO 8601). Example: 2020-09-30T00:00:00.",
+            "examples": [
+              "2020-09-30T00:00:00"
+            ],
+            "format": "date-time",
+            "type": "string"
+          },
+          "session_code": {
+            "description": "Code of the session. Example: 2019-2020.",
+            "examples": [
+              "2019-2020"
+            ],
+            "type": "string"
+          },
+          "session_id": {
+            "description": "Session identifier. Example: 20.",
+            "examples": [
+              20
+            ],
+            "type": "number"
+          },
+          "start_date": {
+            "description": "Start date of the session. Documented format: YYYY-MM-DDThh:mm:ss (ISO 8601). Example: 2019-10-01T00:00:00.",
+            "examples": [
+              "2019-10-01T00:00:00"
+            ],
+            "format": "date-time",
+            "type": "string"
+          },
+          "term_id": {
+            "description": "Term identifier. Example: 5.",
+            "examples": [
+              5
+            ],
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "Term": {
+        "description": "Term record fields documented by the reference-data dictionary. Requiredness is not specified.",
+        "properties": {
+          "end_date": {
+            "description": "End date of the term. Documented format: YYYY-MM-DDThh:mm:ss (ISO 8601). Example: 2020-09-30T00:00:00.",
+            "examples": [
+              "2020-09-30T00:00:00"
+            ],
+            "format": "date-time",
+            "type": "string"
+          },
+          "start_date": {
+            "description": "Start date of the term. Documented format: YYYY-MM-DDThh:mm:ss (ISO 8601). Example: 2016-10-01T00:00:00.",
+            "examples": [
+              "2016-10-01T00:00:00"
+            ],
+            "format": "date-time",
+            "type": "string"
+          },
+          "term": {
+            "description": "Term of the Legislative Council. Example: 2016-2020.",
+            "examples": [
+              "2016-2020"
+            ],
+            "type": "string"
+          },
+          "term_id": {
+            "description": "Term identifier. Example: 5.",
+            "examples": [
+              5
+            ],
+            "type": "number"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Legislative Council reference-data field dictionary",
+    "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-reference-data-en.pdf"
+  },
+  "info": {
+    "description": "The source bundle provides field dictionaries for terms, sessions, members, committees and committee membership, plus exact published resource URLs. It does not document an API operation contract (HTTP method, query-parameter semantics, authentication, response status codes or complete response envelopes). Accordingly, no executable operations are described. The catalogue's literal resource URLs are not treated as URL templates or evidence of a general HTTP API. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Legislative Council Reference Data",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/ScheduleDB/odata/Tmembership": {
+      "get": {
+        "operationId": "retrieveTheMembershipOfCommitteesOfTheFifthLegislativeCouncil20122016ScheduledbOdataTmembership",
+        "summary": "Retrieve The membership of committees of the Fifth Legislative Council (2012 - 2016)",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://app.legco.gov.hk/ScheduleDB/odata/Tmembership?$expand=Tcommittee&$filter=Tcommittee/term_id+eq+4&$inlinecount=allpages. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$expand",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Tcommittee"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Tcommittee/term_id eq 4"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    },
+    "/ScheduleDB/odata/Tsession": {
+      "get": {
+        "operationId": "retrieveTheSessionsOfTheLegislativeCouncilSinceTheFifthTerm20122016ScheduledbOdataTsession",
+        "summary": "Retrieve The sessions of the Legislative Council since the Fifth Term (2012 - 2016)",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://app.legco.gov.hk/ScheduleDB/odata/Tsession?$inlinecount=allpages. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    },
+    "/ScheduleDB/odata/Tmember_term": {
+      "get": {
+        "operationId": "retrieveTheMembersOfTheEighthLegislativeCouncilScheduledbOdataTmemberTerm",
+        "summary": "Retrieve The Members of the Eighth Legislative Council",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://app.legco.gov.hk/ScheduleDB/odata/Tmember_term?$expand=Tmember&$filter=term_id+eq+7&$inlinecount=allpages. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$expand",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Tmember"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "term_id eq 7"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    },
+    "/ScheduleDB/odata/Tcommittee": {
+      "get": {
+        "operationId": "retrieveTheCommitteesOfTheSixthLegislativeCouncil20162021ScheduledbOdataTcommittee",
+        "summary": "Retrieve The committees of the Sixth Legislative Council (2016 - 2021)",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://app.legco.gov.hk/ScheduleDB/odata/Tcommittee?$filter=term_id+eq+5&$format=xml&$inlinecount=allpages. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "term_id eq 5"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$format",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xml"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    },
+    "/ScheduleDB/odata/Tterm": {
+      "get": {
+        "operationId": "retrieveTheTermsOfTheLegislativeCouncilSinceTheFifthTerm20122016ScheduledbOdataTterm",
+        "summary": "Retrieve The terms of the Legislative Council since the Fifth Term (2012 - 2016)",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://app.legco.gov.hk/ScheduleDB/odata/Tterm?$inlinecount=allpages. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Base appearing in catalogue resource links; no general operation contract is documented.",
+      "url": "https://app.legco.gov.hk/ScheduleDB/odata"
+    }
+  ]
+}

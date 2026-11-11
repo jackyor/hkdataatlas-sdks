@@ -1,0 +1,2726 @@
+openapi: 3.0.3
+info:
+  title: APIs for C&SD Web Tables
+  description: These are the APIs for C&SD Web Tables
+  version: 1.0.0
+servers:
+  - url: https://www.censtatd.gov.hk/api
+tags:
+  - name: statisticalTables
+    description: Get full series statistics for Web Tables
+paths:
+  /get.php:
+    get:
+      tags:
+        - statisticalTables
+      summary: Retrieve the statistics for Web Tables
+      description: Returns the requested C&SD Web Tables in JSON format.
+      operationId: getStatisticalTable
+      parameters:
+        - name: id
+          in: query
+          description: |
+            Web Table code (`table_id`), e.g. `110-01001`.
+            Only one table may be requested per call.
+            Choose a known table below, or supply another publisher table ID.
+
+            <details>
+            <summary>Table IDs and titles</summary>
+
+            | Table ID | Title |
+            | --- | --- |
+            | 110-01001 | Population by sex and age group |
+            | 110-01001A | Mid-year population (excluding foreign domestic helpers) by sex and age group |
+            | 110-01002 | Population by sex and age |
+            | 110-01002A | Mid-year population (excluding foreign domestic helpers) by sex and age |
+            | 110-01003 | Population growth by component |
+            | 110-01004 | Dependency ratio and median age of population |
+            | 110-01005 | Sex ratio by age group |
+            | 110-02001 | Land area, land population and population density by District Council district |
+            | 110-06811 | Land-based non-institutional population by District Council district, sex and age |
+            | 110-06812 | Land-based non-institutional population aged 15 and over by District Council district, sex and educational attainment |
+            | 110-06813 | Percentage of land-based non-institutional population with secondary education and above by District Council district and age |
+            | 110-06814 | Land-based non-institutional population aged 15 and over by District Council district, sex and marital status |
+            | 110-06815 | Land-based non-institutional population by District Council district and economic activity status |
+            | 110-06831 | Median age of land-based non-institutional population and labour force by District Council district and sex |
+            | 110-06832 | Sex ratio of land-based non-institutional population and labour force by District Council district |
+            | 110-06833 | Overall dependency ratio by District Council district |
+            | 115-01011 | Vital events |
+            | 115-01012 | Number of live births born in Hong Kong to Mainland women |
+            | 115-01012A | Monthly number of live births by sex |
+            | 115-01013 | Persons marrying for the first time by sex and age group |
+            | 115-01014 | Number of marriages registered in Hong Kong with both bridegrooms and brides being Hong Kong residents, bridegrooms/brides from Chinese Mainland and number of issuance of Certificate of Absence of Marriage Records (claimed for the purpose of marrying in Chinese Mainland) |
+            | 115-01015 | Number of marriages by type |
+            | 115-01015A | Monthly number of marriages |
+            | 115-01016 | Age specific fertility rates |
+            | 115-01021 | Hong Kong life tables |
+            | 115-01022 | Deaths by sex and age group |
+            | 115-01022A | Monthly number of deaths by sex |
+            | 115-01023 | Age-sex specific mortality rates |
+            | 115-01031 | Estimated number of Hong Kong residents usually staying in Guangdong Province by sex and age group (Please refer to the notes for the compilation methods and the limitations of the estimated figures) |
+            | 115-01032 | Estimated number of Hong Kong residents usually staying in Guangdong Province by whether belonging to the Hong Kong Resident Population (Please refer to the notes for the compilation methods and the limitations of the estimated figures) |
+            | 115-92001 | Divorce statistics |
+            | 130-06102 | Statistics on domestic households |
+            | 130-06601 | Domestic households by household size |
+            | 130-06601A | Domestic households by household size (excluding foreign domestic helpers) |
+            | 130-06602 | Average household size by type of housing |
+            | 130-06602A | Average household size by type of housing (excluding foreign domestic helpers) |
+            | 130-06603 | Domestic households by type of housing |
+            | 130-06604 | Domestic households by tenure of accommodation |
+            | 130-06605 | Domestic households by household size and monthly household income |
+            | 130-06605A | Domestic households by household size and monthly household income (excluding foreign domestic helpers) |
+            | 130-06606 | Median monthly household income by household size |
+            | 130-06606A | Median monthly household income by household size (excluding foreign domestic helpers) |
+            | 130-06607 | Domestic households by type of household and monthly household income |
+            | 130-06607A | Domestic households by type of household and monthly household income (excluding foreign domestic helpers) |
+            | 130-06608 | Median monthly household income of economically active households by household size |
+            | 130-06608A | Median monthly household income of economically active households by household size (excluding foreign domestic helpers) |
+            | 130-06609 | Domestic households by monthly household income and type of housing |
+            | 130-06609A | Domestic households by monthly household income and type of housing (excluding foreign domestic helpers) |
+            | 130-06610 | Median monthly household income by type of housing |
+            | 130-06610A | Median monthly household income by type of housing (excluding foreign domestic helpers) |
+            | 130-06611 | Domestic households by household size and monthly household income (excluding Chinese New Year bonus/double pay) |
+            | 130-06611A | Domestic households by household size and monthly household income (excluding Chinese New Year bonus/double pay) (excluding foreign domestic helpers) |
+            | 130-06612 | Median monthly household income (excluding Chinese New Year bonus/double pay) by household size |
+            | 130-06612A | Median monthly household income (excluding Chinese New Year bonus/double pay) by household size (excluding foreign domestic helpers) |
+            | 130-06613 | Median monthly household income (excluding Chinese New Year bonus/double pay) by type of housing |
+            | 130-06613A | Median monthly household income (excluding Chinese New Year bonus/double pay) by type of housing (excluding foreign domestic helpers) |
+            | 130-06801 | Domestic households by District Council district and household size |
+            | 130-06802 | Domestic households by District Council district and type of accommodation |
+            | 130-06803 | Domestic households by District Council district and tenure of accommodation |
+            | 130-06804 | Domestic households by District Council district and monthly household income |
+            | 130-06805 | Domestic households by District Council district and type of households |
+            | 130-06806 | Average household size and median monthly household income of households by District Council district |
+            | 140-09001 | 1999/2000 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing |
+            | 140-09002 | 2004/05 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing |
+            | 140-09003 | 2009/10 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing |
+            | 140-09004 | 2014/15 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing |
+            | 140-09005 | 2019/20 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing |
+            | 140-09006 | 2024/25 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing |
+            | 150-11001 | Projected mid-year population by sex and age group |
+            | 150-11002 | Projected Hong Kong life tables |
+            | 150-12001 | Projected number of domestic households and average household size |
+            | 150-12002 | Projected number of domestic households by household size |
+            | 150-12003 | Projected number of domestic households by household type |
+            | 170-05001 | Population Census - Population by sex and age group |
+            | 170-05001A | Population Census - Population (excluding foreign domestic helpers) by sex and age group |
+            | 170-05002 | Population Census - Population by sex and age |
+            | 170-05002A | Population Census - Population (excluding foreign domestic helpers) by sex and age |
+            | 170-05003 | Population Census - Population by Usual Residents and Mobile Residents |
+            | 170-05004 | Population Census - Dependency ratio and median age of population |
+            | 170-05005 | Population Census - Sex ratio by age group |
+            | 170-05006 | Population Census - Population aged 15 and over by sex and marital status |
+            | 170-05006A | Population Census - Population aged 15 and over (excluding foreign domestic helpers) by sex and marital status |
+            | 170-05007 | Population Census - Proportion of never married population aged 15 and over by sex and age group |
+            | 170-05007A | Population Census - Proportion of never married population aged 15 and over (excluding foreign domestic helpers) by sex and age group |
+            | 170-05008 | Population Census - Population by nationality |
+            | 170-05009 | Population Census - Population by ethnicity |
+            | 170-05010 | Population Census - Population by duration of residence in Hong Kong and place of birth |
+            | 170-05011 | Population Census - Population aged 5 and over by usual spoken language |
+            | 170-05012 | Population Census - Population aged 5 and over able to speak selected languages / dialects |
+            | 170-05013 | Population Census - Population aged 5 and over able to read selected languages |
+            | 170-05014 | Population Census - Population aged 5 and over able to write selected languages |
+            | 170-05015 | Population Census - Population by District Council district |
+            | 170-05016 | Population Census - Population by District Council district and age group |
+            | 170-05017 | Population Census - Median age of population by District Council district |
+            | 171-05001 | Population Census - Population aged 15 and over by educational attainment |
+            | 171-05001A | Population Census - Population aged 15 and over (excluding foreign domestic helpers) by educational attainment |
+            | 171-05002 | Population Census - Population with post-secondary education by field of education |
+            | 171-05003 | Population Census - School attendance rate of population aged 3 - 17 by age group |
+            | 171-05004 | Population Census - Persons attending full-time courses in educational institutions in Hong Kong by place of study and area of residence |
+            | 171-05005 | Population Census - Population aged 15 and over by District Council district and educational attainment |
+            | 172-05001 | Population Census - Labour force and labour force participation rate by sex and age group |
+            | 172-05001A | Population Census - Labour force and labour force participation rate (excluding foreign domestic helpers) by sex and age group |
+            | 172-05002 | Population Census - Median age of labour force by sex |
+            | 172-05003 | Population Census - Working population by employment status |
+            | 172-05004 | Population Census - Working population by occupation of main employment |
+            | 172-05005 | Population Census - Working population by industry of main employment |
+            | 172-05006 | Population Census - Working population by weekly usual hours of work of all employment |
+            | 172-05006A | Population Census - Working population (excluding foreign domestic helpers) by weekly usual hours of work of all employment |
+            | 172-05007 | Population Census - Median weekly usual hours of work of all employment by occupation of main employment |
+            | 172-05008 | Population Census - Median weekly usual hours of work of all employment by industry of main employment |
+            | 172-05009 | Population Census - Median monthly income from main employment by sex and age group |
+            | 172-05009A | Population Census - Median monthly income from main employment (excluding foreign domestic helpers) by sex and age group |
+            | 172-05010 | Population Census - Labour force by District Council district |
+            | 172-05011 | Population Census - Labour force participation rate by District Council district and sex |
+            | 172-05012 | Population Census - Working population by place of work and area of residence |
+            | 173-05001 | Population Census - Domestic households by household size |
+            | 173-05002 | Population Census - Domestic households by household composition |
+            | 173-05003 | Population Census - Average domestic household size by type of housing |
+            | 173-05004 | Population Census - Median monthly domestic household income by household size |
+            | 173-05005 | Population Census - Domestic households and average domestic household size by District Council district |
+            | 174-05001 | Population Census - Occupied quarters by type of quarters |
+            | 174-05002 | Population Census - Population by type of housing |
+            | 174-05003 | Population Census - Domestic households by type of housing |
+            | 174-05004 | Population Census - Average number of domestic households per 1 000 units of quarters by type of housing |
+            | 174-05005 | Population Census - Domestic households by tenure of accommodation |
+            | 174-05006 | Population Census - Domestic households by number of rooms and type of housing |
+            | 174-05007 | Population Census - Average number of rooms by type of housing |
+            | 174-05008 | Population Census - Domestic households by floor area of accommodation |
+            | 174-05009 | Population Census - Median floor area of accommodation and median per capita floor area of accommodation by household size |
+            | 174-05010 | Population Census - Median mortgage payment and loan repayment to income ratio of domestic households by District Council district |
+            | 174-05011 | Population Census - Median rent to income ratio of domestic households by District Council district |
+            | 175-05001 | Population Census - Population aged 5 and over by whether having internally migrated and area of residence |
+            | 210-06101 | Statistics on labour force, employment, unemployment and underemployment |
+            | 210-06103 | Unemployment rate and underemployment rate by age and sex |
+            | 210-06201 | Labour force and labour force participation rate by age and sex |
+            | 210-06201A | Labour force and labour force participation rate by age and sex (excluding foreign domestic helpers) |
+            | 210-06202 | Labour force and labour force participation rate by marital status, age and sex |
+            | 210-06202A | Labour force and labour force participation rate by marital status, age and sex (excluding foreign domestic helpers) |
+            | 210-06203 | Labour force and labour force participation rate by educational attainment, age and sex |
+            | 210-06203A | Labour force and labour force participation rate by educational attainment, age and sex (excluding foreign domestic helpers) |
+            | 210-06301 | Employed persons by age and sex |
+            | 210-06301A | Employed persons by age and sex (excluding foreign domestic helpers) |
+            | 210-06302 | Median age of employed persons by sex |
+            | 210-06302A | Median age of employed persons by sex (excluding foreign domestic helpers) |
+            | 210-06303 | Employed persons by employment status, age and sex |
+            | 210-06303A | Employed persons by employment status, age and sex (excluding foreign domestic helpers) |
+            | 210-06304 | Employed persons by educational attainment, age and sex |
+            | 210-06304A | Employed persons by educational attainment, age and sex (excluding foreign domestic helpers) |
+            | 210-06305 | Employed persons by detailed industry of main employment and sex |
+            | 210-06305A | Employed persons by detailed industry of main employment and sex (excluding foreign domestic helpers) |
+            | 210-06306 | Employed persons by industry of main employment, age and sex |
+            | 210-06306A | Employed persons by industry of main employment, age and sex (excluding foreign domestic helpers) |
+            | 210-06307 | Employed persons by occupation of main employment, age and sex |
+            | 210-06307A | Employed persons by occupation of main employment, age and sex (excluding foreign domestic helpers) |
+            | 210-06308 | Employed persons by industry and occupation of main employment |
+            | 210-06308A | Employed persons by industry and occupation of main employment (excluding foreign domestic helpers) |
+            | 210-06309 | Employed persons by hours of work of all employment and sex |
+            | 210-06309A | Employed persons by hours of work of all employment and sex (excluding foreign domestic helpers) |
+            | 210-06310 | Employed persons who worked less than 35 hours by reason for working less than 35 hours during the 7 days before enumeration and sex |
+            | 210-06311 | Median hours of work of employed persons by industry of main employment and sex |
+            | 210-06311A | Median hours of work of employed persons by industry of main employment and sex (excluding foreign domestic helpers) |
+            | 210-06312 | Median hours of work of employed persons by occupation of main employment and sex |
+            | 210-06312A | Median hours of work of employed persons by occupation of main employment and sex (excluding foreign domestic helpers) |
+            | 210-06313 | Employed persons by monthly employment earnings and sex |
+            | 210-06313A | Employed persons by monthly employment earnings and sex (excluding foreign domestic helpers) |
+            | 210-06314 | Median monthly employment earnings of employed persons by age and sex |
+            | 210-06314A | Median monthly employment earnings of employed persons by age and sex (excluding foreign domestic helpers) |
+            | 210-06315 | Median monthly employment earnings of employed persons by educational attainment and sex |
+            | 210-06315A | Median monthly employment earnings of employed persons by educational attainment and sex (excluding foreign domestic helpers) |
+            | 210-06316 | Median monthly employment earnings of employed persons by industry of main employment and sex |
+            | 210-06316A | Median monthly employment earnings of employed persons by industry of main employment and sex (excluding foreign domestic helpers) |
+            | 210-06317 | Median monthly employment earnings of employed persons by occupation of main employment and sex |
+            | 210-06317A | Median monthly employment earnings of employed persons by occupation of main employment and sex (excluding foreign domestic helpers) |
+            | 210-06318 | Employed persons by monthly employment earnings (excluding Chinese New Year bonus/double pay) and sex |
+            | 210-06318A | Employed persons by monthly employment earnings (excluding Chinese New Year bonus/double pay) and sex (excluding foreign domestic helpers) |
+            | 210-06319 | Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by sex |
+            | 210-06319A | Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by sex (excluding foreign domestic helpers) |
+            | 210-06320 | Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by industry of main employment and sex |
+            | 210-06321 | Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by occupation of main employment and sex |
+            | 210-06401 | Unemployed persons and unemployment rate by age and sex |
+            | 210-06402 | Unemployed persons and unemployment rate by educational attainment and sex |
+            | 210-06403 | Unemployed persons by duration of unemployment, age and sex |
+            | 210-06404 | Median duration of unemployment by sex |
+            | 210-06405 | Unemployed persons with a previous job and unemployment rate by detailed previous industry |
+            | 210-06406 | Unemployed persons with a previous job and unemployment rate by previous industry, age and sex |
+            | 210-06407 | Unemployed persons with a previous job and unemployment rate by previous occupation, age and sex |
+            | 210-06408 | Unemployed persons with a previous job by previous industry, mode of leaving last job and sex |
+            | 210-06409 | Unemployed persons with a previous job by previous industry, duration of unemployment and sex |
+            | 210-06410 | Median duration of unemployment of unemployed persons with a previous job by previous industry and sex |
+            | 210-06501 | Underemployed persons and underemployment rate by age and sex |
+            | 210-06502 | Underemployed persons and underemployment rate by educational attainment and sex |
+            | 210-06503 | Underemployed persons and underemployment rate by detailed industry of main employment |
+            | 210-06504 | Underemployed persons and underemployment rate by industry of main employment, age and sex |
+            | 210-06505 | Underemployed persons and underemployment rate by occupation of main employment, age and sex |
+            | 210-06506 | Underemployed persons by hours of work of all employment and sex |
+            | 210-06507 | Median hours of work of all employment of underemployed persons by sex |
+            | 210-06508 | Underemployed persons by monthly employment earnings and sex |
+            | 210-06509 | Median monthly employment earnings of underemployed persons by sex |
+            | 210-06510 | Underemployed persons by monthly employment earnings (excluding Chinese New Year bonus/double pay) and sex |
+            | 210-06511 | Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of underemployed persons by sex |
+            | 210-06701 | Economically inactive persons aged 15 and over by age and sex |
+            | 210-06702 | Economically inactive persons aged 15 and over by marital status, age and sex |
+            | 210-06703 | Economically inactive persons aged 15 and over by educational attainment, age and sex |
+            | 210-06704 | Economically inactive persons aged 15 and over by reason for being economically inactive and sex |
+            | 210-06821 | Labour force and labour force participation rate by District Council district, sex and age |
+            | 210-06822 | Labour force and labour force participation rate by District Council district, sex and age (excluding foreign domestic helpers) |
+            | 210-15001 | Distribution of Composite Employment Estimates by major industry sector |
+            | 215-16001 | Number of establishments, persons engaged, vacancies and vacancy rate (other than those in the civil service) analysed by industry section |
+            | 215-16002 | Number of establishments and persons engaged (other than those in the civil service) analysed by industry section, District Council district and sex of persons engaged |
+            | 215-16003 | Number of establishments, persons engaged and vacancies (other than those in the civil service) analysed by industry section / industry division and sex of persons engaged |
+            | 215-16004 | Number of establishments, persons engaged and vacancies (other than those in the civil service) in the retail trade analysed by type of retail outlet |
+            | 215-16005 | Number of establishments, persons engaged and vacancies (other than those in the civil service) analysed by selected industry group / industry class / industry sub-class |
+            | 215-16006 | Number of establishments and persons engaged (other than those in the civil service) analysed by industry section, size of establishment and sex of persons engaged |
+            | 215-16007 | Number of vacancies (other than those in the civil service) analysed by industry section and major occupation group |
+            | 215-16008 | Number of establishments and persons engaged (other than those in the civil service) analysed by industry section / industry division and District Council district |
+            | 215-16009 | Number of establishments and persons engaged (other than those in the civil service) analysed by industry section and Tertiary Planning Unit (TPU) |
+            | 215-16010 | Number of establishments, persons engaged and vacancies (other than those in the civil service) analysed by industry sub-class |
+            | 215-16011 | Number of civil servants and civil service vacancies |
+            | 215-17001 | Number of construction sites, manual workers engaged, vacancies and job opportunities at public and private sector sites analysed by type of site |
+            | 215-17002 | Average number of manual workers engaged per site, average number of vacancies per site and vacancy rate at public and private sector sites analysed by type of site |
+            | 215-17003 | Number of construction sites, manual workers engaged, vacancies and vacancy rate at public and private sector sites analysed by end-use of construction project |
+            | 215-17004 | Number of construction sites, manual workers engaged, vacancies and vacancy rate at public and private sector sites analysed by size of site |
+            | 215-94001 | Number of establishments and number of persons engaged of the selected services industries |
+            | 215-94002 | Number of establishments and number of persons engaged in insurance, retail trade, and professional, scientific and technical services industries |
+            | 215-94003 | Number of establishments and number of persons engaged of the selected service groups and service domains |
+            | 215-94004 | Number of establishments rendering architectural, surveying and engineering services; legal services; and accounting, auditing and bookkeeping services |
+            | 220-19001 | Nominal Wage Indices for employees up to supervisory level by industry section (September 1992 = 100) |
+            | 220-19002 | Real Wage Indices for employees up to supervisory level by industry section (September 1992 = 100) |
+            | 220-19003 | Nominal Wage Indices for employees up to supervisory level by industry section by broad occupational group (September 1992 = 100) |
+            | 220-19004 | Real Wage Indices for employees up to supervisory level by industry section by broad occupational group (September 1992 = 100) |
+            | 220-19005 | Nominal Wage Indices for employees up to supervisory level by occupational group (September 1992 = 100) |
+            | 220-19006 | Real Wage Indices for employees up to supervisory level by occupational group (September 1992 = 100) |
+            | 220-19011 | Average wage rates for employees up to supervisory level by industry section by broad occupational group |
+            | 220-19012 | Average daily wages, average number of normal working hours per day and average number of standard working days per month of craftsmen and operatives by industry section |
+            | 220-19013 | Average monthly salaries, average number of normal working hours per day and average number of standard working days per month of supervisory, technical, clerical, services and miscellaneous non-production workers by industry by occupation by sex |
+            | 220-19021 | Nominal Indices of Payroll per Person Engaged by industry section (Q1 1999 = 100) |
+            | 220-19022 | Real Indices of Payroll per Person Engaged by industry section (Q1 1999 = 100) |
+            | 220-19023 | Nominal Indices of Payroll per Person Engaged by industry division (Q1 1999 = 100) |
+            | 220-19024 | Real Indices of Payroll per Person Engaged by industry division (Q1 1999 = 100) |
+            | 220-19025 | Quarter-to-quarter rates of change in the seasonally adjusted series of Nominal and Real Indices of Payroll per Person Engaged by industry section |
+            | 220-20001 | Average daily wages of workers engaged in public sector construction projects as reported by main contractors (2021 edition of data series) |
+            | 220-20001A | Average daily wages of workers engaged in public sector construction projects as reported by main contractors |
+            | 220-23001 | Number of employees by employment nature, sex and age group |
+            | 220-23002 | Number of employees by employment nature, sex and educational attainment |
+            | 220-23003 | Number of employees by employment nature, sex and occupational group |
+            | 220-23004 | Number of employees by employment nature and industry section |
+            | 220-23005 | Number of employees by employment mode and industry section |
+            | 220-23011 | Monthly wage level and distribution by employment nature and sex |
+            | 220-23012 | Monthly wage level and distribution by employment nature and age group |
+            | 220-23013 | Monthly wage level and distribution by employment nature and educational attainment |
+            | 220-23014 | Monthly wage level and distribution by employment nature and occupational group |
+            | 220-23015 | Monthly wage level and distribution by employment nature and industry section |
+            | 220-23021 | Number of employees by percentile of hourly wage |
+            | 220-23022 | Hourly wage level and distribution by sex and age group |
+            | 220-23023 | Hourly wage level and distribution by sex and educational attainment |
+            | 220-23024 | Hourly wage level and distribution by sex and occupational group |
+            | 220-23025 | Hourly wage level and distribution by industry section and occupational group: all business undertakings |
+            | 220-23026 | Hourly wage level and distribution by industry section: business undertakings with number of persons engaged less than 50 |
+            | 220-23027 | Number of employees by employment nature, hourly wage and industry section |
+            | 220-23031 | Level and distribution of weekly working hours by employment nature, sex and age group |
+            | 220-23032 | Level and distribution of weekly working hours by employment nature, sex and educational attainment |
+            | 220-23033 | Level and distribution of weekly working hours by employment nature, sex and occupational group |
+            | 220-23034 | Level and distribution of weekly working hours by employment nature and industry section |
+            | 220-23035 | Number of employees by employment nature, industry section and weekly working hours |
+            | 220-25001 | Nominal Salary Indices (A) for middle-level managerial and professional employees by industry section (June 1995 = 100) |
+            | 220-25002 | Real Salary Indices (A) for middle-level managerial and professional employees by industry section (June 1995 = 100) |
+            | 220-25003 | Nominal Salary Indices (B) for middle-level managerial and professional employees by industry section (June 1995 = 100) |
+            | 220-25004 | Real Salary Indices (B) for middle-level managerial and professional employees by industry section (June 1995 = 100) |
+            | 225-27001 | Labour Productivity Index (Year 2015 = 100) |
+            | 230-28001 | Projected labour force participation rates (excluding foreign domestic helpers) by sex and age group |
+            | 230-28002 | Projected labour force (excluding foreign domestic helpers) by sex and age group |
+            | 230-28003 | Projected economic dependency ratios (excluding foreign domestic helpers) |
+            | 310-30001 | Percentage change of Gross Domestic Product (GDP) and selected major expenditure components in real terms |
+            | 310-31001 | Gross Domestic Product (GDP), implicit price deflator of GDP and per capita GDP |
+            | 310-31002 | Gross Domestic Product (GDP) by major expenditure component at current market prices |
+            | 310-31003 | Gross Domestic Product (GDP) by major expenditure component in chained (2024) dollars |
+            | 310-31004 | Component contribution to year-on-year percentage change in real terms of Gross Domestic Product (GDP) |
+            | 310-31005 | Implicit price deflators (IPD) of Gross Domestic Product (GDP) and its major expenditure components |
+            | 310-31006 | Ratio of major expenditure components to Gross Domestic Product (GDP) at current market prices |
+            | 310-31007 | Seasonally adjusted Gross Domestic Product (GDP) and its major expenditure components in chained (2024) dollars, and implicit price deflator (IPD) of GDP |
+            | 310-31011 | Private consumption expenditure (PCE) by component at current market prices |
+            | 310-31012 | Private consumption expenditure (PCE) by component in chained (2024) dollars |
+            | 310-31013 | Consumption expenditure in the domestic market (CXDM) by commodity and service group at current market prices |
+            | 310-31014 | Consumption expenditure in the domestic market (CXDM) by commodity and service group in chained (2024) dollars |
+            | 310-31015 | Percentage distribution of consumption expenditure in the domestic market (CXDM) by commodity and service group at current market prices |
+            | 310-32021 | Government consumption expenditure (GCE) by component at current market prices |
+            | 310-32022 | Government consumption expenditure (GCE) by component in chained (2024) dollars |
+            | 310-32023 | Government consumption expenditure (GCE) by social and economic function at current market prices |
+            | 310-32024 | Individual and collective consumption at current market prices |
+            | 310-32031 | Gross domestic fixed capital formation (GDFCF) by component at current market prices |
+            | 310-32032 | Gross domestic fixed capital formation (GDFCF) by component in chained (2024) dollars |
+            | 310-33041 | Exports and imports of services by service component at current market prices |
+            | 310-33042 | Exports and imports of services by service component in chained (2024) dollars |
+            | 310-34101 | Gross Domestic Product (GDP) by economic activity at current prices |
+            | 310-34102 | Gross Domestic Product (GDP) at current prices |
+            | 310-34201 | Gross output, intermediate consumption, value added and factor income by economic activity at current prices |
+            | 310-34401 | Sequence of Accounts: production account at current prices |
+            | 310-34402 | Sequence of Accounts: generation of income account at current prices |
+            | 310-34403 | Sequence of Accounts: relations among Gross Domestic Product (GDP), Gross National Income (GNI), savings and net lending aggregates at current prices |
+            | 310-34501 | Gross Domestic Product (GDP) by economic activity in chained (2024) dollars |
+            | 310-35091 | Real Gross Domestic Income (RGDI) in chained (2024) dollars |
+            | 310-36201 | Gross National Income (GNI), real Gross National Income (RGNI), per capita GNI and per capita RGNI |
+            | 310-36202 | External primary income flows (EPIF) by income component at current market prices |
+            | 310-36203 | External primary income flows (EPIF) by selected major source/destination country/territory at current market prices |
+            | 310-36204 | External primary income flows (EPIF) in real terms |
+            | 310-36205 | Gross National Disposable Income (GNDI) at current market prices |
+            | 310-37011 | Rest of the world account |
+            | 315-37001 | Balance of Payments (BoP) |
+            | 315-37002 | BoP as a ratio to Gross Domestic Product (GDP) |
+            | 315-37003 | BoP: current account and capital account |
+            | 315-37004 | BoP: financial account |
+            | 315-37005 | Percentage changes of seasonally adjusted current account |
+            | 315-37006 | Net investment flows by sector |
+            | 315-37021 | International Investment Position by standard component (position as at end of period) |
+            | 315-37022 | International Investment Position as a ratio to Gross Domestic Product (GDP) |
+            | 315-37023 | Currency composition of International Investment Position (position as at end of period) |
+            | 315-37031 | External Debt (position as at end of period) |
+            | 315-38001 | Direct investment (DI) statistics of Hong Kong |
+            | 315-38011 | Position, flow and income of inward direct investment (DI) of Hong Kong by selected major investor country/territory |
+            | 315-38012 | Position and flow of inward direct investment (DI) of Hong Kong by major economic activity of Hong Kong enterprise groups |
+            | 315-38021 | Position, flow and income of outward direct investment (DI) of Hong Kong by selected major recipient country/territory |
+            | 315-38022 | Position and flow of outward direct investment (DI) of Hong Kong by major economic activity of Hong Kong enterprise groups |
+            | 315-38031 | Position and flow of outward direct investment (DI) in Chinese Mainland by region |
+            | 315-38032 | Position and flow of Hong Kong's outward direct investment (DI) in Chinese Mainland by major economic activity of the direct investment enterprise groups (DIEGs) in Chinese Mainland |
+            | 325-43001 | Number of regional headquarters, regional offices and local offices |
+            | 325-43002 | Number of persons engaged in regional headquarters, regional offices and local offices |
+            | 325-43011 | Number of regional headquarters/regional offices/local offices by selected location of parent company |
+            | 325-43011A | Number of regional headquarters by selected location of parent company |
+            | 325-43011B | Number of regional offices by selected location of parent company |
+            | 325-43011C | Number of local offices by selected location of parent company |
+            | 325-43021 | Number of regional headquarters, regional offices and local offices by major line of business in Hong Kong |
+            | 325-43022 | Number of regional headquarters, regional offices and local offices by major line of business of parent company |
+            | 325-43031 | Number of regional headquarters by selected geographical responsibility in the region (other than Hong Kong) |
+            | 325-43032 | Number of regional offices by selected geographical responsibility in the region (other than Hong Kong) |
+            | 325-43042 | Views of regional headquarters/regional offices/local offices on business plans in Hong Kong in the coming three years |
+            | 325-43051 | Number of regional headquarters, regional offices and local offices by size of company |
+            | 325-43052 | Number of persons engaged by regional headquarters, regional offices and local offices by size of company |
+            | 330-40001 | Diffusion indices on business receipts, new orders and employment for SMEs |
+            | 330-40002 | Percentage of SMEs reporting current credit need and access to credit situation |
+            | 330-41001 | Views on expected changes in business situation |
+            | 330-41002 | Views on expected changes in volume of business/output |
+            | 330-41003 | Views on expected changes in number of persons engaged |
+            | 330-41004 | Views on expected changes in selling price/service charge |
+            | 330-41011 | Level of orders-on-hand, outstanding contract work and stocks of goods in volume terms |
+            | 330-41021 | Profit situation |
+            | 330-41022 | Financial situation |
+            | 330-41023 | Access to credit situation |
+            | 340-45001 | Currency in circulation |
+            | 340-45011 | Money supply (all currencies) |
+            | 340-45012 | Money supply (Hong Kong dollar and foreign currency) |
+            | 340-45021 | Hong Kong dollar interest rates |
+            | 340-45022 | Hong Kong dollar Interest Settlement Rates |
+            | 340-46001 | Exchange rates |
+            | 340-46002 | Effective exchange rate indices for the Hong Kong dollar(January 2020 = 100) |
+            | 340-47001 | Government revenue and expenditure under the General Revenue Account |
+            | 340-47002 | Government revenue and expenditure under the General Revenue Account analysed by quarter |
+            | 340-47011 | Government revenue (General Revenue Account and the funds) |
+            | 340-47012 | Government expenditure (General Revenue Account and the funds) |
+            | 340-92002 | Silver trading prices |
+            | 340-95001 | Hong Kong interbank market |
+            | 340-95002 | Average daily turnover of Exchange Fund Bills and Notes issued by the Hong Kong Monetary Authority |
+            | 340-95003 | Number of listed companies, total market capitalisation, average daily turnover of all listed securities, number of new issues of securities and funds raised from new issues of securities on Hong Kong Exchanges and Clearing Limited |
+            | 340-95004 | Average daily volume of futures and options (in terms of contract) in the Hong Kong Exchanges and Clearing Limited derivatives market |
+            | 340-95005 | Trading value of Shanghai-Hong Kong / Shenzhen-Hong Kong Stock Connect |
+            | 340-95006 | Average daily turnover of 99 Tael Gold and Loco London Gold in the Hong Kong Gold Exchange |
+            | 410-50001 | External merchandise trade aggregate figures |
+            | 410-50001A | External merchandise trade aggregate figures (year-to-month) |
+            | 410-50001B | External merchandise trade aggregate figures (12 months to date) |
+            | 410-50002 | Seasonally adjusted series of external merchandise trade values |
+            | 410-50011 | External merchandise trade statistics - total trade with ten main countries/territories |
+            | 410-50012 | External merchandise trade statistics - imports from ten main suppliers |
+            | 410-50013 | External merchandise trade statistics - total exports to ten main destinations |
+            | 410-50021 | External merchandise trade statistics by mode of transport - imports |
+            | 410-50022 | External merchandise trade statistics by mode of transport - total exports |
+            | 410-50031 | External merchandise trade statistics by ten principal commodity divisions - imports |
+            | 410-50032 | External merchandise trade statistics by ten principal commodity divisions - total exports |
+            | 410-51001 | Merchandise trade index numbers - imports (year 2024 = 100) |
+            | 410-51002 | Merchandise trade index numbers - total exports (year 2024 = 100) |
+            | 410-51003 | Merchandise trade index numbers - terms of trade (year 2024 = 100) |
+            | 410-51011 | Seasonally adjusted merchandise trade index numbers - imports (year 2024 = 100) |
+            | 410-51012 | Seasonally adjusted merchandise trade index numbers - total exports (year 2024 = 100) |
+            | 410-51021 | Trade index numbers by main supplier - imports (year 2024 = 100) |
+            | 410-51022 | Trade index numbers by main destination - total exports (year 2024 = 100) |
+            | 410-51031 | Trade index numbers by end-use category - imports (year 2024 = 100) |
+            | 410-51032 | Trade index numbers by end-use category - total exports (year 2024 = 100) |
+            | 410-51041 | Ranking of selected economies in the world merchandise trade |
+            | 410-52001 | Value and proportion of trade involving outward processing in Chinese Mainland |
+            | 410-52002 | Estimated value and proportion of outward processing trade (OPT) with Chinese Mainland by broad commodity groups |
+            | 410-52003 | Imports from Chinese Mainland related to outward processing by area in Chinese Mainland where processing was done |
+            | 410-55110 | Port cargo throughput |
+            | 410-55111 | Seaborne cargo throughput |
+            | 410-55111A | Seaborne cargo throughput by month |
+            | 410-55112 | River cargo throughput |
+            | 410-55112A | River cargo throughput by month |
+            | 410-55113 | Quarter-to-quarter percentage change of seasonally adjusted series of port cargo throughput |
+            | 410-55114 | Port cargo throughput by Greater Bay Area city |
+            | 410-55290 | Container throughput |
+            | 410-55291 | Laden container throughput |
+            | 410-55292 | Quarter-to-quarter percentage change of seasonally adjusted series of laden container throughput |
+            | 410-55293 | Laden container throughput by Greater Bay Area city |
+            | 410-55294 | Port container throughput by main cargo handling location |
+            | 410-92011 | Inward and outward movements of cargo by air |
+            | 410-92012 | Road cargo throughput |
+            | 410-96001 | Imports and exports of selected equipment / products |
+            | 420-57001 | Exports and imports of services by service component, service group and service item |
+            | 420-57002 | Exports and imports of services in relation to selected Hong Kong's major trading partners by service component |
+            | 425-57011 | Gross margin/commission earned from offshore trade in goods by main destination |
+            | 425-57012 | Sales value of goods and gross margin involved in merchanting by main destination |
+            | 510-60001 | Consumer Price Indices (October 2019 – September 2020 = 100) |
+            | 510-60001A | Consumer Price Indices (October 2019 – September 2020 = 100) at commodity/service section level |
+            | 510-60002 | Underlying Consumer Price Indices (October 2019 – September 2020 = 100) |
+            | 510-60002A | Underlying Consumer Price Indices (October 2019 – September 2020 = 100) at commodity/service section level |
+            | 510-60003 | Consumer Price Indices (October 2019 – September 2020 = 100) at COICOP division level |
+            | 510-60004 | Seasonally adjusted Consumer Price Indices |
+            | 520-62001 | Producer price indices for manufacturing and waste management sectors by selected industry grouping (2015 = 100) |
+            | 520-63001 | Quarterly producer price indices of selected service industries (2015 = 100) |
+            | 610-65001 | Indices of industrial production for manufacturing and waste management sectors by selected industry grouping (2015 = 100) |
+            | 610-72001 | Principal statistics for all companies in the manufacturing, energy supply and waste management sectors |
+            | 610-72003 | Principal statistics for all companies in the manufacturing sector by industry value added |
+            | 610-72004 | Principal statistics for all companies in the manufacturing sector by total receipts |
+            | 610-72005 | Principal statistics for all companies in the manufacturing sector by industry grouping and number of persons engaged |
+            | 610-72006 | Principal statistics for all companies in the manufacturing sector by detailed industry grouping |
+            | 610-72013 | Selected principal statistics for manufacturing companies and import and export companies with manufacturing-related activities |
+            | 610-92091 | Mining and quarry production |
+            | 615-21001 | Index numbers of the costs of labour and materials used in public sector construction projects ( April 2021 = 100 ) - Costs of Labour Index |
+            | 615-21001A | Index numbers of the costs of labour and materials used in public sector construction projects ( April 2003 = 100 ) - Costs of Labour Index |
+            | 615-21002 | Index numbers of the costs of labour and materials used in public sector construction projects ( April 2021 = 100 ) - Costs of Materials Index |
+            | 615-21002A | Index numbers of the costs of labour and materials used in public sector construction projects ( April 2003 = 100 ) - Costs of Materials Index |
+            | 615-66001 | Gross value of construction works performed by main contractors |
+            | 615-66002 | Seasonally adjusted gross value of construction works performed by main contractors |
+            | 615-66011 | Gross value of construction works in nominal terms performed by contractors analysed by broad trade group |
+            | 615-66012 | Gross value of construction works in real terms performed by main contractors analysed by broad trade group |
+            | 615-66021 | Gross value of construction works in nominal terms performed by main contractors at construction sites analysed by broad end-use group |
+            | 615-66022 | Gross value of construction works in real terms performed by main contractors at construction sites analysed by broad end-use group |
+            | 615-66023 | Gross value of construction works in nominal terms performed by main contractors at construction sites analysed by detailed end-use group |
+            | 615-66024 | Gross value of construction works in real terms performed by main contractors at construction sites analysed by detailed end-use group |
+            | 615-66031 | Gross value of construction works in nominal terms performed by main contractors at construction sites analysed by nature of construction activity |
+            | 615-73001 | Selected statistics for all companies in the industry section of construction |
+            | 615-73002 | Selected statistics for all companies in the industry group of architectural, surveying and engineering services |
+            | 615-73003 | Selected statistics for all companies in the industry section of real estate activities |
+            | 615-73011 | Principal statistics for all companies in the construction sector by industry division/group |
+            | 615-73012 | Principal statistics for all companies in the construction sector by gross value of construction works performed |
+            | 615-73013 | Principal statistics for all companies in the construction sector by industry value added |
+            | 615-73021 | Principal statistics for main contractors at construction sites by industry division/class |
+            | 615-73031 | Principal statistics for all companies in the real estate activities industry by industry group/class |
+            | 615-73032 | Principal statistics for all companies in the real estate activities industry by total receipts |
+            | 615-73051 | Principal statistics for all companies in the architectural, surveying and engineering services industry |
+            | 615-73052 | Principal statistics for all companies in the architectural, surveying and engineering services industry by total receipts |
+            | 620-67001 | Total retail sales |
+            | 620-67002 | Value and value index of retail sales by type of retail outlet |
+            | 620-67003 | Volume index of retail sales by type of retail outlet |
+            | 620-67011 | Value of retail sales in supermarkets by broad product category |
+            | 620-67012 | Value of retail sales in department stores by broad product category |
+            | 620-67021 | Seasonally adjusted series of retail sales (average index from October 2019 – September 2020 = 100) |
+            | 620-67031 | Value of online retail sales by selected type of retail outlet |
+            | 620-76011 | Principal statistics for all supermarkets |
+            | 620-76012 | Principal statistics for all department stores by whether with supermarket section inside |
+            | 625-68001 | Total restaurant receipts and restaurant purchases |
+            | 625-68002 | Total restaurant receipts and restaurant purchases analysed by month |
+            | 625-68003 | Restaurant receipts by type of restaurant |
+            | 625-68004 | Restaurant receipts by type of restaurant analysed by month |
+            | 625-68011 | Seasonally adjusted series of total restaurant receipts (Average index from October 2019 to September 2020 = 100) |
+            | 625-76101 | Principal statistics for all companies by industry grouping (accommodation and food services sector) |
+            | 625-76102 | Principal statistics for all companies by industry grouping and number of persons engaged (accommodation and food services sector) |
+            | 625-76103 | Principal statistics for all companies by industry grouping and total receipts (accommodation and food services sector) |
+            | 625-76104 | Principal statistics for all companies by industry grouping and industry value added (accommodation and food services sector) |
+            | 630-76001 | Principal statistics for all companies by industry grouping (import/export, wholesale and retail trades sector) |
+            | 630-76002 | Principal statistics for all companies by industry grouping and number of persons engaged (import/export, wholesale and retail trades sector) |
+            | 630-76003 | Principal statistics for all companies by industry grouping and total receipts (import/export, wholesale and retail trades sector) |
+            | 630-76004 | Principal statistics for all companies by industry grouping and industry value added (import/export, wholesale and retail trades sector) |
+            | 635-74002 | Principal statistics for all companies by industry grouping (transportation, storage and courier services sector) |
+            | 635-74003 | Principal statistics for all companies by industry grouping and number of persons engaged (transportation, storage and courier services sector) |
+            | 635-74004 | Principal statistics for all companies by industry grouping and total receipts (transportation, storage and courier services sector) |
+            | 635-74005 | Principal statistics for all companies by industry grouping and industry value added (transportation, storage and courier services sector) |
+            | 635-74008 | Principal statistics for all companies in selected detailed industry groupings (transportation, storage and courier services sector) |
+            | 635-74009 | Principal statistics for the logistics sector by industry grouping |
+            | 635-92076 | Postal services |
+            | 635-93002 | Statistics on capacity of air transport service |
+            | 635-93003 | Seafarers statistics |
+            | 640-75101 | Principal statistics for all companies in the information and communications sector |
+            | 640-75102 | Principal statistics for all companies in the information and communications sector by industry grouping and number of persons engaged |
+            | 640-75103 | Principal statistics for all companies in the information and communications sector by industry grouping and total receipts |
+            | 640-75104 | Principal statistics for all companies in the information and communications sector by industry grouping and industry value added |
+            | 640-93011 | Selected statistics of telecommunications services |
+            | 645-75001 | Principal statistics for all companies in the financing and insurance, professional and business services sectors by industry grouping |
+            | 645-75002 | Principal statistics for all companies in the financing (except banking); professional, scientific and technical activities; and administrative and support service activities industries by industry grouping and number of persons engaged |
+            | 645-75003 | Principal statistics for all companies in the financing (except banking); professional, scientific and technical activities; and administrative and support service activities industries by industry grouping and total receipts |
+            | 645-75004 | Principal statistics for all companies in the financing (except banking); professional, scientific and technical activities; and administrative and support service activities industries by industry grouping and industry value added |
+            | 645-75011 | Principal statistics for all companies in the banking industry by industry grouping and number of persons engaged |
+            | 645-75012 | Principal statistics for all domestic banking units by total receipts |
+            | 645-75013 | Principal statistics for all domestic banking units by detailed industry |
+            | 645-75020 | Principal statistics for all companies in the insurance industry by detailed industry |
+            | 645-75021 | Principal statistics for all companies in the insurance underwriting industry grouping by detailed industry and number of persons engaged |
+            | 645-75022 | Principal statistics for all companies in the insurance underwriting industry grouping by detailed industry and total receipts |
+            | 645-75023 | Principal statistics for all companies in the insurance underwriting industry grouping by detailed industry and net premiums |
+            | 645-75026 | Principal statistics for all companies in the activities auxiliary to insurance and pension funding industry grouping by detailed industry and number of persons engaged |
+            | 645-75027 | Principal statistics for all companies in the activities auxiliary to insurance and pension funding industry grouping by detailed industry and total receipts |
+            | 645-92111 | Number of authorized insurers, licensed insurance brokers and licensed insurance agents |
+            | 645-95007 | Insurance business of Hong Kong Export Credit Insurance Corporation |
+            | 645-95008 | Values of insured exports by major products of Hong Kong export credit insurance services |
+            | 650-80001 | Visitor arrivals by nationality/region |
+            | 650-80002 | Visitor arrivals by mode of transport and nationality/region |
+            | 650-80003 | Destination consumption expenditure of overnight and same-day visitors |
+            | 650-80004 | Per capita spending by type of visitors |
+            | 650-80005 | Visitor arrivals and length of stay of visitors |
+            | 650-80006 | Hong Kong resident departures by control point |
+            | 650-93021 | Arrival transits passengers via Hong Kong Airport |
+            | 655-82101 | Value added and employment in respect of the Four Key Industries |
+            | 655-83001 | Value added and employment in respect of the Selected Industries |
+            | 660-69001 | Business receipts indices for service industries and service domains (quarterly average of 2015 = 100) |
+            | 660-69002 | Year-on-year % change of business receipts indices for service industries and service domains |
+            | 660-69011 | Seasonally adjusted business receipts indices for service industries and service domains (quarterly average of 2015 = 100) |
+            | 660-69012 | Quarter-to-quarter % change of business receipts indices for service industries and service domains based on the seasonally adjusted series |
+            | 660-76041 | Concentration ratios by selected industry grouping |
+            | 660-78001 | Operating characteristics of enterprises analysed by sector (only including companies with employees), 2018 - 2024 |
+            | 660-78001A | Operating characteristics of enterprises analysed by sector (only including companies with employees), 2008 - 2017 |
+            | 710-86001 | Gross domestic expenditure on R&D by performing sector |
+            | 710-86002 | Gross domestic expenditure on R&D by source of funds |
+            | 710-86003 | Number of R&D personnel by performing sector |
+            | 710-86004 | Gross domestic expenditure on R&D by performing sector by type of R&D expenditure |
+            | 710-86005 | Number of R&D personnel by performing sector by type of function |
+            | 710-86081 | ITC funding support for fostering applied R&D and innovation activities |
+            | 710-86082 | Number of ongoing and approved applied R&D projects receiving ITC funding support |
+            | 710-86101 | Key statistics on R&D activities in the business sector by selected industry grouping |
+            | 710-86102 | Key statistics on R&D activities in the business sector by size of company |
+            | 710-86103 | Total expenditure on in-house R&D activities in the business sector by type of R&D expenditure by selected industry grouping |
+            | 710-86104 | Total expenditure on in-house R&D activities in the business sector by type of R&D expenditure by size of company |
+            | 710-86105 | Total expenditure on in-house R&D activities in the business sector by type of research |
+            | 710-86106 | Total expenditure on in-house R&D activities in the business sector by field of R&D activity |
+            | 710-86107 | Total expenditure on in-house R&D activities in the business sector by technology area |
+            | 710-86108 | Total expenditure on in-house R&D activities in the business sector by source of funds |
+            | 710-86109 | Number of R&D personnel in the business sector by type of function by selected industry grouping |
+            | 710-86110 | Number of R&D personnel in the business sector by type of function by size of company |
+            | 710-86111 | Number of R&D personnel in the business sector by level of education |
+            | 710-86112 | Total expenditure on contracted-out R&D activities in the business sector by type of party performing R&D activities |
+            | 710-86113 | Total expenditure on contracted-out R&D activities in the business sector by location of party performing R&D activities |
+            | 710-86114 | Total expenditure on contracted-out R&D activities in the business sector by source of funds |
+            | 710-86115 | Distribution of companies having undertaken R&D activities by whether having collaboration arrangements on R&D activities with other organisations |
+            | 710-86116 | Distribution of companies having collaboration arrangements on R&D activities with other organisations by type of collaborated organisation |
+            | 710-86117 | Distribution of companies having collaboration arrangements on R&D activities with other organisations by location of collaborated organisation |
+            | 710-86201 | Key statistics on innovation activities in the business sector by selected industry grouping |
+            | 710-86202 | Key statistics on innovation activities in the business sector by size of company |
+            | 710-86203 | Distribution of companies having undertaken product innovation/introduced new or significantly improved products to the market |
+            | 710-86204 | Profile of companies having undertaken product innovation in terms of type of party developing product innovation and number of product innovation |
+            | 710-86205 | Profile of companies having undertaken business process innovation in terms of type of party developing business process innovation and number of business process innovation |
+            | 710-86206 | Total expenditure on innovation activities in the business sector by type of innovation activity by selected industry grouping |
+            | 710-86207 | Total expenditure on innovation activities in the business sector by type of innovation activity by size of company |
+            | 710-86208 | Total expenditure on innovation activities in the business sector by source of funds |
+            | 710-86209 | Distribution of companies having undertaken innovation activities (excluding R&D activities) by whether having collaboration arrangements on innovation activities (excluding R&D activities) with other organisations |
+            | 710-86210 | Distribution of companies having collaboration arrangements on innovation activities (excluding R&D activities) with other organisations by type of collaborated organisation |
+            | 710-86211 | Distribution of companies having collaboration arrangements on innovation activities (excluding R&D activities) with other organisations by location of collaborated organisation |
+            | 710-86212 | Distribution of companies by reason for not having undertaken innovation activities |
+            | 710-86301 | Total domestic expenditure on innovation activities |
+            | 720-87001 | Proportion of companies using computers, smartphones for business purposes, the Internet and web presence |
+            | 720-87002 | Proportion of companies with e-commerce sales, e-commerce purchases and e-delivery as well as value of e-commerce sales as a percentage of total receipts |
+            | 720-87003 | Proportion of companies using information and communication technology (ICT) by major type of ICT |
+            | 720-90001 | Households with Internet access at home |
+            | 720-90002 | Households with personal computer (PC) at home |
+            | 720-90003 | Persons aged 10 and over who had used the Internet by sex and age group |
+            | 720-90004 | Persons aged 10 and over who had knowledge of using personal computer (PC) by sex and age group |
+            | 720-90005 | Persons aged 10 and over who had used personal computer (PC) by sex and age group |
+            | 720-90006 | Persons aged 10 and over who had a mobile phone (including smartphone and non-smartphone) by sex and age group |
+            | 720-90007 | Persons aged 10 and over who had a smartphone by sex and age group |
+            | 720-90008 | Persons aged 15 and over who had made online purchases for personal matters by sex and age group |
+            | 915-91001 | Overall energy balance |
+            | 915-91101 | Value of net imports of oil products and coal products |
+            | 915-91102 | Quantity of net imports of oil products and coal products |
+            | 915-91103 | Unit values of imports of oil products and coal products |
+            | 915-91104 | Monthly statistics on quantity of net imports and unit values of imports of selected oil products and coal products |
+            | 915-91105 | Storage capacity and tank stock of oil products |
+            | 915-91106 | Sales of oil products by type of users |
+            | 915-91107 | Annual quantity of imports of oil products by supplier |
+            | 915-91108 | Annual quantity of imports of coal products by supplier |
+            | 915-91109 | Annual quantity of re-exports of oil products by destination |
+            | 915-91110 | Annual quantity of re-exports of coal products by destination |
+            | 915-91201 | Monthly statistics on consumption of electricity and gas by type of users |
+            | 915-91202 | Local consumption of electricity and gas by type of users and sales revenue from locally sold |
+            | 915-91203 | Electricity production, imports, exports, and consumption |
+            | 915-91204 | Generating capacity and peak demand of electricity and gas |
+            | 920-04001 | Stock of permanent living quarters by District Council district |
+            | 920-93004 | Stock of domestic units |
+            | 925-92021 | Hong Kong Diploma of Secondary Education Examination - statistics for satisfying the general entrance requirements for local undergraduate programmes |
+            | 925-92022 | Government expenditure on education |
+            | 925-92023 | Number of day schools by school type/sector and region |
+            | 925-92024 | Teachers in selected types of educational institution by sex |
+            | 925-92025 | Number of graduates in programmes funded by the University Grants Committee (UGC) by location of university and sex |
+            | 925-92026 | Number of students by district, sex and grade |
+            | 925-92027 | Number of University Grants Committee (UGC)-funded universities |
+            | 930-92081 | Number of notifiable infectious diseases |
+            | 930-92081A | Number of deaths of notifiable infectious diseases |
+            | 930-92082 | Number of registered healthcare professionals |
+            | 930-92083 | Medical institutions with hospital beds by area and type of institution |
+            | 930-92084 | Expenditure of Department of Health and Hospital Authority |
+            | 930-92085 | Department of Health - outpatient services |
+            | 930-92086 | Hospital Authority - outpatient services |
+            | 930-92087 | Hospital Authority - inpatient services |
+            | 930-92088 | Detection rate of overweight and obesity of 4-year-old children by sex |
+            | 930-92089 | Detection rate of wasting of primary and secondary school students by sex |
+            | 930-92090 | Number of HIV infection and AIDS by sex |
+            | 930-92092 | Coverage rates for Immunisation Programme (School Campaign) |
+            | 930-92093 | Hospital Authority - accident and emergency services |
+            | 935-88001 | Social Security Scheme |
+            | 935-88002 | Social Security Allowance Scheme |
+            | 935-88003 | Active cases of Integrated Family Service Centres |
+            | 935-88004 | Services for the elderly - residential care |
+            | 935-88005 | Services for the elderly - community support |
+            | 935-88006 | Services for the elderly - community care |
+            | 940-92031 | Persons arrested for crime by type of offence, police region, age group and sex |
+            | 940-92031A | Persons arrested for crime by type of offence |
+            | 940-92032 | Reception of prisoners/inmates by sex, type of sentence and age group |
+            | 940-92033 | Cases reported by type of offence |
+            | 940-97001 | Number and rates of victims involved in newly reported spouse/cohabitant battering cases by type of violence and sex |
+            | 940-97002 | Number and rates of victims involved in newly reported sexual violence cases by type of sexual violence incident and sex |
+            | 940-97003 | Number and rates of victims involved in newly reported sexual violence cases by age group and sex |
+            | 945-89001 | Usage rates of major cultural venues by location |
+            | 945-89002 | Usage rates of recreation facilities by type |
+            | 950-92041 | Area of country parks, special areas and marine parks/reserve |
+            | 950-92051 | Average quantity of solid waste received by landfills by type |
+            | 950-92052 | Disposal of municipal solid waste by composition |
+            | 950-92053 | Composition of recyclables recovered from municipal solid waste |
+            | 950-92054 | Greenhouse gas emissions and carbon intensity |
+            | 950-92062 | Air pollutant emissions |
+            | 990-92061 | Stoppages of work by industry |
+            | 990-92071 | Estimated local production of foodstuffs |
+            | 990-92072 | Fresh water supplies and consumption |
+            | 990-92073 | Percentage of population served with fresh water by area |
+            | 990-92074 | Percentage of population covered by public sewerage |
+            | 990-92075 | Fresh water consumption by sector |
+            | 990-92077 | Average wholesale prices of selected food items |
+            | 990-92101 | Fire and Ambulance services - fire and special services calls |
+            | 990-92102 | Fire and Ambulance services - fire and special services persons involved |
+            | 990-92103 | Fire and Ambulance services - ambulance calls |
+            | 990-92104 | Fire and Ambulance services - fire inspections |
+            | 990-92105 | Fire and Ambulance services - fire prevention (plans finalised) |
+            | 990-92106 | Fire and Ambulance services - fire prevention (prosecutions undertaken) |
+            | 990-92201 | Municipal services licences and permits in force by type |
+            | 990-93031 | Wholesale of food items |
+            | 990-94032 | Number of selected professional members / qualifications |
+            | 990-97011 | Candidates, elected members and appointed members in Government Councils (based on election year) by sex |
+
+            </details>
+          required: true
+          schema:
+            type: string
+          examples:
+            110-01001:
+              summary: Population by sex and age group
+              value: 110-01001
+            110-01001A:
+              summary: Mid-year population (excluding foreign domestic helpers) by sex and age group
+              value: 110-01001A
+            110-01002:
+              summary: Population by sex and age
+              value: 110-01002
+            110-01002A:
+              summary: Mid-year population (excluding foreign domestic helpers) by sex and age
+              value: 110-01002A
+            110-01003:
+              summary: Population growth by component
+              value: 110-01003
+            110-01004:
+              summary: Dependency ratio and median age of population
+              value: 110-01004
+            110-01005:
+              summary: Sex ratio by age group
+              value: 110-01005
+            110-02001:
+              summary: Land area, land population and population density by District Council district
+              value: 110-02001
+            110-06811:
+              summary: Land-based non-institutional population by District Council district, sex and age
+              value: 110-06811
+            110-06812:
+              summary: Land-based non-institutional population aged 15 and over by District Council district, sex and educational attainment
+              value: 110-06812
+            110-06813:
+              summary: Percentage of land-based non-institutional population with secondary education and above by District Council district and age
+              value: 110-06813
+            110-06814:
+              summary: Land-based non-institutional population aged 15 and over by District Council district, sex and marital status
+              value: 110-06814
+            110-06815:
+              summary: Land-based non-institutional population by District Council district and economic activity status
+              value: 110-06815
+            110-06831:
+              summary: Median age of land-based non-institutional population and labour force by District Council district and sex
+              value: 110-06831
+            110-06832:
+              summary: Sex ratio of land-based non-institutional population and labour force by District Council district
+              value: 110-06832
+            110-06833:
+              summary: Overall dependency ratio by District Council district
+              value: 110-06833
+            115-01011:
+              summary: Vital events
+              value: 115-01011
+            115-01012:
+              summary: Number of live births born in Hong Kong to Mainland women
+              value: 115-01012
+            115-01012A:
+              summary: Monthly number of live births by sex
+              value: 115-01012A
+            115-01013:
+              summary: Persons marrying for the first time by sex and age group
+              value: 115-01013
+            115-01014:
+              summary: Number of marriages registered in Hong Kong with both bridegrooms and brides being Hong Kong residents, bridegrooms/brides from Chinese Mainland and number of issuance of Certificate of Absence of Marriage Records (claimed for the purpose of marrying in Chinese Mainland)
+              value: 115-01014
+            115-01015:
+              summary: Number of marriages by type
+              value: 115-01015
+            115-01015A:
+              summary: Monthly number of marriages
+              value: 115-01015A
+            115-01016:
+              summary: Age specific fertility rates
+              value: 115-01016
+            115-01021:
+              summary: Hong Kong life tables
+              value: 115-01021
+            115-01022:
+              summary: Deaths by sex and age group
+              value: 115-01022
+            115-01022A:
+              summary: Monthly number of deaths by sex
+              value: 115-01022A
+            115-01023:
+              summary: Age-sex specific mortality rates
+              value: 115-01023
+            115-01031:
+              summary: Estimated number of Hong Kong residents usually staying in Guangdong Province by sex and age group (Please refer to the notes for the compilation methods and the limitations of the estimated figures)
+              value: 115-01031
+            115-01032:
+              summary: Estimated number of Hong Kong residents usually staying in Guangdong Province by whether belonging to the Hong Kong Resident Population (Please refer to the notes for the compilation methods and the limitations of the estimated figures)
+              value: 115-01032
+            115-92001:
+              summary: Divorce statistics
+              value: 115-92001
+            130-06102:
+              summary: Statistics on domestic households
+              value: 130-06102
+            130-06601:
+              summary: Domestic households by household size
+              value: 130-06601
+            130-06601A:
+              summary: Domestic households by household size (excluding foreign domestic helpers)
+              value: 130-06601A
+            130-06602:
+              summary: Average household size by type of housing
+              value: 130-06602
+            130-06602A:
+              summary: Average household size by type of housing (excluding foreign domestic helpers)
+              value: 130-06602A
+            130-06603:
+              summary: Domestic households by type of housing
+              value: 130-06603
+            130-06604:
+              summary: Domestic households by tenure of accommodation
+              value: 130-06604
+            130-06605:
+              summary: Domestic households by household size and monthly household income
+              value: 130-06605
+            130-06605A:
+              summary: Domestic households by household size and monthly household income (excluding foreign domestic helpers)
+              value: 130-06605A
+            130-06606:
+              summary: Median monthly household income by household size
+              value: 130-06606
+            130-06606A:
+              summary: Median monthly household income by household size (excluding foreign domestic helpers)
+              value: 130-06606A
+            130-06607:
+              summary: Domestic households by type of household and monthly household income
+              value: 130-06607
+            130-06607A:
+              summary: Domestic households by type of household and monthly household income (excluding foreign domestic helpers)
+              value: 130-06607A
+            130-06608:
+              summary: Median monthly household income of economically active households by household size
+              value: 130-06608
+            130-06608A:
+              summary: Median monthly household income of economically active households by household size (excluding foreign domestic helpers)
+              value: 130-06608A
+            130-06609:
+              summary: Domestic households by monthly household income and type of housing
+              value: 130-06609
+            130-06609A:
+              summary: Domestic households by monthly household income and type of housing (excluding foreign domestic helpers)
+              value: 130-06609A
+            130-06610:
+              summary: Median monthly household income by type of housing
+              value: 130-06610
+            130-06610A:
+              summary: Median monthly household income by type of housing (excluding foreign domestic helpers)
+              value: 130-06610A
+            130-06611:
+              summary: Domestic households by household size and monthly household income (excluding Chinese New Year bonus/double pay)
+              value: 130-06611
+            130-06611A:
+              summary: Domestic households by household size and monthly household income (excluding Chinese New Year bonus/double pay) (excluding foreign domestic helpers)
+              value: 130-06611A
+            130-06612:
+              summary: Median monthly household income (excluding Chinese New Year bonus/double pay) by household size
+              value: 130-06612
+            130-06612A:
+              summary: Median monthly household income (excluding Chinese New Year bonus/double pay) by household size (excluding foreign domestic helpers)
+              value: 130-06612A
+            130-06613:
+              summary: Median monthly household income (excluding Chinese New Year bonus/double pay) by type of housing
+              value: 130-06613
+            130-06613A:
+              summary: Median monthly household income (excluding Chinese New Year bonus/double pay) by type of housing (excluding foreign domestic helpers)
+              value: 130-06613A
+            130-06801:
+              summary: Domestic households by District Council district and household size
+              value: 130-06801
+            130-06802:
+              summary: Domestic households by District Council district and type of accommodation
+              value: 130-06802
+            130-06803:
+              summary: Domestic households by District Council district and tenure of accommodation
+              value: 130-06803
+            130-06804:
+              summary: Domestic households by District Council district and monthly household income
+              value: 130-06804
+            130-06805:
+              summary: Domestic households by District Council district and type of households
+              value: 130-06805
+            130-06806:
+              summary: Average household size and median monthly household income of households by District Council district
+              value: 130-06806
+            140-09001:
+              summary: 1999/2000 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing
+              value: 140-09001
+            140-09002:
+              summary: 2004/05 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing
+              value: 140-09002
+            140-09003:
+              summary: 2009/10 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing
+              value: 140-09003
+            140-09004:
+              summary: 2014/15 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing
+              value: 140-09004
+            140-09005:
+              summary: 2019/20 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing
+              value: 140-09005
+            140-09006:
+              summary: 2024/25 Household Expenditure Survey - Average monthly household expenditure by commodity/service section and group by type of housing
+              value: 140-09006
+            150-11001:
+              summary: Projected mid-year population by sex and age group
+              value: 150-11001
+            150-11002:
+              summary: Projected Hong Kong life tables
+              value: 150-11002
+            150-12001:
+              summary: Projected number of domestic households and average household size
+              value: 150-12001
+            150-12002:
+              summary: Projected number of domestic households by household size
+              value: 150-12002
+            150-12003:
+              summary: Projected number of domestic households by household type
+              value: 150-12003
+            170-05001:
+              summary: Population Census - Population by sex and age group
+              value: 170-05001
+            170-05001A:
+              summary: Population Census - Population (excluding foreign domestic helpers) by sex and age group
+              value: 170-05001A
+            170-05002:
+              summary: Population Census - Population by sex and age
+              value: 170-05002
+            170-05002A:
+              summary: Population Census - Population (excluding foreign domestic helpers) by sex and age
+              value: 170-05002A
+            170-05003:
+              summary: Population Census - Population by Usual Residents and Mobile Residents
+              value: 170-05003
+            170-05004:
+              summary: Population Census - Dependency ratio and median age of population
+              value: 170-05004
+            170-05005:
+              summary: Population Census - Sex ratio by age group
+              value: 170-05005
+            170-05006:
+              summary: Population Census - Population aged 15 and over by sex and marital status
+              value: 170-05006
+            170-05006A:
+              summary: Population Census - Population aged 15 and over (excluding foreign domestic helpers) by sex and marital status
+              value: 170-05006A
+            170-05007:
+              summary: Population Census - Proportion of never married population aged 15 and over by sex and age group
+              value: 170-05007
+            170-05007A:
+              summary: Population Census - Proportion of never married population aged 15 and over (excluding foreign domestic helpers) by sex and age group
+              value: 170-05007A
+            170-05008:
+              summary: Population Census - Population by nationality
+              value: 170-05008
+            170-05009:
+              summary: Population Census - Population by ethnicity
+              value: 170-05009
+            170-05010:
+              summary: Population Census - Population by duration of residence in Hong Kong and place of birth
+              value: 170-05010
+            170-05011:
+              summary: Population Census - Population aged 5 and over by usual spoken language
+              value: 170-05011
+            170-05012:
+              summary: Population Census - Population aged 5 and over able to speak selected languages / dialects
+              value: 170-05012
+            170-05013:
+              summary: Population Census - Population aged 5 and over able to read selected languages
+              value: 170-05013
+            170-05014:
+              summary: Population Census - Population aged 5 and over able to write selected languages
+              value: 170-05014
+            170-05015:
+              summary: Population Census - Population by District Council district
+              value: 170-05015
+            170-05016:
+              summary: Population Census - Population by District Council district and age group
+              value: 170-05016
+            170-05017:
+              summary: Population Census - Median age of population by District Council district
+              value: 170-05017
+            171-05001:
+              summary: Population Census - Population aged 15 and over by educational attainment
+              value: 171-05001
+            171-05001A:
+              summary: Population Census - Population aged 15 and over (excluding foreign domestic helpers) by educational attainment
+              value: 171-05001A
+            171-05002:
+              summary: Population Census - Population with post-secondary education by field of education
+              value: 171-05002
+            171-05003:
+              summary: Population Census - School attendance rate of population aged 3 - 17 by age group
+              value: 171-05003
+            171-05004:
+              summary: Population Census - Persons attending full-time courses in educational institutions in Hong Kong by place of study and area of residence
+              value: 171-05004
+            171-05005:
+              summary: Population Census - Population aged 15 and over by District Council district and educational attainment
+              value: 171-05005
+            172-05001:
+              summary: Population Census - Labour force and labour force participation rate by sex and age group
+              value: 172-05001
+            172-05001A:
+              summary: Population Census - Labour force and labour force participation rate (excluding foreign domestic helpers) by sex and age group
+              value: 172-05001A
+            172-05002:
+              summary: Population Census - Median age of labour force by sex
+              value: 172-05002
+            172-05003:
+              summary: Population Census - Working population by employment status
+              value: 172-05003
+            172-05004:
+              summary: Population Census - Working population by occupation of main employment
+              value: 172-05004
+            172-05005:
+              summary: Population Census - Working population by industry of main employment
+              value: 172-05005
+            172-05006:
+              summary: Population Census - Working population by weekly usual hours of work of all employment
+              value: 172-05006
+            172-05006A:
+              summary: Population Census - Working population (excluding foreign domestic helpers) by weekly usual hours of work of all employment
+              value: 172-05006A
+            172-05007:
+              summary: Population Census - Median weekly usual hours of work of all employment by occupation of main employment
+              value: 172-05007
+            172-05008:
+              summary: Population Census - Median weekly usual hours of work of all employment by industry of main employment
+              value: 172-05008
+            172-05009:
+              summary: Population Census - Median monthly income from main employment by sex and age group
+              value: 172-05009
+            172-05009A:
+              summary: Population Census - Median monthly income from main employment (excluding foreign domestic helpers) by sex and age group
+              value: 172-05009A
+            172-05010:
+              summary: Population Census - Labour force by District Council district
+              value: 172-05010
+            172-05011:
+              summary: Population Census - Labour force participation rate by District Council district and sex
+              value: 172-05011
+            172-05012:
+              summary: Population Census - Working population by place of work and area of residence
+              value: 172-05012
+            173-05001:
+              summary: Population Census - Domestic households by household size
+              value: 173-05001
+            173-05002:
+              summary: Population Census - Domestic households by household composition
+              value: 173-05002
+            173-05003:
+              summary: Population Census - Average domestic household size by type of housing
+              value: 173-05003
+            173-05004:
+              summary: Population Census - Median monthly domestic household income by household size
+              value: 173-05004
+            173-05005:
+              summary: Population Census - Domestic households and average domestic household size by District Council district
+              value: 173-05005
+            174-05001:
+              summary: Population Census - Occupied quarters by type of quarters
+              value: 174-05001
+            174-05002:
+              summary: Population Census - Population by type of housing
+              value: 174-05002
+            174-05003:
+              summary: Population Census - Domestic households by type of housing
+              value: 174-05003
+            174-05004:
+              summary: Population Census - Average number of domestic households per 1 000 units of quarters by type of housing
+              value: 174-05004
+            174-05005:
+              summary: Population Census - Domestic households by tenure of accommodation
+              value: 174-05005
+            174-05006:
+              summary: Population Census - Domestic households by number of rooms and type of housing
+              value: 174-05006
+            174-05007:
+              summary: Population Census - Average number of rooms by type of housing
+              value: 174-05007
+            174-05008:
+              summary: Population Census - Domestic households by floor area of accommodation
+              value: 174-05008
+            174-05009:
+              summary: Population Census - Median floor area of accommodation and median per capita floor area of accommodation by household size
+              value: 174-05009
+            174-05010:
+              summary: Population Census - Median mortgage payment and loan repayment to income ratio of domestic households by District Council district
+              value: 174-05010
+            174-05011:
+              summary: Population Census - Median rent to income ratio of domestic households by District Council district
+              value: 174-05011
+            175-05001:
+              summary: Population Census - Population aged 5 and over by whether having internally migrated and area of residence
+              value: 175-05001
+            210-06101:
+              summary: Statistics on labour force, employment, unemployment and underemployment
+              value: 210-06101
+            210-06103:
+              summary: Unemployment rate and underemployment rate by age and sex
+              value: 210-06103
+            210-06201:
+              summary: Labour force and labour force participation rate by age and sex
+              value: 210-06201
+            210-06201A:
+              summary: Labour force and labour force participation rate by age and sex (excluding foreign domestic helpers)
+              value: 210-06201A
+            210-06202:
+              summary: Labour force and labour force participation rate by marital status, age and sex
+              value: 210-06202
+            210-06202A:
+              summary: Labour force and labour force participation rate by marital status, age and sex (excluding foreign domestic helpers)
+              value: 210-06202A
+            210-06203:
+              summary: Labour force and labour force participation rate by educational attainment, age and sex
+              value: 210-06203
+            210-06203A:
+              summary: Labour force and labour force participation rate by educational attainment, age and sex (excluding foreign domestic helpers)
+              value: 210-06203A
+            210-06301:
+              summary: Employed persons by age and sex
+              value: 210-06301
+            210-06301A:
+              summary: Employed persons by age and sex (excluding foreign domestic helpers)
+              value: 210-06301A
+            210-06302:
+              summary: Median age of employed persons by sex
+              value: 210-06302
+            210-06302A:
+              summary: Median age of employed persons by sex (excluding foreign domestic helpers)
+              value: 210-06302A
+            210-06303:
+              summary: Employed persons by employment status, age and sex
+              value: 210-06303
+            210-06303A:
+              summary: Employed persons by employment status, age and sex (excluding foreign domestic helpers)
+              value: 210-06303A
+            210-06304:
+              summary: Employed persons by educational attainment, age and sex
+              value: 210-06304
+            210-06304A:
+              summary: Employed persons by educational attainment, age and sex (excluding foreign domestic helpers)
+              value: 210-06304A
+            210-06305:
+              summary: Employed persons by detailed industry of main employment and sex
+              value: 210-06305
+            210-06305A:
+              summary: Employed persons by detailed industry of main employment and sex (excluding foreign domestic helpers)
+              value: 210-06305A
+            210-06306:
+              summary: Employed persons by industry of main employment, age and sex
+              value: 210-06306
+            210-06306A:
+              summary: Employed persons by industry of main employment, age and sex (excluding foreign domestic helpers)
+              value: 210-06306A
+            210-06307:
+              summary: Employed persons by occupation of main employment, age and sex
+              value: 210-06307
+            210-06307A:
+              summary: Employed persons by occupation of main employment, age and sex (excluding foreign domestic helpers)
+              value: 210-06307A
+            210-06308:
+              summary: Employed persons by industry and occupation of main employment
+              value: 210-06308
+            210-06308A:
+              summary: Employed persons by industry and occupation of main employment (excluding foreign domestic helpers)
+              value: 210-06308A
+            210-06309:
+              summary: Employed persons by hours of work of all employment and sex
+              value: 210-06309
+            210-06309A:
+              summary: Employed persons by hours of work of all employment and sex (excluding foreign domestic helpers)
+              value: 210-06309A
+            210-06310:
+              summary: Employed persons who worked less than 35 hours by reason for working less than 35 hours during the 7 days before enumeration and sex
+              value: 210-06310
+            210-06311:
+              summary: Median hours of work of employed persons by industry of main employment and sex
+              value: 210-06311
+            210-06311A:
+              summary: Median hours of work of employed persons by industry of main employment and sex (excluding foreign domestic helpers)
+              value: 210-06311A
+            210-06312:
+              summary: Median hours of work of employed persons by occupation of main employment and sex
+              value: 210-06312
+            210-06312A:
+              summary: Median hours of work of employed persons by occupation of main employment and sex (excluding foreign domestic helpers)
+              value: 210-06312A
+            210-06313:
+              summary: Employed persons by monthly employment earnings and sex
+              value: 210-06313
+            210-06313A:
+              summary: Employed persons by monthly employment earnings and sex (excluding foreign domestic helpers)
+              value: 210-06313A
+            210-06314:
+              summary: Median monthly employment earnings of employed persons by age and sex
+              value: 210-06314
+            210-06314A:
+              summary: Median monthly employment earnings of employed persons by age and sex (excluding foreign domestic helpers)
+              value: 210-06314A
+            210-06315:
+              summary: Median monthly employment earnings of employed persons by educational attainment and sex
+              value: 210-06315
+            210-06315A:
+              summary: Median monthly employment earnings of employed persons by educational attainment and sex (excluding foreign domestic helpers)
+              value: 210-06315A
+            210-06316:
+              summary: Median monthly employment earnings of employed persons by industry of main employment and sex
+              value: 210-06316
+            210-06316A:
+              summary: Median monthly employment earnings of employed persons by industry of main employment and sex (excluding foreign domestic helpers)
+              value: 210-06316A
+            210-06317:
+              summary: Median monthly employment earnings of employed persons by occupation of main employment and sex
+              value: 210-06317
+            210-06317A:
+              summary: Median monthly employment earnings of employed persons by occupation of main employment and sex (excluding foreign domestic helpers)
+              value: 210-06317A
+            210-06318:
+              summary: Employed persons by monthly employment earnings (excluding Chinese New Year bonus/double pay) and sex
+              value: 210-06318
+            210-06318A:
+              summary: Employed persons by monthly employment earnings (excluding Chinese New Year bonus/double pay) and sex (excluding foreign domestic helpers)
+              value: 210-06318A
+            210-06319:
+              summary: Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by sex
+              value: 210-06319
+            210-06319A:
+              summary: Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by sex (excluding foreign domestic helpers)
+              value: 210-06319A
+            210-06320:
+              summary: Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by industry of main employment and sex
+              value: 210-06320
+            210-06321:
+              summary: Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of employed persons by occupation of main employment and sex
+              value: 210-06321
+            210-06401:
+              summary: Unemployed persons and unemployment rate by age and sex
+              value: 210-06401
+            210-06402:
+              summary: Unemployed persons and unemployment rate by educational attainment and sex
+              value: 210-06402
+            210-06403:
+              summary: Unemployed persons by duration of unemployment, age and sex
+              value: 210-06403
+            210-06404:
+              summary: Median duration of unemployment by sex
+              value: 210-06404
+            210-06405:
+              summary: Unemployed persons with a previous job and unemployment rate by detailed previous industry
+              value: 210-06405
+            210-06406:
+              summary: Unemployed persons with a previous job and unemployment rate by previous industry, age and sex
+              value: 210-06406
+            210-06407:
+              summary: Unemployed persons with a previous job and unemployment rate by previous occupation, age and sex
+              value: 210-06407
+            210-06408:
+              summary: Unemployed persons with a previous job by previous industry, mode of leaving last job and sex
+              value: 210-06408
+            210-06409:
+              summary: Unemployed persons with a previous job by previous industry, duration of unemployment and sex
+              value: 210-06409
+            210-06410:
+              summary: Median duration of unemployment of unemployed persons with a previous job by previous industry and sex
+              value: 210-06410
+            210-06501:
+              summary: Underemployed persons and underemployment rate by age and sex
+              value: 210-06501
+            210-06502:
+              summary: Underemployed persons and underemployment rate by educational attainment and sex
+              value: 210-06502
+            210-06503:
+              summary: Underemployed persons and underemployment rate by detailed industry of main employment
+              value: 210-06503
+            210-06504:
+              summary: Underemployed persons and underemployment rate by industry of main employment, age and sex
+              value: 210-06504
+            210-06505:
+              summary: Underemployed persons and underemployment rate by occupation of main employment, age and sex
+              value: 210-06505
+            210-06506:
+              summary: Underemployed persons by hours of work of all employment and sex
+              value: 210-06506
+            210-06507:
+              summary: Median hours of work of all employment of underemployed persons by sex
+              value: 210-06507
+            210-06508:
+              summary: Underemployed persons by monthly employment earnings and sex
+              value: 210-06508
+            210-06509:
+              summary: Median monthly employment earnings of underemployed persons by sex
+              value: 210-06509
+            210-06510:
+              summary: Underemployed persons by monthly employment earnings (excluding Chinese New Year bonus/double pay) and sex
+              value: 210-06510
+            210-06511:
+              summary: Median monthly employment earnings (excluding Chinese New Year bonus/double pay) of underemployed persons by sex
+              value: 210-06511
+            210-06701:
+              summary: Economically inactive persons aged 15 and over by age and sex
+              value: 210-06701
+            210-06702:
+              summary: Economically inactive persons aged 15 and over by marital status, age and sex
+              value: 210-06702
+            210-06703:
+              summary: Economically inactive persons aged 15 and over by educational attainment, age and sex
+              value: 210-06703
+            210-06704:
+              summary: Economically inactive persons aged 15 and over by reason for being economically inactive and sex
+              value: 210-06704
+            210-06821:
+              summary: Labour force and labour force participation rate by District Council district, sex and age
+              value: 210-06821
+            210-06822:
+              summary: Labour force and labour force participation rate by District Council district, sex and age (excluding foreign domestic helpers)
+              value: 210-06822
+            210-15001:
+              summary: Distribution of Composite Employment Estimates by major industry sector
+              value: 210-15001
+            215-16001:
+              summary: Number of establishments, persons engaged, vacancies and vacancy rate (other than those in the civil service) analysed by industry section
+              value: 215-16001
+            215-16002:
+              summary: Number of establishments and persons engaged (other than those in the civil service) analysed by industry section, District Council district and sex of persons engaged
+              value: 215-16002
+            215-16003:
+              summary: Number of establishments, persons engaged and vacancies (other than those in the civil service) analysed by industry section / industry division and sex of persons engaged
+              value: 215-16003
+            215-16004:
+              summary: Number of establishments, persons engaged and vacancies (other than those in the civil service) in the retail trade analysed by type of retail outlet
+              value: 215-16004
+            215-16005:
+              summary: Number of establishments, persons engaged and vacancies (other than those in the civil service) analysed by selected industry group / industry class / industry sub-class
+              value: 215-16005
+            215-16006:
+              summary: Number of establishments and persons engaged (other than those in the civil service) analysed by industry section, size of establishment and sex of persons engaged
+              value: 215-16006
+            215-16007:
+              summary: Number of vacancies (other than those in the civil service) analysed by industry section and major occupation group
+              value: 215-16007
+            215-16008:
+              summary: Number of establishments and persons engaged (other than those in the civil service) analysed by industry section / industry division and District Council district
+              value: 215-16008
+            215-16009:
+              summary: Number of establishments and persons engaged (other than those in the civil service) analysed by industry section and Tertiary Planning Unit (TPU)
+              value: 215-16009
+            215-16010:
+              summary: Number of establishments, persons engaged and vacancies (other than those in the civil service) analysed by industry sub-class
+              value: 215-16010
+            215-16011:
+              summary: Number of civil servants and civil service vacancies
+              value: 215-16011
+            215-17001:
+              summary: Number of construction sites, manual workers engaged, vacancies and job opportunities at public and private sector sites analysed by type of site
+              value: 215-17001
+            215-17002:
+              summary: Average number of manual workers engaged per site, average number of vacancies per site and vacancy rate at public and private sector sites analysed by type of site
+              value: 215-17002
+            215-17003:
+              summary: Number of construction sites, manual workers engaged, vacancies and vacancy rate at public and private sector sites analysed by end-use of construction project
+              value: 215-17003
+            215-17004:
+              summary: Number of construction sites, manual workers engaged, vacancies and vacancy rate at public and private sector sites analysed by size of site
+              value: 215-17004
+            215-94001:
+              summary: Number of establishments and number of persons engaged of the selected services industries
+              value: 215-94001
+            215-94002:
+              summary: Number of establishments and number of persons engaged in insurance, retail trade, and professional, scientific and technical services industries
+              value: 215-94002
+            215-94003:
+              summary: Number of establishments and number of persons engaged of the selected service groups and service domains
+              value: 215-94003
+            215-94004:
+              summary: Number of establishments rendering architectural, surveying and engineering services; legal services; and accounting, auditing and bookkeeping services
+              value: 215-94004
+            220-19001:
+              summary: Nominal Wage Indices for employees up to supervisory level by industry section (September 1992 = 100)
+              value: 220-19001
+            220-19002:
+              summary: Real Wage Indices for employees up to supervisory level by industry section (September 1992 = 100)
+              value: 220-19002
+            220-19003:
+              summary: Nominal Wage Indices for employees up to supervisory level by industry section by broad occupational group (September 1992 = 100)
+              value: 220-19003
+            220-19004:
+              summary: Real Wage Indices for employees up to supervisory level by industry section by broad occupational group (September 1992 = 100)
+              value: 220-19004
+            220-19005:
+              summary: Nominal Wage Indices for employees up to supervisory level by occupational group (September 1992 = 100)
+              value: 220-19005
+            220-19006:
+              summary: Real Wage Indices for employees up to supervisory level by occupational group (September 1992 = 100)
+              value: 220-19006
+            220-19011:
+              summary: Average wage rates for employees up to supervisory level by industry section by broad occupational group
+              value: 220-19011
+            220-19012:
+              summary: Average daily wages, average number of normal working hours per day and average number of standard working days per month of craftsmen and operatives by industry section
+              value: 220-19012
+            220-19013:
+              summary: Average monthly salaries, average number of normal working hours per day and average number of standard working days per month of supervisory, technical, clerical, services and miscellaneous non-production workers by industry by occupation by sex
+              value: 220-19013
+            220-19021:
+              summary: Nominal Indices of Payroll per Person Engaged by industry section (Q1 1999 = 100)
+              value: 220-19021
+            220-19022:
+              summary: Real Indices of Payroll per Person Engaged by industry section (Q1 1999 = 100)
+              value: 220-19022
+            220-19023:
+              summary: Nominal Indices of Payroll per Person Engaged by industry division (Q1 1999 = 100)
+              value: 220-19023
+            220-19024:
+              summary: Real Indices of Payroll per Person Engaged by industry division (Q1 1999 = 100)
+              value: 220-19024
+            220-19025:
+              summary: Quarter-to-quarter rates of change in the seasonally adjusted series of Nominal and Real Indices of Payroll per Person Engaged by industry section
+              value: 220-19025
+            220-20001:
+              summary: Average daily wages of workers engaged in public sector construction projects as reported by main contractors (2021 edition of data series)
+              value: 220-20001
+            220-20001A:
+              summary: Average daily wages of workers engaged in public sector construction projects as reported by main contractors
+              value: 220-20001A
+            220-23001:
+              summary: Number of employees by employment nature, sex and age group
+              value: 220-23001
+            220-23002:
+              summary: Number of employees by employment nature, sex and educational attainment
+              value: 220-23002
+            220-23003:
+              summary: Number of employees by employment nature, sex and occupational group
+              value: 220-23003
+            220-23004:
+              summary: Number of employees by employment nature and industry section
+              value: 220-23004
+            220-23005:
+              summary: Number of employees by employment mode and industry section
+              value: 220-23005
+            220-23011:
+              summary: Monthly wage level and distribution by employment nature and sex
+              value: 220-23011
+            220-23012:
+              summary: Monthly wage level and distribution by employment nature and age group
+              value: 220-23012
+            220-23013:
+              summary: Monthly wage level and distribution by employment nature and educational attainment
+              value: 220-23013
+            220-23014:
+              summary: Monthly wage level and distribution by employment nature and occupational group
+              value: 220-23014
+            220-23015:
+              summary: Monthly wage level and distribution by employment nature and industry section
+              value: 220-23015
+            220-23021:
+              summary: Number of employees by percentile of hourly wage
+              value: 220-23021
+            220-23022:
+              summary: Hourly wage level and distribution by sex and age group
+              value: 220-23022
+            220-23023:
+              summary: Hourly wage level and distribution by sex and educational attainment
+              value: 220-23023
+            220-23024:
+              summary: Hourly wage level and distribution by sex and occupational group
+              value: 220-23024
+            220-23025:
+              summary: "Hourly wage level and distribution by industry section and occupational group: all business undertakings"
+              value: 220-23025
+            220-23026:
+              summary: "Hourly wage level and distribution by industry section: business undertakings with number of persons engaged less than 50"
+              value: 220-23026
+            220-23027:
+              summary: Number of employees by employment nature, hourly wage and industry section
+              value: 220-23027
+            220-23031:
+              summary: Level and distribution of weekly working hours by employment nature, sex and age group
+              value: 220-23031
+            220-23032:
+              summary: Level and distribution of weekly working hours by employment nature, sex and educational attainment
+              value: 220-23032
+            220-23033:
+              summary: Level and distribution of weekly working hours by employment nature, sex and occupational group
+              value: 220-23033
+            220-23034:
+              summary: Level and distribution of weekly working hours by employment nature and industry section
+              value: 220-23034
+            220-23035:
+              summary: Number of employees by employment nature, industry section and weekly working hours
+              value: 220-23035
+            220-25001:
+              summary: Nominal Salary Indices (A) for middle-level managerial and professional employees by industry section (June 1995 = 100)
+              value: 220-25001
+            220-25002:
+              summary: Real Salary Indices (A) for middle-level managerial and professional employees by industry section (June 1995 = 100)
+              value: 220-25002
+            220-25003:
+              summary: Nominal Salary Indices (B) for middle-level managerial and professional employees by industry section (June 1995 = 100)
+              value: 220-25003
+            220-25004:
+              summary: Real Salary Indices (B) for middle-level managerial and professional employees by industry section (June 1995 = 100)
+              value: 220-25004
+            225-27001:
+              summary: Labour Productivity Index (Year 2015 = 100)
+              value: 225-27001
+            230-28001:
+              summary: Projected labour force participation rates (excluding foreign domestic helpers) by sex and age group
+              value: 230-28001
+            230-28002:
+              summary: Projected labour force (excluding foreign domestic helpers) by sex and age group
+              value: 230-28002
+            230-28003:
+              summary: Projected economic dependency ratios (excluding foreign domestic helpers)
+              value: 230-28003
+            310-30001:
+              summary: Percentage change of Gross Domestic Product (GDP) and selected major expenditure components in real terms
+              value: 310-30001
+            310-31001:
+              summary: Gross Domestic Product (GDP), implicit price deflator of GDP and per capita GDP
+              value: 310-31001
+            310-31002:
+              summary: Gross Domestic Product (GDP) by major expenditure component at current market prices
+              value: 310-31002
+            310-31003:
+              summary: Gross Domestic Product (GDP) by major expenditure component in chained (2024) dollars
+              value: 310-31003
+            310-31004:
+              summary: Component contribution to year-on-year percentage change in real terms of Gross Domestic Product (GDP)
+              value: 310-31004
+            310-31005:
+              summary: Implicit price deflators (IPD) of Gross Domestic Product (GDP) and its major expenditure components
+              value: 310-31005
+            310-31006:
+              summary: Ratio of major expenditure components to Gross Domestic Product (GDP) at current market prices
+              value: 310-31006
+            310-31007:
+              summary: Seasonally adjusted Gross Domestic Product (GDP) and its major expenditure components in chained (2024) dollars, and implicit price deflator (IPD) of GDP
+              value: 310-31007
+            310-31011:
+              summary: Private consumption expenditure (PCE) by component at current market prices
+              value: 310-31011
+            310-31012:
+              summary: Private consumption expenditure (PCE) by component in chained (2024) dollars
+              value: 310-31012
+            310-31013:
+              summary: Consumption expenditure in the domestic market (CXDM) by commodity and service group at current market prices
+              value: 310-31013
+            310-31014:
+              summary: Consumption expenditure in the domestic market (CXDM) by commodity and service group in chained (2024) dollars
+              value: 310-31014
+            310-31015:
+              summary: Percentage distribution of consumption expenditure in the domestic market (CXDM) by commodity and service group at current market prices
+              value: 310-31015
+            310-32021:
+              summary: Government consumption expenditure (GCE) by component at current market prices
+              value: 310-32021
+            310-32022:
+              summary: Government consumption expenditure (GCE) by component in chained (2024) dollars
+              value: 310-32022
+            310-32023:
+              summary: Government consumption expenditure (GCE) by social and economic function at current market prices
+              value: 310-32023
+            310-32024:
+              summary: Individual and collective consumption at current market prices
+              value: 310-32024
+            310-32031:
+              summary: Gross domestic fixed capital formation (GDFCF) by component at current market prices
+              value: 310-32031
+            310-32032:
+              summary: Gross domestic fixed capital formation (GDFCF) by component in chained (2024) dollars
+              value: 310-32032
+            310-33041:
+              summary: Exports and imports of services by service component at current market prices
+              value: 310-33041
+            310-33042:
+              summary: Exports and imports of services by service component in chained (2024) dollars
+              value: 310-33042
+            310-34101:
+              summary: Gross Domestic Product (GDP) by economic activity at current prices
+              value: 310-34101
+            310-34102:
+              summary: Gross Domestic Product (GDP) at current prices
+              value: 310-34102
+            310-34201:
+              summary: Gross output, intermediate consumption, value added and factor income by economic activity at current prices
+              value: 310-34201
+            310-34401:
+              summary: "Sequence of Accounts: production account at current prices"
+              value: 310-34401
+            310-34402:
+              summary: "Sequence of Accounts: generation of income account at current prices"
+              value: 310-34402
+            310-34403:
+              summary: "Sequence of Accounts: relations among Gross Domestic Product (GDP), Gross National Income (GNI), savings and net lending aggregates at current prices"
+              value: 310-34403
+            310-34501:
+              summary: Gross Domestic Product (GDP) by economic activity in chained (2024) dollars
+              value: 310-34501
+            310-35091:
+              summary: Real Gross Domestic Income (RGDI) in chained (2024) dollars
+              value: 310-35091
+            310-36201:
+              summary: Gross National Income (GNI), real Gross National Income (RGNI), per capita GNI and per capita RGNI
+              value: 310-36201
+            310-36202:
+              summary: External primary income flows (EPIF) by income component at current market prices
+              value: 310-36202
+            310-36203:
+              summary: External primary income flows (EPIF) by selected major source/destination country/territory at current market prices
+              value: 310-36203
+            310-36204:
+              summary: External primary income flows (EPIF) in real terms
+              value: 310-36204
+            310-36205:
+              summary: Gross National Disposable Income (GNDI) at current market prices
+              value: 310-36205
+            310-37011:
+              summary: Rest of the world account
+              value: 310-37011
+            315-37001:
+              summary: Balance of Payments (BoP)
+              value: 315-37001
+            315-37002:
+              summary: BoP as a ratio to Gross Domestic Product (GDP)
+              value: 315-37002
+            315-37003:
+              summary: "BoP: current account and capital account"
+              value: 315-37003
+            315-37004:
+              summary: "BoP: financial account"
+              value: 315-37004
+            315-37005:
+              summary: Percentage changes of seasonally adjusted current account
+              value: 315-37005
+            315-37006:
+              summary: Net investment flows by sector
+              value: 315-37006
+            315-37021:
+              summary: International Investment Position by standard component (position as at end of period)
+              value: 315-37021
+            315-37022:
+              summary: International Investment Position as a ratio to Gross Domestic Product (GDP)
+              value: 315-37022
+            315-37023:
+              summary: Currency composition of International Investment Position (position as at end of period)
+              value: 315-37023
+            315-37031:
+              summary: External Debt (position as at end of period)
+              value: 315-37031
+            315-38001:
+              summary: Direct investment (DI) statistics of Hong Kong
+              value: 315-38001
+            315-38011:
+              summary: Position, flow and income of inward direct investment (DI) of Hong Kong by selected major investor country/territory
+              value: 315-38011
+            315-38012:
+              summary: Position and flow of inward direct investment (DI) of Hong Kong by major economic activity of Hong Kong enterprise groups
+              value: 315-38012
+            315-38021:
+              summary: Position, flow and income of outward direct investment (DI) of Hong Kong by selected major recipient country/territory
+              value: 315-38021
+            315-38022:
+              summary: Position and flow of outward direct investment (DI) of Hong Kong by major economic activity of Hong Kong enterprise groups
+              value: 315-38022
+            315-38031:
+              summary: Position and flow of outward direct investment (DI) in Chinese Mainland by region
+              value: 315-38031
+            315-38032:
+              summary: Position and flow of Hong Kong's outward direct investment (DI) in Chinese Mainland by major economic activity of the direct investment enterprise groups (DIEGs) in Chinese Mainland
+              value: 315-38032
+            325-43001:
+              summary: Number of regional headquarters, regional offices and local offices
+              value: 325-43001
+            325-43002:
+              summary: Number of persons engaged in regional headquarters, regional offices and local offices
+              value: 325-43002
+            325-43011:
+              summary: Number of regional headquarters/regional offices/local offices by selected location of parent company
+              value: 325-43011
+            325-43011A:
+              summary: Number of regional headquarters by selected location of parent company
+              value: 325-43011A
+            325-43011B:
+              summary: Number of regional offices by selected location of parent company
+              value: 325-43011B
+            325-43011C:
+              summary: Number of local offices by selected location of parent company
+              value: 325-43011C
+            325-43021:
+              summary: Number of regional headquarters, regional offices and local offices by major line of business in Hong Kong
+              value: 325-43021
+            325-43022:
+              summary: Number of regional headquarters, regional offices and local offices by major line of business of parent company
+              value: 325-43022
+            325-43031:
+              summary: Number of regional headquarters by selected geographical responsibility in the region (other than Hong Kong)
+              value: 325-43031
+            325-43032:
+              summary: Number of regional offices by selected geographical responsibility in the region (other than Hong Kong)
+              value: 325-43032
+            325-43042:
+              summary: Views of regional headquarters/regional offices/local offices on business plans in Hong Kong in the coming three years
+              value: 325-43042
+            325-43051:
+              summary: Number of regional headquarters, regional offices and local offices by size of company
+              value: 325-43051
+            325-43052:
+              summary: Number of persons engaged by regional headquarters, regional offices and local offices by size of company
+              value: 325-43052
+            330-40001:
+              summary: Diffusion indices on business receipts, new orders and employment for SMEs
+              value: 330-40001
+            330-40002:
+              summary: Percentage of SMEs reporting current credit need and access to credit situation
+              value: 330-40002
+            330-41001:
+              summary: Views on expected changes in business situation
+              value: 330-41001
+            330-41002:
+              summary: Views on expected changes in volume of business/output
+              value: 330-41002
+            330-41003:
+              summary: Views on expected changes in number of persons engaged
+              value: 330-41003
+            330-41004:
+              summary: Views on expected changes in selling price/service charge
+              value: 330-41004
+            330-41011:
+              summary: Level of orders-on-hand, outstanding contract work and stocks of goods in volume terms
+              value: 330-41011
+            330-41021:
+              summary: Profit situation
+              value: 330-41021
+            330-41022:
+              summary: Financial situation
+              value: 330-41022
+            330-41023:
+              summary: Access to credit situation
+              value: 330-41023
+            340-45001:
+              summary: Currency in circulation
+              value: 340-45001
+            340-45011:
+              summary: Money supply (all currencies)
+              value: 340-45011
+            340-45012:
+              summary: Money supply (Hong Kong dollar and foreign currency)
+              value: 340-45012
+            340-45021:
+              summary: Hong Kong dollar interest rates
+              value: 340-45021
+            340-45022:
+              summary: Hong Kong dollar Interest Settlement Rates
+              value: 340-45022
+            340-46001:
+              summary: Exchange rates
+              value: 340-46001
+            340-46002:
+              summary: Effective exchange rate indices for the Hong Kong dollar(January 2020 = 100)
+              value: 340-46002
+            340-47001:
+              summary: Government revenue and expenditure under the General Revenue Account
+              value: 340-47001
+            340-47002:
+              summary: Government revenue and expenditure under the General Revenue Account analysed by quarter
+              value: 340-47002
+            340-47011:
+              summary: Government revenue (General Revenue Account and the funds)
+              value: 340-47011
+            340-47012:
+              summary: Government expenditure (General Revenue Account and the funds)
+              value: 340-47012
+            340-92002:
+              summary: Silver trading prices
+              value: 340-92002
+            340-95001:
+              summary: Hong Kong interbank market
+              value: 340-95001
+            340-95002:
+              summary: Average daily turnover of Exchange Fund Bills and Notes issued by the Hong Kong Monetary Authority
+              value: 340-95002
+            340-95003:
+              summary: Number of listed companies, total market capitalisation, average daily turnover of all listed securities, number of new issues of securities and funds raised from new issues of securities on Hong Kong Exchanges and Clearing Limited
+              value: 340-95003
+            340-95004:
+              summary: Average daily volume of futures and options (in terms of contract) in the Hong Kong Exchanges and Clearing Limited derivatives market
+              value: 340-95004
+            340-95005:
+              summary: Trading value of Shanghai-Hong Kong / Shenzhen-Hong Kong Stock Connect
+              value: 340-95005
+            340-95006:
+              summary: Average daily turnover of 99 Tael Gold and Loco London Gold in the Hong Kong Gold Exchange
+              value: 340-95006
+            410-50001:
+              summary: External merchandise trade aggregate figures
+              value: 410-50001
+            410-50001A:
+              summary: External merchandise trade aggregate figures (year-to-month)
+              value: 410-50001A
+            410-50001B:
+              summary: External merchandise trade aggregate figures (12 months to date)
+              value: 410-50001B
+            410-50002:
+              summary: Seasonally adjusted series of external merchandise trade values
+              value: 410-50002
+            410-50011:
+              summary: External merchandise trade statistics - total trade with ten main countries/territories
+              value: 410-50011
+            410-50012:
+              summary: External merchandise trade statistics - imports from ten main suppliers
+              value: 410-50012
+            410-50013:
+              summary: External merchandise trade statistics - total exports to ten main destinations
+              value: 410-50013
+            410-50021:
+              summary: External merchandise trade statistics by mode of transport - imports
+              value: 410-50021
+            410-50022:
+              summary: External merchandise trade statistics by mode of transport - total exports
+              value: 410-50022
+            410-50031:
+              summary: External merchandise trade statistics by ten principal commodity divisions - imports
+              value: 410-50031
+            410-50032:
+              summary: External merchandise trade statistics by ten principal commodity divisions - total exports
+              value: 410-50032
+            410-51001:
+              summary: Merchandise trade index numbers - imports (year 2024 = 100)
+              value: 410-51001
+            410-51002:
+              summary: Merchandise trade index numbers - total exports (year 2024 = 100)
+              value: 410-51002
+            410-51003:
+              summary: Merchandise trade index numbers - terms of trade (year 2024 = 100)
+              value: 410-51003
+            410-51011:
+              summary: Seasonally adjusted merchandise trade index numbers - imports (year 2024 = 100)
+              value: 410-51011
+            410-51012:
+              summary: Seasonally adjusted merchandise trade index numbers - total exports (year 2024 = 100)
+              value: 410-51012
+            410-51021:
+              summary: Trade index numbers by main supplier - imports (year 2024 = 100)
+              value: 410-51021
+            410-51022:
+              summary: Trade index numbers by main destination - total exports (year 2024 = 100)
+              value: 410-51022
+            410-51031:
+              summary: Trade index numbers by end-use category - imports (year 2024 = 100)
+              value: 410-51031
+            410-51032:
+              summary: Trade index numbers by end-use category - total exports (year 2024 = 100)
+              value: 410-51032
+            410-51041:
+              summary: Ranking of selected economies in the world merchandise trade
+              value: 410-51041
+            410-52001:
+              summary: Value and proportion of trade involving outward processing in Chinese Mainland
+              value: 410-52001
+            410-52002:
+              summary: Estimated value and proportion of outward processing trade (OPT) with Chinese Mainland by broad commodity groups
+              value: 410-52002
+            410-52003:
+              summary: Imports from Chinese Mainland related to outward processing by area in Chinese Mainland where processing was done
+              value: 410-52003
+            410-55110:
+              summary: Port cargo throughput
+              value: 410-55110
+            410-55111:
+              summary: Seaborne cargo throughput
+              value: 410-55111
+            410-55111A:
+              summary: Seaborne cargo throughput by month
+              value: 410-55111A
+            410-55112:
+              summary: River cargo throughput
+              value: 410-55112
+            410-55112A:
+              summary: River cargo throughput by month
+              value: 410-55112A
+            410-55113:
+              summary: Quarter-to-quarter percentage change of seasonally adjusted series of port cargo throughput
+              value: 410-55113
+            410-55114:
+              summary: Port cargo throughput by Greater Bay Area city
+              value: 410-55114
+            410-55290:
+              summary: Container throughput
+              value: 410-55290
+            410-55291:
+              summary: Laden container throughput
+              value: 410-55291
+            410-55292:
+              summary: Quarter-to-quarter percentage change of seasonally adjusted series of laden container throughput
+              value: 410-55292
+            410-55293:
+              summary: Laden container throughput by Greater Bay Area city
+              value: 410-55293
+            410-55294:
+              summary: Port container throughput by main cargo handling location
+              value: 410-55294
+            410-92011:
+              summary: Inward and outward movements of cargo by air
+              value: 410-92011
+            410-92012:
+              summary: Road cargo throughput
+              value: 410-92012
+            410-96001:
+              summary: Imports and exports of selected equipment / products
+              value: 410-96001
+            420-57001:
+              summary: Exports and imports of services by service component, service group and service item
+              value: 420-57001
+            420-57002:
+              summary: Exports and imports of services in relation to selected Hong Kong's major trading partners by service component
+              value: 420-57002
+            425-57011:
+              summary: Gross margin/commission earned from offshore trade in goods by main destination
+              value: 425-57011
+            425-57012:
+              summary: Sales value of goods and gross margin involved in merchanting by main destination
+              value: 425-57012
+            510-60001:
+              summary: Consumer Price Indices (October 2019 – September 2020 = 100)
+              value: 510-60001
+            510-60001A:
+              summary: Consumer Price Indices (October 2019 – September 2020 = 100) at commodity/service section level
+              value: 510-60001A
+            510-60002:
+              summary: Underlying Consumer Price Indices (October 2019 – September 2020 = 100)
+              value: 510-60002
+            510-60002A:
+              summary: Underlying Consumer Price Indices (October 2019 – September 2020 = 100) at commodity/service section level
+              value: 510-60002A
+            510-60003:
+              summary: Consumer Price Indices (October 2019 – September 2020 = 100) at COICOP division level
+              value: 510-60003
+            510-60004:
+              summary: Seasonally adjusted Consumer Price Indices
+              value: 510-60004
+            520-62001:
+              summary: Producer price indices for manufacturing and waste management sectors by selected industry grouping (2015 = 100)
+              value: 520-62001
+            520-63001:
+              summary: Quarterly producer price indices of selected service industries (2015 = 100)
+              value: 520-63001
+            610-65001:
+              summary: Indices of industrial production for manufacturing and waste management sectors by selected industry grouping (2015 = 100)
+              value: 610-65001
+            610-72001:
+              summary: Principal statistics for all companies in the manufacturing, energy supply and waste management sectors
+              value: 610-72001
+            610-72003:
+              summary: Principal statistics for all companies in the manufacturing sector by industry value added
+              value: 610-72003
+            610-72004:
+              summary: Principal statistics for all companies in the manufacturing sector by total receipts
+              value: 610-72004
+            610-72005:
+              summary: Principal statistics for all companies in the manufacturing sector by industry grouping and number of persons engaged
+              value: 610-72005
+            610-72006:
+              summary: Principal statistics for all companies in the manufacturing sector by detailed industry grouping
+              value: 610-72006
+            610-72013:
+              summary: Selected principal statistics for manufacturing companies and import and export companies with manufacturing-related activities
+              value: 610-72013
+            610-92091:
+              summary: Mining and quarry production
+              value: 610-92091
+            615-21001:
+              summary: Index numbers of the costs of labour and materials used in public sector construction projects ( April 2021 = 100 ) - Costs of Labour Index
+              value: 615-21001
+            615-21001A:
+              summary: Index numbers of the costs of labour and materials used in public sector construction projects ( April 2003 = 100 ) - Costs of Labour Index
+              value: 615-21001A
+            615-21002:
+              summary: Index numbers of the costs of labour and materials used in public sector construction projects ( April 2021 = 100 ) - Costs of Materials Index
+              value: 615-21002
+            615-21002A:
+              summary: Index numbers of the costs of labour and materials used in public sector construction projects ( April 2003 = 100 ) - Costs of Materials Index
+              value: 615-21002A
+            615-66001:
+              summary: Gross value of construction works performed by main contractors
+              value: 615-66001
+            615-66002:
+              summary: Seasonally adjusted gross value of construction works performed by main contractors
+              value: 615-66002
+            615-66011:
+              summary: Gross value of construction works in nominal terms performed by contractors analysed by broad trade group
+              value: 615-66011
+            615-66012:
+              summary: Gross value of construction works in real terms performed by main contractors analysed by broad trade group
+              value: 615-66012
+            615-66021:
+              summary: Gross value of construction works in nominal terms performed by main contractors at construction sites analysed by broad end-use group
+              value: 615-66021
+            615-66022:
+              summary: Gross value of construction works in real terms performed by main contractors at construction sites analysed by broad end-use group
+              value: 615-66022
+            615-66023:
+              summary: Gross value of construction works in nominal terms performed by main contractors at construction sites analysed by detailed end-use group
+              value: 615-66023
+            615-66024:
+              summary: Gross value of construction works in real terms performed by main contractors at construction sites analysed by detailed end-use group
+              value: 615-66024
+            615-66031:
+              summary: Gross value of construction works in nominal terms performed by main contractors at construction sites analysed by nature of construction activity
+              value: 615-66031
+            615-73001:
+              summary: Selected statistics for all companies in the industry section of construction
+              value: 615-73001
+            615-73002:
+              summary: Selected statistics for all companies in the industry group of architectural, surveying and engineering services
+              value: 615-73002
+            615-73003:
+              summary: Selected statistics for all companies in the industry section of real estate activities
+              value: 615-73003
+            615-73011:
+              summary: Principal statistics for all companies in the construction sector by industry division/group
+              value: 615-73011
+            615-73012:
+              summary: Principal statistics for all companies in the construction sector by gross value of construction works performed
+              value: 615-73012
+            615-73013:
+              summary: Principal statistics for all companies in the construction sector by industry value added
+              value: 615-73013
+            615-73021:
+              summary: Principal statistics for main contractors at construction sites by industry division/class
+              value: 615-73021
+            615-73031:
+              summary: Principal statistics for all companies in the real estate activities industry by industry group/class
+              value: 615-73031
+            615-73032:
+              summary: Principal statistics for all companies in the real estate activities industry by total receipts
+              value: 615-73032
+            615-73051:
+              summary: Principal statistics for all companies in the architectural, surveying and engineering services industry
+              value: 615-73051
+            615-73052:
+              summary: Principal statistics for all companies in the architectural, surveying and engineering services industry by total receipts
+              value: 615-73052
+            620-67001:
+              summary: Total retail sales
+              value: 620-67001
+            620-67002:
+              summary: Value and value index of retail sales by type of retail outlet
+              value: 620-67002
+            620-67003:
+              summary: Volume index of retail sales by type of retail outlet
+              value: 620-67003
+            620-67011:
+              summary: Value of retail sales in supermarkets by broad product category
+              value: 620-67011
+            620-67012:
+              summary: Value of retail sales in department stores by broad product category
+              value: 620-67012
+            620-67021:
+              summary: Seasonally adjusted series of retail sales (average index from October 2019 – September 2020 = 100)
+              value: 620-67021
+            620-67031:
+              summary: Value of online retail sales by selected type of retail outlet
+              value: 620-67031
+            620-76011:
+              summary: Principal statistics for all supermarkets
+              value: 620-76011
+            620-76012:
+              summary: Principal statistics for all department stores by whether with supermarket section inside
+              value: 620-76012
+            625-68001:
+              summary: Total restaurant receipts and restaurant purchases
+              value: 625-68001
+            625-68002:
+              summary: Total restaurant receipts and restaurant purchases analysed by month
+              value: 625-68002
+            625-68003:
+              summary: Restaurant receipts by type of restaurant
+              value: 625-68003
+            625-68004:
+              summary: Restaurant receipts by type of restaurant analysed by month
+              value: 625-68004
+            625-68011:
+              summary: Seasonally adjusted series of total restaurant receipts (Average index from October 2019 to September 2020 = 100)
+              value: 625-68011
+            625-76101:
+              summary: Principal statistics for all companies by industry grouping (accommodation and food services sector)
+              value: 625-76101
+            625-76102:
+              summary: Principal statistics for all companies by industry grouping and number of persons engaged (accommodation and food services sector)
+              value: 625-76102
+            625-76103:
+              summary: Principal statistics for all companies by industry grouping and total receipts (accommodation and food services sector)
+              value: 625-76103
+            625-76104:
+              summary: Principal statistics for all companies by industry grouping and industry value added (accommodation and food services sector)
+              value: 625-76104
+            630-76001:
+              summary: Principal statistics for all companies by industry grouping (import/export, wholesale and retail trades sector)
+              value: 630-76001
+            630-76002:
+              summary: Principal statistics for all companies by industry grouping and number of persons engaged (import/export, wholesale and retail trades sector)
+              value: 630-76002
+            630-76003:
+              summary: Principal statistics for all companies by industry grouping and total receipts (import/export, wholesale and retail trades sector)
+              value: 630-76003
+            630-76004:
+              summary: Principal statistics for all companies by industry grouping and industry value added (import/export, wholesale and retail trades sector)
+              value: 630-76004
+            635-74002:
+              summary: Principal statistics for all companies by industry grouping (transportation, storage and courier services sector)
+              value: 635-74002
+            635-74003:
+              summary: Principal statistics for all companies by industry grouping and number of persons engaged (transportation, storage and courier services sector)
+              value: 635-74003
+            635-74004:
+              summary: Principal statistics for all companies by industry grouping and total receipts (transportation, storage and courier services sector)
+              value: 635-74004
+            635-74005:
+              summary: Principal statistics for all companies by industry grouping and industry value added (transportation, storage and courier services sector)
+              value: 635-74005
+            635-74008:
+              summary: Principal statistics for all companies in selected detailed industry groupings (transportation, storage and courier services sector)
+              value: 635-74008
+            635-74009:
+              summary: Principal statistics for the logistics sector by industry grouping
+              value: 635-74009
+            635-92076:
+              summary: Postal services
+              value: 635-92076
+            635-93002:
+              summary: Statistics on capacity of air transport service
+              value: 635-93002
+            635-93003:
+              summary: Seafarers statistics
+              value: 635-93003
+            640-75101:
+              summary: Principal statistics for all companies in the information and communications sector
+              value: 640-75101
+            640-75102:
+              summary: Principal statistics for all companies in the information and communications sector by industry grouping and number of persons engaged
+              value: 640-75102
+            640-75103:
+              summary: Principal statistics for all companies in the information and communications sector by industry grouping and total receipts
+              value: 640-75103
+            640-75104:
+              summary: Principal statistics for all companies in the information and communications sector by industry grouping and industry value added
+              value: 640-75104
+            640-93011:
+              summary: Selected statistics of telecommunications services
+              value: 640-93011
+            645-75001:
+              summary: Principal statistics for all companies in the financing and insurance, professional and business services sectors by industry grouping
+              value: 645-75001
+            645-75002:
+              summary: Principal statistics for all companies in the financing (except banking); professional, scientific and technical activities; and administrative and support service activities industries by industry grouping and number of persons engaged
+              value: 645-75002
+            645-75003:
+              summary: Principal statistics for all companies in the financing (except banking); professional, scientific and technical activities; and administrative and support service activities industries by industry grouping and total receipts
+              value: 645-75003
+            645-75004:
+              summary: Principal statistics for all companies in the financing (except banking); professional, scientific and technical activities; and administrative and support service activities industries by industry grouping and industry value added
+              value: 645-75004
+            645-75011:
+              summary: Principal statistics for all companies in the banking industry by industry grouping and number of persons engaged
+              value: 645-75011
+            645-75012:
+              summary: Principal statistics for all domestic banking units by total receipts
+              value: 645-75012
+            645-75013:
+              summary: Principal statistics for all domestic banking units by detailed industry
+              value: 645-75013
+            645-75020:
+              summary: Principal statistics for all companies in the insurance industry by detailed industry
+              value: 645-75020
+            645-75021:
+              summary: Principal statistics for all companies in the insurance underwriting industry grouping by detailed industry and number of persons engaged
+              value: 645-75021
+            645-75022:
+              summary: Principal statistics for all companies in the insurance underwriting industry grouping by detailed industry and total receipts
+              value: 645-75022
+            645-75023:
+              summary: Principal statistics for all companies in the insurance underwriting industry grouping by detailed industry and net premiums
+              value: 645-75023
+            645-75026:
+              summary: Principal statistics for all companies in the activities auxiliary to insurance and pension funding industry grouping by detailed industry and number of persons engaged
+              value: 645-75026
+            645-75027:
+              summary: Principal statistics for all companies in the activities auxiliary to insurance and pension funding industry grouping by detailed industry and total receipts
+              value: 645-75027
+            645-92111:
+              summary: Number of authorized insurers, licensed insurance brokers and licensed insurance agents
+              value: 645-92111
+            645-95007:
+              summary: Insurance business of Hong Kong Export Credit Insurance Corporation
+              value: 645-95007
+            645-95008:
+              summary: Values of insured exports by major products of Hong Kong export credit insurance services
+              value: 645-95008
+            650-80001:
+              summary: Visitor arrivals by nationality/region
+              value: 650-80001
+            650-80002:
+              summary: Visitor arrivals by mode of transport and nationality/region
+              value: 650-80002
+            650-80003:
+              summary: Destination consumption expenditure of overnight and same-day visitors
+              value: 650-80003
+            650-80004:
+              summary: Per capita spending by type of visitors
+              value: 650-80004
+            650-80005:
+              summary: Visitor arrivals and length of stay of visitors
+              value: 650-80005
+            650-80006:
+              summary: Hong Kong resident departures by control point
+              value: 650-80006
+            650-93021:
+              summary: Arrival transits passengers via Hong Kong Airport
+              value: 650-93021
+            655-82101:
+              summary: Value added and employment in respect of the Four Key Industries
+              value: 655-82101
+            655-83001:
+              summary: Value added and employment in respect of the Selected Industries
+              value: 655-83001
+            660-69001:
+              summary: Business receipts indices for service industries and service domains (quarterly average of 2015 = 100)
+              value: 660-69001
+            660-69002:
+              summary: Year-on-year % change of business receipts indices for service industries and service domains
+              value: 660-69002
+            660-69011:
+              summary: Seasonally adjusted business receipts indices for service industries and service domains (quarterly average of 2015 = 100)
+              value: 660-69011
+            660-69012:
+              summary: Quarter-to-quarter % change of business receipts indices for service industries and service domains based on the seasonally adjusted series
+              value: 660-69012
+            660-76041:
+              summary: Concentration ratios by selected industry grouping
+              value: 660-76041
+            660-78001:
+              summary: Operating characteristics of enterprises analysed by sector (only including companies with employees), 2018 - 2024
+              value: 660-78001
+            660-78001A:
+              summary: Operating characteristics of enterprises analysed by sector (only including companies with employees), 2008 - 2017
+              value: 660-78001A
+            710-86001:
+              summary: Gross domestic expenditure on R&D by performing sector
+              value: 710-86001
+            710-86002:
+              summary: Gross domestic expenditure on R&D by source of funds
+              value: 710-86002
+            710-86003:
+              summary: Number of R&D personnel by performing sector
+              value: 710-86003
+            710-86004:
+              summary: Gross domestic expenditure on R&D by performing sector by type of R&D expenditure
+              value: 710-86004
+            710-86005:
+              summary: Number of R&D personnel by performing sector by type of function
+              value: 710-86005
+            710-86081:
+              summary: ITC funding support for fostering applied R&D and innovation activities
+              value: 710-86081
+            710-86082:
+              summary: Number of ongoing and approved applied R&D projects receiving ITC funding support
+              value: 710-86082
+            710-86101:
+              summary: Key statistics on R&D activities in the business sector by selected industry grouping
+              value: 710-86101
+            710-86102:
+              summary: Key statistics on R&D activities in the business sector by size of company
+              value: 710-86102
+            710-86103:
+              summary: Total expenditure on in-house R&D activities in the business sector by type of R&D expenditure by selected industry grouping
+              value: 710-86103
+            710-86104:
+              summary: Total expenditure on in-house R&D activities in the business sector by type of R&D expenditure by size of company
+              value: 710-86104
+            710-86105:
+              summary: Total expenditure on in-house R&D activities in the business sector by type of research
+              value: 710-86105
+            710-86106:
+              summary: Total expenditure on in-house R&D activities in the business sector by field of R&D activity
+              value: 710-86106
+            710-86107:
+              summary: Total expenditure on in-house R&D activities in the business sector by technology area
+              value: 710-86107
+            710-86108:
+              summary: Total expenditure on in-house R&D activities in the business sector by source of funds
+              value: 710-86108
+            710-86109:
+              summary: Number of R&D personnel in the business sector by type of function by selected industry grouping
+              value: 710-86109
+            710-86110:
+              summary: Number of R&D personnel in the business sector by type of function by size of company
+              value: 710-86110
+            710-86111:
+              summary: Number of R&D personnel in the business sector by level of education
+              value: 710-86111
+            710-86112:
+              summary: Total expenditure on contracted-out R&D activities in the business sector by type of party performing R&D activities
+              value: 710-86112
+            710-86113:
+              summary: Total expenditure on contracted-out R&D activities in the business sector by location of party performing R&D activities
+              value: 710-86113
+            710-86114:
+              summary: Total expenditure on contracted-out R&D activities in the business sector by source of funds
+              value: 710-86114
+            710-86115:
+              summary: Distribution of companies having undertaken R&D activities by whether having collaboration arrangements on R&D activities with other organisations
+              value: 710-86115
+            710-86116:
+              summary: Distribution of companies having collaboration arrangements on R&D activities with other organisations by type of collaborated organisation
+              value: 710-86116
+            710-86117:
+              summary: Distribution of companies having collaboration arrangements on R&D activities with other organisations by location of collaborated organisation
+              value: 710-86117
+            710-86201:
+              summary: Key statistics on innovation activities in the business sector by selected industry grouping
+              value: 710-86201
+            710-86202:
+              summary: Key statistics on innovation activities in the business sector by size of company
+              value: 710-86202
+            710-86203:
+              summary: Distribution of companies having undertaken product innovation/introduced new or significantly improved products to the market
+              value: 710-86203
+            710-86204:
+              summary: Profile of companies having undertaken product innovation in terms of type of party developing product innovation and number of product innovation
+              value: 710-86204
+            710-86205:
+              summary: Profile of companies having undertaken business process innovation in terms of type of party developing business process innovation and number of business process innovation
+              value: 710-86205
+            710-86206:
+              summary: Total expenditure on innovation activities in the business sector by type of innovation activity by selected industry grouping
+              value: 710-86206
+            710-86207:
+              summary: Total expenditure on innovation activities in the business sector by type of innovation activity by size of company
+              value: 710-86207
+            710-86208:
+              summary: Total expenditure on innovation activities in the business sector by source of funds
+              value: 710-86208
+            710-86209:
+              summary: Distribution of companies having undertaken innovation activities (excluding R&D activities) by whether having collaboration arrangements on innovation activities (excluding R&D activities) with other organisations
+              value: 710-86209
+            710-86210:
+              summary: Distribution of companies having collaboration arrangements on innovation activities (excluding R&D activities) with other organisations by type of collaborated organisation
+              value: 710-86210
+            710-86211:
+              summary: Distribution of companies having collaboration arrangements on innovation activities (excluding R&D activities) with other organisations by location of collaborated organisation
+              value: 710-86211
+            710-86212:
+              summary: Distribution of companies by reason for not having undertaken innovation activities
+              value: 710-86212
+            710-86301:
+              summary: Total domestic expenditure on innovation activities
+              value: 710-86301
+            720-87001:
+              summary: Proportion of companies using computers, smartphones for business purposes, the Internet and web presence
+              value: 720-87001
+            720-87002:
+              summary: Proportion of companies with e-commerce sales, e-commerce purchases and e-delivery as well as value of e-commerce sales as a percentage of total receipts
+              value: 720-87002
+            720-87003:
+              summary: Proportion of companies using information and communication technology (ICT) by major type of ICT
+              value: 720-87003
+            720-90001:
+              summary: Households with Internet access at home
+              value: 720-90001
+            720-90002:
+              summary: Households with personal computer (PC) at home
+              value: 720-90002
+            720-90003:
+              summary: Persons aged 10 and over who had used the Internet by sex and age group
+              value: 720-90003
+            720-90004:
+              summary: Persons aged 10 and over who had knowledge of using personal computer (PC) by sex and age group
+              value: 720-90004
+            720-90005:
+              summary: Persons aged 10 and over who had used personal computer (PC) by sex and age group
+              value: 720-90005
+            720-90006:
+              summary: Persons aged 10 and over who had a mobile phone (including smartphone and non-smartphone) by sex and age group
+              value: 720-90006
+            720-90007:
+              summary: Persons aged 10 and over who had a smartphone by sex and age group
+              value: 720-90007
+            720-90008:
+              summary: Persons aged 15 and over who had made online purchases for personal matters by sex and age group
+              value: 720-90008
+            915-91001:
+              summary: Overall energy balance
+              value: 915-91001
+            915-91101:
+              summary: Value of net imports of oil products and coal products
+              value: 915-91101
+            915-91102:
+              summary: Quantity of net imports of oil products and coal products
+              value: 915-91102
+            915-91103:
+              summary: Unit values of imports of oil products and coal products
+              value: 915-91103
+            915-91104:
+              summary: Monthly statistics on quantity of net imports and unit values of imports of selected oil products and coal products
+              value: 915-91104
+            915-91105:
+              summary: Storage capacity and tank stock of oil products
+              value: 915-91105
+            915-91106:
+              summary: Sales of oil products by type of users
+              value: 915-91106
+            915-91107:
+              summary: Annual quantity of imports of oil products by supplier
+              value: 915-91107
+            915-91108:
+              summary: Annual quantity of imports of coal products by supplier
+              value: 915-91108
+            915-91109:
+              summary: Annual quantity of re-exports of oil products by destination
+              value: 915-91109
+            915-91110:
+              summary: Annual quantity of re-exports of coal products by destination
+              value: 915-91110
+            915-91201:
+              summary: Monthly statistics on consumption of electricity and gas by type of users
+              value: 915-91201
+            915-91202:
+              summary: Local consumption of electricity and gas by type of users and sales revenue from locally sold
+              value: 915-91202
+            915-91203:
+              summary: Electricity production, imports, exports, and consumption
+              value: 915-91203
+            915-91204:
+              summary: Generating capacity and peak demand of electricity and gas
+              value: 915-91204
+            920-04001:
+              summary: Stock of permanent living quarters by District Council district
+              value: 920-04001
+            920-93004:
+              summary: Stock of domestic units
+              value: 920-93004
+            925-92021:
+              summary: Hong Kong Diploma of Secondary Education Examination - statistics for satisfying the general entrance requirements for local undergraduate programmes
+              value: 925-92021
+            925-92022:
+              summary: Government expenditure on education
+              value: 925-92022
+            925-92023:
+              summary: Number of day schools by school type/sector and region
+              value: 925-92023
+            925-92024:
+              summary: Teachers in selected types of educational institution by sex
+              value: 925-92024
+            925-92025:
+              summary: Number of graduates in programmes funded by the University Grants Committee (UGC) by location of university and sex
+              value: 925-92025
+            925-92026:
+              summary: Number of students by district, sex and grade
+              value: 925-92026
+            925-92027:
+              summary: Number of University Grants Committee (UGC)-funded universities
+              value: 925-92027
+            930-92081:
+              summary: Number of notifiable infectious diseases
+              value: 930-92081
+            930-92081A:
+              summary: Number of deaths of notifiable infectious diseases
+              value: 930-92081A
+            930-92082:
+              summary: Number of registered healthcare professionals
+              value: 930-92082
+            930-92083:
+              summary: Medical institutions with hospital beds by area and type of institution
+              value: 930-92083
+            930-92084:
+              summary: Expenditure of Department of Health and Hospital Authority
+              value: 930-92084
+            930-92085:
+              summary: Department of Health - outpatient services
+              value: 930-92085
+            930-92086:
+              summary: Hospital Authority - outpatient services
+              value: 930-92086
+            930-92087:
+              summary: Hospital Authority - inpatient services
+              value: 930-92087
+            930-92088:
+              summary: Detection rate of overweight and obesity of 4-year-old children by sex
+              value: 930-92088
+            930-92089:
+              summary: Detection rate of wasting of primary and secondary school students by sex
+              value: 930-92089
+            930-92090:
+              summary: Number of HIV infection and AIDS by sex
+              value: 930-92090
+            930-92092:
+              summary: Coverage rates for Immunisation Programme (School Campaign)
+              value: 930-92092
+            930-92093:
+              summary: Hospital Authority - accident and emergency services
+              value: 930-92093
+            935-88001:
+              summary: Social Security Scheme
+              value: 935-88001
+            935-88002:
+              summary: Social Security Allowance Scheme
+              value: 935-88002
+            935-88003:
+              summary: Active cases of Integrated Family Service Centres
+              value: 935-88003
+            935-88004:
+              summary: Services for the elderly - residential care
+              value: 935-88004
+            935-88005:
+              summary: Services for the elderly - community support
+              value: 935-88005
+            935-88006:
+              summary: Services for the elderly - community care
+              value: 935-88006
+            940-92031:
+              summary: Persons arrested for crime by type of offence, police region, age group and sex
+              value: 940-92031
+            940-92031A:
+              summary: Persons arrested for crime by type of offence
+              value: 940-92031A
+            940-92032:
+              summary: Reception of prisoners/inmates by sex, type of sentence and age group
+              value: 940-92032
+            940-92033:
+              summary: Cases reported by type of offence
+              value: 940-92033
+            940-97001:
+              summary: Number and rates of victims involved in newly reported spouse/cohabitant battering cases by type of violence and sex
+              value: 940-97001
+            940-97002:
+              summary: Number and rates of victims involved in newly reported sexual violence cases by type of sexual violence incident and sex
+              value: 940-97002
+            940-97003:
+              summary: Number and rates of victims involved in newly reported sexual violence cases by age group and sex
+              value: 940-97003
+            945-89001:
+              summary: Usage rates of major cultural venues by location
+              value: 945-89001
+            945-89002:
+              summary: Usage rates of recreation facilities by type
+              value: 945-89002
+            950-92041:
+              summary: Area of country parks, special areas and marine parks/reserve
+              value: 950-92041
+            950-92051:
+              summary: Average quantity of solid waste received by landfills by type
+              value: 950-92051
+            950-92052:
+              summary: Disposal of municipal solid waste by composition
+              value: 950-92052
+            950-92053:
+              summary: Composition of recyclables recovered from municipal solid waste
+              value: 950-92053
+            950-92054:
+              summary: Greenhouse gas emissions and carbon intensity
+              value: 950-92054
+            950-92062:
+              summary: Air pollutant emissions
+              value: 950-92062
+            990-92061:
+              summary: Stoppages of work by industry
+              value: 990-92061
+            990-92071:
+              summary: Estimated local production of foodstuffs
+              value: 990-92071
+            990-92072:
+              summary: Fresh water supplies and consumption
+              value: 990-92072
+            990-92073:
+              summary: Percentage of population served with fresh water by area
+              value: 990-92073
+            990-92074:
+              summary: Percentage of population covered by public sewerage
+              value: 990-92074
+            990-92075:
+              summary: Fresh water consumption by sector
+              value: 990-92075
+            990-92077:
+              summary: Average wholesale prices of selected food items
+              value: 990-92077
+            990-92101:
+              summary: Fire and Ambulance services - fire and special services calls
+              value: 990-92101
+            990-92102:
+              summary: Fire and Ambulance services - fire and special services persons involved
+              value: 990-92102
+            990-92103:
+              summary: Fire and Ambulance services - ambulance calls
+              value: 990-92103
+            990-92104:
+              summary: Fire and Ambulance services - fire inspections
+              value: 990-92104
+            990-92105:
+              summary: Fire and Ambulance services - fire prevention (plans finalised)
+              value: 990-92105
+            990-92106:
+              summary: Fire and Ambulance services - fire prevention (prosecutions undertaken)
+              value: 990-92106
+            990-92201:
+              summary: Municipal services licences and permits in force by type
+              value: 990-92201
+            990-93031:
+              summary: Wholesale of food items
+              value: 990-93031
+            990-94032:
+              summary: Number of selected professional members / qualifications
+              value: 990-94032
+            990-97011:
+              summary: Candidates, elected members and appointed members in Government Councils (based on election year) by sex
+              value: 990-97011
+        - name: lang
+          in: query
+          description: |
+            Language of the textual descriptions.
+            Only `en` | `tc` | `sc` are allowed (case-insensitive; prefer lowercase).
+          required: true
+          schema:
+            type: string
+            enum:
+              - en
+              - tc
+              - sc
+        - name: full_series
+          in: query
+          required: true
+          description: |
+            Set to `"1"` for the full series.
+            This parameter is served as validation as well.
+          schema:
+            type: string
+            enum:
+              - "1"
+      responses:
+        "200":
+          description: successful request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TableResponse"
+        "404":
+          description: Resource not found
+        4XX:
+          description: Client error
+        5XX:
+          description: Server error
+components:
+  schemas:
+    TableResponse:
+      type: object
+      required:
+        - header
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        dataSet:
+          type: array
+          description: |
+            Array of observation records.
+            Present only on a successful request, with the description of the query being "Query Success".
+            It may be omitted or empty on failure.
+          items:
+            $ref: "#/components/schemas/DataRecord"
+    Header:
+      type: object
+      required:
+        - status
+        - count
+      properties:
+        status:
+          $ref: "#/components/schemas/Status"
+        title:
+          type: string
+          description: Web Table Title
+        tablenote:
+          type: array
+          description: Footnotes and explanatory notes (language-dependent)
+          items:
+            type: string
+        source:
+          type: string
+          description: Data source and contact information
+        count:
+          $ref: "#/components/schemas/Count"
+    Status:
+      type: object
+      required:
+        - name
+        - code
+        - description
+      properties:
+        name:
+          type: string
+          enum:
+            - Success
+            - Fail
+        code:
+          type: integer
+          description: |
+            0 = Query success
+            1 = Validation error
+          enum:
+            - 0
+            - 1
+        description:
+          type: string
+        message:
+          oneOf:
+            - type: string
+              nullable: true
+            - type: array
+              items:
+                type: string
+              nullable: true
+          description: |
+            Error detail(s) when `code = 1`.
+            Null, omitted, or empty on success.
+        apiHelp:
+          type: string
+          format: uri
+          description: Link to the API helper page on the corresponding Web Table webpage.
+    Count:
+      type: object
+      properties:
+        noOfRecords:
+          type: integer
+          minimum: 0
+          description: Number of records returned in `dataSet`
+        started:
+          type: string
+          format: date-time
+          description: Server-side processing start timestamp (ISO 8601 with offset)
+        finished:
+          type: string
+          format: date-time
+          description: Server-side processing end timestamp (ISO 8601 with offset)
+        durationSeconds:
+          type: number
+          format: float
+          description: Processing duration in seconds
+    DataRecord:
+      type: object
+      description: The statistics for the selected Web Table.
+      additionalProperties: true

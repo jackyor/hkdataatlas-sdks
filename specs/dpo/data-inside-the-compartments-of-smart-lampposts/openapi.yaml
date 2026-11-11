@@ -1,0 +1,188 @@
+components:
+  schemas:
+    CompartmentDataResponse:
+      description: Example response structure. The source defines the fields in the data dictionary, but does not state that every field is required in every response.
+      example:
+        BD: COMMON
+        BODY:
+          COMMON:
+            C1:
+              RH: "73.5"
+              T0: "34.5"
+            C2:
+              RH: "74.3"
+              T0: "34.8"
+            C3:
+              RH: "73.8"
+              T0: "34.8"
+            C4:
+              RH: "75.0"
+              T0: "34.6"
+            TS: "20220919163357"
+        DI: "10"
+        GI: "00"
+        PI: DF3647
+        TS: "1562748177518"
+      properties:
+        BD:
+          description: HKSAR Government Bureau/Department Code. The data dictionary identifies the value as a string and says it is always “COMMON” for the Internal Data Sensor.
+          example: COMMON
+          type: string
+        BODY:
+          properties:
+            COMMON:
+              description: Internal Data Sensor measurements.
+              properties:
+                C1:
+                  $ref: "#/components/schemas/CompartmentMeasurements"
+                  description: Measurements for compartment 1, the top compartment.
+                C2:
+                  $ref: "#/components/schemas/CompartmentMeasurements"
+                  description: Measurements for compartment 2.
+                C3:
+                  $ref: "#/components/schemas/CompartmentMeasurements"
+                  description: Measurements for compartment 3.
+                C4:
+                  $ref: "#/components/schemas/CompartmentMeasurements"
+                  description: Measurements for compartment 4.
+                TS:
+                  description: Latest of the data measurement times of all compartments of a smart lamppost. Format YYYYMMDDHHMMSS (ISO 8601 notation, Hong Kong Time).
+                  example: "20190506161726"
+                  type: string
+              type: object
+          type: object
+        DI:
+          description: Device ID. The data dictionary identifies the value as a string, with format 2 characters and value “10” for the Internal Data Sensor.
+          example: "10"
+          type: string
+        GI:
+          description: Branch/Division/Section code, reserved and currently not in use. The data dictionary identifies the value as a string with default value “00”.
+          example: "00"
+          type: string
+        PI:
+          description: Lamppost ID. The data dictionary identifies this as a string with a maximum of 8 characters.
+          example: DF3647
+          maxLength: 8
+          type: string
+        TS:
+          description: Date and time when the JSON packet is created, up to millisecond. The data dictionary specifies a Unix time stamp and default value “0”.
+          example: "1562748177518"
+          type: string
+      type: object
+    CompartmentMeasurements:
+      description: Temperature and relative-humidity values for a compartment. The source documents string values; “////” indicates failure of quality control, and for compartments 3 and 4 “N.A.” indicates that the compartment does not exist.
+      properties:
+        RH:
+          description: Relative humidity inside the compartment, in %, with resolution 0.1 %. “////” indicates failure of quality control; for compartments 3 and 4, “N.A.” indicates no such compartment.
+          examples:
+            - "93.1"
+            - ////
+            - N.A.
+          type: string
+        T0:
+          description: Temperature inside the compartment, in °C, with resolution 0.1 °C. “////” indicates failure of quality control; for compartments 3 and 4, “N.A.” indicates no such compartment.
+          examples:
+            - "19.8"
+            - ////
+            - N.A.
+          type: string
+      type: object
+    MessageResponse:
+      description: Message object shown in documented no-record and error examples.
+      properties:
+        message:
+          description: Human-readable result or error message.
+          type: string
+      type: object
+externalDocs:
+  description: Data Dictionary for Data inside the Compartments of Smart Lampposts
+  url: https://www.digitalpolicy.gov.hk/open_data/smart_lampposts/compartment-data-data-dictionary-en.pdf
+info:
+  description: Retrieves the latest validated compartment sensor data, reported in 10-minute intervals, for a specified Hong Kong smart lamppost. The OpenAPI version field uses “undocumented” as a metadata placeholder; it is not a publisher API version. The source documents API version 2.0 (June 2024; API syntax update effective 25 July 2024).
+  title: Data inside the Compartments of Smart Lampposts
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /smacs:
+    get:
+      description: Returns the latest validated data (in 10-minute intervals) for the specified lamppost. The response is JSON encoded as UTF-8. The API documentation explicitly states that authentication is not required.
+      operationId: getSmartLamppostCompartmentData
+      parameters:
+        - description: Lamppost ID. Maximum 8 characters. For the list of IDs, see the Smart Lampposts Data Inside Compartments Sensors Location Database.
+          examples:
+            invalid:
+              summary: Request with an ID for which no record is found
+              value: xxxxxx
+            normal:
+              summary: Normal request
+              value: DF3647
+          in: query
+          name: pi
+          required: true
+          schema:
+            maxLength: 8
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                compartmentData:
+                  summary: Example compartment data response
+                  value:
+                    BD: COMMON
+                    BODY:
+                      COMMON:
+                        C1:
+                          RH: "73.5"
+                          T0: "34.5"
+                        C2:
+                          RH: "74.3"
+                          T0: "34.8"
+                        C3:
+                          RH: "73.8"
+                          T0: "34.8"
+                        C4:
+                          RH: "75.0"
+                          T0: "34.6"
+                        TS: "20220919163357"
+                    DI: "10"
+                    GI: "00"
+                    PI: DF3647
+                    TS: "1562748177518"
+                noRecord:
+                  summary: Example response when no record is found
+                  value:
+                    message: No record found
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/CompartmentDataResponse"
+                  - $ref: "#/components/schemas/MessageResponse"
+          description: Success. The documented example for an unknown ID also returns HTTP 200 with a message indicating that no record was found.
+        "400":
+          content:
+            application/json:
+              example:
+                message: "Missing required request parameters: [pi]"
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+          description: Bad Request. The example indicates a missing required query parameter.
+        "500":
+          content:
+            application/json:
+              example:
+                message: "[Error Message]"
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+          description: Internal Server Error.
+        "503":
+          content:
+            application/json:
+              example:
+                message: "[Error Message]"
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+          description: The server is currently unavailable.
+      summary: Get data by lamppost ID
+servers:
+  - url: https://api.data.gov.hk/v1/smart-lamppost/data/opendata

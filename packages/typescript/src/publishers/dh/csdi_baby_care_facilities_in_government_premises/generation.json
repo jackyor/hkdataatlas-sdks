@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "dh-csdi-baby-care-facilities-in-government-premises",
+  "sourceSha256": "2eef7573fedd07c608a7596126d69d20608d7b7c1c7db90af974ef333a4277b3",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/dh_rcd_1730081674729_50015/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/dh_rcd_1730081674729_50015/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/dh_rcd_1730081674729_50015/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

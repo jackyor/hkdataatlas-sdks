@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "devb-csdi-sites-of-archaeological-interest-in-hong-kong",
+  "sourceSha256": "3e3787a1800682c8a65c58a4aae1c3d8062386fe45ea8d59f2be868b6ba64b53",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/devb_wb_rcd_1666075478680_84061/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_wb_rcd_1666075478680_84061/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_wb_rcd_1666075478680_84061/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,1323 @@
+components:
+  schemas:
+    Coordinates:
+      description: Coordinate values for a coordinate reference system.
+      properties:
+        latitude:
+          description: Latitude coordinate; the source uses this property name for the coordinate values in both CRS objects.
+          type: number
+        longitude:
+          description: Longitude coordinate; the source uses this property name for the coordinate values in both CRS objects.
+          type: number
+      type: object
+    Direction:
+      properties:
+        data_timestamp:
+          description: Last updated timestamp of direction.
+          format: date-time
+          type: string
+        dest_en:
+          description: English destination name.
+          type: string
+        dest_sc:
+          description: Simplified Chinese destination name.
+          type: string
+        dest_tc:
+          description: Traditional Chinese destination name.
+          type: string
+        headways:
+          description: Headways of a direction.
+          items:
+            $ref: "#/components/schemas/Headway"
+          type: array
+        orig_en:
+          description: English origin name.
+          type: string
+        orig_sc:
+          description: Simplified Chinese origin name.
+          type: string
+        orig_tc:
+          description: Traditional Chinese origin name.
+          type: string
+        remarks_en:
+          description: English remarks for service amendment.
+          type:
+            - string
+            - "null"
+        remarks_sc:
+          description: Simplified Chinese remarks for service amendment.
+          type:
+            - string
+            - "null"
+        remarks_tc:
+          description: Traditional Chinese remarks for service amendment.
+          type:
+            - string
+            - "null"
+        route_seq:
+          description: Route sequence.
+          type: integer
+      type: object
+    Eta:
+      properties:
+        diff:
+          description: Estimated time of arrival in relative minutes.
+          type: integer
+        eta_seq:
+          description: Order of ETA entries.
+          type: integer
+        remarks_en:
+          description: English special message about the ETA.
+          type:
+            - string
+            - "null"
+        remarks_sc:
+          description: Simplified Chinese special message about the ETA.
+          type:
+            - string
+            - "null"
+        remarks_tc:
+          description: Traditional Chinese special message about the ETA.
+          type:
+            - string
+            - "null"
+        timestamp:
+          description: Estimated time of arrival in absolute time.
+          format: date-time
+          type: string
+      type: object
+    Headway:
+      properties:
+        end_time:
+          description: End time for the headway; null for a single-trip headway. Retained official headways use local clock strings such as06:30:00 without a timezone offset. No fullRFC3339time, inferred timezone or extra pattern is asserted.
+          type:
+            - string
+            - "null"
+        frequency:
+          description: Headway frequency; null for a single-trip headway.
+          type:
+            - integer
+            - "null"
+        frequency_upper:
+          description: Upper bound of headway frequency, if applicable.
+          type:
+            - integer
+            - "null"
+        headway_seq:
+          description: Presentation sequence for the headway.
+          type: integer
+        public_holiday:
+          description: Whether this headway applies on public holidays.
+          type: boolean
+        start_time:
+          description: Start time for the headway. Retained official headways use local clock strings such as06:30:00 without a timezone offset. No fullRFC3339time, inferred timezone or extra pattern is asserted.
+          type: string
+        weekdays:
+          description: Boolean flags for weekdays when this headway applies, starting from Monday.
+          items:
+            type: boolean
+          type: array
+      type: object
+    LastUpdateRoute:
+      properties:
+        last_update_date:
+          description: Last updated timestamp of the route.
+          format: date-time
+          type: string
+        route_id:
+          description: Route ID.
+          type: integer
+        route_seq:
+          description: Route sequence.
+          type: integer
+      type: object
+    LastUpdateRouteListResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              anyOf:
+                - properties:
+                    data_timestamp:
+                      description: Route updates. The source names this property `data_timestamp` in the field table and examples.
+                      items:
+                        $ref: "#/components/schemas/LastUpdateRoute"
+                      type: array
+                  type: object
+                - type: array
+                  items:
+                    $ref: "#/components/schemas/LastUpdateRoute"
+              description: Preserves publisher-documented object wrapper and observed array-of-records alternative. Full-body and complete-prefix-item evidence scopes are recorded separately.
+            type:
+              const: Last-Update
+          type: object
+    LastUpdateSingleResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              anyOf:
+                - description: Object holding the timestamp.
+                  properties:
+                    last_update_date:
+                      description: Last updated timestamp of the queried data.
+                      format: date-time
+                      type: string
+                  type: object
+                - type: array
+                  items:
+                    description: Object holding the timestamp.
+                    properties:
+                      last_update_date:
+                        description: Last updated timestamp of the queried data.
+                        format: date-time
+                        type: string
+                    type: object
+              description: Preserves publisher-documented object wrapper and observed array-of-records alternative. Full-body and complete-prefix-item evidence scopes are recorded separately.
+            type:
+              const: Last-Update
+          type: object
+    LastUpdateStop:
+      properties:
+        last_update_date:
+          description: Last updated timestamp of the stop.
+          format: date-time
+          type: string
+        stop_id:
+          description: Stop ID.
+          type: integer
+      type: object
+    LastUpdateStopListResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              anyOf:
+                - properties:
+                    data_timestamp:
+                      description: Stop updates. The source names this property `data_timestamp` in the field table and examples.
+                      items:
+                        $ref: "#/components/schemas/LastUpdateStop"
+                      type: array
+                  type: object
+                - type: array
+                  items:
+                    $ref: "#/components/schemas/LastUpdateStop"
+              description: Preserves publisher-documented object wrapper and observed array-of-records alternative. Full-body and complete-prefix-item evidence scopes are recorded separately.
+            type:
+              const: Last-Update
+          type: object
+    Route:
+      properties:
+        data_timestamp:
+          description: Last updated timestamp of route.
+          format: date-time
+          type: string
+        description_en:
+          description: English description of the route variation.
+          type: string
+        description_sc:
+          description: Simplified Chinese description of the route variation.
+          type: string
+        description_tc:
+          description: Traditional Chinese description of the route variation.
+          type: string
+        directions:
+          description: Different directions of the variation; one-way or circular services have one direction.
+          items:
+            $ref: "#/components/schemas/Direction"
+          type: array
+        region:
+          description: Region name abbreviation.
+          type: string
+        route_code:
+          description: Route code.
+          type: string
+        route_id:
+          description: Unique identifier for the route.
+          type: integer
+      type: object
+    RouteResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              description: Array of variations and directions for a specified route code.
+              items:
+                $ref: "#/components/schemas/Route"
+              type: array
+            type:
+              const: Route
+          type: object
+    RouteStop:
+      properties:
+        name_en:
+          description: English stop name.
+          type: string
+        name_sc:
+          description: Simplified Chinese stop name.
+          type: string
+        name_tc:
+          description: Traditional Chinese stop name.
+          type: string
+        stop_id:
+          description: Stop ID.
+          type: integer
+        stop_seq:
+          description: Stop sequence.
+          type: integer
+      type: object
+    RouteStopEtaByStopIdResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              items:
+                anyOf:
+                  - $ref: "#/components/schemas/RouteStopEtaOccurrenceEnabled"
+                  - $ref: "#/components/schemas/RouteStopEtaOccurrenceDisabled"
+              type: array
+            type:
+              const: ETA-Route-Stop
+          type: object
+    RouteStopEtaOccurrenceDisabled:
+      description: ETA-disabled occurrence of the stop along the route.
+      properties:
+        description_en:
+          description: English reason ETA service is unavailable.
+          type: string
+        description_sc:
+          description: Simplified Chinese reason ETA service is unavailable.
+          type: string
+        description_tc:
+          description: Traditional Chinese reason ETA service is unavailable.
+          type: string
+        enabled:
+          const: false
+          description: Whether ETA service is enabled for this route-stop combination.
+          type: boolean
+        route_seq:
+          description: Route sequence.
+          type: integer
+        stop_seq:
+          description: Stop sequence.
+          type: integer
+      type: object
+    RouteStopEtaOccurrenceEnabled:
+      description: ETA-enabled occurrence of the stop along the route.
+      properties:
+        enabled:
+          const: true
+          description: Whether ETA service is enabled for this route-stop combination.
+          type: boolean
+        eta:
+          description: ETA list.
+          items:
+            $ref: "#/components/schemas/Eta"
+          type: array
+        route_seq:
+          description: Route sequence.
+          type: integer
+        stop_seq:
+          description: Stop sequence.
+          type: integer
+      type: object
+    RouteStopEtaSequenceDisabled:
+      description: ETA-disabled response for the route-stop sequence form.
+      properties:
+        description_en:
+          description: English reason ETA service is unavailable.
+          type: string
+        description_sc:
+          description: Simplified Chinese reason ETA service is unavailable.
+          type: string
+        description_tc:
+          description: Traditional Chinese reason ETA service is unavailable.
+          type: string
+        enabled:
+          const: false
+          description: Whether ETA service is enabled for this route-stop combination.
+          type: boolean
+        stop_id:
+          description: Stop ID.
+          type: integer
+      type: object
+    RouteStopEtaSequenceEnabled:
+      description: ETA-enabled response for the route-stop sequence form.
+      properties:
+        enabled:
+          const: true
+          description: Whether ETA service is enabled for this route-stop combination.
+          type: boolean
+        eta:
+          description: ETA list.
+          items:
+            $ref: "#/components/schemas/Eta"
+          type: array
+        stop_id:
+          description: Stop ID.
+          type: integer
+      type: object
+    RouteStopEtaSequenceResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              anyOf:
+                - $ref: "#/components/schemas/RouteStopEtaSequenceEnabled"
+                - $ref: "#/components/schemas/RouteStopEtaSequenceDisabled"
+            type:
+              const: ETA-Route-Stop
+          type: object
+    RouteStopResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              description: Object holding route stops and last updated timestamp.
+              properties:
+                data_timestamp:
+                  description: Last updated time of route stops.
+                  format: date-time
+                  type: string
+                route_stops:
+                  description: Route-stop list.
+                  items:
+                    $ref: "#/components/schemas/RouteStop"
+                  type: array
+              type: object
+            type:
+              const: Route-Stop
+          type: object
+    RoutesAllResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              properties:
+                data_timestamp:
+                  description: Last updated timestamp of route list.
+                  format: date-time
+                  type: string
+                routes:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Route codes grouped by region.
+                  properties:
+                    HKI:
+                      description: Route codes for Hong Kong Island.
+                      items:
+                        type: string
+                      type: array
+                    KLN:
+                      description: Route codes for Kowloon.
+                      items:
+                        type: string
+                      type: array
+                    NT:
+                      description: Route codes for the New Territories.
+                      items:
+                        type: string
+                      type: array
+                  type: object
+              type: object
+            type:
+              const: Routes-All
+          type: object
+    RoutesRegionalResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              description: Object holding the route-code list for the region and its last updated timestamp.
+              properties:
+                data_timestamp:
+                  description: The page 6 field table spells this `data.data_timstamps`; the page 7 example uses `data_timestamp`. The sample spelling is represented here.
+                  format: date-time
+                  type: string
+                routes:
+                  description: Route codes for the specified region.
+                  items:
+                    type: string
+                  type: array
+              type: object
+            type:
+              const: Routes-Regional
+          type: object
+    Stop:
+      properties:
+        coordinates:
+          description: Stop position in different coordinate reference systems.
+          properties:
+            hk80:
+              $ref: "#/components/schemas/Coordinates"
+            wgs84:
+              $ref: "#/components/schemas/Coordinates"
+          type: object
+        data_timestamp:
+          description: Last updated timestamp of stop.
+          format: date-time
+          type: string
+        enabled:
+          description: True if the stop is in service; otherwise false.
+          type: boolean
+        remarks_en:
+          description: English remarks for service amendment; null if enabled is true.
+          type:
+            - string
+            - "null"
+        remarks_sc:
+          description: Simplified Chinese remarks for service amendment; null if enabled is true.
+          type:
+            - string
+            - "null"
+        remarks_tc:
+          description: Traditional Chinese remarks for service amendment; null if enabled is true.
+          type:
+            - string
+            - "null"
+      type: object
+    StopEtaDisabled:
+      description: Route-stop data when ETA service is disabled.
+      properties:
+        description_en:
+          description: English reason ETA service is unavailable.
+          type: string
+        description_sc:
+          description: Simplified Chinese reason ETA service is unavailable.
+          type: string
+        description_tc:
+          description: Traditional Chinese reason ETA service is unavailable.
+          type: string
+        enabled:
+          const: false
+          description: Whether ETA service is enabled for this route-stop combination.
+          type: boolean
+        route_id:
+          description: Route ID.
+          type: integer
+        route_seq:
+          description: Route sequence.
+          type: integer
+        stop_seq:
+          description: Stop sequence.
+          type: integer
+      type: object
+    StopEtaEnabled:
+      description: Route-stop ETA data when enabled; the sample also shows an empty ETA array.
+      properties:
+        enabled:
+          const: true
+          description: Whether ETA service is enabled for this route-stop combination.
+          type: boolean
+        eta:
+          description: ETA list when enabled is true.
+          items:
+            $ref: "#/components/schemas/Eta"
+          type: array
+        route_id:
+          description: Route ID.
+          type: integer
+        route_seq:
+          description: Route sequence.
+          type: integer
+        stop_seq:
+          description: Stop sequence.
+          type: integer
+      type: object
+    StopEtaResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              description: Route variations serving the stop.
+              items:
+                anyOf:
+                  - $ref: "#/components/schemas/StopEtaEnabled"
+                  - $ref: "#/components/schemas/StopEtaDisabled"
+              type: array
+            type:
+              const: ETA-Stop
+          type: object
+    StopResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              $ref: "#/components/schemas/Stop"
+            type:
+              const: Stop
+          type: object
+    StopRoute:
+      properties:
+        name_en:
+          description: English stop name in the route.
+          type: string
+        name_sc:
+          description: Simplified Chinese stop name in the route.
+          type: string
+        name_tc:
+          description: Traditional Chinese stop name in the route.
+          type: string
+        route_id:
+          description: Route ID.
+          type: integer
+        route_seq:
+          description: Route sequence.
+          type: integer
+        stop_seq:
+          description: Stop sequence under the route.
+          type: integer
+      type: object
+    StopRouteResponse:
+      allOf:
+        - $ref: "#/components/schemas/Wrapper"
+        - properties:
+            data:
+              description: Route variations associated with the stop.
+              items:
+                $ref: "#/components/schemas/StopRoute"
+              type: array
+            type:
+              const: Stop-Route
+          type: object
+    Wrapper:
+      description: Common response wrapper. The source describes type and version as strings, generated_timestamp as a timestamp in Hong Kong Time (HKT), and data as the requested payload.
+      properties:
+        data: {}
+        generated_timestamp:
+          description: Time when the response is generated, in Hong Kong Time (HKT).
+          format: date-time
+          type: string
+        type:
+          description: Entity name specified for the payload.
+          type: string
+        version:
+          description: API version of the response.
+          type: string
+      type: object
+externalDocs:
+  description: Official API Specifications (PDF)
+  url: https://data.etagmb.gov.hk/static/GMB_ETA_API_Specification.pdf
+info:
+  description: "API specification version 1.1, November 2021. Responses are JSON with Content-Type: application/json. Authentication requirements are not specified by the documentation."
+  title: Green Minibus Real-Time Arrival Information System API
+  version: "1.1"
+openapi: 3.1.0
+paths:
+  /eta/route-stop/{route_id}/{route_seq}/{stop_seq}:
+    get:
+      description: Returns the ETA information for the specified route ID, route sequence, and stop sequence. The documented data structure differs according to whether ETA service is enabled.
+      operationId: getRouteStopEtaBySequence
+      parameters:
+        - description: Route ID.
+          in: path
+          name: route_id
+          required: true
+          schema:
+            type: integer
+        - description: Route sequence.
+          in: path
+          name: route_seq
+          required: true
+          schema:
+            type: integer
+        - description: Stop sequence.
+          in: path
+          name: stop_seq
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                disabled:
+                  summary: ETA disabled
+                  value:
+                    data:
+                      description_en: <Reason of ETA Service Unavailable>
+                      description_sc: <到站預報暫停原因>
+                      description_tc: <到站預報暫停原因>
+                      enabled: false
+                      stop_id: 20003337
+                    generated_timestamp: 2020-12-28T15:21:24.401+08:00
+                    type: ETA-Route-Stop
+                    version: "1.0"
+                enabled:
+                  summary: ETA enabled
+                  value:
+                    data:
+                      enabled: true
+                      eta:
+                        - diff: 6
+                          eta_seq: 1
+                          remarks_en: null
+                          remarks_sc: null
+                          remarks_tc: null
+                          timestamp: 2020-12-28T15:20:00.000+08:00
+                        - diff: 26
+                          eta_seq: 2
+                          remarks_en: Scheduled
+                          remarks_sc: 未开出
+                          remarks_tc: 未開出
+                          timestamp: 2020-12-28T15:40:00.000+08:00
+                        - diff: 46
+                          eta_seq: 3
+                          remarks_en: Scheduled
+                          remarks_sc: 未开出
+                          remarks_tc: 未開出
+                          timestamp: 2020-12-28T16:00:00.000+08:00
+                      stop_id: 20003337
+                    generated_timestamp: 2020-12-28T15:14:08.595+08:00
+                    type: ETA-Route-Stop
+                    version: "1.0"
+              schema:
+                $ref: "#/components/schemas/RouteStopEtaSequenceResponse"
+          description: The request is successfully performed. Data is an enabled or disabled ETA object.
+        "404":
+          description: The combination of parameters is not found.
+      summary: Retrieve ETA for a route stop by sequence
+  /eta/route-stop/{route_id}/{stop_id}:
+    get:
+      description: Returns ETA information for occurrences of the specified stop ID along the route. This is distinct from the documented form that identifies a stop by stop sequence.
+      operationId: getRouteStopEtaByStopId
+      parameters:
+        - description: Route ID.
+          in: path
+          name: route_id
+          required: true
+          schema:
+            type: integer
+        - description: Stop ID.
+          in: path
+          name: stop_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                disabled:
+                  summary: ETA disabled occurrences
+                  value:
+                    data:
+                      - description_en: <Reason of ETA Service Unavailable>
+                        description_sc: <到站预报暂停原因>
+                        description_tc: <到站預報暫停原因>
+                        enabled: false
+                        route_seq: 1
+                        stop_seq: 1
+                      - description_en: <Reason of ETA Service Unavailable>
+                        description_sc: <到站预报暂停原因>
+                        description_tc: <到站預報暫停原因>
+                        enabled: false
+                        route_seq: 2
+                        stop_seq: 10
+                    generated_timestamp: 2020-12-28T15:20:19.483+08:00
+                    type: ETA-Route-Stop
+                    version: "1.0"
+                enabled:
+                  summary: ETA enabled occurrences
+                  value:
+                    data:
+                      - enabled: true
+                        eta:
+                          - diff: 4
+                            eta_seq: 1
+                            remarks_en: null
+                            remarks_sc: null
+                            remarks_tc: null
+                            timestamp: 2020-12-28T15:20:00.000+08:00
+                          - diff: 24
+                            eta_seq: 2
+                            remarks_en: Scheduled
+                            remarks_sc: 未开出
+                            remarks_tc: 未開出
+                            timestamp: 2020-12-28T15:40:00.000+08:00
+                        route_seq: 1
+                        stop_seq: 1
+                      - enabled: true
+                        eta:
+                          - diff: 51
+                            eta_seq: 1
+                            remarks_en: Scheduled
+                            remarks_sc: 未开出
+                            remarks_tc: 未開出
+                            timestamp: 2020-12-28T16:06:58.190+08:00
+                        route_seq: 1
+                        stop_seq: 42
+                    generated_timestamp: 2020-12-28T15:15:35.698+08:00
+                    type: ETA-Route-Stop
+                    version: "1.0"
+              schema:
+                $ref: "#/components/schemas/RouteStopEtaByStopIdResponse"
+          description: The request is successfully performed. Data is an array of stop occurrences; each occurrence has an enabled or disabled structure.
+        "404":
+          description: The combination of parameters is not found.
+      summary: Retrieve ETA for a route and stop ID
+  /eta/stop/{stop_id}:
+    get:
+      description: Returns ETA information for routes serving the specified stop ID.
+      operationId: getStopEta
+      parameters:
+        - description: Stop ID.
+          in: path
+          name: stop_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  - enabled: true
+                    eta:
+                      - diff: 42
+                        eta_seq: 1
+                        remarks_en: null
+                        remarks_sc: null
+                        remarks_tc: null
+                        timestamp: 2020-12-28T16:11:47.783+08:00
+                      - diff: 57
+                        eta_seq: 2
+                        remarks_en: Scheduled
+                        remarks_sc: 未开出
+                        remarks_tc: 未開出
+                        timestamp: 2020-12-28T16:26:58.190+08:00
+                    route_id: 2000410
+                    route_seq: 1
+                    stop_seq: 42
+                  - description_en: <Reason of ETA Service Unavailable>
+                    description_sc: <到站预报暂停原因>
+                    description_tc: <到站預報暫停原因>
+                    enabled: false
+                    route_id: 2000802
+                    route_seq: 1
+                    stop_seq: 1
+                  - enabled: true
+                    eta: []
+                    route_id: 2000963
+                    route_seq: 1
+                    stop_seq: 1
+                generated_timestamp: 2020-12-28T15:29:36.167+08:00
+                type: ETA-Stop
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/StopEtaResponse"
+          description: The request is successfully performed.
+      summary: Retrieve ETA for a stop
+  /last-update/route:
+    get:
+      description: Documented for GET /last-update/route. The response table describes arrays of route updates under data.data_timestamp; the documented examples show this array for route-related listing requests.
+      operationId: getLastUpdateForRoutes
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  data_timestamp:
+                    - last_update_date: 2020-09-24T08:33:19.519+08:00
+                      route_id: 2000150
+                      route_seq: 1
+                    - last_update_date: 2020-09-24T08:33:19.519+08:00
+                      route_id: 2000150
+                      route_seq: 2
+                generated_timestamp: 2020-11-25T10:34:10.082+08:00
+                type: Last-Update
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/LastUpdateRouteListResponse"
+          description: The request is successfully performed.
+        "404":
+          description: The queried data is not found.
+      summary: Retrieve last-update dates for routes
+  /last-update/route-stop:
+    get:
+      operationId: getLastUpdateForRouteStops
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  last_update_date: 2020-12-23T13:23:09.065+08:00
+                generated_timestamp: 2020-12-28T16:49:26.877+08:00
+                type: Last-Update
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/LastUpdateSingleResponse"
+          description: The request is successfully performed.
+        "404":
+          description: The queried data is not found.
+      summary: Retrieve last-update date for route-stop data
+  /last-update/route-stop/{route_id}/{route_seq}:
+    get:
+      operationId: getLastUpdateForRouteStop
+      parameters:
+        - description: Route ID.
+          in: path
+          name: route_id
+          required: true
+          schema:
+            type: integer
+        - description: Route sequence.
+          in: path
+          name: route_seq
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  last_update_date: 2020-12-23T13:23:09.065+08:00
+                generated_timestamp: 2020-12-28T16:49:26.877+08:00
+                type: Last-Update
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/LastUpdateSingleResponse"
+          description: The request is successfully performed.
+        "404":
+          description: The queried data is not found.
+      summary: Retrieve last-update date for a route sequence
+  /last-update/route/{region}:
+    get:
+      description: The source documents both /last-update/route/{region} and /last-update/route/{route_id}. These have the same path hierarchy and are represented with one required segment. Supply a region abbreviation for the region form, or a route ID for the route-ID form; the source does not specify the mechanism that distinguishes them.
+      operationId: getLastUpdateForRouteRegionOrId
+      parameters:
+        - description: "Single segment: HKI, KLN, or NT for the documented region form; alternatively the route ID for the documented /last-update/route/{route_id} form."
+          in: path
+          name: region
+          required: true
+          schema:
+            anyOf:
+              - enum:
+                  - HKI
+                  - KLN
+                  - NT
+                type: string
+              - type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  last_update_date: 2020-12-23T13:23:09.065+08:00
+                generated_timestamp: 2020-12-28T16:49:26.877+08:00
+                type: Last-Update
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/LastUpdateSingleResponse"
+          description: The request is successfully performed.
+        "404":
+          description: The queried data is not found.
+      summary: Retrieve last-update date by region or route ID
+  /last-update/route/{region}/{route_code}:
+    get:
+      description: The source documents both /last-update/route/{region}/{route_code} and /last-update/route/{route_id}/{route_seq}. They share an identical path hierarchy, represented with parameter names from the region-and-route-code form. Use the pair as region and route code, or as route ID and route sequence for the alternate documented form.
+      operationId: getLastUpdateForRouteOrRouteSequence
+      parameters:
+        - description: Region abbreviation (HKI, KLN, NT) for the region-and-route-code form, or route ID for the route-ID-and-sequence form.
+          in: path
+          name: region
+          required: true
+          schema:
+            anyOf:
+              - enum:
+                  - HKI
+                  - KLN
+                  - NT
+                type: string
+              - type: integer
+        - description: Route code for the region-and-route-code form, or route sequence for the route-ID-and-sequence form.
+          in: path
+          name: route_code
+          required: true
+          schema:
+            anyOf:
+              - type: string
+              - type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  last_update_date: 2020-12-23T13:23:09.065+08:00
+                generated_timestamp: 2020-12-28T16:49:26.877+08:00
+                type: Last-Update
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/LastUpdateSingleResponse"
+          description: The request is successfully performed.
+        "404":
+          description: The queried data is not found.
+      summary: Retrieve last-update date by route or route sequence
+  /last-update/stop:
+    get:
+      operationId: getLastUpdateForStops
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  data_timestamp:
+                    - last_update_date: 2020-09-24T08:24:45.401+08:00
+                      stop_id: 20000849
+                    - last_update_date: 2020-09-24T08:24:45.401+08:00
+                      stop_id: 20003237
+                generated_timestamp: 2020-11-25T10:34:10.082+08:00
+                type: Last-Update
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/LastUpdateStopListResponse"
+          description: The request is successfully performed.
+        "404":
+          description: The queried data is not found.
+      summary: Retrieve last-update dates for stops
+  /last-update/stop/{stop_id}:
+    get:
+      operationId: getLastUpdateForStop
+      parameters:
+        - description: Stop ID.
+          in: path
+          name: stop_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  last_update_date: 2020-12-23T13:23:09.065+08:00
+                generated_timestamp: 2020-12-28T16:49:26.877+08:00
+                type: Last-Update
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/LastUpdateSingleResponse"
+          description: The request is successfully performed.
+        "404":
+          description: The queried data is not found.
+      summary: Retrieve last-update date for a stop
+  /route:
+    get:
+      description: Returns route codes grouped by region. The region path segment is omitted for this form.
+      operationId: listAllRoutes
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  data_timestamp: 2020-12-22T11:27:48.705+08:00
+                  routes:
+                    HKI:
+                      - "1"
+                      - "10"
+                    KLN:
+                      - "12"
+                      - 12A
+                    NT:
+                      - "1"
+                      - 101M
+                generated_timestamp: 2020-12-28T11:14:21.326+08:00
+                type: Routes-All
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/RoutesAllResponse"
+          description: OK — the request is successfully performed.
+        "500":
+          description: The request is not valid.
+      summary: List routes across all regions
+  /route-stop/{route_id}/{route_seq}:
+    get:
+      description: Returns the stop list for the specified route ID and route sequence.
+      operationId: getRouteStops
+      parameters:
+        - description: Route ID.
+          in: path
+          name: route_id
+          required: true
+          schema:
+            type: integer
+        - description: Route sequence.
+          in: path
+          name: route_seq
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  data_timestamp: 2020-12-23T13:23:09.065+08:00
+                  route_stops:
+                    - name_en: Cyberport Public Transport Interchange
+                      name_sc: 数码港公共运输交汇处
+                      name_tc: 數碼港公共運輸交匯處
+                      stop_id: 20003337
+                      stop_seq: 1
+                    - name_en: Information Crescent, Cyberport Road
+                      name_sc: 数码港道, 资讯道
+                      name_tc: 數碼港道, 資訊道
+                      stop_id: 20007719
+                      stop_seq: 2
+                    - name_en: Cyberport Public Transport Interchange
+                      name_sc: 数码港公共运输交汇处
+                      name_tc: 數碼港公共運輸交匯處
+                      stop_id: 20003337
+                      stop_seq: 42
+                generated_timestamp: 2020-12-28T14:51:23.258+08:00
+                type: Route-Stop
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/RouteStopResponse"
+          description: OK — the request is successfully performed.
+      summary: List stops on a route
+  /route/{region}:
+    get:
+      description: The source documents GET /route/{region} for regional route listing and GET /route/{route_id} for route information by ID. OpenAPI cannot distinguish these identical single-segment templates by parameter name, so the segment is represented as `region`. Supply a region abbreviation for the regional-list form or a route ID for the route-by-ID form. The specification does not explain how the service distinguishes the forms beyond the path value.
+      operationId: getRegionalRoutesOrRouteById
+      parameters:
+        - description: Single path segment. For a regional route listing, use HKI (Hong Kong Island), KLN (Kowloon), or NT (New Territories). For the documented route-ID form GET /route/{route_id}, supply the route ID instead; the source calls that identifier an integer.
+          in: path
+          name: region
+          required: true
+          schema:
+            anyOf:
+              - enum:
+                  - HKI
+                  - KLN
+                  - NT
+                type: string
+              - type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                regional:
+                  summary: Regional routes example
+                  value:
+                    data:
+                      data_timestamp: 2020-12-22T11:27:48.705+08:00
+                      routes:
+                        - "1"
+                        - "10"
+                    generated_timestamp: 2020-12-28T11:23:23.381+08:00
+                    type: Routes-Regional
+                    version: "1.0"
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/RoutesRegionalResponse"
+                  - $ref: "#/components/schemas/RouteResponse"
+          description: OK — the response is a regional route list or route information by ID, according to the path-value form.
+        "500":
+          description: The request is not valid.
+      summary: List regional routes or retrieve route information by ID
+  /route/{region}/{route_code}:
+    get:
+      description: Accepts a region and route code and returns the respective route information. Route codes are unique within a region, but not across all regions.
+      operationId: getRouteByRegionAndCode
+      parameters:
+        - description: "Region abbreviation: HKI (Hong Kong Island), KLN (Kowloon), or NT (New Territories)."
+          in: path
+          name: region
+          required: true
+          schema:
+            enum:
+              - HKI
+              - KLN
+              - NT
+            type: string
+        - description: Route code.
+          in: path
+          name: route_code
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  - data_timestamp: 2020-12-23T12:59:10.918+08:00
+                    description_en: Normal Schedule
+                    description_sc: 正常班次
+                    description_tc: 正常班次
+                    directions:
+                      - data_timestamp: 2020-12-23T12:59:10.918+08:00
+                        dest_en: Quarry Bay (Shipyard Lane) (Circular)
+                        dest_sc: 鲗鱼涌(船坞里)(循环线)
+                        dest_tc: 鰂魚涌(船塢里)(循環線)
+                        headways:
+                          - end_time: 07:00:00
+                            frequency: 15
+                            frequency_upper: null
+                            headway_seq: 1
+                            public_holiday: false
+                            start_time: 06:30:00
+                            weekdays:
+                              - true
+                              - true
+                              - true
+                              - true
+                              - true
+                              - false
+                              - false
+                        orig_en: Cyberport
+                        orig_sc: 数码港
+                        orig_tc: 數碼港
+                        remarks_en: null
+                        remarks_sc: null
+                        remarks_tc: null
+                        route_seq: 1
+                    region: HKI
+                    route_code: "69"
+                    route_id: 2000410
+                generated_timestamp: 2020-12-28T15:07:55.373+08:00
+                type: Route
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/RouteResponse"
+          description: OK — the request is successfully performed.
+      summary: Retrieve route information by region and route code
+  /stop-route/{stop_id}:
+    get:
+      description: Returns route variations associated with the specified stop ID.
+      operationId: getRoutesAtStop
+      parameters:
+        - description: GMB stop ID.
+          in: path
+          name: stop_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  - name_en: Victoria Road, near Department Of Health Institute Of Immunology
+                    name_sc: 域多利道, 近免疫学研究院
+                    name_tc: 域多利道, 近免疫學研究院
+                    route_id: 2000410
+                    route_seq: 1
+                    stop_seq: 6
+                  - name_en: Victoria Road, near Department Of Health Institute Of Immunology
+                    name_sc: 域多利道, 近免疫学研究院
+                    name_tc: 域多利道, 近免疫學研究院
+                    route_id: 2000511
+                    route_seq: 1
+                    stop_seq: 6
+                  - name_en: Victoria Road, near Department Of Health Institute Of Immunology
+                    name_sc: 域多利道, 近免疫学研究院
+                    name_tc: 域多利道, 近免疫學研究院
+                    route_id: 2000963
+                    route_seq: 1
+                    stop_seq: 6
+                generated_timestamp: 2020-12-28T15:13:24.880+08:00
+                type: Stop-Route
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/StopRouteResponse"
+          description: OK — the request is successfully performed.
+      summary: List routes serving a stop
+  /stop/{stop_id}:
+    get:
+      description: Returns coordinates and other details for the specified GMB stop ID.
+      operationId: getStop
+      parameters:
+        - description: GMB stop ID.
+          in: path
+          name: stop_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  coordinates:
+                    hk80:
+                      latitude: 813678.9998333427
+                      longitude: 831452.0004168812
+                    wgs84:
+                      latitude: 22.261913456129104
+                      longitude: 114.13014951276878
+                  data_timestamp: 2020-09-24T16:19:19.858+08:00
+                  enabled: true
+                  remarks_en: null
+                  remarks_sc: null
+                  remarks_tc: null
+                generated_timestamp: 2020-10-07T09:53:17.114+08:00
+                type: Stop
+                version: "1.0"
+              schema:
+                $ref: "#/components/schemas/StopResponse"
+          description: OK — the request is successfully performed.
+        "404":
+          description: The requested stop_id is not found.
+      summary: Retrieve stop details
+servers:
+  - url: https://data.etagmb.gov.hk
+x-source-evidence:
+  url: https://data.etagmb.gov.hk/static/GMB_ETA_API_Specification.pdf
+  originalSourceUrl: https://data.etagmb.gov.hk/static/GMB_ETA_API_Specification.pdf
+  originalJsonSha256: b1d0d4ee6d64c2dc4a7c692374bf84e53378addf719fb4091614628c7246ae84
+  retainedPublisherSourceSha256: af1a8e21abd60138705eb4e19ffcc9e6a355fec8086dbf8893bb12b21a938b79
+  classification: publisher_contract_and_observed_response_compatibility_derivative
+  change: Only enumeratedresponse constraints broadened to preserve published and hash-bound observed representations; no newfields, values, ranges, restrictivepatterns or coercions.
+  responseBodySha256:
+    - 072e1cff90517fa412b1ce863fe1ac66e7aaaa0b672623d0ac24a6a0dacf5820
+    - 8ef7a45f2b929265507b8565a98af1bc23b844455dc6e41149b8a66db8e85d98
+    - 4e5f24aeeff24cb657cab1846eaee680716e5dd70b4be37e77a843dbe05dc462
+    - 2b1d76773abef57a68552c470ae2a101e3d43a83fc9f5b40c9ffb12841ff5a99
+    - 29ab8136716a51337c1bb023e8cff264d68fcbdbe6f3a0a57c38b4bfefd0efa3
+    - 4bb3b2e3b873835097159d0710843101e929f88f9074e6b8b06b0fc202b66d44
+    - caefd4ab252b826565909bfea0f9493a09f6d7c52ae46c00a8e63aac78f0b5d4
+    - 3103267df4183f3a2567457012079afa31d1f14a2311333abc9cb1cccf5e456b
+    - 39fc57a9c1e4b3b730da0a7067db3b566f577b1807701caca10eb001dce712a2
+    - ddb5d2a487540082069f85471375200759ba19db381679ccf190283fb35dc8a1
+    - be6e050fb057762db9405acc1b5ff9ef24c489349aaca46c197517f270f78260
+    - 16b19e675d2acd4b92cb3296034e8f9316416b572b0233f81898d64c877610ba
+    - b1c1061886c0abb5a8ab7b2fc73174d93f93cd4ba59ef3457eb48e84850fad5d
+    - a9f55fcb14cd170fb82e9c0f4cfcafab6c5b1a0062c3d8a10009dbce5765e369
+    - b4f6ab4a4c9c2d222599d981bc4f9f0b655db9e6bc520600c4b5250ee73ba7eb
+    - af35041b98c318bdaf0e9be9feeb989184fba63be5facb03f39c8cd0acc60ac4
+    - 32696a2184e666274209fe34f23c8084fc305c41b62dbb7798c977e7d40b6559
+    - d0e5d4433ca8f73d14eb02218a2991b545db0dfcc517f431fd682bd8866dd2db
+    - de03efbe643f7ebccdb0ac3433bbdd327bf267c10c28b311c9a53818c2bb4cf4
+    - 61823aeb7e9d91c598eb5876a286267b333eb22abc33fa5702ca9962bf4e7ca5
+    - 6a259b0a9f1de6f1b179b0ce43007e3ff89fc793690f2caf9761449629396553
+    - f5d2561704b37e22e180e5b48f14ec3832ad3402c6dde0a319a0af1efab736fb
+    - 4484afccb692c66aa99753ed0604a07e84587fec59843e46aa8d49bf0f584a4b
+    - de11d72e483e06b5b007e2ae0bc9512323462f889d08fa61b4eb256ffa9591af
+    - d1cb77de041110d4bd28ce408c0e5ea0c9afeebe5d68c4d2ae288025d5020b89
+    - 839bf4569239edb69bd961190a3db413d536d618dd5b27aaec23dd448b26fffe
+    - f43f1dc383539a2fdff6629d7d2ec1e6c4eaa116716a03486811879335727d84
+    - 3111f955bdc76859f101f990a10035e21de5630212edb736cb14dd03e008920b
+    - ed0ee5d7a0b77e2ca59be4658383e4e590b44b246efe165bd0b88af5ef00424a
+    - c263c244e4b2a3c97563a1ac5b7b954929dbda3fd298ce5cb3ef2e69da257d45
+  scope: Completebodies and completeitems from incompleteprefixes are labelled separately. Unreadtail/cardinality are never asserted.

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "censtatd-csdi-2021-population-census-statistics-and-boundaries-of-district-council-constituency-areas",
+  "sourceSha256": "9f587cc7aefe912475eb1864eccac5b1e621816aeed468038148b7c89dde8853",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/censtatd_rcd_1635933003339_9920/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1635933003339_9920/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1635933003339_9920/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "sourceId": "tpd-csdi-planning-applications-under-sections-12a-16-and-17-and-planning-appeals-under-section-17b-of-the-town-planning-ordinance",
+  "publisherKey": "tpd",
+  "family": "csdi_planning_applications_under_sections_12a_16_and_17_and_planning_appeals_under_section_17b_of_the_town_planning_ordinance",
+  "status": "generated",
+  "key": "095545f3a188ff07514161e7e531b59515eae24a9b14ecaa7eea4f13fed7a39e",
+  "sourceSha256": "c60aa06a9d06c7730556c156b1ad6670de4644a1b702dda7411663c70de43cc6",
+  "derivedInputSha256": "f10795acd49f139b340be250af8e6bd775c3a2e470b6332c14b33d1d4b9c92f7",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/arcgis2/services/DATA/APP_AMEND_CSDI/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature",
+      "tags": [
+        "WFS"
+      ]
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/tpd-csdi-planning-applications-under-sections-12a-16-and-17-and-planning-appeals-under-section-17b-of-the-town-planning-ordinance.log",
+  "outputs": {
+    "__init__.py": "94385ab51a79c1bfd4ff28b0ab8f4562fff44782c819edc4d49b7e97fb796a3d",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/wfs/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wfs/wfs_map_server_get_feature.py": "915c7031760b8eab7f320377779682dc9f49f04907d4a3621bc36f09c0cd3fcb",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "9ea7011ec8792d43d0ed40266ff201757127a9f8ec8af209ca9c38daa522e019",
+    "models/wfs_map_server_get_feature_output_format.py": "e4f57cb3890a02ce6dba52d2b0fcfc686179fd837b5c03300dff588d928d98d7",
+    "models/wfs_map_server_get_feature_request.py": "afc05e39db501a145c828df80073f57e52779c155b2631cb84b197d8532067c9",
+    "models/wfs_map_server_get_feature_service.py": "919ac8ccb249a9d757a7c1a39b3f3b0adc5377b9dafcac83c84789cd9972e9e8",
+    "models/wfs_map_server_get_feature_version.py": "1ad3a545490446ff0a487beea15c3c456473b4e63545161c573ade0f30e3014b",
+    "models/wfs_map_server_wfs_amendcrt_attributes.py": "e36bd103665998b4dbce16ddc944f3be388d23f57e35ef720e24c68f85396445",
+    "models/wfs_map_server_wfs_amendpast_attributes.py": "f04f24edd3410f156ed2b3808983fab9190274492a5fde4fef01462da741c940",
+    "models/wfs_map_server_wfs_appcrt_attributes.py": "06df6a5172f36e017a921722ba3032f6cfd5b7e771fe18b58c365be727320475",
+    "models/wfs_map_server_wfs_apppast_attributes.py": "54056d9175a26bc82a5fe96dece7756b587eac851785dee634c29f88c79f56c2",
+    "models/wfs_map_server_wfs_feature_collection.py": "b7fdfaa58f7e34a0c48a8d5b3ca0a53dd2e634639948261108f9b853f550b2e5",
+    "models/wfs_map_server_wfs_feature_collection_features_item.py": "3e3cab39b625203146585e237c69aa7f4a2e56bd02d0ff3d77a469f15451151c",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

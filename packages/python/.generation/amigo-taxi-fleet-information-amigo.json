@@ -1,0 +1,43 @@
+{
+  "sourceId": "amigo-taxi-fleet-information-amigo",
+  "publisherKey": "amigo",
+  "family": "taxi_fleet_information_amigo",
+  "status": "generated",
+  "key": "9a4b95d4fdb31d976ef279b2772049555468def51c6aa31e42de915998044771",
+  "sourceSha256": "20d36885157b15e0b11ef5764967f2041c09912c2a5cdc1be78dbb5ccd0d529e",
+  "derivedInputSha256": "4c3a5703d8575bd5b081fdfafa5822769c459b408b393c9d42f324a90284261d",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/webx/v1/vehicle/list",
+      "operationId": "listVehicles",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/webx/v1/vehicle/nearby",
+      "operationId": "findNearbyVehicles",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/amigo-taxi-fleet-information-amigo.log",
+  "outputs": {
+    "__init__.py": "115abc976510ce7dea26ee8ee7670ae92115bfa7c07f94ecfe030a6edc55477a",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/find_nearby_vehicles.py": "a61b49b6ed45eb74752304eafed97d0207c878c3db9a00351852d37c46adfd1e",
+    "api/default/list_vehicles.py": "39f8681fff39575787090de2058b63c1469019114f39f5ce9ccfab385090dac7",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "1051b7c31593f1c0ae01a9c3e8b791568257f5b8e1251bba6af6266d09940885",
+    "models/find_nearby_vehicles_unit.py": "aff380f1ff4325e22de89f9e203ee049fb43c3b39557d81a0516f90d54ac8cab",
+    "models/taxi_fleet_td_slim_record.py": "4d4806728a5678636b4acc33fbc61a25eb95fd2847b05ef7c1227f22ee805ab3",
+    "models/taxi_fleet_td_slim_record_op_status.py": "609de2760cf2da3c4df0adde5278cbd08c947822a9d4e19973724001cab7b5a7",
+    "models/taxi_fleet_td_slim_record_taxi_type.py": "f4b7776caf8f43132eabb3356ba649a4f91ecfcde8b49d5eb46b9ea57c9fcb90",
+    "models/vehicle_list_response.py": "8a8d8e57313f91076b07a518590fabb06a0f9ac09db1e8a8247af419be613c6c",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

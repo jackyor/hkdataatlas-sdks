@@ -1,0 +1,1739 @@
+openapi: 3.1.0
+info:
+  title: Security Bureau — List of major drug treatment and rehabilitation service units
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: DATCs
+              value: 0
+            choice2:
+              summary: MCs
+              value: 1
+            choice3:
+              summary: SACs
+              value: 2
+            choice4:
+              summary: CDCs
+              value: 3
+            choice5:
+              summary: CCPSAs
+              value: 4
+          x-choice-count: 5
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer?f=pjson
+          sha256: 8ceba3d4a1630948cfba9f2aa048207b8060d84b3e1b5b7ddd12565c907b02d1
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/0?f=pjson
+          sha256: 11f78ddccc1f05d6ae6cef04b0aa7bd893bfe8dea6ce93a73745c5de00fd5e2c
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/1?f=pjson
+          sha256: c335e617f43cebc2b0958cd667f4e35977005989607db502ed11a64d04145d5a
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/2?f=pjson
+          sha256: 0c0dba72e96efdea874939cd602968d71070cbf0bbaff801fcf8ee0b82d71613
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/3?f=pjson
+          sha256: ed1b50449bebef14c920d84fbfc73f648d32f596563d4a55bd04b37402271b7b
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/4?f=pjson
+          sha256: daec72d7ad9797019bef16263429d56d6c370aebab3b30646a062b965c10ede5
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/sb_rcd_1633580236462_76633/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: CCPSAs
+              value: csdi:CCPSAs
+            choice2:
+              summary: CDCs
+              value: csdi:CDCs
+            choice3:
+              summary: SACs
+              value: csdi:SACs
+            choice4:
+              summary: MCs
+              value: csdi:MCs
+            choice5:
+              summary: DATCs
+              value: csdi:DATCs
+          x-choice-count: 5
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::2326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::2326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/sb_rcd_1633580236462_76633/MapServer/WFSServer?service=WFS&request=GetCapabilities
+          sha256: b36b806dd6e0607d88737fffee5d213f9625ba3f771b28044fcd1618f11a0921
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+        - url: https://portal.csdi.gov.hk/server/services/common/sb_rcd_1633580236462_76633/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+          sha256: a7fb2082d9f2bdfa281bd02e1bee71a487204a7580fdc74f113a91cf83da116a
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-feature-type
+          parseStatus: pass
+          kind: wfs-feature-type
+  /server/services/common/sb_rcd_1633580236462_76633/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: DATCs
+              value: DATCs
+            choice2:
+              summary: MCs
+              value: MCs
+            choice3:
+              summary: SACs
+              value: SACs
+            choice4:
+              summary: CDCs
+              value: CDCs
+            choice5:
+              summary: CCPSAs
+              value: CCPSAs
+          x-choice-count: 5
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.935221,22.207200,114.260927,22.518343
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+        - EPSG:2326
+        - EPSG:102140
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/sb_rcd_1633580236462_76633/MapServer/WMSServer?service=WMS&request=GetCapabilities
+          sha256: 7c51066b0e0d0df12108997050a328e3f01a63ebb2185423d26a9fd06a49e5b5
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: Unique object identifier generated by system automatically
+          type: integer
+        name_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Centre (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Centre (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Centre (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (English)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Telephone Number
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        website_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Website (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Website (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Website (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: Unique object identifier generated by system automatically
+          type: integer
+        name_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Methadone Clinic (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Methadone Clinic (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Methadone Clinic (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (English)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Telephone Number
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        sHour_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Service Hours (English)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        sHour_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Service Hours (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        sHour_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Service Hours (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer2Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: Unique object identifier generated by system automatically
+          type: integer
+        name_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Clinic (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Clinic (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Clinic (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servCluster_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Service Cluster (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servCluster_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Service Cluster (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servCluster_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Service Cluster (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (English)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Telephone Number
+          type:
+            - string
+            - "null"
+          maxLength: 64
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer3Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: Unique object identifier generated by system automatically
+          type: integer
+        name_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Agency / Centre (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Agency / Centre (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Agency / Centre (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (English)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Telephone Number
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        fax:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Fax Number
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        email:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Email Address
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Website (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Website (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer4Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: Unique object identifier generated by system automaticall
+          type: integer
+        name_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Agency / Centre (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Agency / Centre (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Name of Agency / Centre (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servDistrict_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Serving District (English)
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        servDistrict_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Serving District (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        servDistrict_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Serving District (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        add_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (English)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Address (Simplified Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Telephone Number
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        fax:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Fax Number
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        email:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Email Address
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Website (English)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Website (Traditional Chinese)
+          type:
+            - string
+            - "null"
+          maxLength: 256
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    WfsMapServerWfsCCPSAsAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Shape:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+        name_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servDistrict_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        servDistrict_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        servDistrict_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        add_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        fax:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        email:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+      additionalProperties: true
+    WfsMapServerWfsCDCsAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Shape:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+        name_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        fax:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        email:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+      additionalProperties: true
+    WfsMapServerWfsSACsAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Shape:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+        name_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servCluster_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servCluster_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        servCluster_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+      additionalProperties: true
+    WfsMapServerWfsMCsAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Shape:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+        name_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        sHour_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        sHour_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        sHour_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+      additionalProperties: true
+    WfsMapServerWfsDATCsAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        Shape:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+        name_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        name_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        add_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        add_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 512
+        tel:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 64
+        website_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+        website_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 256
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/WfsMapServerWfsCCPSAsAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsCDCsAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsSACsAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsMCsAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsDATCsAttributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: DATCs
+    protocol: arcgis
+  - id: 1
+    title: MCs
+    protocol: arcgis
+  - id: 2
+    title: SACs
+    protocol: arcgis
+  - id: 3
+    title: CDCs
+    protocol: arcgis
+  - id: 4
+    title: CCPSAs
+    protocol: arcgis
+  - id: csdi:CCPSAs
+    title: CCPSAs
+    protocol: wfs
+  - id: csdi:CDCs
+    title: CDCs
+    protocol: wfs
+  - id: csdi:SACs
+    title: SACs
+    protocol: wfs
+  - id: csdi:MCs
+    title: MCs
+    protocol: wfs
+  - id: csdi:DATCs
+    title: DATCs
+    protocol: wfs
+  - id: DATCs
+    title: DATCs
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.935221"
+        miny: "22.207200"
+        maxx: "114.260927"
+        maxy: "22.518343"
+      - CRS: EPSG:4326
+        minx: "22.207200"
+        miny: "113.935221"
+        maxx: "22.518343"
+        maxy: "114.260927"
+      - CRS: EPSG:2326
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: EPSG:102140
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: CRS:84
+        minx: "114.027555"
+        miny: "22.207311"
+        maxx: "114.130473"
+        maxy: "22.518336"
+      - CRS: EPSG:4326
+        minx: "22.207311"
+        miny: "114.027555"
+        maxx: "22.518336"
+        maxy: "114.130473"
+      - CRS: EPSG:2326
+        minx: "807470.000000"
+        miny: "821158.000000"
+        maxx: "841905.000000"
+        maxy: "831736.000000"
+      - CRS: EPSG:102140
+        minx: "807470.000000"
+        miny: "821158.000000"
+        maxx: "841905.000000"
+        maxy: "831736.000000"
+    styles:
+      - id: default
+        title: DATCs
+  - id: MCs
+    title: MCs
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.935221"
+        miny: "22.207200"
+        maxx: "114.260927"
+        maxy: "22.518343"
+      - CRS: EPSG:4326
+        minx: "22.207200"
+        miny: "113.935221"
+        maxx: "22.518343"
+        maxy: "114.260927"
+      - CRS: EPSG:2326
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: EPSG:102140
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: CRS:84
+        minx: "113.973104"
+        miny: "22.209528"
+        maxx: "114.225962"
+        maxy: "22.506838"
+      - CRS: EPSG:4326
+        minx: "22.209528"
+        miny: "113.973104"
+        maxx: "22.506838"
+        maxy: "114.225962"
+      - CRS: EPSG:2326
+        minx: "807722.000000"
+        miny: "815554.000000"
+        maxx: "840631.000000"
+        maxy: "841572.000000"
+      - CRS: EPSG:102140
+        minx: "807722.000000"
+        miny: "815554.000000"
+        maxx: "840631.000000"
+        maxy: "841572.000000"
+    styles:
+      - id: default
+        title: MCs
+  - id: SACs
+    title: SACs
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.935221"
+        miny: "22.207200"
+        maxx: "114.260927"
+        maxy: "22.518343"
+      - CRS: EPSG:4326
+        minx: "22.207200"
+        miny: "113.935221"
+        maxx: "22.518343"
+        maxy: "114.260927"
+      - CRS: EPSG:2326
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: EPSG:102140
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: CRS:84
+        minx: "113.970512"
+        miny: "22.271528"
+        maxx: "114.235036"
+        maxy: "22.498368"
+      - CRS: EPSG:4326
+        minx: "22.271528"
+        miny: "113.970512"
+        maxx: "22.498368"
+        maxy: "114.235036"
+      - CRS: EPSG:2326
+        minx: "814588.000000"
+        miny: "815286.000000"
+        maxx: "839693.000000"
+        maxy: "842506.000000"
+      - CRS: EPSG:102140
+        minx: "814588.000000"
+        miny: "815286.000000"
+        maxx: "839693.000000"
+        maxy: "842506.000000"
+    styles:
+      - id: default
+        title: SACs
+  - id: CDCs
+    title: CDCs
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.935221"
+        miny: "22.207200"
+        maxx: "114.260927"
+        maxy: "22.518343"
+      - CRS: EPSG:4326
+        minx: "22.207200"
+        miny: "113.935221"
+        maxx: "22.518343"
+        maxy: "114.260927"
+      - CRS: EPSG:2326
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: EPSG:102140
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: CRS:84
+        minx: "114.170379"
+        miny: "22.278705"
+        maxx: "114.191076"
+        maxy: "22.337184"
+      - CRS: EPSG:4326
+        minx: "22.278705"
+        miny: "114.170379"
+        maxx: "22.337184"
+        maxy: "114.191076"
+      - CRS: EPSG:2326
+        minx: "815368.100000"
+        miny: "835851.700000"
+        maxx: "821843.800000"
+        maxy: "837983.900000"
+      - CRS: EPSG:102140
+        minx: "815368.100000"
+        miny: "835851.700000"
+        maxx: "821843.800000"
+        maxy: "837983.900000"
+    styles:
+      - id: default
+        title: CDCs
+  - id: CCPSAs
+    title: CCPSAs
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.935221"
+        miny: "22.207200"
+        maxx: "114.260927"
+        maxy: "22.518343"
+      - CRS: EPSG:4326
+        minx: "22.207200"
+        miny: "113.935221"
+        maxx: "22.518343"
+        maxy: "114.260927"
+      - CRS: EPSG:2326
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: EPSG:102140
+        minx: "807470.000000"
+        miny: "811658.000000"
+        maxx: "841905.000000"
+        maxy: "845169.000000"
+      - CRS: CRS:84
+        minx: "113.935261"
+        miny: "22.279715"
+        maxx: "114.260913"
+        maxy: "22.495415"
+      - CRS: EPSG:4326
+        minx: "22.279715"
+        miny: "113.935261"
+        maxx: "22.495415"
+        maxy: "114.260913"
+      - CRS: EPSG:2326
+        minx: "815500.000000"
+        miny: "811658.000000"
+        maxx: "839366.000000"
+        maxy: "845169.000000"
+      - CRS: EPSG:102140
+        minx: "815500.000000"
+        miny: "811658.000000"
+        maxx: "839366.000000"
+        maxy: "845169.000000"
+    styles:
+      - id: default
+        title: CCPSAs
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=sb_rcd_1633580236462_76633
+    sha256: 35d6b7b026986f485394fe6d86fbaccd5ba586c4bfef101df94b979276fb95f6
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer?f=pjson
+    sha256: 8ceba3d4a1630948cfba9f2aa048207b8060d84b3e1b5b7ddd12565c907b02d1
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/0?f=pjson
+    sha256: 11f78ddccc1f05d6ae6cef04b0aa7bd893bfe8dea6ce93a73745c5de00fd5e2c
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/1?f=pjson
+    sha256: c335e617f43cebc2b0958cd667f4e35977005989607db502ed11a64d04145d5a
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/2?f=pjson
+    sha256: 0c0dba72e96efdea874939cd602968d71070cbf0bbaff801fcf8ee0b82d71613
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/3?f=pjson
+    sha256: ed1b50449bebef14c920d84fbfc73f648d32f596563d4a55bd04b37402271b7b
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/sb_rcd_1633580236462_76633/FeatureServer/4?f=pjson
+    sha256: daec72d7ad9797019bef16263429d56d6c370aebab3b30646a062b965c10ede5
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/sb_rcd_1633580236462_76633/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    sha256: b36b806dd6e0607d88737fffee5d213f9625ba3f771b28044fcd1618f11a0921
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+  - url: https://portal.csdi.gov.hk/server/services/common/sb_rcd_1633580236462_76633/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+    sha256: a7fb2082d9f2bdfa281bd02e1bee71a487204a7580fdc74f113a91cf83da116a
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-feature-type
+    parseStatus: pass
+    kind: wfs-feature-type
+  - url: https://portal.csdi.gov.hk/server/services/common/sb_rcd_1633580236462_76633/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    sha256: 7c51066b0e0d0df12108997050a328e3f01a63ebb2185423d26a9fd06a49e5b5
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols: []
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 10
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

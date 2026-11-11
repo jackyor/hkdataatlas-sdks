@@ -1,0 +1,43 @@
+{
+  "sourceId": "hkma-contact-details-of-banks-for-account-opening",
+  "publisherKey": "hkma",
+  "family": "contact_details_of_banks_for_account_opening",
+  "status": "generated",
+  "key": "25a109d384259deb55c2182b514f1d0579544324e3e05a19714d6cda11c64a80",
+  "sourceSha256": "689ec32563758f9e0aa0fac1de43cc31d27ac68320ee5df1fb89b1f48a69df15",
+  "derivedInputSha256": "689ec32563758f9e0aa0fac1de43cc31d27ac68320ee5df1fb89b1f48a69df15",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/acctopen-banks-contact",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-contact-details-of-banks-for-account-opening.log",
+  "outputs": {
+    "__init__.py": "106d5aef43964d305cc73936f686f54e22a8f02b345bba4ad1b31c144b4d0a00",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_acctopen_banks_contact.py": "bc3854f00f25c1cebc80f2f908d5bbc3f65b08628b0c992bd9920740218335c3",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "243cd09ec8d399e357d9624d00c542ef3dda5319b2594f87ac8ac6ac35035969",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/lang.py": "b6c27f2eb5db4b63ee7b292b8bc3415cea1ca3277126ba19bc2d6751ef9812d8",
+    "models/record.py": "594e3f622d2b88ecf0993d6fb416ad1cfe61350f467544c359e63a812ed2abc5",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

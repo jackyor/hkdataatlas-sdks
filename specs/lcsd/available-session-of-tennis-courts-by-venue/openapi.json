@@ -1,0 +1,170 @@
+{
+  "components": {
+    "schemas": {
+      "TennisCourtSession": {
+        "description": "Dataset record fields as specified in the data dictionary. The dictionary does not establish field requiredness or whether the listed fields exhaust the wire representation.",
+        "properties": {
+          "Available_Courts": {
+            "description": "Count of available courts.",
+            "type": "number"
+          },
+          "Available_Date": {
+            "description": "Available date, specified as yyyy-mm-dd.",
+            "format": "date",
+            "type": "string"
+          },
+          "District_Name_EN": {
+            "description": "District in English.",
+            "enum": [
+              "Central & Western",
+              "Eastern",
+              "Islands",
+              "Kowloon City",
+              "Kwai Tsing",
+              "Kwun Tong",
+              "North",
+              "Sai Kung",
+              "Sham Shui Po",
+              "Sha Tin",
+              "Southern",
+              "Tai Po",
+              "Tsuen Wan",
+              "Tuen Mun",
+              "Wan Chai",
+              "Wong Tai Sin",
+              "Yau Tsim Mong",
+              "Yuen Long"
+            ],
+            "type": "string"
+          },
+          "District_Name_TC": {
+            "description": "District in Traditional Chinese.",
+            "enum": [
+              "中西區",
+              "東區",
+              "離島區",
+              "九龍城區",
+              "葵青區",
+              "觀塘區",
+              "北區",
+              "西貢區",
+              "深水埗區",
+              "沙田區",
+              "南區",
+              "大埔區",
+              "荃灣區",
+              "屯門區",
+              "灣仔區",
+              "黃大仙區",
+              "油尖旺區",
+              "元朗區"
+            ],
+            "type": "string"
+          },
+          "Facility_Location_Name_EN": {
+            "description": "Facility location in English.",
+            "type": "string"
+          },
+          "Facility_Location_Name_TC": {
+            "description": "Facility location in Traditional Chinese.",
+            "type": "string"
+          },
+          "Facility_Type_Name_EN": {
+            "description": "Facility type in English.",
+            "type": "string"
+          },
+          "Facility_Type_Name_TC": {
+            "description": "Facility type in Traditional Chinese.",
+            "type": "string"
+          },
+          "Session_End_Time": {
+            "description": "Available session end time, specified as hh:mm.",
+            "type": "string"
+          },
+          "Session_Start_Time": {
+            "description": "Available session start time, specified as hh:mm.",
+            "type": "string"
+          },
+          "Venue_Address_EN": {
+            "description": "Venue address in English.",
+            "type": "string"
+          },
+          "Venue_Address_TC": {
+            "description": "Venue address in Traditional Chinese.",
+            "type": "string"
+          },
+          "Venue_Latitude": {
+            "description": "Venue latitude. The dictionary gives the example 2.17403 but does not explicitly specify a data type.",
+            "examples": [
+              2.17403
+            ]
+          },
+          "Venue_Longitude": {
+            "description": "Venue longitude. The dictionary gives the example 41.40338 but does not explicitly specify a data type.",
+            "examples": [
+              41.40338
+            ]
+          },
+          "Venue_Name_EN": {
+            "description": "Venue name in English.",
+            "type": "string"
+          },
+          "Venue_Name_TC": {
+            "description": "Venue name in Traditional Chinese.",
+            "type": "string"
+          },
+          "Venue_Phone_No.": {
+            "description": "Venue telephone number. Data type is not specified.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Data specification for Available Session of Tennis Courts",
+    "url": "https://www.lcsd.gov.hk/datagovhk/facility/facility-tcvenue_data_dictionary.pdf"
+  },
+  "info": {
+    "contact": {
+      "name": "Leisure and Cultural Services Department"
+    },
+    "description": "The source documents a dataset of available tennis-court sessions and defines its fields, but does not document an HTTP method, request parameters, or a response contract. The exact published resource is listed as a JSON-format resource; its URL is provided as a literal GET retrieval link, not as evidence of a hosted API contract. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Available Session of Tennis Courts",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/rest/cms/api/v1/publ/contents/open-data/tennis/file": {
+      "get": {
+        "operationId": "retrieveAvailableSessionOfTennisCourtsByVenueRestCmsApiV1PublContentsOpenDataTennisFile",
+        "summary": "Retrieve Available Session of Tennis Courts by Venue",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/tennis/file. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://data.smartplay.lcsd.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Exact published JSON resource URL; no additional path or query template is documented.",
+      "url": "https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/tennis/file"
+    }
+  ]
+}

@@ -1,0 +1,1400 @@
+openapi: 3.1.0
+info:
+  title: Development Bureau — Invigorating Island South Conceptual Master Plan 2.0 - Wong Chuk Hang, Aberdeen and Ap Lei Chau
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: QuickWinPoints
+              value: 0
+            choice2:
+              summary: ProjectPoints
+              value: 1
+            choice3:
+              summary: ProjectPolylines
+              value: 2
+            choice4:
+              summary: ProjectPolygons
+              value: 3
+          x-choice-count: 4
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+            - 1
+            - 2
+            - 3
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer?f=pjson
+          sha256: 26359369efbfc819753e8605ad1813930e52fe879f8991fcc96edf92c2d9d3a1
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/0?f=pjson
+          sha256: 2de90a22e1bb49c45701921e2de777a2ef40c654d6580bd4b5973410c1d5dedb
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/1?f=pjson
+          sha256: 9068d0b0d267f48ed7a66e4d2b5fe9c1a51912e0016f34f308196aab2e74ef1e
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/2?f=pjson
+          sha256: ef7504eec9508e2a7222315adb01562966fe027a4cbb0cb9c45cd0b5d37c75e2
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/3?f=pjson
+          sha256: f01d9e92cfc5f816e53269ed563bd5fb1ba3e5c4c1d4a95f175d9c9b810b52ef
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: ProjectPoints
+              value: csdi:ProjectPoints
+            choice2:
+              summary: QuickWinPoints
+              value: csdi:QuickWinPoints
+            choice3:
+              summary: ProjectPolylines
+              value: csdi:ProjectPolylines
+            choice4:
+              summary: ProjectPolygons
+              value: csdi:ProjectPolygons
+          x-choice-count: 4
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::2326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::2326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WFSServer?service=WFS&request=GetCapabilities
+          sha256: ea86a444b87520a97f22ecd8e40ede3419257da68007aec295a60de2f142516a
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+        - url: https://portal.csdi.gov.hk/server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+          sha256: 656f24f2bf5ef4e93834e318ce734d7ab17c493bab0cee0dc48a35a2f697b6af
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-feature-type
+          parseStatus: pass
+          kind: wfs-feature-type
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        QuickWinID:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: QuickWinID
+          type:
+            - integer
+            - "null"
+        Easting:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Easting
+          type:
+            - number
+            - "null"
+        Northing:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Northing
+          type:
+            - number
+            - "null"
+        Layer:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Layer
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_Strategy_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_Strategy_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_Strategy_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_Strategy_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_Strategy_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_Strategy_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Quick_win_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Quick_win_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Quick_win_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Quick_win_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Quick_win_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Quick_win_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Contents_Quick_win_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_Quick_win_en
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_Quick_win_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_Quick_win_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Contents_Quick_win_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_Quick_win_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        fid:
+          description: "Publisher field type: esriFieldTypeString"
+          title: fid
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1Attributes:
+      type: object
+      properties:
+        Strategy_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Layer:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Layer
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Northing:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Northing
+          type:
+            - number
+            - "null"
+        Easting:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Easting
+          type:
+            - number
+            - "null"
+        ProjectID:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: ProjectID
+          type:
+            - integer
+            - "null"
+        Contents_P_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_en
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_P_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_tc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_sc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_en
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_tc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_sc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        fid:
+          description: "Publisher field type: esriFieldTypeString"
+          title: fid
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer2Attributes:
+      type: object
+      properties:
+        Strategy_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Layer:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Layer
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        ProjectID:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: ProjectID
+          type:
+            - integer
+            - "null"
+        Strategy_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_S_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_en
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_tc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_sc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_en
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_P_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_tc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_sc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        fid:
+          description: "Publisher field type: esriFieldTypeString"
+          title: fid
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer3Attributes:
+      type: object
+      properties:
+        Strategy_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Layer:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Layer
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        ProjectID:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: ProjectID
+          type:
+            - integer
+            - "null"
+        Strategy_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Strategy_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_en
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_tc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Project_sc
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_S_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_en
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_tc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Content_S_sc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_en:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_en
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_P_tc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_tc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_sc:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Contents_P_sc
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        fid:
+          description: "Publisher field type: esriFieldTypeString"
+          title: fid
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    WfsMapServerWfsProjectPointsAttributes:
+      type: object
+      properties:
+        Strategy_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Layer:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Northing:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Easting:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        ProjectID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        Contents_P_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_P_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        fid:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        SHAPE:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+      additionalProperties: true
+    WfsMapServerWfsQuickWinPointsAttributes:
+      type: object
+      properties:
+        QuickWinID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        Easting:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Northing:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        Layer:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_Strategy_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_Strategy_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_Strategy_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Quick_win_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Quick_win_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Quick_win_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Contents_Quick_win_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_Quick_win_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Contents_Quick_win_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        fid:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        SHAPE:
+          description: Native geometry property gml:PointPropertyType; JSON geometry is not inferred from its XML type.
+      additionalProperties: true
+    WfsMapServerWfsProjectPolylinesAttributes:
+      type: object
+      properties:
+        Strategy_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Layer:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        ProjectID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        Strategy_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_S_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_P_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        fid:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        SHAPE:
+          description: Native geometry property gml:MultiCurvePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsProjectPolygonsAttributes:
+      type: object
+      properties:
+        Strategy_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Layer:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        ProjectID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - integer
+            - "null"
+        Strategy_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Strategy_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Project_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 255
+        Content_S_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Content_S_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_en:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 1000
+        Contents_P_tc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        Contents_P_sc:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 500
+        fid:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 20
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/WfsMapServerWfsProjectPointsAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsQuickWinPointsAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsProjectPolylinesAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsProjectPolygonsAttributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: QuickWinPoints
+    protocol: arcgis
+  - id: 1
+    title: ProjectPoints
+    protocol: arcgis
+  - id: 2
+    title: ProjectPolylines
+    protocol: arcgis
+  - id: 3
+    title: ProjectPolygons
+    protocol: arcgis
+  - id: csdi:ProjectPoints
+    title: ProjectPoints
+    protocol: wfs
+  - id: csdi:QuickWinPoints
+    title: QuickWinPoints
+    protocol: wfs
+  - id: csdi:ProjectPolylines
+    title: ProjectPolylines
+    protocol: wfs
+  - id: csdi:ProjectPolygons
+    title: ProjectPolygons
+    protocol: wfs
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=devb_plb_rcd_1668570553831_41775
+    sha256: b866ac20dc15a6b2123ac02118b2c422b966c6000044637b58ece27e748afbec
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer?f=pjson
+    sha256: 26359369efbfc819753e8605ad1813930e52fe879f8991fcc96edf92c2d9d3a1
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/0?f=pjson
+    sha256: 2de90a22e1bb49c45701921e2de777a2ef40c654d6580bd4b5973410c1d5dedb
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/1?f=pjson
+    sha256: 9068d0b0d267f48ed7a66e4d2b5fe9c1a51912e0016f34f308196aab2e74ef1e
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/2?f=pjson
+    sha256: ef7504eec9508e2a7222315adb01562966fe027a4cbb0cb9c45cd0b5d37c75e2
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/3?f=pjson
+    sha256: f01d9e92cfc5f816e53269ed563bd5fb1ba3e5c4c1d4a95f175d9c9b810b52ef
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    sha256: ea86a444b87520a97f22ecd8e40ede3419257da68007aec295a60de2f142516a
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+  - url: https://portal.csdi.gov.hk/server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+    sha256: 656f24f2bf5ef4e93834e318ce734d7ab17c493bab0cee0dc48a35a2f697b6af
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-feature-type
+    parseStatus: pass
+    kind: wfs-feature-type
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WMSServer?service=WMS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-bb9bc2a8643bd537c7f6390e
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    - serviceId: csdi-service-bb9bc2a8643bd537c7f6390e
+      protocol: wms
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WMS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 8
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "censtatd-csdi-2001-population-census-statistics-and-boundaries-of-large-street-block-groups",
+  "sourceSha256": "b622225b7b99216d69fcffa209388f7d9b07d5499643f31d252dfc04ebe254f0",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/censtatd_rcd_1635930339939_43584/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1635930339939_43584/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1635930339939_43584/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

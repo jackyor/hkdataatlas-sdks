@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "dh-csdi-tobacco-and-alcohol-control-office-department-of-health",
+  "sourceSha256": "871aad4e976654c026d23fb1dec52593a6e516b22c96312e1e13042a6fe6ebaa",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/dh_rcd_1696927675304_9364/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/dh_rcd_1696927675304_9364/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/dh_rcd_1696927675304_9364/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

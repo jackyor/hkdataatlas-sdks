@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hkma-csdi-list-of-authorized-institution-related-trustees",
+  "sourceSha256": "16b6f82debe916d3ce8b796aafc085efaefef3317644745f3cc3b01804a0c38c",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hkma_rcd_1729755932310_83348/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkma_rcd_1729755932310_83348/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkma_rcd_1729755932310_83348/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

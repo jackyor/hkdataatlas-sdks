@@ -1,0 +1,195 @@
+{
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "description": "A GSH 2019 sale transaction. The English data dictionary gives human-readable field labels rather than exact JSON wire keys; the keys below follow the documented response example where identifiable. Dictionary field types are stated separately from the sample's string representations.",
+        "properties": {
+          "asp_sign_date": {
+            "description": "Date of Agreement for Sale and Purchase (ASP). Dictionary format is `dd-mm-yyyy`; the response example appears as `27/04/2020`, using slashes instead.",
+            "type": "string"
+          },
+          "block_name": {
+            "description": "Block name of the purchased flat.",
+            "type": "string"
+          },
+          "court_name": {
+            "description": "Court name of the purchased flat.",
+            "type": "string"
+          },
+          "flat_num": {
+            "description": "Flat number of the purchased flat.",
+            "type": "string"
+          },
+          "floor_num": {
+            "description": "Floor number of the purchased flat.",
+            "type": "string"
+          },
+          "sale_price": {
+            "description": "Sale price of the purchased flat. Dictionary numeric pattern is `<999999999999999.99>`; the example represents the value as the string `1617600.0`. The documented JSON example and three saved wire items encode this numeric quantity as a string; both representations retain the source discrepancy.",
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "saleable_area": {
+            "description": "Saleable area of the purchased flat in square meters. Dictionary numeric pattern is `<9999999.999>`; the example represents the value as the string `26.3`. The documented JSON example and three saved wire items encode this numeric quantity as a string; both representations retain the source discrepancy.",
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "scheme_name": {
+            "description": "Subsidised home ownership scheme name.",
+            "type": "string"
+          },
+          "scheme_type": {
+            "description": "Subsidised home ownership scheme type. The dictionary lists GSH as a possible value.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TransactionResponse": {
+        "description": "JSON response containing transaction records. The example shows a `data` array; the dictionary documents the record fields but does not specify object requiredness.",
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Publisher API data specification",
+    "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs-sale-transactions-g19_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "API documentation version 2.0 dated 25 July 2024. Returns sales transaction data for Green Form Subsidised Home Ownership Scheme (GSH) 2019 flats. The documentation states that no authentication is required. It describes JSON, CSV, and XML response formats, while the example response is JSON.",
+    "title": "Transactions in the Sale of GSH 2019",
+    "version": "2.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/{dataresource}/{lang}/{format}": {
+      "get": {
+        "description": "Retrieves transactions in the sale of Green Form Subsidised Home Ownership Scheme flats (GSH) 2019. The documented request example is `https://data.housingauthority.gov.hk/psi/rest/export/ssfs-sale-transactions-g19/en/json`. The documentation describes Simplified Chinese as a request option, but notes that this dataset does not provide Simplified Chinese data and returns Traditional Chinese instead.",
+        "operationId": "getGsh2019SaleTransactions",
+        "parameters": [
+          {
+            "description": "Dataset resource identifier. The documented valid value is `ssfs-sale-transactions-g19`.",
+            "example": "ssfs-sale-transactions-g19",
+            "in": "path",
+            "name": "dataresource",
+            "required": true,
+            "schema": {
+              "const": "ssfs-sale-transactions-g19",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Language code. Documented values: `en` (English), `tc` (Traditional Chinese). The next wrapped source line lists sc as Simplified Chinese; that selection returns Traditional Chinese data.",
+            "examples": {
+              "english": {
+                "value": "en"
+              },
+              "traditionalChinese": {
+                "value": "tc"
+              }
+            },
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response file format. Documented values: `json` (JSON), `csv` (CSV), `xml` (XML).",
+            "examples": {
+              "csv": {
+                "value": "csv"
+              },
+              "json": {
+                "value": "json"
+              },
+              "xml": {
+                "value": "xml"
+              }
+            },
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "enum": [
+                "json",
+                "csv",
+                "xml"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedSample": {
+                    "description": "The source's example layout is disrupted. These values are taken only where their association to fields is discernible; this is not presented as a verbatim authoritative JSON response.",
+                    "summary": "Documented response example (partial, layout reconstructed)",
+                    "value": {
+                      "data": [
+                        {
+                          "asp_sign_date": "27/04/2020",
+                          "sale_price": "1617600.0",
+                          "scheme_type": "GSH"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "XML response format; structure is not specified.",
+                  "type": "string"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "description": "CSV response format; field layout is not specified.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Success. The specification says the web service returns transaction data in JSON format; the resource information also lists JSON, CSV, and XML as response formats. The documented sample is malformed in its extracted layout, so the example below is limited to fields and values that can be reliably associated."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Get GSH 2019 sale transactions"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.housingauthority.gov.hk/psi/rest/export"
+    }
+  ]
+}

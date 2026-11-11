@@ -1,0 +1,818 @@
+{
+  "publisherKey": "hospital",
+  "publisherName": "Hospital Authority",
+  "sources": [
+    {
+      "id": "hospital-csdi-ambulatory-and-community-services-throughput",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-ambulatory-and-community-services-throughput",
+      "name": "Ambulatory and Community Services Throughput",
+      "apiTitle": "Hospital Authority \u2014 Ambulatory and Community Services Throughput",
+      "json": "hospital/csdi-ambulatory-and-community-services-throughput/openapi.json",
+      "yaml": "hospital/csdi-ambulatory-and-community-services-throughput/openapi.yaml",
+      "file": "hospital/csdi-ambulatory-and-community-services-throughput/openapi.json",
+      "sha256": "1a6922b67f5578c88441d4573a3fd744838fb0fe7c2a1ca08725aeb1aa049bfa",
+      "jsonSha256": "1a6922b67f5578c88441d4573a3fd744838fb0fe7c2a1ca08725aeb1aa049bfa",
+      "yamlSha256": "5c28525398244c2635796ab16a95e79bd8186c4df3d74b21a0b705f4f522c4c8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ambulatory_and_community_services_throughput",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1a6922b67f5578c88441d4573a3fd744838fb0fe7c2a1ca08725aeb1aa049bfa"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1636367371824_60543",
+        "canonicalJsonSha256": "1a6922b67f5578c88441d4573a3fd744838fb0fe7c2a1ca08725aeb1aa049bfa",
+        "originalRepresentationSha256": "1a6922b67f5578c88441d4573a3fd744838fb0fe7c2a1ca08725aeb1aa049bfa",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ambulatory_and_community_services_throughput"
+    },
+    {
+      "id": "hospital-csdi-list-of-chinese-medicine-clinics-cum-training-and-research-centres",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-list-of-chinese-medicine-clinics-cum-training-and-research-centres",
+      "name": "List of Chinese Medicine Clinics cum Training and Research Centres",
+      "apiTitle": "Hospital Authority \u2014 List of Chinese Medicine Clinics cum Training and Research Centres",
+      "json": "hospital/csdi-list-of-chinese-medicine-clinics-cum-training-and-research-centres/openapi.json",
+      "yaml": "hospital/csdi-list-of-chinese-medicine-clinics-cum-training-and-research-centres/openapi.yaml",
+      "file": "hospital/csdi-list-of-chinese-medicine-clinics-cum-training-and-research-centres/openapi.json",
+      "sha256": "b1ffa99da0bcf37de400251db44d3a167ab34ffcee0818c32ccc5bedecb624b7",
+      "jsonSha256": "b1ffa99da0bcf37de400251db44d3a167ab34ffcee0818c32ccc5bedecb624b7",
+      "yamlSha256": "f9c3f038355627c1e3d988d0a15a82bbfe45d610ae6dc75a0937a7fb6d43f383",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_chinese_medicine_clinics_cum_training_and_research_centres",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b1ffa99da0bcf37de400251db44d3a167ab34ffcee0818c32ccc5bedecb624b7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1636944642063_75501",
+        "canonicalJsonSha256": "b1ffa99da0bcf37de400251db44d3a167ab34ffcee0818c32ccc5bedecb624b7",
+        "originalRepresentationSha256": "b1ffa99da0bcf37de400251db44d3a167ab34ffcee0818c32ccc5bedecb624b7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_chinese_medicine_clinics_cum_training_and_research_centres"
+    },
+    {
+      "id": "hospital-csdi-chinese-medicine-clinics-cum-training-and-research-centres-service-throughput",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-chinese-medicine-clinics-cum-training-and-research-centres-service-throughput",
+      "name": "Chinese Medicine Clinics cum Training and Research Centres Service Throughput",
+      "apiTitle": "Hospital Authority \u2014 Chinese Medicine Clinics cum Training and Research Centres Service Throughput",
+      "json": "hospital/csdi-chinese-medicine-clinics-cum-training-and-research-centres-service-throughput/openapi.json",
+      "yaml": "hospital/csdi-chinese-medicine-clinics-cum-training-and-research-centres-service-throughput/openapi.yaml",
+      "file": "hospital/csdi-chinese-medicine-clinics-cum-training-and-research-centres-service-throughput/openapi.json",
+      "sha256": "ff4ff7f9d57c206184587d75b79a67b9b4a1140d6eeea98d9e01c1449a5bf2e9",
+      "jsonSha256": "ff4ff7f9d57c206184587d75b79a67b9b4a1140d6eeea98d9e01c1449a5bf2e9",
+      "yamlSha256": "0ea2e9245ab2d9f66d9e90a0a6fd463861496ca928dbb7aa498c0bb981e52b16",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_chinese_medicine_clinics_cum_training_and_research_centres_service_throughput",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ff4ff7f9d57c206184587d75b79a67b9b4a1140d6eeea98d9e01c1449a5bf2e9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1636946906127_77816",
+        "canonicalJsonSha256": "ff4ff7f9d57c206184587d75b79a67b9b4a1140d6eeea98d9e01c1449a5bf2e9",
+        "originalRepresentationSha256": "ff4ff7f9d57c206184587d75b79a67b9b4a1140d6eeea98d9e01c1449a5bf2e9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_chinese_medicine_clinics_cum_training_and_research_centres_service_throughput"
+    },
+    {
+      "id": "hospital-csdi-accident-and-emergency-waiting-time",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-accident-and-emergency-waiting-time",
+      "name": "Accident and Emergency Waiting Time",
+      "apiTitle": "Hospital Authority \u2014 Accident and Emergency Waiting Time",
+      "json": "hospital/csdi-accident-and-emergency-waiting-time/openapi.json",
+      "yaml": "hospital/csdi-accident-and-emergency-waiting-time/openapi.yaml",
+      "file": "hospital/csdi-accident-and-emergency-waiting-time/openapi.json",
+      "sha256": "1a30e043b00d7142667b1347714b2d376d6b707bb0decbca1a582bf53ee3ca79",
+      "jsonSha256": "1a30e043b00d7142667b1347714b2d376d6b707bb0decbca1a582bf53ee3ca79",
+      "yamlSha256": "81d55d717988dc95f4e51e505f2278224ccd4ec9bf5c13b3f0c705a718aeeb3f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_accident_and_emergency_waiting_time",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1a30e043b00d7142667b1347714b2d376d6b707bb0decbca1a582bf53ee3ca79"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1636947932221_94410",
+        "canonicalJsonSha256": "1a30e043b00d7142667b1347714b2d376d6b707bb0decbca1a582bf53ee3ca79",
+        "originalRepresentationSha256": "1a30e043b00d7142667b1347714b2d376d6b707bb0decbca1a582bf53ee3ca79",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_accident_and_emergency_waiting_time"
+    },
+    {
+      "id": "hospital-csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics",
+      "name": "List of Hospital Authority Hospitals/Institutions/Specialist Outpatient Clinics/Family Medicine Clinics",
+      "apiTitle": "Hospital Authority \u2014 List of Hospital Authority Hospitals/Institutions/Specialist Outpatient Clinics/Family Medicine Clinics",
+      "json": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics/openapi.json",
+      "yaml": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics/openapi.yaml",
+      "file": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics/openapi.json",
+      "sha256": "3396b03f826a95aec55eb3a5f68204cf1e5ebf7753bef4ecbc8bd1188145751d",
+      "jsonSha256": "3396b03f826a95aec55eb3a5f68204cf1e5ebf7753bef4ecbc8bd1188145751d",
+      "yamlSha256": "def12ee45e3985683b9585c7bab81b5973a169e88f037d28c9854f20c901c23d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_hospital_authority_hospitals_institutions_specialist_outpatient_clinics_family_medicine_clinics",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3396b03f826a95aec55eb3a5f68204cf1e5ebf7753bef4ecbc8bd1188145751d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637028364270_14638",
+        "canonicalJsonSha256": "3396b03f826a95aec55eb3a5f68204cf1e5ebf7753bef4ecbc8bd1188145751d",
+        "originalRepresentationSha256": "3396b03f826a95aec55eb3a5f68204cf1e5ebf7753bef4ecbc8bd1188145751d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_hospital_authority_hospitals_institutions_specialist_outpatient_clinics_family_medicine_clinics"
+    },
+    {
+      "id": "hospital-csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-2",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-2",
+      "name": "List of Hospital Authority Hospitals/Institutions/Specialist Outpatient Clinics/Family Medicine Clinics",
+      "apiTitle": "Hospital Authority \u2014 List of Hospital Authority Hospitals/Institutions/Specialist Outpatient Clinics/Family Medicine Clinics",
+      "json": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-2/openapi.json",
+      "yaml": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-2/openapi.yaml",
+      "file": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-2/openapi.json",
+      "sha256": "a578999bedc4ef5b097d6031bb761e0a24fc0be59186867953202d6c7f41702b",
+      "jsonSha256": "a578999bedc4ef5b097d6031bb761e0a24fc0be59186867953202d6c7f41702b",
+      "yamlSha256": "d208acd85051095a2799df0d729467fc596e1e48f1a85f6d4da0fff374c028b0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_hospital_authority_hospitals_institutions_specialist_outpatient_clinics_family_medicine_clinics_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a578999bedc4ef5b097d6031bb761e0a24fc0be59186867953202d6c7f41702b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637050485482_89683",
+        "canonicalJsonSha256": "a578999bedc4ef5b097d6031bb761e0a24fc0be59186867953202d6c7f41702b",
+        "originalRepresentationSha256": "a578999bedc4ef5b097d6031bb761e0a24fc0be59186867953202d6c7f41702b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_hospital_authority_hospitals_institutions_specialist_outpatient_clinics_family_medicine_clinics_service_2"
+    },
+    {
+      "id": "hospital-csdi-inpatient-and-day-inpatient-services-throughput",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-inpatient-and-day-inpatient-services-throughput",
+      "name": "Inpatient and Day Inpatient Services Throughput",
+      "apiTitle": "Hospital Authority \u2014 Inpatient and Day Inpatient Services Throughput",
+      "json": "hospital/csdi-inpatient-and-day-inpatient-services-throughput/openapi.json",
+      "yaml": "hospital/csdi-inpatient-and-day-inpatient-services-throughput/openapi.yaml",
+      "file": "hospital/csdi-inpatient-and-day-inpatient-services-throughput/openapi.json",
+      "sha256": "0e3afc8fce469e9fa5cc1a539b9c0d8149647827088a438adefe167c89c14247",
+      "jsonSha256": "0e3afc8fce469e9fa5cc1a539b9c0d8149647827088a438adefe167c89c14247",
+      "yamlSha256": "b0986e699ef6a38228a4bc01f80976b80fe25291063dd411af862bf5c853958a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_inpatient_and_day_inpatient_services_throughput",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0e3afc8fce469e9fa5cc1a539b9c0d8149647827088a438adefe167c89c14247"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637052469992_16991",
+        "canonicalJsonSha256": "0e3afc8fce469e9fa5cc1a539b9c0d8149647827088a438adefe167c89c14247",
+        "originalRepresentationSha256": "0e3afc8fce469e9fa5cc1a539b9c0d8149647827088a438adefe167c89c14247",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_inpatient_and_day_inpatient_services_throughput"
+    },
+    {
+      "id": "hospital-csdi-inpatient-and-day-inpatient-services-throughput-service-2",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-inpatient-and-day-inpatient-services-throughput-service-2",
+      "name": "Inpatient and Day Inpatient Services Throughput",
+      "apiTitle": "Hospital Authority \u2014 Inpatient and Day Inpatient Services Throughput",
+      "json": "hospital/csdi-inpatient-and-day-inpatient-services-throughput-service-2/openapi.json",
+      "yaml": "hospital/csdi-inpatient-and-day-inpatient-services-throughput-service-2/openapi.yaml",
+      "file": "hospital/csdi-inpatient-and-day-inpatient-services-throughput-service-2/openapi.json",
+      "sha256": "95b6e07bb621a1ce92c9dee460cd9138e2fd80b1eac7b33e7f67bb61fea9ba8d",
+      "jsonSha256": "95b6e07bb621a1ce92c9dee460cd9138e2fd80b1eac7b33e7f67bb61fea9ba8d",
+      "yamlSha256": "47862289e6e46bfa38118a679f63247d242880f1644d15bb9dab95c0c0afa7a1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_inpatient_and_day_inpatient_services_throughput_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "95b6e07bb621a1ce92c9dee460cd9138e2fd80b1eac7b33e7f67bb61fea9ba8d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637054913832_84867",
+        "canonicalJsonSha256": "95b6e07bb621a1ce92c9dee460cd9138e2fd80b1eac7b33e7f67bb61fea9ba8d",
+        "originalRepresentationSha256": "95b6e07bb621a1ce92c9dee460cd9138e2fd80b1eac7b33e7f67bb61fea9ba8d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_inpatient_and_day_inpatient_services_throughput_service_2"
+    },
+    {
+      "id": "hospital-csdi-inpatient-and-day-inpatient-services-throughput-service-3",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-inpatient-and-day-inpatient-services-throughput-service-3",
+      "name": "Inpatient and Day Inpatient Services Throughput",
+      "apiTitle": "Hospital Authority \u2014 Inpatient and Day Inpatient Services Throughput",
+      "json": "hospital/csdi-inpatient-and-day-inpatient-services-throughput-service-3/openapi.json",
+      "yaml": "hospital/csdi-inpatient-and-day-inpatient-services-throughput-service-3/openapi.yaml",
+      "file": "hospital/csdi-inpatient-and-day-inpatient-services-throughput-service-3/openapi.json",
+      "sha256": "de74b09866d31e3e1d7d72a6ad9e933e5594fd355eaf0e55ae17f5f270036577",
+      "jsonSha256": "de74b09866d31e3e1d7d72a6ad9e933e5594fd355eaf0e55ae17f5f270036577",
+      "yamlSha256": "2d2b34a92facff879bd463ab6d8cf2987fd8a5fbb1d495cc7a50789851b0afac",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_inpatient_and_day_inpatient_services_throughput_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "de74b09866d31e3e1d7d72a6ad9e933e5594fd355eaf0e55ae17f5f270036577"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637055408425_94084",
+        "canonicalJsonSha256": "de74b09866d31e3e1d7d72a6ad9e933e5594fd355eaf0e55ae17f5f270036577",
+        "originalRepresentationSha256": "de74b09866d31e3e1d7d72a6ad9e933e5594fd355eaf0e55ae17f5f270036577",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_inpatient_and_day_inpatient_services_throughput_service_3"
+    },
+    {
+      "id": "hospital-csdi-ambulatory-and-community-services-throughput-service-2",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-ambulatory-and-community-services-throughput-service-2",
+      "name": "Ambulatory and Community Services Throughput",
+      "apiTitle": "Hospital Authority \u2014 Ambulatory and Community Services Throughput",
+      "json": "hospital/csdi-ambulatory-and-community-services-throughput-service-2/openapi.json",
+      "yaml": "hospital/csdi-ambulatory-and-community-services-throughput-service-2/openapi.yaml",
+      "file": "hospital/csdi-ambulatory-and-community-services-throughput-service-2/openapi.json",
+      "sha256": "a32b0aab79add0128fd99e63c6c4f870964978b5b9377b18b6966a23c1f4de65",
+      "jsonSha256": "a32b0aab79add0128fd99e63c6c4f870964978b5b9377b18b6966a23c1f4de65",
+      "yamlSha256": "6d34d1efc97870ea64156eb9c7389773d4a49a84524c1bdb0dc1361586a7c30d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ambulatory_and_community_services_throughput_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a32b0aab79add0128fd99e63c6c4f870964978b5b9377b18b6966a23c1f4de65"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637055756197_31031",
+        "canonicalJsonSha256": "a32b0aab79add0128fd99e63c6c4f870964978b5b9377b18b6966a23c1f4de65",
+        "originalRepresentationSha256": "a32b0aab79add0128fd99e63c6c4f870964978b5b9377b18b6966a23c1f4de65",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ambulatory_and_community_services_throughput_service_2"
+    },
+    {
+      "id": "hospital-csdi-ambulatory-and-community-services-throughput-service-3",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-ambulatory-and-community-services-throughput-service-3",
+      "name": "Ambulatory and Community Services Throughput",
+      "apiTitle": "Hospital Authority \u2014 Ambulatory and Community Services Throughput",
+      "json": "hospital/csdi-ambulatory-and-community-services-throughput-service-3/openapi.json",
+      "yaml": "hospital/csdi-ambulatory-and-community-services-throughput-service-3/openapi.yaml",
+      "file": "hospital/csdi-ambulatory-and-community-services-throughput-service-3/openapi.json",
+      "sha256": "1399fdc667233a4e731f819f2828d22de309a6f38b7277d27fae51b0f6eadd26",
+      "jsonSha256": "1399fdc667233a4e731f819f2828d22de309a6f38b7277d27fae51b0f6eadd26",
+      "yamlSha256": "fd19702956df4a6d2afe2e183e8fbd47e530a40d4f37516a86caa3ad86001c7f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ambulatory_and_community_services_throughput_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1399fdc667233a4e731f819f2828d22de309a6f38b7277d27fae51b0f6eadd26"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637056228502_23233",
+        "canonicalJsonSha256": "1399fdc667233a4e731f819f2828d22de309a6f38b7277d27fae51b0f6eadd26",
+        "originalRepresentationSha256": "1399fdc667233a4e731f819f2828d22de309a6f38b7277d27fae51b0f6eadd26",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ambulatory_and_community_services_throughput_service_3"
+    },
+    {
+      "id": "hospital-csdi-family-medicine-clinic-quota",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-family-medicine-clinic-quota",
+      "name": "Family Medicine Clinic Quota",
+      "apiTitle": "Hospital Authority \u2014 Family Medicine Clinic Quota",
+      "json": "hospital/csdi-family-medicine-clinic-quota/openapi.json",
+      "yaml": "hospital/csdi-family-medicine-clinic-quota/openapi.yaml",
+      "file": "hospital/csdi-family-medicine-clinic-quota/openapi.json",
+      "sha256": "b729f09f3cd6f70812abf7663626b6c6db472caf409a8d487176c120ceb16444",
+      "jsonSha256": "b729f09f3cd6f70812abf7663626b6c6db472caf409a8d487176c120ceb16444",
+      "yamlSha256": "8043a7479d5168e427457aa43adf3927d58bb74b467bd617f33f8a2991a9d161",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_family_medicine_clinic_quota",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b729f09f3cd6f70812abf7663626b6c6db472caf409a8d487176c120ceb16444"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637056615821_86968",
+        "canonicalJsonSha256": "b729f09f3cd6f70812abf7663626b6c6db472caf409a8d487176c120ceb16444",
+        "originalRepresentationSha256": "b729f09f3cd6f70812abf7663626b6c6db472caf409a8d487176c120ceb16444",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_family_medicine_clinic_quota"
+    },
+    {
+      "id": "hospital-csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-3",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-3",
+      "name": "List of Hospital Authority Hospitals/Institutions/Specialist Outpatient Clinics/Family Medicine Clinics",
+      "apiTitle": "Hospital Authority \u2014 List of Hospital Authority Hospitals/Institutions/Specialist Outpatient Clinics/Family Medicine Clinics",
+      "json": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-3/openapi.json",
+      "yaml": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-3/openapi.yaml",
+      "file": "hospital/csdi-list-of-hospital-authority-hospitals-institutions-specialist-outpatient-clinics-family-medicine-clinics-service-3/openapi.json",
+      "sha256": "c760996bc7e0b43e8b3bc8ec6f9d7c722c84ad27aca3466a65c910414abb4441",
+      "jsonSha256": "c760996bc7e0b43e8b3bc8ec6f9d7c722c84ad27aca3466a65c910414abb4441",
+      "yamlSha256": "a6d680eda949d28cfac8aa3428f50b3dc0c3dee4535820461187331b9aca8e7b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_hospital_authority_hospitals_institutions_specialist_outpatient_clinics_family_medicine_clinics_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c760996bc7e0b43e8b3bc8ec6f9d7c722c84ad27aca3466a65c910414abb4441"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fhb_rcd_1637120936400_35338",
+        "canonicalJsonSha256": "c760996bc7e0b43e8b3bc8ec6f9d7c722c84ad27aca3466a65c910414abb4441",
+        "originalRepresentationSha256": "c760996bc7e0b43e8b3bc8ec6f9d7c722c84ad27aca3466a65c910414abb4441",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_hospital_authority_hospitals_institutions_specialist_outpatient_clinics_family_medicine_clinics_service_3"
+    },
+    {
+      "id": "hospital-csdi-ambulatory-and-community-services-throughput-service-4",
+      "publisherKey": "hospital",
+      "publisherName": "Hospital Authority",
+      "familyKey": "csdi-ambulatory-and-community-services-throughput-service-4",
+      "name": "Ambulatory and Community Services Throughput",
+      "apiTitle": "Hospital Authority \u2014 Ambulatory and Community Services Throughput",
+      "json": "hospital/csdi-ambulatory-and-community-services-throughput-service-4/openapi.json",
+      "yaml": "hospital/csdi-ambulatory-and-community-services-throughput-service-4/openapi.yaml",
+      "file": "hospital/csdi-ambulatory-and-community-services-throughput-service-4/openapi.json",
+      "sha256": "fd57841846f4b3c49dc6c24b9eeef62b2fd6e453818a0f02521a7f34fa6848ab",
+      "jsonSha256": "fd57841846f4b3c49dc6c24b9eeef62b2fd6e453818a0f02521a7f34fa6848ab",
+      "yamlSha256": "446d666a14e59acaaf2226cdf0c513a1e858e8e475c86bf5be371e67baff3058",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ambulatory_and_community_services_throughput_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fd57841846f4b3c49dc6c24b9eeef62b2fd6e453818a0f02521a7f34fa6848ab"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hhb_rcd_1669036380658_43314",
+        "canonicalJsonSha256": "fd57841846f4b3c49dc6c24b9eeef62b2fd6e453818a0f02521a7f34fa6848ab",
+        "originalRepresentationSha256": "fd57841846f4b3c49dc6c24b9eeef62b2fd6e453818a0f02521a7f34fa6848ab",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ambulatory_and_community_services_throughput_service_4"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "sourceId": "reo-csdi-election-results-of-2016-legislative-council-general-election",
+  "publisherKey": "reo",
+  "family": "csdi_election_results_of_2016_legislative_council_general_election",
+  "status": "generated",
+  "key": "81f125016f2a26320cb13dd75137b1ab743780a6992f3ee3b01766ca685cf27c",
+  "sourceSha256": "00b4c7688c5a16a923f6a8f3fc751f80e718d79aed157ec067c315fb49ffc0d7",
+  "derivedInputSha256": "6d911f973668cbaec01d862b9a2f5d11b95d5b89d7ae5df6e86ff7f565ef83ec",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/reo_rcd_1667450299928_3236/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/reo_rcd_1667450299928_3236/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap",
+      "tags": [
+        "WMS"
+      ]
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/reo-csdi-election-results-of-2016-legislative-council-general-election.log",
+  "outputs": {
+    "__init__.py": "6bc6482b842d24ac87572b7380b0b03fb1023b690991e371d0b825ca8c34f1fa",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "c11953663c38cc7b54e257ed1baff723b620f67521edf8043f24d75e620b94b3",
+    "api/wms/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wms/wms_map_server_get_map.py": "78ff40610ac624e6e9e74e6082d778867bf7cfa58cfda2fc4bbb64453df16399",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "f7b730527410a9edb8ab415ba1d8c7cee96d9736640f127ca70318d52b2dec88",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "d9325cb7c7296d0dffc2a5ff1482a16eabe17442ec9c1cd1d17d98f8b811e353",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "ea4e06881127167ef1b8d0f56eb5711eb2736d7dc70ac7b0acba3dc9e4f4d547",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "4d30fa02629b9901bc093a1803139f727bd1da5f529b7900176658ffb2b198f2",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "944289458a23058f800e736328b89819a13774d013ee275fc76cc72b20003e16",
+    "models/arcgis_feature_server_arcgis_layer_1_attributes.py": "90ec57f6a76f3af95b7ee684fa3cbc145de796aae4d6e9c6101bace2a28a8480",
+    "models/arcgis_feature_server_arcgis_layer_2_attributes.py": "16517c5c898f2fff9ae1101ba4d377a015ebd5dfc0f142a7b0895b0edd5ebdbf",
+    "models/arcgis_feature_server_arcgis_layer_3_attributes.py": "6a8d5aabf96cc9b3e13ff0fc0a0ff3c2208d400290df80029c53cdf1f7774028",
+    "models/arcgis_feature_server_arcgis_layer_4_attributes.py": "c38e83cc0f540ccff1bd7be50011b2c768491e925fde2cd939b7e6febe460f4c",
+    "models/arcgis_feature_server_arcgis_layer_5_attributes.py": "ec9b4f345c9d202ae38969bf28fc2af55c022605a1386062d1698ef160823c9a",
+    "models/arcgis_feature_server_arcgis_layer_6_attributes.py": "0e20e4bfc166ce73e10e01c8b8827c540468cbb367a3db9a3685b521ed4bdf7d",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "models/wms_map_server_get_map_format.py": "a65b75b0acd6d74d2b98a842cc9d3f5acd1a40873813841fd53fdffe75d25c40",
+    "models/wms_map_server_get_map_request.py": "847774c945625dd0b2021a20ecb37f7d99e0031f6b91c82d0aa27cdc0f99b621",
+    "models/wms_map_server_get_map_service.py": "cb701b87d9fbf4f140a0316cede0a4bc37a611998facdd5bb0793962d7d9c3a5",
+    "models/wms_map_server_get_map_version.py": "80f2a7664e048499e4919b94dfcf4a546ef4aec1e377a77fb199c1a6e5d9856a",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

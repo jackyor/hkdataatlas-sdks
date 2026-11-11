@@ -1,0 +1,500 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Prices and yields of Government Bonds issued under the Institutional Bond Issuance Programme - Daily figures",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/gov-bond/instit-bond-price-yield-daily",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/gov-bond",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/instit-bond-price-yield-daily": {
+      "get": {
+        "summary": "Retrieve data of Prices and yields of Government Bonds issued under the Institutional Bond Issuance Programme - Daily figures",
+        "parameters": [
+		  {
+            "name": "segment",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Segment"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+				"oneOf": [
+			    {"$ref": "#/components/schemas/Benchmark"},
+				{"$ref": "#/components/schemas/Outstanding"},
+				{"$ref": "#/components/schemas/Matured"}
+			  ]
+            },
+            "description": ""
+          }
+        }
+      },
+      "Benchmark": {
+        "title": "Benchmark",
+        "type": "object",
+        "properties": {
+          "end_of_day": {
+            "type": "string",
+            "format": "date"
+          },
+          "ind_pricing_2y": {
+            "type": "number"
+          },
+          "ind_pricing_3y": {
+            "type": "number"
+          },
+          "ind_pricing_5y": {
+            "type": "number"
+          },
+          "ind_pricing_10y": {
+            "type": "number"
+          },
+          "ind_pricing_15y": {
+            "type": "number"
+          },
+          "closing_ref_rate_2y": {
+            "type": "number"
+          },
+          "closing_ref_rate_3y": {
+            "type": "number"
+          },
+          "closing_ref_rate_5y": {
+            "type": "number"
+          },
+          "closing_ref_rate_10y": {
+            "type": "number"
+          },
+          "closing_ref_rate_15y": {
+            "type": "number"
+          }
+        }
+      },
+	  "Outstanding": {
+        "title": "Outstanding",
+        "type": "object",
+        "properties": {
+          "end_of_day": {
+            "type": "string",
+            "format": "date"
+          },
+          "ind_pricing_10gb2001": {
+            "type": "number"
+          },
+          "ind_pricing_05gb2002": {
+            "type": "number"
+          },
+          "ind_pricing_05gb2011": {
+            "type": "number"
+          },
+          "ind_pricing_10gb2108": {
+            "type": "number"
+          },
+          "ind_pricing_05gb2205": {
+            "type": "number"
+          },
+          "ind_pricing_10gb2301": {
+            "type": "number"
+          },
+          "ind_pricing_10gb2408": {
+            "type": "number"
+          },
+          "ind_pricing_10gb2601": {
+            "type": "number"
+          },
+          "ind_pricing_10gb2706": {
+            "type": "number"
+          },
+          "ind_pricing_10gb2901": {
+            "type": "number"
+          },
+          "ind_pricing_15gb3007": {
+            "type": "number"
+          },
+          "ind_pricing_15gb3203": {
+            "type": "number"
+          },
+          "ind_pricing_15gb3403": {
+            "type": "number"
+          },
+          "closing_ref_rate_10gb2001": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb2002": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb2011": {
+            "type": "number"
+          },
+          "closing_ref_rate_10gb2108": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb2205": {
+            "type": "number"
+          },
+          "closing_ref_rate_10gb2301": {
+            "type": "number"
+          },
+          "closing_ref_rate_10gb2408": {
+            "type": "number"
+          },
+          "closing_ref_rate_10gb2601": {
+            "type": "number"
+          },
+          "closing_ref_rate_10gb2706": {
+            "type": "number"
+          },
+          "closing_ref_rate_10gb2901": {
+            "type": "number"
+          },
+          "closing_ref_rate_15gb3007": {
+            "type": "number"
+          },
+          "closing_ref_rate_15gb3203": {
+            "type": "number"
+          },
+          "closing_ref_rate_15gb3403": {
+            "type": "number"
+          }
+        }
+      },
+	  "Matured": {
+        "title": "Matured",
+        "type": "object",
+        "properties": {
+          "end_of_day": {
+            "type": "string",
+            "format": "date"
+          },
+          "ind_pricing_02gb1109": {
+            "type": "number"
+          },
+          "ind_pricing_02gb1203": {
+            "type": "number"
+          },
+          "ind_pricing_02gb1209": {
+            "type": "number"
+          },
+          "ind_pricing_02gb1303": {
+            "type": "number"
+          },
+          "ind_pricing_02gb1309": {
+            "type": "number"
+          },
+          "ind_pricing_02gb1403": {
+            "type": "number"
+          },
+          "ind_pricing_05gb1411": {
+            "type": "number"
+          },
+          "ind_pricing_03gb1505": {
+            "type": "number"
+          },
+          "ind_pricing_05gb1512": {
+            "type": "number"
+          },
+          "ind_pricing_03gb1605": {
+            "type": "number"
+          },
+          "ind_pricing_05gb1612": {
+            "type": "number"
+          },
+          "ind_pricing_03gb1704": {
+            "type": "number"
+          },
+          "ind_pricing_03gb1711": {
+            "type": "number"
+          },
+          "ind_pricing_05gb1802": {
+            "type": "number"
+          },
+          "ind_pricing_05gb1902": {
+            "type": "number"
+          },
+          "closing_ref_rate_02gb1109": {
+            "type": "number"
+          },
+          "closing_ref_rate_02gb1203": {
+            "type": "number"
+          },
+          "closing_ref_rate_02gb1209": {
+            "type": "number"
+          },
+          "closing_ref_rate_02gb1303": {
+            "type": "number"
+          },
+          "closing_ref_rate_02gb1309": {
+            "type": "number"
+          },
+          "closing_ref_rate_02gb1403": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb1411": {
+            "type": "number"
+          },
+          "closing_ref_rate_03gb1505": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb1512": {
+            "type": "number"
+          },
+          "closing_ref_rate_03gb1605": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb1612": {
+            "type": "number"
+          },
+          "closing_ref_rate_03gb1704": {
+            "type": "number"
+          },
+          "closing_ref_rate_03gb1711": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb1802": {
+            "type": "number"
+          },
+          "closing_ref_rate_05gb1902": {
+            "type": "number"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+	  "Segment": {
+        "title": "segment",
+        "enum": [
+          "Benchmark",
+          "OutstandPrices",
+          "OutstandYields",
+          "MaturedPrices",
+          "MaturedYields"
+        ],
+        "type": "string",
+        "example": "Benchmark",
+        "x-enum-elements": [
+          {
+            "name": "Benchmark",
+            "description": ""
+          },
+          {
+            "name": "OutstandPrices",
+            "description": ""
+          },
+          {
+            "name": "OutstandYields",
+            "description": ""
+          },
+          {
+            "name": "MaturedPrices",
+            "description": ""
+          },
+          {
+            "name": "MaturedYields",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  }
+}

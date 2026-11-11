@@ -1,0 +1,64 @@
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/IdentifyAPI
+info:
+  contact:
+    email: geoinfomap@landsd.gov.hk
+    name: GeoInfo Map Support Team
+  description: HTTP API for identifying facility information at a selected geographic location. The API guide documents version v1.0.0; the OpenAPI metadata version is a placeholder and is not a publisher API version. Avoid invoking the API with large numbers of requests within a short period. Authentication requirements are not specified in the source.
+  title: Lands Department Identify API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /{version}/identify:
+    get:
+      description: Identifies information about a facility at the selected geographic location. The documented current API version is v1.0.0; the publisher notes that versions may be updated and old versions may be removed without notice. The response is JSON, but the source does not document its object structure.
+      operationId: identifyFacility
+      parameters:
+        - description: API version. The guide identifies v1.0.0 as the current version and warns that supported versions may change.
+          example: v1.0.0
+          in: path
+          name: version
+          required: true
+          schema:
+            type: string
+        - description: HK80 Easting coordinate value, in metres. The guide does not explicitly label query requiredness.
+          example: 835665
+          in: query
+          name: x
+          schema:
+            type: number
+        - description: HK80 Northing coordinate value, in metres. The guide does not explicitly label query requiredness.
+          example: 817198
+          in: query
+          name: y
+          schema:
+            type: number
+        - description: Language of the output JSON. The guide documents en for English and zh for Traditional Chinese. The guide does not explicitly label query requiredness.
+          examples:
+            chinese:
+              summary: Chinese
+              value: zh
+            english:
+              summary: English
+              value: en
+          in: query
+          name: lang
+          schema:
+            enum:
+              - en
+              - zh
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              example: {}
+              schema: {}
+          description: OK. Response data is returned in JSON format; the response structure is not documented.
+        "400":
+          description: Bad Request, for example because of invalid query parameters.
+        "500":
+          description: Internal Server Error.
+      summary: Identify facility information
+servers:
+  - url: https://www.map.gov.hk/gs/api

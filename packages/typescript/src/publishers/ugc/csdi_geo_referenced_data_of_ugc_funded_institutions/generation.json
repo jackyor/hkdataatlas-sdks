@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ugc-csdi-geo-referenced-data-of-ugc-funded-institutions",
+  "sourceSha256": "1301cd04a98d9dfe81a153d6d3ec55ca304951ce5b9e55c7df77ee3eee67cffe",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ugc_rcd_1638846307827_50200/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ugc_rcd_1638846307827_50200/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ugc_rcd_1638846307827_50200/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

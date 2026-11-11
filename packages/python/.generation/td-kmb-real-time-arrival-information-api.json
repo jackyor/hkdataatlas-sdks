@@ -1,0 +1,159 @@
+{
+  "sourceId": "td-kmb-real-time-arrival-information-api",
+  "publisherKey": "td",
+  "family": "kmb_real_time_arrival_information_api",
+  "status": "generated",
+  "key": "bca0924cf856ac2bb143bf6c6c3d722356c1a81e8293fd0cdf64adc9f29358ee",
+  "sourceSha256": "34e7eb54faaaecec2abdc2c975bc68c55926c1964a29d4eca36f0b4dcca82cc9",
+  "derivedInputSha256": "24b4d0a04c812fbfd5c049c6fbe075ed24eadc6ad335fa954856160f0a608725",
+  "normalizations": [
+    {
+      "pointer": "/components/schemas/EtaResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteEtaResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteListResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopListResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/RouteStopResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopEtaResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopListResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopResponse/allOf/1/properties/type",
+      "rule": "const_to_singleton_enum"
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/eta/{stop_id}/{route}/{service_type}",
+      "operationId": "getEta",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/route-eta/{route}/{service_type}",
+      "operationId": "getRouteEta",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/route-stop",
+      "operationId": "getRouteStopList",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/route-stop/{route}/{direction}/{service_type}",
+      "operationId": "getRouteStops",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/route/",
+      "operationId": "getRouteList",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/route/{route}/{direction}/{service_type}",
+      "operationId": "getRoute",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/stop",
+      "operationId": "getStopList",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/stop-eta/{stop_id}",
+      "operationId": "getStopEta",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/kmb/stop/{stop_id}",
+      "operationId": "getStop",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/td-kmb-real-time-arrival-information-api.log",
+  "outputs": {
+    "__init__.py": "d3c8defbd4ef5cf671f58601a3a96b72d99185fbd550653c8615b79b949a4614",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_eta.py": "80a3bfe3e92698218bec920a4d265ba23282a01a226b32274fbb9d5b4fd8a964",
+    "api/default/get_route.py": "faaed4ab2acef62d2a2430bb96247debae484a4e0290fffa3f003c52ff9178e4",
+    "api/default/get_route_eta.py": "575871bad0d9038b62671e0cb34929b5f36ad375c0203570af002fdbd977de73",
+    "api/default/get_route_list.py": "887c53385d4e23e516e3eb8a48cfe6a2e411e41212624074dab93c4a9b91c322",
+    "api/default/get_route_stop_list.py": "623430531fcec369f3f8781d2754a4c1922eaf8844db2167b81cf6c8c2d96a5a",
+    "api/default/get_route_stops.py": "3ac11da591c818ed4a121896910524876594cb93fcf883db92e2bf2cf425bf40",
+    "api/default/get_stop.py": "8874c4e05cd8258fceb86081dbcc724cb53f67a61c773d94f024a546ea6eda29",
+    "api/default/get_stop_eta.py": "d6df694763ae1b6ec4306575469fa68cbae407b11d3d5023d50739df50960908",
+    "api/default/get_stop_list.py": "2b6d72c86f09f7fbecc07e8a3ed2bca1a80a6d30cd00a479d244de3fb43139bd",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "422ac059ae0d636b9972d2d20edd16887097c299b092aa8f9c7baf22d1b52244",
+    "models/api_execution_error.py": "96494acca292449a091892f2a5b34a4c222555a1c6377e2f1c08af60a4331c68",
+    "models/error.py": "26dd87b0e9c1d7bc7d2a02c2f3a153f332ee9e6270f13b01d9c086b2f86c417a",
+    "models/eta.py": "c0ced73245e05bb068456589571a5067de4c7fa24ff069f23868c80de6f07f5d",
+    "models/eta_dir.py": "bcec032093142c064ede63bec6224864bd88021ff3521f222c560c3001f68486",
+    "models/eta_response.py": "dd70cb0a86d81b2960e6003d7240273cedbc56803c7f865c059307993d7d276c",
+    "models/eta_response_data_type_1.py": "89edc452cf347698c83a56fb792d1f0c94a687de282613c61f06f1fd302c7d59",
+    "models/eta_response_type.py": "6dede3c869ec25d048de12f41239b902f95f85b97031c2da524271f9c6a6b3af",
+    "models/get_route_direction.py": "b7271c28bfa883788f490c5856ff0b9b3f5f42a1a2ddbffbf4c621ebb76162a8",
+    "models/get_route_stops_direction.py": "c2eef328d91e00e7a943fa27c804a05130aa8cb9f2a7e7f881e601af6d27085e",
+    "models/response_envelope.py": "1f9e27a55f5dcd65e66df2f16bd1472cb90db4826106db2e674d787b2c418fb1",
+    "models/route.py": "7e4f8015dfc0a43e6b0b34c56259aca89c4272c4e4b98692b5965c21acd64d5e",
+    "models/route_bound.py": "b2646ea3e1ef597362e16d5a21869ff474fb3aa39b120e41306be33463a3ffe7",
+    "models/route_eta_response.py": "f394e5222afd926fdb95f996206c01f5c0c7cba129138f75594fb5b531499e2f",
+    "models/route_eta_response_data_type_1.py": "220466cf13d531aa56ecf2163bc09781858ac2605c3015a21f50aea2e1c03b16",
+    "models/route_eta_response_type.py": "114033a345e984327347d589f062e9d9f1847c091c2325294e4cb24ce8296de9",
+    "models/route_list_response.py": "29dfa864ec3fe6b402402d6155d2e3926b40818a07899168af7ad2867ac81777",
+    "models/route_list_response_type.py": "17db33c1d56512f6c4d932ab838b9ae0d0c3543df8399d28a1b43802dcd60d94",
+    "models/route_response.py": "de5ffff53c1e3915cc4546625c37cf652bc976155618987dfa0578b1f689c38d",
+    "models/route_response_type.py": "5d7ae652e70e3cf1dfc5134eb230a8580bd320698ad3b666f172ab7da81f062c",
+    "models/route_stop.py": "5f71ccc4643695b68b2aea62c2bb3eab41f7e8275b1ac665e0afe5d215acf8be",
+    "models/route_stop_bound.py": "df045cb43406e9e9f3bdf6e0a374d9708ae14e6d21e1881330f526613dce579f",
+    "models/route_stop_list_response.py": "de3613afe19b86660ce4125940d844c9e8ede51a265ac6bf2a65a544b1e11f46",
+    "models/route_stop_list_response_data_type_1.py": "a6b6b0bac5aeeaf69a09fe5d8c5a566e141437066b7949fa20a9619a387357f6",
+    "models/route_stop_list_response_type.py": "b4076e8722de62cda50f02cb25f79f53ea43f508df773d9187047d34d8eebff9",
+    "models/route_stop_response.py": "2612b775c754319cb3fb3a6e99f60edbce83ab75074412c3dd64990a7876250e",
+    "models/route_stop_response_data_type_1.py": "2b0fb69eccedba652847e834bdac1726338e966cdfac71e7df99b83c24efe8cf",
+    "models/route_stop_response_type.py": "def0710406ed85e5c507f89dfc67d2088bdf1b9cf000a3e2efe318554211c9d1",
+    "models/stop.py": "7cfd0e1b1469dbaba35d69f40d2080292aadf868b7b5c3796b1c5aba6341657e",
+    "models/stop_eta_response.py": "b25001036a797c32847e3b03b10f25febfe1682d1f30b7839c2fee412e322073",
+    "models/stop_eta_response_data_type_1.py": "599ba44efd0f76b2f0a6cfd0cfbcd8f2adaa843b995d828c1abc485ae5e701a9",
+    "models/stop_eta_response_type.py": "b76b0624a8220f7690ec20d0549d2ac28d4d7311e42268cf50d407403d37f503",
+    "models/stop_list_response.py": "a5e4bf547e5ca6a639f95b7702eac39c060584872f72eb473b5ad07e62bbbfe1",
+    "models/stop_list_response_type.py": "6e8ba29f4464f6c643d8957af7689fe3e61d9b0f27bd4f165931f3047f5d9d58",
+    "models/stop_response.py": "fe854a3bb3fadb745fdee457af94b1d85aa4dcd553bcf55cb8364f63e7d0cd68",
+    "models/stop_response_type.py": "95a376a8cbbef77a6054eae9db4b08004fd8b311b5e0cbf12a5aca8d4151fed9",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

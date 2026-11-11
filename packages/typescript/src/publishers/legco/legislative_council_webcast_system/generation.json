@@ -1,0 +1,47 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "legco-legislative-council-webcast-system",
+  "sourceSha256": "99da608c95d7c78c57cca608908ee54e9ced0c52980c2cd6c28d5c5e874c0322",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/VArchiveMeeting",
+      "operationId": "getArchivedMeetings"
+    },
+    {
+      "method": "GET",
+      "path": "/VLiveMeeting",
+      "operationId": "getLiveMeetings"
+    },
+    {
+      "method": "GET",
+      "path": "/VMeetingInfo",
+      "operationId": "getMeetingAgendaItems"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/paths//VArchiveMeeting/get/responses/200/content/application/xml",
+      "rule": "text-media-raw-wire-response",
+      "sourceSchema": {
+        "items": {
+          "$ref": "#/components/schemas/ArchiveMeeting"
+        },
+        "type": "array"
+      },
+      "proof": "Native fetch exposes XML/text as text without a decoder; raw wire type is string. Canonical logical response model and source constraints remain unchanged in the preserved specification."
+    },
+    {
+      "path": "$/paths//VMeetingInfo/get/responses/200/content/application/xml",
+      "rule": "text-media-raw-wire-response",
+      "sourceSchema": {
+        "items": {
+          "$ref": "#/components/schemas/MeetingInfo"
+        },
+        "type": "array"
+      },
+      "proof": "Native fetch exposes XML/text as text without a decoder; raw wire type is string. Canonical logical response model and source constraints remain unchanged in the preserved specification."
+    }
+  ]
+}

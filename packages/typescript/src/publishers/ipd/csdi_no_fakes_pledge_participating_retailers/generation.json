@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ipd-csdi-no-fakes-pledge-participating-retailers",
+  "sourceSha256": "d00b5d04d918da67aed014a807adbc93c25790895d8708dee1febd030a542a5a",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ipd_rcd_1728898210576_79568/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ipd_rcd_1728898210576_79568/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

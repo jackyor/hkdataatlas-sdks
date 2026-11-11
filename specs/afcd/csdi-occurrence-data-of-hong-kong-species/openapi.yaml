@@ -1,0 +1,1821 @@
+openapi: 3.1.0
+info:
+  title: Agriculture, Fisheries and Conservation Department — Occurrence Data of Hong Kong Species
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: grid
+              value: 0
+            choice2:
+              summary: O2002
+              value: 1000
+            choice3:
+              summary: O2003
+              value: 1001
+            choice4:
+              summary: O2004
+              value: 1002
+            choice5:
+              summary: O2005
+              value: 1003
+            choice6:
+              summary: O2006
+              value: 1004
+            choice7:
+              summary: O2007
+              value: 1005
+            choice8:
+              summary: O2008
+              value: 1006
+            choice9:
+              summary: O2009
+              value: 1007
+            choice10:
+              summary: O2010
+              value: 1008
+            choice11:
+              summary: O2011
+              value: 1009
+            choice12:
+              summary: O2012
+              value: 1010
+            choice13:
+              summary: O2013
+              value: 1011
+            choice14:
+              summary: O2014
+              value: 1012
+            choice15:
+              summary: O2015
+              value: 1013
+            choice16:
+              summary: O2016
+              value: 1014
+            choice17:
+              summary: O2017
+              value: 1015
+            choice18:
+              summary: O2018
+              value: 1016
+            choice19:
+              summary: O2019
+              value: 1017
+            choice20:
+              summary: O2020
+              value: 1018
+            choice21:
+              summary: O2021
+              value: 1019
+            choice22:
+              summary: O2022
+              value: 1020
+            choice23:
+              summary: O2023
+              value: 1021
+            choice24:
+              summary: O2024
+              value: 1022
+            choice25:
+              summary: O2025
+              value: 1023
+          x-choice-count: 26
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+            - 1000
+            - 1001
+            - 1002
+            - 1003
+            - 1004
+            - 1005
+            - 1006
+            - 1007
+            - 1008
+            - 1009
+            - 1010
+            - 1011
+            - 1012
+            - 1013
+            - 1014
+            - 1015
+            - 1016
+            - 1017
+            - 1018
+            - 1019
+            - 1020
+            - 1021
+            - 1022
+            - 1023
+            - 1024
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer?f=pjson
+          sha256: ccef1c229b9efea61c4428f088a3c45f9071c10587881bf30b102549e9576d30
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/0?f=pjson
+          sha256: 77da4d076c6d58a73cab1fb7ccda17c097524929c242662e15405f24788347e0
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1000?f=pjson
+          sha256: 8396eb674411008993d5f1230bcde23c08200fd200ebc1675439f715e9d4c748
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1001?f=pjson
+          sha256: ad7982aa8b6dd8d05e43b63c5d3fbd18f48f8b41e83ca43709902ef03017fdac
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1002?f=pjson
+          sha256: 1d3c6e4fc01340b077aec87935fff1aab096b212e94681b8b64496c7514bcb90
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1003?f=pjson
+          sha256: 608e7168d425af9ef75ce05494425b028b56097a4e9a1b2d094e7ca11d1a1b3e
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1004?f=pjson
+          sha256: 8e275b1bfaa6b239adef531dad574fcd707b82942f601918c9d0305b01ada38a
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1005?f=pjson
+          sha256: 3f49577ecc39c42c11c4e065f4687bb6d1483509b142516047fdac718fa1dd37
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1006?f=pjson
+          sha256: 7b12e097f7558720534d2ccea3c32a86cae307b5b949e793f95397b336b65d09
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1007?f=pjson
+          sha256: 7691ce5f2a345c3b756715b3d9d3296c2bd6b61b4d17254d995d1ea2ba790b19
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1008?f=pjson
+          sha256: 7bfd705a5701d7829c208e1ef48e001d3bfd1a0b40683a13b447a5347687ae06
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1009?f=pjson
+          sha256: 8b159257d67e46de3c13b3f67dc7b51cb041c5f675f9ead24a12ddab07df1034
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1010?f=pjson
+          sha256: 24900c981435ac03b75dad15a1fc89f33f4a9a20c6baf9b15da9f8b80ad057b4
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1011?f=pjson
+          sha256: 2a807b1954b1ca8d62ab1194a63b17f04d53507fda39cf913d98b5794ea03f34
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1012?f=pjson
+          sha256: 6c10e34e6cb103936918e3735cf37ef172d2f2e8dce1c3795226578eca8d7dc5
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1013?f=pjson
+          sha256: 8e1848b26c6af0ec8c95b1aae29e82ebd80b70bfbcbc569770ffff2692b60d61
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1014?f=pjson
+          sha256: d33622b2a799ef765aa99e08cc14c39fa6f64bc0d20409906f43be2b478e1d08
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1015?f=pjson
+          sha256: 3d5edf85679d22502e0414cde0756ec533697c3f4d13ebbed793398f6c8036eb
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1016?f=pjson
+          sha256: e4f7a5d746ff4de2603c2170a5fffbd709ea22af0510f1809281660535274b05
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1017?f=pjson
+          sha256: 525499fa9be1964d6f7e39c54c06fdbb42c7a33f95372b5da70d400d889210be
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1018?f=pjson
+          sha256: 897e871b13be9da83d56439b917141f8a4e02031664acd573532cd1f0e602ba5
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1019?f=pjson
+          sha256: 66f306d4bb68aca73500e416d252ba241381c025edf5cc24e8c6357ba439e2d1
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1020?f=pjson
+          sha256: 559c3a53e59005f1b78ffaa6aeebad9a328c8a8ed61d6a0805f41d0bb0a10e9c
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1021?f=pjson
+          sha256: 234280786e4b81792264668e44b087e894ab7560ddfe288102316f79411d6667
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1022?f=pjson
+          sha256: e328089972cbc6709b54056a1d2d7dac184075cb27bb25b25f0d88c7c4ac62c2
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1023?f=pjson
+          sha256: b599ffeae36b16d506f0a2901a7e20bec0e0e883c7786e9f8aeb557e531d8171
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1024?f=pjson
+          sha256: 599179865869e3cd2d51c84001447d29f466354410cf5367c304396a777ba2f2
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/afcd_rcd_1665632148848_93995/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: grid
+              value: grid
+          x-choice-count: 1
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.824997,22.138125,114.504442,22.571833
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1665632148848_93995/MapServer/WMSServer?service=wms&request=GetCapabilities
+          sha256: 31edd894f551b5486c852b2662c8ecddfea5086841454d2be722aa124c4e79db
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        gno:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: gno
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1000Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1001Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1002Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1003Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1004Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1005Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1006Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1007Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1008Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1009Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1010Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1011Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1012Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1013Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1014Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1015Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1016Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1017Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1018Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1019Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1020Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1021Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1022Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1023Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1024Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        scientific:
+          description: "Publisher field type: esriFieldTypeString"
+          title: scientific
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        family:
+          description: "Publisher field type: esriFieldTypeString"
+          title: family
+          type:
+            - string
+            - "null"
+          maxLength: 8000
+        record_date:
+          description: "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown."
+          title: record_date
+        gno:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: gno
+          type:
+            - integer
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1018Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1019Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1020Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1021Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1022Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1023Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1024Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1018Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1019Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1020Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1021Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1022Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1023Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1024Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1018Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1019Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1020Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1021Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1022Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1023Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1024Attributes"
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1006Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1007Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1008Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1009Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1010Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1011Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1012Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1013Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1014Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1015Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1016Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1017Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1018Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1019Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1020Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1021Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1022Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1023Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1024Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: grid
+    protocol: arcgis
+  - id: 1000
+    title: O2002
+    protocol: arcgis
+  - id: 1001
+    title: O2003
+    protocol: arcgis
+  - id: 1002
+    title: O2004
+    protocol: arcgis
+  - id: 1003
+    title: O2005
+    protocol: arcgis
+  - id: 1004
+    title: O2006
+    protocol: arcgis
+  - id: 1005
+    title: O2007
+    protocol: arcgis
+  - id: 1006
+    title: O2008
+    protocol: arcgis
+  - id: 1007
+    title: O2009
+    protocol: arcgis
+  - id: 1008
+    title: O2010
+    protocol: arcgis
+  - id: 1009
+    title: O2011
+    protocol: arcgis
+  - id: 1010
+    title: O2012
+    protocol: arcgis
+  - id: 1011
+    title: O2013
+    protocol: arcgis
+  - id: 1012
+    title: O2014
+    protocol: arcgis
+  - id: 1013
+    title: O2015
+    protocol: arcgis
+  - id: 1014
+    title: O2016
+    protocol: arcgis
+  - id: 1015
+    title: O2017
+    protocol: arcgis
+  - id: 1016
+    title: O2018
+    protocol: arcgis
+  - id: 1017
+    title: O2019
+    protocol: arcgis
+  - id: 1018
+    title: O2020
+    protocol: arcgis
+  - id: 1019
+    title: O2021
+    protocol: arcgis
+  - id: 1020
+    title: O2022
+    protocol: arcgis
+  - id: 1021
+    title: O2023
+    protocol: arcgis
+  - id: 1022
+    title: O2024
+    protocol: arcgis
+  - id: 1023
+    title: O2025
+    protocol: arcgis
+  - id: 1024
+    title: O2026
+    protocol: arcgis
+  - id: grid
+    title: grid
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+    bounds:
+      - CRS: CRS:84
+        minx: "113.824997"
+        miny: "22.138125"
+        maxx: "114.504442"
+        maxy: "22.571833"
+      - CRS: EPSG:4326
+        minx: "22.138125"
+        miny: "113.824997"
+        maxx: "22.571833"
+        maxy: "114.504442"
+      - CRS: CRS:84
+        minx: "113.824997"
+        miny: "22.138125"
+        maxx: "114.504442"
+        maxy: "22.571833"
+      - CRS: EPSG:4326
+        minx: "22.138125"
+        miny: "113.824997"
+        maxx: "22.571833"
+        maxy: "114.504442"
+    styles:
+      - id: default
+        title: grid
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=afcd_rcd_1665632148848_93995
+    sha256: 96963cbf9c73734b3fc4a62ecec58088523c542a4e4234beb8c8dab5eac6c898
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer?f=pjson
+    sha256: ccef1c229b9efea61c4428f088a3c45f9071c10587881bf30b102549e9576d30
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/0?f=pjson
+    sha256: 77da4d076c6d58a73cab1fb7ccda17c097524929c242662e15405f24788347e0
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1000?f=pjson
+    sha256: 8396eb674411008993d5f1230bcde23c08200fd200ebc1675439f715e9d4c748
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1001?f=pjson
+    sha256: ad7982aa8b6dd8d05e43b63c5d3fbd18f48f8b41e83ca43709902ef03017fdac
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1002?f=pjson
+    sha256: 1d3c6e4fc01340b077aec87935fff1aab096b212e94681b8b64496c7514bcb90
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1003?f=pjson
+    sha256: 608e7168d425af9ef75ce05494425b028b56097a4e9a1b2d094e7ca11d1a1b3e
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1004?f=pjson
+    sha256: 8e275b1bfaa6b239adef531dad574fcd707b82942f601918c9d0305b01ada38a
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1005?f=pjson
+    sha256: 3f49577ecc39c42c11c4e065f4687bb6d1483509b142516047fdac718fa1dd37
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1006?f=pjson
+    sha256: 7b12e097f7558720534d2ccea3c32a86cae307b5b949e793f95397b336b65d09
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1007?f=pjson
+    sha256: 7691ce5f2a345c3b756715b3d9d3296c2bd6b61b4d17254d995d1ea2ba790b19
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1008?f=pjson
+    sha256: 7bfd705a5701d7829c208e1ef48e001d3bfd1a0b40683a13b447a5347687ae06
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1009?f=pjson
+    sha256: 8b159257d67e46de3c13b3f67dc7b51cb041c5f675f9ead24a12ddab07df1034
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1010?f=pjson
+    sha256: 24900c981435ac03b75dad15a1fc89f33f4a9a20c6baf9b15da9f8b80ad057b4
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1011?f=pjson
+    sha256: 2a807b1954b1ca8d62ab1194a63b17f04d53507fda39cf913d98b5794ea03f34
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1012?f=pjson
+    sha256: 6c10e34e6cb103936918e3735cf37ef172d2f2e8dce1c3795226578eca8d7dc5
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1013?f=pjson
+    sha256: 8e1848b26c6af0ec8c95b1aae29e82ebd80b70bfbcbc569770ffff2692b60d61
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1014?f=pjson
+    sha256: d33622b2a799ef765aa99e08cc14c39fa6f64bc0d20409906f43be2b478e1d08
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1015?f=pjson
+    sha256: 3d5edf85679d22502e0414cde0756ec533697c3f4d13ebbed793398f6c8036eb
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1016?f=pjson
+    sha256: e4f7a5d746ff4de2603c2170a5fffbd709ea22af0510f1809281660535274b05
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1017?f=pjson
+    sha256: 525499fa9be1964d6f7e39c54c06fdbb42c7a33f95372b5da70d400d889210be
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1018?f=pjson
+    sha256: 897e871b13be9da83d56439b917141f8a4e02031664acd573532cd1f0e602ba5
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1019?f=pjson
+    sha256: 66f306d4bb68aca73500e416d252ba241381c025edf5cc24e8c6357ba439e2d1
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1020?f=pjson
+    sha256: 559c3a53e59005f1b78ffaa6aeebad9a328c8a8ed61d6a0805f41d0bb0a10e9c
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1021?f=pjson
+    sha256: 234280786e4b81792264668e44b087e894ab7560ddfe288102316f79411d6667
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1022?f=pjson
+    sha256: e328089972cbc6709b54056a1d2d7dac184075cb27bb25b25f0d88c7c4ac62c2
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1023?f=pjson
+    sha256: b599ffeae36b16d506f0a2901a7e20bec0e0e883c7786e9f8aeb557e531d8171
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665632148848_93995/FeatureServer/1024?f=pjson
+    sha256: 599179865869e3cd2d51c84001447d29f466354410cf5367c304396a777ba2f2
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1665632148848_93995/MapServer/WMSServer?service=wms&request=GetCapabilities
+    sha256: 31edd894f551b5486c852b2662c8ecddfea5086841454d2be722aa124c4e79db
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1665632148848_93995/MapServer/WFSServer?service=WFS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-b7ae9ed519017c1e31782d30
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1665632148848_93995/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    - serviceId: csdi-service-b7ae9ed519017c1e31782d30
+      protocol: wfs
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WFS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 29
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

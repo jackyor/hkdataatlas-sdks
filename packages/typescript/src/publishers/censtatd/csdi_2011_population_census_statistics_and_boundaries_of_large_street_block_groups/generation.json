@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "censtatd-csdi-2011-population-census-statistics-and-boundaries-of-large-street-block-groups",
+  "sourceSha256": "f7bb9bee960e68aec45b55b92b752a17b42481796614cb231b9c1d8134d90575",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/censtatd_rcd_1629267205229_58728/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/censtatd_rcd_1629267205229_58728/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

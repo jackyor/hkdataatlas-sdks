@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hyd-csdi-drain-manhole",
+  "sourceSha256": "2f6320a7a47ca68860a72b73a6ddf3b32f6b3bd4db500e9bb773eb243a3bdd34",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hyd_rcd_1632359119873_42112/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1632359119873_42112/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1632359119873_42112/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+components:
+  schemas:
+    ForeignCompanyRecord:
+      description: Documented record fields for Principal Place of Business of Registered Non-Hong Kong Companies. The dictionary does not establish universal field requiredness or a closed object.
+      properties:
+        Approved_name_for_carrying_on_business_in+H.K._Corporate:
+          description: Approved name for carrying on business in H.K. (Corporate); alphanumeric and Chinese characters. The documented column name is preserved, including punctuation and line wrapping normalized to a single property name.
+          type: string
+        Approved_name_for_carrying_on_business_in_H.K._Other_Corporate:
+          description: Approved name for carrying on business in H.K. (Other Corporate); alphanumeric and Chinese characters. The documented column name is preserved, with line wrapping normalized.
+          type:
+            - string
+            - "null"
+        Brn:
+          description: Business Registration Number; unique business identifier (alphanumeric).
+          type: string
+        Company_Type:
+          description: Company Type; alphanumeric.
+          type: string
+        Corporate_Name:
+          description: Corporate Name; alphanumeric and Chinese characters.
+          type: string
+        Date_of_Registration:
+          description: "Date of Registration. Documented display format: DD-MM-YYYY; this may differ from the conventional JSON Schema date representation."
+          type: string
+          pattern: ^\d{2}-\d{2}-\d{4}$
+        Other_Corporate_Name_s:
+          description: Other Corporate Name(s); alphanumeric and Chinese characters.
+          type: string
+        Place_of_Incorporation:
+          description: Place of Incorporation; alphanumeric.
+          type: string
+        Principal_Place_of_Business_in_H.K.:
+          description: Principal Place of Business in H.K.; alphanumeric and Chinese characters. The documented column name is preserved, with line wrapping normalized.
+          type: string
+      type: object
+    LocalCompanyRecord:
+      description: Documented record fields for Registered Office Address of Live Local Companies. The dictionary does not establish universal field requiredness or a closed object.
+      properties:
+        Address_of_Registered_Office:
+          description: Registered Office address; alphanumeric and Chinese characters.
+          type: string
+        Brn:
+          description: Business Registration Number; unique business identifier (alphanumeric).
+          type: string
+        Chinese_Company_Name:
+          description: Local Company Chinese Name; alphanumeric and Chinese characters.
+          type: string
+        Company_Type:
+          description: Company Type; alphanumeric.
+          type: string
+        Date_of_Incorporation:
+          description: "Date of Incorporation. Documented display format: DD-MM-YYYY; this may differ from the conventional JSON Schema date representation."
+          type: string
+          pattern: ^\d{2}-\d{2}-\d{4}$
+        English_Company_Name:
+          description: Local Company English Name; alphanumeric.
+          type: string
+        Re-domiciliation_Date:
+          description: "Re-domiciliation Date. Documented display format: DD-MM-YYYY; this may differ from the conventional JSON Schema date representation."
+          type:
+            - string
+            - "null"
+          pattern: ^\d{2}-\d{2}-\d{4}$
+      type: object
+externalDocs:
+  description: Companies Registry data dictionary
+  url: https://www.cr.gov.hk/datagovhk/dict/data_dictionary_RO_PPB_en.docx
+info:
+  contact:
+    name: Companies Registry
+  description: Search registered office addresses of live local companies and principal places of business of registered non-Hong Kong companies. The API version is not documented. Results are available in JSON, CSV, or XML and are encoded in UTF-8. The field dictionaries describe the corresponding data records; they do not establish a complete response envelope or guarantee that every listed field is present in every result. Authentication requirements are undocumented.
+  title: Companies Registry Company Address Search
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /foreign/search:
+    get:
+      description: Searches principal place of business data for registered non-Hong Kong companies. The dataset is updated daily. The API Builder documentation specifies the query parameters and output format; the dictionary provides fields but does not specify a complete response envelope.
+      operationId: searchRegisteredNonHongKongCompanies
+      parameters:
+        - description: "Query item: `Brn` for Business Registration Number or `Comp_name` for company name in English or Chinese."
+          in: query
+          name: query[0][key1]
+          required: true
+          schema:
+            enum:
+              - Brn
+              - Comp_name
+            type: string
+        - description: Query operator.
+          in: query
+          name: query[0][key2]
+          required: true
+          schema:
+            enum:
+              - equal
+              - begins_with
+            type: string
+        - description: Business Registration Number or company name, as selected by `query[0][key1]`. Examples include `75698252` and `China / 中國`.
+          examples:
+            businessRegistrationNumber:
+              value: "75698252"
+            companyName:
+              value: China / 中國
+          in: query
+          name: query[0][key3]
+          required: true
+          schema:
+            type: string
+        - description: Output file format.
+          in: query
+          name: format
+          required: true
+          schema:
+            enum:
+              - json
+              - csv
+              - xml
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/ForeignCompanyRecord"
+                type: array
+            application/xml:
+              schema:
+                description: XML content; the dictionary identifies the record fields.
+                type: string
+            text/csv:
+              schema:
+                description: CSV content; the dictionary identifies the record columns.
+                type: string
+          description: UTF-8 response in the requested format. The published dictionary documents the record fields, not a complete response structure.
+      summary: Search registered non-Hong Kong companies
+      x-published-example-url: https://data.cr.gov.hk/cr/api/api/v1/api_builder/json/foreign/search?query[0][key1]=Brn&query[0][key2]=equal&query[0][key3]=75698252
+  /local/search:
+    get:
+      description: Searches the registered office address data for live local companies. The dataset is updated daily. The API Builder documentation specifies the query parameters and output format; the dictionary provides fields but does not specify a complete response envelope.
+      operationId: searchLiveLocalCompanies
+      parameters:
+        - description: "Query item: `Brn` for Business Registration Number or `Comp_name` for company name in English or Chinese."
+          in: query
+          name: query[0][key1]
+          required: true
+          schema:
+            enum:
+              - Brn
+              - Comp_name
+            type: string
+        - description: Query operator.
+          in: query
+          name: query[0][key2]
+          required: true
+          schema:
+            enum:
+              - equal
+              - begins_with
+            type: string
+        - description: Business Registration Number or company name, as selected by `query[0][key1]`. Examples include `C1572528` and `China / 中國`.
+          examples:
+            businessRegistrationNumber:
+              value: C1572528
+            companyName:
+              value: China / 中國
+          in: query
+          name: query[0][key3]
+          required: true
+          schema:
+            type: string
+        - description: Output file format.
+          in: query
+          name: format
+          required: true
+          schema:
+            enum:
+              - json
+              - csv
+              - xml
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/LocalCompanyRecord"
+                type: array
+            application/xml:
+              schema:
+                description: XML content; the dictionary identifies the record fields.
+                type: string
+            text/csv:
+              schema:
+                description: CSV content; the dictionary identifies the record columns.
+                type: string
+          description: UTF-8 response in the requested format. The published dictionary documents the record fields, not a complete response structure.
+      summary: Search live local companies
+      x-published-example-url: https://data.cr.gov.hk/cr/api/api/v1/api_builder/json/local/search?query[0][key1]=Brn&query[0][key2]=equal&query[0][key3]=C1572528
+servers:
+  - description: API base URL documented in the published query examples.
+    url: https://data.cr.gov.hk/cr/api/api/v1/api_builder/json

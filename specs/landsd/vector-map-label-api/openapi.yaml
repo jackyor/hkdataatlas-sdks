@@ -1,0 +1,162 @@
+externalDocs:
+  description: Official LandsD Vector Map Label API documentation.
+  url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/VectorMapLabelAPI
+info:
+  description: Retrieves vector map place-name label tiles in Protocol Buffer Binary Format (PBF) and a map presentation style file in JSON. The API URL uses version v1.0.0 in documented examples; the guide says versions may be updated and older versions may be removed without notice. The existing domain https://mapapi.geodata.gov.hk is scheduled for deprecation on 15 March 2027; the guide directs users to https://mapapi.hkmapservice.gov.hk. “undocumented” is a metadata placeholder, not a publisher API version. Authentication requirements are not specified. The publisher advises against large numbers of requests within a short period and requires TLS 1.2. Use is subject to LandsD Map API terms and IP Rights Notice; applications must include the Lands Department logo and the copyright notice “Map from Lands Department”.
+  title: LandsD Vector Map Label API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /gs/api/{version}/vt/label/hk/{lang}/{sr}/resources/styles/root.json:
+    get:
+      description: Returns the map presentation style file in JSON. The guide documents the URL format and examples but does not specify the JSON object's fields or a more detailed response schema.
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/VectorMapLabelAPI
+      operationId: getMapPresentationStyle
+      parameters:
+        - description: API version number. The publisher identifies `v1.0.0` as currently available, notes that it may be updated, and says old versions may be removed at any time without notice.
+          in: path
+          name: version
+          required: true
+          schema:
+            examples:
+              - v1.0.0
+            type: string
+        - description: "Language of place-name labels: `en` for English, `tc` for Traditional Chinese, or `sc` for Simplified Chinese."
+          in: path
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+              - sc
+            examples:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: "Spatial reference system: `WGS84` or `HK80`."
+          in: path
+          name: sr
+          required: true
+          schema:
+            enum:
+              - WGS84
+              - HK80
+            examples:
+              - HK80
+              - WGS84
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedStyleUrl:
+                  description: The guide gives this URL as an example and does not provide a response body.
+                  summary: Documented style URL (response body not supplied)
+                  value: {}
+              schema:
+                description: The source documents JSON output without a field dictionary or universal object/array shape.
+          description: OK. The map presentation style file is returned in JSON.
+        "204":
+          description: No Content.
+        "500":
+          description: Internal Server Error.
+      summary: Retrieve the map presentation style
+  /gs/api/{version}/vt/label/hk/{lang}/{sr}/tile/{z}/{y}/{x}.pbf:
+    get:
+      description: "Returns vector map labels as an ESRI Vector Tile (protocol buffers file) in PBF format. Tile coordinates use the XYZ Tile Scheme. Documented URL example: `/gs/api/v1.0.0/vt/label/hk/en/HK80/tile/15/6161/4600.pbf`; the guide also shows `tc` in a query URL example."
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/VectorMapLabelAPI
+      operationId: getVectorMapLabelTile
+      parameters:
+        - description: API version number. The publisher identifies `v1.0.0` as currently available, notes that it may be updated, and says old versions may be removed at any time without notice.
+          in: path
+          name: version
+          required: true
+          schema:
+            examples:
+              - v1.0.0
+            type: string
+        - description: "Language of place-name labels: `en` for English, `tc` for Traditional Chinese, or `sc` for Simplified Chinese."
+          in: path
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+              - sc
+            examples:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: "Spatial reference system: `WGS84` or `HK80`."
+          in: path
+          name: sr
+          required: true
+          schema:
+            enum:
+              - WGS84
+              - HK80
+            examples:
+              - HK80
+              - WGS84
+            type: string
+        - description: Map tile zoom level under the XYZ Tile Scheme. The guide documents levels 9 through 15.
+          in: path
+          name: z
+          required: true
+          schema:
+            examples:
+              - 9
+              - 10
+              - 11
+              - 12
+              - 13
+              - 14
+              - 15
+            maximum: 15
+            minimum: 9
+            type: integer
+        - description: Y position of the map tile under the XYZ Tile Scheme.
+          in: path
+          name: y
+          required: true
+          schema:
+            examples:
+              - 6161
+            type: integer
+        - description: X position of the map tile under the XYZ Tile Scheme.
+          in: path
+          name: x
+          required: true
+          schema:
+            examples:
+              - 4600
+            type: integer
+      responses:
+        "200":
+          content:
+            application/vnd.mapbox-vector-tile:
+              schema:
+                description: Protocol Buffer Binary Format vector tile.
+                format: binary
+                type: string
+            application/x-protobuf:
+              schema:
+                description: Protocol Buffer Binary Format vector tile.
+                format: binary
+                type: string
+          description: OK. The vector map label tile is returned in ESRI Vector Tiles (protocol buffers file).
+        "204":
+          description: No Content.
+        "500":
+          description: Internal Server Error.
+      summary: Retrieve a vector map label tile
+servers:
+  - description: New service domain identified by the publisher; the previous domain is to be deprecated on 15 March 2027.
+    url: https://mapapi.hkmapservice.gov.hk

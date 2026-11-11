@@ -1,0 +1,214 @@
+{
+  "components": {
+    "schemas": {
+      "TpsSaleTransaction": {
+        "description": "TPS record semantics from the publisher dictionary, with exact JSON wire names/string representation corroborated by three saved records. Numeric dictionary quantities are string-encoded in those observations; no closed field set or universal requiredness is inferred.",
+        "properties": {
+          "assignment_date": {
+            "description": "Assignment date in dd-mm-yyyy format. Publisher label: Assignment Date; declared type: Date. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "credit_level": {
+            "description": "Credit level of credit. English values documented: F = Full credit, H = Half credit, 0 = Zero credit. Traditional Chinese values documented: 全 = full, 半 = half, 0 = zero. Publisher label: Credit Level; declared type: Text. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "discount_rate": {
+            "description": "Discount rate of the flat, in percent. Publisher label: Discount Rate %; declared type: Numeric. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "estate_map_latitude": {
+            "description": "Map latitude of the TPS estate. Publisher label: The Estate latitude parameter in Google Map; declared type: Numeric. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "estate_map_longitude": {
+            "description": "Map longitude of the TPS estate. Publisher label: The Estate longitude parameter in Google Map; declared type: Numeric. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "estate_name": {
+            "description": "Name of the TPS estate. Publisher label: Estate Name; declared type: Text. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "floor_level": {
+            "description": "Floor of the flat. English categories: H means 27/F or above; M means 14/F to 26/F; L means 13/F or below. The Chinese description contains corresponding labels 高, 中, 低, with its final boundary wording as printed. Publisher label: Floor Level; declared type: Text. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "location": {
+            "description": "Location of the TPS estate. Publisher label: Location; declared type: Text. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "saleable_floor_area": {
+            "description": "Saleable area of the flat in square metres or square feet. The source states 1 sq m = 10.764 sq ft. Publisher label: Saleable Floor Area (sq m/sq ft); declared type: Numeric. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "transaction_price": {
+            "description": "Transaction price of the flat. Publisher label: Transaction Price (HK$); declared type: Numeric. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          },
+          "transaction_price_per_sq": {
+            "description": "Transaction price per square metre or square foot of saleable area. Publisher label: Transaction Price Per sq m/sq ft (HK$); declared type: Numeric. Exact JSON key and string representation observed in three saved records; this observation does not establish universal requiredness or exhaustive keys.",
+            "type": "string"
+          }
+        },
+        "type": "object",
+        "x-documented-fields": [
+          {
+            "description": "Location of the TPS estate.",
+            "documentedType": "Text",
+            "label": "Location"
+          },
+          {
+            "description": "Name of the TPS estate.",
+            "documentedType": "Text",
+            "label": "Estate Name"
+          },
+          {
+            "description": "Map latitude of the TPS estate.",
+            "documentedType": "Numeric",
+            "label": "The Estate latitude parameter in Google Map"
+          },
+          {
+            "description": "Map longitude of the TPS estate.",
+            "documentedType": "Numeric",
+            "label": "The Estate longitude parameter in Google Map"
+          },
+          {
+            "description": "Transaction price of the flat.",
+            "documentedType": "Numeric",
+            "label": "Transaction Price (HK$)"
+          },
+          {
+            "description": "Saleable area of the flat in square metres or square feet. The source states 1 sq m = 10.764 sq ft.",
+            "documentedType": "Numeric",
+            "label": "Saleable Floor Area (sq m/sq ft)"
+          },
+          {
+            "description": "Floor of the flat. English categories: H means 27/F or above; M means 14/F to 26/F; L means 13/F or below. The Chinese description contains corresponding labels 高, 中, 低, with its final boundary wording as printed.",
+            "documentedType": "Text",
+            "label": "Floor Level"
+          },
+          {
+            "description": "Transaction price per square metre or square foot of saleable area.",
+            "documentedType": "Numeric",
+            "label": "Transaction Price Per sq m/sq ft (HK$)"
+          },
+          {
+            "description": "Discount rate of the flat, in percent.",
+            "documentedType": "Numeric",
+            "label": "Discount Rate %"
+          },
+          {
+            "description": "Assignment date in dd-mm-yyyy format.",
+            "documentedType": "Date",
+            "label": "Assignment Date"
+          },
+          {
+            "description": "Credit level of credit. English values documented: F = Full credit, H = Half credit, 0 = Zero credit. Traditional Chinese values documented: 全 = full, 半 = half, 0 = zero.",
+            "documentedType": "Text",
+            "label": "Credit Level"
+          }
+        ]
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official TPS sale transactions data specification, version 1.3 (25 July 2024). Dataset page: https://data.gov.hk/en-data/dataset/hk-housing-tpssale-tpssale",
+    "url": "https://data.housingauthority.gov.hk/dataset/hass/tps_sale_transactions_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "Returns Tenants Purchase Scheme (TPS) sale transaction data in JSON. The source documents version 1.3, dated 25 July 2024; this is the documentation version, not necessarily an API version. Authentication is explicitly not required. Response field information is incomplete and its table layout is ambiguous, so response schemas are permissive and do not assert an exhaustive field set. The retained dictionary is supplemented by one explicitly observed JSON prefix containing three records; wire names and representation are observational rather than publisher-guaranteed.",
+    "title": "Tenants Purchase Scheme Sale Transactions API",
+    "version": "1.3"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/{dataresource}/{lang}/{format}": {
+      "get": {
+        "description": "Returns sales transaction data for the Tenants Purchase Scheme in JSON. The documented resource URL is printed with a malformed single slash after `https:`; the example request and documented hostname establish the HTTPS server base used here.",
+        "operationId": "getTpsSaleTransactions",
+        "parameters": [
+          {
+            "description": "Data resource identifier. The documented valid value is `tps_sale_transactions` for Tenants Purchase Scheme (TPS) Sale Transactions.",
+            "in": "path",
+            "name": "dataresource",
+            "required": true,
+            "schema": {
+              "enum": [
+                "tps_sale_transactions"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response language.",
+            "examples": {
+              "english": {
+                "summary": "English",
+                "value": "en"
+              },
+              "traditionalChinese": {
+                "summary": "Traditional Chinese",
+                "value": "tc"
+              }
+            },
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response file format. JSON is the documented valid format.",
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "enum": [
+                "json"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Object/data-array envelope observed in a bounded stream sample; unread suffix and later records were not validated. Additional fields remain allowed.",
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/TpsSaleTransaction"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Success. UTF-8 JSON response. The source describes transaction fields but does not provide a reliable wire-level JSON example or an unambiguous complete response structure."
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "summary": "Get TPS sale transactions"
+      }
+    }
+  },
+  "security": [],
+  "servers": [
+    {
+      "url": "https://data.housingauthority.gov.hk/psi/rest/export"
+    }
+  ]
+}

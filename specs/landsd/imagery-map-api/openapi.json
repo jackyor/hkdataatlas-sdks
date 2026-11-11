@@ -1,0 +1,121 @@
+{
+  "externalDocs": {
+    "description": "Official Imagery Map API documentation",
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/apidoc/ImageryMapAPI"
+  },
+  "info": {
+    "description": "XYZ map tile service for retrieving imagery map tiles. The documented API version is currently v1.0.0 and may change; older versions may be removed without notice. The former service domain https://mapapi.geodata.gov.hk is scheduled for deprecation on 15 March 2027; use the documented new domain. Zoom levels are 7–20 for HK80 and 0–20 for WGS84. Applications should not make large numbers of requests within a short period. TLS 1.2 or later is required. Use is subject to the LandsD Map API terms and IP rights notice; attribution and other notices are specified in the official documentation. Authentication requirements are not specified.",
+    "title": "LandsD Imagery Map API",
+    "version": "v1.0.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/gs/api/{version}/xyz/imagery/{sr}/{z}/{x}/{y}.png": {
+      "get": {
+        "description": "Returns a map tile in PNG format using the XYZ Tile Scheme. The documented example is https://mapapi.hkmapservice.gov.hk/gs/api/v1.0.0/xyz/imagery/HK80/11/287/385.png. Zoom-level limits depend on the spatial reference system: HK80 supports 7–20; WGS84 supports 0–20.",
+        "operationId": "getImageryMapTile",
+        "parameters": [
+          {
+            "description": "API version. Currently documented as v1.0.0; versions may be updated and old versions may be removed without notice.",
+            "example": "v1.0.0",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Spatial reference system.",
+            "examples": {
+              "hk80": {
+                "value": "HK80"
+              },
+              "wgs84": {
+                "value": "WGS84"
+              }
+            },
+            "in": "path",
+            "name": "sr",
+            "required": true,
+            "schema": {
+              "enum": [
+                "WGS84",
+                "HK80"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Zoom level for the tile under the XYZ Tile Scheme. Supported range is 7–20 for HK80 or 0–20 for WGS84.",
+            "example": 11,
+            "in": "path",
+            "name": "z",
+            "required": true,
+            "schema": {
+              "maximum": 20,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "X position of the map tile under the XYZ Tile Scheme.",
+            "example": 287,
+            "in": "path",
+            "name": "x",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Y position of the map tile under the XYZ Tile Scheme.",
+            "example": 385,
+            "in": "path",
+            "name": "y",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "image/png": {
+                "examples": {
+                  "hk80Tile": {
+                    "externalValue": "https://mapapi.hkmapservice.gov.hk/gs/api/v1.0.0/xyz/imagery/HK80/11/287/385.png",
+                    "summary": "Documented HK80 tile URL"
+                  },
+                  "wgs84Tile": {
+                    "externalValue": "https://mapapi.hkmapservice.gov.hk/gs/api/v1.0.0/xyz/imagery/WGS84/17/107104/57177.png",
+                    "summary": "Documented WGS84 tile URL"
+                  }
+                },
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "OK. Map tile returned in PNG format."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "summary": "Retrieve an imagery map tile"
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Current documented service domain",
+      "url": "https://mapapi.hkmapservice.gov.hk"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "devb-csdi-proposed-pedestrian-environment-and-traffic-improvement-measures-under-invigorating-island-south-offices-consultancy-study-no-ce-34-2021-tt",
+  "sourceSha256": "22cb4510438cb205574e50f1f8f4843452271e365ddfcadffab19e6d43f44a9f",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/devb_plb_rcd_1668571331128_65569/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_plb_rcd_1668571331128_65569/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/devb_plb_rcd_1668571331128_65569/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

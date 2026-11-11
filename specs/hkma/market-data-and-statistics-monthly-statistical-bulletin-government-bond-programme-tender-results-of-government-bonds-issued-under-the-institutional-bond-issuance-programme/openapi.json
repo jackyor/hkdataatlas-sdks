@@ -1,0 +1,303 @@
+{
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        },
+        "title": "errorResponse",
+        "type": "object"
+      },
+      "Header": {
+        "properties": {
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "title": "Header",
+        "type": "object"
+      },
+      "Record": {
+        "properties": {
+          "amount_allotted": {
+            "type": "number"
+          },
+          "amount_applied": {
+            "type": "number"
+          },
+          "average_yield_accepted": {
+            "type": "number"
+          },
+          "bid-to-cover_ratio": {
+            "type": "number"
+          },
+          "coupon": {
+            "type": "number"
+          },
+          "expected_maturity_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "issue_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "issue_number": {
+            "type": "string"
+          },
+          "ni_ro": {
+            "type": "string"
+          }
+        },
+        "title": "Record",
+        "type": "object"
+      },
+      "Response": {
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        },
+        "title": "response",
+        "type": "object"
+      },
+      "Result": {
+        "properties": {
+          "datasize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "records": {
+            "description": "",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "type": "array"
+          }
+        },
+        "title": "Result",
+        "type": "object"
+      },
+      "Segment": {
+        "enum": [
+          "2year",
+          "3year",
+          "5year",
+          "10year",
+          "15year"
+        ],
+        "example": "2year",
+        "title": "segment",
+        "type": "string",
+        "x-enum-elements": [
+          {
+            "description": "",
+            "name": "2-year"
+          },
+          {
+            "description": "",
+            "name": "3-year"
+          },
+          {
+            "description": "",
+            "name": "5-year"
+          },
+          {
+            "description": "",
+            "name": "10-year"
+          },
+          {
+            "description": "",
+            "name": "15-year"
+          }
+        ]
+      },
+      "Sortorder": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "example": "asc",
+        "title": "sortorder",
+        "type": "string",
+        "x-enum-elements": [
+          {
+            "description": "",
+            "name": "asc"
+          },
+          {
+            "description": "",
+            "name": "desc"
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/gov-bond/tender-results-gov-bonds-ibip",
+    "title": "Tender results of Government Bonds issued under the Institutional Bond Issuance Programme",
+    "version": "v1"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/tender-results-gov-bonds-ibip": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "segment",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Segment"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "pagesize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "column",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "choose",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "sortby",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "sortorder",
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            },
+            "description": "Expected response to a valid request"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unexcpeted error"
+          }
+        },
+        "summary": "Retrieve data of Tender results of Government Bonds issued under the Institutional Bond Issuance Programme"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/gov-bond",
+      "variables": {}
+    }
+  ]
+}

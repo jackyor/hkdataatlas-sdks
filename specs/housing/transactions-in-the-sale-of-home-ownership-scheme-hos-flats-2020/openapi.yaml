@@ -1,0 +1,132 @@
+components:
+  schemas:
+    Transaction:
+      description: A transaction record. The data dictionary supplies descriptions and declared types. The example serializes numeric fields as strings, so both numeric values and the observed string representation are allowed.
+      properties:
+        asp_sign_date:
+          description: Date of Agreement for Sale and Purchase (ASP), documented as dd/mm/yyyy.
+          example: 17/12/2020
+          pattern: ^\d{2}/\d{2}/\d{4}$
+          type: string
+        block_name:
+          description: Block name of the purchased flat.
+          type: string
+        court_name:
+          description: Court name of the purchased flat.
+          type: string
+        flat_num:
+          description: Flat number of the purchased flat.
+          type: string
+        floor_num:
+          description: Floor number of the purchased flat.
+          type: string
+        sale_price:
+          anyOf:
+            - type: number
+            - type: string
+          description: Sale price of the purchased flat. The dictionary declares Numeric with the shape 999999999999999.99, while the response example represents it as a string; both representations are retained.
+        saleable_area:
+          anyOf:
+            - type: number
+            - type: string
+          description: Saleable area of the purchased flat in square meters. The dictionary declares Numeric with the shape 9999999.999, while the response example represents it as a string; both representations are retained.
+        scheme_name:
+          description: Subsidised home ownership scheme.
+          type: string
+        scheme_type:
+          description: Subsidised home ownership scheme type. The dictionary lists HOS as the possible value.
+          type: string
+      type: object
+    TransactionsResponse:
+      description: JSON response envelope. The example contains a `data` array; the source does not declare required properties or a closed object contract.
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/Transaction"
+          type: array
+      type: object
+externalDocs:
+  description: Publisher data specification (PDF)
+  url: https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_020_data_dictionary.pdf
+info:
+  description: Returns sales transaction data for Home Ownership Scheme (HOS) flats 2020. The metadata version of the data specification is 2.0 (25 July 2024); the OpenAPI version field is a metadata placeholder, not a publisher API version. Authentication is explicitly not required. The documentation describes JSON, CSV, and XML response formats, but provides a JSON response example and JSON field dictionary.
+  title: Transactions in the Sale of HOS Flats 2020
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /psi/rest/export/{dataresource}/{lang}/{sc}:
+    get:
+      description: Exports the Transactions in the Sale of HOS Flats 2020 dataset. The Simplified Chinese dataset is documented as unavailable; a request using that language may return Traditional Chinese data. The response encoding is UTF-8.
+      operationId: getHOS2020SaleTransactions
+      parameters:
+        - description: Dataset resource identifier.
+          example: ssfs-sale-transactions-020
+          in: path
+          name: dataresource
+          required: true
+          schema:
+            enum:
+              - ssfs-sale-transactions-020
+            type: string
+        - description: "Language code: English or Traditional Chinese. The document lists `en` and `tc` as valid values."
+          examples:
+            english:
+              value: en
+            traditionalChinese:
+              value: tc
+          in: path
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+            type: string
+        - description: Output file format. The source formatting places this parameter heading separately from the preceding parameter table; its documented values are `json`, `csv`, and `xml`.
+          example: json
+          in: path
+          name: sc
+          required: true
+          schema:
+            enum:
+              - json
+              - csv
+              - xml
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedShape:
+                  summary: Shape shown in the publisher's example (illustrative, not a complete response)
+                  value:
+                    data:
+                      - asp_sign_date: 17/12/2020
+                        block_name: BLOCK A
+                        court_name: HOI LOK COURT
+                        flat_num: "21"
+                        floor_num: "22"
+                        sale_price: "3288100.0"
+                        saleable_area: "37.2"
+                        scheme_name: Sale of Home Ownership Scheme Flats 2020
+                        scheme_type: HOS
+              schema:
+                $ref: "#/components/schemas/TransactionsResponse"
+            application/xml:
+              schema:
+                description: XML response; the source does not document its wire-level structure.
+                type: string
+            text/csv:
+              schema:
+                description: CSV response; the source does not document its wire-level structure.
+                type: string
+          description: Success. JSON, CSV, and XML are documented response formats. The documented response example and data dictionary describe JSON.
+        "400":
+          description: Bad Request.
+        "500":
+          description: Internal Server Error.
+      security: []
+      summary: Get HOS flats 2020 sale transactions
+servers:
+  - url: https://data.housingauthority.gov.hk

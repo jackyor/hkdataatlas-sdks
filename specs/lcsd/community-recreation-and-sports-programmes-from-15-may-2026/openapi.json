@@ -1,0 +1,205 @@
+{
+  "components": {
+    "schemas": {
+      "ProgrammeResource": {
+        "additionalProperties": true,
+        "description": "Permissive representation of programme data described by the publisher's field dictionary. The dictionary does not specify a top-level envelope, field requiredness, or whether all listed fields occur in every record. The schema therefore permits an object whose properties are documented fields without requiring them.",
+        "properties": {
+          "ACTIVITY_NO": {
+            "description": "Activity number. Format described as XXXYY9999XXX99: district/section code (XXX) is 1–3 characters; YY is the last two digits of the financial start year; 9999 is a four-digit system-generated sequence number; the activity type code (XXX) is 3 characters.",
+            "type": "string"
+          },
+          "BALLOT_END_DATE": {
+            "description": "End date of ballot, formatted YYYY-MM-DD.",
+            "format": "date",
+            "type": "string"
+          },
+          "BALLOT_START_DATE": {
+            "description": "Start date of ballot, formatted YYYY-MM-DD.",
+            "format": "date",
+            "type": "string"
+          },
+          "ENROL_END_DATE": {
+            "description": "Balloting submission end date for the activity, formatted YYYY-MM-DD.",
+            "format": "date",
+            "type": "string"
+          },
+          "ENROL_METHOD": {
+            "description": "Enrollment method. Documented values are BALLOT (Ballot) and FCFS (First-come-first-served).",
+            "type": "string"
+          },
+          "ENROL_START_DATE": {
+            "description": "Balloting submission start date for the activity, formatted YYYY-MM-DD.",
+            "format": "date",
+            "type": "string"
+          },
+          "EN_ACT_TYPE_NAME": {
+            "description": "Activity type in English. Example: Aerobic Dance.",
+            "type": "string"
+          },
+          "EN_DAY": {
+            "description": "Programme days of the week in English.",
+            "type": "string"
+          },
+          "EN_DISTRICT": {
+            "description": "District, section, or game in English. Examples: Eastern, Zoological and Horticultural Education Unit, Masters Games.",
+            "type": "string"
+          },
+          "EN_NOTES": {
+            "description": "Customer remarks in English. Examples: Wear non-marking sports shoes; Bring your own racket and wear non-marking sports shoes.",
+            "type": "string"
+          },
+          "EN_PGM_NAME": {
+            "description": "Activity name in English. Example: Aerobic Dance Training Course.",
+            "type": "string"
+          },
+          "EN_TARGET_GRP": {
+            "description": "Target type of persons in English. Examples: General, Persons with Visual Impairment.",
+            "type": "string"
+          },
+          "EN_URL": {
+            "description": "Programme website (English version); publisher describes the value format as a hyperlink.",
+            "format": "uri",
+            "type": "string"
+          },
+          "EN_VENUE": {
+            "description": "Venue in English.",
+            "type": "string"
+          },
+          "FEE": {
+            "description": "Fee. Publisher data type: decimal number.",
+            "type": "number"
+          },
+          "MAX_AGE": {
+            "description": "Maximum age. Publisher data type: numeric.",
+            "type": "number"
+          },
+          "MIN_AGE": {
+            "description": "Minimum age. Publisher data type: numeric.",
+            "type": "number"
+          },
+          "OPEN_ENROL_END_DATE": {
+            "description": "End date of open enrollment for remaining quota, formatted YYYY-MM-DD.",
+            "format": "date",
+            "type": "string"
+          },
+          "OPEN_ENROL_START_DATE": {
+            "description": "Start date of first-come-first-served enrollment, formatted YYYY-MM-DD.",
+            "format": "date",
+            "type": "string"
+          },
+          "PGM_END_DATE": {
+            "description": "Programme end date, formatted YYYY-MM-DD. Example: 2019-01-15.",
+            "format": "date",
+            "type": "string"
+          },
+          "PGM_END_TIME": {
+            "description": "Programme end time in 24-hour hh:mm format. Examples: 09:00, 22:00.",
+            "type": "string"
+          },
+          "PGM_START_DATE": {
+            "description": "Programme start date, formatted YYYY-MM-DD. Example: 2019-01-15.",
+            "format": "date",
+            "type": "string"
+          },
+          "PGM_START_TIME": {
+            "description": "Programme start time in 24-hour hh:mm format. Examples: 09:00, 22:00.",
+            "type": "string"
+          },
+          "PLACES_LEFT": {
+            "description": "Places left as at now. Publisher data type: numeric.",
+            "type": "number"
+          },
+          "PLACES_LEFT_REL_TMR": {
+            "description": "Places left to be released tomorrow at 08:30. Publisher data type: numeric.",
+            "type": "number"
+          },
+          "QUOTA": {
+            "description": "Quota. Publisher data type: numeric.",
+            "type": "number"
+          },
+          "SC_URL": {
+            "description": "Programme website (Simplified Chinese version); publisher describes the value format as a hyperlink.",
+            "format": "uri",
+            "type": "string"
+          },
+          "TC_ACT_TYPE_NAME": {
+            "description": "Activity type in Traditional Chinese. Example: 健體舞.",
+            "type": "string"
+          },
+          "TC_DAY": {
+            "description": "Programme days of the week in Traditional Chinese.",
+            "type": "string"
+          },
+          "TC_DISTRICT": {
+            "description": "District, section, or game in Traditional Chinese. Examples: 東區, 動物及園藝教育組, 先進運動會.",
+            "type": "string"
+          },
+          "TC_NOTES": {
+            "description": "Customer remarks in Traditional Chinese. Examples: 穿不脫色運動鞋; 自備球拍及穿運動鞋.",
+            "type": "string"
+          },
+          "TC_PGM_NAME": {
+            "description": "Activity name in Traditional Chinese. Example: 健體舞訓練班.",
+            "type": "string"
+          },
+          "TC_TARGET_GRP": {
+            "description": "Target type of persons in Traditional Chinese. Examples: 一般人士, 視障人士.",
+            "type": "string"
+          },
+          "TC_URL": {
+            "description": "Programme website (Traditional Chinese version); publisher describes the value format as a hyperlink.",
+            "format": "uri",
+            "type": "string"
+          },
+          "TC_VENUE": {
+            "description": "Venue in Traditional Chinese.",
+            "type": "string"
+          },
+          "WALKIN": {
+            "description": "Walk-in date, formatted YYYY-MM-DD.",
+            "format": "date",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Publisher data specification for Community Recreation and Sports Programmes",
+    "url": "https://www.lcsd.gov.hk/datagovhk/prog/smartplay_prog_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "The publisher provides a data dictionary and an exact published JSON resource URL, but the documentation does not specify an HTTP method, request parameters, or a response envelope. The URL is documented as a read-only downloadable resource; it is represented here as a literal GET path, not a parameterized API template. The version value is a metadata placeholder, not a publisher API version. The dataset describes leisure activities to be held one and a half months later and says information is uploaded on the 15th of each month.",
+    "title": "Community Recreation and Sports Programmes",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/rest/cms/api/v1/publ/contents/open-data/activity-prog/file": {
+      "get": {
+        "description": "The catalogue publishes this literal URL for a JSON resource and identifies it as an API resource. Its HTTP method, response envelope, and authentication requirements are not specified by the publisher documentation. This operation describes retrieval of the exact published resource URL only; no URL template or query parameters are documented.",
+        "operationId": "downloadCommunityRecreationAndSportsProgrammes",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgrammeResource"
+                }
+              }
+            },
+            "description": "Published resource. The catalogue identifies the resource format as JSON, but the response envelope and complete wire schema are not documented. The data dictionary defines the following programme fields; it does not establish that every field is present in every record."
+          }
+        },
+        "summary": "Retrieve the published programme resource"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.smartplay.lcsd.gov.hk"
+    }
+  ]
+}

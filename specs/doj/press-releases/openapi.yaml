@@ -1,0 +1,84 @@
+externalDocs:
+  url: https://www.doj.gov.hk/datagovhk/data/data_dict_press_releases_en.pdf
+info:
+  description: Searches the Department of Justice press releases. The version value is a metadata placeholder, not a publisher API version. The documentation does not specify authentication.
+  title: Department of Justice - Press Releases
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /pressrelease/search:
+    get:
+      description: Returns press releases in the requested language. If start and end are omitted, press releases from the last six months are returned. All times are in HKT (GMT+8). A maximum of 400 records will be returned. The documented examples use English (lang=en); catalog resources also list Traditional Chinese (tc) and Simplified Chinese (sc).
+      operationId: searchPressReleases
+      parameters:
+        - description: Official identifier, fixed to SJ in the documented request URL.
+          example: SJ
+          in: query
+          name: official
+          required: true
+          schema:
+            enum:
+              - SJ
+            type: string
+        - description: Press release type, fixed to press in the documented request URL.
+          example: press
+          in: query
+          name: type
+          required: true
+          schema:
+            enum:
+              - press
+            type: string
+        - description: Response language. English is documented in the API URL; catalog resources also list tc (Traditional Chinese) and sc (Simplified Chinese).
+          example: en
+          in: query
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: Inclusive start date in YYYYMMDD format, for example 20190102. Earliest accepted date is 01 July 2017. Must be used together with end.
+          in: query
+          name: start
+          required: false
+          schema:
+            examples:
+              - "20190102"
+            pattern: ^[0-9]{8}$
+            type: string
+        - description: Inclusive end date in YYYYMMDD format, for example 20190109. The latest accepted date is today. Must be used together with start.
+          in: query
+          name: end
+          required: false
+          schema:
+            examples:
+              - "20190109"
+            pattern: ^[0-9]{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  date:
+                    description: Date (YYYY-M-D).
+                    type: string
+                  description:
+                    description: Content of press releases.
+                    type: string
+                  link:
+                    description: URL of the headline.
+                    format: uri
+                    type: string
+                  title:
+                    description: Headline of press releases.
+                    type: string
+                type: object
+          description: Successful search. The documentation describes the API fields but does not specify the top-level response envelope.
+      summary: Search press releases
+servers:
+  - url: https://api.data.gov.hk/v1

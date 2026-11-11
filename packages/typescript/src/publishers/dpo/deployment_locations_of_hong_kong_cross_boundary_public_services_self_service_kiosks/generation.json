@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "dpo-deployment-locations-of-hong-kong-cross-boundary-public-services-self-service-kiosks",
+  "sourceSha256": "2f0d9f4c201f363a27232073d6ec7a299e4ca0598353822306d3ed1a3bc8af3d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/datagovhk/cbps_self_kiosks.csv",
+      "operationId": "retrieveDeploymentLocationsOfHongKongCrossBoundaryPublicServicesSelfServiceKiosksDatagovhkCbpsSelfKiosksCsv"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

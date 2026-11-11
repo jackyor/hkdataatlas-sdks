@@ -1,0 +1,64 @@
+{
+  "publisherKey": "hkkf",
+  "publisherName": "Hong Kong & Kowloon Ferry Limited",
+  "sources": [
+    {
+      "id": "hkkf-ferry-service-timetables-faretables-and-estimated-time-of-arrival-data-of-hong-k",
+      "publisherKey": "hkkf",
+      "publisherName": "Hong Kong & Kowloon Ferry Limited",
+      "familyKey": "ferry-service-timetables-faretables-and-estimated-time-of-arrival-data-of-hong-k",
+      "name": "Ferry Service Timetables, Faretables and Estimated Time of Arrival Data of Hong Kong & Kowloon Ferry",
+      "apiTitle": "Hong Kong and Kowloon Ferry Limited Open Data API",
+      "json": "hkkf/ferry-service-timetables-faretables-and-estimated-time-of-arrival-data-of-hong-k/openapi.json",
+      "yaml": "hkkf/ferry-service-timetables-faretables-and-estimated-time-of-arrival-data-of-hong-k/openapi.yaml",
+      "file": "hkkf/ferry-service-timetables-faretables-and-estimated-time-of-arrival-data-of-hong-k/openapi.json",
+      "sha256": "98545eb590c3b1009180cff8bb947af7ea6cf94e564d16a256324779eeda0fab",
+      "jsonSha256": "98545eb590c3b1009180cff8bb947af7ea6cf94e564d16a256324779eeda0fab",
+      "yamlSha256": "41b766919da139c754897721caa0f8b66fee6073beac6d89b4b6b62fb82e4784",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.2",
+      "namespace": "ferry_service_timetables_faretables_and_estimated_time_of_arrival_data_of_hong_k",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "98545eb590c3b1009180cff8bb947af7ea6cf94e564d16a256324779eeda0fab"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 5,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.hkkfeta.com/datagovhk/HKKF_ETA_API_Specification.pdf",
+        "canonicalJsonSha256": "98545eb590c3b1009180cff8bb947af7ea6cf94e564d16a256324779eeda0fab",
+        "originalRepresentationSha256": "98545eb590c3b1009180cff8bb947af7ea6cf94e564d16a256324779eeda0fab",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "ferry_service_timetables_faretables_and_estimated_time_of_arrival_data_of_hong_k"
+    }
+  ]
+}

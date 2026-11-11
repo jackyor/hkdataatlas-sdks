@@ -1,0 +1,62 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Any, Self, TypeVar
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="ChiDistrict")
+
+
+@_attrs_define
+class ChiDistrict:
+    """District and/or sub-district information in Chinese.
+
+    Attributes:
+        dc_district (str | Unset): District Council where the address is located.
+    """
+
+    dc_district: str | Unset = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        dc_district = self.dc_district
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update({})
+        if dc_district is not UNSET:
+            field_dict["DcDistrict"] = dc_district
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        d = dict(src_dict)
+        dc_district = d.pop("DcDistrict", UNSET)
+
+        chi_district = cls(
+            dc_district=dc_district,
+        )
+
+        chi_district.additional_properties = d
+        return chi_district
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

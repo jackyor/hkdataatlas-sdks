@@ -1,0 +1,53 @@
+components:
+  schemas:
+    DirectInvestmentRaised:
+      description: The documented response fields for direct investment raised in the previous fiscal year. The example is representative and does not establish that this is an exhaustive response contract.
+      properties:
+        item:
+          description: Investment raised in year of XX/YY.
+          type: string
+        value:
+          description: Amount in HK$.
+          type: string
+      type: object
+externalDocs:
+  description: Official API documentation
+  url: https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-direct-investment-raised.pdf
+info:
+  description: Retrieves direct investment raised in the previous fiscal year. The version value is a metadata placeholder, not a publisher API version. Authentication is not specified in the documentation.
+  title: Direct Investment Raised in Previous Fiscal Year API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /:
+    get:
+      operationId: getPreviousFiscalYearDirectInvestmentRaised
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedExample:
+                  summary: Documented response example
+                  value:
+                    item: Investment raised in FY 18/19
+                    value: HK$18B
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/DirectInvestmentRaised"
+                  - type: object
+                    properties:
+                      item:
+                        type: string
+                        const: ""
+                      value:
+                        type: "null"
+                    required:
+                      - item
+                      - value
+                    additionalProperties: false
+                description: Publisher documentation describes string item/value data. The retained response additionally returns the exact empty-data variant {item:"",value:null}; this variant does not establish useful/nonempty data availability.
+          description: JSON response containing an investment item and amount. The documentation does not specify other response statuses.
+      summary: Get direct investment raised in the previous fiscal year
+servers:
+  - url: https://opendata.hkstp.org/corporate/figures/directinvestment/v1/

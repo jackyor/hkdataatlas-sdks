@@ -1,0 +1,214 @@
+{
+  "components": {
+    "schemas": {
+      "CarPark": {
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "contactNo": {
+            "type": "string"
+          },
+          "day_park": {
+            "type": "string"
+          },
+          "day_park_8:00am_6:00pm": {
+            "type": "string"
+          },
+          "district": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "heightLimit": {
+            "type": "number"
+          },
+          "hourly_park_Sat_Sun_and_public_holidays": {
+            "description": "Hourly parking rate on Saturdays, Sundays and public holidays.",
+            "type": "string"
+          },
+          "hourly_park_weekdays_except_public_holidays": {
+            "description": "Hourly parking rate on weekdays except public holidays.",
+            "type": "string"
+          },
+          "id": {
+            "description": "Car park identifier.",
+            "type": "string"
+          },
+          "latitude": {
+            "type": "string"
+          },
+          "longitude": {
+            "type": "string"
+          },
+          "name": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "openingStatus": {
+            "type": "string"
+          },
+          "opening_hours": {
+            "type": "string"
+          },
+          "remark": {
+            "$ref": "#/components/schemas/LocalizedText"
+          },
+          "td_eParking_id": {
+            "description": "Identifier used for TD eParking.",
+            "type": "string"
+          },
+          "timestamp": {
+            "description": "Timestamp for the car park record. The example is a string with a +800 suffix; no standardized date-time format is asserted.",
+            "type": "string"
+          },
+          "vacancies": {
+            "items": {
+              "$ref": "#/components/schemas/Vacancy"
+            },
+            "type": "array"
+          },
+          "website": {
+            "$ref": "#/components/schemas/LocalizedText"
+          }
+        },
+        "type": "object"
+      },
+      "CarParkResponse": {
+        "properties": {
+          "carParks": {
+            "description": "All car parks provided by West Kowloon Cultural District.",
+            "items": {
+              "$ref": "#/components/schemas/CarPark"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "LocalizedText": {
+        "properties": {
+          "en": {
+            "description": "English text.",
+            "type": "string"
+          },
+          "sc": {
+            "description": "Simplified Chinese text.",
+            "type": "string"
+          },
+          "tc": {
+            "description": "Traditional Chinese text.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Vacancy": {
+        "properties": {
+          "hourly": {
+            "description": "Hourly vacancy count in the published example.",
+            "type": "integer"
+          },
+          "timestamp": {
+            "description": "Vacancy record timestamp; the example uses a date and time with fractional seconds.",
+            "type": "string"
+          },
+          "vehicleType": {
+            "description": "Vehicle type code; the example uses P and other published records also use M.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official published resource",
+    "url": "https://openapi.westkowloon.hk/datagovhk/carpark"
+  },
+  "info": {
+    "description": "Returns information for all car parks provided by West Kowloon Cultural District, including vacancy information. Car park vacancy information is updated every 5 minutes. The version value is a metadata placeholder, not a publisher API version. Authentication is not specified in the source.",
+    "title": "Car Park Information of West Kowloon Cultural District Authority",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/datagovhk/carpark": {
+      "get": {
+        "description": "Returns all car parks provided by West Kowloon Cultural District. The catalogue describes this resource as an HTTP GET endpoint. No request parameters are documented. Response schema fields/types describe the bounded retained publisher JSON body, not a publisher-declared field contract or universal response guarantee.",
+        "operationId": "getCarParkInformation",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "publishedResource": {
+                    "summary": "Published resource example",
+                    "value": {
+                      "carParks": [
+                        {
+                          "address": {
+                            "en": "88 Austin Road West, Tsim Sha Tsui, Kowloon",
+                            "sc": "九龍尖沙咀柯士甸道西88號",
+                            "tc": "九龍尖沙咀柯士甸道西88號"
+                          },
+                          "contactNo": "(852) 2200 0217",
+                          "day_park": "NA",
+                          "day_park_8:00am_6:00pm": "NA",
+                          "district": {
+                            "en": "Yau Tsim Mong",
+                            "sc": "油尖旺区",
+                            "tc": "油尖旺區"
+                          },
+                          "heightLimit": 2.45,
+                          "hourly_park_Sat_Sun_and_public_holidays": "$32 per hour",
+                          "hourly_park_weekdays_except_public_holidays": "$28 per hour",
+                          "id": "CP001",
+                          "latitude": "22.30137257",
+                          "longitude": "114.1583411",
+                          "name": {
+                            "en": "Xiqu Centre Car Park",
+                            "sc": "戲曲中心停車場",
+                            "tc": "戲曲中心停車場"
+                          },
+                          "openingStatus": "OPEN",
+                          "opening_hours": "24-hours",
+                          "remark": {
+                            "en": "",
+                            "sc": "",
+                            "tc": ""
+                          },
+                          "td_eParking_id": "tdc17p1",
+                          "timestamp": "2026-11-10T22:10:58+800",
+                          "vacancies": [
+                            {
+                              "hourly": 25,
+                              "timestamp": "10/11/2026 22:10:41.000000",
+                              "vehicleType": "P"
+                            }
+                          ],
+                          "website": {
+                            "en": "http://www.wkcda.hk",
+                            "sc": "http://www.wkcda.hk",
+                            "tc": "http://www.wkcda.hk"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CarParkResponse"
+                }
+              }
+            },
+            "description": "Car park information. The example below represents the published resource structure; it does not establish that every field is always present."
+          }
+        },
+        "summary": "Get car park information"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://openapi.westkowloon.hk"
+    }
+  ]
+}

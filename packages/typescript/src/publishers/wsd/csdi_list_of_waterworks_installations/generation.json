@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "wsd-csdi-list-of-waterworks-installations",
+  "sourceSha256": "8642e30f34dbba8c30911eded17ab2a7ca66b19aa460f7584aad1c2c29643355",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/wsd_rcd_1668998130399_597/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1668998130399_597/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1668998130399_597/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

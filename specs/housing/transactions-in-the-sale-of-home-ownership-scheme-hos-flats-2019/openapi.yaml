@@ -1,0 +1,129 @@
+components:
+  schemas:
+    Transaction:
+      description: Sale transaction record. The English data dictionary describes these fields; their wire-property names are taken from the documented response example. Numeric fields are declared Numeric in the dictionary but represented as strings in that example, so both forms are permitted.
+      properties:
+        asp_sign_date:
+          description: Date of Agreement for Sale and Purchase (ASP), documented in dd/mm/yyyy form.
+          examples:
+            - 31/12/2019
+          pattern: ^\d{2}/\d{2}/\d{4}$
+          type: string
+        block_name:
+          description: Block name of the purchased flat.
+          type: string
+        court_name:
+          description: Court name of the purchased flat.
+          type: string
+        flat_num:
+          description: Flat number of the purchased flat.
+          type: string
+        floor_num:
+          description: Floor number of the purchased flat.
+          type: string
+        sale_price:
+          anyOf:
+            - type: number
+            - type: string
+          description: Sale price of the purchased flat. The data dictionary declares Numeric with stated form 999999999999999.99, while the response example represents this value as a string; both representations are allowed.
+          examples:
+            - "5182700.0"
+        saleable_area:
+          anyOf:
+            - type: number
+            - type: string
+          description: Saleable area of the purchased flat in square meters. The data dictionary declares Numeric with stated form 9999999.999, while the response example represents this value as a string; both representations are allowed.
+          examples:
+            - "52.3"
+        scheme_name:
+          description: Subsidised home ownership scheme name.
+          type: string
+        scheme_type:
+          description: Subsidised home ownership scheme type. The documented possible value is HOS.
+          type: string
+      type: object
+    TransactionsResponse:
+      description: JSON response containing transaction records. The sample illustrates the `data` array but does not establish that it is a complete response contract.
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/Transaction"
+          type: array
+      type: object
+externalDocs:
+  description: Data Specification for Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2019
+  url: https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_019_data_dictionary.pdf
+info:
+  description: Returns transactions data for the Sale of Home Ownership Scheme (HOS) Flats 2019. Version 2.0 dated 25 July 2024 is the documentation version, not necessarily an API version. The documentation states that authentication is not required and that responses use UTF-8 encoding. It describes JSON, CSV, and XML formats; the detailed response example and data specification describe JSON.
+  title: Transactions in the Sale of HOS Flats 2019 API
+  version: "2.0"
+openapi: 3.1.0
+paths:
+  /export/{dataresource}/{lang}/{format}:
+    get:
+      description: The documented resource URL is https://data.housingauthority.gov.hk/psi/rest/export. The example request uses the path suffix `ssfs-sale-transactions-019/en/json`. The dataset does not provide Simplified Chinese data; the documentation says a Simplified Chinese request returns Traditional Chinese data.
+      operationId: getHos2019SaleTransactions
+      parameters:
+        - description: Dataset resource identifier. The documented valid value is `ssfs-sale-transactions-019` (Transactions in the Sale of HOS Flats 2019).
+          in: path
+          name: dataresource
+          required: true
+          schema:
+            enum:
+              - ssfs-sale-transactions-019
+            type: string
+        - description: Response language. Documented values are `en` for English and `tc` for Traditional Chinese. The documentation also identifies `sc` as Simplified Chinese, but says this dataset has no Simplified Chinese data and returns Traditional Chinese instead.
+          in: path
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: Response file format.
+          in: path
+          name: format
+          required: true
+          schema:
+            enum:
+              - json
+              - csv
+              - xml
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedJson:
+                  summary: Documented JSON response example
+                  value:
+                    data:
+                      - asp_sign_date: 31/12/2019
+                        block_name: BLOCK A
+                        court_name: KWUN TAK COURT
+                        flat_num: "6"
+                        floor_num: "18"
+                        sale_price: "5182700.0"
+                        saleable_area: "52.3"
+                        scheme_name: Sale of Home Ownership Scheme Flats 2019
+                        scheme_type: HOS
+              schema:
+                $ref: "#/components/schemas/TransactionsResponse"
+            application/xml:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Success. The source documents JSON, CSV, and XML response formats. The detailed structured response is documented as JSON.
+        "400":
+          description: Bad Request.
+        "500":
+          description: Internal Server Error.
+      summary: Get HOS Flats 2019 sale transactions
+security: []
+servers:
+  - url: https://data.housingauthority.gov.hk/psi/rest

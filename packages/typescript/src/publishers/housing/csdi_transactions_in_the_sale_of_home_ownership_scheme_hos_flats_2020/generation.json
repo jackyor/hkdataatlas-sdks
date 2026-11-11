@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "housing-csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020",
+  "sourceSha256": "78bf3f999ac1c1064f812ee9783a64f4146b150292542c163a1e8f3db14ebda9",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/housingauthority_rcd_1765176154012_51756/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/housingauthority_rcd_1765176154012_51756/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/housingauthority_rcd_1765176154012_51756/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hyd-csdi-tunnel-route-chainage-markers",
+  "sourceSha256": "0cc37bce461211f108aed6e0b2485583b0b3b401c9b44414613ae50efbb60199",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hyd_rcd_1696561927894_60095/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1696561927894_60095/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1696561927894_60095/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

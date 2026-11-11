@@ -1,0 +1,86 @@
+{
+  "components": {
+    "schemas": {
+      "RdPractitionersResponse": {
+        "description": "The documented field table identifies item as the R&D Practitioners label and value as the total number; both fields are declared as strings. The example displays the value as \"8,300+\". The documentation's example layout is ambiguous, so the example is represented as an object with these documented fields.",
+        "properties": {
+          "item": {
+            "description": "R&D Practitioners.",
+            "type": "string"
+          },
+          "value": {
+            "description": "Total number of R&D practitioners.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-rd-practitioners.pdf"
+  },
+  "info": {
+    "description": "Provides the number of R&D practitioners. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Number of R&D Practitioners API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/corporate/figures/rdpractitioners/v1/": {
+      "get": {
+        "operationId": "getRdPractitioners",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedExample": {
+                    "summary": "Example from the API documentation",
+                    "value": {
+                      "item": "R&D Practitioners",
+                      "value": "8,300+"
+                    }
+                  }
+                },
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/RdPractitionersResponse"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "item": {
+                          "type": "string",
+                          "const": ""
+                        },
+                        "value": {
+                          "type": "null"
+                        }
+                      },
+                      "required": [
+                        "item",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ],
+                  "description": "Publisher documentation describes string item/value data. The retained response additionally returns the exact empty-data variant {item:\"\",value:null}; this variant does not establish useful/nonempty data availability."
+                }
+              }
+            },
+            "description": "JSON response. The documentation's example is abbreviated and its formatting does not unambiguously establish a complete response object."
+          }
+        },
+        "summary": "Get the number of R&D practitioners"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://opendata.hkstp.org"
+    }
+  ]
+}

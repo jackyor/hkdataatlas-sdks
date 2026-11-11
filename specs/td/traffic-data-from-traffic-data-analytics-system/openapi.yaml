@@ -1,0 +1,330 @@
+components:
+  schemas:
+    AlternateRoute:
+      description: Alternate harbour route information.
+      properties:
+        distU:
+          description: Total distance with unit.
+          examples:
+            - 17.97 km
+          type: string
+        eta:
+          description: Estimated journey time in hh:mm.
+          examples:
+            - 00:32
+          type: string
+        name:
+          description: Name/code of harbour tunnel (cht, wht, eht).
+          examples:
+            - cht
+          type: string
+      type: object
+    ErrorResponse:
+      description: Error response documented for HTTP 400.
+      properties:
+        Message:
+          description: Error message.
+          examples:
+            - No route is available. Please review the location(s) of origin and/or destination.
+          type: string
+      type: object
+    Location:
+      anyOf:
+        - required:
+            - lat
+            - long
+        - required:
+            - x
+            - y
+      description: Location coordinates and optional buffer distance. Provide either WGS84 latitude and longitude in decimal degrees, or HK80 x and y coordinates. Buffer is the maximum distance in metres used to find the closest starting or destination edge; if omitted, the system default is 50 metres.
+      properties:
+        buffer:
+          description: Optional maximum distance in metres used to find the closest edge. Defaults to 50 metres when omitted.
+          examples:
+            - 50
+            - 100
+            - 300
+          type: number
+        lat:
+          description: WGS84 latitude in decimal degrees.
+          examples:
+            - 22.3964
+          type: number
+        long:
+          description: WGS84 longitude in decimal degrees.
+          examples:
+            - 114.1095
+          type: number
+        x:
+          description: HK80 x coordinate.
+          examples:
+            - 834869.8
+          type: number
+        y:
+          description: HK80 y coordinate.
+          examples:
+            - 818075.18
+          type: number
+      type: object
+    PedestrianZone:
+      description: Pedestrian Zone feature information.
+      properties:
+        desc:
+          description: Description.
+          type: string
+        id:
+          description: PED_ZONE_ID of the Pedestrian_Zone feature in IRN.
+          type: integer
+      type: object
+    RouteEndpoint:
+      description: Start or end location for a part of the route.
+      properties:
+        intersect:
+          description: Pair of coordinates for the start or end location; the source declares double values.
+          examples:
+            - - 22.287826
+              - 114.204979
+          items:
+            type: number
+          type: array
+        rid:
+          description: Route_ID of the Centreline feature in IRN.
+          examples:
+            - 3086
+          type: integer
+      type: object
+    RoutePart:
+      description: A part of the route.
+      properties:
+        end:
+          $ref: "#/components/schemas/RouteEndpoint"
+        segment:
+          description: List of route segments.
+          items:
+            $ref: "#/components/schemas/RouteSegment"
+          type: array
+        start:
+          $ref: "#/components/schemas/RouteEndpoint"
+      type: object
+    RouteRequest:
+      description: Request for route traffic data.
+      properties:
+        departIn:
+          description: Optional departure time in minutes from the current time. The latest departure is 90 minutes from now; if omitted, departure is assumed to be the current time. The documented options are 0, 15, 30, 45, 60, 75, and 90. Other values are mapped to the closest option and are therefore accepted.
+          examples:
+            - 15
+          type: integer
+        end:
+          $ref: "#/components/schemas/Location"
+        lang:
+          description: Optional response language. If omitted, Traditional Chinese is assumed.
+          enum:
+            - tc
+            - sc
+            - en
+          examples:
+            - en
+          type: string
+        start:
+          $ref: "#/components/schemas/Location"
+        tunnel:
+          description: Optional code to force use of a cross-harbour tunnel when crossing between Hong Kong Island and Kowloon.
+          enum:
+            - cht
+            - eht
+            - wht
+          examples:
+            - wht
+          type: string
+        type:
+          description: Optional route type. If omitted, shortest time is assumed.
+          enum:
+            - ST
+            - SD
+          examples:
+            - ST
+          type: string
+      required:
+        - start
+        - end
+      type: object
+    RouteResponse:
+      description: Documented successful response fields; the sample does not establish that this object is exhaustive.
+      properties:
+        ar:
+          description: Alternate route information if crossing the harbour.
+          items:
+            $ref: "#/components/schemas/AlternateRoute"
+          type: array
+        cht:
+          description: Whether the Cross-Harbour Tunnel was used.
+          examples:
+            - false
+          type: boolean
+        distM:
+          description: Total distance in metres.
+          examples:
+            - 15605
+          type: number
+        distU:
+          description: Total distance with unit.
+          examples:
+            - 15.6 km
+          type: string
+        eht:
+          description: Whether the Eastern Harbour Crossing was used.
+          examples:
+            - false
+          type: boolean
+        eta:
+          description: Estimated journey time in hh:mm.
+          examples:
+            - 00:20
+          type: string
+        jSpeed:
+          description: Overall average journey speed in km/h.
+          examples:
+            - 50 km/h
+          type: string
+        route:
+          description: List of route parts.
+          items:
+            $ref: "#/components/schemas/RoutePart"
+          type: array
+        wht:
+          description: Whether the Western Harbour Crossing was used.
+          examples:
+            - true
+          type: boolean
+      type: object
+    RouteSegment:
+      description: Route segment information.
+      properties:
+        dir:
+          description: "Travel direction code: 0 = turn to; 1 = keep / turn left to; 2 = keep / turn right to; 3 = keep going to; 4 = turn around to."
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+          examples:
+            - 1
+            - 3
+          type: integer
+        ped:
+          description: Pedestrian Zone information, if applicable.
+          items:
+            $ref: "#/components/schemas/PedestrianZone"
+          type: array
+        rid:
+          description: Route_ID(s) of Centreline feature in IRN.
+          examples:
+            - - 3086
+            - - 2222
+              - 1728
+          items:
+            type: integer
+          type: array
+      type: object
+externalDocs:
+  description: Traffic Data from Traffic Data Analytics System API Specifications, April 2022
+  url: https://tdas-api.hkemobility.gov.hk/tdas/specification/TD_TDAS_API_Specifications.pdf
+info:
+  description: Returns average traffic speed and total journey time for a driving route using the Transport Department Intelligent Road Network (IRN) dataset and predictive traffic conditions data from TDAS. The source does not specify authentication. Its response structure is documented and illustrated by a sample; the sample is not a guarantee of an exhaustive response.
+  title: Traffic Data from Traffic Data Analytics System API
+  version: "1.1"
+openapi: 3.1.0
+paths:
+  /route:
+    post:
+      description: "Returns average traffic speed and estimated journey time for a route from origin to destination. For the IRN dataset, the documentation refers to the Road Network (2nd generation) dataset: https://data.gov.hk/en-data/dataset/hk-td-tis_15-road-network-v2."
+      operationId: getTrafficRoute
+      requestBody:
+        content:
+          application/json:
+            examples:
+              documentedRequest:
+                summary: Documented request example
+                value:
+                  departIn: 15
+                  end:
+                    lat: 22.342032
+                    long: 114.154581
+                  lang: en
+                  start:
+                    lat: 22.287826
+                    long: 114.204979
+                  tunnel: wht
+                  type: ST
+            schema:
+              $ref: "#/components/schemas/RouteRequest"
+        description: JSON request body. The start and end locations are required.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedSample:
+                  summary: Documented sample response (excerpt)
+                  value:
+                    ar:
+                      - distU: 17.97 km
+                        eta: 00:32
+                        name: cht
+                      - distU: 22.16 km
+                        eta: 00:29
+                        name: eht
+                    cht: false
+                    distM: 15605
+                    distU: 15.6 km
+                    eht: false
+                    eta: 00:20
+                    jSpeed: 50 km/h
+                    route:
+                      - end:
+                          intersect:
+                            - 22.342032
+                            - 114.154581
+                          rid: 268304
+                        segment:
+                          - dir: 3
+                            rid:
+                              - 3086
+                          - dir: 1
+                            rid:
+                              - 5461
+                          - dir: 1
+                            rid:
+                              - 2222
+                              - 1728
+                        start:
+                          intersect:
+                            - 22.287826
+                            - 114.204979
+                          rid: 3086
+                    wht: true
+              schema:
+                $ref: "#/components/schemas/RouteResponse"
+          description: Successful route result.
+        "400":
+          content:
+            application/json:
+              examples:
+                noRoadCentreline:
+                  summary: No road centreline found
+                  value:
+                    Message: " No road centreline is found within 50m from the [start/end] location."
+                noRoute:
+                  summary: No route available
+                  value:
+                    Message: No route is available. Please review the location(s) of origin and/or destination.
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Bad Request. The source documents two possible error messages.
+        "500":
+          description: Internal Server Error. The source specifies no response body structure.
+      summary: Get route traffic data
+servers:
+  - url: https://tdas-api.hkemobility.gov.hk/tdas/api

@@ -1,0 +1,460 @@
+{
+  "components": {
+    "schemas": {
+      "HousingEstateRecord": {
+        "description": "Fields documented for housing estates and projects. The dictionary does not establish a response envelope or which fields are present in each record. Text values are provided in Traditional Chinese (`tc`), Simplified Chinese (`sc`), and English (`en`) variants where documented. The marker `|||` denotes a split string.",
+        "properties": {
+          "address_en": {
+            "description": "Address in English. Dictionary storage length: X(500). `|||` denotes a split string.",
+            "examples": [
+              "20 Lung Wah Street, Kennedy Town, Hong Kong",
+              "120-160 Kau Pui Lung Road||| 89-111 Ko Shan Road, Tokwawan, Kowloon"
+            ],
+            "type": "string"
+          },
+          "address_sc": {
+            "description": "Address in Simplified Chinese. Dictionary storage length: X(500). `|||` denotes a split string.",
+            "examples": [
+              "香港坚尼地城龙华街 20 号",
+              "九龙土瓜湾靠背垄道 160 号|||高山道 89-111 号"
+            ],
+            "type": "string"
+          },
+          "address_tc": {
+            "description": "Address in Traditional Chinese. Dictionary storage length: X(500). `|||` denotes a split string.",
+            "examples": [
+              "香港堅尼地城龍華街 20 號",
+              "九龍土瓜灣靠背壟道 160 號|||高山道 89-111 號"
+            ],
+            "type": "string"
+          },
+          "completionyear_en": {
+            "description": "Year or years of building completion in English. May include phases or block details separated by `|||`. Dictionary storage length: X(255).",
+            "examples": [
+              "1965",
+              "2007 Phase I (Redevelopment): Tower 1 & 2|||1967 Phase II: Block A to D|||1968 Phase II: Block E to F"
+            ],
+            "type": "string"
+          },
+          "completionyear_sc": {
+            "description": "Year or years of building completion in Simplified Chinese. May include phases or block details separated by `|||`. Dictionary storage length: X(255).",
+            "examples": [
+              "1965",
+              "2007 第一期(重建): 第一至第二座|||1967 第 二期: A 至 D 座|||1968 第二期: E 至 F 座"
+            ],
+            "type": "string"
+          },
+          "completionyear_tc": {
+            "description": "Year or years of building completion in Traditional Chinese. May include phases or block details separated by `|||`. Dictionary storage length: X(255).",
+            "examples": [
+              "1965",
+              "2007 第一期(重建): 第一至第二座|||1967 第 二期: A 至 D 座|||1968 第二期: E 至 F 座"
+            ],
+            "type": "string"
+          },
+          "facilities_en": {
+            "description": "Facilities provided by the estate or project in English. Dictionary storage length: X(500).",
+            "examples": [
+              "Carparks,Kindergarten,Landscaped garden,Shops"
+            ],
+            "type": "string"
+          },
+          "facilities_sc": {
+            "description": "Facilities provided by the estate or project in Simplified Chinese. Dictionary storage length: X(500).",
+            "examples": [
+              "停车场,幼稚园,休憩园林,商铺"
+            ],
+            "type": "string"
+          },
+          "facilities_tc": {
+            "description": "Facilities provided by the estate or project in Traditional Chinese. Dictionary storage length: X(500).",
+            "examples": [
+              "停車場,幼稚園,休憩園林,商舖"
+            ],
+            "type": "string"
+          },
+          "flatarea_en": {
+            "description": "Flat area in English, represented as text; may include ranges and rental/sale distinctions. Dictionary storage length: X(255).",
+            "examples": [
+              "18.70 - 51.40 sq. m.",
+              "27.08 - 46.77 sq. m. (Rental)|||55.56 - 76.65 sq. m. (Sale)"
+            ],
+            "type": "string"
+          },
+          "flatarea_sc": {
+            "description": "Flat area in Simplified Chinese, represented as text; may include ranges and rental/sale distinctions. Dictionary storage length: X(255).",
+            "examples": [
+              "约 18.70 - 51.40 平方米",
+              "27.08 - 46.77 平方米 (出租)|||55.56 - 76.65 平方 米 (出售)"
+            ],
+            "type": "string"
+          },
+          "flatarea_tc": {
+            "description": "Flat area in Traditional Chinese, represented as text; may include ranges and rental/sale distinctions. Dictionary storage length: X(255).",
+            "examples": [
+              "約 18.70 - 51.40 平方米",
+              "27.08 - 46.77 平方米 (出租)|||55.56 - 76.65 平方 米 (出售)"
+            ],
+            "type": "string"
+          },
+          "name_en": {
+            "description": "Name of the public housing estate or project in English. Dictionary storage length: X(45).",
+            "examples": [
+              "Kwun Lung Lau"
+            ],
+            "type": "string"
+          },
+          "name_sc": {
+            "description": "Name of the public housing estate or project in Simplified Chinese. Dictionary storage length: X(45).",
+            "examples": [
+              "观龙楼"
+            ],
+            "type": "string"
+          },
+          "name_tc": {
+            "description": "Name of the public housing estate or project in Traditional Chinese. Dictionary storage length: X(45).",
+            "examples": [
+              "觀龍樓"
+            ],
+            "type": "string"
+          },
+          "noofblocks_en": {
+            "description": "Number of blocks in English, represented as text; may distinguish rental and sale blocks using `|||`. Dictionary storage length: X(255).",
+            "examples": [
+              "8",
+              "1 (Rental)|||4 (Sale)"
+            ],
+            "type": "string"
+          },
+          "noofblocks_sc": {
+            "description": "Number of blocks in Simplified Chinese, represented as text; may distinguish rental and sale blocks using `|||`. Dictionary storage length: X(255).",
+            "examples": [
+              "8",
+              "1 (出租)|||4 (出售)"
+            ],
+            "type": "string"
+          },
+          "noofblocks_tc": {
+            "description": "Number of blocks in Traditional Chinese, represented as text; may distinguish rental and sale blocks using `|||`. Dictionary storage length: X(255).",
+            "examples": [
+              "8",
+              "1 (出租)|||4 (出售)"
+            ],
+            "type": "string"
+          },
+          "profile_en": {
+            "description": "Estate or project profile in English. `|||` separates text segments. Dictionary storage length: X(1000).",
+            "examples": [
+              "Built on land acquired by excavation and reclamation||| The estate was built initially to rehouse the residents affected by the redevelopment of Bo Shek Mansion|||A small shopping mall was provided for the convenience of the tenants"
+            ],
+            "type": "string"
+          },
+          "profile_sc": {
+            "description": "Estate or project profile in Simplified Chinese. `|||` separates text segments. Dictionary storage length: X(1000).",
+            "examples": [
+              "兴建伟景花园的土地是由开山及填海而得来|||屋邨 落成初期主要为受荃湾宝石大厦重建影响的原居民提供居所|||邨 内设有小型商场，方便居民购物"
+            ],
+            "type": "string"
+          },
+          "profile_tc": {
+            "description": "Estate or project profile in Traditional Chinese. `|||` separates text segments. Dictionary storage length: X(1000).",
+            "examples": [
+              "興建偉景花園的土地是由開山及填海而得來|||屋邨 落成初期主要為受荃灣寶石大廈重建影響的原居民提供居所|||邨 內設有小型商場，方便居民購物"
+            ],
+            "type": "string"
+          },
+          "sitearea_en": {
+            "description": "Site area in English. Dictionary storage length: X(255).",
+            "examples": [
+              "22,654.21 sq. m.",
+              " Approx. 1,871.63sq. m."
+            ],
+            "type": "string"
+          },
+          "sitearea_sc": {
+            "description": "Site area in Simplified Chinese. Dictionary storage length: X(255).",
+            "examples": [
+              "22,654.21 平方米",
+              "约 1,871.63 平方米"
+            ],
+            "type": "string"
+          },
+          "sitearea_tc": {
+            "description": "Site area in Traditional Chinese. Dictionary storage length: X(255).",
+            "examples": [
+              "22,654.21 平方米",
+              "約 1,871.63 平方米"
+            ],
+            "type": "string"
+          },
+          "totalflat_en": {
+            "description": "Number of flats in English, represented as text; may include notes, phases, or totals. Dictionary storage length: X(255).",
+            "examples": [
+              "3,674 (Including elderly persons' flats)",
+              "872 Phase I (Redevelopment)|||1,468 Phase II|||2,340 Total"
+            ],
+            "type": "string"
+          },
+          "totalflat_sc": {
+            "description": "Number of flats in Simplified Chinese, represented as text; may include notes, phases, or totals. Dictionary storage length: X(255).",
+            "examples": [
+              "3,674 (部分为年长者单位)",
+              "872 第一期(重建)|||1,468 第二期|||2,340 合共"
+            ],
+            "type": "string"
+          },
+          "totalflat_tc": {
+            "description": "Number of flats in Traditional Chinese, represented as text; may include notes, phases, or totals. Dictionary storage length: X(255).",
+            "examples": [
+              "3,674 (部分為年長者單位)",
+              "872 第一期(重建)|||1,468 第二期|||2,340 合共"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "ShopRecord": {
+        "description": "Fields documented for commercial shop listings. The dictionary does not establish a response envelope or which fields are present in each record.",
+        "properties": {
+          "address_en": {
+            "description": "Estate address in English. Dictionary storage length: X(500). `|||` denotes a split string.",
+            "examples": [
+              "1 Hee Wong Terrace, Kennedy Town, Hong Kong"
+            ],
+            "type": "string"
+          },
+          "address_sc": {
+            "description": "Estate address in Simplified Chinese. Dictionary storage length: X(500). `|||` denotes a split string.",
+            "examples": [
+              "香港坚尼地城羲皇台 1 号"
+            ],
+            "type": "string"
+          },
+          "address_tc": {
+            "description": "Estate address in Traditional Chinese. Dictionary storage length: X(500). `|||` denotes a split string.",
+            "examples": [
+              "香港堅尼地城羲皇臺 1 號"
+            ],
+            "type": "string"
+          },
+          "area_en": {
+            "description": "Shop area in English, represented as text. Dictionary storage length: X(255).",
+            "examples": [
+              "164 sq. m."
+            ],
+            "type": "string"
+          },
+          "area_sc": {
+            "description": "Shop area in Simplified Chinese, represented as text. Dictionary storage length: X(255).",
+            "examples": [
+              "164 平方米"
+            ],
+            "type": "string"
+          },
+          "area_tc": {
+            "description": "Shop area in Traditional Chinese, represented as text. Dictionary storage length: X(255).",
+            "examples": [
+              "164 平方米"
+            ],
+            "type": "string"
+          },
+          "carpark": {
+            "description": "Number of parking spaces represented as text. Documented examples include `N/A` and a numeric-looking value, so it is not restricted to a number.",
+            "examples": [
+              "N/A",
+              "110"
+            ],
+            "type": "string"
+          },
+          "enquiries": {
+            "description": "Contact telephone number for the Estate or Property Management Offices. Dictionary storage length: X(45).",
+            "examples": [
+              "2839 7588"
+            ],
+            "type": "string"
+          },
+          "name_en": {
+            "description": "Name of the estate in English. Dictionary storage length: X(45).",
+            "examples": [
+              "1 Hee Wong Terrace"
+            ],
+            "type": "string"
+          },
+          "name_sc": {
+            "description": "Name of the estate in Simplified Chinese. Dictionary storage length: X(45).",
+            "examples": [
+              "羲皇台 1 号"
+            ],
+            "type": "string"
+          },
+          "name_tc": {
+            "description": "Name of the estate in Traditional Chinese. Dictionary storage length: X(45).",
+            "examples": [
+              "羲皇臺 1 號"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Hong Kong Housing Society Data Dictionary for Housing Archive and Commercial Portfolio (13 March 2019)",
+    "url": "https://www.hkhs.com/hkhs/api/HKHS_Dictionary_Doc_HKHS.pdf"
+  },
+  "info": {
+    "description": "Read-only retrieval of the publisher's documented JSON resource URLs. Their query strings are represented as query parameters below. The publisher's data dictionary describes fields but does not specify HTTP methods, authentication requirements, error responses, or response envelopes. Authentication requirements are unspecified. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Hong Kong Housing Society Housing Archive and Commercial Leasing Data",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/json": {
+      "get": {
+        "description": "This operation represents the exact publisher resource URLs documented in the data dictionary. Select the resource using the query parameters; the documented housing resource identifiers are individual published values, not evidence of a general identifier template. The dictionary does not specify a response envelope. The field schema describes documented record fields and does not establish that all fields are present in every response.",
+        "operationId": "getHousingArchiveOrCommercialLeasingData",
+        "parameters": [
+          {
+            "description": "Resource family. The housing resources use `ha`; the shop resource uses `shop`.",
+            "examples": {
+              "housing": {
+                "value": "ha"
+              },
+              "shops": {
+                "value": "shop"
+              }
+            },
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "enum": [
+                "ha",
+                "shop"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Housing archive resource selector. Required when `type` is `ha`; omit for the documented `type=shop` resource. These are the exact documented identifier values.",
+            "examples": {
+              "flatForSaleScheme": {
+                "value": "1"
+              },
+              "fullMarketValueDevelopments": {
+                "value": "2"
+              },
+              "rentalEstatesAndRuralPublicHousing": {
+                "value": "4_5"
+              },
+              "sandwichClassHousingScheme": {
+                "value": "6"
+              },
+              "seniorCitizenResidencesScheme": {
+                "value": "7"
+              },
+              "subsidisedSaleFlatsProjects": {
+                "value": "8"
+              },
+              "tannerHill": {
+                "value": "3"
+              },
+              "urbanImprovementScheme": {
+                "value": "9"
+              },
+              "urbanRenewalProjects": {
+                "value": "10"
+              }
+            },
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "schema": {
+              "enum": [
+                "1",
+                "2",
+                "3",
+                "4_5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "commercialShop": {
+                    "description": "Representative field values from the data dictionary; not a complete response object.",
+                    "summary": "Documented shop field values",
+                    "value": {
+                      "address_en": "1 Hee Wong Terrace, Kennedy Town, Hong Kong",
+                      "address_sc": "香港坚尼地城羲皇台 1 号",
+                      "address_tc": "香港堅尼地城羲皇臺 1 號",
+                      "area_en": "164 sq. m.",
+                      "area_sc": "164 平方米",
+                      "area_tc": "164 平方米",
+                      "carpark": "N/A",
+                      "enquiries": "2839 7588",
+                      "name_en": "1 Hee Wong Terrace",
+                      "name_sc": "羲皇台 1 号",
+                      "name_tc": "羲皇臺 1 號"
+                    }
+                  },
+                  "rentalEstatesAndRuralPublicHousing": {
+                    "description": "Representative field values from the data dictionary; not a complete response object.",
+                    "summary": "Documented rental estate field values",
+                    "value": {
+                      "address_en": "20 Lung Wah Street, Kennedy Town, Hong Kong",
+                      "address_sc": "香港坚尼地城龙华街 20 号",
+                      "address_tc": "香港堅尼地城龍華街 20 號",
+                      "completionyear_en": "1965",
+                      "facilities_en": "Carparks,Kindergarten,Landscaped garden,Shops",
+                      "flatarea_en": "18.70 - 51.40 sq. m.",
+                      "name_en": "Kwun Lung Lau",
+                      "name_sc": "观龙楼",
+                      "name_tc": "觀龍樓",
+                      "noofblocks_en": "8",
+                      "profile_en": "Built on land acquired by excavation and reclamation||| The estate was built initially to rehouse the residents affected by the redevelopment of Bo Shek Mansion|||A small shopping mall was provided for the convenience of the tenants",
+                      "sitearea_en": "22,654.21 sq. m.",
+                      "totalflat_en": "3,674 (Including elderly persons' flats)"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/HousingEstateRecord"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ShopRecord"
+                      }
+                    ]
+                  },
+                  "description": "The retained complete JSON response is an array of dictionary-described records. The source documents record fields without specifying the response envelope; array shape is a retained-response compatibility correction, not a changed publisher dictionary."
+                }
+              }
+            },
+            "description": "JSON data resource. The exact response envelope is not specified in the dictionary. For `type=ha`, records have documented housing-development fields; for `type=shop`, records have documented shop fields."
+          }
+        },
+        "summary": "Retrieve a documented housing archive or shop data resource"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.hkhs.com"
+    }
+  ]
+}

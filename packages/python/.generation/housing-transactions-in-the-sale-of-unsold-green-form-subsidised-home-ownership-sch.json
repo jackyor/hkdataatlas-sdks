@@ -1,0 +1,36 @@
+{
+  "sourceId": "housing-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-sch",
+  "publisherKey": "housing",
+  "family": "transactions_in_the_sale_of_unsold_green_form_subsidised_home_ownership_sch",
+  "status": "generated",
+  "key": "f6cdecf87c3bcf63dfb0e9089f8a7dd0ee7007ed2f893493785f6fde0d90d94d",
+  "sourceSha256": "f18440a4a6ab1e7308cbffabf4f02f6919ef6645a3132edef3905bfdcbc37fdd",
+  "derivedInputSha256": "f18440a4a6ab1e7308cbffabf4f02f6919ef6645a3132edef3905bfdcbc37fdd",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/psi/rest/export/{dataresource}/{lang}/{format}",
+      "operationId": "getSsfsSaleTransactionsE22",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/housing-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-sch.log",
+  "outputs": {
+    "__init__.py": "96fb0e6b9f32986afe286ad79d4285ff2a877f28280dfd26f6cf890625b56a69",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_ssfs_sale_transactions_e22.py": "105e71ddd126390a5db552846da62a613910595e83b556c748b60b6d2240ea7d",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "444a24084346e7a4974bc752adddfde25c93b54bc6fc9edb72afb100a8bd1d5d",
+    "models/get_ssfs_sale_transactions_e22_dataresource.py": "498eb153ac66b62fca572eaa0f74b505afcbd8e9df75ae2d07600423bb8f357c",
+    "models/get_ssfs_sale_transactions_e22_format.py": "6e250df4db82f7099bed0167c2d24b3fd04f1e4c210785dac03351f4d67a210f",
+    "models/get_ssfs_sale_transactions_e22_lang.py": "18a2d45ac2085d258b88021e2a5f4f22bc7079ab50383194b7d8c92ddfa09b67",
+    "models/transaction.py": "0ffe2eeb75bbd4c04f278e241342fe89a84897ffdb189889cc743637fa12086c",
+    "models/transaction_response.py": "a43ac91f5dfc3e4e310d4761a3632390552fdb48ded504ba1a7ddcecf336c9f0",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

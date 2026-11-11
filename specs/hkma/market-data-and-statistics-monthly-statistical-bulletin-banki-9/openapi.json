@@ -1,0 +1,593 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Loans and advances for use in Hong Kong by economic sector - Authorized institutions",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/banking/loans-by-sector-ais",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/banking",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/loans-by-sector-ais": {
+      "get": {
+        "summary": "Retrieve data of Loans and advances for use in Hong Kong by economic sector - Authorized institutions",
+        "parameters": [
+		  {
+            "name": "segment",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Segment"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+				"$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "end_of_month": {
+            "type": "string",
+            "format": "date"
+          },
+          "mfg": {
+            "type": "number"
+          },
+          "mfg_chg": {
+            "type": "number"
+          },
+          "mfg_textiles": {
+            "type": "number"
+          },
+          "mfg_textiles_chg": {
+            "type": "number"
+          },
+          "mfg_footwear": {
+            "type": "number"
+          },
+          "mfg_footwear_chg": {
+            "type": "number"
+          },
+          "mfg_metalengr": {
+            "type": "number"
+          },
+          "mfg_metalengr_chg": {
+            "type": "number"
+          },
+          "mfg_rubbplastchem": {
+            "type": "number"
+          },
+          "mfg_rubbplastchem_chg": {
+            "type": "number"
+          },
+          "mfg_shipbuildrepair": {
+            "type": "number"
+          },
+          "mfg_shipbuildrepair_chg": {
+            "type": "number"
+          },
+          "mfg_ee": {
+            "type": "number"
+          },
+          "mfg_ee_chg": {
+            "type": "number"
+          },
+          "mfg_ee_teleequip": {
+            "type": "number"
+          },
+          "mfg_ee_teleequip_chg": {
+            "type": "number"
+          },
+          "mfg_ee_other": {
+            "type": "number"
+          },
+          "mfg_ee_other_chg": {
+            "type": "number"
+          },
+          "mfg_food": {
+            "type": "number"
+          },
+          "mfg_food_chg": {
+            "type": "number"
+          },
+          "mfg_bevtob": {
+            "type": "number"
+          },
+          "mfg_bevtob_chg": {
+            "type": "number"
+          },
+          "mfg_printpub": {
+            "type": "number"
+          },
+          "mfg_printpub_chg": {
+            "type": "number"
+          },
+          "mfg_misc": {
+            "type": "number"
+          },
+          "mfg_misc_chg": {
+            "type": "number"
+          },
+          "af": {
+            "type": "number"
+          },
+          "af_chg": {
+            "type": "number"
+          },
+          "af_fisheries": {
+            "type": "number"
+          },
+          "af_fisheries_chg": {
+            "type": "number"
+          },
+          "af_livestock": {
+            "type": "number"
+          },
+          "af_livestock_chg": {
+            "type": "number"
+          },
+          "af_veghort": {
+            "type": "number"
+          },
+          "af_veghort_chg": {
+            "type": "number"
+          },
+          "tran": {
+            "type": "number"
+          },
+          "tran_chg": {
+            "type": "number"
+          },
+          "tran_shipping": {
+            "type": "number"
+          },
+          "tran_shipping_chg": {
+            "type": "number"
+          },
+          "tran_airtran": {
+            "type": "number"
+          },
+          "tran_airtran_chg": {
+            "type": "number"
+          },
+          "tran_taxisplb": {
+            "type": "number"
+          },
+          "tran_taxisplb_chg": {
+            "type": "number"
+          },
+          "tran_taxisplb_taxis": {
+            "type": "number"
+          },
+          "tran_taxisplb_taxis_chg": {
+            "type": "number"
+          },
+          "tran_taxisplb_plb": {
+            "type": "number"
+          },
+          "tran_taxisplb_plb_chg": {
+            "type": "number"
+          },
+          "tran_other": {
+            "type": "number"
+          },
+          "tran_other_chg": {
+            "type": "number"
+          },
+          "egt": {
+            "type": "number"
+          },
+          "egt_chg": {
+            "type": "number"
+          },
+          "eg": {
+            "type": "number"
+          },
+          "eg_chg": {
+            "type": "number"
+          },
+          "rec": {
+            "type": "number"
+          },
+          "rec_chg": {
+            "type": "number"
+          },
+          "it": {
+            "type": "number"
+          },
+          "it_chg": {
+            "type": "number"
+          },
+          "it_telecom": {
+            "type": "number"
+          },
+          "it_telecom_chg": {
+            "type": "number"
+          },
+          "it_other": {
+            "type": "number"
+          },
+          "it_other_chg": {
+            "type": "number"
+          },
+          "bcpi": {
+            "type": "number"
+          },
+          "bcpi_chg": {
+            "type": "number"
+          },
+          "bcpi_propdev": {
+            "type": "number"
+          },
+          "bcpi_propdev_chg": {
+            "type": "number"
+          },
+          "bcpi_propdev_ind": {
+            "type": "number"
+          },
+          "bcpi_propdev_ind_chg": {
+            "type": "number"
+          },
+          "bcpi_propdev_res": {
+            "type": "number"
+          },
+          "bcpi_propdev_res_chg": {
+            "type": "number"
+          },
+          "bcpi_propdev_comm": {
+            "type": "number"
+          },
+          "bcpi_propdev_comm_chg": {
+            "type": "number"
+          },
+          "bcpi_propdev_other": {
+            "type": "number"
+          },
+          "bcpi_propdev_other_chg": {
+            "type": "number"
+          },
+          "bcpi_other": {
+            "type": "number"
+          },
+          "bcpi_other_chg": {
+            "type": "number"
+          },
+          "wsale": {
+            "type": "number"
+          },
+          "wsale_chg": {
+            "type": "number"
+          },
+          "mine": {
+            "type": "number"
+          },
+          "mine_chg": {
+            "type": "number"
+          },
+          "misc": {
+            "type": "number"
+          },
+          "misc_chg": {
+            "type": "number"
+          },
+          "misc_hotelcater": {
+            "type": "number"
+          },
+          "misc_hotelcater_chg": {
+            "type": "number"
+          },
+          "misc_fin": {
+            "type": "number"
+          },
+          "misc_fin_chg": {
+            "type": "number"
+          },
+          "misc_fin_inv": {
+            "type": "number"
+          },
+          "misc_fin_inv_chg": {
+            "type": "number"
+          },
+          "misc_fin_ins": {
+            "type": "number"
+          },
+          "misc_fin_ins_chg": {
+            "type": "number"
+          },
+          "misc_fin_futbrok": {
+            "type": "number"
+          },
+          "misc_fin_futbrok_chg": {
+            "type": "number"
+          },
+          "misc_fin_finother": {
+            "type": "number"
+          },
+          "misc_fin_finother_chg": {
+            "type": "number"
+          },
+          "misc_stockbrok": {
+            "type": "number"
+          },
+          "misc_stockbrok_chg": {
+            "type": "number"
+          },
+          "misc_prof": {
+            "type": "number"
+          },
+          "misc_prof_chg": {
+            "type": "number"
+          },
+          "misc_prof_purschflat": {
+            "type": "number"
+          },
+          "misc_prof_purschflat_chg": {
+            "type": "number"
+          },
+          "misc_prof_purother": {
+            "type": "number"
+          },
+          "misc_prof_purother_chg": {
+            "type": "number"
+          },
+          "misc_prof_ccadv": {
+            "type": "number"
+          },
+          "misc_prof_ccadv_chg": {
+            "type": "number"
+          },
+          "misc_prof_otherbusi": {
+            "type": "number"
+          },
+          "misc_prof_otherbusi_chg": {
+            "type": "number"
+          },
+          "misc_prof_otherpvt": {
+            "type": "number"
+          },
+          "misc_prof_otherpvt_chg": {
+            "type": "number"
+          },
+          "misc_allother": {
+            "type": "number"
+          },
+          "misc_allother_chg": {
+            "type": "number"
+          },
+          "loan_inhk": {
+            "type": "number"
+          },
+          "loan_inhk_chg": {
+            "type": "number"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+	  "Segment": {
+        "title": "segment",
+        "enum": [
+          "new",
+          "old"
+        ],
+        "type": "string",
+        "example": "new",
+        "x-enum-elements": [
+          {
+            "name": "new",
+            "description": ""
+          },
+          {
+            "name": "old",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  }
+}

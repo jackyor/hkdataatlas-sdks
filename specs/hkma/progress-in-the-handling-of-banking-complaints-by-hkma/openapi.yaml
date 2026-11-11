@@ -1,0 +1,202 @@
+openapi: 3.0.0
+info:
+  title: Progress in the handling of banking complaints by HKMA
+  description: "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/bank-svf-info/bank-complaint-progress"
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/bank-svf-info
+    variables: {}
+paths:
+  /bank-complaint-progress:
+    get:
+      summary: Retrieve data of Progress in the handling of banking complaints by HKMA
+      parameters:
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+        - name: segment
+          in: query
+          required: true
+          description: Publisher documentation requires new or old. new returns the replacement half-yearly dataset; old returns the previous monthly dataset and will not receive future updates. The retained publisher Swagger response fields describe the old monthly dataset only. The example old explicitly selects that retained response scope; no default is inferred.
+          schema:
+            type: string
+            enum:
+              - new
+              - old
+          example: old
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+      x-response-schema-scope:
+        segmentOld: Retained original Swagger monthly record fields; no successful current response body was available for validation.
+        segmentNew: Publisher documents a different half-yearly record layout. This targeted parameter correction does not model or validate those response fields.
+        schemaFieldCoverage: Existing object models allow additional properties; the monthly declarations do not assert coverage of the new half-yearly fields.
+        upstreamConstraintLimitation: The publisher Swagger end_of_month uses format date, while narrative documentation describes yyyy-mm. This source discrepancy is preserved, not validated or silently repaired in the parameter-only correction.
+components:
+  schemas:
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Record"
+          description: ""
+    Record:
+      title: Record
+      type: object
+      properties:
+        end_of_month:
+          type: string
+          description: The retained complete successful publisher response uses year-month strings (YYYY-MM), not full RFC 3339 dates. The publisher Swagger date format is therefore omitted. Further lexical or calendar constraints are undocumented; values are preserved without coercion.
+        conduct_related_last_mth_p:
+          type: number
+        conduct_related_cur_mth_r:
+          type: number
+        conduct_related_cur_mth_c:
+          type: number
+        conduct_related_cur_mth_p:
+          type: number
+        general_bank_last_mth_p:
+          type: number
+        general_bank_cur_mth_r:
+          type: number
+        general_bank_cur_mth_c:
+          type: number
+        general_bank_cur_mth_p:
+          type: number
+        total_last_mth_p:
+          type: number
+        total_cur_mth_r:
+          type: number
+        total_cur_mth_c:
+          type: number
+        total_cur_mth_p:
+          type: number
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+x-source-evidence:
+  classification: publisher_original_with_documented_required_parameter_correction
+  originalSourceUrl: https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/bank-complaint-progress-swagger.json
+  originalJsonSha256: 2d4c43863ba18bc102ef08d0b7d1b7313d81fd75972dfd0d5efe4401279e8c9e
+  documentationUrl: https://apidocs.hkma.gov.hk/documentation/bank-svf-info/bank-complaint-progress/
+  documentationHtmlSha256: 4e01451111127c98db71c4241e4bf74d4c7c647feca8ac32d8ea0c4f83daded2
+  change: Adds the omitted mandatory segment query selector, valid values new and old. Original monthly response constraints are preserved and their limited selector scope is explicit.
+  liveResult: Latest documented segment=old request returned a security HTTP 405. Earlier missing-segment request returned publisher JSON HTTP 400. Neither supplies a success payload.

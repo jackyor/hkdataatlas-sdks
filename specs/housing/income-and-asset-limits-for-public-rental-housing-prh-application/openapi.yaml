@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Income and Asset Limits for Public Rental Housing (PRH) Application API
+  version: source-refresh-20261108
+  description: Current documented export path with bounded response schema. Current complete export has observed optional data/id/inc_ast_lmt_type/family_size/income_limit/asset_limit/effective_from strings. PDF historical names and records wrapper are not transferred. No requiredness, date format, enum or numeric coercion inferred.
+servers:
+  - url: https://data.housingauthority.gov.hk
+paths:
+  /psi/rest/export/prh-inc-ast-lmt/{lang}/{format}:
+    get:
+      operationId: exportPrhIncomeAssetLimits
+      summary: Income and Asset Limits for Public Rental Housing (PRH) Application API
+      parameters:
+        - name: lang
+          in: path
+          required: true
+          description: Display language documented by the publisher.
+          schema:
+            type: string
+            enum:
+              - en
+              - tc
+              - sc
+        - name: format
+          in: path
+          required: true
+          description: Export format documented by the publisher.
+          schema:
+            type: string
+            enum:
+              - json
+              - csv
+              - xml
+      responses:
+        "200":
+          description: JSON export. Current observed data wrapper and optional record fields; full endpoint completeness not established.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PrhExportResponse"
+        default:
+          description: Other export representations/statuses remain unknown; CSV and XML fields are not asserted.
+          content:
+            application/json:
+              schema: {}
+            text/csv:
+              schema: {}
+            application/xml:
+              schema: {}
+x-response-schema-status: declared_partial_documented_and_observed
+x-authentication-status: not_documented; no authentication scheme inferred
+components:
+  schemas:
+    PrhExportRecord:
+      type: object
+      properties:
+        id:
+          type: string
+        inc_ast_lmt_type:
+          type: string
+        family_size:
+          type: string
+        income_limit:
+          type: string
+        asset_limit:
+          type: string
+        effective_from:
+          type: string
+      description: Optional current export names and string wire types from retained complete body. Dictionary describes equivalent concepts under different JSON names.
+    PrhExportResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/PrhExportRecord"
+      description: Current export uses data wrapper, established by retained response. Publisher PDF example uses records wrapper and is not substituted for current export.
+x-current-response-evidence:
+  sourceId: housing-income-and-asset-limits-for-public-rental-housing-prh-application
+  coverage: Current complete export has observed optional data/id/inc_ast_lmt_type/family_size/income_limit/asset_limit/effective_from strings. PDF historical names and records wrapper are not transferred. No requiredness, date format, enum or numeric coercion inferred.
+  dictionary:
+    url: https://data.housingauthority.gov.hk/dataset/prhicaslmt/prh_income_asset_limit_data_dictionary.pdf
+    pages:
+      - 4
+      - 5
+    sha256: 6e38cc28158dbfa502bbeacc4bf775acd8ae788a8f41a6dc4441c1c8f42e05ac
+  originalJsonSha256: be02e757dbc2c20ab876963e4c9b3a4536211037fc27824970374d62c6810ce9
+  classification: documented_response_fields_with_explicit_observed_wire_compatibility
+  newLiveCallsByBuilder: 0
+  requirednessInferred: false
+  unknownFieldsAllowed: true

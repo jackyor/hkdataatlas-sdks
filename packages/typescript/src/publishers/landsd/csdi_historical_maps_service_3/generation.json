@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "landsd-csdi-historical-maps-service-3",
+  "sourceSha256": "c3fd33f382c57aaaf05d594550b14015f5cc94400279a110e87361bb3c3e590d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/services/common/landsd_rcd_1631607455226_33724/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

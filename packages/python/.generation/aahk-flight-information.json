@@ -1,0 +1,35 @@
+{
+  "sourceId": "aahk-flight-information",
+  "publisherKey": "aahk",
+  "family": "flight_information",
+  "status": "generated",
+  "key": "f221056e74aef15be524598f374bc74ea0a807ecc01504c128347567054bcc53",
+  "sourceSha256": "d99666269b1ed0af1b6380b0195620ccc0809b0cc378bd4241873830af89c127",
+  "derivedInputSha256": "d99666269b1ed0af1b6380b0195620ccc0809b0cc378bd4241873830af89c127",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/rest/flights/past",
+      "operationId": "getPastFlightInformation",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/aahk-flight-information.log",
+  "outputs": {
+    "__init__.py": "0d391117732b283f4d8c3a07d3d73cc7af842af0a43a5d4b5ec05dd77325e424",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_past_flight_information.py": "dc126627b1605a8e16ecf98c956573bb8ffb542fc163f896c4a41e444ae206d3",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "796963efc5518f73d1f2e53508ea60b56755044f84dfcc5b3e60418271186dfc",
+    "models/get_past_flight_information_lang.py": "5a08fc019ff123eba528c84593e710df7610d3bbd6d49524edabbe13c616a38d",
+    "models/observed_day_group.py": "1148caca3fe3d416444d03288a9d20093cdeea161388615eff4603ae8d04b232",
+    "models/observed_flight_number.py": "a2d4fb3ac823405e3ea78089496c712a32f6139ae8193a075fea15fdd5c7532f",
+    "models/observed_flight_record.py": "8d2837db73ff1522db2ed9fbd8af26bbe88be3d76b93af83152c7aac75920300",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "components": {
+    "schemas": {
+      "CompanyDirectoryResponse": {
+        "description": "Response containing a list of company profile objects. The example is illustrative and does not establish that all listed fields are always present.",
+        "properties": {
+          "value": {
+            "description": "List of company profile objects.",
+            "items": {
+              "$ref": "#/components/schemas/CompanyProfile"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "CompanyProfile": {
+        "properties": {
+          "address_EN": {
+            "description": "Company address in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "address_SC": {
+            "description": "Company address in Simplified Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "address_TC": {
+            "description": "Company address in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cluster": {
+            "description": "Cluster of company in Hong Kong Science Park in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cluster_SC": {
+            "description": "Cluster of company in Hong Kong Science Park in Simplified Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cluster_TC": {
+            "description": "Cluster of company in Hong Kong Science Park in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "contact_EN": {
+            "description": "Contact name in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "contact_SC": {
+            "description": "Contact name in Simplified Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "contact_TC": {
+            "description": "Contact name in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "email": {
+            "description": "Email address of the company.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fax": {
+            "description": "Fax number of the company.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "introduction_EN": {
+            "description": "Company introduction in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "introduction_SC": {
+            "description": "Company introduction in Simplified Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "introduction_TC": {
+            "description": "Company introduction in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name_EN": {
+            "description": "Company name in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name_SC": {
+            "description": "Company name in Simplified Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "name_TC": {
+            "description": "Company name in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "product_EN": {
+            "description": "Product description in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "product_SC": {
+            "description": "Product description in Simplified Chinese. Its placement in the extracted documentation is unclear; the field dictionary identifies this name and description.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "product_TC": {
+            "description": "Product description in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "telephone": {
+            "description": "Telephone number of the company.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "Type of company in Hong Kong Science Park in English.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type_Name_EN": {
+            "description": "English company type name as shown in the documented example; the field dictionary does not list this property.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type_Name_SC": {
+            "description": "Type of company in Hong Kong Science Park in Simplified Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type_Name_TC": {
+            "description": "Type of company in Hong Kong Science Park in Traditional Chinese.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "website": {
+            "description": "Website URL of the company.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "https://opendata.hkstp.org/doc/corporate/HKSTP-API-hkstp-company-directory.pdf"
+  },
+  "info": {
+    "description": "Provides company profiles for companies in Hong Kong Science Park. The version is undocumented and is a metadata placeholder, not a publisher API version. Authentication requirements are not specified.",
+    "title": "HKSTPC Company Directory API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/corporate/companydirectory/v1/": {
+      "get": {
+        "operationId": "getCompanyDirectory",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedExample": {
+                    "summary": "Example response from the documentation",
+                    "value": {
+                      "value": [
+                        {
+                          "address_EN": null,
+                          "address_SC": null,
+                          "address_TC": null,
+                          "cluster": "Professional Service",
+                          "cluster_SC": "专业服务",
+                          "cluster_TC": "專業服務",
+                          "contact_EN": null,
+                          "contact_SC": null,
+                          "contact_TC": null,
+                          "email": "enquiry.marketing@hkstp.org",
+                          "fax": null,
+                          "introduction_EN": null,
+                          "introduction_SC": null,
+                          "introduction_TC": null,
+                          "name_EN": "Hong Kong Science and Technology Parks Corporation",
+                          "name_SC": "香港科技园公司",
+                          "name_TC": "香港科技園公司",
+                          "product_EN": null,
+                          "product_SC": null,
+                          "product_TC": null,
+                          "telephone": "+852 2629 1818",
+                          "type": "Tenant Companies in Hong Kong Science Park",
+                          "type_Name_EN": "Companies in Hong Kong Science Park",
+                          "type_Name_SC": "科学园入驻企业",
+                          "type_Name_TC": "科學園入駐企業",
+                          "website": "http://www.hkstp.org"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyDirectoryResponse"
+                }
+              }
+            },
+            "description": "Company directory response."
+          }
+        },
+        "summary": "Get the company directory"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://opendata.hkstp.org"
+    }
+  ]
+}

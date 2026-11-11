@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "lr-csdi-index-of-owners-corporations-oc",
+  "sourceSha256": "513864e1133461780d6a15151758a98573b1921701919446fc92ad4dfde611f8",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/landreg_rcd_1668151937201_80478/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landreg_rcd_1668151937201_80478/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/landreg_rcd_1668151937201_80478/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

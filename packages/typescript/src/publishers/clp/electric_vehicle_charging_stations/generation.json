@@ -1,0 +1,20 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "clp-electric-vehicle-charging-stations",
+  "sourceSha256": "6e3fc81a057577e9a2c185d90fcecb246c54b1170626aecfb1c56155c617302b",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/evcharger/list",
+      "operationId": "retrieveElectricVehicleChargingStationsJsonEvchargerList"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

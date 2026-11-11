@@ -1,0 +1,117 @@
+{
+  "components": {
+    "schemas": {
+      "MajorSpeech": {
+        "additionalProperties": true,
+        "description": "API record fields documented for a major speech. The source does not specify the outer response envelope.",
+        "properties": {
+          "date": {
+            "description": "Date (D.M.YYYY)",
+            "type": "string"
+          },
+          "description": {
+            "description": "Content of the Major Speeches",
+            "type": "string"
+          },
+          "link": {
+            "description": "URL of headline",
+            "format": "uri",
+            "type": "string"
+          },
+          "title": {
+            "description": "Headline of Major Speeches",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "link",
+          "date",
+          "description"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Publisher API data dictionary",
+    "url": "https://www.fso.gov.hk/eng/open_data/data_dict_major_speech.pdf"
+  },
+  "info": {
+    "description": "Retrieves major speeches of the Financial Secretary. The version is undocumented and is not a publisher API version. All times are in HKT (GMT+8). If both date parameters are omitted, speeches from the last six months are returned. A maximum of 400 records is returned. The documentation describes English (lang=en); catalog metadata also lists Traditional Chinese (lang=tc) and Simplified Chinese (lang=sc) resources, but does not provide their response schemas here. Authentication requirements are undocumented.",
+    "title": "Financial Secretary - Major Speeches",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/fso/majorspeech/search": {
+      "get": {
+        "description": "Searches major speeches by an optional inclusive date range. Parameters start and end must either both be supplied or both be omitted. The documented endpoint example uses English (lang=en).",
+        "operationId": "searchMajorSpeeches",
+        "parameters": [
+          {
+            "description": "Language of the response. The API documentation illustrates en. Catalog metadata lists en, tc (Traditional Chinese), and sc (Simplified Chinese) API resources, but the API documentation does not specify an exhaustive set of accepted values.",
+            "example": "en",
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "default": "en",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Inclusive start date in YYYYMMDD format, e.g. 20190102. Earliest accepted date is 16 January 2017. Must be used together with end.",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": {
+              "example": "20190102",
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Inclusive end date in YYYYMMDD format, e.g. 20190109. Latest accepted date is today. Must be used together with start.",
+            "in": "query",
+            "name": "end",
+            "required": false,
+            "schema": {
+              "example": "20190109",
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "properties": {
+                    "data": {
+                      "description": "The response records, if represented in an envelope; the documentation does not specify the envelope property name or shape.",
+                      "items": {
+                        "$ref": "#/components/schemas/MajorSpeech"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Major speeches matching the request. The publisher documents the fields of each API record, but does not document the outer response envelope or error responses."
+          }
+        },
+        "summary": "Search major speeches"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.data.gov.hk/v1"
+    }
+  ]
+}

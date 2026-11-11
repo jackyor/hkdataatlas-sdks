@@ -1,0 +1,1734 @@
+openapi: 3.1.0
+info:
+  title: Census and Statistics Department — Number of establishments and persons engaged (other than those in the civil service) analysed by industry section / industry division and District Council district
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/censtatd_rcd_1635934988457_37762/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: Table_215_16008
+              value: 0
+          x-choice-count: 1
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1635934988457_37762/FeatureServer?f=pjson
+          sha256: ec3d7a802c62e0e3546b378f2c8a8ce6028caedecbf29344ccaa6130eaa0b2cf
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1635934988457_37762/FeatureServer/0?f=pjson
+          sha256: 279b88bd27c46d8ae79a39731179235712052935bf876cb8f7d02a6ba99e8d87
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/censtatd_rcd_1635934988457_37762/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: Table_215_16008
+              value: Table_215_16008
+          x-choice-count: 1
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.813875,22.138046,114.500968,22.569932
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+        - EPSG:2326
+        - EPSG:102140
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1635934988457_37762/MapServer/WMSServer?service=wms&request=GetCapabilities
+          sha256: 580573d395d21bf6c35c8403a49c9909a335b5f5379a6af53ec8ab02c6c2db30
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        CCYY:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: CCYY
+          type:
+            - number
+            - "null"
+        DC:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: DC
+          type:
+            - number
+            - "null"
+        DC_CHI:
+          description: "Publisher field type: esriFieldTypeString"
+          title: DC_CHI
+          type:
+            - string
+            - "null"
+          maxLength: 9
+        DC_CLASS:
+          description: "Publisher field type: esriFieldTypeString"
+          title: DC_CLASS
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        DC_ENG:
+          description: "Publisher field type: esriFieldTypeString"
+          title: DC_ENG
+          type:
+            - string
+            - "null"
+          maxLength: 19
+        EST_ind_08:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_08
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_10:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_10
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_11:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_11
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_12:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_12
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_13:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_13
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_14:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_14
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_15:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_15
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_16:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_16
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_17:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_17
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_18:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_18
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_19:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_19
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_20:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_20
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_21:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_21
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_22:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_22
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_23:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_23
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_24:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_24
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_25:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_25
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_26:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_26
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_27:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_27
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_28:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_28
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_29:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_29
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_30:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_30
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_31:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_31
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_32:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_32
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_33:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_33
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_35:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_35
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_37:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_37
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_38:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_38
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_39:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_39
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_45
+          type:
+            - number
+            - "null"
+        EST_ind_46:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_46
+          type:
+            - number
+            - "null"
+        EST_ind_47:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_47
+          type:
+            - number
+            - "null"
+        EST_ind_49:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_49
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_50:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_50
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_51:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_51
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_52:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_52
+          type:
+            - number
+            - "null"
+        EST_ind_53:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_53
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_55:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_55
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_56:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_56
+          type:
+            - number
+            - "null"
+        EST_ind_58:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_58
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_59:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_59
+          type:
+            - number
+            - "null"
+        EST_ind_60:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_60
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_61:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_61
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_62:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_62
+          type:
+            - number
+            - "null"
+        EST_ind_63:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_63
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_64:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_64
+          type:
+            - number
+            - "null"
+        EST_ind_65:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_65
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_66:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_66
+          type:
+            - number
+            - "null"
+        EST_ind_68:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_68
+          type:
+            - number
+            - "null"
+        EST_ind_69:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_69
+          type:
+            - number
+            - "null"
+        EST_ind_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_70
+          type:
+            - number
+            - "null"
+        EST_ind_71:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_71
+          type:
+            - number
+            - "null"
+        EST_ind_72:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_72
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_73:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_73
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_74:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_74
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_75:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_75
+          type:
+            - number
+            - "null"
+        EST_ind_77:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_77
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_78:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_78
+          type:
+            - number
+            - "null"
+        EST_ind_79:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_79
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_80:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_80
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_81:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_81
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_82:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_82
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_85:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_85
+          type:
+            - number
+            - "null"
+        EST_ind_86:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_86
+          type:
+            - number
+            - "null"
+        EST_ind_87:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_87
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_88:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_88
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_90:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_90
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_91:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_91
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_92:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_92
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_93:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_93
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_94:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_94
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_95:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_95
+          type:
+            - number
+            - "null"
+        EST_ind_96:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_96
+          type:
+            - number
+            - "null"
+        EST_ind_B:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_B
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_B_D_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_B_D_E
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_C:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_C
+          type:
+            - number
+            - "null"
+        EST_ind_D:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_D
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_D_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_D_E
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: EST_ind_E
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        EST_ind_G:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_G
+          type:
+            - number
+            - "null"
+        EST_ind_G45_46:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_G45_46
+          type:
+            - number
+            - "null"
+        EST_ind_G47:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_G47
+          type:
+            - number
+            - "null"
+        EST_ind_H:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_H
+          type:
+            - number
+            - "null"
+        EST_ind_I:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_I
+          type:
+            - number
+            - "null"
+        EST_ind_J:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_J
+          type:
+            - number
+            - "null"
+        EST_ind_K:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_K
+          type:
+            - number
+            - "null"
+        EST_ind_L:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_L
+          type:
+            - number
+            - "null"
+        EST_ind_M:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_M
+          type:
+            - number
+            - "null"
+        EST_ind_M_N:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_M_N
+          type:
+            - number
+            - "null"
+        EST_ind_N:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_N
+          type:
+            - number
+            - "null"
+        EST_ind_P:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_P
+          type:
+            - number
+            - "null"
+        EST_ind_P_S:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_P_S
+          type:
+            - number
+            - "null"
+        EST_ind_Q:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_Q
+          type:
+            - number
+            - "null"
+        EST_ind_R:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_R
+          type:
+            - number
+            - "null"
+        EST_ind_S:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_S
+          type:
+            - number
+            - "null"
+        EST_ind_SITE:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: EST_ind_SITE
+          type:
+            - number
+            - "null"
+        PE_ind_08:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_08
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_10:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_10
+          type:
+            - number
+            - "null"
+        PE_ind_11:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_11
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_12:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_12
+          type:
+            - string
+            - "null"
+          maxLength: 4
+        PE_ind_13:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_13
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_14:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_14
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_15:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_15
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_16:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_16
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_17:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_17
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_18:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_18
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_19:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_19
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_20:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_20
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_21:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_21
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_22:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_22
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_23:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_23
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_24:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_24
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_25:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_25
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_26:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_26
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_27:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_27
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_28:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_28
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_29:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_29
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_30:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_30
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_31:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_31
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_32:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_32
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_33:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_33
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_35:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_35
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_37:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_37
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_38:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_38
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_39:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_39
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_45
+          type:
+            - number
+            - "null"
+        PE_ind_46:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_46
+          type:
+            - number
+            - "null"
+        PE_ind_47:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_47
+          type:
+            - number
+            - "null"
+        PE_ind_49:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_49
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_50:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_50
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_51:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_51
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_52:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_52
+          type:
+            - number
+            - "null"
+        PE_ind_53:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_53
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_55:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_55
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_56:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_56
+          type:
+            - number
+            - "null"
+        PE_ind_58:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_58
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_59:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_59
+          type:
+            - number
+            - "null"
+        PE_ind_60:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_60
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_61:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_61
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_62:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_62
+          type:
+            - number
+            - "null"
+        PE_ind_63:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_63
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_64:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_64
+          type:
+            - number
+            - "null"
+        PE_ind_65:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_65
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_66:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_66
+          type:
+            - number
+            - "null"
+        PE_ind_68:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_68
+          type:
+            - number
+            - "null"
+        PE_ind_69:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_69
+          type:
+            - number
+            - "null"
+        PE_ind_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_70
+          type:
+            - number
+            - "null"
+        PE_ind_71:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_71
+          type:
+            - number
+            - "null"
+        PE_ind_72:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_72
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_73:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_73
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_74:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_74
+          type:
+            - number
+            - "null"
+        PE_ind_75:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_75
+          type:
+            - number
+            - "null"
+        PE_ind_77:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_77
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_78:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_78
+          type:
+            - number
+            - "null"
+        PE_ind_79:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_79
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_80:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_80
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_81:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_81
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_82:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_82
+          type:
+            - number
+            - "null"
+        PE_ind_85:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_85
+          type:
+            - number
+            - "null"
+        PE_ind_86:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_86
+          type:
+            - number
+            - "null"
+        PE_ind_87:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_87
+          type:
+            - number
+            - "null"
+        PE_ind_88:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_88
+          type:
+            - number
+            - "null"
+        PE_ind_90:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_90
+          type:
+            - number
+            - "null"
+        PE_ind_91:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_91
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_92:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_92
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_93:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_93
+          type:
+            - number
+            - "null"
+        PE_ind_94:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_94
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_95:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_95
+          type:
+            - number
+            - "null"
+        PE_ind_96:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_96
+          type:
+            - number
+            - "null"
+        PE_ind_B:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_B
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_B_D_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_B_D_E
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_C:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_C
+          type:
+            - number
+            - "null"
+        PE_ind_D:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_D
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_D_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_D_E
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PE_ind_E
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        PE_ind_G:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_G
+          type:
+            - number
+            - "null"
+        PE_ind_G45_46:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_G45_46
+          type:
+            - number
+            - "null"
+        PE_ind_G47:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_G47
+          type:
+            - number
+            - "null"
+        PE_ind_H:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_H
+          type:
+            - number
+            - "null"
+        PE_ind_I:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_I
+          type:
+            - number
+            - "null"
+        PE_ind_J:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_J
+          type:
+            - number
+            - "null"
+        PE_ind_K:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_K
+          type:
+            - number
+            - "null"
+        PE_ind_L:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_L
+          type:
+            - number
+            - "null"
+        PE_ind_M:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_M
+          type:
+            - number
+            - "null"
+        PE_ind_M_N:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_M_N
+          type:
+            - number
+            - "null"
+        PE_ind_N:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_N
+          type:
+            - number
+            - "null"
+        PE_ind_P:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_P
+          type:
+            - number
+            - "null"
+        PE_ind_P_S:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_P_S
+          type:
+            - number
+            - "null"
+        PE_ind_Q:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_Q
+          type:
+            - number
+            - "null"
+        PE_ind_R:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_R
+          type:
+            - number
+            - "null"
+        PE_ind_S:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_S
+          type:
+            - number
+            - "null"
+        PE_ind_SITE:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: PE_ind_SITE
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: Table_215_16008
+    protocol: arcgis
+  - id: Table_215_16008
+    title: Table_215_16008
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813875"
+        miny: "22.138046"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138046"
+        miny: "113.813875"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000000"
+        miny: "799186.800000"
+        maxx: "847618.000000"
+        maxy: "869854.000000"
+      - CRS: EPSG:102140
+        minx: "799837.000000"
+        miny: "799186.800000"
+        maxx: "847618.000000"
+        maxy: "869854.000000"
+      - CRS: CRS:84
+        minx: "113.813875"
+        miny: "22.138046"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138046"
+        miny: "113.813875"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000000"
+        miny: "799186.800000"
+        maxx: "847618.000000"
+        maxy: "869854.000000"
+      - CRS: EPSG:102140
+        minx: "799837.000000"
+        miny: "799186.800000"
+        maxx: "847618.000000"
+        maxy: "869854.000000"
+    styles:
+      - id: default
+        title: Table_215_16008
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=censtatd_rcd_1635934988457_37762
+    sha256: 13eafd57cc0877507ee776eb6b9f6ec308d2d107ad9b291d12ad088de3d372f9
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1635934988457_37762/FeatureServer?f=pjson
+    sha256: ec3d7a802c62e0e3546b378f2c8a8ce6028caedecbf29344ccaa6130eaa0b2cf
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1635934988457_37762/FeatureServer/0?f=pjson
+    sha256: 279b88bd27c46d8ae79a39731179235712052935bf876cb8f7d02a6ba99e8d87
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1635934988457_37762/MapServer/WMSServer?service=wms&request=GetCapabilities
+    sha256: 580573d395d21bf6c35c8403a49c9909a335b5f5379a6af53ec8ab02c6c2db30
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1635934988457_37762/MapServer/WFSServer?service=WFS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-e26c09874c1eeac4b065b33f
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/censtatd_rcd_1635934988457_37762/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    - serviceId: csdi-service-e26c09874c1eeac4b065b33f
+      protocol: wfs
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WFS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 4
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

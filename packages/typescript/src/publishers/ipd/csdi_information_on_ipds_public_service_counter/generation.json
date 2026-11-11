@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ipd-csdi-information-on-ipds-public-service-counter",
+  "sourceSha256": "c432b07a939f5d050f2a027c58bda1f0bf5381a24c5627cc6d53fe07157cf8fb",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ipd_rcd_1634011667834_43072/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ipd_rcd_1634011667834_43072/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ipd_rcd_1634011667834_43072/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

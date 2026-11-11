@@ -1,0 +1,66 @@
+components:
+  schemas:
+    Restaurant:
+      properties:
+        Id:
+          description: Identifier of the restaurant. The documentation labels this field `Id`, while its example uses the wire key `id`; the example identifier is a string.
+          type: string
+        locationItem_en:
+          description: Address of Shop (English).
+          type: string
+        locationItem_sc:
+          description: Address of Shop (Simplified Chinese).
+          type: string
+        locationItem_tc:
+          description: Address of Shop (Traditional Chinese).
+          type: string
+        shopTitle_en:
+          description: Name of Shop (English).
+          type: string
+        shopTitle_sc:
+          description: Name of Shop (Simplified Chinese).
+          type: string
+        shopTitle_tc:
+          description: Name of Shop (Traditional Chinese).
+          type: string
+      type: object
+    RestaurantList:
+      description: Response object containing the list of restaurants.
+      properties:
+        value:
+          description: List of objects.
+          items:
+            $ref: "#/components/schemas/Restaurant"
+          type: array
+      type: object
+externalDocs:
+  description: Official HKSTPC Restaurant List API documentation
+  url: https://opendata.hkstp.org/doc/park-info/HKSTP-API-restaurant-list.pdf
+info:
+  description: Provides a list of restaurants in Hong Kong Science Park. The version value is a metadata placeholder, not a publisher API version. Authentication requirements are not specified in the documentation.
+  title: HKSTPC Restaurant List API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /restaurant:
+    get:
+      operationId: getRestaurantList
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                value:
+                  - id: "7699"
+                    locationItem_en: S061-S066, G/F, Building 12W, 12 Science Park West Avenue
+                    locationItem_sc: 科技大道西12号12W大楼地下S061-S066号铺
+                    locationItem_tc: 科技大道西12號12W大樓地下S061-S066號舖
+                    shopTitle_en: ClubONE on the PARK
+                    shopTitle_sc: 会所1号. 科学园
+                    shopTitle_tc: 會所1号. 科學園
+              schema:
+                $ref: "#/components/schemas/RestaurantList"
+          description: Restaurant list returned as JSON.
+      summary: Get the restaurant list
+servers:
+  - url: https://opendata.hkstp.org/park-info/v1

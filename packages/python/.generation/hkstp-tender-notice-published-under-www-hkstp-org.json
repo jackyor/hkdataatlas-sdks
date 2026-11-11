@@ -1,0 +1,33 @@
+{
+  "sourceId": "hkstp-tender-notice-published-under-www-hkstp-org",
+  "publisherKey": "hkstp",
+  "family": "tender_notice_published_under_www_hkstp_org",
+  "status": "generated",
+  "key": "7a83fd023d186363b2591a3982e21e0fdd97784bf7fb2197b5e873026e707a57",
+  "sourceSha256": "87a9d892285315085309c70bc88709b442e1583435f7027483369f0d63074dbc",
+  "derivedInputSha256": "87a9d892285315085309c70bc88709b442e1583435f7027483369f0d63074dbc",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/corporate/info/v1/tendernotice",
+      "operationId": "getTenderNotices",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkstp-tender-notice-published-under-www-hkstp-org.log",
+  "outputs": {
+    "__init__.py": "f65c6e2a10d3176a6843e912fab7ef165fd9278ff144d3735bf80cd9c81b91b2",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_tender_notices.py": "47b80708d2351fc94b168976855eac4c3abb8c0e3ae676d130ca5f3c146ab1d0",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "64ddd112a6e8398a8ff951560a277394eddca0dbfc67119270520d41fe46adb8",
+    "models/tender_notice.py": "1f1ab8dcd83f5a051c0fba3e06cf80f329c5012add1a13d42f4817f22ecd3cf2",
+    "models/tender_notice_response.py": "3b2869c818e035c6cf1e7eecf614af76262e33e9fab9979bf06b8ccbce326d9f",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

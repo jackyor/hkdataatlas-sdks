@@ -1,0 +1,212 @@
+{
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "description": "A transaction record. The dictionary documents the following fields and types. Numeric saleable-area and transaction-price values are declared Numeric, while the documented JSON example represents them as strings; both representations are permitted here to retain that discrepancy.",
+        "properties": {
+          "asp_sign_date": {
+            "description": "Date of Agreement for Sale and Purchase (ASP). The dictionary specifies text in dd-mm-yyyy form, while the example is `06/01/2023` (slash-separated); the source representations differ.",
+            "examples": [
+              "06/01/2023"
+            ],
+            "type": "string"
+          },
+          "block_name": {
+            "description": "Block name of the purchased flat.",
+            "type": "string"
+          },
+          "court_estate_name": {
+            "description": "Court/Estate name of the purchased flat.",
+            "type": "string"
+          },
+          "flat_num": {
+            "description": "Flat number of the purchased flat. The dictionary type is Text.",
+            "type": "string"
+          },
+          "floor_num": {
+            "description": "Floor number of the purchased flat. The dictionary type is Text.",
+            "type": "string"
+          },
+          "sale_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Sale price of the purchased flat. The dictionary declares Numeric with the form `<999999999999999.99>`, while the documented example encodes it as the string `2563000.0`."
+          },
+          "saleable_area": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Saleable area of the purchased flat in square meters. The dictionary declares Numeric with the form `<9999999.999>`, while the documented example encodes it as the string `41.6`."
+          },
+          "scheme_name": {
+            "description": "Subsidised home ownership scheme name.",
+            "type": "string"
+          },
+          "scheme_type": {
+            "description": "Subsidised home ownership scheme type. The documented possible value is GSH.",
+            "example": "GSH",
+            "type": "string"
+          },
+          "wing": {
+            "description": "Wing of the purchased flat.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TransactionsResponse": {
+        "description": "JSON response object. The documented example contains a data array; the source does not state that the object is closed or that all fields are universally required.",
+        "properties": {
+          "data": {
+            "description": "Sale transaction records.",
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Data specification and API documentation",
+    "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_g22_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "API for retrieving transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2022. The version is the documentation version dated 25 July 2024, not necessarily the API version. The source states that the service does not require authentication and returns UTF-8 data. Simplified Chinese data is not provided; a request for Simplified Chinese returns Traditional Chinese data.",
+    "title": "Transactions in the Sale of GSH 2022",
+    "version": "2.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/psi/rest/export/{dataresource}/{lang}/{format}": {
+      "get": {
+        "description": "Returns transaction records for the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2022. Documented response formats are JSON, CSV, and XML; the response is UTF-8 encoded. The data dictionary describes the JSON response. Simplified Chinese is not available for this dataset and the service returns Traditional Chinese data for that language selection.",
+        "operationId": "getGsh2022SaleTransactions",
+        "parameters": [
+          {
+            "description": "Data resource identifier. The documented valid value is `ssfs-sale-transactions-g22` (Transactions in the Sale of GSH 2022).",
+            "example": "ssfs-sale-transactions-g22",
+            "in": "path",
+            "name": "dataresource",
+            "required": true,
+            "schema": {
+              "enum": [
+                "ssfs-sale-transactions-g22"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Language: en English, tc Traditional Chinese, sc Simplified Chinese. The source states sc returns Traditional Chinese data for this dataset.",
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response file format.",
+            "examples": {
+              "csv": {
+                "value": "csv"
+              },
+              "json": {
+                "value": "json"
+              },
+              "xml": {
+                "value": "xml"
+              }
+            },
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "enum": [
+                "json",
+                "csv",
+                "xml"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedExample": {
+                    "summary": "Documented JSON response example",
+                    "value": {
+                      "data": [
+                        {
+                          "asp_sign_date": "06/01/2023",
+                          "block_name": "BLOCK A",
+                          "court_estate_name": "KO WANG COURT",
+                          "flat_num": "24",
+                          "floor_num": "44",
+                          "sale_price": "2563000.0",
+                          "saleable_area": "41.6",
+                          "scheme_name": "Sale of Green Form Subsidised Home Ownership Scheme Flats 2022 (GSH 2022)",
+                          "scheme_type": "GSH",
+                          "wing": ""
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "XML response; the source does not document an XML schema.",
+                  "type": "string"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "description": "CSV response; the source does not document a CSV schema.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Success. The documented JSON response is an object containing a `data` array of transaction records. The data dictionary specifies the record fields; the sample response is illustrative and does not establish complete response requiredness."
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        },
+        "summary": "Get GSH 2022 sale transaction data"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.housingauthority.gov.hk"
+    }
+  ]
+}

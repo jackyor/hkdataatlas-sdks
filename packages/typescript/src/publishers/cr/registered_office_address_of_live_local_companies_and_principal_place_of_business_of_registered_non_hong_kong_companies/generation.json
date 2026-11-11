@@ -1,0 +1,19 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "cr-registered-office-address-of-live-local-companies-and-principal-place-of-business-of-registered-non-hong-kong-companies",
+  "sourceSha256": "bdcc7e4a779dd57ecf9062b9296eb49310fcb88620ac112b8c99092c20f4c38e",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/foreign/search",
+      "operationId": "searchRegisteredNonHongKongCompanies"
+    },
+    {
+      "method": "GET",
+      "path": "/local/search",
+      "operationId": "searchLiveLocalCompanies"
+    }
+  ],
+  "normalizations": []
+}

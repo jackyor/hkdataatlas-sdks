@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "housing-csdi-local-open-space-los-in-planned-public-housing-developments",
+  "sourceSha256": "04efa3fa887260691c663bf164f005f8048210204c8569ed1bed5f269165fa9b",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/housingauthority_rcd_1702369743259_62653/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/housingauthority_rcd_1702369743259_62653/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

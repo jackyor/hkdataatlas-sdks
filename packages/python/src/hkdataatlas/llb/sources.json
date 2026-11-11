@@ -1,0 +1,64 @@
+{
+  "publisherKey": "llb",
+  "publisherName": "Liquor Licensing Board",
+  "sources": [
+    {
+      "id": "llb-csdi-licensed-liquor-premises",
+      "publisherKey": "llb",
+      "publisherName": "Liquor Licensing Board",
+      "familyKey": "csdi-licensed-liquor-premises",
+      "name": "Licensed Liquor Premises",
+      "apiTitle": "Liquor Licensing Board \u2014 Licensed Liquor Premises",
+      "json": "llb/csdi-licensed-liquor-premises/openapi.json",
+      "yaml": "llb/csdi-licensed-liquor-premises/openapi.yaml",
+      "file": "llb/csdi-licensed-liquor-premises/openapi.json",
+      "sha256": "bac448642586ffaed97f4ccec1b4542d69621c10713e67a7faef5b9c1f44d723",
+      "jsonSha256": "bac448642586ffaed97f4ccec1b4542d69621c10713e67a7faef5b9c1f44d723",
+      "yamlSha256": "0baa316f4453154395ddfd08bed8d551e6d6d1b530e5f29987e1112b962b76f8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_licensed_liquor_premises",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "bac448642586ffaed97f4ccec1b4542d69621c10713e67a7faef5b9c1f44d723"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=fehd_rcd_1695972959083_79626",
+        "canonicalJsonSha256": "bac448642586ffaed97f4ccec1b4542d69621c10713e67a7faef5b9c1f44d723",
+        "originalRepresentationSha256": "bac448642586ffaed97f4ccec1b4542d69621c10713e67a7faef5b9c1f44d723",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_licensed_liquor_premises"
+    }
+  ]
+}

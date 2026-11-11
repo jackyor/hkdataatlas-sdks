@@ -1,0 +1,162 @@
+{
+  "components": {
+    "schemas": {
+      "MajorSpeech": {
+        "description": "API speech-record fields from the publisher API column: title, link, date and description. The separate XML feed uses pubDate instead of API date/description.",
+        "properties": {
+          "date": {
+            "description": "Date, documented in D.M.YYYY format.",
+            "type": "string"
+          },
+          "description": {
+            "description": "Content of the major speech.",
+            "type": "string"
+          },
+          "link": {
+            "description": "URL of the headline.",
+            "format": "uri",
+            "type": "string"
+          },
+          "title": {
+            "description": "Headline of the major speech.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "link",
+          "date",
+          "description"
+        ],
+        "type": "object"
+      },
+      "MajorSpeechXmlFeedRecord": {
+        "description": "Fields from the publisher separate XML-feed column; this does not establish XML media support at the JSON search API URL. Catalogued XML feeds are separate URLs.",
+        "properties": {
+          "link": {
+            "description": "URL of the headline.",
+            "format": "uri",
+            "type": "string"
+          },
+          "pubDate": {
+            "description": "Publication date, documented in D.M.YYYY format.",
+            "type": "string"
+          },
+          "title": {
+            "description": "Headline of the major speech.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "link",
+          "pubDate"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation and data dictionary",
+    "url": "https://www.cso.gov.hk/eng/open_data/data_dict_major_speech.pdf"
+  },
+  "info": {
+    "description": "API for retrieving Major Speeches of the Chief Secretary for Administration. The API version is not specified in the source documentation. Authentication requirements are not documented.",
+    "title": "Chief Secretary for Administration - Major Speeches",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/v1/cso/majorspeech/search": {
+      "get": {
+        "description": "Returns major speeches. The documented English-language request example uses lang=en. If start and end are omitted, speeches from the last six months are returned. The maximum response size is 400 records.",
+        "operationId": "searchMajorSpeeches",
+        "parameters": [
+          {
+            "description": "Language of the speeches. The English-language endpoint is documented with lang=en; cataloged API resources also identify lang=sc and lang=tc for Simplified and Traditional Chinese.",
+            "example": "en",
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "sc",
+                "tc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Inclusive start date in YYYYMMDD format (for example, 20190102). When supplied, end must also be supplied. The earliest accepted start date is 16 January 2017. Dates and times are in HKT (GMT+8).",
+            "example": "20190102",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": {
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Inclusive end date in YYYYMMDD format (for example, 20190109). When supplied, start must also be supplied. The latest accepted end date is today. Dates and times are in HKT (GMT+8).",
+            "example": "20190109",
+            "in": "query",
+            "name": "end",
+            "required": false,
+            "schema": {
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "observedEmptyDateWindow": {
+                    "description": "Observed 2026-11-06T14:05:52.628Z for the documented date-window request.",
+                    "summary": "One recorded empty historical window; not an exhaustive response guarantee",
+                    "value": {
+                      "results": [],
+                      "returned-count": 0,
+                      "total-count": 0
+                    }
+                  }
+                },
+                "schema": {
+                  "description": "Object/results envelope observed in one source-backed saved live response. Additional fields remain allowed; count fields and universal envelope requiredness are not specified by the publisher dictionary.",
+                  "properties": {
+                    "results": {
+                      "description": "Observed results array. Its record definition comes from the documented API field column; this captured historical date window returned an empty array, so no nonempty item shape was exercised.",
+                      "items": {
+                        "$ref": "#/components/schemas/MajorSpeech"
+                      },
+                      "maxItems": 400,
+                      "type": "array"
+                    },
+                    "returned-count": {
+                      "description": "Observed envelope key in one saved dated search response (value 0); the publisher dictionary does not specify its universal type or requiredness."
+                    },
+                    "total-count": {
+                      "description": "Observed envelope key in one saved dated search response (value 0); the publisher dictionary does not specify its universal type or requiredness."
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "API speech records using documented item fields and an observed JSON results envelope. The publisher separately describes XML feed records; that does not establish XML negotiation at this search URL."
+          }
+        },
+        "summary": "Search major speeches"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.data.gov.hk"
+    }
+  ]
+}

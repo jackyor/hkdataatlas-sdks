@@ -1,0 +1,41 @@
+{
+  "sourceId": "td-csdi-routes-and-fares-of-public-transport-geojson-service-6",
+  "publisherKey": "td",
+  "family": "csdi_routes_and_fares_of_public_transport_geojson_service_6",
+  "status": "generated",
+  "key": "cbdae7cda39558b1eef1434018f98348d16ed3b4bfa3388c64b1e0c382f139dc",
+  "sourceSha256": "8338254684086001031d15c807204462fa164129e0d82ef6ec770b60898aa24c",
+  "derivedInputSha256": "3fd17d60ffc08478c8d9604d3006bceb0d96886a3d2a1d993fa82b28f1992c8f",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/td_rcd_1671692942064_66315/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/td-csdi-routes-and-fares-of-public-transport-geojson-service-6.log",
+  "outputs": {
+    "__init__.py": "58796294267f03bcb689f1d03f6823eaa7cbc09c4aee31d1e75c9c8e548a9a29",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "c6e7089566a1d4b610165647549e9e42d49eecf6e37478d5d828fbc6921ffa92",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "b31a890d371159421448d2e7d2b5184f9681c12e83f856e99c79c70ef99f91fb",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "3f755e49356f6a95b4bc70c00be3b56eee09fbbdda94a467f703d71b9ba394a0",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ofnaa-csdi-list-of-registered-news-agency",
+  "sourceSha256": "83b51adb782e2fb4687e5117afa4b8ae24630db943172a15c379869fcd028993",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ofnaa_rcd_1698824959911_93037/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ofnaa_rcd_1698824959911_93037/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ofnaa_rcd_1698824959911_93037/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "sourceId": "landsd-coordinates-transformation-api",
+  "publisherKey": "landsd",
+  "family": "coordinates_transformation_api",
+  "status": "generated",
+  "key": "db1d717ba8ed8641147267ead8024def2d1a0b0f1dc263bd4f99b67960b5ab0f",
+  "sourceSha256": "6bbca0fa5088c483646700a9dbed938428aaf0936a48524699cb71349feb6e3b",
+  "derivedInputSha256": "79269ec44c111beb595a32a1ba79c49e8b6659001bd144688129bc5ba4567a0e",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/",
+      "operationId": "transformCoordinates",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/landsd-coordinates-transformation-api.log",
+  "outputs": {
+    "__init__.py": "c42e9a8a87da51cf14768a108788b39c3489c516bc4a074d983f76d6ad6b9b21",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/transform_coordinates.py": "9114283f9e617a1f39fa93ed1c7446c07bfcf09a804c93058330ac1be4d63f9a",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "2274b44cad04b046c0f1e707ad74c4400981d5a378cfd7c9f9d00d002fd0b785",
+    "models/transform_coordinates_in_sys.py": "dd4fdc8f3f7cd5a8626f856c043bf5f2ce9f4a15d9dfe8fc4946e4c322df5787",
+    "models/transform_coordinates_in_unit.py": "ae3c96c2bdcb9442fa35139c95041bc46bf8b5c1b7793b1aa053dd2530f926c1",
+    "models/transform_coordinates_out_sys.py": "7d01f4c8ebd774bbeef51feca7cb1c2a8c0ea9d5e228b04a91e2b885f1a43934",
+    "models/transform_coordinates_out_unit.py": "d70edd668e91779f4a12c5f4dba117d2da597e2b09d3b22df0ae7ae2dfdf4abc",
+    "models/transformation_result.py": "d4dde9e97ce789fd1ae64dfd40f0861c4f975f0830b46e00d0731160716e1fa9",
+    "models/transformation_result_error_code.py": "b99b95cf496bb233dc1a30f4bd16108285eeb2a8fd54e91ca492edc392d6dd48",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,473 @@
+openapi: 3.1.0
+info:
+  title: University Grants Committee Secretariat — Number of Graduates (Headcount) of UGC-funded Programmes by University, Level of Study, Mode of Study and Academic Programme Category
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/ugc_rcd_1665536130540_9177/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: geotagging
+              value: 0
+          x-choice-count: 1
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/ugc_rcd_1665536130540_9177/FeatureServer?f=pjson
+          sha256: cdf378397bbc87270ec45b3bae24f1476b470608fb18c4266a4d3c6d1df331eb
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/ugc_rcd_1665536130540_9177/FeatureServer/0?f=pjson
+          sha256: 577b92319678b7f1528d9ed6feae6a177a11360751d25c28e64f0b0da9adb3a3
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/ugc_rcd_1665536130540_9177/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: geotagging
+              value: csdi:geotagging
+          x-choice-count: 1
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::4326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::4326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/ugc_rcd_1665536130540_9177/MapServer/WFSServer?service=wfs&request=GetCapabilities
+          sha256: 6d9aa8851ee6debdf4f394e527b29451456ba22cdc155bd04415a92adfd08936
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        Academic_Programme_Category_EN:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Academic_Programme_Category_EN
+          type:
+            - string
+            - "null"
+          maxLength: 43
+        Academic_Programme_Category_TC:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Academic_Programme_Category_TC
+          type:
+            - string
+            - "null"
+          maxLength: 33
+        Academic_Year:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Academic_Year
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        Easting:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Easting
+          type:
+            - number
+            - "null"
+        Latitude:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Latitude
+          type:
+            - number
+            - "null"
+        Level_of_study_EN:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Level_of_study_EN
+          type:
+            - string
+            - "null"
+          maxLength: 21
+        Level_of_study_TC:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Level_of_study_TC
+          type:
+            - string
+            - "null"
+          maxLength: 21
+        Longitude:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Longitude
+          type:
+            - number
+            - "null"
+        Mode_of_study_EN:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Mode_of_study_EN
+          type:
+            - string
+            - "null"
+          maxLength: 9
+        Mode_of_study_TC:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Mode_of_study_TC
+          type:
+            - string
+            - "null"
+          maxLength: 9
+        Northing:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Northing
+          type:
+            - number
+            - "null"
+        Number_of_Graduates_Headcount:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Number_of_Graduates_Headcount
+          type:
+            - number
+            - "null"
+        University_EN:
+          description: "Publisher field type: esriFieldTypeString"
+          title: University_EN
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        University_TC:
+          description: "Publisher field type: esriFieldTypeString"
+          title: University_TC
+          type:
+            - string
+            - "null"
+          maxLength: 18
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              properties:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                description: DescribeFeatureType attribute declarations unavailable; record fields remain unknown.
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: geotagging
+    protocol: arcgis
+  - id: csdi:geotagging
+    title: geotagging
+    protocol: wfs
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=ugc_rcd_1665536130540_9177
+    sha256: 630c24c9d1e070224202f9e9301d5f592a75a8feeb89402a6de09a1258d0e705
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/ugc_rcd_1665536130540_9177/FeatureServer?f=pjson
+    sha256: cdf378397bbc87270ec45b3bae24f1476b470608fb18c4266a4d3c6d1df331eb
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/ugc_rcd_1665536130540_9177/FeatureServer/0?f=pjson
+    sha256: 577b92319678b7f1528d9ed6feae6a177a11360751d25c28e64f0b0da9adb3a3
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/ugc_rcd_1665536130540_9177/MapServer/WFSServer?service=wfs&request=GetCapabilities
+    sha256: 6d9aa8851ee6debdf4f394e527b29451456ba22cdc155bd04415a92adfd08936
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+x-csdi-source-scope:
+  partialProtocols:
+    - serviceId: csdi-service-80c59793ee060d6c2345996c
+      code: discovery_metadata_error
+      reason: No retained response; cache-only mode performs no HTTP request
+      url: https://portal.csdi.gov.hk/server/services/common/ugc_rcd_1665536130540_9177/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType&typeNames=csdi%3Ageotagging
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/ugc_rcd_1665536130540_9177/MapServer/WMSServer?service=WMS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-cbd3303ac2eb725d9a81ad5d
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/ugc_rcd_1665536130540_9177/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    - serviceId: csdi-service-cbd3303ac2eb725d9a81ad5d
+      protocol: wms
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WMS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 4
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

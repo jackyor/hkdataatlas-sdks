@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "try-csdi-address-of-pensions-enquiry-office-of-the-treasury",
+  "sourceSha256": "86c427f50538b5da6bb94af12c68538c33871c11bc1da410cfcfd4fd75afd94e",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/try_rcd_1635817234081_73721/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/try_rcd_1635817234081_73721/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

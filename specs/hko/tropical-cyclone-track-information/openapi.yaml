@@ -1,0 +1,147 @@
+components:
+  schemas:
+    BulletinHeader:
+      properties:
+        BulletinName:
+          description: Name of the bulletin. Plain text; static data.
+          type: string
+        BulletinProvider:
+          description: Provider of the bulletin. Plain text; static data.
+          type: string
+        BulletinTime:
+          description: Issue time of the bulletin, with the time offset indicating hours ahead of UTC. The dictionary gives the format {YYYY}-{MM}-{DD}T{hh}:{mm}:{ss}+{ZZ}:00 and example 2018-10-30T01:00:00+08:00.
+          example: 2018-10-30T01:00:00+08:00
+          type: string
+        BulletinType:
+          description: Type of the bulletin. One alphabet character; R represents a report type. Static data.
+          example: R
+          type: string
+      type: object
+    TrackPositionCollection:
+      description: A grouping of track-position fields. The dictionary describes these tags but does not fully specify XML cardinality or exact nesting for repeated positions; the schema therefore leaves the object permissive.
+      properties:
+        Index:
+          description: Sequence number of positions in the tropical cyclone track.
+          example: 10
+          type: integer
+        Intensity:
+          description: "If provided, intensity category: Tropical Depression, Tropical Storm, Severe Tropical Storm, Typhoon, Severe Typhoon, Super Typhoon, Low Pressure Area, or Extratropical Low. For unnamed cyclones the latest intensity category may be used as the cyclone name."
+          type: string
+        Latitude:
+          description: Latitude from 0–90N or 0–90S. Positions without a Time tag represent interpolated plotting positions; Intensity and MaximumWind do not apply to these positions.
+          example: 16.70N
+          type: string
+        Longitude:
+          description: Longitude from 0–180E or 0–180W. Positions without a Time tag represent interpolated plotting positions; Intensity and MaximumWind do not apply to these positions.
+          example: 121.10E
+          type: string
+        MaximumWind:
+          description: If provided, maximum sustained winds near the cyclone centre. The dictionary gives example 145km/h. When Intensity is Extratropical Low, the value is --.
+          example: 145km/h
+          type: string
+        Time:
+          description: If provided, analysed or forecast time in Coordinated Universal Time (UTC).
+          example: 2018-10-30T03:00:00+00:00
+          type: string
+      type: object
+    TropicalCycloneList:
+      description: XML root element TropicalCycloneList. It contains TropicalCyclone items when HKO currently issues forecast tracks; the item is absent when there are none.
+      properties:
+        TropicalCyclone:
+          anyOf:
+            - $ref: "#/components/schemas/TropicalCycloneListEntry"
+            - items:
+                $ref: "#/components/schemas/TropicalCycloneListEntry"
+              type: array
+          description: Cyclone entry or entries. Absent when no tropical cyclone forecast track is currently issued.
+      type: object
+    TropicalCycloneListEntry:
+      properties:
+        TropicalCycloneChineseName:
+          description: Chinese name of the tropical cyclone, if named. The dictionary identifies this as plain text in Traditional Chinese, UTF-8; its table layout does not reliably show the example value.
+          type: string
+        TropicalCycloneEnglishName:
+          description: English name of the tropical cyclone, if named. If the tropical cyclone is not yet named, the latest intensity category may be given; possible categories are described in the track data dictionary.
+          type: string
+        TropicalCycloneID:
+          anyOf:
+            - example: 1829
+              type: integer
+            - example: "1829"
+              pattern: ^[0-9]{4}$
+              type: string
+          description: Four-digit unique identifier assigned by HKO. The dictionary describes the format as Integer and gives example 1829; string representation is used in the file naming pattern.
+        TropicalCycloneURL:
+          description: URL of the tropical cyclone track data file.
+          example: https://www.weather.gov.hk/wxinfo/currwx/hko_tctrack_1829.xml
+          format: uri
+          type: string
+      type: object
+    TropicalCycloneTrack:
+      description: XML root element TropicalCycloneTrack.
+      properties:
+        BulletinHeader:
+          $ref: "#/components/schemas/BulletinHeader"
+        WeatherReport:
+          $ref: "#/components/schemas/WeatherReport"
+      type: object
+    WeatherReport:
+      properties:
+        AnalysisInformation:
+          $ref: "#/components/schemas/TrackPositionCollection"
+          description: Latest analysed information for the cyclone, covering the documented intensity, wind, time and position fields.
+        ForecastInformation:
+          $ref: "#/components/schemas/TrackPositionCollection"
+          description: Forecast information for the cyclone, covering the documented position and intensity fields.
+        PastInformation:
+          $ref: "#/components/schemas/TrackPositionCollection"
+          description: Past information for the cyclone, covering the documented position fields Index through Longitude.
+        TropicalCycloneName:
+          description: Name of the tropical cyclone. If not yet named, the latest intensity category is given; see the Intensity values.
+          example: YUTU
+          type: string
+      type: object
+externalDocs:
+  description: Tropical Cyclone Track Information data dictionary
+  url: https://www.weather.gov.hk/wxinfo/currwx/HKO_TCTrackInfo_DataDictionary_en.pdf
+info:
+  description: The source documents XML files containing the current tropical-cyclone list and per-cyclone track information, but does not specify an HTTP API contract or server base. The version value is a metadata placeholder, not a publisher API version. Only the published literal list-file URL and the documented track-file naming pattern are described; no API authentication or error responses are documented.
+  title: Hong Kong Observatory Tropical Cyclone Track Information
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /wxinfo/currwx/hko_tctrack_{TCID}.xml:
+    get:
+      description: The track file is named hko_tctrack_{TCID}.xml, where TCID is the four-digit unique identifier assigned by HKO. The documentation gives this file naming pattern but does not specify a URL template beyond it.
+      operationId: getTropicalCycloneTrack
+      parameters:
+        - description: Four-digit unique identifier for the tropical cyclone assigned by HKO.
+          example: "1829"
+          in: path
+          name: TCID
+          required: true
+          schema:
+            pattern: ^[0-9]{4}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/TropicalCycloneTrack"
+          description: XML tropical cyclone track data.
+      summary: Retrieve track data for a tropical cyclone
+  /wxinfo/currwx/tc_list.xml:
+    get:
+      description: The XML file lists tropical cyclones for which HKO currently issues forecast tracks, with each cyclone's name information and URL for its track data. The TropicalCyclone item is absent when no tropical cyclone forecast track is currently issued.
+      operationId: getTropicalCycloneList
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/TropicalCycloneList"
+          description: XML tropical cyclone list. The document describes its XML fields but does not provide a complete response example.
+      summary: Retrieve the current tropical cyclone list
+servers:
+  - url: https://www.weather.gov.hk

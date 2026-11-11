@@ -1,0 +1,104 @@
+components:
+  schemas:
+    JobVacancy:
+      description: A vacancy record. The documented field dictionary supplies these names and types; it does not specify required fields or prohibit additional properties. The example represents date fields as ISO 8601 date-time strings with a +08:00 offset, although the dictionary labels them Date.
+      properties:
+        Career_Level:
+          description: Career Level
+          type: string
+        Company_Name:
+          description: Company Name
+          type: string
+        Education_Level:
+          description: Education Level
+          type: string
+        Employment_Term:
+          description: Employment Term
+          type: string
+        Employment_Type:
+          description: Employment Type
+          type: string
+        Job_Industry:
+          description: Job Industry
+          type: string
+        Job_Position:
+          description: Job Position
+          type: string
+        Job_Ref_No:
+          description: Job Reference Number
+          type:
+            - string
+            - "null"
+        Post_End_Date:
+          description: Post End Date. The dictionary labels this field Date; the published example uses an ISO 8601 date-time value with a +08:00 offset.
+          format: date-time
+          type: string
+        Post_Start_Date:
+          description: Post Start Date. The dictionary labels this field Date; the published example uses an ISO 8601 date-time value with a +08:00 offset.
+          format: date-time
+          type: string
+        Salary:
+          description: Salary Range
+          type: string
+        Work_Experience:
+          description: Work Experience
+          type: string
+        Work_Location:
+          description: Work Location
+          type: string
+      type: object
+externalDocs:
+  description: Official API documentation and field dictionary
+  url: https://opendata.hkstp.org/doc/corporate/HKSTP-API-hkstp-hksp-job-post.pdf
+info:
+  description: Provides a job vacancy list for companies in Hong Kong Science Park. The publisher documents a GET request at the base URL and a JSON array response. No API version is stated; "undocumented" is a metadata placeholder, not a publisher API version. Authentication and request parameters are unspecified.
+  title: Talent Pool and Recruitment API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /:
+    get:
+      description: Returns a JSON list of job vacancies. The published response example contains two job records; it is illustrative and does not establish that every response has exactly these records or that all fields are universally required.
+      operationId: getTalentPoolAndRecruitment
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                publishedExample:
+                  summary: Publisher's example response
+                  value:
+                    - Career_Level: Middle
+                      Company_Name: Hong Kong Science and Technology Parks Corporation
+                      Education_Level: Diploma / Certificate
+                      Employment_Term: Full-time
+                      Employment_Type: Contract
+                      Job_Industry: "Electronics Engineering "
+                      Job_Position: Talent Pool Support
+                      Job_Ref_No: TP-Apr-29921
+                      Post_End_Date: 2019-05-12T00:00:00+08:00
+                      Post_Start_Date: 2019-04-12T00:00:00+08:00
+                      Salary: Negotiate
+                      Work_Experience: < 3
+                      Work_Location: Science Park
+                    - Career_Level: Middle
+                      Company_Name: Hong Kong Science and Technology Parks Corporation
+                      Education_Level: Degree
+                      Employment_Term: Full-time
+                      Employment_Type: Contract
+                      Job_Industry: "Electronics Engineering "
+                      Job_Position: Talent Pool Manager
+                      Job_Ref_No: TP-Apr-29921
+                      Post_End_Date: 2019-05-13T00:00:00+08:00
+                      Post_Start_Date: 2019-04-13T00:00:00+08:00
+                      Salary: Negotiate
+                      Work_Experience: "> 3"
+                      Work_Location: Science Park
+              schema:
+                items:
+                  $ref: "#/components/schemas/JobVacancy"
+                type: array
+          description: Successful response containing job records.
+      summary: Retrieve job vacancies
+servers:
+  - url: https://opendata.hkstp.org/corporate/recruitment/v1/

@@ -1,0 +1,55 @@
+components:
+  schemas:
+    IncubationGraduatesResponse:
+      description: The source documents item as the incubation graduates label and value as the total number. Both are declared as String. The example value is "620+".
+      properties:
+        item:
+          description: Incubation graduates item label.
+          example: incubation graduates since inception
+          type: string
+        value:
+          description: Total number of incubation graduates.
+          example: 620+
+          type: string
+      type: object
+externalDocs:
+  description: Official API documentation
+  url: https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-incubation-graduates.pdf
+info:
+  description: Retrieves the number of incubation graduates. The version value is a metadata placeholder, not a publisher API version.
+  title: Number of Incubation Graduates API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /corporate/figures/incubationgraduates/v1/:
+    get:
+      operationId: getIncubationGraduates
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documented:
+                  summary: Documented example
+                  value:
+                    item: incubation graduates since inception
+                    value: 620+
+              schema:
+                anyOf:
+                  - $ref: "#/components/schemas/IncubationGraduatesResponse"
+                  - type: object
+                    properties:
+                      item:
+                        type: string
+                        const: ""
+                      value:
+                        type: "null"
+                    required:
+                      - item
+                      - value
+                    additionalProperties: false
+                description: Publisher documentation describes string item/value data. The retained response additionally returns the exact empty-data variant {item:"",value:null}; this variant does not establish useful/nonempty data availability.
+          description: JSON response containing the item label and total number. The documented example represents the value as a string; the source does not specify other response properties or error responses.
+      summary: Get the number of incubation graduates
+servers:
+  - url: https://opendata.hkstp.org

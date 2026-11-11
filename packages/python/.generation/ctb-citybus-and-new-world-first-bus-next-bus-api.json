@@ -1,0 +1,83 @@
+{
+  "sourceId": "ctb-citybus-and-new-world-first-bus-next-bus-api",
+  "publisherKey": "ctb",
+  "family": "citybus_and_new_world_first_bus_next_bus_api",
+  "status": "generated",
+  "key": "08cf0d8e0146e561d8bf79c611140aeb317142c2a85129c5647a16031dfa944f",
+  "sourceSha256": "3fb0f675b4f9687871350aa731d3804cfb6617fe5d827eda21e04d2bae156c5a",
+  "derivedInputSha256": "3fb0f675b4f9687871350aa731d3804cfb6617fe5d827eda21e04d2bae156c5a",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/v2/transport/citybus/company/{company_id}",
+      "operationId": "getCitybusCompany",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v2/transport/citybus/route/{company_id}",
+      "operationId": "listCitybusRoutes",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v2/transport/citybus/route/{company_id}/{route}",
+      "operationId": "getCitybusRoute",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v2/transport/citybus/stop/{stop_id}",
+      "operationId": "getCitybusStop",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v2/transport/citybus/route-stop/{company_id}/{route}/{direction}",
+      "operationId": "getCitybusRouteStops",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v2/transport/citybus/eta/{company_id}/{stop_id}/{route}",
+      "operationId": "getCitybusEta",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/ctb-citybus-and-new-world-first-bus-next-bus-api.log",
+  "outputs": {
+    "__init__.py": "331bc0bd1f86bf4d624a9343cde68b56204b8859e391149871c55e8b83d64af9",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_citybus_company.py": "f5bc11b6d3c9b750cc3851284410bf8ad625e21a05d66e750b3bb965a8835acc",
+    "api/default/get_citybus_eta.py": "dd88ff9a6c9a69da5ee973e743815d806d98086e2a50427ba21ec55aad4b271f",
+    "api/default/get_citybus_route.py": "6749bf6e8a6ada0000fc2053fed8e0abf840f7c798970aff510818d18c949d6f",
+    "api/default/get_citybus_route_stops.py": "9c497835466790093ca00a734f9da51233feac5ff603608f24301afbf3e2b6d4",
+    "api/default/get_citybus_stop.py": "d82800f407f92fa2549bcb0b7ff6a1b31fc08af4a18c515ce1f03ab75cb065cf",
+    "api/default/list_citybus_routes.py": "eb9432ac42c06ff9fe03b25ae9c006b5aa0e1868b8f7deabd0986101863f1d09",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "1af9a104a45b096e7a9e870b08b59c928de0f5601098b3c84c108a517d9df299",
+    "models/company_record.py": "647664c914e98afbec5a4263bcb769399895322ed4211346166dd77b88e798aa",
+    "models/eta_record.py": "3db81ca4371e09752c2e5231bac7eeaada11eac122de8c21ce352178caefcfba",
+    "models/get_citybus_company_company_id.py": "3db8835253a9249414331be363c0d29337fed0d4e9c79a8f529ab2a6fe9c712d",
+    "models/get_citybus_company_response.py": "25ec9c96622a3e573ab63207d274c342478855c1a1b6c76841052df0fbe0e5fa",
+    "models/get_citybus_eta_company_id.py": "d3d653bbe920fbf79099746078efc347cdba0c8473892d5b4678980d00b9aa41",
+    "models/get_citybus_eta_response.py": "c8b549833c5ff58c504103c4798395404ce721d3d25b2ce9fbce09381cae662e",
+    "models/get_citybus_route_company_id.py": "1251185dec64c2e89bd1d93c841e78eeffaabf883c50822c5ce9092cdfd5e0c3",
+    "models/get_citybus_route_response.py": "7c89245ce4abd7d3ad1aeb0b2c120e6d624887c07622a54257d29cf318350f48",
+    "models/get_citybus_route_stops_company_id.py": "daef61d0fb21d9fb250cea60d77cd1e83e1cba22a4255e538c93050e1d520e44",
+    "models/get_citybus_route_stops_direction.py": "1ff0ebf5f3d0c30d35fa8c85b9b9561383c3b1da4811f5ba08c7f67b63599d5f",
+    "models/get_citybus_route_stops_response.py": "a700952e8f8cf09c046100379707afe52b6efd67ab1dbf3c3e6c955671161237",
+    "models/get_citybus_stop_response.py": "7430ab061a9412e91cac3ed251c6fc7a913c149f5f5ad99e245eae9c078a802f",
+    "models/list_citybus_routes_company_id.py": "67745c51e128bd37b7d67555a835b85c53fefdffdf42a3d72abf10e0f59e9e1e",
+    "models/list_citybus_routes_response.py": "9f8a44e1242d15f5f3136e366621a8d61f02581059400eb4ad0d85fc8c5dc498",
+    "models/route_record.py": "fede34443974de389ec6acf8922e44c866c7b70a39ae9ac19c2145918dcf9444",
+    "models/route_stop_record.py": "6ab6cb920989bd85913b225da9393142d422f2bdda32b4ed513d117d604d9106",
+    "models/stop_record.py": "f8284866413a79174bb2827974fd5539123b1310fbdd11adeed2ffd5c4ce4bf0",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

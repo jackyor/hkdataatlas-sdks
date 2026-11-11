@@ -1,0 +1,215 @@
+{
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "description": "Transaction record. Wire property names are taken from the documented JSON example and associated with the English data dictionary fields. The dictionary declares numeric area and transaction-price types, while the example represents those values as strings; both representations are allowed here to preserve that discrepancy.",
+        "properties": {
+          "asp_sign_date": {
+            "description": "Date of Agreement for Sale and Purchase (ASP). The dictionary specifies the format as dd-mm-yyyy, while the example uses slashes (28/08/2018); both observed conventions are preserved without asserting a strict format.",
+            "examples": [
+              "28/08/2018"
+            ],
+            "type": "string"
+          },
+          "block_name": {
+            "description": "Block name of the purchased flat.",
+            "examples": [
+              "BLOCK A"
+            ],
+            "type": "string"
+          },
+          "court_name": {
+            "description": "Court name of the purchased flat.",
+            "examples": [
+              "HOI LOK COURT"
+            ],
+            "type": "string"
+          },
+          "flat_num": {
+            "description": "Flat number of the purchased flat.",
+            "examples": [
+              "17"
+            ],
+            "type": "string"
+          },
+          "floor_num": {
+            "description": "Floor number of the purchased flat.",
+            "examples": [
+              "40"
+            ],
+            "type": "string"
+          },
+          "sale_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Sale price of the purchased flat. The dictionary declares a numeric type with the pattern/precision notation 999999999999999.99, whereas the example encodes the value as a string; either representation is permitted.",
+            "examples": [
+              "3595500.0"
+            ]
+          },
+          "saleable_area": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Saleable area of the purchased flat in square metres. The dictionary declares a numeric type with the pattern/precision notation 9999999.999, whereas the example encodes the value as a string; either representation is permitted.",
+            "examples": [
+              "44.3"
+            ]
+          },
+          "scheme_name": {
+            "description": "Subsidised home ownership scheme name.",
+            "examples": [
+              "Sale of Home Ownership Scheme Flats 2018"
+            ],
+            "type": "string"
+          },
+          "scheme_type": {
+            "description": "Subsidised home ownership scheme type. The dictionary lists HOS as a possible value.",
+            "examples": [
+              "HOS"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TransactionsResponse": {
+        "description": "JSON response. The example shows a `data` array; the documentation does not explicitly declare required properties or a closed object structure.",
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API and data specification",
+    "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_018_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "Retrieves transactions data for HOS flats sold in 2018. The metadata version of the data specification is 2.0, dated 25 July 2024; it is not documented as an API version. The API documentation states that authentication is not required and that responses use UTF-8. The English data dictionary describes the response as JSON; the resource information also lists CSV and XML response formats. Simplified Chinese data is stated to be unavailable for this dataset and returns Traditional Chinese data instead.",
+    "title": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2018",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/psi/rest/export/{dataresource}/{lang}/{sc}": {
+      "get": {
+        "description": "Returns sales transaction data. The documented example requests JSON and shows a top-level data array. Although resource information lists JSON, CSV, and XML, the dictionary describes the web service response as JSON. The documented Simplified Chinese language selection returns Traditional Chinese data for this dataset.",
+        "operationId": "getHos2018SaleTransactions",
+        "parameters": [
+          {
+            "description": "Data resource identifier. The documented valid value is `ssfs-sale-transactions-018`, for Transactions in the Sale of HOS Flats 2018.",
+            "in": "path",
+            "name": "dataresource",
+            "required": true,
+            "schema": {
+              "const": "ssfs-sale-transactions-018",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Language selection. Documented values are `en` (English) and `tc` (Traditional Chinese).",
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Output file format. Documented values are `json`, `csv`, and `xml`. The documentation labels this parameter as “sc” and does not provide another parameter name.",
+            "in": "path",
+            "name": "sc",
+            "required": true,
+            "schema": {
+              "enum": [
+                "json",
+                "csv",
+                "xml"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedRequest": {
+                    "description": "The publisher's PDF-extracted example is malformed in its layout and punctuation. This example preserves only the clearly identifiable fields and observed values; it is not a verbatim, authoritative JSON response.",
+                    "summary": "Documented JSON request and abbreviated response",
+                    "value": {
+                      "data": [
+                        {
+                          "asp_sign_date": "28/08/2018",
+                          "block_name": "BLOCK A",
+                          "court_name": "HOI LOK COURT",
+                          "flat_num": "17",
+                          "floor_num": "40",
+                          "sale_price": "3595500.0",
+                          "saleable_area": "44.3",
+                          "scheme_name": "Sale of Home Ownership Scheme Flats 2018",
+                          "scheme_type": "HOS"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "XML representation; the documentation does not specify its structure.",
+                  "type": "string"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "description": "CSV representation; the documentation does not specify its layout.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Success. Response encoding is documented as UTF-8. Response representation depends on the requested format."
+          },
+          "400": {
+            "description": "Bad Request. No error response structure is documented."
+          },
+          "500": {
+            "description": "Internal Server Error. No error response structure is documented."
+          }
+        },
+        "summary": "Get HOS flats 2018 sale transactions"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.housingauthority.gov.hk"
+    }
+  ]
+}

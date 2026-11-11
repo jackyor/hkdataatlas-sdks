@@ -1,0 +1,783 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Hospital Authority — List of Hospital Authority Hospitals/Institutions/Specialist Outpatient Clinics/Family Medicine Clinics",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/fhb_rcd_1637028364270_14638/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "HOSPITAL",
+                "value": 0
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/fhb_rcd_1637028364270_14638/FeatureServer?f=pjson",
+            "sha256": "dadf5ece17fbeb22fdf6f888f0d5f05808fde2ba6b1be05259349824e428ec72",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/fhb_rcd_1637028364270_14638/FeatureServer/0?f=pjson",
+            "sha256": "eb007f8d377fdfb7122202323630daf70cfd9f0d996d4a5d6265adad4206e921",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/fhb_rcd_1637028364270_14638/MapServer/WMSServer": {
+      "get": {
+        "operationId": "WmsMapServerGetMap",
+        "tags": [
+          "WMS"
+        ],
+        "summary": "Render a map image",
+        "description": "Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WMS"
+              ]
+            },
+            "example": "WMS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact advertised WMS version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1.3.0"
+              ]
+            },
+            "example": "1.3.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only GetMap operation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetMap"
+              ]
+            },
+            "example": "GetMap"
+          },
+          {
+            "name": "layers",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "HOSPITAL",
+                "value": "HOSPITAL"
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "styles",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated style names; an empty string selects the standard default style.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Advertised GetMap representation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "image/bmp",
+                "image/jpeg",
+                "image/tiff",
+                "image/png",
+                "image/png8",
+                "image/png24",
+                "image/png32",
+                "image/gif",
+                "image/svg+xml"
+              ]
+            },
+            "example": "image/png"
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Requested image width in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Requested image height in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "required": true,
+            "description": "Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "CRS:84"
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "required": true,
+            "description": "minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "113.936324,22.209476,114.267867,22.498368"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/tiff": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png24": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png32": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+        },
+        "x-advertised-crss": [
+          "CRS:84",
+          "EPSG:4326",
+          "EPSG:2326",
+          "EPSG:102140"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/fhb_rcd_1637028364270_14638/MapServer/WMSServer?service=wms&request=GetCapabilities",
+            "sha256": "dfb5a4cf6d98d66011fd1577240b69f0004f0a653805167db2ebaba459633fc1",
+            "httpStatus": 200,
+            "contentType": "text/xml",
+            "role": "wms-capabilities",
+            "parseStatus": "pass",
+            "kind": "wms-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "DatasetEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Dataset",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "DatasetTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "數據集",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
+          },
+          "NameEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Facility Name",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "AddressEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Address",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "NameTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "設施名稱",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "AddressTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "地址",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "ClusterEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Cluster",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1000
+          },
+          "ClusterTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "聯網",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1500
+          },
+          "TelephoneEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Telephone",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "TelephoneTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "聯絡電話",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "WebsiteEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Website",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "WebsiteTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "網頁",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "RemarksEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Remarks",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "RemarksTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "備註",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "Northing": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Northing / 坐標北",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Easting": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Easting / 坐標東",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Latitude": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Latitude / 緯度",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Longitude": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Longitude / 經度",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "LastUpdate": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "Last Updated Date / 最後更新日期"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "properties": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "HOSPITAL",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "HOSPITAL",
+      "title": "HOSPITAL",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.936324",
+          "miny": "22.209476",
+          "maxx": "114.267867",
+          "maxy": "22.498368"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.209476",
+          "miny": "113.936324",
+          "maxx": "22.498368",
+          "maxy": "114.267867"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807721.900000",
+          "miny": "811767.900000",
+          "maxx": "839693.000000",
+          "maxy": "845884.400000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807721.900000",
+          "miny": "811767.900000",
+          "maxx": "839693.000000",
+          "maxy": "845884.400000"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.936324",
+          "miny": "22.209476",
+          "maxx": "114.267867",
+          "maxy": "22.498368"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.209476",
+          "miny": "113.936324",
+          "maxx": "22.498368",
+          "maxy": "114.267867"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "807721.900000",
+          "miny": "811767.900000",
+          "maxx": "839693.000000",
+          "maxy": "845884.400000"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "807721.900000",
+          "miny": "811767.900000",
+          "maxx": "839693.000000",
+          "maxy": "845884.400000"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "HOSPITAL"
+        }
+      ]
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=fhb_rcd_1637028364270_14638",
+      "sha256": "5f856b48539934cdc134af1bee0e80c026c89ef1b539898f91acc743d367ceeb",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/fhb_rcd_1637028364270_14638/FeatureServer?f=pjson",
+      "sha256": "dadf5ece17fbeb22fdf6f888f0d5f05808fde2ba6b1be05259349824e428ec72",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/fhb_rcd_1637028364270_14638/FeatureServer/0?f=pjson",
+      "sha256": "eb007f8d377fdfb7122202323630daf70cfd9f0d996d4a5d6265adad4206e921",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/fhb_rcd_1637028364270_14638/MapServer/WMSServer?service=wms&request=GetCapabilities",
+      "sha256": "dfb5a4cf6d98d66011fd1577240b69f0004f0a653805167db2ebaba459633fc1",
+      "httpStatus": 200,
+      "contentType": "text/xml",
+      "role": "wms-capabilities",
+      "parseStatus": "pass",
+      "kind": "wms-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [
+      {
+        "code": "metadata_http_not_200",
+        "url": "https://portal.csdi.gov.hk/server/services/common/fhb_rcd_1637028364270_14638/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+        "httpStatus": 403
+      },
+      {
+        "serviceId": "csdi-service-df03d92ac253e4b6b70c6167",
+        "code": "discovery_metadata_error",
+        "reason": "Metadata request status http_error",
+        "url": "https://portal.csdi.gov.hk/server/services/common/fhb_rcd_1637028364270_14638/MapServer/WFSServer?service=WFS&request=GetCapabilities"
+      },
+      {
+        "serviceId": "csdi-service-df03d92ac253e4b6b70c6167",
+        "protocol": "wfs",
+        "code": "unsupported_or_incomplete_native_contract",
+        "reason": "No retained parseable WFS GetCapabilities"
+      }
+    ],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 4
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

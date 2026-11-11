@@ -1,0 +1,37 @@
+{
+  "sourceId": "landsd-csdi-historical-maps",
+  "publisherKey": "landsd",
+  "family": "csdi_historical_maps",
+  "status": "generated",
+  "key": "c536c60168a9d56bc6fa0697c42848631e49ad94718134204b601742093c7a12",
+  "sourceSha256": "05cdfb22176107122f57657e20bf820747e85c7feb7c480a8f8424782db48d11",
+  "derivedInputSha256": "c11781b28abe2d44f0f910ef9cf57609d2ba4c39e2dfd7ae24ec0757fd5c5b78",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/services/common/landsd_rcd_1631586233937_28500/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap",
+      "tags": [
+        "WMS"
+      ]
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/landsd-csdi-historical-maps.log",
+  "outputs": {
+    "__init__.py": "dd3dade6fe1fd01dde38b6994c68df7be02b81caa2dc9f2600ea31351e2b630f",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/wms/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wms/wms_map_server_get_map.py": "5676c6b2c2da4b43ab8a562e50ac7deeaf3bd8a4e027f2581fe15606c56d7701",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "3ff68a6d7203ff895d379b5bf927d98f7625dbd4f32dc6f3462c10b9f3a8d10f",
+    "models/wms_map_server_get_map_format.py": "a65b75b0acd6d74d2b98a842cc9d3f5acd1a40873813841fd53fdffe75d25c40",
+    "models/wms_map_server_get_map_request.py": "847774c945625dd0b2021a20ecb37f7d99e0031f6b91c82d0aa27cdc0f99b621",
+    "models/wms_map_server_get_map_service.py": "cb701b87d9fbf4f140a0316cede0a4bc37a611998facdd5bb0793962d7d9c3a5",
+    "models/wms_map_server_get_map_version.py": "80f2a7664e048499e4919b94dfcf4a546ef4aec1e377a77fb199c1a6e5d9856a",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "sourceId": "landsd-lot-index-api",
+  "publisherKey": "landsd",
+  "family": "lot_index_api",
+  "status": "generated",
+  "key": "3655480643cea6464d6ac68142aba3e68a716abc93a834bb414e91f3d2de8a38",
+  "sourceSha256": "7ef0c374949e9d677b687b71f45ff19a905cf5dcbf0a230e7ab285b8a48c7430",
+  "derivedInputSha256": "aef8f2803b2565dec48adc38e241f35b77a4971db7470166d08663acd9aa4ebb",
+  "normalizations": [
+    {
+      "pointer": "/paths/~1gs~1api~1{version}~1iC1000~1{LIT}/get/parameters/2/schema/prefixItems/4",
+      "rule": "const_to_singleton_enum"
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/gs/api/{version}/iC1000/{LIT}",
+      "operationId": "getLotIndex",
+      "tags": []
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/landsd-lot-index-api.log",
+  "outputs": {
+    "__init__.py": "d76b364b821dc5c5f97c9dbf72160c84a0d09151caef742bcef37d024d645617",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_lot_index.py": "36079320e3a41fbeb937654b433859f7153311031c1b30794d6ff4370dbf1bff",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e3f98ac0cdca19d2b291133616d8cc2340df939c64df8a8217e3f66a835024f9",
+    "models/get_lot_index_bbox_item_type_4.py": "098bddd7c6f6ba134831ad6a2c6abdae741412ec524575e3bee7241cb1e1a6f8",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "sb-csdi-central-registry-of-drug-abuse-crda-annual-report-tables-service-3",
+  "sourceSha256": "6e323f3f6c7fb2004148f7c7f6f768a9aa706ed86d37ec11e1340365c1f07d57",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/sb_rcd_1639131905038_70120/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/sb_rcd_1639131905038_70120/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/sb_rcd_1639131905038_70120/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

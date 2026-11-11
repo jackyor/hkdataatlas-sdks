@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: Light Public Housing Stock API
+  version: source-refresh-20261108
+  description: Current documented export path with bounded response schema. Current retained prefix supports five complete data items only. Dictionary names are matched, numeric fields accept documented numbers and observed strings. PDF records wrapper differs; no full response, suffix or cardinality claim.
+servers:
+  - url: https://data.hb.gov.hk
+paths:
+  /psi/rest/export/lph/{lang}/{format}:
+    get:
+      operationId: exportLightPublicHousingStock
+      summary: Light Public Housing Stock API
+      parameters:
+        - name: lang
+          in: path
+          required: true
+          description: Display language documented by the publisher.
+          schema:
+            type: string
+            enum:
+              - en
+        - name: format
+          in: path
+          required: true
+          description: Export format documented by the publisher.
+          schema:
+            type: string
+            enum:
+              - json
+              - csv
+              - xml
+      responses:
+        "200":
+          description: JSON export. Current observed data wrapper and optional record fields; full endpoint completeness not established.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LightPublicHousingResponse"
+        default:
+          description: Other export representations/statuses remain unknown; CSV and XML fields are not asserted.
+          content:
+            application/json:
+              schema: {}
+            text/csv:
+              schema: {}
+            application/xml:
+              schema: {}
+x-response-schema-status: declared_partial_documented_and_observed
+x-authentication-status: not_documented; no authentication scheme inferred
+components:
+  schemas:
+    LightPublicHousingRecord:
+      type: object
+      properties:
+        project_english_name:
+          type: string
+        project_chinese_name:
+          type: string
+        district_english_name:
+          type: string
+        district_chinese_name:
+          type: string
+        region_english_name:
+          type: string
+        region_chinese_name:
+          type: string
+        english_name_of_block:
+          type: string
+        chinese_name_of_block:
+          type: string
+        unit_number:
+          type: string
+        floor_number:
+          type: string
+        avail_of_elevator_services:
+          type: string
+        internal_floor_area:
+          type:
+            - number
+            - string
+          description: Publisher dictionary specifies a number; retained current export encodes a string. No lexical or range constraint inferred.
+        project_map_latitude:
+          type:
+            - number
+            - string
+          description: Publisher dictionary specifies a number; retained current export encodes a string. No lexical or range constraint inferred.
+        project_map_longitude:
+          type:
+            - number
+            - string
+          description: Publisher dictionary specifies a number; retained current export encodes a string. No lexical or range constraint inferred.
+      description: Dictionary fields; current export number-or-string alternatives retained without coercion.
+    LightPublicHousingResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/LightPublicHousingRecord"
+      description: Current export uses data wrapper, established by retained response. Publisher PDF example uses records wrapper and is not substituted for current export.
+x-current-response-evidence:
+  sourceId: hb-light-public-housing-stock
+  coverage: Current retained prefix supports five complete data items only. Dictionary names are matched, numeric fields accept documented numbers and observed strings. PDF records wrapper differs; no full response, suffix or cardinality claim.
+  dictionary:
+    url: https://data.hb.gov.hk/dataset/lph/hb_lph_data_dictionary.pdf
+    pages:
+      - 3
+      - 4
+    sha256: 9688ed970fd737ae0cb073b1f0a8ff5baa5fc3522000fd1b1a92eabd80265b9d
+  originalJsonSha256: f471898da3c774e5529bfd39de35a1dd4a58b65ff73c352f978b844a27bebcdc
+  classification: documented_response_fields_with_explicit_observed_wire_compatibility
+  newLiveCallsByBuilder: 0
+  requirednessInferred: false
+  unknownFieldsAllowed: true

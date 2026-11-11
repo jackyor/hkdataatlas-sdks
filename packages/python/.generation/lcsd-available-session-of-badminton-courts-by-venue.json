@@ -1,0 +1,34 @@
+{
+  "sourceId": "lcsd-available-session-of-badminton-courts-by-venue",
+  "publisherKey": "lcsd",
+  "family": "available_session_of_badminton_courts_by_venue",
+  "status": "generated",
+  "key": "b22935ec5fb9ccd34fbc34a358dfafd26979d46cce0b10e9f66425a15e263123",
+  "sourceSha256": "0048fb121c08a9f06e42a48c1442cbc06ade9e00e742677c3ff81c0b8b711a4e",
+  "derivedInputSha256": "5e3a52c0a613c808e3c53d068e55ad8206349d3ba5dad90e29a32d07596ae3d8",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/rest/cms/api/v1/publ/contents/open-data/badminton/file",
+      "operationId": "retrieveAvailableSessionOfBadmintonCourtsByVenueRestCmsApiV1PublContentsOpenDataBadmintonFile",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/lcsd-available-session-of-badminton-courts-by-venue.log",
+  "outputs": {
+    "__init__.py": "7cb380f910b59ee3515961a9994779e87da7ddcfd567bb2a222b4606e9ed50cc",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/retrieve_available_session_of_badminton_courts_by_venue_rest_cms_api_v1_publ_contents_open_data_badminton_file.py": "51ab1e5fe4618519b7e594e0c838298ba4b2a6e7f038b82de1db9c8803d20a2f",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "21036c7f89f941c77f13938f7c2990c610212aa04828886b87b22fe4d369e950",
+    "models/available_badminton_court_session_record.py": "3f34c5e8b7ac9332459c677896c89ad65f00e04ac26feb8bb89d63b84d3e2aed",
+    "models/available_badminton_court_session_record_district_name_en.py": "08eb5b8e390448f058c563b1e8c822ef31efdeddf451964930a3d0cec13b9a11",
+    "models/available_badminton_court_session_record_district_name_tc.py": "d1f078e2268b11c8db4d6d9cde4bf045af7d5a561450c5460154442d34104a7f",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,241 @@
+openapi: 3.1.0
+info:
+  title: Lands Department — 1:50 000 Topographic Map of Hong Kong
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/services/common/landsd_rcd_1637652296089_41546/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: B50K_R200index-geo
+              value: B50K_R200index-geo
+          x-choice-count: 1
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.812070,22.146648,114.448321,22.565706
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+        - EPSG:2326
+        - EPSG:102140
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637652296089_41546/MapServer/WMSServer?service=WMS&request=GetCapabilities
+          sha256: d7db04c82ccfe5c0a1c68463a82b0fcd50f432c3ba69a913b8dc6227989c5db5
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas: {}
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: B50K_R200index-geo
+    title: B50K_R200index-geo
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.812070"
+        miny: "22.146648"
+        maxx: "114.448321"
+        maxy: "22.565706"
+      - CRS: EPSG:4326
+        minx: "22.146648"
+        miny: "113.812070"
+        maxx: "22.565706"
+        maxy: "114.448321"
+      - CRS: EPSG:2326
+        minx: "800790.000000"
+        miny: "799000.000000"
+        maxx: "847150.000000"
+        maxy: "864440.000000"
+      - CRS: EPSG:102140
+        minx: "800790.000000"
+        miny: "799000.000000"
+        maxx: "847150.000000"
+        maxy: "864440.000000"
+      - CRS: CRS:84
+        minx: "113.812070"
+        miny: "22.146648"
+        maxx: "114.448321"
+        maxy: "22.565706"
+      - CRS: EPSG:4326
+        minx: "22.146648"
+        miny: "113.812070"
+        maxx: "22.565706"
+        maxy: "114.448321"
+      - CRS: EPSG:2326
+        minx: "800790.000000"
+        miny: "799000.000000"
+        maxx: "847150.000000"
+        maxy: "864440.000000"
+      - CRS: EPSG:102140
+        minx: "800790.000000"
+        miny: "799000.000000"
+        maxx: "847150.000000"
+        maxy: "864440.000000"
+    styles:
+      - id: default
+        title: B50K_R200index-geo
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=landsd_rcd_1637652296089_41546
+    sha256: 9ea2e4148467d06384ea0cf8daf0e99ec1d0f97047c6ac6df9778ffba390f57d
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637652296089_41546/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    sha256: d7db04c82ccfe5c0a1c68463a82b0fcd50f432c3ba69a913b8dc6227989c5db5
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols: []
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 2
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

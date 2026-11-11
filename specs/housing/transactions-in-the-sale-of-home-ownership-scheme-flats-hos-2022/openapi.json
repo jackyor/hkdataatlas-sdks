@@ -1,0 +1,199 @@
+{
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "description": "A sale transaction record. The data dictionary supplies field meanings and types but does not specify JSON requiredness. The documented example uses snake_case wire names. Text fields in the example are strings. Numeric fields are declared numeric in the dictionary, while the example encodes their values as strings; both representations are allowed here to preserve that discrepancy.",
+        "properties": {
+          "asp_sign_date": {
+            "description": "Date of Agreement for Sale and Purchase (ASP), documented as text in dd-mm-yyyy format. The example uses 22/10/2022, so the sample representation differs from the documented format.",
+            "examples": [
+              "22/10/2022"
+            ],
+            "type": "string"
+          },
+          "block_name": {
+            "description": "Block name of the purchased flat.",
+            "type": "string"
+          },
+          "court_estate_name": {
+            "description": "Court or estate name of the purchased flat.",
+            "type": "string"
+          },
+          "flat_num": {
+            "description": "Flat number of the purchased flat.",
+            "type": "string"
+          },
+          "floor_num": {
+            "description": "Floor number of the purchased flat.",
+            "type": "string"
+          },
+          "sale_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Sale price of the purchased flat. The dictionary declares Numeric with notation <999999999999999.99>; the example represents it as a string (`3515500.0`)."
+          },
+          "saleable_area": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Saleable area of the purchased flat in square meters. The dictionary declares Numeric with notation <9999999.999>; the example represents it as a string (`41.5`)."
+          },
+          "scheme_name": {
+            "description": "Subsidised home ownership scheme name.",
+            "type": "string"
+          },
+          "scheme_type": {
+            "description": "Subsidised home ownership scheme type. The data dictionary lists HOS as a possible value.",
+            "type": "string"
+          },
+          "wing": {
+            "description": "Wing of the purchased flat.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "TransactionsResponse": {
+        "description": "Response wrapper shown in the documentation example. The example contains a `data` array; the source does not state that the example is a complete response contract.",
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/Transaction"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "API data specification",
+    "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_022_data_dictionary.pdf"
+  },
+  "info": {
+    "description": "Returns sales transaction data for HOS 2022. The API documentation is version 2.0, dated 25 July 2024. It states that Simplified Chinese data is not provided and that a request using the Simplified Chinese language value returns Traditional Chinese data. Authentication is explicitly not required.",
+    "title": "Transactions in the Sale of Home Ownership Scheme Flats (HOS) 2022",
+    "version": "2.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/{dataresource}/{lang}/{sc}": {
+      "get": {
+        "description": "The documented request example uses the path https://data.housingauthority.gov.hk/psi/rest/export/ssfs-sale-transactions-022/en/json. Response formats are JSON, CSV, and XML; the data dictionary describes the JSON record structure. Responses use UTF-8 encoding.",
+        "operationId": "getHos2022SaleTransactions",
+        "parameters": [
+          {
+            "description": "Dataset resource identifier. The documented valid value is `ssfs-sale-transactions-022`.",
+            "in": "path",
+            "name": "dataresource",
+            "required": true,
+            "schema": {
+              "enum": [
+                "ssfs-sale-transactions-022"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response language. `sc` (Simplified Chinese) is documented as a valid value, but this dataset does not provide Simplified Chinese and returns Traditional Chinese for that request.",
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Requested response file format.",
+            "in": "path",
+            "name": "sc",
+            "required": true,
+            "schema": {
+              "enum": [
+                "json",
+                "csv",
+                "xml"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documentedResponse": {
+                    "description": "The source's response example is malformed or misordered in the extracted document. The following retains only reliable example values and does not assert a complete response shape.",
+                    "summary": "Documented response example (partially garbled in source)",
+                    "value": {
+                      "data": [
+                        {
+                          "asp_sign_date": "22/10/2022",
+                          "block_name": "BLOCK B",
+                          "court_estate_name": "KAI YAN COURT",
+                          "flat_num": "15",
+                          "floor_num": "3",
+                          "sale_price": "3515500.0",
+                          "saleable_area": "41.5",
+                          "scheme_name": "Hong Kong Housing Authority 'Sale of Home Ownership Scheme Flats Hong 2022'(HOS 2022) and Hong Kong Housing Society 'Subsidised Sale Flats Project' (HS SSF)",
+                          "scheme_type": "HOS",
+                          "wing": ""
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "description": "XML response; an XML structure is not documented.",
+                  "type": "string"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "description": "CSV response; a structured CSV schema is not documented.",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Success. The documented data dictionary describes JSON records. The available response formats are JSON, CSV, and XML."
+          },
+          "400": {
+            "description": "Bad Request. A response body structure is not documented."
+          },
+          "500": {
+            "description": "Internal Server Error. A response body structure is not documented."
+          }
+        },
+        "summary": "Get HOS 2022 sale transactions"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.housingauthority.gov.hk/psi/rest/export"
+    }
+  ]
+}

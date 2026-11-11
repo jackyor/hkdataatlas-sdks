@@ -1,0 +1,1166 @@
+{
+  "publisherKey": "wsd",
+  "publisherName": "Water Supplies Department",
+  "sources": [
+    {
+      "id": "wsd-csdi-pumping-stations",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-pumping-stations",
+      "name": "Pumping Stations",
+      "apiTitle": "Water Supplies Department \u2014 Pumping Stations",
+      "json": "wsd/csdi-pumping-stations/openapi.json",
+      "yaml": "wsd/csdi-pumping-stations/openapi.yaml",
+      "file": "wsd/csdi-pumping-stations/openapi.json",
+      "sha256": "58277017483a1f1925851775407dcedfda1540e4d6beb70d525c19c2f8b821a1",
+      "jsonSha256": "58277017483a1f1925851775407dcedfda1540e4d6beb70d525c19c2f8b821a1",
+      "yamlSha256": "06f5311ee56f23d446c6814eb5abaae498e76ca95cc71c4ba35eeb0c9b23652b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_pumping_stations",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "58277017483a1f1925851775407dcedfda1540e4d6beb70d525c19c2f8b821a1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1629267205232_27314",
+        "canonicalJsonSha256": "58277017483a1f1925851775407dcedfda1540e4d6beb70d525c19c2f8b821a1",
+        "originalRepresentationSha256": "58277017483a1f1925851775407dcedfda1540e4d6beb70d525c19c2f8b821a1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_pumping_stations"
+    },
+    {
+      "id": "wsd-csdi-catchwater-engineered-drainage-systems",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-catchwater-engineered-drainage-systems",
+      "name": "Catchwater - Engineered\nDrainage Systems",
+      "apiTitle": "Water Supplies Department \u2014 Catchwater - Engineered\nDrainage Systems",
+      "json": "wsd/csdi-catchwater-engineered-drainage-systems/openapi.json",
+      "yaml": "wsd/csdi-catchwater-engineered-drainage-systems/openapi.yaml",
+      "file": "wsd/csdi-catchwater-engineered-drainage-systems/openapi.json",
+      "sha256": "6dcce0b07c6a645da0a9d38fb0b557c273b4e45d5f21e1d28dd06d1dcc151379",
+      "jsonSha256": "6dcce0b07c6a645da0a9d38fb0b557c273b4e45d5f21e1d28dd06d1dcc151379",
+      "yamlSha256": "8c75641e8d8ca8376e43eafd5e54ddcadf030f666df84637c32ff4bc24c1e1e2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_catchwater_engineered_drainage_systems",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6dcce0b07c6a645da0a9d38fb0b557c273b4e45d5f21e1d28dd06d1dcc151379"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1629267205232_33206",
+        "canonicalJsonSha256": "6dcce0b07c6a645da0a9d38fb0b557c273b4e45d5f21e1d28dd06d1dcc151379",
+        "originalRepresentationSha256": "6dcce0b07c6a645da0a9d38fb0b557c273b4e45d5f21e1d28dd06d1dcc151379",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_catchwater_engineered_drainage_systems"
+    },
+    {
+      "id": "wsd-csdi-catchwater-catchment-areas-and-subcatchment-areas",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-catchwater-catchment-areas-and-subcatchment-areas",
+      "name": "Catchwater - Catchment Areas and Subcatchment Areas",
+      "apiTitle": "Water Supplies Department \u2014 Catchwater - Catchment Areas and Subcatchment Areas",
+      "json": "wsd/csdi-catchwater-catchment-areas-and-subcatchment-areas/openapi.json",
+      "yaml": "wsd/csdi-catchwater-catchment-areas-and-subcatchment-areas/openapi.yaml",
+      "file": "wsd/csdi-catchwater-catchment-areas-and-subcatchment-areas/openapi.json",
+      "sha256": "7925e2487124776e6fcb7caf4d3742e6dcfcfd884e7143c1278f0104df340e06",
+      "jsonSha256": "7925e2487124776e6fcb7caf4d3742e6dcfcfd884e7143c1278f0104df340e06",
+      "yamlSha256": "13192ff228f77b11af7c4524d7c6b9db7a57058942d1a8b362fd4e856d4329ee",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_catchwater_catchment_areas_and_subcatchment_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "7925e2487124776e6fcb7caf4d3742e6dcfcfd884e7143c1278f0104df340e06"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1629267205232_5923",
+        "canonicalJsonSha256": "7925e2487124776e6fcb7caf4d3742e6dcfcfd884e7143c1278f0104df340e06",
+        "originalRepresentationSha256": "7925e2487124776e6fcb7caf4d3742e6dcfcfd884e7143c1278f0104df340e06",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_catchwater_catchment_areas_and_subcatchment_areas"
+    },
+    {
+      "id": "wsd-csdi-water-treatment-works",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-water-treatment-works",
+      "name": "Water Treatment Works",
+      "apiTitle": "Water Supplies Department \u2014 Water Treatment Works",
+      "json": "wsd/csdi-water-treatment-works/openapi.json",
+      "yaml": "wsd/csdi-water-treatment-works/openapi.yaml",
+      "file": "wsd/csdi-water-treatment-works/openapi.json",
+      "sha256": "d329c71c08f687e6b79d13f44cca443533802462bca33a14f8f9dd44b2e0a4a3",
+      "jsonSha256": "d329c71c08f687e6b79d13f44cca443533802462bca33a14f8f9dd44b2e0a4a3",
+      "yamlSha256": "a6ae379c4d305680bef3b70bf83ee6abc5cc490c6b4c98dc056a7d9b91c4e686",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_water_treatment_works",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d329c71c08f687e6b79d13f44cca443533802462bca33a14f8f9dd44b2e0a4a3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1629267205232_68487",
+        "canonicalJsonSha256": "d329c71c08f687e6b79d13f44cca443533802462bca33a14f8f9dd44b2e0a4a3",
+        "originalRepresentationSha256": "d329c71c08f687e6b79d13f44cca443533802462bca33a14f8f9dd44b2e0a4a3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_water_treatment_works"
+    },
+    {
+      "id": "wsd-csdi-service-reservoirs",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-service-reservoirs",
+      "name": "Service Reservoirs",
+      "apiTitle": "Water Supplies Department \u2014 Service Reservoirs",
+      "json": "wsd/csdi-service-reservoirs/openapi.json",
+      "yaml": "wsd/csdi-service-reservoirs/openapi.yaml",
+      "file": "wsd/csdi-service-reservoirs/openapi.json",
+      "sha256": "0ff91817db057eb63f88da72402796db0daf26bbfa13fd7aa34ad07abd68105d",
+      "jsonSha256": "0ff91817db057eb63f88da72402796db0daf26bbfa13fd7aa34ad07abd68105d",
+      "yamlSha256": "5cbd0ef6e1dd29d8e33b68bce3721fc048ab6429fc63d44a735fb299c8508973",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_service_reservoirs",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0ff91817db057eb63f88da72402796db0daf26bbfa13fd7aa34ad07abd68105d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1629267205232_86342",
+        "canonicalJsonSha256": "0ff91817db057eb63f88da72402796db0daf26bbfa13fd7aa34ad07abd68105d",
+        "originalRepresentationSha256": "0ff91817db057eb63f88da72402796db0daf26bbfa13fd7aa34ad07abd68105d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_service_reservoirs"
+    },
+    {
+      "id": "wsd-csdi-impounding-reservoirs",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-impounding-reservoirs",
+      "name": "Impounding Reservoirs",
+      "apiTitle": "Water Supplies Department \u2014 Impounding Reservoirs",
+      "json": "wsd/csdi-impounding-reservoirs/openapi.json",
+      "yaml": "wsd/csdi-impounding-reservoirs/openapi.yaml",
+      "file": "wsd/csdi-impounding-reservoirs/openapi.json",
+      "sha256": "89ae35ef418b81e2e6aa2099e9dc8ae2ea6282ebc116ba295b3b590bc5d6f1d9",
+      "jsonSha256": "89ae35ef418b81e2e6aa2099e9dc8ae2ea6282ebc116ba295b3b590bc5d6f1d9",
+      "yamlSha256": "e12e655a0bbcfb8300feb46cefb3e836659f4a6835bf36af31656756dd3248d2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_impounding_reservoirs",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "89ae35ef418b81e2e6aa2099e9dc8ae2ea6282ebc116ba295b3b590bc5d6f1d9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1629267205232_96199",
+        "canonicalJsonSha256": "89ae35ef418b81e2e6aa2099e9dc8ae2ea6282ebc116ba295b3b590bc5d6f1d9",
+        "originalRepresentationSha256": "89ae35ef418b81e2e6aa2099e9dc8ae2ea6282ebc116ba295b3b590bc5d6f1d9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_impounding_reservoirs"
+    },
+    {
+      "id": "wsd-csdi-renewable-energy-generated-by-floating-photovoltaic-systems-in-impounding-reservoirs-kwh",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-renewable-energy-generated-by-floating-photovoltaic-systems-in-impounding-reservoirs-kwh",
+      "name": "Renewable Energy Generated by Floating Photovoltaic Systems in Impounding Reservoirs (kWh)",
+      "apiTitle": "Water Supplies Department \u2014 Renewable Energy Generated by Floating Photovoltaic Systems in Impounding Reservoirs (kWh)",
+      "json": "wsd/csdi-renewable-energy-generated-by-floating-photovoltaic-systems-in-impounding-reservoirs-kwh/openapi.json",
+      "yaml": "wsd/csdi-renewable-energy-generated-by-floating-photovoltaic-systems-in-impounding-reservoirs-kwh/openapi.yaml",
+      "file": "wsd/csdi-renewable-energy-generated-by-floating-photovoltaic-systems-in-impounding-reservoirs-kwh/openapi.json",
+      "sha256": "266fd6948983fb28a144e0d364f0fef16a62a45d2e4d3ff6b9cc6a2f941d8721",
+      "jsonSha256": "266fd6948983fb28a144e0d364f0fef16a62a45d2e4d3ff6b9cc6a2f941d8721",
+      "yamlSha256": "fc8bd5e316544dfddf0eb9a09e7d04f336da4bde58b2023110e9437413aae1d2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_renewable_energy_generated_by_floating_photovoltaic_systems_in_impounding_reservoirs_kwh",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "266fd6948983fb28a144e0d364f0fef16a62a45d2e4d3ff6b9cc6a2f941d8721"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1668136411916_32010",
+        "canonicalJsonSha256": "266fd6948983fb28a144e0d364f0fef16a62a45d2e4d3ff6b9cc6a2f941d8721",
+        "originalRepresentationSha256": "266fd6948983fb28a144e0d364f0fef16a62a45d2e4d3ff6b9cc6a2f941d8721",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_renewable_energy_generated_by_floating_photovoltaic_systems_in_impounding_reservoirs_kwh"
+    },
+    {
+      "id": "wsd-csdi-list-of-waterworks-installations",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-list-of-waterworks-installations",
+      "name": "List of Waterworks Installations",
+      "apiTitle": "Water Supplies Department \u2014 List of Waterworks Installations",
+      "json": "wsd/csdi-list-of-waterworks-installations/openapi.json",
+      "yaml": "wsd/csdi-list-of-waterworks-installations/openapi.yaml",
+      "file": "wsd/csdi-list-of-waterworks-installations/openapi.json",
+      "sha256": "8642e30f34dbba8c30911eded17ab2a7ca66b19aa460f7584aad1c2c29643355",
+      "jsonSha256": "8642e30f34dbba8c30911eded17ab2a7ca66b19aa460f7584aad1c2c29643355",
+      "yamlSha256": "5313b071c08f74d9f9162eee6975135f823a646f4c5d599c95c5a26658920b7a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_waterworks_installations",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8642e30f34dbba8c30911eded17ab2a7ca66b19aa460f7584aad1c2c29643355"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1668998130399_597",
+        "canonicalJsonSha256": "8642e30f34dbba8c30911eded17ab2a7ca66b19aa460f7584aad1c2c29643355",
+        "originalRepresentationSha256": "8642e30f34dbba8c30911eded17ab2a7ca66b19aa460f7584aad1c2c29643355",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_waterworks_installations"
+    },
+    {
+      "id": "wsd-csdi-carbon-audit-report",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-carbon-audit-report",
+      "name": "Carbon Audit Report",
+      "apiTitle": "Water Supplies Department \u2014 Carbon Audit Report",
+      "json": "wsd/csdi-carbon-audit-report/openapi.json",
+      "yaml": "wsd/csdi-carbon-audit-report/openapi.yaml",
+      "file": "wsd/csdi-carbon-audit-report/openapi.json",
+      "sha256": "f47e9d6edaa553151a451253f5ba3a3f1adff7487ac4352486b39fcf3e20b3c1",
+      "jsonSha256": "f47e9d6edaa553151a451253f5ba3a3f1adff7487ac4352486b39fcf3e20b3c1",
+      "yamlSha256": "14372e7e13ca958a6d13dab411ac8dd0071a6275c898749e818ec4a431858cd6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_carbon_audit_report",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f47e9d6edaa553151a451253f5ba3a3f1adff7487ac4352486b39fcf3e20b3c1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696485379796_26870",
+        "canonicalJsonSha256": "f47e9d6edaa553151a451253f5ba3a3f1adff7487ac4352486b39fcf3e20b3c1",
+        "originalRepresentationSha256": "f47e9d6edaa553151a451253f5ba3a3f1adff7487ac4352486b39fcf3e20b3c1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_carbon_audit_report"
+    },
+    {
+      "id": "wsd-csdi-temporary-water-suspension-notices",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-temporary-water-suspension-notices",
+      "name": "Temporary Water Suspension Notices",
+      "apiTitle": "Water Supplies Department \u2014 Temporary Water Suspension Notices",
+      "json": "wsd/csdi-temporary-water-suspension-notices/openapi.json",
+      "yaml": "wsd/csdi-temporary-water-suspension-notices/openapi.yaml",
+      "file": "wsd/csdi-temporary-water-suspension-notices/openapi.json",
+      "sha256": "736708a52a2e5728c72259b7e8297d639a48cad3a1cb01e3977d2766c4ef89d8",
+      "jsonSha256": "736708a52a2e5728c72259b7e8297d639a48cad3a1cb01e3977d2766c4ef89d8",
+      "yamlSha256": "01e4b5d55a556212ae4dbb88a5505b9611916f12a7d44c467851716cc97e0372",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_temporary_water_suspension_notices",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "736708a52a2e5728c72259b7e8297d639a48cad3a1cb01e3977d2766c4ef89d8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696485865245_52313",
+        "canonicalJsonSha256": "736708a52a2e5728c72259b7e8297d639a48cad3a1cb01e3977d2766c4ef89d8",
+        "originalRepresentationSha256": "736708a52a2e5728c72259b7e8297d639a48cad3a1cb01e3977d2766c4ef89d8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_temporary_water_suspension_notices"
+    },
+    {
+      "id": "wsd-csdi-major-infrastructure-projects",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-major-infrastructure-projects",
+      "name": "Major Infrastructure Projects",
+      "apiTitle": "Water Supplies Department \u2014 Major Infrastructure Projects",
+      "json": "wsd/csdi-major-infrastructure-projects/openapi.json",
+      "yaml": "wsd/csdi-major-infrastructure-projects/openapi.yaml",
+      "file": "wsd/csdi-major-infrastructure-projects/openapi.json",
+      "sha256": "c0ab45c7068307042ff3d816919ced08f1dd1f32b1abefb55dbbac272cdc1593",
+      "jsonSha256": "c0ab45c7068307042ff3d816919ced08f1dd1f32b1abefb55dbbac272cdc1593",
+      "yamlSha256": "d7b5ec54acd4286604945185ea8a6582041ac1fad72a19a5178360e477c3844e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_major_infrastructure_projects",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c0ab45c7068307042ff3d816919ced08f1dd1f32b1abefb55dbbac272cdc1593"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696486647021_69503",
+        "canonicalJsonSha256": "c0ab45c7068307042ff3d816919ced08f1dd1f32b1abefb55dbbac272cdc1593",
+        "originalRepresentationSha256": "c0ab45c7068307042ff3d816919ced08f1dd1f32b1abefb55dbbac272cdc1593",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_major_infrastructure_projects"
+    },
+    {
+      "id": "wsd-csdi-report-of-main-burst-case",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-report-of-main-burst-case",
+      "name": "Report of Main Burst Case",
+      "apiTitle": "Water Supplies Department \u2014 Report of Main Burst Case",
+      "json": "wsd/csdi-report-of-main-burst-case/openapi.json",
+      "yaml": "wsd/csdi-report-of-main-burst-case/openapi.yaml",
+      "file": "wsd/csdi-report-of-main-burst-case/openapi.json",
+      "sha256": "3703102910693f7dbedce087ae51bea70b4cd50b1e8d23270fcb320ffe7ec0df",
+      "jsonSha256": "3703102910693f7dbedce087ae51bea70b4cd50b1e8d23270fcb320ffe7ec0df",
+      "yamlSha256": "90ce9a8bb73ee5d018cc0c8e0d66f50534e114097588af5b1261c578e506b5e8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_report_of_main_burst_case",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3703102910693f7dbedce087ae51bea70b4cd50b1e8d23270fcb320ffe7ec0df"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696487849658_94872",
+        "canonicalJsonSha256": "3703102910693f7dbedce087ae51bea70b4cd50b1e8d23270fcb320ffe7ec0df",
+        "originalRepresentationSha256": "3703102910693f7dbedce087ae51bea70b4cd50b1e8d23270fcb320ffe7ec0df",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_report_of_main_burst_case"
+    },
+    {
+      "id": "wsd-csdi-wsd-customer-enquiry-centres",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-wsd-customer-enquiry-centres",
+      "name": "WSD Customer Enquiry Centres",
+      "apiTitle": "Water Supplies Department \u2014 WSD Customer Enquiry Centres",
+      "json": "wsd/csdi-wsd-customer-enquiry-centres/openapi.json",
+      "yaml": "wsd/csdi-wsd-customer-enquiry-centres/openapi.yaml",
+      "file": "wsd/csdi-wsd-customer-enquiry-centres/openapi.json",
+      "sha256": "86caeb7e828ac418a08881d62205436793159bef90d6f5b4a55b275b4a2d34c3",
+      "jsonSha256": "86caeb7e828ac418a08881d62205436793159bef90d6f5b4a55b275b4a2d34c3",
+      "yamlSha256": "e3e8953a8e87145922e8256f8c5a79d03faa41a75560f1446e20830c11ff7175",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_wsd_customer_enquiry_centres",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "86caeb7e828ac418a08881d62205436793159bef90d6f5b4a55b275b4a2d34c3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696488124453_72190",
+        "canonicalJsonSha256": "86caeb7e828ac418a08881d62205436793159bef90d6f5b4a55b275b4a2d34c3",
+        "originalRepresentationSha256": "86caeb7e828ac418a08881d62205436793159bef90d6f5b4a55b275b4a2d34c3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_wsd_customer_enquiry_centres"
+    },
+    {
+      "id": "wsd-csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-awarded-certificate",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-awarded-certificate",
+      "name": "Quality Water Supply Scheme for Buildings \u2013 Flushing Water - List of Buildings Awarded Certificate",
+      "apiTitle": "Water Supplies Department \u2014 Quality Water Supply Scheme for Buildings \u2013 Flushing Water - List of Buildings Awarded Certificate",
+      "json": "wsd/csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-awarded-certificate/openapi.json",
+      "yaml": "wsd/csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-awarded-certificate/openapi.yaml",
+      "file": "wsd/csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-awarded-certificate/openapi.json",
+      "sha256": "cb09732622aaa47eea313a160297805abeaec8c725554b65d090326b356e223a",
+      "jsonSha256": "cb09732622aaa47eea313a160297805abeaec8c725554b65d090326b356e223a",
+      "yamlSha256": "abfc82737bdd358f6966c30be6800118f03141df3444906a6580e48cae785308",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_quality_water_supply_scheme_for_buildings_flushing_water_list_of_buildings_awarded_certificate",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cb09732622aaa47eea313a160297805abeaec8c725554b65d090326b356e223a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696488250613_2747",
+        "canonicalJsonSha256": "cb09732622aaa47eea313a160297805abeaec8c725554b65d090326b356e223a",
+        "originalRepresentationSha256": "cb09732622aaa47eea313a160297805abeaec8c725554b65d090326b356e223a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_quality_water_supply_scheme_for_buildings_flushing_water_list_of_buildings_awarded_certificate"
+    },
+    {
+      "id": "wsd-csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-applied-the-scheme",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-applied-the-scheme",
+      "name": "Quality Water Supply Scheme for Buildings \u2013 Flushing Water - List of Buildings Applied the Scheme",
+      "apiTitle": "Water Supplies Department \u2014 Quality Water Supply Scheme for Buildings \u2013 Flushing Water - List of Buildings Applied the Scheme",
+      "json": "wsd/csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-applied-the-scheme/openapi.json",
+      "yaml": "wsd/csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-applied-the-scheme/openapi.yaml",
+      "file": "wsd/csdi-quality-water-supply-scheme-for-buildings-flushing-water-list-of-buildings-applied-the-scheme/openapi.json",
+      "sha256": "c4240f9db8ce62695e07df5f7a564b4ab7e3db018fcb214bc6086fbbbc23ce2a",
+      "jsonSha256": "c4240f9db8ce62695e07df5f7a564b4ab7e3db018fcb214bc6086fbbbc23ce2a",
+      "yamlSha256": "63008b7aa75ac8b4b5ff3b0a07d893f6fc51d2a1ee5811055fceeec9b238daa8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_quality_water_supply_scheme_for_buildings_flushing_water_list_of_buildings_applied_the_scheme",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c4240f9db8ce62695e07df5f7a564b4ab7e3db018fcb214bc6086fbbbc23ce2a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696488363413_57036",
+        "canonicalJsonSha256": "c4240f9db8ce62695e07df5f7a564b4ab7e3db018fcb214bc6086fbbbc23ce2a",
+        "originalRepresentationSha256": "c4240f9db8ce62695e07df5f7a564b4ab7e3db018fcb214bc6086fbbbc23ce2a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_quality_water_supply_scheme_for_buildings_flushing_water_list_of_buildings_applied_the_scheme"
+    },
+    {
+      "id": "wsd-csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-awarded-certificate",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-awarded-certificate",
+      "name": "Quality Water Supply Scheme for Buildings\u2013 Fresh Water (Management System) - List of Buildings Awarded Certificate",
+      "apiTitle": "Water Supplies Department \u2014 Quality Water Supply Scheme for Buildings\u2013 Fresh Water (Management System) - List of Buildings Awarded Certificate",
+      "json": "wsd/csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-awarded-certificate/openapi.json",
+      "yaml": "wsd/csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-awarded-certificate/openapi.yaml",
+      "file": "wsd/csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-awarded-certificate/openapi.json",
+      "sha256": "64f15068c2d3306fb2bccb684bb66ab01d6d17a82fe81caa897e201f479e1fd4",
+      "jsonSha256": "64f15068c2d3306fb2bccb684bb66ab01d6d17a82fe81caa897e201f479e1fd4",
+      "yamlSha256": "1c632ed8e9817da50afd5d3ef5e66829039fa6893a4578bf89a26f8645aef6cb",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_quality_water_supply_scheme_for_buildings_fresh_water_management_system_list_of_buildings_awarded_certificate",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "64f15068c2d3306fb2bccb684bb66ab01d6d17a82fe81caa897e201f479e1fd4"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696488476866_92147",
+        "canonicalJsonSha256": "64f15068c2d3306fb2bccb684bb66ab01d6d17a82fe81caa897e201f479e1fd4",
+        "originalRepresentationSha256": "64f15068c2d3306fb2bccb684bb66ab01d6d17a82fe81caa897e201f479e1fd4",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_quality_water_supply_scheme_for_buildings_fresh_water_management_system_list_of_buildings_awarded_certificate"
+    },
+    {
+      "id": "wsd-csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-applied-the-scheme",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-applied-the-scheme",
+      "name": "Quality Water Supply Scheme for Buildings\u2013 Fresh Water (Management System) - List of Buildings Applied the Scheme",
+      "apiTitle": "Water Supplies Department \u2014 Quality Water Supply Scheme for Buildings\u2013 Fresh Water (Management System) - List of Buildings Applied the Scheme",
+      "json": "wsd/csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-applied-the-scheme/openapi.json",
+      "yaml": "wsd/csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-applied-the-scheme/openapi.yaml",
+      "file": "wsd/csdi-quality-water-supply-scheme-for-buildings-fresh-water-management-system-list-of-buildings-applied-the-scheme/openapi.json",
+      "sha256": "020f1806e06897157cfb4d66ed9fe146ef6736e8337df21b6fc158ced08e8f32",
+      "jsonSha256": "020f1806e06897157cfb4d66ed9fe146ef6736e8337df21b6fc158ced08e8f32",
+      "yamlSha256": "23cd7873da27af89a2dd064c5ad56f7896476cac9c19a5100c97a3076b17b3d3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_quality_water_supply_scheme_for_buildings_fresh_water_management_system_list_of_buildings_applied_the_scheme",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "020f1806e06897157cfb4d66ed9fe146ef6736e8337df21b6fc158ced08e8f32"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696488938021_78913",
+        "canonicalJsonSha256": "020f1806e06897157cfb4d66ed9fe146ef6736e8337df21b6fc158ced08e8f32",
+        "originalRepresentationSha256": "020f1806e06897157cfb4d66ed9fe146ef6736e8337df21b6fc158ced08e8f32",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_quality_water_supply_scheme_for_buildings_fresh_water_management_system_list_of_buildings_applied_the_scheme"
+    },
+    {
+      "id": "wsd-csdi-educational-visits-to-waterworks-installations-by-schools-or-groups",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-educational-visits-to-waterworks-installations-by-schools-or-groups",
+      "name": "Educational Visits to Waterworks Installations by Schools or Groups",
+      "apiTitle": "Water Supplies Department \u2014 Educational Visits to Waterworks Installations by Schools or Groups",
+      "json": "wsd/csdi-educational-visits-to-waterworks-installations-by-schools-or-groups/openapi.json",
+      "yaml": "wsd/csdi-educational-visits-to-waterworks-installations-by-schools-or-groups/openapi.yaml",
+      "file": "wsd/csdi-educational-visits-to-waterworks-installations-by-schools-or-groups/openapi.json",
+      "sha256": "82c44716f7a082378a9bf05a531b56ec65acd2b3e3468b068b9ba4820c085dd2",
+      "jsonSha256": "82c44716f7a082378a9bf05a531b56ec65acd2b3e3468b068b9ba4820c085dd2",
+      "yamlSha256": "c9c20cbb779736c5a1e385f1cff45091e2f83e2ccc781cd6cc80433ade863f67",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_educational_visits_to_waterworks_installations_by_schools_or_groups",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "82c44716f7a082378a9bf05a531b56ec65acd2b3e3468b068b9ba4820c085dd2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696489932835_71654",
+        "canonicalJsonSha256": "82c44716f7a082378a9bf05a531b56ec65acd2b3e3468b068b9ba4820c085dd2",
+        "originalRepresentationSha256": "82c44716f7a082378a9bf05a531b56ec65acd2b3e3468b068b9ba4820c085dd2",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_educational_visits_to_waterworks_installations_by_schools_or_groups"
+    },
+    {
+      "id": "wsd-csdi-recreational-use-of-service-reservoir-roofs",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-recreational-use-of-service-reservoir-roofs",
+      "name": "Recreational Use of Service Reservoir Roofs",
+      "apiTitle": "Water Supplies Department \u2014 Recreational Use of Service Reservoir Roofs",
+      "json": "wsd/csdi-recreational-use-of-service-reservoir-roofs/openapi.json",
+      "yaml": "wsd/csdi-recreational-use-of-service-reservoir-roofs/openapi.yaml",
+      "file": "wsd/csdi-recreational-use-of-service-reservoir-roofs/openapi.json",
+      "sha256": "6d6b6058e539163afddb3154ef959d822f046f2797b42bbd2474d3c3e87262f7",
+      "jsonSha256": "6d6b6058e539163afddb3154ef959d822f046f2797b42bbd2474d3c3e87262f7",
+      "yamlSha256": "a51975b87664839fd2d7653c5b0f6bf3bbe7b1a305c2f50448131c6153661d5a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_recreational_use_of_service_reservoir_roofs",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6d6b6058e539163afddb3154ef959d822f046f2797b42bbd2474d3c3e87262f7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1696490037661_29468",
+        "canonicalJsonSha256": "6d6b6058e539163afddb3154ef959d822f046f2797b42bbd2474d3c3e87262f7",
+        "originalRepresentationSha256": "6d6b6058e539163afddb3154ef959d822f046f2797b42bbd2474d3c3e87262f7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_recreational_use_of_service_reservoir_roofs"
+    },
+    {
+      "id": "wsd-csdi-reservoirs-and-irrigation-reservoirs-open-to-public-for-fishing",
+      "publisherKey": "wsd",
+      "publisherName": "Water Supplies Department",
+      "familyKey": "csdi-reservoirs-and-irrigation-reservoirs-open-to-public-for-fishing",
+      "name": "Reservoirs and irrigation reservoirs open to public for fishing",
+      "apiTitle": "Water Supplies Department \u2014 Reservoirs and irrigation reservoirs open to public for fishing",
+      "json": "wsd/csdi-reservoirs-and-irrigation-reservoirs-open-to-public-for-fishing/openapi.json",
+      "yaml": "wsd/csdi-reservoirs-and-irrigation-reservoirs-open-to-public-for-fishing/openapi.yaml",
+      "file": "wsd/csdi-reservoirs-and-irrigation-reservoirs-open-to-public-for-fishing/openapi.json",
+      "sha256": "8ffed7d51efda7772211baf832c75cedc71993f5b5251f7ba0764440be684de5",
+      "jsonSha256": "8ffed7d51efda7772211baf832c75cedc71993f5b5251f7ba0764440be684de5",
+      "yamlSha256": "b7e5d2b0246395a45ad83ce7a76697b28d1faf0b357a183a1fd2e135dd999335",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_reservoirs_and_irrigation_reservoirs_open_to_public_for_fishing",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8ffed7d51efda7772211baf832c75cedc71993f5b5251f7ba0764440be684de5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=wsd_rcd_1730444911945_47981",
+        "canonicalJsonSha256": "8ffed7d51efda7772211baf832c75cedc71993f5b5251f7ba0764440be684de5",
+        "originalRepresentationSha256": "8ffed7d51efda7772211baf832c75cedc71993f5b5251f7ba0764440be684de5",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_reservoirs_and_irrigation_reservoirs_open_to_public_for_fishing"
+    }
+  ]
+}

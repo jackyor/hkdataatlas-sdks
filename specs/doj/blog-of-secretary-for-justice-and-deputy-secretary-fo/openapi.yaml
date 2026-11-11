@@ -1,0 +1,75 @@
+components:
+  schemas:
+    BlogEntry:
+      description: Documented blog entry fields. The source marks each field mandatory. The XML/API tables identify the field names, though an exact response envelope is not documented.
+      properties:
+        description:
+          description: SJ's Blog content.
+          type: string
+        link:
+          description: URL of headline.
+          type: string
+        pubDate:
+          description: Date in YYYY-M-D format.
+          type: string
+        title:
+          description: Headline of SJ's Blog.
+          type: string
+      required:
+        - title
+        - link
+        - pubDate
+        - description
+      type: object
+externalDocs:
+  description: Department of Justice API field documentation
+  url: https://www.doj.gov.hk/datagovhk/data/data_dict_blog_en.pdf
+info:
+  description: Provides the Secretary for Justice's blog. The version value is a metadata placeholder, not a publisher API version. Dates and times are in HKT (GMT+8). If start and end are omitted, the last six months of blog entries are returned; at most 400 records are returned. The source does not specify authentication.
+  title: Department of Justice - Blog of Secretary for Justice and Deputy Secretary for Justice
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /sj/blog/search:
+    get:
+      description: Returns blog entries. When both date parameters are omitted, the last six months are returned. A maximum of 400 records is returned. The documentation describes the XML/API fields but does not explicitly document the HTTP response envelope or media type.
+      operationId: searchSjBlog
+      parameters:
+        - description: Inclusive start date in YYYYMMDD format, for example 20190102. The earliest accepted date is 01 July 2017. Must be used together with end.
+          example: "20190102"
+          in: query
+          name: start
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+        - description: Inclusive end date in YYYYMMDD format, for example 20190109. The latest accepted date is today. Must be used together with start.
+          example: "20190109"
+          in: query
+          name: end
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - items:
+                      $ref: "#/components/schemas/BlogEntry"
+                    maxItems: 400
+                    type: array
+                  - description: Response envelope is not specified by the source; this permissive object represents an undocumented enclosing structure.
+                    type: object
+            application/xml:
+              schema:
+                items:
+                  $ref: "#/components/schemas/BlogEntry"
+                maxItems: 400
+                type: array
+          description: Successful response. Each documented blog entry has the fields below; the source does not specify the exact enclosing JSON shape.
+      summary: Search blog entries
+servers:
+  - url: https://api.data.gov.hk/v1

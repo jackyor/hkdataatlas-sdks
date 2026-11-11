@@ -1,0 +1,84 @@
+components:
+  schemas:
+    BlogEntry:
+      additionalProperties: true
+      description: A My Blog entry, as documented for the API response.
+      properties:
+        description:
+          description: My Blog content.
+          type: string
+        link:
+          description: URL of headline.
+          type: string
+        pubDate:
+          description: Publication date. The documentation gives an example such as `Sun, 24 Feb 2019 10:00:00 +0800` but does not specify a machine-readable date format.
+          type: string
+        title:
+          description: Headline of My Blog.
+          type: string
+      required:
+        - title
+        - link
+        - pubDate
+        - description
+      type: object
+externalDocs:
+  description: Official API documentation
+  url: https://www.fso.gov.hk/eng/open_data/data_dict_blog.pdf
+info:
+  description: API for searching the Financial Secretary's My Blog entries. The version value is a metadata placeholder, not a publisher API version. The publisher documentation does not specify authentication requirements.
+  title: Financial Secretary - My Blog
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /blog/search:
+    get:
+      description: Searches My Blog entries. All times are in HKT (GMT+8). If both date parameters are omitted, entries from the last six months are returned. A maximum of 400 records is returned.
+      operationId: searchBlog
+      parameters:
+        - description: Language of the blog. The English API resource uses `en`, the Traditional Chinese resource uses `tc`, and the Simplified Chinese resource uses `sc`.
+          example: en
+          in: query
+          name: lang
+          required: true
+          schema:
+            enum:
+              - en
+              - tc
+              - sc
+            type: string
+        - description: Start date (inclusive) in YYYYMMDD format, for example `20190102`. The earliest accepted date is 16 January 2017. Must be used together with `end`.
+          example: "20190102"
+          in: query
+          name: start
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+        - description: End date (inclusive) in YYYYMMDD format, for example `20190109`. The latest accepted date is today. Must be used together with `start`.
+          example: "20190109"
+          in: query
+          name: end
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                properties:
+                  data:
+                    description: Blog entries. The publisher documentation does not identify the enclosing response property name; this array represents the documented entry collection without asserting that its wire key is `data`.
+                    examples:
+                      - []
+                    items:
+                      $ref: "#/components/schemas/BlogEntry"
+                    type: array
+                type: object
+          description: Successful response. The documented API fields describe each blog entry; the source does not specify the enclosing JSON response structure.
+      summary: Search My Blog entries
+servers:
+  - url: https://api.data.gov.hk/v1/fso

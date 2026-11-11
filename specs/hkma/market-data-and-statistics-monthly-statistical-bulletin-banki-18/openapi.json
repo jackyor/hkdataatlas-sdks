@@ -1,0 +1,464 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Balance sheet - Licensed banks",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/banking/balance-sheet-lb",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/banking",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/balance-sheet-lb": {
+      "get": {
+        "summary": "Retrieve data of Balance sheet - Licensed banks",
+        "parameters": [
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+				"$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "end_of_month": {
+            "type": "string",
+            "format": "date"
+          },
+          "liab_amtaisinhk_hkd": {
+            "type": "number"
+          },
+          "liab_amtaisinhk_fc": {
+            "type": "number"
+          },
+          "liab_amtaisinhk_total": {
+            "type": "number"
+          },
+          "liab_amtbanksabroad_hkd": {
+            "type": "number"
+          },
+          "liab_amtbanksabroad_fc": {
+            "type": "number"
+          },
+          "liab_amtbanksabroad_total": {
+            "type": "number"
+          },
+          "liab_depcust_hkd": {
+            "type": "number"
+          },
+          "liab_depcust_fc": {
+            "type": "number"
+          },
+          "liab_depcust_total": {
+            "type": "number"
+          },
+          "liab_ncdepoutst_hkd": {
+            "type": "number"
+          },
+          "liab_ncdepoutst_fc": {
+            "type": "number"
+          },
+          "liab_ncdepoutst_total": {
+            "type": "number"
+          },
+          "liab_othdebtinstoutst_hkd": {
+            "type": "number"
+          },
+          "liab_othdebtinstoutst_fc": {
+            "type": "number"
+          },
+          "liab_othdebtinstoutst_total": {
+            "type": "number"
+          },
+          "liab_capreserv_hkd": {
+            "type": "number"
+          },
+          "liab_capreserv_fc": {
+            "type": "number"
+          },
+          "liab_capreserv_total": {
+            "type": "number"
+          },
+          "liab_total_hkd": {
+            "type": "number"
+          },
+          "liab_total_fc": {
+            "type": "number"
+          },
+          "liab_total": {
+            "type": "number"
+          },
+          "asst_notescoins_hkd": {
+            "type": "number"
+          },
+          "asst_notescoins_fc": {
+            "type": "number"
+          },
+          "asst_notescoins_total": {
+            "type": "number"
+          },
+          "asst_amtaisinhk_hkd": {
+            "type": "number"
+          },
+          "asst_amtaisinhk_fc": {
+            "type": "number"
+          },
+          "asst_amtaisinhk_total": {
+            "type": "number"
+          },
+          "asst_amtbanksabroad_hkd": {
+            "type": "number"
+          },
+          "asst_amtbanksabroad_fc": {
+            "type": "number"
+          },
+          "asst_amtbanksabroad_total": {
+            "type": "number"
+          },
+          "asst_loanadvtocust_hkd": {
+            "type": "number"
+          },
+          "asst_loanadvtocust_fc": {
+            "type": "number"
+          },
+          "asst_loanadvtocust_total": {
+            "type": "number"
+          },
+          "asst_ncdepheld_hkd": {
+            "type": "number"
+          },
+          "asst_ncdepheld_fc": {
+            "type": "number"
+          },
+          "asst_ncdepheld_total": {
+            "type": "number"
+          },
+          "asst_ncdepheld_lb_hkd": {
+            "type": "number"
+          },
+          "asst_ncdepheld_lb_fc": {
+            "type": "number"
+          },
+          "asst_ncdepheld_lb_total": {
+            "type": "number"
+          },
+          "asst_ncdepheld_rlb_hkd": {
+            "type": "number"
+          },
+          "asst_ncdepheld_rlb_fc": {
+            "type": "number"
+          },
+          "asst_ncdepheld_rlb_total": {
+            "type": "number"
+          },
+          "asst_ncdepheld_dtc_hkd": {
+            "type": "number"
+          },
+          "asst_ncdepheld_dtc_fc": {
+            "type": "number"
+          },
+          "asst_ncdepheld_dtc_total": {
+            "type": "number"
+          },
+          "asst_ncdepheld_bkouthk_hkd": {
+            "type": "number"
+          },
+          "asst_ncdepheld_bkouthk_fc": {
+            "type": "number"
+          },
+          "asst_ncdepheld_bkouthk_total": {
+            "type": "number"
+          },
+          "asst_negodebt_hkd": {
+            "type": "number"
+          },
+          "asst_negodebt_fc": {
+            "type": "number"
+          },
+          "asst_negodebt_total": {
+            "type": "number"
+          },
+          "asst_negodebt_accbill_hkd": {
+            "type": "number"
+          },
+          "asst_negodebt_accbill_fc": {
+            "type": "number"
+          },
+          "asst_negodebt_accbill_total": {
+            "type": "number"
+          },
+          "asst_negodebt_fltnote_hkd": {
+            "type": "number"
+          },
+          "asst_negodebt_fltnote_fc": {
+            "type": "number"
+          },
+          "asst_negodebt_fltnote_total": {
+            "type": "number"
+          },
+          "asst_negodebt_gov_hkd": {
+            "type": "number"
+          },
+          "asst_negodebt_gov_fc": {
+            "type": "number"
+          },
+          "asst_negodebt_gov_total": {
+            "type": "number"
+          },
+          "asst_negodebt_other_hkd": {
+            "type": "number"
+          },
+          "asst_negodebt_other_fc": {
+            "type": "number"
+          },
+          "asst_negodebt_other_total": {
+            "type": "number"
+          },
+          "asst_invinshare_hkd": {
+            "type": "number"
+          },
+          "asst_invinshare_fc": {
+            "type": "number"
+          },
+          "asst_invinshare_total": {
+            "type": "number"
+          },
+          "asst_intinland_hkd": {
+            "type": "number"
+          },
+          "asst_intinland_fc": {
+            "type": "number"
+          },
+          "asst_intinland_total": {
+            "type": "number"
+          },
+          "asst_other_hkd": {
+            "type": "number"
+          },
+          "asst_other_fc": {
+            "type": "number"
+          },
+          "asst_other_total": {
+            "type": "number"
+          },
+          "total_asst_hkd": {
+            "type": "number"
+          },
+          "total_asst_fc": {
+            "type": "number"
+          },
+          "total_asst_total": {
+            "type": "number"
+          },
+          "no_of_report_instit": {
+            "type": "number"
+          },
+          "no_of_local_branch": {
+            "type": "number"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  }
+}

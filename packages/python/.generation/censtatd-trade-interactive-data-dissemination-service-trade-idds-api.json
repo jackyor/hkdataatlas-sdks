@@ -1,0 +1,45 @@
+{
+  "sourceId": "censtatd-trade-interactive-data-dissemination-service-trade-idds-api",
+  "publisherKey": "censtatd",
+  "family": "trade_interactive_data_dissemination_service_trade_idds_api",
+  "status": "generated",
+  "key": "680b9482745974127d198b3d5619745f333dbe9696dabdcda1a35450ca9ad556",
+  "sourceSha256": "137a298b3d8bb4f8a7fe724f896bff86459580f6a2642684f74d2bd98ef2dd32",
+  "derivedInputSha256": "137a298b3d8bb4f8a7fe724f896bff86459580f6a2642684f74d2bd98ef2dd32",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/api/get",
+      "operationId": "getTradeStatistics",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/censtatd-trade-interactive-data-dissemination-service-trade-idds-api.log",
+  "outputs": {
+    "__init__.py": "e13e3e82556400beedc09e4e4e742c2df096fcdfbb7600f2aab54c06839043ed",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_trade_statistics.py": "07a87a104431f156bfcc89c953c481f96ec0fe9215339dd9b53d87008fe5eeff",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "c24d2d7d053d6d5e00093364a1bb3005860d5d0aeac600753f3960dbd7684a2b",
+    "models/data_response.py": "09dde13b12de7034629c9c1fbcc99aa8023fe5e804094a06cc8890373a8894f7",
+    "models/get_trade_statistics_ccclass.py": "3e8297aadc3bfe319ffda469a7371709fe41ba565abf7637b7b11aa5db597bab",
+    "models/get_trade_statistics_coclass.py": "e15bb26b6917835027355d5340b61dfbada4b48867960cbecbae0c75cf8344d1",
+    "models/get_trade_statistics_codeclass.py": "9541fad019936a0dfc9622464cb8d491a0e475181ac9f3baaa8a8d1f7017f9eb",
+    "models/get_trade_statistics_freq.py": "aa812da362693f395e2b2b7a8d730aedd6281badfe61c87541f356733ae77f5a",
+    "models/get_trade_statistics_lang.py": "61e8bf4033ab2fdf07c3a3ce282b6de7263ebb3ef588ded661037fa5053ed781",
+    "models/get_trade_statistics_sv_item.py": "113e8f15fcb84a82fd65a4fa6a0c7fbbbc4bfec1c8ac760ecfc5808c398acb8c",
+    "models/get_trade_statistics_tm.py": "1f5b229af8637c5cd91af630a4a52a9803d649b4053b1e8cb2d08018ca79da81",
+    "models/get_trade_statistics_ttype.py": "4079b78020aa4268c6f411c64e8f1d192f5a579f2fd5f52f7693b3bf71948c92",
+    "models/response_count.py": "1040609b7c456d8696d2ec0bf589bbe56f0f14da443a9384b61e04e676539820",
+    "models/response_header.py": "b8f9ffa788f9c633360fb2b3ebd525b33f97fafbfd144ff8c663dc1180ac1c4d",
+    "models/response_status.py": "0763dc0679d9a928f7ed317414aac812fb3673894af1ddeb771c3f5bbcd317de",
+    "models/response_status_code.py": "1701d3f48ddd221e60d1bf644f40bbe09a0fd31152e9f05a720ff30242437980",
+    "models/trade_record.py": "84c706281a8e94c113bf73efdd88d6af23011d13a5d21d733098ea57ba014442",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

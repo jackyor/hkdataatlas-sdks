@@ -1,0 +1,64 @@
+{
+  "sourceId": "devb-csdi-invigorating-island-south-conceptual-master-plan-2-0-wong-chuk-hang-aberdeen-and-ap-lei-chau",
+  "publisherKey": "devb",
+  "family": "csdi_invigorating_island_south_conceptual_master_plan_2_0_wong_chuk_hang_aberdeen_and_ap_lei_chau",
+  "status": "generated",
+  "key": "61ca0f6835874bf788e76828f7030eb48402322d0a7403e591fcf8db01cceb20",
+  "sourceSha256": "a8c5ffd954a6ef21f3b95ce8a472f437a9e76bba1897294530c108d8ebeb6696",
+  "derivedInputSha256": "54a3d996dab8984eb663e66b13aea65a7d6c9dd25942758b3404122fee71cb16",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/devb_plb_rcd_1668570553831_41775/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/devb_plb_rcd_1668570553831_41775/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature",
+      "tags": [
+        "WFS"
+      ]
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/devb-csdi-invigorating-island-south-conceptual-master-plan-2-0-wong-chuk-hang-aberdeen-and-ap-lei-chau.log",
+  "outputs": {
+    "__init__.py": "9fd12377ecf5677a9be61bc540f5f8d2587054634f40c93494faa42fb8d51224",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "0e26156e3fb98dd49db2b14ab51ef616b024b2de9f17cd518b65a7ed6a7b0424",
+    "api/wfs/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wfs/wfs_map_server_get_feature.py": "8b9b29fb7ff41de6d6f434bff8ae538277c1b1c4e9d154abc42605fbe28b1e85",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "8ab52bb8fa07d57b190a77ec5d80146e2a35961a8aa3ea2294bae312a85d9bd4",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "98fddbeba50dd5b8401535bc40f8b5971d23766ab9866f341177eaf460f10af3",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "a68205693b278c9503750cc9b7bc8ba924ec8e299f830e6ab24049699ede800b",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "cbb47c5af0874e7791c1e11f9f3c91fb034a444aecec4e3f5f71263d9fd8be34",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "b82549b22eaabb4e043d38776e9063165d0e948c78af601dd22e8c86474796eb",
+    "models/arcgis_feature_server_arcgis_layer_1_attributes.py": "c081addd6876e2589a8d04d6ae15ad0e1a90cf8d1dcab95b047035fd42e99a61",
+    "models/arcgis_feature_server_arcgis_layer_2_attributes.py": "3d3b4018d185c701535be33cbbd3a87c7d61b282681bcfec9b91c069790f90e0",
+    "models/arcgis_feature_server_arcgis_layer_3_attributes.py": "57115bd083e0a6d38174e91e8aa69e2bb1409a609c38b967ca4d89d496d1aa63",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "models/wfs_map_server_get_feature_output_format.py": "e4f57cb3890a02ce6dba52d2b0fcfc686179fd837b5c03300dff588d928d98d7",
+    "models/wfs_map_server_get_feature_request.py": "afc05e39db501a145c828df80073f57e52779c155b2631cb84b197d8532067c9",
+    "models/wfs_map_server_get_feature_service.py": "919ac8ccb249a9d757a7c1a39b3f3b0adc5377b9dafcac83c84789cd9972e9e8",
+    "models/wfs_map_server_get_feature_version.py": "1ad3a545490446ff0a487beea15c3c456473b4e63545161c573ade0f30e3014b",
+    "models/wfs_map_server_wfs_feature_collection.py": "b7fdfaa58f7e34a0c48a8d5b3ca0a53dd2e634639948261108f9b853f550b2e5",
+    "models/wfs_map_server_wfs_feature_collection_features_item.py": "6abd35d96542291704960e7ad83f4c96ed1654c4a97fe203cb74c29f80faa061",
+    "models/wfs_map_server_wfs_project_points_attributes.py": "9b6cbc0a301102ce942c2ccdc6aaded28974595850c69a37e37200e49a1491ab",
+    "models/wfs_map_server_wfs_project_polygons_attributes.py": "8591cb50d59817e6f311901047e9503b2b86e652a5fa5e259ea079d3fcacc787",
+    "models/wfs_map_server_wfs_project_polylines_attributes.py": "82791ce772ed88e6732005f5967c6499a50d1eebac8d72c1b820dfa937fbd6e3",
+    "models/wfs_map_server_wfs_quick_win_points_attributes.py": "8163bda43cea38a90c0f4e792119b265797414c9760e3a8d25d9d0bf56a73cd9",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

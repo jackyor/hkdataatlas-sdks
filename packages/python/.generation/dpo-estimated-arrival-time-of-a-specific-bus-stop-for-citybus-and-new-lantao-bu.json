@@ -1,0 +1,72 @@
+{
+  "sourceId": "dpo-estimated-arrival-time-of-a-specific-bus-stop-for-citybus-and-new-lantao-bu",
+  "publisherKey": "dpo",
+  "family": "estimated_arrival_time_of_a_specific_bus_stop_for_citybus_and_new_lantao_bu",
+  "status": "generated",
+  "key": "cf9b15efae90f9ca7846fcd6f29b12113686f1cd5aaa9bb4c177ce1b373cde87",
+  "sourceSha256": "2bb32e12b06ad9236a72e7312f05712d9a3965499c84578a0cb7c9a1bf2827c9",
+  "derivedInputSha256": "58ce9be4fa58016558be60926e03d5490d275d18b9c845d1173b3dbddb654392",
+  "normalizations": [
+    {
+      "pointer": "/components/schemas/StopEtaResponse/properties/type",
+      "rule": "const_to_singleton_enum"
+    },
+    {
+      "pointer": "/components/schemas/StopRouteResponse/properties/type",
+      "rule": "const_to_singleton_enum"
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/v1.1/transport/batch/stop-route/{company_id}/{stop_id}",
+      "operationId": "getStopRoutes",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/v1/transport/batch/stop-eta/{company_id}/{stop_id}",
+      "operationId": "getStopEstimatedArrivals",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/dpo-estimated-arrival-time-of-a-specific-bus-stop-for-citybus-and-new-lantao-bu.log",
+  "outputs": {
+    "__init__.py": "18646d662c485923f6b666cdb244194272128351014a75e6dda79d9460bb6097",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_stop_estimated_arrivals.py": "cdb8ed408fcd44be097b5b2d92039235f2dad8606013f218fb97e3933300fcac",
+    "api/default/get_stop_routes.py": "f84eed48b552e60485585ab1efde1cdd81cbe72adc22a133faf49414880cebaf",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "4bd47c072f50351d2edd7c57a0d1dce502e6de0d701c4eea31af329fc26a5b40",
+    "models/error.py": "38114db0311ae6a97c4a84d4da5251ddc04616d496e2b05c8847587ce60b703e",
+    "models/get_stop_estimated_arrivals_company_id.py": "882b49cf829caab17697f836e9b8e4cf55063020add2f2a7d357a394c62ddc8e",
+    "models/get_stop_estimated_arrivals_lang.py": "9197bc1275be187daf15de18faad22657518b2d86e05d4b90b22d86e11f2ebe6",
+    "models/get_stop_routes_company_id.py": "dc82fb5c77e5d124c04ebc65602c6d40cd875d4e6e42a7ebddc807cfa9843b58",
+    "models/get_stop_routes_lang.py": "bed7c5623987cd7513ca7ae29698edc81d2c8dc224baff762b2998bd7eb5ea67",
+    "models/stop_eta_record.py": "5c761f9cfb2f38d9661c64fc672ae12b014ef5846d5ca3b53b62e3357fc03085",
+    "models/stop_eta_record_co.py": "0d4b1fd30d29e9417d180ee91c5f5d7db7e1b35c6eec390a5f345b4b4c47cd03",
+    "models/stop_eta_record_dir_type_1.py": "522f6187f6c6aebdc33bdfa190285ec3f84373e77dbe49fe22805337fc98800e",
+    "models/stop_eta_record_dir_type_2_type_1.py": "85b7c99929178ae061ad828ea97bf35f5e1f3663a5ecb4523801bcf0b85a2cd2",
+    "models/stop_eta_record_dir_type_3_type_1.py": "2f1dd671b0e0d1a1015e7ef0d421cbbd704d6fa768b046112ac1c585a8f2eafb",
+    "models/stop_eta_response.py": "c1e6df744c9d523470b3d86efcb9f6f41db437efac590d981d1652fd025abd82",
+    "models/stop_eta_response_type.py": "b76b0624a8220f7690ec20d0549d2ac28d4d7311e42268cf50d407403d37f503",
+    "models/stop_route_record.py": "ee370146eabd533c74f84e592e235f0caa6ba1221ca8e5bb9ce9beb67c9aabfa",
+    "models/stop_route_record_co.py": "5ce0e45b083314233741bb1fc438ec07436d1b128d884b149033998c77e8643e",
+    "models/stop_route_record_dir_type_1.py": "ded5ce1edb0e6a9865503f8f87f46d43ea6a1147f8629f8e218dffef8d0b9382",
+    "models/stop_route_record_dir_type_2_type_1.py": "09d7c181dfac72d2ce577130243aa1118b9b47e888f3b9279b3b232fcefee527",
+    "models/stop_route_record_dir_type_3_type_1.py": "4d2d28dd125d6272b168e009b83db6486fb5f170ff5672e53a5f34d2f3902145",
+    "models/stop_route_record_overnight_route_type_1.py": "370f51e94db4c878c2441fc1f7a84d19e86189e4d7ce9c206f0e190046c0c111",
+    "models/stop_route_record_overnight_route_type_2_type_1.py": "dcbe6730304aca3f7c9782370829b606072bc3aa5164e3347f850bb38428beb1",
+    "models/stop_route_record_overnight_route_type_3_type_1.py": "39587c4aa042fac5c028b6eabb1035c78674b810c98672d27f3958ddd82daaec",
+    "models/stop_route_record_special_route_type_1.py": "21feeadd5ee95a990b18860078d14bb3e738d4a3c79a14f0f77f7548314ecb51",
+    "models/stop_route_record_special_route_type_2_type_1.py": "2a4e2878d229cf72bf6022b4a66a3700ecdbf4464faf86d277ba908a0482b85e",
+    "models/stop_route_record_special_route_type_3_type_1.py": "c5105ac24377f48d2d09aa7099f92870928219f11b97e291f2e04fa73c3f4c08",
+    "models/stop_route_response.py": "87291ca462f2f7e9dc6ef9eb630fddeba36b6ab6beda5b20706bd6f6b9578ead",
+    "models/stop_route_response_type.py": "870d02fb76d9ae40acc5d6ff745581ab2b71708c1d065a27fa20a92811033773",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

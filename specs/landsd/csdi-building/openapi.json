@@ -1,0 +1,2056 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Lands Department — Building",
+    "version": "csdi-native-readonly-v1",
+    "description": "Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations."
+  },
+  "paths": {
+    "/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/{layerId}/query": {
+      "get": {
+        "operationId": "ArcgisFeatureServerQueryFeatures",
+        "tags": [
+          "ArcGIS REST"
+        ],
+        "summary": "Query published features",
+        "description": "Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.",
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "required": true,
+            "description": "Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "Building",
+                "value": 0
+              },
+              "choice2": {
+                "summary": "BuildingWorksHistory",
+                "value": 1000
+              },
+              "choice3": {
+                "summary": "BuildingName",
+                "value": 1001
+              },
+              "choice4": {
+                "summary": "BuildingRelateOPStructure",
+                "value": 1002
+              },
+              "choice5": {
+                "summary": "OPStructure",
+                "value": 1003
+              },
+              "choice6": {
+                "summary": "OP",
+                "value": 1004
+              },
+              "choice7": {
+                "summary": "BuildingLotNoInfo",
+                "value": 1005
+              }
+            },
+            "x-choice-count": 7
+          },
+          {
+            "name": "f",
+            "in": "query",
+            "required": false,
+            "description": "Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "geojson",
+                "pbf"
+              ]
+            },
+            "example": "json"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "description": "SQL WHERE expression over the published fields; source protocol supports this read-only query filter.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1=1"
+          },
+          {
+            "name": "outFields",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "*"
+          },
+          {
+            "name": "returnGeometry",
+            "in": "query",
+            "required": false,
+            "description": "Whether native feature geometry should be included.",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": false
+          },
+          {
+            "name": "resultRecordCount",
+            "in": "query",
+            "required": false,
+            "description": "Bound returned records where the selected layer advertises pagination; no global range is inferred.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1,
+            "x-supported-layer-ids": [
+              0,
+              1000,
+              1001,
+              1002,
+              1003,
+              1004,
+              1005
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+                }
+              },
+              "application/x-protobuf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/"
+        },
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer?f=pjson",
+            "sha256": "ebe42bdfeeee377ac33e8e683008680470cb5bf641d487eb4f7fbd9f20c879d9",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-service",
+            "parseStatus": "pass",
+            "kind": "arcgis-service"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/0?f=pjson",
+            "sha256": "6b9ddd185bce643a04575e2fecef35da4e0cc1324c8146ef1495841cd4c9d3ce",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1000?f=pjson",
+            "sha256": "b00726e0e3196cd4287ebcb217143a2e59609ed35886732a79c53e5b4e6aa2be",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1001?f=pjson",
+            "sha256": "3b11783cf64f9263ca43654fbdf6265a846e2f411604068d92c9b96ab5b723b2",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1002?f=pjson",
+            "sha256": "22cbbdd8868d08ef548d283b2db038a68e6871dbe659028a814e9432e2ff5d7e",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1003?f=pjson",
+            "sha256": "e762332dee72e18ed5901d36dbe937ebfd9f5c6a533908f23989764df32c1908",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1004?f=pjson",
+            "sha256": "1dafb367926b96f65b80e2ba7eeb8428c25efec605afc8ccd62eb94ab2157c39",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1005?f=pjson",
+            "sha256": "82efc61a74d414e82e449ed958f81f3be72784084850ade83146e56468a2dc36",
+            "httpStatus": 200,
+            "contentType": "text/plain;charset=UTF-8",
+            "role": "arcgis-layer",
+            "parseStatus": "pass",
+            "kind": "arcgis-layer"
+          }
+        ]
+      }
+    },
+    "/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WFSServer": {
+      "get": {
+        "operationId": "WfsMapServerGetFeature",
+        "tags": [
+          "WFS"
+        ],
+        "summary": "Retrieve published features",
+        "description": "One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WFS"
+              ]
+            },
+            "example": "WFS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact capabilities version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2.0.0"
+              ]
+            },
+            "example": "2.0.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only operation advertised by GetCapabilities.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetFeature"
+              ]
+            },
+            "example": "GetFeature"
+          },
+          {
+            "name": "typeNames",
+            "in": "query",
+            "required": true,
+            "description": "Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "Building",
+                "value": "csdi:Building"
+              },
+              "choice2": {
+                "summary": "BuildingWorksHistory",
+                "value": "csdi:BuildingWorksHistory"
+              },
+              "choice3": {
+                "summary": "BuildingName",
+                "value": "csdi:BuildingName"
+              },
+              "choice4": {
+                "summary": "BuildingRelateOPStructure",
+                "value": "csdi:BuildingRelateOPStructure"
+              },
+              "choice5": {
+                "summary": "OPStructure",
+                "value": "csdi:OPStructure"
+              },
+              "choice6": {
+                "summary": "OP",
+                "value": "csdi:OP"
+              },
+              "choice7": {
+                "summary": "BuildingLotNoInfo",
+                "value": "csdi:BuildingLotNoInfo"
+              }
+            },
+            "x-choice-count": 7
+          },
+          {
+            "name": "outputFormat",
+            "in": "query",
+            "required": false,
+            "description": "Advertised native representation; JSON, GML, CSV and images are kept distinct.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GML32",
+                "GML32+ZIP",
+                "GML32+GZIP",
+                "application/gml+xml; version=3.2",
+                "GML3",
+                "GML3+ZIP",
+                "GML3+GZIP",
+                "text/xml; subtype=gml/3.1.1",
+                "GML2",
+                "GML2+ZIP",
+                "GML2+GZIP",
+                "text/xml; subtype=gml/2.1.2",
+                "GEOJSON",
+                "GEOJSON+ZIP",
+                "GEOJSON+GZIP",
+                "ESRIGEOJSON",
+                "ESRIGEOJSON+ZIP",
+                "ESRIGEOJSON+GZIP",
+                "KML",
+                "application/vnd.google-earth.kml xml",
+                "application/vnd.google-earth.kml+xml",
+                "KMZ",
+                "application/vnd.google-earth.kmz",
+                "SHAPE+ZIP",
+                "CSV",
+                "CSV+ZIP",
+                "CSV+GZIP",
+                "Geopackage",
+                "Geopackage+ZIP"
+              ]
+            },
+            "example": "GEOJSON"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "OGC bounded feature limit; example requests one feature without claiming a server-wide bound.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "srsName",
+            "in": "query",
+            "required": false,
+            "description": "Output CRS choices advertised by at least one feature type; support may vary by selected type.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "urn:ogc:def:crs:EPSG::2326"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "application/gml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/geo+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WfsMapServerWfsFeatureCollection"
+                }
+              },
+              "application/vnd.google-earth.kml+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "*/*": {
+                "schema": {
+                  "description": "Native Geopackage+ZIP output; wire media type/fields are not constrained."
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "description": "Native CSV; row/column wire conformance is not inferred from JSON schemas."
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://docs.ogc.org/is/09-025r2/09-025r2.html"
+        },
+        "x-advertised-crss": [
+          "urn:ogc:def:crs:EPSG::2326"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+            "sha256": "7c4c520a63cdc02f62f5d0f3177814642e549ee88743c48d172065b2a9b24b44",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-capabilities",
+            "parseStatus": "pass",
+            "kind": "wfs-capabilities"
+          },
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType",
+            "sha256": "f42fabbeb3301c027906c75a969d9cf6003e3f72357d639e704f6554f016dd73",
+            "httpStatus": 200,
+            "contentType": "text/xml;charset=UTF-8",
+            "role": "wfs-feature-type",
+            "parseStatus": "pass",
+            "kind": "wfs-feature-type"
+          }
+        ]
+      }
+    },
+    "/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WMSServer": {
+      "get": {
+        "operationId": "WmsMapServerGetMap",
+        "tags": [
+          "WMS"
+        ],
+        "summary": "Render a map image",
+        "description": "Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "query",
+            "required": true,
+            "description": "OGC service identifier.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "WMS"
+              ]
+            },
+            "example": "WMS"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "description": "Exact advertised WMS version.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1.3.0"
+              ]
+            },
+            "example": "1.3.0"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "description": "Read-only GetMap operation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GetMap"
+              ]
+            },
+            "example": "GetMap"
+          },
+          {
+            "name": "layers",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "choice1": {
+                "summary": "Building",
+                "value": "Building"
+              }
+            },
+            "x-choice-count": 1
+          },
+          {
+            "name": "styles",
+            "in": "query",
+            "required": true,
+            "description": "Comma-separated style names; an empty string selects the standard default style.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "",
+            "allowEmptyValue": true
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "description": "Advertised GetMap representation.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "image/bmp",
+                "image/jpeg",
+                "image/tiff",
+                "image/png",
+                "image/png8",
+                "image/png24",
+                "image/png32",
+                "image/gif",
+                "image/svg+xml"
+              ]
+            },
+            "example": "image/png"
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": true,
+            "description": "Requested image width in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": true,
+            "description": "Requested image height in pixels; no invented maximum.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 256
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "required": true,
+            "description": "Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "CRS:84"
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "required": true,
+            "description": "minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "113.837601,22.158064,114.434405,22.562830"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/tiff": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png8": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png24": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png32": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs": {
+          "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+        },
+        "x-advertised-crss": [
+          "CRS:84",
+          "EPSG:4326",
+          "EPSG:2326",
+          "EPSG:102140"
+        ],
+        "servers": [
+          {
+            "url": "https://portal.csdi.gov.hk"
+          }
+        ],
+        "x-native-source-evidence": [
+          {
+            "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+            "sha256": "702705dfeefdcc629b67a1ded1b470553e0635316ea47c02808fc365134ce6e5",
+            "httpStatus": 200,
+            "contentType": "text/xml",
+            "role": "wms-capabilities",
+            "parseStatus": "pass",
+            "kind": "wms-capabilities"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArcgisFeatureServerArcgisLayer0Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "Shape__Length": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Length",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape__Area": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "Shape_Area",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GeoRefNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "GeoRefNo",
+            "type": "string",
+            "maxLength": 10
+          },
+          "DateCreate": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "DateCreate"
+          },
+          "BuildingBlockType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingBlockType",
+            "type": "string",
+            "maxLength": 20
+          },
+          "BuildingCSUID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingCSUID",
+            "type": "string",
+            "maxLength": 19
+          },
+          "BuildingID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BuildingID",
+            "type": "integer"
+          },
+          "Status": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Status",
+            "type": "string",
+            "maxLength": 10
+          },
+          "BuildingNameEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingNameEN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 195
+          },
+          "BuildingNameTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingNameTC",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "BaseHeight": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "BaseHeight",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "TopHeight": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "TopHeight",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Storeys": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Storeys",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "StoreysInBasement": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "StoreysInBasement",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "DateStamp": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "DateStamp"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1000Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "BuildingCSUID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingCSUID",
+            "type": "string",
+            "maxLength": 19
+          },
+          "DataProviderID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "DataProviderID",
+            "type": "string",
+            "maxLength": 6
+          },
+          "WorksType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "WorksType",
+            "type": "string",
+            "maxLength": 80
+          },
+          "WorksDate": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "WorksDate",
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1001Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "BuildingCSUID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingCSUID",
+            "type": "string",
+            "maxLength": 19
+          },
+          "BuildingNameID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BuildingNameID",
+            "type": "integer"
+          },
+          "BuildingNameEN": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingNameEN",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 195
+          },
+          "BuildingNameTC": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingNameTC",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "NameStatus": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "NameStatus",
+            "type": "string",
+            "maxLength": 20
+          },
+          "DataProviderID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "DataProviderID",
+            "type": "string",
+            "maxLength": 6
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1002Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "BuildingCSUID": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "BuildingCSUID",
+            "type": "string",
+            "maxLength": 19
+          },
+          "BuildingStructureID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BuildingStructureID",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1003Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "BuildingStructureID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BuildingStructureID",
+            "type": "integer"
+          },
+          "OPNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OPNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 15
+          },
+          "Storeys": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "Storeys",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "StoreysInBasement": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "StoreysInBasement",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TopHeight": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "TopHeight",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "StoreyRemarks": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "StoreyRemarks",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "OPBlockType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OPBlockType",
+            "type": "string",
+            "maxLength": 6
+          },
+          "OPBuildingType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OPBuildingType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1004Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "OPNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "OPNo",
+            "type": "string",
+            "maxLength": 15
+          },
+          "OPDate": {
+            "description": "Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.",
+            "title": "OPDate"
+          },
+          "DomesticGFA": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "DomesticGFA",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NonDomesticGFA": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "NonDomesticGFA",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GFA": {
+            "description": "Publisher field type: esriFieldTypeDouble",
+            "title": "GFA",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisLayer1005Attributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Publisher field type: esriFieldTypeOID",
+            "title": "OBJECTID",
+            "type": "integer"
+          },
+          "BuildingStructureID": {
+            "description": "Publisher field type: esriFieldTypeInteger",
+            "title": "BuildingStructureID",
+            "type": "integer"
+          },
+          "DDSDType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "DDSDType",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 5
+          },
+          "DDSDNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "DDSDNo",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "LotType": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LotType",
+            "type": "string",
+            "maxLength": 15
+          },
+          "LotNo": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "LotNo",
+            "type": "string",
+            "maxLength": 13
+          },
+          "Section1": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Section1",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "SubSection1": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SubSection1",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "Section2": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Section2",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "SubSection2": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SubSection2",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "Section3": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Section3",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "SubSection3": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "SubSection3",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "Section4": {
+            "description": "Publisher field type: esriFieldTypeString",
+            "title": "Section4",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "ExtPortion": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "ExtPortion",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "MiscNo": {
+            "description": "Publisher field type: esriFieldTypeSmallInteger",
+            "title": "MiscNo",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisFeatureSet": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Native geometry and spatial reference are not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisGeoJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArcgisFeatureServerArcgisJsonEnvelope": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    }
+                  ]
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1000Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1001Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1002Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1003Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1004Attributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ArcgisFeatureServerArcgisLayer1005Attributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry is not constrained by attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "exceededTransferLimit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsBuildingAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Shape": {
+            "description": "Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type."
+          },
+          "Shape_Length": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Shape_Area": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GeoRefNo": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 10
+          },
+          "DateCreate": {
+            "description": "Native XSD type xsd:dateTime. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string"
+          },
+          "BuildingBlockType": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 20
+          },
+          "BuildingCSUID": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 19
+          },
+          "BuildingID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "Status": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 10
+          },
+          "BuildingNameEN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 195
+          },
+          "BuildingNameTC": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "BaseHeight": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "TopHeight": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "Storeys": {
+            "description": "Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "StoreysInBasement": {
+            "description": "Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "DateStamp": {
+            "description": "Native XSD type xsd:dateTime. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsBuildingWorksHistoryAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "BuildingCSUID": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 19
+          },
+          "DataProviderID": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 6
+          },
+          "WorksType": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 80
+          },
+          "WorksDate": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 10
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsBuildingNameAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "BuildingCSUID": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 19
+          },
+          "BuildingNameID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "BuildingNameEN": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 195
+          },
+          "BuildingNameTC": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "NameStatus": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 20
+          },
+          "DataProviderID": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 6
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsBuildingRelateOPStructureAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "BuildingCSUID": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 19
+          },
+          "BuildingStructureID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsOPStructureAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "BuildingStructureID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "OPNo": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 15
+          },
+          "Storeys": {
+            "description": "Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "StoreysInBasement": {
+            "description": "Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "TopHeight": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "StoreyRemarks": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 200
+          },
+          "OPBlockType": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 6
+          },
+          "OPBuildingType": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsOPAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "OPNo": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 15
+          },
+          "OPDate": {
+            "description": "Native XSD type xsd:dateTime. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "DomesticGFA": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "NonDomesticGFA": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "GFA": {
+            "description": "Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsBuildingLotNoInfoAttributes": {
+        "type": "object",
+        "properties": {
+          "OBJECTID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "BuildingStructureID": {
+            "description": "Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "integer"
+          },
+          "DDSDType": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 5
+          },
+          "DDSDNo": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "LotType": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 15
+          },
+          "LotNo": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": "string",
+            "maxLength": 13
+          },
+          "Section1": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "SubSection1": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "Section2": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "SubSection2": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "Section3": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "SubSection3": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          },
+          "Section4": {
+            "description": "Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4
+          },
+          "ExtPortion": {
+            "description": "Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "MiscNo": {
+            "description": "Native XSD type xsd:short. Requiredness is not projected from XML occurrence into all JSON queries.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "WfsMapServerWfsFeatureCollection": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsBuildingAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsBuildingWorksHistoryAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsBuildingNameAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsBuildingRelateOPStructureAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsOPStructureAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsOPAttributes"
+                    },
+                    {
+                      "$ref": "#/components/schemas/WfsMapServerWfsBuildingLotNoInfoAttributes"
+                    }
+                  ]
+                },
+                "geometry": {
+                  "description": "Geometry representation is not constrained by the retained attribute metadata."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices"
+  },
+  "x-csdi-layer-choices": [
+    {
+      "id": 0,
+      "title": "Building",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1000,
+      "title": "BuildingWorksHistory",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1001,
+      "title": "BuildingName",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1002,
+      "title": "BuildingRelateOPStructure",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1003,
+      "title": "OPStructure",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1004,
+      "title": "OP",
+      "protocol": "arcgis"
+    },
+    {
+      "id": 1005,
+      "title": "BuildingLotNoInfo",
+      "protocol": "arcgis"
+    },
+    {
+      "id": "csdi:Building",
+      "title": "Building",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:BuildingWorksHistory",
+      "title": "BuildingWorksHistory",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:BuildingName",
+      "title": "BuildingName",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:BuildingRelateOPStructure",
+      "title": "BuildingRelateOPStructure",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:OPStructure",
+      "title": "OPStructure",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:OP",
+      "title": "OP",
+      "protocol": "wfs"
+    },
+    {
+      "id": "csdi:BuildingLotNoInfo",
+      "title": "BuildingLotNoInfo",
+      "protocol": "wfs"
+    },
+    {
+      "id": "Building",
+      "title": "Building",
+      "protocol": "wms",
+      "crss": [
+        "CRS:84",
+        "EPSG:4326",
+        "EPSG:2326",
+        "EPSG:102140"
+      ],
+      "bounds": [
+        {
+          "CRS": "CRS:84",
+          "minx": "113.837601",
+          "miny": "22.158064",
+          "maxx": "114.434405",
+          "maxy": "22.562830"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.158064",
+          "miny": "113.837601",
+          "maxx": "22.562830",
+          "maxy": "114.434405"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "802048.100000",
+          "miny": "801625.300000",
+          "maxx": "846831.440400",
+          "maxy": "863009.329060"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "802048.100000",
+          "miny": "801625.300000",
+          "maxx": "846831.440400",
+          "maxy": "863009.329060"
+        },
+        {
+          "CRS": "CRS:84",
+          "minx": "113.837601",
+          "miny": "22.158064",
+          "maxx": "114.434405",
+          "maxy": "22.562830"
+        },
+        {
+          "CRS": "EPSG:4326",
+          "minx": "22.158064",
+          "miny": "113.837601",
+          "maxx": "22.562830",
+          "maxy": "114.434405"
+        },
+        {
+          "CRS": "EPSG:2326",
+          "minx": "802048.100000",
+          "miny": "801625.300000",
+          "maxx": "846831.440400",
+          "maxy": "863009.329060"
+        },
+        {
+          "CRS": "EPSG:102140",
+          "minx": "802048.100000",
+          "miny": "801625.300000",
+          "maxx": "846831.440400",
+          "maxy": "863009.329060"
+        }
+      ],
+      "styles": [
+        {
+          "id": "default",
+          "title": "Building"
+        }
+      ]
+    }
+  ],
+  "x-csdi-source-evidence": [
+    {
+      "url": "https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=landsd_rcd_1637211194312_35158",
+      "sha256": "751e25ad5f66d5847ddf81bd40c3c32a548f1d7cecdcdac9c245518d0b7cd05f",
+      "httpStatus": 200,
+      "contentType": "application/xml;charset=UTF-8",
+      "role": "csw-record",
+      "parseStatus": "pass",
+      "kind": "csw-record"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer?f=pjson",
+      "sha256": "ebe42bdfeeee377ac33e8e683008680470cb5bf641d487eb4f7fbd9f20c879d9",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-service",
+      "parseStatus": "pass",
+      "kind": "arcgis-service"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/0?f=pjson",
+      "sha256": "6b9ddd185bce643a04575e2fecef35da4e0cc1324c8146ef1495841cd4c9d3ce",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1000?f=pjson",
+      "sha256": "b00726e0e3196cd4287ebcb217143a2e59609ed35886732a79c53e5b4e6aa2be",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1001?f=pjson",
+      "sha256": "3b11783cf64f9263ca43654fbdf6265a846e2f411604068d92c9b96ab5b723b2",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1002?f=pjson",
+      "sha256": "22cbbdd8868d08ef548d283b2db038a68e6871dbe659028a814e9432e2ff5d7e",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1003?f=pjson",
+      "sha256": "e762332dee72e18ed5901d36dbe937ebfd9f5c6a533908f23989764df32c1908",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1004?f=pjson",
+      "sha256": "1dafb367926b96f65b80e2ba7eeb8428c25efec605afc8ccd62eb94ab2157c39",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637211194312_35158/FeatureServer/1005?f=pjson",
+      "sha256": "82efc61a74d414e82e449ed958f81f3be72784084850ade83146e56468a2dc36",
+      "httpStatus": 200,
+      "contentType": "text/plain;charset=UTF-8",
+      "role": "arcgis-layer",
+      "parseStatus": "pass",
+      "kind": "arcgis-layer"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WFSServer?service=WFS&request=GetCapabilities",
+      "sha256": "7c4c520a63cdc02f62f5d0f3177814642e549ee88743c48d172065b2a9b24b44",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-capabilities",
+      "parseStatus": "pass",
+      "kind": "wfs-capabilities"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WFSServer?service=wfs&version=2.0.0&request=DescribeFeatureType",
+      "sha256": "f42fabbeb3301c027906c75a969d9cf6003e3f72357d639e704f6554f016dd73",
+      "httpStatus": 200,
+      "contentType": "text/xml;charset=UTF-8",
+      "role": "wfs-feature-type",
+      "parseStatus": "pass",
+      "kind": "wfs-feature-type"
+    },
+    {
+      "url": "https://portal.csdi.gov.hk/server/services/common/landsd_rcd_1637211194312_35158/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+      "sha256": "702705dfeefdcc629b67a1ded1b470553e0635316ea47c02808fc365134ce6e5",
+      "httpStatus": 200,
+      "contentType": "text/xml",
+      "role": "wms-capabilities",
+      "parseStatus": "pass",
+      "kind": "wms-capabilities"
+    }
+  ],
+  "x-csdi-source-scope": {
+    "partialProtocols": [],
+    "nativeMetadataStatus": {
+      "status": "http_200_retained",
+      "http200Sources": 12
+    },
+    "fullSourceCompleteness": "not_established",
+    "actualDataQueriesByConversion": 0
+  }
+}

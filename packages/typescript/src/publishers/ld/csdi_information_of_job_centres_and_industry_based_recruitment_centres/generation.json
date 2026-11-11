@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ld-csdi-information-of-job-centres-and-industry-based-recruitment-centres",
+  "sourceSha256": "8b623c6aaf808802d1859f6b2e616881959a4c95f3012d99943fd308524e8741",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/labour_rcd_1629267205215_52059/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/labour_rcd_1629267205215_52059/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/labour_rcd_1629267205215_52059/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "wsd-csdi-report-of-main-burst-case",
+  "sourceSha256": "3703102910693f7dbedce087ae51bea70b4cd50b1e8d23270fcb320ffe7ec0df",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/wsd_rcd_1696487849658_94872/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1696487849658_94872/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1696487849658_94872/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

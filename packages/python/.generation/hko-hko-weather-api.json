@@ -1,0 +1,109 @@
+{
+  "sourceId": "hko-hko-weather-api",
+  "publisherKey": "hko",
+  "family": "hko_weather_api",
+  "status": "generated",
+  "key": "9bab5a397825803458af6e41c9cc7a6534d5152ba1e69596dee2b1e574228b04",
+  "sourceSha256": "a1f0c5225012dcb5156bafd94a74f46dea161259d1c613b5c245917dd564e957",
+  "derivedInputSha256": "3524e8dcbceb7c3ea514099a6761dfed8662d99ff3187d36c2d7ec60236515f1",
+  "normalizations": [
+    {
+      "pointer": "/components/schemas/CurrentWeatherReport/properties/rainstormReminder",
+      "rule": "explicit_unknown_array_items"
+    },
+    {
+      "pointer": "/components/schemas/WeatherRadiationReport/additionalProperties",
+      "rule": "explicit_unknown_array_items"
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/earthquake.php",
+      "operationId": "getEarthquakeInformation",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/hourlyRainfall.php",
+      "operationId": "getHourlyRainfall",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/lunardate.php",
+      "operationId": "convertGregorianLunarDate",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/opendata.php",
+      "operationId": "getClimateWeatherOpenData",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/weather.php",
+      "operationId": "getWeatherInformation",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hko-hko-weather-api.log",
+  "outputs": {
+    "__init__.py": "d329396e5bb81ca835f284501e0dc17ab6893db69495edfcedcad200a2f7a467",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/convert_gregorian_lunar_date.py": "bb90842d6cf8238b17bdcbfb2500ba3912384588e8d70cb31234675795c4d185",
+    "api/default/get_climate_weather_open_data.py": "887c3de9ceb288bf095c1b8a31a69035aee198b64ae6203e29e8817e4f027427",
+    "api/default/get_earthquake_information.py": "0b5f0f711a39cc5e555b30f72d3655c619c7032ce0fb5373cba2b9188f2eec6a",
+    "api/default/get_hourly_rainfall.py": "6e0b26d92df1b85cb0ff0a560923c0e578645dc166522e8eba4ee15590f9af8e",
+    "api/default/get_weather_information.py": "4e8c61f5e8565a76747e250c47ae429984e67d708db53a4bfd6b3fb25e95d389",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "994ca36fbd00e906ebd9931be4e6dbb308eea54bcefa9e479c3f1ea0e3c25d36",
+    "models/current_weather_report.py": "d25607ff544f0014bd63da13434f947c9ae664451aa8bdb1ac5f2bcc2e98b990",
+    "models/current_weather_report_lightning.py": "d4520f48456bada1bc20d060113efda4febe9576edf22b3d71a8cd1fab7d5bc9",
+    "models/current_weather_report_mintemp_from_00_to_09_type_2.py": "2be2a8cc183baf8ebaacea40c6f5ad95a1dcb0f5755b5289d5ac7270930dafe5",
+    "models/current_weather_report_rainfall.py": "e5b96e25a9b840632b04c3092c01b31258c1e8da0e20f0ea855099e12555a872",
+    "models/current_weather_report_rainfall_from_00_to_12_type_2.py": "42503dafb184381bc18c44bcaf498ac8f941a5b02370a54c4a2ee96ce5453b82",
+    "models/current_weather_report_rainfall_january_to_last_month_type_2.py": "d0b7188d4ff9ed72171b851acc4fee94b8dba6b03cc3965c663844d236926ad0",
+    "models/current_weather_report_rainfall_last_month_type_2.py": "64a1804f347688cb3bd08c1ac3fb20750e1206ca1cef95c9782f061807d72101",
+    "models/current_weather_report_rainfall_place_item.py": "8b6f8c33b73919c8a4fb5a869d22b728651a8c3e52f5531bdcbe9bddb0c35ea8",
+    "models/current_weather_report_rainstorm_reminder_type_1.py": "30145e6e4ac42cfd084aeb8bd06f2d3e270afe2e39dc618d6fcb797832d09f19",
+    "models/current_weather_report_uvindex.py": "234444b9e952d7e7a132c9722d042eae24205ec368391b3b11dd2dcf69626e83",
+    "models/felt_earth_tremor_report.py": "09d9e43aa47e66b6a0246fe5e66fae78b42b602acb8afb4ce29e5cd1a0a55e24",
+    "models/get_climate_weather_open_data_data_type.py": "339ea9486ef90f72b78c6e7365d5c79f844f55af5adb2b6de6ce65e62bb19fe2",
+    "models/get_climate_weather_open_data_lang.py": "3ca42dabe14fe99e9acfd9a2c2212fb97e823b74cc75babf5840be31d3b1d612",
+    "models/get_climate_weather_open_data_rformat.py": "685b188d7643531371a304f284ecd4999a3b14e4bced84a34335dd28bc3729bd",
+    "models/get_earthquake_information_data_type.py": "d62b273be5b02ecb3bf5287beb81791effc6c86ad75b1d7316c72f57421a11d4",
+    "models/get_earthquake_information_lang.py": "5ccde86a081f554b35656a12ee5cdc3721a5c5bd288cc5f5de1cafe6e19304e0",
+    "models/get_hourly_rainfall_lang.py": "f2e120542ecdb559ab479674ea0776b76015399662a7994bb654b5381b2b2f31",
+    "models/get_weather_information_data_type.py": "4bfabd78a37839a146b269a7f7224c448495adcbcd83ed1125bf7393435df263",
+    "models/get_weather_information_lang.py": "2382e029ae3b8cf1f49e37e866b15752e7a4fa1c6d4fe10892c9e74c793fc91c",
+    "models/hourly_rainfall_report.py": "d36b1e7e294b1ae1b339680a00ebe51835b12aa771f70bcf8009258c8ff2dd8d",
+    "models/hourly_rainfall_station.py": "2a12f0cbb9f0330630acec9590b9b232bf16bbd2ae2c25e5005d03e4c0b209f8",
+    "models/local_weather_forecast.py": "ec328c1db3357394d31a85a1124b1eb3273663f89c3e6be30d70d521001e48e8",
+    "models/lunar_date_conversion.py": "0870dcd741b1f676923aacf46b553ffe974cd6c7c89ec43b4511dd52e904e397",
+    "models/nine_day_forecast.py": "95699417871c4b13918058a55ebef5f64e64c45b66b08c3f8720851287c503d5",
+    "models/nine_day_forecast_weather_forecast_item.py": "f13ea37751f1d569b8a7e0f52911a7d0d1bc4eaa60edcc50dc18eb711fd9cdb2",
+    "models/nine_day_forecast_weather_forecast_item_forecast_maxrh_type_2.py": "73f11356ac9a0762de94b4e6d9b4a7e5b4a4d768fcb978ba6215db2d5c629172",
+    "models/nine_day_forecast_weather_forecast_item_forecast_maxtemp_type_2.py": "aa52c4bf3b9e5f868292e43ee47cccd9493ede1eb1b646885f1ad37b29469075",
+    "models/nine_day_forecast_weather_forecast_item_forecast_minrh_type_2.py": "0a8be45ebc059c46b365af4f55c7f9be7a1c998c405b9150edea696962b50688",
+    "models/nine_day_forecast_weather_forecast_item_forecast_mintemp_type_2.py": "07fe3f652bbf2a4ae33f21e764fd9cfa794020ae848d70171bbb8b9f5e5dd6a6",
+    "models/quick_earthquake_message.py": "72f528746c57c14279b9ac2e476f027d13c207f8fdd05d068f3a6cd71f2801e2",
+    "models/special_weather_tips.py": "c0d02633e9eaff9ae49086421a7c414002f0c54b8a0a0126916a96a25dc4cc70",
+    "models/special_weather_tips_swt_item.py": "3b2bf646966beab6967a696b58f2e324dea4b7ce14708228b1a08b947331c805",
+    "models/tabular_open_data.py": "da5aff2c8d43b00336184dabc1a283d271a9ed30eccda4efc6d7aa0596deef23",
+    "models/temperature_measurement.py": "815d251f53948e3b16263a752caa0b8e82dab1a68ee45933b68b39bc8ae55373",
+    "models/warning_information_entry.py": "03b888ded78b835a97651bc9b29144c754d1aa9f55886a01ee981aea3a23d621",
+    "models/warning_summary_entry.py": "abdbc980238ecc2ca309a5563f1fe04284ec929cadb2c00fc65e8209ce11318f",
+    "models/weather_observation.py": "aff9af2429d12ba42dae25c2ba941aef2173460390b084436e2bd47106013a01",
+    "models/weather_radiation_report.py": "ab52f1acb3d08521e0d78c1f9e41ac9fdc3960dd5fdc68dd17e7f20e9b3be34f",
+    "models/weather_radiation_report_additional_property_type_2.py": "8e9b67417ff8dfa4132badc7d22692e1ccc5129589d2049dd35f55ee8fc06ab3",
+    "models/weather_warning_information.py": "23b64edd0458d9b025393061af75f3b71b7d1aa17d005b349b7c1ae4e468cce3",
+    "models/weather_warning_summary.py": "2628fd49deccd1d4d0592951b63b5bdd4021a42f0c7fa6246dd10a382fde16b9",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

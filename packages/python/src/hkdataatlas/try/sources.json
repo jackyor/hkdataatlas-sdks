@@ -1,0 +1,64 @@
+{
+  "publisherKey": "try",
+  "publisherName": "Treasury",
+  "sources": [
+    {
+      "id": "try-csdi-address-of-pensions-enquiry-office-of-the-treasury",
+      "publisherKey": "try",
+      "publisherName": "Treasury",
+      "familyKey": "csdi-address-of-pensions-enquiry-office-of-the-treasury",
+      "name": "Address of Pensions Enquiry Office of the Treasury",
+      "apiTitle": "Treasury \u2014 Address of Pensions Enquiry Office of the Treasury",
+      "json": "try/csdi-address-of-pensions-enquiry-office-of-the-treasury/openapi.json",
+      "yaml": "try/csdi-address-of-pensions-enquiry-office-of-the-treasury/openapi.yaml",
+      "file": "try/csdi-address-of-pensions-enquiry-office-of-the-treasury/openapi.json",
+      "sha256": "86c427f50538b5da6bb94af12c68538c33871c11bc1da410cfcfd4fd75afd94e",
+      "jsonSha256": "86c427f50538b5da6bb94af12c68538c33871c11bc1da410cfcfd4fd75afd94e",
+      "yamlSha256": "f1425307371fa4f22d63b0d781b2c5fda29214a04b86a9f8c45cf7aea0d3d649",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_address_of_pensions_enquiry_office_of_the_treasury",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "86c427f50538b5da6bb94af12c68538c33871c11bc1da410cfcfd4fd75afd94e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=try_rcd_1635817234081_73721",
+        "canonicalJsonSha256": "86c427f50538b5da6bb94af12c68538c33871c11bc1da410cfcfd4fd75afd94e",
+        "originalRepresentationSha256": "86c427f50538b5da6bb94af12c68538c33871c11bc1da410cfcfd4fd75afd94e",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_address_of_pensions_enquiry_office_of_the_treasury"
+    }
+  ]
+}

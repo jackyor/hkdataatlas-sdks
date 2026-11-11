@@ -1,0 +1,36 @@
+{
+  "sourceId": "dpo-press-release-search",
+  "publisherKey": "dpo",
+  "family": "press_release_search",
+  "status": "generated",
+  "key": "700f61f1f437d1feebf75cf5d74a43b57f8f0348193ef094487099b4fa70ac33",
+  "sourceSha256": "b5dfbf0b98d967647b8a3ab0924dd69ab3f00c01fe7642fb0232f105a88ed340",
+  "derivedInputSha256": "b5dfbf0b98d967647b8a3ab0924dd69ab3f00c01fe7642fb0232f105a88ed340",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/pressrelease/search",
+      "operationId": "searchPressReleases",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/dpo-press-release-search.log",
+  "outputs": {
+    "__init__.py": "92f56405b7b4847381cdd25fe5422c7e97025533404ebc59406124d4667e41d3",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/search_press_releases.py": "7342df57756473887adc8d7f5cd86ae599a9f58782ed8ee6c5883728d42b1a24",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e9963a92741390bd149f5c4d967043bbaedb75a0d6e4faf405eaf02e47d0a296",
+    "models/press_release.py": "8ad464cc0ffae0c66ada0e1e97b025f1423a6240411591146d930af42df940c1",
+    "models/search_press_releases_lang.py": "9411a845935c6d229fe1e91c328404f7af917fbc3fa974bde75e3d8bb18bb3cd",
+    "models/search_press_releases_official.py": "5aa79ab12f2097aadd67ac5e12b12b6268aa89f2adc688f836c43110217154c5",
+    "models/search_press_releases_type.py": "61752c02168de25f9d5a6cf44bce8d03f37858888a0a6748441cd3abb97a9666",
+    "models/search_response.py": "7356493fb9d640a963beda5c4c1f56e09cedfb0567947d0971f18c24d8dd2982",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

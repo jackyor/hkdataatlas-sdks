@@ -1,0 +1,311 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "List of AI-related Trustees",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/bank-svf-info/ai-related-trustees",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/bank-svf-info",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/ai-related-trustees": {
+      "get": {
+        "summary": "Retrieve data of List of AI-related Trustees",
+        "parameters": [
+          {
+            "name": "segment",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Segment"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Lang"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "principal_place": {
+            "type": "string"
+          },
+          "official_web": {
+            "type": "string"
+          },
+          "associated_ai": {
+            "type": "string"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "Segment": {
+        "title": "segment",
+        "enum": [
+          "AI",
+          "AISub"
+        ],
+        "type": "string",
+        "example": "AI",
+        "x-enum-elements": [
+          {
+            "name": "AI",
+            "description": "Authorized institutions (AIs) that carry on trust business* in Hong Kong as trustees "
+          },
+          {
+            "name": "AISub",
+            "description": "Subsidiaries of locally incorporated AIs (AI subsidiaries) that carry on trust business* in Hong Kong as trustees"
+          }
+        ]
+      },
+      "Lang": {
+        "title": "lang",
+        "enum": [
+          "en",
+          "tc"
+        ],
+        "type": "string",
+        "example": "en",
+        "x-enum-elements": [
+          {
+            "name": "en",
+            "description": ""
+          },
+          {
+            "name": "tc",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  },
+  "x-source-evidence": {
+    "url": "https://apidocs.hkma.gov.hk/documentation/bank-svf-info/ai-related-trustees/",
+    "originalSourceUrl": "https://apidocs.hkma.gov.hk/wp-content/uploads/swagger/ai-related-trustees-swagger.json",
+    "originalJsonSha256": "c84a5dd28ab8043c1bae035a8ae15a004df8a280ba6d73b22060519245b7adae",
+    "approvedCorrectedDescriptionSha256": "30e248f855436d5f988ea16203a0449a19b4b84e8ec0b09c234ef2d1c44f280d",
+    "retainedDocumentationQuote": "Official API URL: https://api.hkma.gov.hk/public/bank-svf-info/ai-related-trustees?lang=en&segment=AI. Python example uses urllib.request.urlopen (GET).",
+    "retainedEvidenceManifestSha256": "504db5b4f31647b811201630dde399a9e5973738fd846431d809d456ee185396",
+    "classification": "source_corrected_derivative",
+    "change": "Correct only the publisher-original operation path from unrelated SVF registry to the documented AI-related trustees path. All original request parameters and trustees response schemas remain unchanged."
+  }
+}

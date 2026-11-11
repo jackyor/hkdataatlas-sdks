@@ -1,0 +1,416 @@
+{
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        },
+        "title": "errorResponse",
+        "type": "object"
+      },
+      "Header": {
+        "properties": {
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "title": "Header",
+        "type": "object"
+      },
+      "Record": {
+        "properties": {
+          "Pwp_fbean_a": {
+            "type": "number"
+          },
+          "Pwp_fbeef_a": {
+            "type": "number"
+          },
+          "Pwp_fbrice_a": {
+            "type": "number"
+          },
+          "Pwp_fcmilk_a": {
+            "type": "number"
+          },
+          "Pwp_fegg_a": {
+            "type": "number"
+          },
+          "Pwp_ffruit_a": {
+            "type": "number"
+          },
+          "Pwp_flard_a": {
+            "type": "number"
+          },
+          "Pwp_fmutn_a": {
+            "type": "number"
+          },
+          "Pwp_fonion_a": {
+            "type": "number"
+          },
+          "Pwp_food_a": {
+            "type": "number"
+          },
+          "Pwp_fpoil_a": {
+            "type": "number"
+          },
+          "Pwp_fpork_a": {
+            "type": "number"
+          },
+          "Pwp_fpotatoes_a": {
+            "type": "number"
+          },
+          "Pwp_fpoul_a": {
+            "type": "number"
+          },
+          "Pwp_frsug_a": {
+            "type": "number"
+          },
+          "Pwp_fsfish_a": {
+            "type": "number"
+          },
+          "Pwp_fvegt_a": {
+            "type": "number"
+          },
+          "Pwp_fverm_a": {
+            "type": "number"
+          },
+          "Pwp_fwflour_a": {
+            "type": "number"
+          },
+          "Pwp_fwrice_a": {
+            "type": "number"
+          },
+          "Pwp_mebsh_a": {
+            "type": "number"
+          },
+          "Pwp_mecoal_a": {
+            "type": "number"
+          },
+          "Pwp_meisbar_a": {
+            "type": "number"
+          },
+          "Pwp_meisnail_a": {
+            "type": "number"
+          },
+          "Pwp_meisplate_a": {
+            "type": "number"
+          },
+          "Pwp_mekero_a": {
+            "type": "number"
+          },
+          "Pwp_meluoil_a": {
+            "type": "number"
+          },
+          "Pwp_meoil_a": {
+            "type": "number"
+          },
+          "Pwp_mepetr_a": {
+            "type": "number"
+          },
+          "Pwp_meplead_a": {
+            "type": "number"
+          },
+          "Pwp_metal_a": {
+            "type": "number"
+          },
+          "Pwp_metin_a": {
+            "type": "number"
+          },
+          "Pwp_meymshe_a": {
+            "type": "number"
+          },
+          "Pwp_miasul_a": {
+            "type": "number"
+          },
+          "Pwp_mibhide_a": {
+            "type": "number"
+          },
+          "Pwp_micem_a": {
+            "type": "number"
+          },
+          "Pwp_michar_a": {
+            "type": "number"
+          },
+          "Pwp_michide_a": {
+            "type": "number"
+          },
+          "Pwp_micpap_a": {
+            "type": "number"
+          },
+          "Pwp_midfea_a": {
+            "type": "number"
+          },
+          "Pwp_mifwood_a": {
+            "type": "number"
+          },
+          "Pwp_mihwood_a": {
+            "type": "number"
+          },
+          "Pwp_miratn_a": {
+            "type": "number"
+          },
+          "Pwp_misacid_a": {
+            "type": "number"
+          },
+          "Pwp_misalp_a": {
+            "type": "number"
+          },
+          "Pwp_misash_a": {
+            "type": "number"
+          },
+          "Pwp_miscell_a": {
+            "type": "number"
+          },
+          "Pwp_mislea_a": {
+            "type": "number"
+          },
+          "Pwp_miswood_a": {
+            "type": "number"
+          },
+          "Pwp_tasilk_a": {
+            "type": "number"
+          },
+          "Pwp_tdfpita_a": {
+            "type": "number"
+          },
+          "Pwp_tdpcot_a": {
+            "type": "number"
+          },
+          "Pwp_textiles_a": {
+            "type": "number"
+          },
+          "Pwp_tflan_a": {
+            "type": "number"
+          },
+          "Pwp_tgbag_a": {
+            "type": "number"
+          },
+          "Pwp_thcloth_a": {
+            "type": "number"
+          },
+          "Pwp_tmhemp_a": {
+            "type": "number"
+          },
+          "Pwp_tsilkp_a": {
+            "type": "number"
+          },
+          "Pwp_twshirt_a": {
+            "type": "number"
+          },
+          "Pwp_twstw_a": {
+            "type": "number"
+          },
+          "Pwp_twublan_a": {
+            "type": "number"
+          },
+          "Pwp_year": {
+            "format": "date",
+            "type": "string"
+          }
+        },
+        "title": "Record",
+        "type": "object"
+      },
+      "Response": {
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        },
+        "title": "response",
+        "type": "object"
+      },
+      "Result": {
+        "properties": {
+          "datasize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "records": {
+            "description": "",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            },
+            "type": "array"
+          }
+        },
+        "title": "Result",
+        "type": "object"
+      },
+      "Sortorder": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "example": "asc",
+        "title": "sortorder",
+        "type": "string",
+        "x-enum-elements": [
+          {
+            "description": "",
+            "name": "asc"
+          },
+          {
+            "description": "",
+            "name": "desc"
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "description": "For more details, refer the link: https://www.aof.org.hk/research/HKIMR/publications-and-research/hong-kong-economic-history-database/pre-war-wholesale-price-index",
+    "title": "HKIMR - Pre-World-War-II Wholesale Price Index",
+    "version": "v1"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/hkimr/pre-war-wholesale-price-idx": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "pagesize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "fields",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "column",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "choose",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "sortby",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "description": "",
+            "explode": true,
+            "in": "query",
+            "name": "sortorder",
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            },
+            "description": "Expected response to a valid request"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unexcpeted error"
+          }
+        },
+        "summary": "Retrieve data of HKIMR - Pre-World-War-II Wholesale Price Index"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public",
+      "variables": {}
+    }
+  ]
+}

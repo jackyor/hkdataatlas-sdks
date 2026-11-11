@@ -1,0 +1,528 @@
+{
+  "publisherKey": "hkpf",
+  "publisherName": "Hong Kong Police Force",
+  "sources": [
+    {
+      "id": "hkpf-csdi-police-stations-districts-divisions",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-police-stations-districts-divisions",
+      "name": "Police Stations (Districts / Divisions)",
+      "apiTitle": "Hong Kong Police Force \u2014 Police Stations (Districts / Divisions)",
+      "json": "hkpf/csdi-police-stations-districts-divisions/openapi.json",
+      "yaml": "hkpf/csdi-police-stations-districts-divisions/openapi.yaml",
+      "file": "hkpf/csdi-police-stations-districts-divisions/openapi.json",
+      "sha256": "2eb1512be3da9732a5e18e4d88a67537f31a438d30ef0f0381ed9780222796ad",
+      "jsonSha256": "2eb1512be3da9732a5e18e4d88a67537f31a438d30ef0f0381ed9780222796ad",
+      "yamlSha256": "a35a51d9c85e0eac7d36cfdd01aa1aa8fb0ca233dc74d48f655c918efe5ed654",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_police_stations_districts_divisions",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2eb1512be3da9732a5e18e4d88a67537f31a438d30ef0f0381ed9780222796ad"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562064290_95464",
+        "canonicalJsonSha256": "2eb1512be3da9732a5e18e4d88a67537f31a438d30ef0f0381ed9780222796ad",
+        "originalRepresentationSha256": "2eb1512be3da9732a5e18e4d88a67537f31a438d30ef0f0381ed9780222796ad",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_police_stations_districts_divisions"
+    },
+    {
+      "id": "hkpf-csdi-police-posts-control-points-reporting-centres",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-police-posts-control-points-reporting-centres",
+      "name": "Police Posts/Control Points/Reporting Centres",
+      "apiTitle": "Hong Kong Police Force \u2014 Police Posts/Control Points/Reporting Centres",
+      "json": "hkpf/csdi-police-posts-control-points-reporting-centres/openapi.json",
+      "yaml": "hkpf/csdi-police-posts-control-points-reporting-centres/openapi.yaml",
+      "file": "hkpf/csdi-police-posts-control-points-reporting-centres/openapi.json",
+      "sha256": "fc73605238dbad646595bb010509ed8be5e5b5d16a3af12433835843701876e9",
+      "jsonSha256": "fc73605238dbad646595bb010509ed8be5e5b5d16a3af12433835843701876e9",
+      "yamlSha256": "7ccc921d289d538d9736bc0c8ef377905a91de4282e85e0177cb52512fbe0a00",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_police_posts_control_points_reporting_centres",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fc73605238dbad646595bb010509ed8be5e5b5d16a3af12433835843701876e9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562152446_99332",
+        "canonicalJsonSha256": "fc73605238dbad646595bb010509ed8be5e5b5d16a3af12433835843701876e9",
+        "originalRepresentationSha256": "fc73605238dbad646595bb010509ed8be5e5b5d16a3af12433835843701876e9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_police_posts_control_points_reporting_centres"
+    },
+    {
+      "id": "hkpf-csdi-specialised-police-reporting-centres",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-specialised-police-reporting-centres",
+      "name": "Specialised Police Reporting Centres",
+      "apiTitle": "Hong Kong Police Force \u2014 Specialised Police Reporting Centres",
+      "json": "hkpf/csdi-specialised-police-reporting-centres/openapi.json",
+      "yaml": "hkpf/csdi-specialised-police-reporting-centres/openapi.yaml",
+      "file": "hkpf/csdi-specialised-police-reporting-centres/openapi.json",
+      "sha256": "52a9e5f2c84f7e10c23a717bd4853f06a5e5e3b70c278b38bdc0a9d7343867c5",
+      "jsonSha256": "52a9e5f2c84f7e10c23a717bd4853f06a5e5e3b70c278b38bdc0a9d7343867c5",
+      "yamlSha256": "ff9912e69ab35c0e289dd2dac9226d5ab994eb897ab731a1aed058fe60c0df75",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_specialised_police_reporting_centres",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "52a9e5f2c84f7e10c23a717bd4853f06a5e5e3b70c278b38bdc0a9d7343867c5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562255887_59055",
+        "canonicalJsonSha256": "52a9e5f2c84f7e10c23a717bd4853f06a5e5e3b70c278b38bdc0a9d7343867c5",
+        "originalRepresentationSha256": "52a9e5f2c84f7e10c23a717bd4853f06a5e5e3b70c278b38bdc0a9d7343867c5",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_specialised_police_reporting_centres"
+    },
+    {
+      "id": "hkpf-csdi-marine-police-divisional-bases",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-marine-police-divisional-bases",
+      "name": "Marine Police Divisional Bases",
+      "apiTitle": "Hong Kong Police Force \u2014 Marine Police Divisional Bases",
+      "json": "hkpf/csdi-marine-police-divisional-bases/openapi.json",
+      "yaml": "hkpf/csdi-marine-police-divisional-bases/openapi.yaml",
+      "file": "hkpf/csdi-marine-police-divisional-bases/openapi.json",
+      "sha256": "0adf2aa23665622b32275e62dc13a8a64d96a68693df5d994fd1f7d87b54f902",
+      "jsonSha256": "0adf2aa23665622b32275e62dc13a8a64d96a68693df5d994fd1f7d87b54f902",
+      "yamlSha256": "f4083dd62ad3af6e1e0630bdb33b7553778b98d6ae272251768243822adf3a83",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_marine_police_divisional_bases",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0adf2aa23665622b32275e62dc13a8a64d96a68693df5d994fd1f7d87b54f902"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562359937_30055",
+        "canonicalJsonSha256": "0adf2aa23665622b32275e62dc13a8a64d96a68693df5d994fd1f7d87b54f902",
+        "originalRepresentationSha256": "0adf2aa23665622b32275e62dc13a8a64d96a68693df5d994fd1f7d87b54f902",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_marine_police_divisional_bases"
+    },
+    {
+      "id": "hkpf-csdi-police-vehicle-pounds-and-traffic-facilities",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-police-vehicle-pounds-and-traffic-facilities",
+      "name": "Police Vehicle Pounds and Traffic Facilities",
+      "apiTitle": "Hong Kong Police Force \u2014 Police Vehicle Pounds and Traffic Facilities",
+      "json": "hkpf/csdi-police-vehicle-pounds-and-traffic-facilities/openapi.json",
+      "yaml": "hkpf/csdi-police-vehicle-pounds-and-traffic-facilities/openapi.yaml",
+      "file": "hkpf/csdi-police-vehicle-pounds-and-traffic-facilities/openapi.json",
+      "sha256": "6643b12bc982fd4282fb3e2f1c839827aa8e71dae808cfeac8c3d319d801b4b3",
+      "jsonSha256": "6643b12bc982fd4282fb3e2f1c839827aa8e71dae808cfeac8c3d319d801b4b3",
+      "yamlSha256": "6b61e5103ce8978f8e80e2958ed947d73c702d0057991addd119a5a8a068d3be",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_police_vehicle_pounds_and_traffic_facilities",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6643b12bc982fd4282fb3e2f1c839827aa8e71dae808cfeac8c3d319d801b4b3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562438185_86627",
+        "canonicalJsonSha256": "6643b12bc982fd4282fb3e2f1c839827aa8e71dae808cfeac8c3d319d801b4b3",
+        "originalRepresentationSha256": "6643b12bc982fd4282fb3e2f1c839827aa8e71dae808cfeac8c3d319d801b4b3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_police_vehicle_pounds_and_traffic_facilities"
+    },
+    {
+      "id": "hkpf-csdi-police-offices-providing-services-on-matters-related-to-licensing-permit-certificate-application",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-police-offices-providing-services-on-matters-related-to-licensing-permit-certificate-application",
+      "name": "Police Offices Providing Services on Matters related to Licensing, Permit, Certificate Application",
+      "apiTitle": "Hong Kong Police Force \u2014 Police Offices Providing Services on Matters related to Licensing, Permit, Certificate Application",
+      "json": "hkpf/csdi-police-offices-providing-services-on-matters-related-to-licensing-permit-certificate-application/openapi.json",
+      "yaml": "hkpf/csdi-police-offices-providing-services-on-matters-related-to-licensing-permit-certificate-application/openapi.yaml",
+      "file": "hkpf/csdi-police-offices-providing-services-on-matters-related-to-licensing-permit-certificate-application/openapi.json",
+      "sha256": "c59cfe5ca721cd1f7d063861a9e1cde17ecac5578a77d5d7c66d2ced429631f7",
+      "jsonSha256": "c59cfe5ca721cd1f7d063861a9e1cde17ecac5578a77d5d7c66d2ced429631f7",
+      "yamlSha256": "978ea6fc4a76cc23fb28596cf352d1456c31a981693c58056bff6fba9c98c762",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_police_offices_providing_services_on_matters_related_to_licensing_permit_certificate_application",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c59cfe5ca721cd1f7d063861a9e1cde17ecac5578a77d5d7c66d2ced429631f7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562544247_8676",
+        "canonicalJsonSha256": "c59cfe5ca721cd1f7d063861a9e1cde17ecac5578a77d5d7c66d2ced429631f7",
+        "originalRepresentationSha256": "c59cfe5ca721cd1f7d063861a9e1cde17ecac5578a77d5d7c66d2ced429631f7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_police_offices_providing_services_on_matters_related_to_licensing_permit_certificate_application"
+    },
+    {
+      "id": "hkpf-csdi-police-public-community-relations-facilities",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-police-public-community-relations-facilities",
+      "name": "Police Public/Community Relations Facilities",
+      "apiTitle": "Hong Kong Police Force \u2014 Police Public/Community Relations Facilities",
+      "json": "hkpf/csdi-police-public-community-relations-facilities/openapi.json",
+      "yaml": "hkpf/csdi-police-public-community-relations-facilities/openapi.yaml",
+      "file": "hkpf/csdi-police-public-community-relations-facilities/openapi.json",
+      "sha256": "528103d91989d1edf1956d1f76fd32e6b66af40446275bbc52c73f7f735c3146",
+      "jsonSha256": "528103d91989d1edf1956d1f76fd32e6b66af40446275bbc52c73f7f735c3146",
+      "yamlSha256": "a79cedd32cf4b9c7dbd043b9f20f74ffccf931cdfa9f7043af2b1522ebad8388",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_police_public_community_relations_facilities",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "528103d91989d1edf1956d1f76fd32e6b66af40446275bbc52c73f7f735c3146"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562649877_71369",
+        "canonicalJsonSha256": "528103d91989d1edf1956d1f76fd32e6b66af40446275bbc52c73f7f735c3146",
+        "originalRepresentationSha256": "528103d91989d1edf1956d1f76fd32e6b66af40446275bbc52c73f7f735c3146",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_police_public_community_relations_facilities"
+    },
+    {
+      "id": "hkpf-csdi-police-crime-prevention-offices",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-police-crime-prevention-offices",
+      "name": "Police Crime Prevention Offices",
+      "apiTitle": "Hong Kong Police Force \u2014 Police Crime Prevention Offices",
+      "json": "hkpf/csdi-police-crime-prevention-offices/openapi.json",
+      "yaml": "hkpf/csdi-police-crime-prevention-offices/openapi.yaml",
+      "file": "hkpf/csdi-police-crime-prevention-offices/openapi.json",
+      "sha256": "3d009aebbc10e2c89d24b6b77b827810b6989b69f23e2abc68a73358f47f4160",
+      "jsonSha256": "3d009aebbc10e2c89d24b6b77b827810b6989b69f23e2abc68a73358f47f4160",
+      "yamlSha256": "a973e12e82ed6b495895d20c41b2729cc43c059b35abcaf9cb016e7ac152f462",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_police_crime_prevention_offices",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3d009aebbc10e2c89d24b6b77b827810b6989b69f23e2abc68a73358f47f4160"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1639562737238_17748",
+        "canonicalJsonSha256": "3d009aebbc10e2c89d24b6b77b827810b6989b69f23e2abc68a73358f47f4160",
+        "originalRepresentationSha256": "3d009aebbc10e2c89d24b6b77b827810b6989b69f23e2abc68a73358f47f4160",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_police_crime_prevention_offices"
+    },
+    {
+      "id": "hkpf-csdi-self-service-kiosks",
+      "publisherKey": "hkpf",
+      "publisherName": "Hong Kong Police Force",
+      "familyKey": "csdi-self-service-kiosks",
+      "name": "Self-service Kiosks",
+      "apiTitle": "Hong Kong Police Force \u2014 Self-service Kiosks",
+      "json": "hkpf/csdi-self-service-kiosks/openapi.json",
+      "yaml": "hkpf/csdi-self-service-kiosks/openapi.yaml",
+      "file": "hkpf/csdi-self-service-kiosks/openapi.json",
+      "sha256": "88d5fd338c836a79ff171ae1e71c731c2fc7f50d7f610eb07a98c30b6841e4de",
+      "jsonSha256": "88d5fd338c836a79ff171ae1e71c731c2fc7f50d7f610eb07a98c30b6841e4de",
+      "yamlSha256": "9c6396e39c38545e3cc4aeb651777d08333efe3e703116d4a943c00ebf103670",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_self_service_kiosks",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "88d5fd338c836a79ff171ae1e71c731c2fc7f50d7f610eb07a98c30b6841e4de"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=police_rcd_1729562133512_27040",
+        "canonicalJsonSha256": "88d5fd338c836a79ff171ae1e71c731c2fc7f50d7f610eb07a98c30b6841e4de",
+        "originalRepresentationSha256": "88d5fd338c836a79ff171ae1e71c731c2fc7f50d7f610eb07a98c30b6841e4de",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_self_service_kiosks"
+    }
+  ]
+}

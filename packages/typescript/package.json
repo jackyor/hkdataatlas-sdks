@@ -1,0 +1,373 @@
+{
+  "name": "hkdataatlas",
+  "version": "0.0.1",
+  "description": "Hong Kong public API clients grouped by publisher",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "sources.json",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./aahk": {
+      "types": "./dist/publishers/aahk/index.d.ts",
+      "import": "./dist/publishers/aahk/index.js"
+    },
+    "./afcd": {
+      "types": "./dist/publishers/afcd/index.d.ts",
+      "import": "./dist/publishers/afcd/index.js"
+    },
+    "./amigo": {
+      "types": "./dist/publishers/amigo/index.d.ts",
+      "import": "./dist/publishers/amigo/index.js"
+    },
+    "./archsd": {
+      "types": "./dist/publishers/archsd/index.d.ts",
+      "import": "./dist/publishers/archsd/index.js"
+    },
+    "./aw": {
+      "types": "./dist/publishers/aw/index.d.ts",
+      "import": "./dist/publishers/aw/index.js"
+    },
+    "./bd": {
+      "types": "./dist/publishers/bd/index.d.ts",
+      "import": "./dist/publishers/bd/index.js"
+    },
+    "./big-boss-taxi": {
+      "types": "./dist/publishers/big-boss-taxi/index.d.ts",
+      "import": "./dist/publishers/big-boss-taxi/index.js"
+    },
+    "./cad": {
+      "types": "./dist/publishers/cad/index.d.ts",
+      "import": "./dist/publishers/cad/index.js"
+    },
+    "./cas": {
+      "types": "./dist/publishers/cas/index.d.ts",
+      "import": "./dist/publishers/cas/index.js"
+    },
+    "./cc": {
+      "types": "./dist/publishers/cc/index.d.ts",
+      "import": "./dist/publishers/cc/index.js"
+    },
+    "./cedd": {
+      "types": "./dist/publishers/cedd/index.d.ts",
+      "import": "./dist/publishers/cedd/index.js"
+    },
+    "./censtatd": {
+      "types": "./dist/publishers/censtatd/index.d.ts",
+      "import": "./dist/publishers/censtatd/index.js"
+    },
+    "./ceo": {
+      "types": "./dist/publishers/ceo/index.d.ts",
+      "import": "./dist/publishers/ceo/index.js"
+    },
+    "./chsc": {
+      "types": "./dist/publishers/chsc/index.d.ts",
+      "import": "./dist/publishers/chsc/index.js"
+    },
+    "./clp": {
+      "types": "./dist/publishers/clp/index.d.ts",
+      "import": "./dist/publishers/clp/index.js"
+    },
+    "./cmab": {
+      "types": "./dist/publishers/cmab/index.d.ts",
+      "import": "./dist/publishers/cmab/index.js"
+    },
+    "./cr": {
+      "types": "./dist/publishers/cr/index.d.ts",
+      "import": "./dist/publishers/cr/index.js"
+    },
+    "./csb": {
+      "types": "./dist/publishers/csb/index.d.ts",
+      "import": "./dist/publishers/csb/index.js"
+    },
+    "./csd": {
+      "types": "./dist/publishers/csd/index.d.ts",
+      "import": "./dist/publishers/csd/index.js"
+    },
+    "./cso": {
+      "types": "./dist/publishers/cso/index.d.ts",
+      "import": "./dist/publishers/cso/index.js"
+    },
+    "./cstb": {
+      "types": "./dist/publishers/cstb/index.d.ts",
+      "import": "./dist/publishers/cstb/index.js"
+    },
+    "./ctb": {
+      "types": "./dist/publishers/ctb/index.d.ts",
+      "import": "./dist/publishers/ctb/index.js"
+    },
+    "./customs": {
+      "types": "./dist/publishers/customs/index.d.ts",
+      "import": "./dist/publishers/customs/index.js"
+    },
+    "./dc": {
+      "types": "./dist/publishers/dc/index.d.ts",
+      "import": "./dist/publishers/dc/index.js"
+    },
+    "./devb": {
+      "types": "./dist/publishers/devb/index.d.ts",
+      "import": "./dist/publishers/devb/index.js"
+    },
+    "./dh": {
+      "types": "./dist/publishers/dh/index.d.ts",
+      "import": "./dist/publishers/dh/index.js"
+    },
+    "./doj": {
+      "types": "./dist/publishers/doj/index.d.ts",
+      "import": "./dist/publishers/doj/index.js"
+    },
+    "./dpo": {
+      "types": "./dist/publishers/dpo/index.d.ts",
+      "import": "./dist/publishers/dpo/index.js"
+    },
+    "./dsd": {
+      "types": "./dist/publishers/dsd/index.d.ts",
+      "import": "./dist/publishers/dsd/index.js"
+    },
+    "./eac": {
+      "types": "./dist/publishers/eac/index.d.ts",
+      "import": "./dist/publishers/eac/index.js"
+    },
+    "./edb": {
+      "types": "./dist/publishers/edb/index.d.ts",
+      "import": "./dist/publishers/edb/index.js"
+    },
+    "./emsd": {
+      "types": "./dist/publishers/emsd/index.d.ts",
+      "import": "./dist/publishers/emsd/index.js"
+    },
+    "./epd": {
+      "types": "./dist/publishers/epd/index.d.ts",
+      "import": "./dist/publishers/epd/index.js"
+    },
+    "./fehd": {
+      "types": "./dist/publishers/fehd/index.d.ts",
+      "import": "./dist/publishers/fehd/index.js"
+    },
+    "./fsd": {
+      "types": "./dist/publishers/fsd/index.d.ts",
+      "import": "./dist/publishers/fsd/index.js"
+    },
+    "./fso": {
+      "types": "./dist/publishers/fso/index.d.ts",
+      "import": "./dist/publishers/fso/index.js"
+    },
+    "./gld": {
+      "types": "./dist/publishers/gld/index.d.ts",
+      "import": "./dist/publishers/gld/index.js"
+    },
+    "./gpa": {
+      "types": "./dist/publishers/gpa/index.d.ts",
+      "import": "./dist/publishers/gpa/index.js"
+    },
+    "./had": {
+      "types": "./dist/publishers/had/index.d.ts",
+      "import": "./dist/publishers/had/index.js"
+    },
+    "./hb": {
+      "types": "./dist/publishers/hb/index.d.ts",
+      "import": "./dist/publishers/hb/index.js"
+    },
+    "./hhb": {
+      "types": "./dist/publishers/hhb/index.d.ts",
+      "import": "./dist/publishers/hhb/index.js"
+    },
+    "./hkhs": {
+      "types": "./dist/publishers/hkhs/index.d.ts",
+      "import": "./dist/publishers/hkhs/index.js"
+    },
+    "./hkirc": {
+      "types": "./dist/publishers/hkirc/index.d.ts",
+      "import": "./dist/publishers/hkirc/index.js"
+    },
+    "./hkkf": {
+      "types": "./dist/publishers/hkkf/index.d.ts",
+      "import": "./dist/publishers/hkkf/index.js"
+    },
+    "./hkma": {
+      "types": "./dist/publishers/hkma/index.d.ts",
+      "import": "./dist/publishers/hkma/index.js"
+    },
+    "./hko": {
+      "types": "./dist/publishers/hko/index.d.ts",
+      "import": "./dist/publishers/hko/index.js"
+    },
+    "./hkpf": {
+      "types": "./dist/publishers/hkpf/index.d.ts",
+      "import": "./dist/publishers/hkpf/index.js"
+    },
+    "./hkpo": {
+      "types": "./dist/publishers/hkpo/index.d.ts",
+      "import": "./dist/publishers/hkpo/index.js"
+    },
+    "./hkstp": {
+      "types": "./dist/publishers/hkstp/index.d.ts",
+      "import": "./dist/publishers/hkstp/index.js"
+    },
+    "./hospital": {
+      "types": "./dist/publishers/hospital/index.d.ts",
+      "import": "./dist/publishers/hospital/index.js"
+    },
+    "./housing": {
+      "types": "./dist/publishers/housing/index.d.ts",
+      "import": "./dist/publishers/housing/index.js"
+    },
+    "./hyab": {
+      "types": "./dist/publishers/hyab/index.d.ts",
+      "import": "./dist/publishers/hyab/index.js"
+    },
+    "./hyd": {
+      "types": "./dist/publishers/hyd/index.d.ts",
+      "import": "./dist/publishers/hyd/index.js"
+    },
+    "./icac": {
+      "types": "./dist/publishers/icac/index.d.ts",
+      "import": "./dist/publishers/icac/index.js"
+    },
+    "./immd": {
+      "types": "./dist/publishers/immd/index.d.ts",
+      "import": "./dist/publishers/immd/index.js"
+    },
+    "./ipd": {
+      "types": "./dist/publishers/ipd/index.d.ts",
+      "import": "./dist/publishers/ipd/index.js"
+    },
+    "./ird": {
+      "types": "./dist/publishers/ird/index.d.ts",
+      "import": "./dist/publishers/ird/index.js"
+    },
+    "./isd": {
+      "types": "./dist/publishers/isd/index.d.ts",
+      "import": "./dist/publishers/isd/index.js"
+    },
+    "./joie": {
+      "types": "./dist/publishers/joie/index.d.ts",
+      "import": "./dist/publishers/joie/index.js"
+    },
+    "./landsd": {
+      "types": "./dist/publishers/landsd/index.d.ts",
+      "import": "./dist/publishers/landsd/index.js"
+    },
+    "./lcsd": {
+      "types": "./dist/publishers/lcsd/index.d.ts",
+      "import": "./dist/publishers/lcsd/index.js"
+    },
+    "./ld": {
+      "types": "./dist/publishers/ld/index.d.ts",
+      "import": "./dist/publishers/ld/index.js"
+    },
+    "./legco": {
+      "types": "./dist/publishers/legco/index.d.ts",
+      "import": "./dist/publishers/legco/index.js"
+    },
+    "./llb": {
+      "types": "./dist/publishers/llb/index.d.ts",
+      "import": "./dist/publishers/llb/index.js"
+    },
+    "./lr": {
+      "types": "./dist/publishers/lr/index.d.ts",
+      "import": "./dist/publishers/lr/index.js"
+    },
+    "./lwb": {
+      "types": "./dist/publishers/lwb/index.d.ts",
+      "import": "./dist/publishers/lwb/index.js"
+    },
+    "./md": {
+      "types": "./dist/publishers/md/index.d.ts",
+      "import": "./dist/publishers/md/index.js"
+    },
+    "./mtr": {
+      "types": "./dist/publishers/mtr/index.d.ts",
+      "import": "./dist/publishers/mtr/index.js"
+    },
+    "./nlb": {
+      "types": "./dist/publishers/nlb/index.d.ts",
+      "import": "./dist/publishers/nlb/index.js"
+    },
+    "./ofca": {
+      "types": "./dist/publishers/ofca/index.d.ts",
+      "import": "./dist/publishers/ofca/index.js"
+    },
+    "./ofnaa": {
+      "types": "./dist/publishers/ofnaa/index.d.ts",
+      "import": "./dist/publishers/ofnaa/index.js"
+    },
+    "./pland": {
+      "types": "./dist/publishers/pland/index.d.ts",
+      "import": "./dist/publishers/pland/index.js"
+    },
+    "./reo": {
+      "types": "./dist/publishers/reo/index.d.ts",
+      "import": "./dist/publishers/reo/index.js"
+    },
+    "./rvd": {
+      "types": "./dist/publishers/rvd/index.d.ts",
+      "import": "./dist/publishers/rvd/index.js"
+    },
+    "./sb": {
+      "types": "./dist/publishers/sb/index.d.ts",
+      "import": "./dist/publishers/sb/index.js"
+    },
+    "./swd": {
+      "types": "./dist/publishers/swd/index.d.ts",
+      "import": "./dist/publishers/swd/index.js"
+    },
+    "./td": {
+      "types": "./dist/publishers/td/index.d.ts",
+      "import": "./dist/publishers/td/index.js"
+    },
+    "./tid": {
+      "types": "./dist/publishers/tid/index.d.ts",
+      "import": "./dist/publishers/tid/index.js"
+    },
+    "./tlb": {
+      "types": "./dist/publishers/tlb/index.d.ts",
+      "import": "./dist/publishers/tlb/index.js"
+    },
+    "./tpd": {
+      "types": "./dist/publishers/tpd/index.d.ts",
+      "import": "./dist/publishers/tpd/index.js"
+    },
+    "./try": {
+      "types": "./dist/publishers/try/index.d.ts",
+      "import": "./dist/publishers/try/index.js"
+    },
+    "./ugc": {
+      "types": "./dist/publishers/ugc/index.d.ts",
+      "import": "./dist/publishers/ugc/index.js"
+    },
+    "./wkcda": {
+      "types": "./dist/publishers/wkcda/index.d.ts",
+      "import": "./dist/publishers/wkcda/index.js"
+    },
+    "./wsd": {
+      "types": "./dist/publishers/wsd/index.d.ts",
+      "import": "./dist/publishers/wsd/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackyor/hkdataatlas-sdks.git",
+    "directory": "packages/typescript"
+  },
+  "homepage": "https://github.com/jackyor/hkdataatlas-sdks#readme",
+  "bugs": {
+    "url": "https://github.com/jackyor/hkdataatlas-sdks/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

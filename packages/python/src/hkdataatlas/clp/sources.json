@@ -1,0 +1,64 @@
+{
+  "publisherKey": "clp",
+  "publisherName": "CLP Power Hong Kong Limited",
+  "sources": [
+    {
+      "id": "clp-electric-vehicle-charging-stations",
+      "publisherKey": "clp",
+      "publisherName": "CLP Power Hong Kong Limited",
+      "familyKey": "electric-vehicle-charging-stations",
+      "name": "Electric Vehicle Charging Stations",
+      "apiTitle": "Electric Vehicle Charging Stations",
+      "json": "clp/electric-vehicle-charging-stations/openapi.json",
+      "yaml": "clp/electric-vehicle-charging-stations/openapi.yaml",
+      "file": "clp/electric-vehicle-charging-stations/openapi.json",
+      "sha256": "6e3fc81a057577e9a2c185d90fcecb246c54b1170626aecfb1c56155c617302b",
+      "jsonSha256": "6e3fc81a057577e9a2c185d90fcecb246c54b1170626aecfb1c56155c617302b",
+      "yamlSha256": "d3326d098ade734b3c0ee42d5bdfd9f96e1c7ed14be5d3ad5317af1a8523bdd1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "electric_vehicle_charging_stations",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6e3fc81a057577e9a2c185d90fcecb246c54b1170626aecfb1c56155c617302b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://static.data.gov.hk/opendata/clp/Electric-Vehicle-Charging-Stations.pdf",
+        "canonicalJsonSha256": "6e3fc81a057577e9a2c185d90fcecb246c54b1170626aecfb1c56155c617302b",
+        "originalRepresentationSha256": "4801471cec7716df83e68ef8c5dd9ff3228b4b74ea801dd1916840860c5ae525",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "electric_vehicle_charging_stations"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+components:
+  schemas:
+    PressRelease:
+      description: Press release record described by the API field dictionary.
+      properties:
+        date:
+          description: Date in D.M.YYYY format.
+          examples:
+            - 2.1.2019
+          type: string
+        description:
+          description: Content of Press Releases.
+          type: string
+        link:
+          description: URL of headline.
+          format: uri
+          type: string
+        title:
+          description: Headline of Press Releases.
+          type: string
+      required:
+        - title
+        - link
+        - date
+        - description
+      type: object
+externalDocs:
+  description: Official API documentation
+  url: https://www.cso.gov.hk/eng/open_data/data_dict_press_releases.pdf
+info:
+  description: Searches the Chief Secretary for Administration press releases. The API documentation does not specify an API version; “undocumented” is a metadata placeholder, not a publisher API version. Authentication requirements are not documented.
+  title: Chief Secretary for Administration - Press Releases
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /search:
+    get:
+      description: Returns press releases in the requested language. At most 400 records are returned. The documented example uses lang=en; the catalog also lists Simplified Chinese (sc) and Traditional Chinese (tc) API resources, but the API document does not enumerate accepted language values.
+      operationId: searchPressReleases
+      parameters:
+        - description: Language selection. The documented English request uses en. Catalogued API resources also use sc and tc.
+          examples:
+            english:
+              value: en
+            simplifiedChinese:
+              value: sc
+            traditionalChinese:
+              value: tc
+          in: query
+          name: lang
+          required: true
+          schema:
+            type: string
+        - description: Optional inclusive start date in YYYYMMDD format. Must be used together with end. The accepted start date is limited to the last six months, in HKT (GMT+8).
+          example: "20190102"
+          in: query
+          name: start
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+        - description: Optional inclusive end date in YYYYMMDD format. Must be used together with start. The accepted end date is today, in HKT (GMT+8).
+          example: "20190109"
+          in: query
+          name: end
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                description: Object/results envelope observed in one source-backed saved response. Additional properties remain allowed; no universal envelope requiredness is inferred.
+                properties:
+                  results:
+                    description: Documented record fields in the observed results array. Saved response has no records, so item shape was not exercised.
+                    items:
+                      $ref: "#/components/schemas/PressRelease"
+                    maxItems: 400
+                    type: array
+                  returned-count:
+                    description: Observed envelope key; universal type and requiredness are not specified by the publisher dictionary.
+                  total-count:
+                    description: Observed envelope key; universal type and requiredness are not specified by the publisher dictionary.
+                type: object
+          description: Successful search. The documentation describes the returned API records and their fields, but does not specify an outer response envelope or provide response-status/error schemas. Outer object/results envelope is corroborated by one saved source-backed query, rather than specified by the field dictionary.
+      summary: Search press releases
+servers:
+  - url: https://api.data.gov.hk/v1/cso/pressrelease

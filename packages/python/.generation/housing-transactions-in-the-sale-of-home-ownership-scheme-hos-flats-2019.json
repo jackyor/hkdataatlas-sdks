@@ -1,0 +1,36 @@
+{
+  "sourceId": "housing-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019",
+  "publisherKey": "housing",
+  "family": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2019",
+  "status": "generated",
+  "key": "f79008765508a3040d7271a781d73dccbdaf8ca445a464bb8c6df6c450f897f0",
+  "sourceSha256": "060b8c7095b183167fb4e601da28e3c127d27f386eed5f47906dea0d10814974",
+  "derivedInputSha256": "060b8c7095b183167fb4e601da28e3c127d27f386eed5f47906dea0d10814974",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/export/{dataresource}/{lang}/{format}",
+      "operationId": "getHos2019SaleTransactions",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/housing-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019.log",
+  "outputs": {
+    "__init__.py": "e2fc66306b54e426bb6466adb674bc9f60966f390319b10a992b88575c44c82f",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_hos_2019_sale_transactions.py": "f15b29defdc1af889c979b067e61992da813ee56536ea25401d153b43efe3d9a",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e6b5a5168f94c0118d29bef6eff7ec060eb2789b745096608699850b3b5628d4",
+    "models/get_hos_2019_sale_transactions_dataresource.py": "adfdbb6442cbe9ee1cc389ee1c2b27409968bdbfe64487f5ba73582f95d44d03",
+    "models/get_hos_2019_sale_transactions_format.py": "faab0ced6167a75dbd59cdfd2f5d6419760eaaedd1d9119d1f9f3320a3754bf0",
+    "models/get_hos_2019_sale_transactions_lang.py": "5daf4b816c68b4b5cd147338b0b3ff1a560aaaab2450eae40ec47df4941861a6",
+    "models/transaction.py": "3a8511084c186b20671581b9b9aba3240113f2e30d0c169b573db91c92354dde",
+    "models/transactions_response.py": "f2ceb5e01ff7c9203461687cefb998a0784342b0101563f450fcd69e9f5f34ae",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

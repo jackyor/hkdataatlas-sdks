@@ -1,0 +1,842 @@
+{
+  "publisherKey": "devb",
+  "publisherName": "Development Bureau",
+  "sources": [
+    {
+      "id": "devb-smart-parking-open-data-api",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "smart-parking-open-data-api",
+      "name": "Smart Parking Open Data API",
+      "apiTitle": "Smart Parking Open Data API",
+      "json": "devb/smart-parking-open-data-api/openapi.json",
+      "yaml": "devb/smart-parking-open-data-api/openapi.yaml",
+      "file": "devb/smart-parking-open-data-api/openapi.json",
+      "sha256": "b140edf0607170249cd2ad01c5b25510317abeb9c2de68eb994279153d6673d3",
+      "jsonSha256": "b140edf0607170249cd2ad01c5b25510317abeb9c2de68eb994279153d6673d3",
+      "yamlSha256": "02d11d45905bf38c0d28173e321732a2b71e560e3f6c7f159459142fbed94bc1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.0",
+      "namespace": "smart_parking_open_data_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b140edf0607170249cd2ad01c5b25510317abeb9c2de68eb994279153d6673d3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 4,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        },
+        "authentication": {
+          "requiredOperations": [],
+          "mechanism": "not_required_for_observed_requests",
+          "anonymousAccess": "observed_for_two_exact_requests",
+          "scope": "Exact retained GET /getCarpark?carparkId=12&lang=en_US and GET /getCarparkVacancies?carparkIds=12 returned HTTP 200 JSON without credentials. General availability is not asserted.",
+          "historicalDocumentation": "Publisher v1.0 requires authentication but publishes no mechanism. Current anonymous observations contradict treating these operations as uncallable."
+        }
+      },
+      "source": {
+        "url": "http://www.ekeo.gov.hk/filemanager/content/smart_city/common/smart_parking_open_api_specification_v1.0.pdf",
+        "currentUrl": "http://www.ekeo.gov.hk/filemanager/content/smart_city/common/smart_parking_open_api_specification_v1.0.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "daf65c2af9fb1fe632353c22e9c9322ca7ee3ac477b394214a653e7764098a92",
+          "canonicalJsonSha256": "b140edf0607170249cd2ad01c5b25510317abeb9c2de68eb994279153d6673d3",
+          "currentSourceUrl": "http://www.ekeo.gov.hk/filemanager/content/smart_city/common/smart_parking_open_api_specification_v1.0.pdf",
+          "classification": "source_backed_response_or_parameter_description_correction",
+          "documentationSources": [
+            {
+              "url": "http://www.ekeo.gov.hk/filemanager/content/smart_city/common/smart_parking_open_api_specification_v1.0.pdf",
+              "sha256": "e82722a9bba653491925f3d2b77b6f3ce61a3a5ec429d2cefa5fab155a4eb150",
+              "representation": "source-extraction"
+            }
+          ],
+          "sourceCoverage": "Documented optional response fields and explicit retained wire compatibility; request identities retained.",
+          "responseCoverage": "{\"kind\":\"retained_body_and_sample_only_validation\",\"completeBodyChecks\":4,\"sampleOnlyChecks\":0,\"newHTTPRequests\":0}",
+          "liveAssessment": "No new HTTP performed by SDK import; exact retained body/sample proof remains bounded."
+        },
+        "canonicalJsonSha256": "b140edf0607170249cd2ad01c5b25510317abeb9c2de68eb994279153d6673d3",
+        "originalRepresentationSha256": "f8a02aeff5993554fc42f66d4f01c1396db7f151b4b5f78a2bac1839e76a14ce",
+        "serialization": "Maintained derivative from hash-bound original source and replayable delta; publisher original preserved."
+      },
+      "moduleName": "smart_parking_open_data_api"
+    },
+    {
+      "id": "devb-csdi-invigorating-island-south-conceptual-master-plan-2-0-wong-chuk-hang-aberdeen-and-ap-lei-chau",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-invigorating-island-south-conceptual-master-plan-2-0-wong-chuk-hang-aberdeen-and-ap-lei-chau",
+      "name": "Invigorating Island South Conceptual Master Plan 2.0 - Wong Chuk Hang, Aberdeen and Ap Lei Chau",
+      "apiTitle": "Development Bureau \u2014 Invigorating Island South Conceptual Master Plan 2.0 - Wong Chuk Hang, Aberdeen and Ap Lei Chau",
+      "json": "devb/csdi-invigorating-island-south-conceptual-master-plan-2-0-wong-chuk-hang-aberdeen-and-ap-lei-chau/openapi.json",
+      "yaml": "devb/csdi-invigorating-island-south-conceptual-master-plan-2-0-wong-chuk-hang-aberdeen-and-ap-lei-chau/openapi.yaml",
+      "file": "devb/csdi-invigorating-island-south-conceptual-master-plan-2-0-wong-chuk-hang-aberdeen-and-ap-lei-chau/openapi.json",
+      "sha256": "a8c5ffd954a6ef21f3b95ce8a472f437a9e76bba1897294530c108d8ebeb6696",
+      "jsonSha256": "a8c5ffd954a6ef21f3b95ce8a472f437a9e76bba1897294530c108d8ebeb6696",
+      "yamlSha256": "957ca1e23822e187bd024775a1a275c364b25d416e308ac793ffd52d936c5e2b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_invigorating_island_south_conceptual_master_plan_2_0_wong_chuk_hang_aberdeen_and_ap_lei_chau",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a8c5ffd954a6ef21f3b95ce8a472f437a9e76bba1897294530c108d8ebeb6696"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_plb_rcd_1668570553831_41775",
+        "canonicalJsonSha256": "a8c5ffd954a6ef21f3b95ce8a472f437a9e76bba1897294530c108d8ebeb6696",
+        "originalRepresentationSha256": "a8c5ffd954a6ef21f3b95ce8a472f437a9e76bba1897294530c108d8ebeb6696",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_invigorating_island_south_conceptual_master_plan_2_0_wong_chuk_hang_aberdeen_and_ap_lei_chau"
+    },
+    {
+      "id": "devb-csdi-proposed-pedestrian-environment-and-traffic-improvement-measures-under-invigorating-island-south-offices-consultancy-study-no-ce-34-2021-tt",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-proposed-pedestrian-environment-and-traffic-improvement-measures-under-invigorating-island-south-offices-consultancy-study-no-ce-34-2021-tt",
+      "name": "Proposed pedestrian environment and traffic improvement measures under Invigorating Island South Office\u2019s Consultancy Study No. CE 34/2021 (TT)",
+      "apiTitle": "Development Bureau \u2014 Proposed pedestrian environment and traffic improvement measures under Invigorating Island South Office\u2019s Consultancy Study No. CE 34/2021 (TT)",
+      "json": "devb/csdi-proposed-pedestrian-environment-and-traffic-improvement-measures-under-invigorating-island-south-offices-consultancy-study-no-ce-34-2021-tt/openapi.json",
+      "yaml": "devb/csdi-proposed-pedestrian-environment-and-traffic-improvement-measures-under-invigorating-island-south-offices-consultancy-study-no-ce-34-2021-tt/openapi.yaml",
+      "file": "devb/csdi-proposed-pedestrian-environment-and-traffic-improvement-measures-under-invigorating-island-south-offices-consultancy-study-no-ce-34-2021-tt/openapi.json",
+      "sha256": "22cb4510438cb205574e50f1f8f4843452271e365ddfcadffab19e6d43f44a9f",
+      "jsonSha256": "22cb4510438cb205574e50f1f8f4843452271e365ddfcadffab19e6d43f44a9f",
+      "yamlSha256": "da58c1ec7d944e73cbc1a1600bffef652723eeefc1365f4eb6e4d5fc57ea8038",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_proposed_pedestrian_environment_and_traffic_improvement_measures_under_invigorating_island_south_offices_consultancy_study_no_ce_34_2021_tt",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "22cb4510438cb205574e50f1f8f4843452271e365ddfcadffab19e6d43f44a9f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_plb_rcd_1668571331128_65569",
+        "canonicalJsonSha256": "22cb4510438cb205574e50f1f8f4843452271e365ddfcadffab19e6d43f44a9f",
+        "originalRepresentationSha256": "22cb4510438cb205574e50f1f8f4843452271e365ddfcadffab19e6d43f44a9f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_proposed_pedestrian_environment_and_traffic_improvement_measures_under_invigorating_island_south_offices_consultancy_study_no_ce_34_2021_tt"
+    },
+    {
+      "id": "devb-csdi-harbourfront-shared-space",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-harbourfront-shared-space",
+      "name": "Harbourfront Shared Space",
+      "apiTitle": "Development Bureau \u2014 Harbourfront Shared Space",
+      "json": "devb/csdi-harbourfront-shared-space/openapi.json",
+      "yaml": "devb/csdi-harbourfront-shared-space/openapi.yaml",
+      "file": "devb/csdi-harbourfront-shared-space/openapi.json",
+      "sha256": "1a5366df1c1356bdd3ae971a6af27ebacd72546cf531a459afdb4182c770cd83",
+      "jsonSha256": "1a5366df1c1356bdd3ae971a6af27ebacd72546cf531a459afdb4182c770cd83",
+      "yamlSha256": "03926bb860ed9dd150e76f0222ba87bf46b8948bb4ccfd95447a3f3e84b5f20a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_harbourfront_shared_space",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1a5366df1c1356bdd3ae971a6af27ebacd72546cf531a459afdb4182c770cd83"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_plb_rcd_1668571801108_50421",
+        "canonicalJsonSha256": "1a5366df1c1356bdd3ae971a6af27ebacd72546cf531a459afdb4182c770cd83",
+        "originalRepresentationSha256": "1a5366df1c1356bdd3ae971a6af27ebacd72546cf531a459afdb4182c770cd83",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_harbourfront_shared_space"
+    },
+    {
+      "id": "devb-csdi-policy-of-facilitating-provision-of-pedestrian-links-by-the-private-sector",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-policy-of-facilitating-provision-of-pedestrian-links-by-the-private-sector",
+      "name": "Policy of Facilitating Provision of Pedestrian Links by the Private Sector",
+      "apiTitle": "Development Bureau \u2014 Policy of Facilitating Provision of Pedestrian Links by the Private Sector",
+      "json": "devb/csdi-policy-of-facilitating-provision-of-pedestrian-links-by-the-private-sector/openapi.json",
+      "yaml": "devb/csdi-policy-of-facilitating-provision-of-pedestrian-links-by-the-private-sector/openapi.yaml",
+      "file": "devb/csdi-policy-of-facilitating-provision-of-pedestrian-links-by-the-private-sector/openapi.json",
+      "sha256": "2edd1865d89593c209507132302cabc77e52b97bb4b2fd31836cd437a8c6ea18",
+      "jsonSha256": "2edd1865d89593c209507132302cabc77e52b97bb4b2fd31836cd437a8c6ea18",
+      "yamlSha256": "542ce480267f9e02ef04ac6d363daeebaf4518c8d9c64c7866e022b742f00848",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_policy_of_facilitating_provision_of_pedestrian_links_by_the_private_sector",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2edd1865d89593c209507132302cabc77e52b97bb4b2fd31836cd437a8c6ea18"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_plb_rcd_1668571930357_90710",
+        "canonicalJsonSha256": "2edd1865d89593c209507132302cabc77e52b97bb4b2fd31836cd437a8c6ea18",
+        "originalRepresentationSha256": "2edd1865d89593c209507132302cabc77e52b97bb4b2fd31836cd437a8c6ea18",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_policy_of_facilitating_provision_of_pedestrian_links_by_the_private_sector"
+    },
+    {
+      "id": "devb-csdi-sites-for-public-housing-development-estimated-to-be-completed-in-the-6th-to-10th-years-under-the-long-term-housing-strategy",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-sites-for-public-housing-development-estimated-to-be-completed-in-the-6th-to-10th-years-under-the-long-term-housing-strategy",
+      "name": "Sites for Public Housing Development Estimated to be Completed in the 6th to 10th Years Under the Long Term Housing Strategy",
+      "apiTitle": "Development Bureau \u2014 Sites for Public Housing Development Estimated to be Completed in the 6th to 10th Years Under the Long Term Housing Strategy",
+      "json": "devb/csdi-sites-for-public-housing-development-estimated-to-be-completed-in-the-6th-to-10th-years-under-the-long-term-housing-strategy/openapi.json",
+      "yaml": "devb/csdi-sites-for-public-housing-development-estimated-to-be-completed-in-the-6th-to-10th-years-under-the-long-term-housing-strategy/openapi.yaml",
+      "file": "devb/csdi-sites-for-public-housing-development-estimated-to-be-completed-in-the-6th-to-10th-years-under-the-long-term-housing-strategy/openapi.json",
+      "sha256": "39ac1857f95128b43b9004f3911551ac6c5d024ae7563d53f2d2b67f75b2473c",
+      "jsonSha256": "39ac1857f95128b43b9004f3911551ac6c5d024ae7563d53f2d2b67f75b2473c",
+      "yamlSha256": "63c3c37577aafe15019b7fccffd5143f30480847535fff8bde54ffde92363e65",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_sites_for_public_housing_development_estimated_to_be_completed_in_the_6th_to_10th_years_under_the_long_term_housing_strategy",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "39ac1857f95128b43b9004f3911551ac6c5d024ae7563d53f2d2b67f75b2473c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_plb_rcd_1670236864007_29270",
+        "canonicalJsonSha256": "39ac1857f95128b43b9004f3911551ac6c5d024ae7563d53f2d2b67f75b2473c",
+        "originalRepresentationSha256": "39ac1857f95128b43b9004f3911551ac6c5d024ae7563d53f2d2b67f75b2473c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_sites_for_public_housing_development_estimated_to_be_completed_in_the_6th_to_10th_years_under_the_long_term_housing_strategy"
+    },
+    {
+      "id": "devb-csdi-major-land-development-projects-under-study-in-the-northern-metropolis",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-major-land-development-projects-under-study-in-the-northern-metropolis",
+      "name": "Major land development projects under study in the Northern Metropolis",
+      "apiTitle": "Development Bureau \u2014 Major land development projects under study in the Northern Metropolis",
+      "json": "devb/csdi-major-land-development-projects-under-study-in-the-northern-metropolis/openapi.json",
+      "yaml": "devb/csdi-major-land-development-projects-under-study-in-the-northern-metropolis/openapi.yaml",
+      "file": "devb/csdi-major-land-development-projects-under-study-in-the-northern-metropolis/openapi.json",
+      "sha256": "c49c54cf00f91078d9c422a935b6ba7fc078fa0ff7f70b372695e2825a4ea642",
+      "jsonSha256": "c49c54cf00f91078d9c422a935b6ba7fc078fa0ff7f70b372695e2825a4ea642",
+      "yamlSha256": "b861237a42662739b3bd66ee6b3bbb834ba1a7319a6ced68b8c13ed392d9bf7a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_major_land_development_projects_under_study_in_the_northern_metropolis",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c49c54cf00f91078d9c422a935b6ba7fc078fa0ff7f70b372695e2825a4ea642"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_plb_rcd_1701677887173_16270",
+        "canonicalJsonSha256": "c49c54cf00f91078d9c422a935b6ba7fc078fa0ff7f70b372695e2825a4ea642",
+        "originalRepresentationSha256": "c49c54cf00f91078d9c422a935b6ba7fc078fa0ff7f70b372695e2825a4ea642",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_major_land_development_projects_under_study_in_the_northern_metropolis"
+    },
+    {
+      "id": "devb-csdi-invigorating-island-south-conceptual-master-plan-3-0-wong-chuk-hang-aberdeen-and-ap-lei-chau",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-invigorating-island-south-conceptual-master-plan-3-0-wong-chuk-hang-aberdeen-and-ap-lei-chau",
+      "name": "Invigorating Island South Conceptual Master Plan 3.0 - Wong Chuk Hang, Aberdeen and Ap Lei Chau",
+      "apiTitle": "Development Bureau \u2014 Invigorating Island South Conceptual Master Plan 3.0 - Wong Chuk Hang, Aberdeen and Ap Lei Chau",
+      "json": "devb/csdi-invigorating-island-south-conceptual-master-plan-3-0-wong-chuk-hang-aberdeen-and-ap-lei-chau/openapi.json",
+      "yaml": "devb/csdi-invigorating-island-south-conceptual-master-plan-3-0-wong-chuk-hang-aberdeen-and-ap-lei-chau/openapi.yaml",
+      "file": "devb/csdi-invigorating-island-south-conceptual-master-plan-3-0-wong-chuk-hang-aberdeen-and-ap-lei-chau/openapi.json",
+      "sha256": "c395862706212d2beac1529f97d78c94fb2a8567737f84403e85e515e73c2e44",
+      "jsonSha256": "c395862706212d2beac1529f97d78c94fb2a8567737f84403e85e515e73c2e44",
+      "yamlSha256": "b282d38fa723a62d7d74ce2dac65f06c27e55f384b8b7d41329aacc07fe9bdd4",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_invigorating_island_south_conceptual_master_plan_3_0_wong_chuk_hang_aberdeen_and_ap_lei_chau",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c395862706212d2beac1529f97d78c94fb2a8567737f84403e85e515e73c2e44"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_plb_rcd_1728273963729_93696",
+        "canonicalJsonSha256": "c395862706212d2beac1529f97d78c94fb2a8567737f84403e85e515e73c2e44",
+        "originalRepresentationSha256": "c395862706212d2beac1529f97d78c94fb2a8567737f84403e85e515e73c2e44",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_invigorating_island_south_conceptual_master_plan_3_0_wong_chuk_hang_aberdeen_and_ap_lei_chau"
+    },
+    {
+      "id": "devb-csdi-real-time-parking-vacancy-data-in-kowloon-east-i-e-kwun-tong-kowloon-bay-and-san-po-kong-business-areas-and-kai-tak-development-area",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-real-time-parking-vacancy-data-in-kowloon-east-i-e-kwun-tong-kowloon-bay-and-san-po-kong-business-areas-and-kai-tak-development-area",
+      "name": "Real-time Parking Vacancy Data in Kowloon East (i.e. Kwun Tong, Kowloon Bay and San Po Kong Business Areas, and Kai Tak Development Area)",
+      "apiTitle": "Development Bureau \u2014 Real-time Parking Vacancy Data in Kowloon East (i.e. Kwun Tong, Kowloon Bay and San Po Kong Business Areas, and Kai Tak Development Area)",
+      "json": "devb/csdi-real-time-parking-vacancy-data-in-kowloon-east-i-e-kwun-tong-kowloon-bay-and-san-po-kong-business-areas-and-kai-tak-development-area/openapi.json",
+      "yaml": "devb/csdi-real-time-parking-vacancy-data-in-kowloon-east-i-e-kwun-tong-kowloon-bay-and-san-po-kong-business-areas-and-kai-tak-development-area/openapi.yaml",
+      "file": "devb/csdi-real-time-parking-vacancy-data-in-kowloon-east-i-e-kwun-tong-kowloon-bay-and-san-po-kong-business-areas-and-kai-tak-development-area/openapi.json",
+      "sha256": "dbba4c2be439ba14ea86fddfc388fba35f451da9d4cc347a514f538ecf0464e3",
+      "jsonSha256": "dbba4c2be439ba14ea86fddfc388fba35f451da9d4cc347a514f538ecf0464e3",
+      "yamlSha256": "0d7dd6309d02801c93dfef10014ad56997f1b0594e74d5b2238654d34da256b2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_real_time_parking_vacancy_data_in_kowloon_east_i_e_kwun_tong_kowloon_bay_and_san_po_kong_business_areas_and_kai_tak_development_area",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "dbba4c2be439ba14ea86fddfc388fba35f451da9d4cc347a514f538ecf0464e3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_wb_rcd_1629267205229_34162",
+        "canonicalJsonSha256": "dbba4c2be439ba14ea86fddfc388fba35f451da9d4cc347a514f538ecf0464e3",
+        "originalRepresentationSha256": "dbba4c2be439ba14ea86fddfc388fba35f451da9d4cc347a514f538ecf0464e3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_real_time_parking_vacancy_data_in_kowloon_east_i_e_kwun_tong_kowloon_bay_and_san_po_kong_business_areas_and_kai_tak_development_area"
+    },
+    {
+      "id": "devb-csdi-information-on-old-and-valuable-trees-and-stonewall-trees",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-information-on-old-and-valuable-trees-and-stonewall-trees",
+      "name": "Information on Old and Valuable Trees and Stonewall Trees",
+      "apiTitle": "Development Bureau \u2014 Information on Old and Valuable Trees and Stonewall Trees",
+      "json": "devb/csdi-information-on-old-and-valuable-trees-and-stonewall-trees/openapi.json",
+      "yaml": "devb/csdi-information-on-old-and-valuable-trees-and-stonewall-trees/openapi.yaml",
+      "file": "devb/csdi-information-on-old-and-valuable-trees-and-stonewall-trees/openapi.json",
+      "sha256": "27b621e266893130dba0fb25e06c4f18fe7c2f05e697f4fc30da6630c88afae1",
+      "jsonSha256": "27b621e266893130dba0fb25e06c4f18fe7c2f05e697f4fc30da6630c88afae1",
+      "yamlSha256": "1c7783d7a4806a77e67cba094539cb89e39a0e8c8767073ae3c75431da2d53c1",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_information_on_old_and_valuable_trees_and_stonewall_trees",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "27b621e266893130dba0fb25e06c4f18fe7c2f05e697f4fc30da6630c88afae1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_wb_rcd_1629267205229_51162",
+        "canonicalJsonSha256": "27b621e266893130dba0fb25e06c4f18fe7c2f05e697f4fc30da6630c88afae1",
+        "originalRepresentationSha256": "27b621e266893130dba0fb25e06c4f18fe7c2f05e697f4fc30da6630c88afae1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_information_on_old_and_valuable_trees_and_stonewall_trees"
+    },
+    {
+      "id": "devb-csdi-declared-monuments-with-image",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-declared-monuments-with-image",
+      "name": "Declared monuments with image",
+      "apiTitle": "Development Bureau \u2014 Declared monuments with image",
+      "json": "devb/csdi-declared-monuments-with-image/openapi.json",
+      "yaml": "devb/csdi-declared-monuments-with-image/openapi.yaml",
+      "file": "devb/csdi-declared-monuments-with-image/openapi.json",
+      "sha256": "28aeb847fe20a4f7728f81c6ba9991c5d3c6a4de0826b4acc1f22ef50108ed75",
+      "jsonSha256": "28aeb847fe20a4f7728f81c6ba9991c5d3c6a4de0826b4acc1f22ef50108ed75",
+      "yamlSha256": "355ad953f2bd687e05bd8383f0f871757cd50a588afb5d67833aae8d854d64a7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_declared_monuments_with_image",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "28aeb847fe20a4f7728f81c6ba9991c5d3c6a4de0826b4acc1f22ef50108ed75"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_wb_rcd_1639040299687_46105",
+        "canonicalJsonSha256": "28aeb847fe20a4f7728f81c6ba9991c5d3c6a4de0826b4acc1f22ef50108ed75",
+        "originalRepresentationSha256": "28aeb847fe20a4f7728f81c6ba9991c5d3c6a4de0826b4acc1f22ef50108ed75",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_declared_monuments_with_image"
+    },
+    {
+      "id": "devb-csdi-graded-historic-buildings-with-image-and-grading",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-graded-historic-buildings-with-image-and-grading",
+      "name": "Graded historic buildings with image and grading",
+      "apiTitle": "Development Bureau \u2014 Graded historic buildings with image and grading",
+      "json": "devb/csdi-graded-historic-buildings-with-image-and-grading/openapi.json",
+      "yaml": "devb/csdi-graded-historic-buildings-with-image-and-grading/openapi.yaml",
+      "file": "devb/csdi-graded-historic-buildings-with-image-and-grading/openapi.json",
+      "sha256": "de134f1935adc6d221abd1859303bc27e6c6b725c70a24d9319596be567a55b3",
+      "jsonSha256": "de134f1935adc6d221abd1859303bc27e6c6b725c70a24d9319596be567a55b3",
+      "yamlSha256": "e469912351e30935d23103b94e4069e865b20e703fb7a5f645537c892c414fb7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_graded_historic_buildings_with_image_and_grading",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "de134f1935adc6d221abd1859303bc27e6c6b725c70a24d9319596be567a55b3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_wb_rcd_1639040388709_10687",
+        "canonicalJsonSha256": "de134f1935adc6d221abd1859303bc27e6c6b725c70a24d9319596be567a55b3",
+        "originalRepresentationSha256": "de134f1935adc6d221abd1859303bc27e6c6b725c70a24d9319596be567a55b3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_graded_historic_buildings_with_image_and_grading"
+    },
+    {
+      "id": "devb-csdi-sites-of-archaeological-interest-in-hong-kong",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-sites-of-archaeological-interest-in-hong-kong",
+      "name": "Sites of Archaeological Interest in Hong Kong",
+      "apiTitle": "Development Bureau \u2014 Sites of Archaeological Interest in Hong Kong",
+      "json": "devb/csdi-sites-of-archaeological-interest-in-hong-kong/openapi.json",
+      "yaml": "devb/csdi-sites-of-archaeological-interest-in-hong-kong/openapi.yaml",
+      "file": "devb/csdi-sites-of-archaeological-interest-in-hong-kong/openapi.json",
+      "sha256": "3e3787a1800682c8a65c58a4aae1c3d8062386fe45ea8d59f2be868b6ba64b53",
+      "jsonSha256": "3e3787a1800682c8a65c58a4aae1c3d8062386fe45ea8d59f2be868b6ba64b53",
+      "yamlSha256": "4371559dc24f0196351122b844469e9757bb9ba21be9d2ab45810eee535d3359",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_sites_of_archaeological_interest_in_hong_kong",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3e3787a1800682c8a65c58a4aae1c3d8062386fe45ea8d59f2be868b6ba64b53"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_wb_rcd_1666075478680_84061",
+        "canonicalJsonSha256": "3e3787a1800682c8a65c58a4aae1c3d8062386fe45ea8d59f2be868b6ba64b53",
+        "originalRepresentationSha256": "3e3787a1800682c8a65c58a4aae1c3d8062386fe45ea8d59f2be868b6ba64b53",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_sites_of_archaeological_interest_in_hong_kong"
+    },
+    {
+      "id": "devb-csdi-greenway-in-kai-tak",
+      "publisherKey": "devb",
+      "publisherName": "Development Bureau",
+      "familyKey": "csdi-greenway-in-kai-tak",
+      "name": "GreenWay in Kai Tak",
+      "apiTitle": "Development Bureau \u2014 GreenWay in Kai Tak",
+      "json": "devb/csdi-greenway-in-kai-tak/openapi.json",
+      "yaml": "devb/csdi-greenway-in-kai-tak/openapi.yaml",
+      "file": "devb/csdi-greenway-in-kai-tak/openapi.json",
+      "sha256": "7de424dcf6b278aae575a6c79f411cf89902f6956f8f7ea11490b37752007b04",
+      "jsonSha256": "7de424dcf6b278aae575a6c79f411cf89902f6956f8f7ea11490b37752007b04",
+      "yamlSha256": "30c67670cd80fd98c58d2b2411e8aa1c4a9fdd50d84fd9a22158c704d25f5f69",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_greenway_in_kai_tak",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "7de424dcf6b278aae575a6c79f411cf89902f6956f8f7ea11490b37752007b04"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=devb_wb_rcd_1732687928039_22095",
+        "canonicalJsonSha256": "7de424dcf6b278aae575a6c79f411cf89902f6956f8f7ea11490b37752007b04",
+        "originalRepresentationSha256": "7de424dcf6b278aae575a6c79f411cf89902f6956f8f7ea11490b37752007b04",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_greenway_in_kai_tak"
+    }
+  ]
+}

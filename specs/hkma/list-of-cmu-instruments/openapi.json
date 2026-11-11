@@ -1,0 +1,325 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "List of CMU Instruments",
+    "description": "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/debt-securities-settlement-system/operational-information/list-of-cmu-instruments",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.hkma.gov.hk/public/debt-securities-settlement-system/operational-information",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/list-of-cmu-instruments": {
+      "get": {
+        "summary": "Retrieve data of List of CMU Instruments",
+        "parameters": [
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "column",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "choose",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortorder",
+            "in": "query",
+            "description": "",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/Sortorder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexcpeted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Header": {
+        "title": "Header",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "err_code": {
+            "type": "string"
+          },
+          "err_msg": {
+            "type": "string"
+          }
+        }
+      },
+      "Response": {
+        "title": "response",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Result"
+          }
+        }
+      },
+      "Result": {
+        "title": "Result",
+        "type": "object",
+        "properties": {
+          "datasize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+				"$ref": "#/components/schemas/Record"
+            },
+            "description": ""
+          }
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "type": "object",
+        "properties": {
+          "issue_number": {
+            "type": "string"
+          },
+          "issue_description": {
+            "type": "string"
+          },
+          "Issuer": {
+            "type": "string"
+          },
+          "p_agent_code": {
+            "type": "string"
+          },
+          "issue_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "maturity_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "call_put_option_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "coupon_rate": {
+            "type": "number"
+          },
+          "last_coupon_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "next_coupon_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "int_pay_freq": {
+            "type": "number"
+          },
+          "common_code": {
+            "type": "string"
+          },
+          "Isin": {
+            "type": "string"
+          },
+          "issue_ccy": {
+            "type": "string"
+          },
+          "issue_size": {
+            "type": "number"
+          },
+          "outstanding_amount": {
+            "type": "number"
+          },
+          "tender_allowed": {
+            "type": "string"
+          },
+          "income_dist": {
+            "type": "string"
+          },
+          "repo_cat_hkd": {
+            "type": "string"
+          },
+          "repo_cat_usd": {
+            "type": "string"
+          },
+          "repo_cat_eur": {
+            "type": "string"
+          },
+          "repo_cat_cny_cb": {
+            "type": "string"
+          },
+          "repo_cat_cny_ma": {
+            "type": "string"
+          },
+          "bank_repo_cat": {
+            "type": "string"
+          },
+          "min_tradable_amount": {
+            "type": "number"
+          },
+          "multi_tradable_amount": {
+            "type": "number"
+          },
+          "special_action_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "special_action": {
+            "type": "string"
+          },
+          "fatca_withholding": {
+            "type": "string"
+          },
+          "form": {
+            "type": "string"
+          }
+        }
+      },
+      "Sortorder": {
+        "title": "sortorder",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "example": "asc",
+        "x-enum-elements": [
+          {
+            "name": "asc",
+            "description": ""
+          },
+          {
+            "name": "desc",
+            "description": ""
+          }
+        ]
+      },
+      "ErrorResponse": {
+        "title": "errorResponse",
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/Header"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+externalDocs:
+  description: Official API documentation
+  url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/LocationSearchAPI
+info:
+  description: HTTP API for finding locations by address, building name, place name, or facility name. The version field is a metadata placeholder, not a publisher API version. The publisher documents API version v1.0.0 and notes that supported versions may change and old versions may be removed without notice. Avoid invoking the API with large numbers of requests within a short period; the publisher requests this to maintain service quality. Authentication requirements are not specified.
+  title: Location Search API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /{version}/locationSearch:
+    get:
+      description: Searches for a location by its address, building name, place name, or facility name. The documented current API version is v1.0.0; the publisher notes versions may be updated and old versions removed without notice.
+      externalDocs:
+        description: Official Location Search API documentation
+        url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/LocationSearchAPI
+      operationId: searchLocations
+      parameters:
+        - description: API version number. The documented current value is v1.0.0; supported versions may change.
+          example: v1.0.0
+          in: path
+          name: version
+          required: true
+          schema:
+            type: string
+        - description: Input string to search, such as an address, building name, place name, or facility name. The guide does not explicitly label query requiredness.
+          example: cultural centre
+          in: query
+          name: q
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                description: The source documents JSON output without a field dictionary or universal object/array shape.
+          description: OK. The response data is returned in JSON format; the guide does not document its object or field structure.
+        "400":
+          description: Bad Request, for example, invalid query parameters.
+        "500":
+          description: Internal Server Error.
+      summary: Search for locations
+servers:
+  - url: https://www.map.gov.hk/gs/api

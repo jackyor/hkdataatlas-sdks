@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hyd-csdi-barrier-fence",
+  "sourceSha256": "07e955599048721816e34887fd40672fcf86c91cf5a4f31ca3b1649548aa8040",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hyd_rcd_1632210391486_52565/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hyd_rcd_1632210391486_52565/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

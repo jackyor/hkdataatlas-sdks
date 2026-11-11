@@ -1,0 +1,275 @@
+components:
+  schemas:
+    RadiusSearch:
+      properties:
+        lat:
+          description: Latitude in decimal degrees (WGS84).
+          example: 22.291563
+          type: number
+        long:
+          description: Longitude in decimal degrees (WGS84).
+          example: 114.301471
+          type: number
+        range:
+          default: 2000
+          description: "Search radius in metres. Default: 2000 (2 km)."
+          example: 1000
+          type: integer
+      required:
+        - lat
+        - long
+      type: object
+    Taxi:
+      properties:
+        lat:
+          description: Server-corrected latitude (WGS84), documented to 6 decimal places.
+          example: 22.291563
+          type: number
+        long:
+          description: Server-corrected longitude (WGS84), documented to 6 decimal places.
+          example: 114.301471
+          type: number
+        op_status:
+          description: Operating status.
+          enum:
+            - V
+            - O
+            - N
+          type: string
+          x-enum-descriptions:
+            N: Out of service
+            O: Occupied - carrying a passenger
+            V: Vacant - available for hire
+        passenger_cap:
+          description: Maximum passenger capacity, in seats.
+          example: 5
+          type: integer
+        taxi_type:
+          description: Taxi category.
+          enum:
+            - O
+            - P
+            - W
+          type: string
+          x-enum-descriptions:
+            O: Ordinary taxi
+            P: Premium taxi
+            W: Wheelchair-accessible taxi
+        time_stamp:
+          description: Server-side timestamp of the data record (ISO 8601).
+          example: 2024-11-20T08:33:19+08:00
+          format: date-time
+          type: string
+        veh_id:
+          description: "Daily-regenerated vehicle identifier, documented format: 3-character fleet prefix plus 9 random digits (for example, BBT013050630). The same physical vehicle has the same identifier within a calendar day; identifiers are reassigned at midnight and cannot be used to track a vehicle across days."
+          example: BBT013050630
+          type: string
+      type: object
+    TaxiFleetResponse:
+      description: Response containing taxi fleet records. The documentation provides examples; it does not state that the example exhausts all possible response fields.
+      properties:
+        taxis:
+          items:
+            $ref: "#/components/schemas/Taxi"
+          type: array
+      type: object
+    ValidationError:
+      example:
+        detail:
+          - loc:
+              - body
+              - lat
+            msg: Field required
+            type: missing
+      properties:
+        detail:
+          items:
+            properties:
+              loc:
+                example:
+                  - body
+                  - lat
+                items:
+                  type: string
+                type: array
+              msg:
+                example: Field required
+                type: string
+              type:
+                example: missing
+                type: string
+            type: object
+          type: array
+      type: object
+externalDocs:
+  url: https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-bbt/bbt_spec.pdf
+info:
+  description: Real-time taxi fleet location and status data for the simplified public OpenData schema. No authentication is required. The version value is a metadata placeholder, not a publisher API version. Rate limits are enforced per IP address; production limit is 60 requests per minute.
+  title: BBT Taxi Fleet Data API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /api/opendata/get_data/:
+    get:
+      description: Returns vehicles within a specified distance of the given WGS84 coordinate. The range defaults to 2000 metres when omitted.
+      operationId: getVehiclesWithinRadius
+      parameters:
+        - description: Latitude in decimal degrees (WGS84).
+          example: 22.291563
+          in: query
+          name: lat
+          required: true
+          schema:
+            type: number
+        - description: Longitude in decimal degrees (WGS84).
+          example: 114.301471
+          in: query
+          name: long
+          required: true
+          schema:
+            type: number
+        - description: "Search radius in metres. Default: 2000 (2 km)."
+          example: 1000
+          in: query
+          name: range
+          required: false
+          schema:
+            default: 2000
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                taxis:
+                  - lat: 22.291563
+                    long: 114.301471
+                    op_status: V
+                    passenger_cap: 5
+                    taxi_type: P
+                    time_stamp: 2024-11-20T08:33:19+08:00
+                    veh_id: BBT013050630
+              schema:
+                $ref: "#/components/schemas/TaxiFleetResponse"
+          description: Vehicles within the specified radius.
+        "422":
+          content:
+            application/json:
+              examples:
+                missingQueryLatitude:
+                  value:
+                    detail:
+                      - loc:
+                          - query
+                          - lat
+                        msg: Field required
+                        type: missing
+              schema:
+                $ref: "#/components/schemas/ValidationError"
+          description: Request validation error. The documentation describes missing required query parameters as a cause.
+        "429":
+          description: Too many requests; the rate limit for the client's IP address was exceeded.
+        "500":
+          description: Unexpected server-side error.
+      summary: Get vehicles within radius
+    post:
+      description: Returns vehicles within a specified distance of the given WGS84 coordinate. The documentation accepts these parameters in a POST JSON body; range defaults to 2000 metres when omitted.
+      operationId: postGetVehiclesWithinRadius
+      requestBody:
+        content:
+          application/json:
+            example:
+              lat: 22.291563
+              long: 114.301471
+              range: 1000
+            schema:
+              $ref: "#/components/schemas/RadiusSearch"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                taxis:
+                  - lat: 22.291563
+                    long: 114.301471
+                    op_status: V
+                    passenger_cap: 5
+                    taxi_type: P
+                    time_stamp: 2024-11-20T08:33:19+08:00
+                    veh_id: BBT013050630
+              schema:
+                $ref: "#/components/schemas/TaxiFleetResponse"
+          description: Vehicles within the specified radius.
+        "422":
+          content:
+            application/json:
+              examples:
+                missingBodyLatitude:
+                  value:
+                    detail:
+                      - loc:
+                          - body
+                          - lat
+                        msg: Field required
+                        type: missing
+              schema:
+                $ref: "#/components/schemas/ValidationError"
+          description: Request validation error, including malformed POST body or missing required fields.
+        "429":
+          description: Too many requests; the rate limit for the client's IP address was exceeded.
+        "500":
+          description: Unexpected server-side error.
+      summary: Get vehicles within radius
+  /api/opendata/get_data/all:
+    get:
+      description: Returns data for every vehicle in the fleet using the simplified OpenData schema. No query parameters or request body are required.
+      operationId: getAllVehicles
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                taxis:
+                  - lat: 22.291563
+                    long: 114.301471
+                    op_status: V
+                    passenger_cap: 5
+                    taxi_type: P
+                    time_stamp: 2024-11-20T08:33:19+08:00
+                    veh_id: BBT013050630
+              schema:
+                $ref: "#/components/schemas/TaxiFleetResponse"
+          description: Vehicle data returned.
+        "429":
+          description: Too many requests; the rate limit for the client's IP address was exceeded.
+        "500":
+          description: Unexpected server-side error.
+      summary: Get all vehicles
+    post:
+      description: "Returns data for every vehicle in the fleet using the simplified OpenData schema. No request body or query parameters are required. The documentation's POST example supplies Content-Type: application/json but no body."
+      operationId: postGetAllVehicles
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                taxis:
+                  - lat: 22.291563
+                    long: 114.301471
+                    op_status: V
+                    passenger_cap: 5
+                    taxi_type: P
+                    time_stamp: 2024-11-20T08:33:19+08:00
+                    veh_id: BBT013050630
+              schema:
+                $ref: "#/components/schemas/TaxiFleetResponse"
+          description: Vehicle data returned.
+        "429":
+          description: Too many requests; the rate limit for the client's IP address was exceeded.
+        "500":
+          description: Unexpected server-side error.
+      summary: Get all vehicles
+servers:
+  - description: Production
+    url: https://data.bigboss.hk

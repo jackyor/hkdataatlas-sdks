@@ -1,0 +1,64 @@
+{
+  "components": {
+    "schemas": {
+      "LabOfficeSpace": {
+        "description": "The documentation lists the fields item and value as strings. Its example presents the item label and value as the two corresponding values; it does not specify requiredness.",
+        "properties": {
+          "item": {
+            "description": "Lab & office space.",
+            "type": "string"
+          },
+          "value": {
+            "description": "Area value, in square feet.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Official API documentation",
+    "url": "https://opendata.hkstp.org/doc/corporate/figures/HKSTP-API-lab-office-space.pdf"
+  },
+  "info": {
+    "description": "Provides lab and office space information. The version value is a metadata placeholder, not a publisher API version. Authentication requirements are not specified in the documentation.",
+    "title": "Lab & Office Space API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getLabOfficeSpace",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "documented": {
+                    "summary": "Documented example response",
+                    "value": {
+                      "item": "Lab & office space",
+                      "value": "3.5M+ sq ft"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/LabOfficeSpace"
+                }
+              }
+            },
+            "description": "JSON response containing the item and its value."
+          }
+        },
+        "summary": "Get lab and office space"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://opendata.hkstp.org/corporate/figures/laboffice/v1"
+    }
+  ]
+}

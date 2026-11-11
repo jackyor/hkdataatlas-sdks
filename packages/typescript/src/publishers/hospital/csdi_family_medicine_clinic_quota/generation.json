@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "hospital-csdi-family-medicine-clinic-quota",
+  "sourceSha256": "b729f09f3cd6f70812abf7663626b6c6db472caf409a8d487176c120ceb16444",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/fhb_rcd_1637056615821_86968/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fhb_rcd_1637056615821_86968/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/fhb_rcd_1637056615821_86968/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

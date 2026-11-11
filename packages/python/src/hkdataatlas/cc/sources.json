@@ -1,0 +1,64 @@
+{
+  "publisherKey": "cc",
+  "publisherName": "Consumer Council",
+  "sources": [
+    {
+      "id": "cc-complaints-statistics",
+      "publisherKey": "cc",
+      "publisherName": "Consumer Council",
+      "familyKey": "complaints-statistics",
+      "name": "Complaints Statistics",
+      "apiTitle": "Consumer Council Complaint Statistic API",
+      "json": "cc/complaints-statistics/openapi.json",
+      "yaml": "cc/complaints-statistics/openapi.yaml",
+      "file": "cc/complaints-statistics/openapi.json",
+      "sha256": "be7be102842749d4d3e18f7769078058f5f81035f5e56b6c00697f7fe1d7bc58",
+      "jsonSha256": "be7be102842749d4d3e18f7769078058f5f81035f5e56b6c00697f7fe1d7bc58",
+      "yamlSha256": "198f0934c9d88059f2c7e4a7cf5526bdc37b4851659cf6590bd4b9f19287bd73",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "complaints_statistics",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "be7be102842749d4d3e18f7769078058f5f81035f5e56b6c00697f7fe1d7bc58"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.consumer.org.hk/f/open/401750/complaints-statistic-data-specification.pdf",
+        "canonicalJsonSha256": "be7be102842749d4d3e18f7769078058f5f81035f5e56b6c00697f7fe1d7bc58",
+        "originalRepresentationSha256": "be7be102842749d4d3e18f7769078058f5f81035f5e56b6c00697f7fe1d7bc58",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "complaints_statistics"
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Any, Self, TypeVar, cast
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="ArcgisFeatureServerArcgisLayer0Attributes")
+
+
+@_attrs_define
+class ArcgisFeatureServerArcgisLayer0Attributes:
+    """
+    Attributes:
+        objectid (int | Unset): Publisher field type: esriFieldTypeOID
+        scheme_type (None | str | Unset): Publisher field type: esriFieldTypeString
+        scheme_name_en (None | str | Unset): Publisher field type: esriFieldTypeString
+        scheme_name_tc (None | str | Unset): Publisher field type: esriFieldTypeString
+        scheme_name_sc (None | str | Unset): Publisher field type: esriFieldTypeString
+        date_of_asp (Any | Unset): Publisher field type: esriFieldTypeDate; JSON wire representation remains unknown.
+        court_en (None | str | Unset): Publisher field type: esriFieldTypeString
+        court_tc (None | str | Unset): Publisher field type: esriFieldTypeString
+        court_sc (None | str | Unset): Publisher field type: esriFieldTypeString
+        block_en (None | str | Unset): Publisher field type: esriFieldTypeString
+        block_tc (None | str | Unset): Publisher field type: esriFieldTypeString
+        block_sc (None | str | Unset): Publisher field type: esriFieldTypeString
+        floor (None | str | Unset): Publisher field type: esriFieldTypeString
+        unit (None | str | Unset): Publisher field type: esriFieldTypeString
+        saleable_area_of_flats_sq_m (float | None | Unset): Publisher field type: esriFieldTypeDouble
+        transaction_price (float | None | Unset): Publisher field type: esriFieldTypeDouble
+    """
+
+    objectid: int | Unset = UNSET
+    scheme_type: None | str | Unset = UNSET
+    scheme_name_en: None | str | Unset = UNSET
+    scheme_name_tc: None | str | Unset = UNSET
+    scheme_name_sc: None | str | Unset = UNSET
+    date_of_asp: Any | Unset = UNSET
+    court_en: None | str | Unset = UNSET
+    court_tc: None | str | Unset = UNSET
+    court_sc: None | str | Unset = UNSET
+    block_en: None | str | Unset = UNSET
+    block_tc: None | str | Unset = UNSET
+    block_sc: None | str | Unset = UNSET
+    floor: None | str | Unset = UNSET
+    unit: None | str | Unset = UNSET
+    saleable_area_of_flats_sq_m: float | None | Unset = UNSET
+    transaction_price: float | None | Unset = UNSET
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        objectid = self.objectid
+
+        scheme_type: None | str | Unset
+        if isinstance(self.scheme_type, Unset):
+            scheme_type = UNSET
+        else:
+            scheme_type = self.scheme_type
+
+        scheme_name_en: None | str | Unset
+        if isinstance(self.scheme_name_en, Unset):
+            scheme_name_en = UNSET
+        else:
+            scheme_name_en = self.scheme_name_en
+
+        scheme_name_tc: None | str | Unset
+        if isinstance(self.scheme_name_tc, Unset):
+            scheme_name_tc = UNSET
+        else:
+            scheme_name_tc = self.scheme_name_tc
+
+        scheme_name_sc: None | str | Unset
+        if isinstance(self.scheme_name_sc, Unset):
+            scheme_name_sc = UNSET
+        else:
+            scheme_name_sc = self.scheme_name_sc
+
+        date_of_asp = self.date_of_asp
+
+        court_en: None | str | Unset
+        if isinstance(self.court_en, Unset):
+            court_en = UNSET
+        else:
+            court_en = self.court_en
+
+        court_tc: None | str | Unset
+        if isinstance(self.court_tc, Unset):
+            court_tc = UNSET
+        else:
+            court_tc = self.court_tc
+
+        court_sc: None | str | Unset
+        if isinstance(self.court_sc, Unset):
+            court_sc = UNSET
+        else:
+            court_sc = self.court_sc
+
+        block_en: None | str | Unset
+        if isinstance(self.block_en, Unset):
+            block_en = UNSET
+        else:
+            block_en = self.block_en
+
+        block_tc: None | str | Unset
+        if isinstance(self.block_tc, Unset):
+            block_tc = UNSET
+        else:
+            block_tc = self.block_tc
+
+        block_sc: None | str | Unset
+        if isinstance(self.block_sc, Unset):
+            block_sc = UNSET
+        else:
+            block_sc = self.block_sc
+
+        floor: None | str | Unset
+        if isinstance(self.floor, Unset):
+            floor = UNSET
+        else:
+            floor = self.floor
+
+        unit: None | str | Unset
+        if isinstance(self.unit, Unset):
+            unit = UNSET
+        else:
+            unit = self.unit
+
+        saleable_area_of_flats_sq_m: float | None | Unset
+        if isinstance(self.saleable_area_of_flats_sq_m, Unset):
+            saleable_area_of_flats_sq_m = UNSET
+        else:
+            saleable_area_of_flats_sq_m = self.saleable_area_of_flats_sq_m
+
+        transaction_price: float | None | Unset
+        if isinstance(self.transaction_price, Unset):
+            transaction_price = UNSET
+        else:
+            transaction_price = self.transaction_price
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update({})
+        if objectid is not UNSET:
+            field_dict["OBJECTID"] = objectid
+        if scheme_type is not UNSET:
+            field_dict["Scheme_Type"] = scheme_type
+        if scheme_name_en is not UNSET:
+            field_dict["Scheme_Name_EN"] = scheme_name_en
+        if scheme_name_tc is not UNSET:
+            field_dict["Scheme_Name_TC"] = scheme_name_tc
+        if scheme_name_sc is not UNSET:
+            field_dict["Scheme_Name_SC"] = scheme_name_sc
+        if date_of_asp is not UNSET:
+            field_dict["Date_of_ASP"] = date_of_asp
+        if court_en is not UNSET:
+            field_dict["Court_EN"] = court_en
+        if court_tc is not UNSET:
+            field_dict["Court_TC"] = court_tc
+        if court_sc is not UNSET:
+            field_dict["Court_SC"] = court_sc
+        if block_en is not UNSET:
+            field_dict["Block_EN"] = block_en
+        if block_tc is not UNSET:
+            field_dict["Block_TC"] = block_tc
+        if block_sc is not UNSET:
+            field_dict["Block_SC"] = block_sc
+        if floor is not UNSET:
+            field_dict["Floor"] = floor
+        if unit is not UNSET:
+            field_dict["Unit"] = unit
+        if saleable_area_of_flats_sq_m is not UNSET:
+            field_dict["Saleable_Area_of_Flats_sq_m"] = saleable_area_of_flats_sq_m
+        if transaction_price is not UNSET:
+            field_dict["Transaction_Price"] = transaction_price
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        d = dict(src_dict)
+        objectid = d.pop("OBJECTID", UNSET)
+
+        def _parse_scheme_type(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        scheme_type = _parse_scheme_type(d.pop("Scheme_Type", UNSET))
+
+        def _parse_scheme_name_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        scheme_name_en = _parse_scheme_name_en(d.pop("Scheme_Name_EN", UNSET))
+
+        def _parse_scheme_name_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        scheme_name_tc = _parse_scheme_name_tc(d.pop("Scheme_Name_TC", UNSET))
+
+        def _parse_scheme_name_sc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        scheme_name_sc = _parse_scheme_name_sc(d.pop("Scheme_Name_SC", UNSET))
+
+        date_of_asp = d.pop("Date_of_ASP", UNSET)
+
+        def _parse_court_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        court_en = _parse_court_en(d.pop("Court_EN", UNSET))
+
+        def _parse_court_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        court_tc = _parse_court_tc(d.pop("Court_TC", UNSET))
+
+        def _parse_court_sc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        court_sc = _parse_court_sc(d.pop("Court_SC", UNSET))
+
+        def _parse_block_en(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        block_en = _parse_block_en(d.pop("Block_EN", UNSET))
+
+        def _parse_block_tc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        block_tc = _parse_block_tc(d.pop("Block_TC", UNSET))
+
+        def _parse_block_sc(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        block_sc = _parse_block_sc(d.pop("Block_SC", UNSET))
+
+        def _parse_floor(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        floor = _parse_floor(d.pop("Floor", UNSET))
+
+        def _parse_unit(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        unit = _parse_unit(d.pop("Unit", UNSET))
+
+        def _parse_saleable_area_of_flats_sq_m(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        saleable_area_of_flats_sq_m = _parse_saleable_area_of_flats_sq_m(
+            d.pop("Saleable_Area_of_Flats_sq_m", UNSET)
+        )
+
+        def _parse_transaction_price(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        transaction_price = _parse_transaction_price(d.pop("Transaction_Price", UNSET))
+
+        arcgis_feature_server_arcgis_layer_0_attributes = cls(
+            objectid=objectid,
+            scheme_type=scheme_type,
+            scheme_name_en=scheme_name_en,
+            scheme_name_tc=scheme_name_tc,
+            scheme_name_sc=scheme_name_sc,
+            date_of_asp=date_of_asp,
+            court_en=court_en,
+            court_tc=court_tc,
+            court_sc=court_sc,
+            block_en=block_en,
+            block_tc=block_tc,
+            block_sc=block_sc,
+            floor=floor,
+            unit=unit,
+            saleable_area_of_flats_sq_m=saleable_area_of_flats_sq_m,
+            transaction_price=transaction_price,
+        )
+
+        arcgis_feature_server_arcgis_layer_0_attributes.additional_properties = d
+        return arcgis_feature_server_arcgis_layer_0_attributes
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

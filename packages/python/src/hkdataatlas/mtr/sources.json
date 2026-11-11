@@ -1,0 +1,180 @@
+{
+  "publisherKey": "mtr",
+  "publisherName": "MTR Corporation Limited",
+  "sources": [
+    {
+      "id": "mtr-real-time-light-rail-train-information",
+      "publisherKey": "mtr",
+      "publisherName": "MTR Corporation Limited",
+      "familyKey": "real-time-light-rail-train-information",
+      "name": "Real-time Light Rail train information",
+      "apiTitle": "Light Rail Next Train API",
+      "json": "mtr/real-time-light-rail-train-information/openapi.json",
+      "yaml": "mtr/real-time-light-rail-train-information/openapi.yaml",
+      "file": "mtr/real-time-light-rail-train-information/openapi.json",
+      "sha256": "0fc0ce1a4183ebb151158a782361ee131c88754cd85d039a77c28f452f473b68",
+      "jsonSha256": "0fc0ce1a4183ebb151158a782361ee131c88754cd85d039a77c28f452f473b68",
+      "yamlSha256": "7f6c24c45917475b281c67e095268fd2acf0f40137542dc602b85aa9a6c9ad66",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.1",
+      "namespace": "real_time_light_rail_train_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0fc0ce1a4183ebb151158a782361ee131c88754cd85d039a77c28f452f473b68"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.mtr.com.hk/doc/LR_Next_Train_API_Spec_v1.1.pdf",
+        "canonicalJsonSha256": "0fc0ce1a4183ebb151158a782361ee131c88754cd85d039a77c28f452f473b68",
+        "originalRepresentationSha256": "0fc0ce1a4183ebb151158a782361ee131c88754cd85d039a77c28f452f473b68",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "real_time_light_rail_train_information"
+    },
+    {
+      "id": "mtr-mtr-bus-next-bus-api",
+      "publisherKey": "mtr",
+      "publisherName": "MTR Corporation Limited",
+      "familyKey": "mtr-bus-next-bus-api",
+      "name": "MTR Bus Next Bus API",
+      "apiTitle": "MTR Bus Next Bus API",
+      "json": "mtr/mtr-bus-next-bus-api/openapi.json",
+      "yaml": "mtr/mtr-bus-next-bus-api/openapi.yaml",
+      "file": "mtr/mtr-bus-next-bus-api/openapi.json",
+      "sha256": "3e0ca36c870a46a6a297c16a39e4f9bceb2510f6c692bccffce4ebbaa0795261",
+      "jsonSha256": "3e0ca36c870a46a6a297c16a39e4f9bceb2510f6c692bccffce4ebbaa0795261",
+      "yamlSha256": "b264a62b16ad327902a6bdc7f9c085be0c7de71f4420014d91ac15a9940fd365",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.14",
+      "namespace": "mtr_bus_next_bus_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3e0ca36c870a46a6a297c16a39e4f9bceb2510f6c692bccffce4ebbaa0795261"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.mtr.com.hk/doc/MTR_BUS_API_Spec_v1.14.pdf",
+        "canonicalJsonSha256": "3e0ca36c870a46a6a297c16a39e4f9bceb2510f6c692bccffce4ebbaa0795261",
+        "originalRepresentationSha256": "3e0ca36c870a46a6a297c16a39e4f9bceb2510f6c692bccffce4ebbaa0795261",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "mtr_bus_next_bus_api"
+    },
+    {
+      "id": "mtr-mtr-next-train-api",
+      "publisherKey": "mtr",
+      "publisherName": "MTR Corporation Limited",
+      "familyKey": "mtr-next-train-api",
+      "name": "MTR Next Train API",
+      "apiTitle": "MTR Next Train API",
+      "json": "mtr/mtr-next-train-api/openapi.json",
+      "yaml": "mtr/mtr-next-train-api/openapi.yaml",
+      "file": "mtr/mtr-next-train-api/openapi.json",
+      "sha256": "e02605c002d450e352e08fbb305818186df95a6de01c79790ce5ba303cb21cce",
+      "jsonSha256": "e02605c002d450e352e08fbb305818186df95a6de01c79790ce5ba303cb21cce",
+      "yamlSha256": "1fdb2a37bb1850f8c944cd09fe0859d5b475fcc40a274802b85c49c8b7624b3a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.7",
+      "namespace": "mtr_next_train_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e02605c002d450e352e08fbb305818186df95a6de01c79790ce5ba303cb21cce"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://opendata.mtr.com.hk/doc/Next_Train_API_Spec_v1.7.pdf",
+        "canonicalJsonSha256": "e02605c002d450e352e08fbb305818186df95a6de01c79790ce5ba303cb21cce",
+        "originalRepresentationSha256": "e02605c002d450e352e08fbb305818186df95a6de01c79790ce5ba303cb21cce",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "mtr_next_train_api"
+    }
+  ]
+}

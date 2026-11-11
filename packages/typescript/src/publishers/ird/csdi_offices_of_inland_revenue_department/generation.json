@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "ird-csdi-offices-of-inland-revenue-department",
+  "sourceSha256": "2d9cb1dcacc2112b2bfa974b3c4f52366b72fc6adda92ce2511c75cb5da85217",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/ird_rcd_1668166144542_67785/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ird_rcd_1668166144542_67785/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/ird_rcd_1668166144542_67785/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

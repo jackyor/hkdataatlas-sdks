@@ -1,0 +1,818 @@
+{
+  "publisherKey": "fsd",
+  "publisherName": "Fire Services Department",
+  "sources": [
+    {
+      "id": "fsd-csdi-fire-station",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-fire-station",
+      "name": "Fire Station",
+      "apiTitle": "Fire Services Department \u2014 Fire Station",
+      "json": "fsd/csdi-fire-station/openapi.json",
+      "yaml": "fsd/csdi-fire-station/openapi.yaml",
+      "file": "fsd/csdi-fire-station/openapi.json",
+      "sha256": "40e62081687ca46f893389d9bc532fe7c2321e068befb0c01e41ce4b4bf161c5",
+      "jsonSha256": "40e62081687ca46f893389d9bc532fe7c2321e068befb0c01e41ce4b4bf161c5",
+      "yamlSha256": "a16295b7feda839888c6f50d6d892aa7624caed938481f8e98c7f1881c9e1190",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_fire_station",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "40e62081687ca46f893389d9bc532fe7c2321e068befb0c01e41ce4b4bf161c5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634798867463_89696",
+        "canonicalJsonSha256": "40e62081687ca46f893389d9bc532fe7c2321e068befb0c01e41ce4b4bf161c5",
+        "originalRepresentationSha256": "40e62081687ca46f893389d9bc532fe7c2321e068befb0c01e41ce4b4bf161c5",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_fire_station"
+    },
+    {
+      "id": "fsd-csdi-ambulance-depot",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-ambulance-depot",
+      "name": "Ambulance Depot",
+      "apiTitle": "Fire Services Department \u2014 Ambulance Depot",
+      "json": "fsd/csdi-ambulance-depot/openapi.json",
+      "yaml": "fsd/csdi-ambulance-depot/openapi.yaml",
+      "file": "fsd/csdi-ambulance-depot/openapi.json",
+      "sha256": "a12e70fab27f1e5f051977b466411517e42781c132a51e96283b744f77ed55e1",
+      "jsonSha256": "a12e70fab27f1e5f051977b466411517e42781c132a51e96283b744f77ed55e1",
+      "yamlSha256": "26c5a9b4d944aa99319b8e1947f1104040b2d95f15b4009b18db23159b42835e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ambulance_depot",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a12e70fab27f1e5f051977b466411517e42781c132a51e96283b744f77ed55e1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634799003993_7633",
+        "canonicalJsonSha256": "a12e70fab27f1e5f051977b466411517e42781c132a51e96283b744f77ed55e1",
+        "originalRepresentationSha256": "a12e70fab27f1e5f051977b466411517e42781c132a51e96283b744f77ed55e1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ambulance_depot"
+    },
+    {
+      "id": "fsd-csdi-training-facilities",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-training-facilities",
+      "name": "Training Facilities",
+      "apiTitle": "Fire Services Department \u2014 Training Facilities",
+      "json": "fsd/csdi-training-facilities/openapi.json",
+      "yaml": "fsd/csdi-training-facilities/openapi.yaml",
+      "file": "fsd/csdi-training-facilities/openapi.json",
+      "sha256": "da467372cd39ad809cce7c087ed0b449de00d71d0feab84779bf55e9a659a234",
+      "jsonSha256": "da467372cd39ad809cce7c087ed0b449de00d71d0feab84779bf55e9a659a234",
+      "yamlSha256": "1a9fae9122bf429bb5d67044dd66d5ec5d2f0fe596983219374d9a4780a6f0f5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_training_facilities",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "da467372cd39ad809cce7c087ed0b449de00d71d0feab84779bf55e9a659a234"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634799297506_42351",
+        "canonicalJsonSha256": "da467372cd39ad809cce7c087ed0b449de00d71d0feab84779bf55e9a659a234",
+        "originalRepresentationSha256": "da467372cd39ad809cce7c087ed0b449de00d71d0feab84779bf55e9a659a234",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_training_facilities"
+    },
+    {
+      "id": "fsd-csdi-offices-of-fire-safety-command-and-licensing-and-certification-command",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-offices-of-fire-safety-command-and-licensing-and-certification-command",
+      "name": "Offices of Fire Safety Command and Licensing and Certification Command",
+      "apiTitle": "Fire Services Department \u2014 Offices of Fire Safety Command and Licensing and Certification Command",
+      "json": "fsd/csdi-offices-of-fire-safety-command-and-licensing-and-certification-command/openapi.json",
+      "yaml": "fsd/csdi-offices-of-fire-safety-command-and-licensing-and-certification-command/openapi.yaml",
+      "file": "fsd/csdi-offices-of-fire-safety-command-and-licensing-and-certification-command/openapi.json",
+      "sha256": "cd61b2050d5d4849a873018cea541c665c6decc0b165f51b3e7a403b096b5164",
+      "jsonSha256": "cd61b2050d5d4849a873018cea541c665c6decc0b165f51b3e7a403b096b5164",
+      "yamlSha256": "1daa6d7d94ef1143c8a2c22295cc6a19134c4735674b8a8ee0113b7b0e67e742",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_offices_of_fire_safety_command_and_licensing_and_certification_command",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cd61b2050d5d4849a873018cea541c665c6decc0b165f51b3e7a403b096b5164"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634799489180_67432",
+        "canonicalJsonSha256": "cd61b2050d5d4849a873018cea541c665c6decc0b165f51b3e7a403b096b5164",
+        "originalRepresentationSha256": "cd61b2050d5d4849a873018cea541c665c6decc0b165f51b3e7a403b096b5164",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_offices_of_fire_safety_command_and_licensing_and_certification_command"
+    },
+    {
+      "id": "fsd-csdi-fire-safety-direction-issued-under-fire-safety-industrial-buildings-ordinance-cap-636-by-fire-services-department",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-fire-safety-direction-issued-under-fire-safety-industrial-buildings-ordinance-cap-636-by-fire-services-department",
+      "name": "Fire Safety Direction issued under Fire Safety (Industrial Buildings) Ordinance (Cap. 636) by Fire Services Department",
+      "apiTitle": "Fire Services Department \u2014 Fire Safety Direction issued under Fire Safety (Industrial Buildings) Ordinance (Cap. 636) by Fire Services Department",
+      "json": "fsd/csdi-fire-safety-direction-issued-under-fire-safety-industrial-buildings-ordinance-cap-636-by-fire-services-department/openapi.json",
+      "yaml": "fsd/csdi-fire-safety-direction-issued-under-fire-safety-industrial-buildings-ordinance-cap-636-by-fire-services-department/openapi.yaml",
+      "file": "fsd/csdi-fire-safety-direction-issued-under-fire-safety-industrial-buildings-ordinance-cap-636-by-fire-services-department/openapi.json",
+      "sha256": "5edd991ea7e3be65aab0e3bbbccd52bd76410b171b485f45fc1423bb1fd36967",
+      "jsonSha256": "5edd991ea7e3be65aab0e3bbbccd52bd76410b171b485f45fc1423bb1fd36967",
+      "yamlSha256": "de8358994c5ae1c02bcca639e92c23407f3e5bb7dee08ed40acc99a58f6c600a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_fire_safety_direction_issued_under_fire_safety_industrial_buildings_ordinance_cap_636_by_fire_services_department",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5edd991ea7e3be65aab0e3bbbccd52bd76410b171b485f45fc1423bb1fd36967"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634799625131_6268",
+        "canonicalJsonSha256": "5edd991ea7e3be65aab0e3bbbccd52bd76410b171b485f45fc1423bb1fd36967",
+        "originalRepresentationSha256": "5edd991ea7e3be65aab0e3bbbccd52bd76410b171b485f45fc1423bb1fd36967",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_fire_safety_direction_issued_under_fire_safety_industrial_buildings_ordinance_cap_636_by_fire_services_department"
+    },
+    {
+      "id": "fsd-csdi-classification-of-ambulance-calls-for-18-district-council-districts-provisional-figures",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-classification-of-ambulance-calls-for-18-district-council-districts-provisional-figures",
+      "name": "Classification of Ambulance Calls for 18 District Council districts (Provisional Figures)",
+      "apiTitle": "Fire Services Department \u2014 Classification of Ambulance Calls for 18 District Council districts (Provisional Figures)",
+      "json": "fsd/csdi-classification-of-ambulance-calls-for-18-district-council-districts-provisional-figures/openapi.json",
+      "yaml": "fsd/csdi-classification-of-ambulance-calls-for-18-district-council-districts-provisional-figures/openapi.yaml",
+      "file": "fsd/csdi-classification-of-ambulance-calls-for-18-district-council-districts-provisional-figures/openapi.json",
+      "sha256": "96dcfb8b029a8b51958f351e33d54f68949ec1bdec04a6ceeeb49def5e06ce32",
+      "jsonSha256": "96dcfb8b029a8b51958f351e33d54f68949ec1bdec04a6ceeeb49def5e06ce32",
+      "yamlSha256": "d1672bf1ce9fbb4f022eec13e4e1b91572189f0ddc7cce4e051fc41d38fe613d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_classification_of_ambulance_calls_for_18_district_council_districts_provisional_figures",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "96dcfb8b029a8b51958f351e33d54f68949ec1bdec04a6ceeeb49def5e06ce32"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634801051242_84575",
+        "canonicalJsonSha256": "96dcfb8b029a8b51958f351e33d54f68949ec1bdec04a6ceeeb49def5e06ce32",
+        "originalRepresentationSha256": "96dcfb8b029a8b51958f351e33d54f68949ec1bdec04a6ceeeb49def5e06ce32",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_classification_of_ambulance_calls_for_18_district_council_districts_provisional_figures"
+    },
+    {
+      "id": "fsd-csdi-classification-of-fire-calls-by-18-district-council-districts-provisional-figures",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-classification-of-fire-calls-by-18-district-council-districts-provisional-figures",
+      "name": "Classification of Fire Calls by 18 District Council districts (Provisional Figures)",
+      "apiTitle": "Fire Services Department \u2014 Classification of Fire Calls by 18 District Council districts (Provisional Figures)",
+      "json": "fsd/csdi-classification-of-fire-calls-by-18-district-council-districts-provisional-figures/openapi.json",
+      "yaml": "fsd/csdi-classification-of-fire-calls-by-18-district-council-districts-provisional-figures/openapi.yaml",
+      "file": "fsd/csdi-classification-of-fire-calls-by-18-district-council-districts-provisional-figures/openapi.json",
+      "sha256": "45e43babcb961937adc179301b024ae9960f2485149fcafcc12101c0276f45de",
+      "jsonSha256": "45e43babcb961937adc179301b024ae9960f2485149fcafcc12101c0276f45de",
+      "yamlSha256": "44abfcaa4bde27a9e87b631af6f54bc5d18c9f615f88129e347257abbd020fb3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_classification_of_fire_calls_by_18_district_council_districts_provisional_figures",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "45e43babcb961937adc179301b024ae9960f2485149fcafcc12101c0276f45de"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634801183916_21450",
+        "canonicalJsonSha256": "45e43babcb961937adc179301b024ae9960f2485149fcafcc12101c0276f45de",
+        "originalRepresentationSha256": "45e43babcb961937adc179301b024ae9960f2485149fcafcc12101c0276f45de",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_classification_of_fire_calls_by_18_district_council_districts_provisional_figures"
+    },
+    {
+      "id": "fsd-csdi-list-of-registered-fire-service-installation-contractors-willing-to-provide-selling-services-of-approved-portable-equipment",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-list-of-registered-fire-service-installation-contractors-willing-to-provide-selling-services-of-approved-portable-equipment",
+      "name": "List of Registered Fire Service Installation Contractors willing to provide selling services of Approved Portable Equipment",
+      "apiTitle": "Fire Services Department \u2014 List of Registered Fire Service Installation Contractors willing to provide selling services of Approved Portable Equipment",
+      "json": "fsd/csdi-list-of-registered-fire-service-installation-contractors-willing-to-provide-selling-services-of-approved-portable-equipment/openapi.json",
+      "yaml": "fsd/csdi-list-of-registered-fire-service-installation-contractors-willing-to-provide-selling-services-of-approved-portable-equipment/openapi.yaml",
+      "file": "fsd/csdi-list-of-registered-fire-service-installation-contractors-willing-to-provide-selling-services-of-approved-portable-equipment/openapi.json",
+      "sha256": "430242761804d95ce27d9c81040a2021cffb40e22b758821802ccd601b755db8",
+      "jsonSha256": "430242761804d95ce27d9c81040a2021cffb40e22b758821802ccd601b755db8",
+      "yamlSha256": "3c9c6a9d6b83d630df9965e2f8186b86c0cd8ded8bdd78bb9a48417c23699350",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_registered_fire_service_installation_contractors_willing_to_provide_selling_services_of_approved_portable_equipment",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "430242761804d95ce27d9c81040a2021cffb40e22b758821802ccd601b755db8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1634801599116_92365",
+        "canonicalJsonSha256": "430242761804d95ce27d9c81040a2021cffb40e22b758821802ccd601b755db8",
+        "originalRepresentationSha256": "430242761804d95ce27d9c81040a2021cffb40e22b758821802ccd601b755db8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_registered_fire_service_installation_contractors_willing_to_provide_selling_services_of_approved_portable_equipment"
+    },
+    {
+      "id": "fsd-csdi-list-of-registered-fire-service-installation-contractors-interested-in-undertaking-fire-safety-improvement-works-as-required-by-the-fire-safety-industrial-build",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-list-of-registered-fire-service-installation-contractors-interested-in-undertaking-fire-safety-improvement-works-as-required-by-the-fire-safety-industrial-build",
+      "name": "List of Registered Fire Service Installation Contractors Interested in Undertaking Fire Safety Improvement Works as Required by the Fire Safety (Industrial Buildings) Ordinance (Cap. 636)",
+      "apiTitle": "Fire Services Department \u2014 List of Registered Fire Service Installation Contractors Interested in Undertaking Fire Safety Improvement Works as Required by the Fire Safety (Industrial Buildings) Ordinance (Cap. 636)",
+      "json": "fsd/csdi-list-of-registered-fire-service-installation-contractors-interested-in-undertaking-fire-safety-improvement-works-as-required-by-the-fire-safety-industrial-build/openapi.json",
+      "yaml": "fsd/csdi-list-of-registered-fire-service-installation-contractors-interested-in-undertaking-fire-safety-improvement-works-as-required-by-the-fire-safety-industrial-build/openapi.yaml",
+      "file": "fsd/csdi-list-of-registered-fire-service-installation-contractors-interested-in-undertaking-fire-safety-improvement-works-as-required-by-the-fire-safety-industrial-build/openapi.json",
+      "sha256": "75231cd990efa6c73651ecf2dac7bea9b5e8d7bbe1d153f13ff496d1a265645f",
+      "jsonSha256": "75231cd990efa6c73651ecf2dac7bea9b5e8d7bbe1d153f13ff496d1a265645f",
+      "yamlSha256": "bbcda2a08898d1cad9ed2fee2c2c47755f1a262e7a9d8a2d717325480d697a9b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_list_of_registered_fire_service_installation_contractors_interested_in_undertaking_fire_safety_improvement_works_as_required_by_the_fire_safety_industrial_build",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "75231cd990efa6c73651ecf2dac7bea9b5e8d7bbe1d153f13ff496d1a265645f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1666326691035_59500",
+        "canonicalJsonSha256": "75231cd990efa6c73651ecf2dac7bea9b5e8d7bbe1d153f13ff496d1a265645f",
+        "originalRepresentationSha256": "75231cd990efa6c73651ecf2dac7bea9b5e8d7bbe1d153f13ff496d1a265645f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_list_of_registered_fire_service_installation_contractors_interested_in_undertaking_fire_safety_improvement_works_as_required_by_the_fire_safety_industrial_build"
+    },
+    {
+      "id": "fsd-csdi-record-of-target-mini-storage-premises-msp-without-common-fire-hazards",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-record-of-target-mini-storage-premises-msp-without-common-fire-hazards",
+      "name": "Record of Target Mini-Storage Premises (MSP) without common fire hazards",
+      "apiTitle": "Fire Services Department \u2014 Record of Target Mini-Storage Premises (MSP) without common fire hazards",
+      "json": "fsd/csdi-record-of-target-mini-storage-premises-msp-without-common-fire-hazards/openapi.json",
+      "yaml": "fsd/csdi-record-of-target-mini-storage-premises-msp-without-common-fire-hazards/openapi.yaml",
+      "file": "fsd/csdi-record-of-target-mini-storage-premises-msp-without-common-fire-hazards/openapi.json",
+      "sha256": "1a31ff6e010054a1b44bf8adf2f6d1fc5f4fcbb2bd301ac275b1509aaf4a9f13",
+      "jsonSha256": "1a31ff6e010054a1b44bf8adf2f6d1fc5f4fcbb2bd301ac275b1509aaf4a9f13",
+      "yamlSha256": "5d54c8a3b77b3316f0fc87b4f58ace55dbab64953c653bd8b19b6b5cf1f414bd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_record_of_target_mini_storage_premises_msp_without_common_fire_hazards",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1a31ff6e010054a1b44bf8adf2f6d1fc5f4fcbb2bd301ac275b1509aaf4a9f13"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1666326904545_5957",
+        "canonicalJsonSha256": "1a31ff6e010054a1b44bf8adf2f6d1fc5f4fcbb2bd301ac275b1509aaf4a9f13",
+        "originalRepresentationSha256": "1a31ff6e010054a1b44bf8adf2f6d1fc5f4fcbb2bd301ac275b1509aaf4a9f13",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_record_of_target_mini_storage_premises_msp_without_common_fire_hazards"
+    },
+    {
+      "id": "fsd-csdi-record-of-convicted-target-mini-storage-premises-with-common-fire-hazards-and-fire-hazard-order-has-been-issued-by-courts-and-still-in-operation",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-record-of-convicted-target-mini-storage-premises-with-common-fire-hazards-and-fire-hazard-order-has-been-issued-by-courts-and-still-in-operation",
+      "name": "Record of convicted Target Mini-Storage Premises with common fire hazards and Fire Hazard Order has been issued by Courts and still in operation",
+      "apiTitle": "Fire Services Department \u2014 Record of convicted Target Mini-Storage Premises with common fire hazards and Fire Hazard Order has been issued by Courts and still in operation",
+      "json": "fsd/csdi-record-of-convicted-target-mini-storage-premises-with-common-fire-hazards-and-fire-hazard-order-has-been-issued-by-courts-and-still-in-operation/openapi.json",
+      "yaml": "fsd/csdi-record-of-convicted-target-mini-storage-premises-with-common-fire-hazards-and-fire-hazard-order-has-been-issued-by-courts-and-still-in-operation/openapi.yaml",
+      "file": "fsd/csdi-record-of-convicted-target-mini-storage-premises-with-common-fire-hazards-and-fire-hazard-order-has-been-issued-by-courts-and-still-in-operation/openapi.json",
+      "sha256": "2848ce1f4f86b452a93e4ee79e1fc1a83ca5e3cd4603847495927df911c42379",
+      "jsonSha256": "2848ce1f4f86b452a93e4ee79e1fc1a83ca5e3cd4603847495927df911c42379",
+      "yamlSha256": "a349ced13b14339f7ffc15358afd32c9d3bdac919fd3ee8f2ab01ef4023535f6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_record_of_convicted_target_mini_storage_premises_with_common_fire_hazards_and_fire_hazard_order_has_been_issued_by_courts_and_still_in_operation",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2848ce1f4f86b452a93e4ee79e1fc1a83ca5e3cd4603847495927df911c42379"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1666327020607_90352",
+        "canonicalJsonSha256": "2848ce1f4f86b452a93e4ee79e1fc1a83ca5e3cd4603847495927df911c42379",
+        "originalRepresentationSha256": "2848ce1f4f86b452a93e4ee79e1fc1a83ca5e3cd4603847495927df911c42379",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_record_of_convicted_target_mini_storage_premises_with_common_fire_hazards_and_fire_hazard_order_has_been_issued_by_courts_and_still_in_operation"
+    },
+    {
+      "id": "fsd-csdi-fire-safety-complaints-for-operational-commands-by-18-district-council-districts-provisional-figures",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-fire-safety-complaints-for-operational-commands-by-18-district-council-districts-provisional-figures",
+      "name": "Fire Safety Complaints for Operational Commands by 18 District Council districts (Provisional Figures)",
+      "apiTitle": "Fire Services Department \u2014 Fire Safety Complaints for Operational Commands by 18 District Council districts (Provisional Figures)",
+      "json": "fsd/csdi-fire-safety-complaints-for-operational-commands-by-18-district-council-districts-provisional-figures/openapi.json",
+      "yaml": "fsd/csdi-fire-safety-complaints-for-operational-commands-by-18-district-council-districts-provisional-figures/openapi.yaml",
+      "file": "fsd/csdi-fire-safety-complaints-for-operational-commands-by-18-district-council-districts-provisional-figures/openapi.json",
+      "sha256": "cc6266ffe009e17db9a43212ccb3f7045c7774c582328b34fdda1d4308b041b7",
+      "jsonSha256": "cc6266ffe009e17db9a43212ccb3f7045c7774c582328b34fdda1d4308b041b7",
+      "yamlSha256": "218557d1ed1891176e07d5f160b65f817bd379e17ce3fb9d46b060e84627de06",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_fire_safety_complaints_for_operational_commands_by_18_district_council_districts_provisional_figures",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cc6266ffe009e17db9a43212ccb3f7045c7774c582328b34fdda1d4308b041b7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1695958176304_93222",
+        "canonicalJsonSha256": "cc6266ffe009e17db9a43212ccb3f7045c7774c582328b34fdda1d4308b041b7",
+        "originalRepresentationSha256": "cc6266ffe009e17db9a43212ccb3f7045c7774c582328b34fdda1d4308b041b7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_fire_safety_complaints_for_operational_commands_by_18_district_council_districts_provisional_figures"
+    },
+    {
+      "id": "fsd-csdi-other-fire-service-facilities-e-g-workshop",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "csdi-other-fire-service-facilities-e-g-workshop",
+      "name": "Other Fire Service Facilities (e.g. Workshop)",
+      "apiTitle": "Fire Services Department \u2014 Other Fire Service Facilities (e.g. Workshop)",
+      "json": "fsd/csdi-other-fire-service-facilities-e-g-workshop/openapi.json",
+      "yaml": "fsd/csdi-other-fire-service-facilities-e-g-workshop/openapi.yaml",
+      "file": "fsd/csdi-other-fire-service-facilities-e-g-workshop/openapi.json",
+      "sha256": "f44f385efbbbd7f73eed82e2365301f04ef87042e86b6cc4f1791e609938271b",
+      "jsonSha256": "f44f385efbbbd7f73eed82e2365301f04ef87042e86b6cc4f1791e609938271b",
+      "yamlSha256": "bc03104bbc13e283aca2d94870d39eab35389f8c0fa26020f82394350b764ed5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_other_fire_service_facilities_e_g_workshop",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f44f385efbbbd7f73eed82e2365301f04ef87042e86b6cc4f1791e609938271b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkfsd_rcd_1695959632418_42564",
+        "canonicalJsonSha256": "f44f385efbbbd7f73eed82e2365301f04ef87042e86b6cc4f1791e609938271b",
+        "originalRepresentationSha256": "f44f385efbbbd7f73eed82e2365301f04ef87042e86b6cc4f1791e609938271b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_other_fire_service_facilities_e_g_workshop"
+    },
+    {
+      "id": "fsd-location-of-automated-external-defibrillator-aed",
+      "publisherKey": "fsd",
+      "publisherName": "Fire Services Department",
+      "familyKey": "location-of-automated-external-defibrillator-aed",
+      "name": "Location of Automated External Defibrillator (AED)",
+      "apiTitle": "AED Location Data",
+      "json": "fsd/location-of-automated-external-defibrillator-aed/openapi.json",
+      "yaml": "fsd/location-of-automated-external-defibrillator-aed/openapi.yaml",
+      "file": "fsd/location-of-automated-external-defibrillator-aed/openapi.json",
+      "sha256": "05a27b3c5e73bc2641c92f3f87d7c6d44d6f369d73769dea7483a63b91f19196",
+      "jsonSha256": "05a27b3c5e73bc2641c92f3f87d7c6d44d6f369d73769dea7483a63b91f19196",
+      "yamlSha256": "f6792a18bf34e169754390090e25a9fffdf962bcc9e81d6f48b697783fd5566c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.0",
+      "namespace": "location_of_automated_external_defibrillator_aed",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "05a27b3c5e73bc2641c92f3f87d7c6d44d6f369d73769dea7483a63b91f19196"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.hkfsd.gov.hk/datagovhk/data_dictionaries/DD_CARE_eng.pdf",
+        "canonicalJsonSha256": "05a27b3c5e73bc2641c92f3f87d7c6d44d6f369d73769dea7483a63b91f19196",
+        "originalRepresentationSha256": "ad1a7a39265afd337034db2a3b37a1e09a0b52e75cc4b9b56caa8542641e4aad",
+        "serialization": "Deterministic JSON/YAML from retained source conversion"
+      },
+      "moduleName": "location_of_automated_external_defibrillator_aed"
+    }
+  ]
+}

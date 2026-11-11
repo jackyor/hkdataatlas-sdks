@@ -1,0 +1,85 @@
+{
+  "publisherKey": "amigo",
+  "publisherName": "Amigo (Taxi Fleet Licensee)",
+  "sources": [
+    {
+      "id": "amigo-taxi-fleet-information-amigo",
+      "publisherKey": "amigo",
+      "publisherName": "Amigo (Taxi Fleet Licensee)",
+      "familyKey": "taxi-fleet-information-amigo",
+      "name": "Taxi Fleet Information (Amigo)",
+      "apiTitle": "Taxi Fleet Information (Amigo) Webx API",
+      "json": "amigo/taxi-fleet-information-amigo/openapi.json",
+      "yaml": "amigo/taxi-fleet-information-amigo/openapi.yaml",
+      "file": "amigo/taxi-fleet-information-amigo/openapi.json",
+      "sha256": "20d36885157b15e0b11ef5764967f2041c09912c2a5cdc1be78dbb5ccd0d529e",
+      "jsonSha256": "20d36885157b15e0b11ef5764967f2041c09912c2a5cdc1be78dbb5ccd0d529e",
+      "yamlSha256": "90826c3651065405520a495fc56efefa59a68adeb583eeed51565a40dd93dbc3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "taxi_fleet_information_amigo",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "20d36885157b15e0b11ef5764967f2041c09912c2a5cdc1be78dbb5ccd0d529e"
+        },
+        "sourceContent": {
+          "status": "source_correction_bound_to_official_documentation",
+          "kind": "targeted_source_accuracy_correction",
+          "fullContentCompleteness": "not_established_by_targeted_correction"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-amigo/Amigo_spec.pdf",
+        "canonicalJsonSha256": "20d36885157b15e0b11ef5764967f2041c09912c2a5cdc1be78dbb5ccd0d529e",
+        "originalRepresentationSha256": "f8799af0af9c7e196f356dd53d1e66acb5556d6a0f13c0229b023a57286748fd",
+        "serialization": "Source-backed corrected derivative; original representation preserved in source history",
+        "currentUrl": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-amigo/Amigo_spec.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "f8799af0af9c7e196f356dd53d1e66acb5556d6a0f13c0229b023a57286748fd",
+          "canonicalJsonSha256": "20d36885157b15e0b11ef5764967f2041c09912c2a5cdc1be78dbb5ccd0d529e",
+          "currentSourceUrl": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-amigo/Amigo_spec.pdf",
+          "documentationSources": [
+            {
+              "url": "https://www.td.gov.hk/datagovhk_td/taxi-fleet-information-amigo/Amigo_spec.pdf",
+              "sha256": "7a4c528d9379a3e2a37ea015aa39f2c73ce14a236c76a9caa91f1fe4e864303f",
+              "kind": "publisher_document_bytes"
+            }
+          ],
+          "reason": {
+            "kind": "response_field_compatibility",
+            "patchPointers": [
+              "#/components/schemas/TaxiFleetTdSlimRecord/properties/lat",
+              "#/components/schemas/TaxiFleetTdSlimRecord/properties/long"
+            ]
+          }
+        }
+      },
+      "moduleName": "taxi_fleet_information_amigo"
+    }
+  ]
+}

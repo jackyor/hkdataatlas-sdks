@@ -1,0 +1,25 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "wsd-csdi-wsd-customer-enquiry-centres",
+  "sourceSha256": "86caeb7e828ac418a08881d62205436793159bef90d6f5b4a55b275b4a2d34c3",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/wsd_rcd_1696488124453_72190/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1696488124453_72190/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

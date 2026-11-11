@@ -1,0 +1,38 @@
+{
+  "sourceId": "mtr-mtr-bus-next-bus-api",
+  "publisherKey": "mtr",
+  "family": "mtr_bus_next_bus_api",
+  "status": "generated",
+  "key": "2279dcbb65cfac8451157bf033cdc5eb7d43a954b9dfa1c11503eeafecf56808",
+  "sourceSha256": "3e0ca36c870a46a6a297c16a39e4f9bceb2510f6c692bccffce4ebbaa0795261",
+  "derivedInputSha256": "3c18a83ebab884d1a6a34cc34839ec9edd476cfd22170ad52c3490290c174fc6",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "post",
+      "path": "/v1/transport/mtr/bus/getSchedule",
+      "operationId": "getMtrBusSchedule",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/mtr-mtr-bus-next-bus-api.log",
+  "outputs": {
+    "__init__.py": "787910d224520370b16f83cbcd4138e52dbf775b88054c87dbff39a82471bc66",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_mtr_bus_schedule.py": "a76662a785824a5414bd8af11583631527684942b14253aed6cff3a27fd42217",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "e5ff0c917ea8af8fc6b5b6a9dcf6d00c3547af9a63f7953bdb04a212114ad5f2",
+    "models/bus.py": "1340781e4ff4ec47ea5cc7cd665f8491badecd12c9a853e70220b5413f08c145",
+    "models/bus_location.py": "d28d43a15117a61ac00e183a2b9117968acaf48241f6ebe137da66a2671c74c4",
+    "models/bus_stop.py": "ca379a498d4364fdff5eb52f22e10ba898f730551d376a467a267e94e1e19189",
+    "models/schedule_request.py": "785e197d590ec3d88829d2779fb300060413f8d4123f60bc3497b51ce4268eb1",
+    "models/schedule_request_language.py": "80789a7b9e3e744640ff9337e68e299331d911bdc7fe5342da190f4545b02d59",
+    "models/schedule_request_route_name.py": "40abc58aef48e7229e6a21efbc890fca169d6dbcbfee82833ea424b10769a674",
+    "models/schedule_response.py": "82ca2aa64a1469ec3c845aff13414aa8eb0a41beb8cbd4149f5f5684fb6c201b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

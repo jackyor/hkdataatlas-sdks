@@ -1,0 +1,306 @@
+{
+  "components": {
+    "schemas": {
+      "PressRelease": {
+        "description": "A press release result as illustrated by the publisher's response example.",
+        "properties": {
+          "date": {
+            "description": "Publication date, shown in the example as day.month.year.",
+            "type": "string"
+          },
+          "description": {
+            "description": "Press release description or excerpt.",
+            "type": "string"
+          },
+          "link": {
+            "description": "Link to the press release. The retained current-source response also uses relative links. Plainstrings preserve absolute and relative publisherlinks without an unsupported absoluteURI constraint.",
+            "type": "string"
+          },
+          "title": {
+            "description": "Press release title.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "SearchResponse": {
+        "description": "Successful search result. The example illustrates returned fields but does not establish that every field is always present or that the sample results are exhaustive.",
+        "properties": {
+          "results": {
+            "description": "List of press release results. At most 400 records are returned.",
+            "items": {
+              "$ref": "#/components/schemas/PressRelease"
+            },
+            "type": "array"
+          },
+          "returned-count": {
+            "description": "Number of results returned.",
+            "type": "integer"
+          },
+          "total-count": {
+            "description": "Total result count.",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Press Release Search API specification",
+    "url": "https://resource.data.one.gov.hk/opendata/pressrelease-search/pressrelease-search-data-specification.pdf"
+  },
+  "info": {
+    "description": "Searches press releases issued within a date period with a specified official as subject. The publisher document is dated 2023-02-21; this date is not an API version. All date/time is HKT (GMT+8), and all parameters are case-insensitive. If neither start nor end is supplied, the default date range is the past six months. The maximum number of records returned is 400. Authentication requirements are not documented.",
+    "title": "Press Release Search API",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/pressrelease/search": {
+      "get": {
+        "description": "Retrieves press releases within the inclusive date period, with the specified official as subject. If lang is specified, results are limited to that language; otherwise all languages are included. The earliest accepted start date depends on the official: CE 2017-07-01; CS and FS 2017-01-16; SJ 2017-07-01; other officials 2019-01-01. The latest accepted end date is today.",
+        "operationId": "searchPressReleases",
+        "parameters": [
+          {
+            "description": "Inclusive start date in YYYYMMDD format. Earliest accepted date depends on official. If both start and end are omitted, the default date range is the past six months.",
+            "example": "20190102",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "schema": {
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Inclusive end date in YYYYMMDD format; the latest accepted date is today. If both start and end are omitted, the default date range is the past six months.",
+            "example": "20190109",
+            "in": "query",
+            "name": "end",
+            "required": false,
+            "schema": {
+              "pattern": "^\\d{8}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Language code. Omit to include all languages.",
+            "examples": {
+              "english": {
+                "summary": "English",
+                "value": "en"
+              },
+              "simplifiedChinese": {
+                "summary": "Simplified Chinese",
+                "value": "sc"
+              },
+              "traditionalChinese": {
+                "summary": "Traditional Chinese",
+                "value": "tc"
+              }
+            },
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "enum": [
+                "en",
+                "tc",
+                "sc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Code of the official who is the subject of the press releases.",
+            "examples": {
+              "chiefExecutive": {
+                "summary": "Chief Executive",
+                "value": "CE"
+              },
+              "chiefSecretary": {
+                "summary": "Chief Secretary for Administration",
+                "value": "CS"
+              },
+              "financialSecretary": {
+                "summary": "Financial Secretary",
+                "value": "FS"
+              },
+              "secretaryForCivilService": {
+                "summary": "Secretary for the Civil Service",
+                "value": "SCS"
+              },
+              "secretaryForCommerceEconomicDevelopment": {
+                "summary": "Secretary for Commerce and Economic Development",
+                "value": "SCED"
+              },
+              "secretaryForConstitutionalMainlandAffairs": {
+                "summary": "Secretary for Constitutional and Mainland Affairs",
+                "value": "SCMA"
+              },
+              "secretaryForCultureSportsTourism": {
+                "summary": "Secretary for Culture, Sports and Tourism",
+                "value": "SCST"
+              },
+              "secretaryForDevelopment": {
+                "summary": "Secretary for Development",
+                "value": "SDEV"
+              },
+              "secretaryForEducation": {
+                "summary": "Secretary for Education",
+                "value": "SED"
+              },
+              "secretaryForEnvironmentEcology": {
+                "summary": "Secretary for Environment and Ecology",
+                "value": "SEE"
+              },
+              "secretaryForFinancialServicesTreasury": {
+                "summary": "Secretary for Financial Services and the Treasury",
+                "value": "SFST"
+              },
+              "secretaryForHealth": {
+                "summary": "Secretary for Health",
+                "value": "SHH"
+              },
+              "secretaryForHomeYouthAffairs": {
+                "summary": "Secretary for Home and Youth Affairs",
+                "value": "SHYA"
+              },
+              "secretaryForHousing": {
+                "summary": "Secretary for Housing",
+                "value": "SH"
+              },
+              "secretaryForInnovationTechnologyIndustry": {
+                "summary": "Secretary for Innovation, Technology and Industry",
+                "value": "SITI"
+              },
+              "secretaryForJustice": {
+                "summary": "Secretary for Justice",
+                "value": "SJ"
+              },
+              "secretaryForLabourWelfare": {
+                "summary": "Secretary for Labour and Welfare",
+                "value": "SLW"
+              },
+              "secretaryForSecurity": {
+                "summary": "Secretary for Security",
+                "value": "SS"
+              },
+              "secretaryForTransportLogistics": {
+                "summary": "Secretary for Transport and Logistics",
+                "value": "STL"
+              }
+            },
+            "in": "query",
+            "name": "official",
+            "required": true,
+            "schema": {
+              "enum": [
+                "CE",
+                "CS",
+                "FS",
+                "SJ",
+                "SCS",
+                "SCST",
+                "SCED",
+                "SCMA",
+                "SDEV",
+                "SED",
+                "SEE",
+                "SFST",
+                "SH",
+                "SHH",
+                "SHYA",
+                "SITI",
+                "SLW",
+                "SS",
+                "STL"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Type code. Omit to include all types.",
+            "examples": {
+              "press": {
+                "summary": "General press releases",
+                "value": "press"
+              },
+              "speech": {
+                "summary": "Speeches",
+                "value": "speech"
+              }
+            },
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "enum": [
+                "press",
+                "speech"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "results": [
+                    {
+                      "date": "10.1.2019",
+                      "description": "The Chief Executive, Mrs Carrie Lam, met the Secretary of the CPC Zhaoqing Municipal Committee, Mr Lai Zehua, at the Chief Executive's Office this afternoon (January 10). The Secretary for Constitutional and Mainland Affairs, Mr Patrick Nip, was also present. Welcoming Mr Lai's...",
+                      "link": "https://www.info.gov.hk/gia/general/201901/10/P2019011000859.htm",
+                      "title": "CE meets Secretary of CPC Zhaoqing Municipal Committee"
+                    },
+                    {
+                      "date": "11.1.2019",
+                      "description": "The following is issued on behalf of the Judiciary: The Judiciary today (January 11) announced five judicial appointments covering the High Court and the District Court. The appointments include one Justice of Appeal of the Court of Appeal of the High Court, three Judges of the Court of First Instance of the High Court and the Principal Family Court Judge. The appointments are made by the Chief Executive on the recommendation of the Judicial Officers Recommendation Commission. All appointments will take effect from January 14, 2019. Justice of Appeal of the Court of Appeal of the...",
+                      "link": "https://www.info.gov.hk/gia/general/201901/11/P2019011100282.htm",
+                      "title": "Judicial appointments"
+                    }
+                  ],
+                  "returned-count": 37,
+                  "total-count": 37
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            },
+            "description": "Successful search; response contains the total result count, returned result count, and results."
+          },
+          "400": {
+            "description": "Request syntax error, for example a missing required parameter or a parameter syntax error."
+          }
+        },
+        "summary": "Search press releases"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.data.gov.hk/v1"
+    }
+  ],
+  "x-source-evidence": {
+    "url": "https://resource.data.one.gov.hk/opendata/pressrelease-search/pressrelease-search-data-specification.pdf",
+    "originalSourceUrl": "https://resource.data.one.gov.hk/opendata/pressrelease-search/pressrelease-search-data-specification.pdf",
+    "originalJsonSha256": "a82f8c8bbc5b0922497c5912cb1046038b3dc8ce304d03292ae896f761237d12",
+    "retainedPublisherSourceSha256": "f758a6afee627c304260f148866f864a5b6ef34d99361016cd15072e264e75a3",
+    "classification": "publisher_contract_and_observed_response_compatibility_derivative",
+    "change": "Only enumeratedresponse constraints broadened to preserve published and hash-bound observed representations; no newfields, values, ranges, restrictivepatterns or coercions.",
+    "responseBodySha256": [
+      "362f08fd85f28a4a323a7149a713496a2977e72a9e72c725391007793de809c9",
+      "59e2b0cbe7b5a7229c0060591e771f368e23b990b4288060269718ff6d5a8d95",
+      "9a94738757ba4c256db8306315c7be7272ef64f9eb206c72b24a64443d0791ae",
+      "52b494bc380f9d698be43598fda5c538eb4dc0249c71ea4ec06988b392e2dc94",
+      "1880e9412273fdfc387b5bcc0071b4386969d5c6b9015d8e232f8ba1e58c5d61",
+      "ec342010f061f84853147aa648b3359823d683d3a0a61599cafbc7cfa2bbdac7"
+    ],
+    "scope": "Completebodies and completeitems from incompleteprefixes are labelled separately. Unreadtail/cardinality are never asserted."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "aw-csdi-lists-of-consulates-general-honorary-consulates-and-officially-recognised-bodies-in-hong-kong",
+  "sourceSha256": "8d2a879dba6bc022c5e5079260b18f891c5c2b299a70ac4bb889ae1f983c9ae3",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/aw_rcd_1667189666849_98250/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/aw_rcd_1667189666849_98250/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/aw_rcd_1667189666849_98250/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

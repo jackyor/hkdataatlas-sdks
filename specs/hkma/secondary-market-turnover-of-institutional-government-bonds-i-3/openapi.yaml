@@ -1,0 +1,187 @@
+openapi: 3.0.0
+info:
+  title: Secondary market turnover of institutional Government Bonds issued under the Infrastructure Bond Programme and Government Sustainable Bond Programme - Remaining tenor – Hong Kong dollar-denominated
+  description: "For more details, refer the link: https://apidocs.hkma.gov.hk/documentation/market-data-and-statistics/monthly-statistical-bulletin/ibpgsbp/sec-mar-turnover-govbonds-ibpgsbp-remaining-maturity-hkd"
+  version: v1
+servers:
+  - url: https://api.hkma.gov.hk/public/market-data-and-statistics/monthly-statistical-bulletin/ibpgsbp
+    variables: {}
+paths:
+  /sec-mar-turnover-govbonds-ibpgsbp-remaining-maturity-hkd:
+    get:
+      summary: Retrieve data of Secondary market turnover of institutional Government Bonds issued under the Infrastructure Bond Programme and Government Sustainable Bond Programme - Remaining tenor – Hong Kong dollar-denominated
+      parameters:
+        - name: pagesize
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: fields
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: column
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: choose
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: to
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortby
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: sortorder
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            $ref: "#/components/schemas/Sortorder"
+      responses:
+        "200":
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "500":
+          description: Unexcpeted error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    Header:
+      title: Header
+      type: object
+      properties:
+        success:
+          type: boolean
+        err_code:
+          type: string
+        err_msg:
+          type: string
+    Response:
+      title: response
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+        result:
+          $ref: "#/components/schemas/Result"
+    Result:
+      title: Result
+      type: object
+      properties:
+        datasize:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Record"
+          description: ""
+    Sortorder:
+      title: sortorder
+      enum:
+        - asc
+        - desc
+      type: string
+      example: asc
+      x-enum-elements:
+        - name: asc
+          description: ""
+        - name: desc
+          description: ""
+    ErrorResponse:
+      title: errorResponse
+      type: object
+      properties:
+        header:
+          $ref: "#/components/schemas/Header"
+    Record:
+      title: Record
+      type: object
+      properties:
+        end_of_month:
+          type: string
+          format: date
+        remain_1y_or_below_val:
+          type: number
+        remain_1y_or_below_vol:
+          type: number
+        remain_1yto3y_val:
+          type: number
+        remain_1yto3y_vol:
+          type: number
+        remain_3yto5y_val:
+          type: number
+        remain_3yto5y_vol:
+          type: number
+        remain_5yto7y_val:
+          type: number
+        remain_5yto7y_vol:
+          type: number
+        remain_7yto10y_val:
+          type: number
+        remain_7yto10y_vol:
+          type: number
+        remain_10yto15y_val:
+          type: number
+        remain_10yto15y_vol:
+          type: number
+        remain_over15y_val:
+          type: number
+        remain_over15y_vol:
+          type: number
+        remain_total_val:
+          type: number
+        remain_total_vol:
+          type: number

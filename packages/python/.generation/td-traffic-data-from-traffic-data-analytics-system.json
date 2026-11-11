@@ -1,0 +1,43 @@
+{
+  "sourceId": "td-traffic-data-from-traffic-data-analytics-system",
+  "publisherKey": "td",
+  "family": "traffic_data_from_traffic_data_analytics_system",
+  "status": "generated",
+  "key": "6834319255557d5a31d7f8a9c8e9f2ca77931998eb445cf9251edbf7065b7504",
+  "sourceSha256": "a97b2ef3265ebae3c484d1f4d49b1bf60eea0aec4260afcdd1467a1bbead36c2",
+  "derivedInputSha256": "a97b2ef3265ebae3c484d1f4d49b1bf60eea0aec4260afcdd1467a1bbead36c2",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "post",
+      "path": "/route",
+      "operationId": "getTrafficRoute",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/td-traffic-data-from-traffic-data-analytics-system.log",
+  "outputs": {
+    "__init__.py": "93b374fed8024dd9eb851a49d35ea08b268bef8b13738c4ea261b2a02ebc232e",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_traffic_route.py": "3019f2d9dd8a1cb72c39357d094fdb5807590e83f0f01a4fb51df05f121c8919",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "f9b15e1560ec0a5e46ec400922dcb84c526470c64f3b35203854e0d1535cfeb3",
+    "models/alternate_route.py": "5a9c939a6d287f2c61a31fe891d753e2b1f26f9d34f1d763caa3ed20f2edba8f",
+    "models/error_response.py": "09c5c888cbc51a2b73ad1da60cead0f421b61188f63b8270d2a84c5d5db66f2f",
+    "models/pedestrian_zone.py": "0c1d64cf80491c2be18b7e86a71389a95a3a0cadbf92adb5a41a80203c551a81",
+    "models/route_endpoint.py": "940d6570334134ab14e17adde526770e5ed2712215ed02b51ac8c583238a3e1d",
+    "models/route_part.py": "c83dc1fbd4f541ff21e640d5f6b2bf00af1ed974eda926c546ec9fabeee69f36",
+    "models/route_request.py": "e6a72896a5a9f7c7a742e76a4410f9322f8fac2087f6c15795ce4cecde06141a",
+    "models/route_request_lang.py": "489a4fdb8b40204f953dffa8e29c62e683fae4a18226e67dcb6f27444ac2c5dc",
+    "models/route_request_tunnel.py": "a8a52d34f496715788ba80cbe177686ed22f52229aa6724ab2ed1b346aaef482",
+    "models/route_request_type.py": "20ee269c6c5e35332c8abc9194b9af41a84220be6e66535f5ac5f68e77595185",
+    "models/route_response.py": "a4cafd222d352de33f091362653b595ff6e1fb2cf4c681bacbb5bb26d3981c25",
+    "models/route_segment.py": "99ee7a0a8dcc8028b70b9afe693ddb917c03cfcdebe6597e69e2fc57029bd793",
+    "models/route_segment_dir.py": "8bab34dd3ac5978aecb148fdb74eb0dfc089125d4cd3d10bf1a79ccccfc15964",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

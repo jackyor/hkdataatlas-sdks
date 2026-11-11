@@ -1,0 +1,296 @@
+{
+  "publisherKey": "hkpo",
+  "publisherName": "Hongkong Post",
+  "sources": [
+    {
+      "id": "hkpo-csdi-post-office-information",
+      "publisherKey": "hkpo",
+      "publisherName": "Hongkong Post",
+      "familyKey": "csdi-post-office-information",
+      "name": "Post Office Information",
+      "apiTitle": "Hongkong Post \u2014 Post Office Information",
+      "json": "hkpo/csdi-post-office-information/openapi.json",
+      "yaml": "hkpo/csdi-post-office-information/openapi.yaml",
+      "file": "hkpo/csdi-post-office-information/openapi.json",
+      "sha256": "4161f99a38c5b101cc5b7257fb8acb13835682bee7280a966af316b63cf0de73",
+      "jsonSha256": "4161f99a38c5b101cc5b7257fb8acb13835682bee7280a966af316b63cf0de73",
+      "yamlSha256": "f7d662ce2b0b4bd24af9132a17d505054659e6f2dafb20dd84026bb509e0c566",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_post_office_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4161f99a38c5b101cc5b7257fb8acb13835682bee7280a966af316b63cf0de73"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkpo_rcd_1638773445050_9581",
+        "canonicalJsonSha256": "4161f99a38c5b101cc5b7257fb8acb13835682bee7280a966af316b63cf0de73",
+        "originalRepresentationSha256": "4161f99a38c5b101cc5b7257fb8acb13835682bee7280a966af316b63cf0de73",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_post_office_information"
+    },
+    {
+      "id": "hkpo-csdi-mobile-post-office-information",
+      "publisherKey": "hkpo",
+      "publisherName": "Hongkong Post",
+      "familyKey": "csdi-mobile-post-office-information",
+      "name": "Mobile Post Office Information",
+      "apiTitle": "Hongkong Post \u2014 Mobile Post Office Information",
+      "json": "hkpo/csdi-mobile-post-office-information/openapi.json",
+      "yaml": "hkpo/csdi-mobile-post-office-information/openapi.yaml",
+      "file": "hkpo/csdi-mobile-post-office-information/openapi.json",
+      "sha256": "fb02319118982417fe57dc082a6beb316942f1eba71752bd1a91a25dcfe7cb4f",
+      "jsonSha256": "fb02319118982417fe57dc082a6beb316942f1eba71752bd1a91a25dcfe7cb4f",
+      "yamlSha256": "61f70b045a2debd1f1ff65913e3eaf30093750ec27d6ee873896455d74eec892",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_mobile_post_office_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fb02319118982417fe57dc082a6beb316942f1eba71752bd1a91a25dcfe7cb4f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkpo_rcd_1638773566771_76062",
+        "canonicalJsonSha256": "fb02319118982417fe57dc082a6beb316942f1eba71752bd1a91a25dcfe7cb4f",
+        "originalRepresentationSha256": "fb02319118982417fe57dc082a6beb316942f1eba71752bd1a91a25dcfe7cb4f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_mobile_post_office_information"
+    },
+    {
+      "id": "hkpo-csdi-street-posting-box-information",
+      "publisherKey": "hkpo",
+      "publisherName": "Hongkong Post",
+      "familyKey": "csdi-street-posting-box-information",
+      "name": "Street Posting Box Information",
+      "apiTitle": "Hongkong Post \u2014 Street Posting Box Information",
+      "json": "hkpo/csdi-street-posting-box-information/openapi.json",
+      "yaml": "hkpo/csdi-street-posting-box-information/openapi.yaml",
+      "file": "hkpo/csdi-street-posting-box-information/openapi.json",
+      "sha256": "95422eb3193fdf03ba765f4ff9e1ceca9bda367e5fa8349edd8b0762f709c78a",
+      "jsonSha256": "95422eb3193fdf03ba765f4ff9e1ceca9bda367e5fa8349edd8b0762f709c78a",
+      "yamlSha256": "4dbe584da14acf689bc3c0c8c7ac5638cd1723cd50e9201fd69f805e072e2f41",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_street_posting_box_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "95422eb3193fdf03ba765f4ff9e1ceca9bda367e5fa8349edd8b0762f709c78a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkpo_rcd_1638773801007_13653",
+        "canonicalJsonSha256": "95422eb3193fdf03ba765f4ff9e1ceca9bda367e5fa8349edd8b0762f709c78a",
+        "originalRepresentationSha256": "95422eb3193fdf03ba765f4ff9e1ceca9bda367e5fa8349edd8b0762f709c78a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_street_posting_box_information"
+    },
+    {
+      "id": "hkpo-csdi-ipostal-station-information",
+      "publisherKey": "hkpo",
+      "publisherName": "Hongkong Post",
+      "familyKey": "csdi-ipostal-station-information",
+      "name": "iPostal Station Information",
+      "apiTitle": "Hongkong Post \u2014 iPostal Station Information",
+      "json": "hkpo/csdi-ipostal-station-information/openapi.json",
+      "yaml": "hkpo/csdi-ipostal-station-information/openapi.yaml",
+      "file": "hkpo/csdi-ipostal-station-information/openapi.json",
+      "sha256": "508f5e0a052a3ed5af279c03474d3e2de4c09ba876679ac535aaacd2c6fd1f12",
+      "jsonSha256": "508f5e0a052a3ed5af279c03474d3e2de4c09ba876679ac535aaacd2c6fd1f12",
+      "yamlSha256": "1c9a4494a4207de8db9109371db0ea4530a33ba65b880e9048410bb8e263394c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ipostal_station_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "508f5e0a052a3ed5af279c03474d3e2de4c09ba876679ac535aaacd2c6fd1f12"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkpo_rcd_1639010988627_23643",
+        "canonicalJsonSha256": "508f5e0a052a3ed5af279c03474d3e2de4c09ba876679ac535aaacd2c6fd1f12",
+        "originalRepresentationSha256": "508f5e0a052a3ed5af279c03474d3e2de4c09ba876679ac535aaacd2c6fd1f12",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ipostal_station_information"
+    },
+    {
+      "id": "hkpo-csdi-ipostal-kiosk-information",
+      "publisherKey": "hkpo",
+      "publisherName": "Hongkong Post",
+      "familyKey": "csdi-ipostal-kiosk-information",
+      "name": "iPostal Kiosk Information",
+      "apiTitle": "Hongkong Post \u2014 iPostal Kiosk Information",
+      "json": "hkpo/csdi-ipostal-kiosk-information/openapi.json",
+      "yaml": "hkpo/csdi-ipostal-kiosk-information/openapi.yaml",
+      "file": "hkpo/csdi-ipostal-kiosk-information/openapi.json",
+      "sha256": "c37996b2a0480315b9b39983374e7afcc2eea8f9b8969bea2d106c1496b4cc75",
+      "jsonSha256": "c37996b2a0480315b9b39983374e7afcc2eea8f9b8969bea2d106c1496b4cc75",
+      "yamlSha256": "d6181d7ec683856f5393cfde912f3a09c5059fd0c6a9530faf8b8b08dd8eb555",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_ipostal_kiosk_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c37996b2a0480315b9b39983374e7afcc2eea8f9b8969bea2d106c1496b4cc75"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=hkpo_rcd_1639016844639_48104",
+        "canonicalJsonSha256": "c37996b2a0480315b9b39983374e7afcc2eea8f9b8969bea2d106c1496b4cc75",
+        "originalRepresentationSha256": "c37996b2a0480315b9b39983374e7afcc2eea8f9b8969bea2d106c1496b4cc75",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_ipostal_kiosk_information"
+    }
+  ]
+}

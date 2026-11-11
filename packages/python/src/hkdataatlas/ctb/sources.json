@@ -1,0 +1,81 @@
+{
+  "publisherKey": "ctb",
+  "publisherName": "Citybus Limited",
+  "sources": [
+    {
+      "id": "ctb-citybus-and-new-world-first-bus-next-bus-api",
+      "publisherKey": "ctb",
+      "publisherName": "Citybus Limited",
+      "familyKey": "citybus-and-new-world-first-bus-next-bus-api",
+      "name": "Citybus Next Bus API",
+      "apiTitle": "Citybus Next Bus API",
+      "json": "ctb/citybus-and-new-world-first-bus-next-bus-api/openapi.json",
+      "yaml": "ctb/citybus-and-new-world-first-bus-next-bus-api/openapi.yaml",
+      "file": "ctb/citybus-and-new-world-first-bus-next-bus-api/openapi.json",
+      "sha256": "3fb0f675b4f9687871350aa731d3804cfb6617fe5d827eda21e04d2bae156c5a",
+      "jsonSha256": "3fb0f675b4f9687871350aa731d3804cfb6617fe5d827eda21e04d2bae156c5a",
+      "yamlSha256": "2be76f4fc98c5fc92f260c4e937b20e8ac7d6a3aa0af2f28faac099310f5ef23",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.01",
+      "namespace": "citybus_and_new_world_first_bus_next_bus_api",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3fb0f675b4f9687871350aa731d3804cfb6617fe5d827eda21e04d2bae156c5a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 6,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.citybus.com.hk/datagovhk/bus_eta_spi_specifications.pdf",
+        "currentUrl": "https://www.citybus.com.hk/datagovhk/bus_eta_api_specifications.pdf",
+        "sourceRefresh": {
+          "priorJsonSha256": "43c117808e417fb09f2be92d18b9541d596e8fb3f84cf999747b5923fc514c53",
+          "canonicalJsonSha256": "3fb0f675b4f9687871350aa731d3804cfb6617fe5d827eda21e04d2bae156c5a",
+          "currentSourceUrl": "https://www.citybus.com.hk/datagovhk/bus_eta_api_specifications.pdf",
+          "classification": "source_backed_response_or_parameter_description_correction",
+          "documentationSources": [
+            {
+              "url": "https://www.citybus.com.hk/datagovhk/bus_eta_data_dictionary.pdf",
+              "sha256": "b2c006a3419c10a54848b4bd180db2c56030fc9f30b7db17a749dde1c8bb7002",
+              "representation": "source-attachment"
+            }
+          ],
+          "sourceCoverage": "Documented optional response fields and explicit retained wire compatibility; request identities retained.",
+          "responseCoverage": "{\"kind\":\"retained_body_and_sample_only_validation\",\"completeBodyChecks\":6,\"sampleOnlyChecks\":0,\"newHTTPRequests\":0}",
+          "liveAssessment": "No new HTTP performed by SDK import; exact retained body/sample proof remains bounded."
+        },
+        "canonicalJsonSha256": "3fb0f675b4f9687871350aa731d3804cfb6617fe5d827eda21e04d2bae156c5a",
+        "originalRepresentationSha256": "43c117808e417fb09f2be92d18b9541d596e8fb3f84cf999747b5923fc514c53",
+        "serialization": "Maintained derivative from hash-bound original source and replayable delta; publisher original preserved."
+      },
+      "moduleName": "citybus_and_new_world_first_bus_next_bus_api"
+    }
+  ]
+}

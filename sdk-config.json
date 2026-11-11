@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "typescript": {
+    "name": "hkdataatlas"
+  },
+  "python": {
+    "name": "hkdataatlas",
+    "module": "hkdataatlas"
+  },
+  "generators": {
+    "defaults": {
+      "typescript": {
+        "name": "orval",
+        "version": "8.47.0",
+        "client": "native fetch"
+      },
+      "python": {
+        "name": "openapi-python-client",
+        "version": "0.30.0",
+        "client": "native httpx2"
+      }
+    }
+  },
+  "repository": "jackyor/hkdataatlas-sdks"
+}

@@ -1,0 +1,122 @@
+{
+  "publisherKey": "chsc",
+  "publisherName": "Committee on Home-School Co-operation",
+  "sources": [
+    {
+      "id": "chsc-csdi-primary-school-profiles",
+      "publisherKey": "chsc",
+      "publisherName": "Committee on Home-School Co-operation",
+      "familyKey": "csdi-primary-school-profiles",
+      "name": "Primary School Profiles",
+      "apiTitle": "Committee on Home-School Co-operation \u2014 Primary School Profiles",
+      "json": "chsc/csdi-primary-school-profiles/openapi.json",
+      "yaml": "chsc/csdi-primary-school-profiles/openapi.yaml",
+      "file": "chsc/csdi-primary-school-profiles/openapi.json",
+      "sha256": "0473a9913079b28c2138bdc9b5c203b8d65194a774343dd7eeafa510b86e1e8a",
+      "jsonSha256": "0473a9913079b28c2138bdc9b5c203b8d65194a774343dd7eeafa510b86e1e8a",
+      "yamlSha256": "fdd91790c46f08f23419f6bd3c72cedc7053e51dd86e8185d5be41c8af5bbed0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_primary_school_profiles",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0473a9913079b28c2138bdc9b5c203b8d65194a774343dd7eeafa510b86e1e8a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=edb_rcd_1701933586551_96560",
+        "canonicalJsonSha256": "0473a9913079b28c2138bdc9b5c203b8d65194a774343dd7eeafa510b86e1e8a",
+        "originalRepresentationSha256": "0473a9913079b28c2138bdc9b5c203b8d65194a774343dd7eeafa510b86e1e8a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_primary_school_profiles"
+    },
+    {
+      "id": "chsc-csdi-secondary-school-profiles",
+      "publisherKey": "chsc",
+      "publisherName": "Committee on Home-School Co-operation",
+      "familyKey": "csdi-secondary-school-profiles",
+      "name": "Secondary School Profiles",
+      "apiTitle": "Committee on Home-School Co-operation \u2014 Secondary School Profiles",
+      "json": "chsc/csdi-secondary-school-profiles/openapi.json",
+      "yaml": "chsc/csdi-secondary-school-profiles/openapi.yaml",
+      "file": "chsc/csdi-secondary-school-profiles/openapi.json",
+      "sha256": "1702a1eaefc16be29f3b76726daa34511a4574a1f241af96a14e8b52f41498e3",
+      "jsonSha256": "1702a1eaefc16be29f3b76726daa34511a4574a1f241af96a14e8b52f41498e3",
+      "yamlSha256": "5272e0b3986bf024a3ed840a02a12f8e1bc1d2138554ef2da701ca54215b4e70",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_secondary_school_profiles",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1702a1eaefc16be29f3b76726daa34511a4574a1f241af96a14e8b52f41498e3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=edb_rcd_1702623811242_1459",
+        "canonicalJsonSha256": "1702a1eaefc16be29f3b76726daa34511a4574a1f241af96a14e8b52f41498e3",
+        "originalRepresentationSha256": "1702a1eaefc16be29f3b76726daa34511a4574a1f241af96a14e8b52f41498e3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_secondary_school_profiles"
+    }
+  ]
+}

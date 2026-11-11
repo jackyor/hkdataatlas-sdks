@@ -1,0 +1,120 @@
+components:
+  schemas:
+    Committee:
+      description: Fields documented for Tcommittee. No universal requiredness is specified.
+      properties:
+        committee_code:
+          description: "Code of the committee. Example: PL/HOU."
+          type: string
+        committee_id:
+          description: "Committee identifier. Example: 2608."
+          type: integer
+        home_url_chi:
+          description: "URL of the Chinese committee home page. Example shown by the dictionary: http://www.legco.gov.hk/general/chinese/panels/yr16-20/hg.htm."
+          type: string
+        home_url_eng:
+          description: "URL of the English committee home page. Example shown by the dictionary: http://www.legco.gov.hk/general/english/panels/yr16-20/hg.htm."
+          type: string
+        name_chi:
+          description: "Committee name in Chinese. Example: 房屋事務委員會."
+          type: string
+        name_eng:
+          description: "Committee name in English. Example: Panel on Housing."
+          type: string
+        term_id:
+          description: "Term identifier. Example: 5."
+          type: integer
+      type: object
+    Meeting:
+      description: Dictionary fields for a meeting record. No universal requiredness is specified.
+      properties:
+        Tmeeting_committee:
+          description: Associated meeting-committee records, where present. The dictionary documents the related table and fields but does not specify the exact serialized relationship shape.
+          items:
+            $ref: "#/components/schemas/MeetingCommittee"
+          type: array
+        agenda_url_chi:
+          description: URL of the Chinese meeting agenda. The dictionary example is a relative agenda path and shows a corresponding legco.gov.hk agenda URL.
+          type: string
+        agenda_url_eng:
+          description: URL of the English meeting agenda. The dictionary example is a relative agenda path and shows a corresponding legco.gov.hk agenda URL.
+          type: string
+        meet_id:
+          description: "Meeting identifier. Dictionary example: 120514."
+          type: integer
+        meeting_type_chi:
+          description: "Meeting type in Chinese. Documented values: 閉門會議, 午宴∕晚宴∕其他, and 公開會議."
+          type: string
+        meeting_type_eng:
+          description: Meeting type in English. The dictionary specifies text but no values.
+          type: string
+        start_date_time:
+          description: "Meeting start date and time. Dictionary format is YYYY-MM-DDThh:mm:ss (ISO 8601); example: 2016-10-18T16:30:00."
+          format: date-time
+          type: string
+        subject_chi:
+          description: "Meeting subject in Chinese. Example: 房屋事務委員會會議."
+          type: string
+        subject_eng:
+          description: "Meeting subject in English. Example: Meeting of Panel on Housing."
+          type: string
+        term_id:
+          description: Term identifier.
+          type: integer
+        venue_code:
+          description: "Code of the venue. Documented values: 1 (Chamber), 2 (Rm 1), 3 (Rm 2), 4 (Rm 2A), 5 (Rm 2B), and 6 (Rm 3)."
+          type: string
+        venue_name_chi:
+          description: "Venue name in Chinese. Documented values: 會議廳, 會議室 1, 會議室 2, 會議室 2A, 會議室 2B, and 會議室 3."
+          type: string
+        venue_name_eng:
+          description: "Venue name in English. Documented values: Chamber, Conference Room 1, Conference Room 2, Conference Room 2A, Conference Room 2B, and Conference Room 3."
+          type: string
+      type: object
+    MeetingCommittee:
+      description: Fields documented for Tmeeting_committee. The dictionary gives examples for identifiers but does not specify universal requiredness.
+      properties:
+        Tcommittee:
+          $ref: "#/components/schemas/Committee"
+        committee_id:
+          description: "Committee identifier. Dictionary example: 2608."
+          type: integer
+        meet_committee_id:
+          description: "Record identifier. Dictionary example: 10936."
+          type: integer
+        slot_id:
+          description: "Meeting slot identifier. Dictionary example: 162955."
+          type: integer
+      type: object
+    MeetingScheduleResource:
+      anyOf:
+        - $ref: "#/components/schemas/Meeting"
+        - items:
+            $ref: "#/components/schemas/Meeting"
+          type: array
+        - description: Unspecified response envelope; properties are not documented.
+          type: object
+      description: Permissive representation of schedule records described in the publisher's field dictionary. The dictionary does not specify whether the resource wraps records in an array or an envelope, so this schema permits either a record or an array of records.
+externalDocs:
+  description: Legislative Council data dictionary for meeting schedule
+  url: https://www.legco.gov.hk/datagovhk/data-dictionary-meeting-schedule-en.pdf
+info:
+  description: Read-only retrieval of the published meeting schedule resource. The version is undocumented and is not a publisher API version. The dictionary describes schedule and committee fields but does not specify an HTTP API contract, query parameters, authentication, or response envelope; the catalogue associates the literal JSON resource URL below with this dataset. Authentication requirements are unknown.
+  title: Legislative Council Meeting Schedule
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /Tmeeting:
+    get:
+      description: "The catalogue lists this exact URL as a JSON resource for the schedule of meetings: https://app.legco.gov.hk/ScheduleDB/odata/Tmeeting. This is a literal published resource URL, not evidence for additional URL templates or query parameters. The dictionary documents the fields below but does not establish response envelope, field requiredness, or authentication."
+      operationId: getMeetingSchedule
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeetingScheduleResource"
+          description: Meeting schedule resource. The publisher dictionary documents meeting fields; the response envelope and exact wire representation are not specified in the available documentation.
+      summary: Retrieve the meeting schedule
+servers:
+  - url: https://app.legco.gov.hk/ScheduleDB/odata

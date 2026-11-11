@@ -1,0 +1,220 @@
+{
+  "components": {
+    "schemas": {
+      "ObservedDayGroup": {
+        "description": "Permissive structure of the observed day-group object; no properties are required by this observation.",
+        "properties": {
+          "arrival": {
+            "description": "Observed key. The official documentation describes whether records are arrival or departure flights."
+          },
+          "cargo": {
+            "description": "Observed key. The official documentation describes whether records are cargo or passenger flights."
+          },
+          "date": {
+            "description": "Observed key. The official documentation describes a target date."
+          },
+          "lastUpdatedTime": {
+            "description": "Key and value observed in the bounded excerpt."
+          },
+          "list": {
+            "description": "Observed key. The official documentation describes a list of flight records; documented record details depend on flight category.",
+            "items": {
+              "$ref": "#/components/schemas/ObservedFlightRecord"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "ObservedFlightNumber": {
+        "description": "Permissive structure of observed flight-number entries. The source describes a flight number, airline code, status code, and latest status, without establishing exact wire keys or types.",
+        "properties": {
+          "airline": {
+            "description": "Observed key. The source describes an airline code."
+          },
+          "no": {
+            "description": "Observed key. The source describes a flight number."
+          }
+        },
+        "type": "object"
+      },
+      "ObservedFlightRecord": {
+        "description": "Permissive structure of an observed flight record. The official documentation describes record semantics, not exact wire keys or types. Arrival passenger records include documented meanings for port of origin, baggage reclaim belt, arrival hall, terminal code, parking stand, arrival time, and flight number list. Departure passenger records describe port of destination, terminal code, check-in aisle, boarding gate, time (labelled 'Time of arrival' in the source), and flight number list. Cargo arrival records describe port of origin, time of arrival, and flight number list. Cargo departure records describe port of destination, time (labelled 'Time of arrival' in the source), and flight number list.",
+        "properties": {
+          "baggage": {
+            "description": "Observed key. The source describes the baggage reclaim belt number for arrival passenger records."
+          },
+          "flight": {
+            "description": "Observed key for flight-number entries. The source describes a flight number list.",
+            "items": {
+              "$ref": "#/components/schemas/ObservedFlightNumber"
+            },
+            "type": "array"
+          },
+          "hall": {
+            "description": "Observed key. The source describes the arrival hall for arrival passenger records."
+          },
+          "origin": {
+            "description": "Observed key. The source describes the port of origin for arrival records."
+          },
+          "stand": {
+            "description": "Observed key. The source describes the parking stand number for arrival passenger records."
+          },
+          "status": {
+            "description": "Observed key. The source describes the latest status of the flight."
+          },
+          "statusCode": {
+            "description": "Observed key. The source describes a status code whose meaning is included in the status field."
+          },
+          "terminal": {
+            "description": "Observed key. The source describes a terminal code for arrival passenger and departure passenger records."
+          },
+          "time": {
+            "description": "Observed key. The source describes time of arrival for arrival records and also labels the time field 'Time of arrival' in its departure sections."
+          }
+        },
+        "type": "object"
+      },
+      "ObservedFlightResponse": {
+        "description": "The accompanying bounded observed response excerpt has an array root. The structure below describes observed wire keys permissively and is not a publisher guarantee of complete fields, types, requiredness, or variants. Separately, the official documentation describes semantic categories and field meanings: day-group date, arrival and cargo indicators, a list of flight records, and record details varying by arrival/departure and cargo/passenger. Those official labels do not establish exact JSON property names or types.",
+        "items": {
+          "$ref": "#/components/schemas/ObservedDayGroup"
+        },
+        "type": "array"
+      }
+    }
+  },
+  "externalDocs": {
+    "url": "https://www.hongkongairport.com/iwov-resources/misc/opendata/Flight_Information_DataSpec_en.pdf"
+  },
+  "info": {
+    "description": "Returns historical flight information in JSON based on the supplied parameters. The source describes the data as covering the previous calendar day. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Hong Kong International Airport Flight Information",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/rest/flights/past": {
+      "get": {
+        "description": "Returns historical flight information. The source states that data is up-to-date to the previous calendar day. Arrival and cargo parameters select arrival/departure and cargo/passenger categories. The source documents semantic field labels but does not establish their exact JSON property names or types. An accompanying bounded observed live-response excerpt is represented as an example and does not guarantee a complete response contract.",
+        "operationId": "getPastFlightInformation",
+        "parameters": [
+          {
+            "description": "Date of the records, in YYYY-MM-DD form. The source states that data is up-to-date to the previous calendar day.",
+            "in": "query",
+            "name": "date",
+            "required": false,
+            "schema": {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Arrival or departure: true means arrival; false means departure.",
+            "in": "query",
+            "name": "arrival",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Cargo or passenger flight: true means cargo; false means passenger.",
+            "in": "query",
+            "name": "cargo",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Language.",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "enum": [
+                "en",
+                "zh_HK",
+                "zh_CN"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "observedArrivalPassengerExcerpt": {
+                    "description": "Excerpt projected from one saved live HTTP response. It retains the observed array root and first day group, with the list restricted to one flight record. This observation is not a publisher guarantee of types, requiredness, completeness, or available variants.",
+                    "summary": "Bounded observed live-response excerpt (not a publisher contract)",
+                    "value": [
+                      {
+                        "arrival": true,
+                        "cargo": false,
+                        "date": "2026-11-04",
+                        "lastUpdatedTime": "2026-11-06T21:12:37+08:00",
+                        "list": [
+                          {
+                            "baggage": "16",
+                            "flight": [
+                              {
+                                "airline": "CPA",
+                                "no": "CX 764"
+                              },
+                              {
+                                "airline": "BAW",
+                                "no": "BA 4562"
+                              },
+                              {
+                                "airline": "JAL",
+                                "no": "JL 7922"
+                              },
+                              {
+                                "airline": "MGL",
+                                "no": "OM 5629"
+                              },
+                              {
+                                "airline": "QTR",
+                                "no": "QR 5831"
+                              },
+                              {
+                                "airline": "HVN",
+                                "no": "VN 3560"
+                              }
+                            ],
+                            "hall": "B",
+                            "origin": [
+                              "SGN"
+                            ],
+                            "stand": "S23",
+                            "status": "At gate 00:20 (05/11/2026)",
+                            "statusCode": null,
+                            "terminal": "",
+                            "time": "23:25"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ObservedFlightResponse"
+                }
+              }
+            },
+            "description": "Flight information in JSON. The source documents arrival/departure and cargo/passenger field semantics, but does not specify error responses or a complete wire-level response schema."
+          }
+        },
+        "summary": "Get past flight information"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.hongkongairport.com/flightinfo-rest"
+    }
+  ]
+}

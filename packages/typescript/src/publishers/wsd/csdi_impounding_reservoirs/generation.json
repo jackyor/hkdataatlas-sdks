@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "wsd-csdi-impounding-reservoirs",
+  "sourceSha256": "89ae35ef418b81e2e6aa2099e9dc8ae2ea6282ebc116ba295b3b590bc5d6f1d9",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/wsd_rcd_1629267205232_96199/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1629267205232_96199/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/wsd_rcd_1629267205232_96199/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

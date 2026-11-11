@@ -1,0 +1,214 @@
+{
+  "externalDocs": {
+    "description": "Publisher data dictionary",
+    "url": "https://www.legco.gov.hk/datagovhk/data-dictionary-questions-en.pdf"
+  },
+  "info": {
+    "description": "The source bundle contains a data dictionary for questions and catalogue associations to resource URLs, but does not document HTTP methods, request parameters, authentication, or API response structures. The catalogue identifies exact published resource URLs; those associations do not establish an executable API contract. The data dictionary describes record fields but does not establish the wire response envelope. The version value is a metadata placeholder, not a publisher API version.",
+    "title": "Questions at Legislative Council meetings",
+    "version": "undocumented"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/QuestionsDB/odata/ViewWrittenQuestionsEng": {
+      "get": {
+        "operationId": "retrieveWrittenQuestionsRaisedAtTheLegislativeCouncilMeetingsEnglishVersionQuestionsdbOdataViewwrittenquestionseng",
+        "summary": "Retrieve Written questions raised at the Legislative Council meetings (English version)",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://app.legco.gov.hk/QuestionsDB/odata/ViewWrittenQuestionsEng. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/QuestionsDB/odata/ViewOralQuestionsChi": {
+      "get": {
+        "operationId": "retrieveOralQuestionsOfTheFifthLegislativeCouncil20122016ChineseVersionQuestionsdbOdataVieworalquestionschi",
+        "summary": "Retrieve Oral questions of the Fifth Legislative Council (2012 - 2016) (Chinese version)",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://app.legco.gov.hk/QuestionsDB/odata/ViewOralQuestionsChi?$inlinecount=allpages&$filter=MeetingDate+ge+datetime%272012-10-01%27+and+MeetingDate+lt+datetime%272016-10-01%27&$format=xml. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "MeetingDate ge datetime'2012-10-01' and MeetingDate lt datetime'2016-10-01'"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$format",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xml"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    },
+    "/QuestionsDB/odata/ViewOralQuestionsEng": {
+      "get": {
+        "operationId": "retrieveOralQuestionsOfTheFifthLegislativeCouncil20122016EnglishVersionQuestionsdbOdataVieworalquestionseng",
+        "summary": "Retrieve Oral questions of the Fifth Legislative Council (2012 - 2016) (English version)",
+        "description": "Read-only retrieval of the exact publisher-listed XML resource https://app.legco.gov.hk/QuestionsDB/odata/ViewOralQuestionsEng?$inlinecount=allpages&$filter=MeetingDate+ge+datetime%272012-10-01%27+and+MeetingDate+lt+datetime%272016-10-01%27&$format=xml. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published XML resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "MeetingDate ge datetime'2012-10-01' and MeetingDate lt datetime'2016-10-01'"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$format",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "xml"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    },
+    "/QuestionsDB/odata/ViewWrittenQuestionsChi": {
+      "get": {
+        "operationId": "retrieveWrittenQuestionsOfTheSeventhLegislativeCouncil20222025ChineseVersionQuestionsdbOdataViewwrittenquestionschi",
+        "summary": "Retrieve Written questions of the Seventh Legislative Council (2022 - 2025) (Chinese version)",
+        "description": "Read-only retrieval of the exact publisher-listed JSON resource https://app.legco.gov.hk/QuestionsDB/odata/ViewWrittenQuestionsChi?$inlinecount=allpages&$filter=MeetingDate+ge+datetime%272022-01-01%27+and+MeetingDate+lt+datetime%272026-01-01%27. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.",
+        "servers": [
+          {
+            "url": "https://app.legco.gov.hk"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Exact published resource retrieval. The complete payload/container shape is not specified; contextual field dictionaries are retained separately under components."
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "$inlinecount",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "allpages"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "MeetingDate ge datetime'2022-01-01' and MeetingDate lt datetime'2026-01-01'"
+              ]
+            },
+            "description": "Literal selector from the exact published resource URL; other values are unknown."
+          }
+        ]
+      }
+    }
+  }
+}

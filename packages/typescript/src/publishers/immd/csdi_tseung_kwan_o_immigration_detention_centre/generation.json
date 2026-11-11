@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "immd-csdi-tseung-kwan-o-immigration-detention-centre",
+  "sourceSha256": "c86dc037cbef80e49a2b8b487c592361917dbb0f4868bd84ee9cf94894426a65",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/immd_rcd_1702858699718_20708/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/immd_rcd_1702858699718_20708/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/immd_rcd_1702858699718_20708/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

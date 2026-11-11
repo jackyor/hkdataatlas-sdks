@@ -1,0 +1,44 @@
+{
+  "sourceId": "hkma-list-of-outstanding-government-bonds-under-the-infrastructure",
+  "publisherKey": "hkma",
+  "family": "list_of_outstanding_government_bonds_under_the_infrastructure",
+  "status": "generated",
+  "key": "a01c9719e5c3b5b12885f5e5da32f323af1342d136c1489bd237851793c975f1",
+  "sourceSha256": "2307f741d5f6abd714b1600e2fef9571423600b9276c14711cd036a529c3363a",
+  "derivedInputSha256": "2307f741d5f6abd714b1600e2fef9571423600b9276c14711cd036a529c3363a",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/list-outstanding-govbonds-ibpgsbp",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-list-of-outstanding-government-bonds-under-the-infrastructure.log",
+  "outputs": {
+    "__init__.py": "ea58ae9ecf936972f98bfd650ac9a3a96e41d2f9e3953701fdb14254487d0030",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_list_outstanding_govbonds_ibpgsbp.py": "a73bba4f3dd59ac7001dc896122869f3670ce3136b5da92f479f9d7b95d588cb",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "66802e8806c013f46d4329c6d813a428f25a5b6a7890cd175aa3f0708d018393",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/matured.py": "57ee78c45d5e95a22dd568a9ff171ce53a4b043c41f699decc462be89fd9d57d",
+    "models/outstanding.py": "509ef487ddd9e5652444cec04cb4b501d9fcd5a8dd32b80c2dd184067defed7f",
+    "models/result.py": "f4934dfbace7a4ee8cd35b528bf1f10a878612b8a63e0c494b4b08b845f6053b",
+    "models/segment.py": "46cdab90dcea836231589db36cb6b905989787d5ffa1a1fb1228fea49a10bb9a",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

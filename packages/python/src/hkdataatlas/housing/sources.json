@@ -1,0 +1,2401 @@
+{
+  "publisherKey": "housing",
+  "publisherName": "Hong Kong Housing Authority",
+  "sources": [
+    {
+      "id": "housing-income-and-asset-limits-for-public-rental-housing-prh-application",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "income-and-asset-limits-for-public-rental-housing-prh-application",
+      "name": "Income and Asset Limits for Public Rental Housing (PRH) Application API",
+      "apiTitle": "Income and Asset Limits for Public Rental Housing (PRH) Application API",
+      "json": "housing/income-and-asset-limits-for-public-rental-housing-prh-application/openapi.json",
+      "yaml": "housing/income-and-asset-limits-for-public-rental-housing-prh-application/openapi.yaml",
+      "file": "housing/income-and-asset-limits-for-public-rental-housing-prh-application/openapi.json",
+      "sha256": "30b1fd71cd69518a55613d2cdd35eec3c282da7f055c2ef7ad7eb59cd4295c18",
+      "jsonSha256": "30b1fd71cd69518a55613d2cdd35eec3c282da7f055c2ef7ad7eb59cd4295c18",
+      "yamlSha256": "374c86a294e86c1f8801d2719912440bb01b188df66b3e3380c86c2c94b05bdc",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "source-refresh-20261108",
+      "namespace": "income_and_asset_limits_for_public_rental_housing_prh_application",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "30b1fd71cd69518a55613d2cdd35eec3c282da7f055c2ef7ad7eb59cd4295c18"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/prhicaslmt/prh_income_asset_limit_data_dictionary.pdf",
+        "currentUrl": "https://data.gov.hk/en-data/dataset/hk-housing-aas-prhicaslmt/resource/fe7817f7-801e-402e-86eb-94ab1f4bfc71",
+        "sourceRefresh": {
+          "priorJsonSha256": "be02e757dbc2c20ab876963e4c9b3a4536211037fc27824970374d62c6810ce9",
+          "canonicalJsonSha256": "30b1fd71cd69518a55613d2cdd35eec3c282da7f055c2ef7ad7eb59cd4295c18",
+          "currentSourceUrl": "https://data.gov.hk/en-data/dataset/hk-housing-aas-prhicaslmt/resource/fe7817f7-801e-402e-86eb-94ab1f4bfc71",
+          "classification": "source_backed_response_or_parameter_description_correction",
+          "documentationSources": [
+            {
+              "url": "https://data.housingauthority.gov.hk/dataset/prhicaslmt/prh_income_asset_limit_data_dictionary.pdf",
+              "sha256": "6e38cc28158dbfa502bbeacc4bf775acd8ae788a8f41a6dc4441c1c8f42e05ac",
+              "representation": "source-attachment"
+            }
+          ],
+          "sourceCoverage": "Documented optional response fields and explicit retained wire compatibility; request identities retained.",
+          "responseCoverage": "{\"kind\":\"retained_body_and_sample_only_validation\",\"completeBodyChecks\":1,\"sampleOnlyChecks\":0,\"newHTTPRequests\":0}",
+          "liveAssessment": "No new HTTP performed by SDK import; exact retained body/sample proof remains bounded."
+        },
+        "canonicalJsonSha256": "30b1fd71cd69518a55613d2cdd35eec3c282da7f055c2ef7ad7eb59cd4295c18",
+        "originalRepresentationSha256": "be02e757dbc2c20ab876963e4c9b3a4536211037fc27824970374d62c6810ce9",
+        "serialization": "Maintained derivative from hash-bound original source and replayable delta; publisher original preserved."
+      },
+      "moduleName": "income_and_asset_limits_for_public_rental_housing_prh_application"
+    },
+    {
+      "id": "housing-location-and-profile-of-public-housing-estates",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "location-and-profile-of-public-housing-estates",
+      "name": "Hong Kong Housing Authority \u2014 Location and Profile of Public Housing Estates",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Location and Profile of Public Housing Estates",
+      "json": "housing/location-and-profile-of-public-housing-estates/openapi.json",
+      "yaml": "housing/location-and-profile-of-public-housing-estates/openapi.yaml",
+      "file": "housing/location-and-profile-of-public-housing-estates/openapi.json",
+      "sha256": "cc0628f60f817a1bb6ff7b766e061764064e31bafcb522b5387e67b66ef56214",
+      "jsonSha256": "cc0628f60f817a1bb6ff7b766e061764064e31bafcb522b5387e67b66ef56214",
+      "yamlSha256": "ac70a2f865cd60799ca072caaedd608dc70629cb951ac7aa54f80be4d3f6c85f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "location_and_profile_of_public_housing_estates",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cc0628f60f817a1bb6ff7b766e061764064e31bafcb522b5387e67b66ef56214"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/hahdweb/ha_hahdweb_dataspec.pdf",
+        "canonicalJsonSha256": "cc0628f60f817a1bb6ff7b766e061764064e31bafcb522b5387e67b66ef56214",
+        "originalRepresentationSha256": "cc0628f60f817a1bb6ff7b766e061764064e31bafcb522b5387e67b66ef56214",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "location_and_profile_of_public_housing_estates"
+    },
+    {
+      "id": "housing-sale-transactions-under-the-tenants-purchase-scheme",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "sale-transactions-under-the-tenants-purchase-scheme",
+      "name": "Sale transactions under the Tenants Purchase Scheme",
+      "apiTitle": "Tenants Purchase Scheme Sale Transactions API",
+      "json": "housing/sale-transactions-under-the-tenants-purchase-scheme/openapi.json",
+      "yaml": "housing/sale-transactions-under-the-tenants-purchase-scheme/openapi.yaml",
+      "file": "housing/sale-transactions-under-the-tenants-purchase-scheme/openapi.json",
+      "sha256": "dc9be0cd94548805ac7036983421e61273ba48ed4d4fd67b08b99deb2f95d5fc",
+      "jsonSha256": "dc9be0cd94548805ac7036983421e61273ba48ed4d4fd67b08b99deb2f95d5fc",
+      "yamlSha256": "582c8905e347873890c3422b1708ec080cc9a24c065da1a0f7864f7593b33eb3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.3",
+      "namespace": "sale_transactions_under_the_tenants_purchase_scheme",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "dc9be0cd94548805ac7036983421e61273ba48ed4d4fd67b08b99deb2f95d5fc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/hass/tps_sale_transactions_data_dictionary.pdf",
+        "canonicalJsonSha256": "dc9be0cd94548805ac7036983421e61273ba48ed4d4fd67b08b99deb2f95d5fc",
+        "originalRepresentationSha256": "dc9be0cd94548805ac7036983421e61273ba48ed4d4fd67b08b99deb2f95d5fc",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "sale_transactions_under_the_tenants_purchase_scheme"
+    },
+    {
+      "id": "housing-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-g",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-g",
+      "name": "Transactions in the Resale of Green Form Subsidised Home Ownership Scheme (GSH) Flats of Ching Fu Court and Dip Tsui Court",
+      "apiTitle": "GSH Resale Transactions for Ching Fu Court and Dip Tsui Court",
+      "json": "housing/transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-g/openapi.json",
+      "yaml": "housing/transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-g/openapi.yaml",
+      "file": "housing/transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-g/openapi.json",
+      "sha256": "fe069714db09fa2acb4e42fca0554cffcecdd1a5f631e1cd629a3ebfb464b539",
+      "jsonSha256": "fe069714db09fa2acb4e42fca0554cffcecdd1a5f631e1cd629a3ebfb464b539",
+      "yamlSha256": "33efe725f9775510c6e92e6dbc7056fcbbf3e2e10344f732e4161d32a7383f76",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.0",
+      "namespace": "transactions_in_the_resale_of_green_form_subsidised_home_ownership_scheme_g",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "fe069714db09fa2acb4e42fca0554cffcecdd1a5f631e1cd629a3ebfb464b539"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_e23_data_dictionary.pdf",
+        "canonicalJsonSha256": "fe069714db09fa2acb4e42fca0554cffcecdd1a5f631e1cd629a3ebfb464b539",
+        "originalRepresentationSha256": "fe069714db09fa2acb4e42fca0554cffcecdd1a5f631e1cd629a3ebfb464b539",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_resale_of_green_form_subsidised_home_ownership_scheme_g"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2018",
+      "apiTitle": "Transactions in the Sale of GSH Flats 2018",
+      "json": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh/openapi.json",
+      "sha256": "54d2d77c4948aabc9fd13b608d68a0c3c7dc3abfd9bc6cf322ba7f767d1389af",
+      "jsonSha256": "54d2d77c4948aabc9fd13b608d68a0c3c7dc3abfd9bc6cf322ba7f767d1389af",
+      "yamlSha256": "87806093649e2baa95418bc6cc019fae4ccbf2ee523d24b17737b52e874202ca",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.0",
+      "namespace": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "54d2d77c4948aabc9fd13b608d68a0c3c7dc3abfd9bc6cf322ba7f767d1389af"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_G18_data_dictionary.pdf",
+        "canonicalJsonSha256": "54d2d77c4948aabc9fd13b608d68a0c3c7dc3abfd9bc6cf322ba7f767d1389af",
+        "originalRepresentationSha256": "54d2d77c4948aabc9fd13b608d68a0c3c7dc3abfd9bc6cf322ba7f767d1389af",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-2",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-2",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2023",
+      "apiTitle": "Transactions in the Sale of GSH Flats 2023 API",
+      "json": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-2/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-2/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-2/openapi.json",
+      "sha256": "b7104b56271cfb5cd2caf4962756ead3e2a5a4c11b0fc248bfe731818b4aa9db",
+      "jsonSha256": "b7104b56271cfb5cd2caf4962756ead3e2a5a4c11b0fc248bfe731818b4aa9db",
+      "yamlSha256": "a514daf90ebc1117aae4888c009129ba80037bcd95d7a0ed96804b8b5440e005",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.0",
+      "namespace": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b7104b56271cfb5cd2caf4962756ead3e2a5a4c11b0fc248bfe731818b4aa9db"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_g23_data_dictionary.pdf",
+        "canonicalJsonSha256": "b7104b56271cfb5cd2caf4962756ead3e2a5a4c11b0fc248bfe731818b4aa9db",
+        "originalRepresentationSha256": "b7104b56271cfb5cd2caf4962756ead3e2a5a4c11b0fc248bfe731818b4aa9db",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_2"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-3",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-3",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2024",
+      "apiTitle": "Transactions in the Sale of GSH Flats 2024 API",
+      "json": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-3/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-3/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-3/openapi.json",
+      "sha256": "32d3c2fd1497a611af35b2557ad7d1441b5e6b21c38c78f26a81779cbf6a1cf0",
+      "jsonSha256": "32d3c2fd1497a611af35b2557ad7d1441b5e6b21c38c78f26a81779cbf6a1cf0",
+      "yamlSha256": "47007765fe46a3c16efae1acdd8fc693636e0fe2eb39bb46be8b085a11d42ee5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.0",
+      "namespace": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "32d3c2fd1497a611af35b2557ad7d1441b5e6b21c38c78f26a81779cbf6a1cf0"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_g24_data_dictionary.pdf",
+        "canonicalJsonSha256": "32d3c2fd1497a611af35b2557ad7d1441b5e6b21c38c78f26a81779cbf6a1cf0",
+        "originalRepresentationSha256": "32d3c2fd1497a611af35b2557ad7d1441b5e6b21c38c78f26a81779cbf6a1cf0",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_3"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2019",
+      "apiTitle": "Transactions in the Sale of GSH 2019",
+      "json": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla/openapi.json",
+      "sha256": "967c84459330a3bd2e8a678675131dd4504167a622148fbb8a009769076bb611",
+      "jsonSha256": "967c84459330a3bd2e8a678675131dd4504167a622148fbb8a009769076bb611",
+      "yamlSha256": "d64b3b39162019c6e34b1b99ef658b6b6fada7d8ad10cd085bd4479fcefd2c4e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.0",
+      "namespace": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_fla",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "967c84459330a3bd2e8a678675131dd4504167a622148fbb8a009769076bb611"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_g19_data_dictionary.pdf",
+        "canonicalJsonSha256": "967c84459330a3bd2e8a678675131dd4504167a622148fbb8a009769076bb611",
+        "originalRepresentationSha256": "967c84459330a3bd2e8a678675131dd4504167a622148fbb8a009769076bb611",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_fla"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-2",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-2",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2020/21",
+      "apiTitle": "Transactions in the Sale of GSH Flats 2020/21",
+      "json": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-2/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-2/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-2/openapi.json",
+      "sha256": "19a70c4753d4be7c175ee6d57a93b6f74dd051ad4484ddd35a0d468d379f129b",
+      "jsonSha256": "19a70c4753d4be7c175ee6d57a93b6f74dd051ad4484ddd35a0d468d379f129b",
+      "yamlSha256": "0bd227f3fe7e714bf36d959d680cd9d82d78a908e0c5fad0f15e879dbf1e593f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.0",
+      "namespace": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_fla_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "19a70c4753d4be7c175ee6d57a93b6f74dd051ad4484ddd35a0d468d379f129b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_g20_data_dictionary.pdf",
+        "canonicalJsonSha256": "19a70c4753d4be7c175ee6d57a93b6f74dd051ad4484ddd35a0d468d379f129b",
+        "originalRepresentationSha256": "19a70c4753d4be7c175ee6d57a93b6f74dd051ad4484ddd35a0d468d379f129b",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_fla_2"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-3",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-3",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2022",
+      "apiTitle": "Transactions in the Sale of GSH 2022",
+      "json": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-3/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-3/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-fla-3/openapi.json",
+      "sha256": "6bd6e5d3d8276a33f241c7684c2669694ed1d5adfc5bbd2bd885222160fa5f74",
+      "jsonSha256": "6bd6e5d3d8276a33f241c7684c2669694ed1d5adfc5bbd2bd885222160fa5f74",
+      "yamlSha256": "77100a9b6e7e4d6d7b101bbcf0d260f793b0a34cd7e8f5c2a017bbd9605bc4fd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.0",
+      "namespace": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_fla_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6bd6e5d3d8276a33f241c7684c2669694ed1d5adfc5bbd2bd885222160fa5f74"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_g22_data_dictionary.pdf",
+        "canonicalJsonSha256": "6bd6e5d3d8276a33f241c7684c2669694ed1d5adfc5bbd2bd885222160fa5f74",
+        "originalRepresentationSha256": "6bd6e5d3d8276a33f241c7684c2669694ed1d5adfc5bbd2bd885222160fa5f74",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_fla_3"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2018",
+      "apiTitle": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2018",
+      "json": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018/openapi.json",
+      "sha256": "2e71161fe67b859fd658043569c67b041b7a762d09431cae0c04ad24c28649fe",
+      "jsonSha256": "2e71161fe67b859fd658043569c67b041b7a762d09431cae0c04ad24c28649fe",
+      "yamlSha256": "d9349ad7671fbd248410875099ff01ac683ea17372986adbd67a9f418155ea0c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2018",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2e71161fe67b859fd658043569c67b041b7a762d09431cae0c04ad24c28649fe"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_018_data_dictionary.pdf",
+        "canonicalJsonSha256": "2e71161fe67b859fd658043569c67b041b7a762d09431cae0c04ad24c28649fe",
+        "originalRepresentationSha256": "2e71161fe67b859fd658043569c67b041b7a762d09431cae0c04ad24c28649fe",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2018"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2019",
+      "apiTitle": "Transactions in the Sale of HOS Flats 2019 API",
+      "json": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019/openapi.json",
+      "sha256": "060b8c7095b183167fb4e601da28e3c127d27f386eed5f47906dea0d10814974",
+      "jsonSha256": "060b8c7095b183167fb4e601da28e3c127d27f386eed5f47906dea0d10814974",
+      "yamlSha256": "8482b4e5cc30769825c0eab58abb483fe1a5206985db9c30d9d56b12a39da656",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.0",
+      "namespace": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2019",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "060b8c7095b183167fb4e601da28e3c127d27f386eed5f47906dea0d10814974"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_019_data_dictionary.pdf",
+        "canonicalJsonSha256": "060b8c7095b183167fb4e601da28e3c127d27f386eed5f47906dea0d10814974",
+        "originalRepresentationSha256": "060b8c7095b183167fb4e601da28e3c127d27f386eed5f47906dea0d10814974",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2019"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2020",
+      "apiTitle": "Transactions in the Sale of HOS Flats 2020",
+      "json": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020/openapi.json",
+      "sha256": "39ca483b1366605874a1568f59e5b316731b3d07c122c0f2141d3ae75daa26e8",
+      "jsonSha256": "39ca483b1366605874a1568f59e5b316731b3d07c122c0f2141d3ae75daa26e8",
+      "yamlSha256": "ee85dfa0ebb8637017cd15b2b42c187d72be70d590c18ec748946d1e9e3f2f80",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2020",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "39ca483b1366605874a1568f59e5b316731b3d07c122c0f2141d3ae75daa26e8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_020_data_dictionary.pdf",
+        "canonicalJsonSha256": "39ca483b1366605874a1568f59e5b316731b3d07c122c0f2141d3ae75daa26e8",
+        "originalRepresentationSha256": "39ca483b1366605874a1568f59e5b316731b3d07c122c0f2141d3ae75daa26e8",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2020"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2023",
+      "apiTitle": "Transactions in the Sale of HOS Flats 2023",
+      "json": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023/openapi.json",
+      "sha256": "d81b1d7163daed00ab2b39d918e98f87eafa280fedf2f839b79d0fcde14697e6",
+      "jsonSha256": "d81b1d7163daed00ab2b39d918e98f87eafa280fedf2f839b79d0fcde14697e6",
+      "yamlSha256": "85d388898e852ca53c9cf8ae6dc2426eb1dbcb8fa953240ae5f3de434b3db567",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.0",
+      "namespace": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2023",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d81b1d7163daed00ab2b39d918e98f87eafa280fedf2f839b79d0fcde14697e6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_023_data_dictionary.pdf",
+        "canonicalJsonSha256": "d81b1d7163daed00ab2b39d918e98f87eafa280fedf2f839b79d0fcde14697e6",
+        "originalRepresentationSha256": "d81b1d7163daed00ab2b39d918e98f87eafa280fedf2f839b79d0fcde14697e6",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2023"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2024",
+      "apiTitle": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2024",
+      "json": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024/openapi.json",
+      "sha256": "4108cd80b565c0a5bd69f9fdfa87f4b8e7a1fbe9e6e3bca118ba035163558ac5",
+      "jsonSha256": "4108cd80b565c0a5bd69f9fdfa87f4b8e7a1fbe9e6e3bca118ba035163558ac5",
+      "yamlSha256": "25e84fdfafc96da03a1afd987e6fb5f32cf6e7aa6d369511936195a1a2829d36",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "1.0",
+      "namespace": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2024",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4108cd80b565c0a5bd69f9fdfa87f4b8e7a1fbe9e6e3bca118ba035163558ac5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_024_data_dictionary.pdf",
+        "canonicalJsonSha256": "4108cd80b565c0a5bd69f9fdfa87f4b8e7a1fbe9e6e3bca118ba035163558ac5",
+        "originalRepresentationSha256": "4108cd80b565c0a5bd69f9fdfa87f4b8e7a1fbe9e6e3bca118ba035163558ac5",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2024"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022",
+      "name": "Transactions in the Sale of Home Ownership Scheme Flats (HOS) 2022",
+      "apiTitle": "Transactions in the Sale of Home Ownership Scheme Flats (HOS) 2022",
+      "json": "housing/transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022/openapi.json",
+      "sha256": "2b54b9cd5b1ca94ca9482709f7017c5d65ddbfaa87c5346bf4cb2e4b8513906e",
+      "jsonSha256": "2b54b9cd5b1ca94ca9482709f7017c5d65ddbfaa87c5346bf4cb2e4b8513906e",
+      "yamlSha256": "a775c4e6bf73a06a6ae0c32ba07acae12b30a338995b68b693d07f0e87dd3a4c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "2.0",
+      "namespace": "transactions_in_the_sale_of_home_ownership_scheme_flats_hos_2022",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2b54b9cd5b1ca94ca9482709f7017c5d65ddbfaa87c5346bf4cb2e4b8513906e"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_022_data_dictionary.pdf",
+        "canonicalJsonSha256": "2b54b9cd5b1ca94ca9482709f7017c5d65ddbfaa87c5346bf4cb2e4b8513906e",
+        "originalRepresentationSha256": "2b54b9cd5b1ca94ca9482709f7017c5d65ddbfaa87c5346bf4cb2e4b8513906e",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_home_ownership_scheme_flats_hos_2022"
+    },
+    {
+      "id": "housing-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-sch",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-sch",
+      "name": "Transactions in the Sale of Unsold Green Form Subsidised Home Ownership Scheme Flats of Ching Fu Court & Dip Tsui Court",
+      "apiTitle": "Transactions in the Sale of Unsold Green Form Subsidised Home Ownership Scheme Flats",
+      "json": "housing/transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-sch/openapi.json",
+      "yaml": "housing/transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-sch/openapi.yaml",
+      "file": "housing/transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-sch/openapi.json",
+      "sha256": "f18440a4a6ab1e7308cbffabf4f02f6919ef6645a3132edef3905bfdcbc37fdd",
+      "jsonSha256": "f18440a4a6ab1e7308cbffabf4f02f6919ef6645a3132edef3905bfdcbc37fdd",
+      "yamlSha256": "2baf8e420f227f30339f24d7a81ae052365ef303f522dda05b6d349a9b965d6a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "transactions_in_the_sale_of_unsold_green_form_subsidised_home_ownership_sch",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f18440a4a6ab1e7308cbffabf4f02f6919ef6645a3132edef3905bfdcbc37fdd"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://data.housingauthority.gov.hk/dataset/ssfs/ssfs_sale_transactions_e22_data_dictionary.pdf",
+        "canonicalJsonSha256": "f18440a4a6ab1e7308cbffabf4f02f6919ef6645a3132edef3905bfdcbc37fdd",
+        "originalRepresentationSha256": "f18440a4a6ab1e7308cbffabf4f02f6919ef6645a3132edef3905bfdcbc37fdd",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "transactions_in_the_sale_of_unsold_green_form_subsidised_home_ownership_sch"
+    },
+    {
+      "id": "housing-csdi-housing-construction-programme-hcp-under-hong-kong-housing-authority",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-housing-construction-programme-hcp-under-hong-kong-housing-authority",
+      "name": "Housing Construction Programme (HCP) under Hong Kong Housing Authority",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Housing Construction Programme (HCP) under Hong Kong Housing Authority",
+      "json": "housing/csdi-housing-construction-programme-hcp-under-hong-kong-housing-authority/openapi.json",
+      "yaml": "housing/csdi-housing-construction-programme-hcp-under-hong-kong-housing-authority/openapi.yaml",
+      "file": "housing/csdi-housing-construction-programme-hcp-under-hong-kong-housing-authority/openapi.json",
+      "sha256": "efdf5142c36273c8affcc145241968293d8ed7bfebee301e392676851847784f",
+      "jsonSha256": "efdf5142c36273c8affcc145241968293d8ed7bfebee301e392676851847784f",
+      "yamlSha256": "849de8738dafc76e031c41f6ef7dde8d18800f7da81a7846da0f1f320cb2bc7b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_housing_construction_programme_hcp_under_hong_kong_housing_authority",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "efdf5142c36273c8affcc145241968293d8ed7bfebee301e392676851847784f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1672733924730_16907",
+        "canonicalJsonSha256": "efdf5142c36273c8affcc145241968293d8ed7bfebee301e392676851847784f",
+        "originalRepresentationSha256": "efdf5142c36273c8affcc145241968293d8ed7bfebee301e392676851847784f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_housing_construction_programme_hcp_under_hong_kong_housing_authority"
+    },
+    {
+      "id": "housing-csdi-local-open-space-los-in-planned-public-housing-developments",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-local-open-space-los-in-planned-public-housing-developments",
+      "name": "Local Open Space (LOS) in Planned Public Housing Developments",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Local Open Space (LOS) in Planned Public Housing Developments",
+      "json": "housing/csdi-local-open-space-los-in-planned-public-housing-developments/openapi.json",
+      "yaml": "housing/csdi-local-open-space-los-in-planned-public-housing-developments/openapi.yaml",
+      "file": "housing/csdi-local-open-space-los-in-planned-public-housing-developments/openapi.json",
+      "sha256": "04efa3fa887260691c663bf164f005f8048210204c8569ed1bed5f269165fa9b",
+      "jsonSha256": "04efa3fa887260691c663bf164f005f8048210204c8569ed1bed5f269165fa9b",
+      "yamlSha256": "7cf83be2c4903d5f6c1ab4a4ffd3ef747a9581080df63ea7c1efd7e428a5eea3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_local_open_space_los_in_planned_public_housing_developments",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "04efa3fa887260691c663bf164f005f8048210204c8569ed1bed5f269165fa9b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1702369743259_62653",
+        "canonicalJsonSha256": "04efa3fa887260691c663bf164f005f8048210204c8569ed1bed5f269165fa9b",
+        "originalRepresentationSha256": "04efa3fa887260691c663bf164f005f8048210204c8569ed1bed5f269165fa9b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_local_open_space_los_in_planned_public_housing_developments"
+    },
+    {
+      "id": "housing-csdi-open-space-os-in-existing-public-housing-estates-courts",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-open-space-os-in-existing-public-housing-estates-courts",
+      "name": "Open Space (OS) in Existing Public Housing Estates / Courts",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Open Space (OS) in Existing Public Housing Estates / Courts",
+      "json": "housing/csdi-open-space-os-in-existing-public-housing-estates-courts/openapi.json",
+      "yaml": "housing/csdi-open-space-os-in-existing-public-housing-estates-courts/openapi.yaml",
+      "file": "housing/csdi-open-space-os-in-existing-public-housing-estates-courts/openapi.json",
+      "sha256": "a74eb5fc26b379118f928da36930a50b5665c7bd0ebba6a6bcee4aba417dc2ad",
+      "jsonSha256": "a74eb5fc26b379118f928da36930a50b5665c7bd0ebba6a6bcee4aba417dc2ad",
+      "yamlSha256": "c46fea287acf2e4f86ba0174a1ef82d18cfd284f2ac3cf62fe3a9055401255ef",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_open_space_os_in_existing_public_housing_estates_courts",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a74eb5fc26b379118f928da36930a50b5665c7bd0ebba6a6bcee4aba417dc2ad"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1702370079385_16932",
+        "canonicalJsonSha256": "a74eb5fc26b379118f928da36930a50b5665c7bd0ebba6a6bcee4aba417dc2ad",
+        "originalRepresentationSha256": "a74eb5fc26b379118f928da36930a50b5665c7bd0ebba6a6bcee4aba417dc2ad",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_open_space_os_in_existing_public_housing_estates_courts"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2018",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2018",
+      "json": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2018/openapi.json",
+      "sha256": "0fdb53e14e98ef61b99c2eac4f5314e47b3825f111d866144b52dab5bc854ebe",
+      "jsonSha256": "0fdb53e14e98ef61b99c2eac4f5314e47b3825f111d866144b52dab5bc854ebe",
+      "yamlSha256": "c680fdd046b174098bd2238bc912496425ddf4b6f1d54f4736bdbabf1be20a7d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2018",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0fdb53e14e98ef61b99c2eac4f5314e47b3825f111d866144b52dab5bc854ebe"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765175729472_1489",
+        "canonicalJsonSha256": "0fdb53e14e98ef61b99c2eac4f5314e47b3825f111d866144b52dab5bc854ebe",
+        "originalRepresentationSha256": "0fdb53e14e98ef61b99c2eac4f5314e47b3825f111d866144b52dab5bc854ebe",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2018"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2019",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2019",
+      "json": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2019/openapi.json",
+      "sha256": "49f21075cb164430704eef7b78b2f62f88c388773bcec58ed9f69e722d20daf9",
+      "jsonSha256": "49f21075cb164430704eef7b78b2f62f88c388773bcec58ed9f69e722d20daf9",
+      "yamlSha256": "c3bcdfc77a0f5dc31fd4e1142dcbb61980d8139f420c41e76fa028c5a5a03fd3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2019",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "49f21075cb164430704eef7b78b2f62f88c388773bcec58ed9f69e722d20daf9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765176088245_565",
+        "canonicalJsonSha256": "49f21075cb164430704eef7b78b2f62f88c388773bcec58ed9f69e722d20daf9",
+        "originalRepresentationSha256": "49f21075cb164430704eef7b78b2f62f88c388773bcec58ed9f69e722d20daf9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2019"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2020",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2020",
+      "json": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2020/openapi.json",
+      "sha256": "78bf3f999ac1c1064f812ee9783a64f4146b150292542c163a1e8f3db14ebda9",
+      "jsonSha256": "78bf3f999ac1c1064f812ee9783a64f4146b150292542c163a1e8f3db14ebda9",
+      "yamlSha256": "5cbdd26b38efdc0b7edcef9b0f52ac1890a5b4a8367ac3f89fab130f7fe64c8c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2020",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "78bf3f999ac1c1064f812ee9783a64f4146b150292542c163a1e8f3db14ebda9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765176154012_51756",
+        "canonicalJsonSha256": "78bf3f999ac1c1064f812ee9783a64f4146b150292542c163a1e8f3db14ebda9",
+        "originalRepresentationSha256": "78bf3f999ac1c1064f812ee9783a64f4146b150292542c163a1e8f3db14ebda9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2020"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022",
+      "name": "Transactions in the Sale of Home Ownership Scheme Flats (HOS) 2022",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Home Ownership Scheme Flats (HOS) 2022",
+      "json": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-flats-hos-2022/openapi.json",
+      "sha256": "157ef0dc36f01f576f4040022d55c561ef2c029d1fb425e4d664599fa181acbf",
+      "jsonSha256": "157ef0dc36f01f576f4040022d55c561ef2c029d1fb425e4d664599fa181acbf",
+      "yamlSha256": "cffb6bf3d01964849c0a879462cdf82477266c2a139298be92c749cf799dd9b3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_home_ownership_scheme_flats_hos_2022",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "157ef0dc36f01f576f4040022d55c561ef2c029d1fb425e4d664599fa181acbf"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765176315767_4146",
+        "canonicalJsonSha256": "157ef0dc36f01f576f4040022d55c561ef2c029d1fb425e4d664599fa181acbf",
+        "originalRepresentationSha256": "157ef0dc36f01f576f4040022d55c561ef2c029d1fb425e4d664599fa181acbf",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_home_ownership_scheme_flats_hos_2022"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2023",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2023",
+      "json": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2023/openapi.json",
+      "sha256": "c537315a2705a193a23eb62860085681688bc8db15ce9d8d1d76c26cb856ff9c",
+      "jsonSha256": "c537315a2705a193a23eb62860085681688bc8db15ce9d8d1d76c26cb856ff9c",
+      "yamlSha256": "20f1c448d59157bf05172a938fc3bdd1818fb5eac450dad47424ce41c8ff7074",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2023",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c537315a2705a193a23eb62860085681688bc8db15ce9d8d1d76c26cb856ff9c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765176397309_1579",
+        "canonicalJsonSha256": "c537315a2705a193a23eb62860085681688bc8db15ce9d8d1d76c26cb856ff9c",
+        "originalRepresentationSha256": "c537315a2705a193a23eb62860085681688bc8db15ce9d8d1d76c26cb856ff9c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2023"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024",
+      "name": "Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2024",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Home Ownership Scheme (HOS) Flats 2024",
+      "json": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-home-ownership-scheme-hos-flats-2024/openapi.json",
+      "sha256": "70ffa588b4ac9ad70e49b7641e168f35a4d7d704053eba5f8e07fcf068cec725",
+      "jsonSha256": "70ffa588b4ac9ad70e49b7641e168f35a4d7d704053eba5f8e07fcf068cec725",
+      "yamlSha256": "f95aa217e2d4de763bb0ad18e8a47893562321658c9b7d78552888c4228e3655",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2024",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "70ffa588b4ac9ad70e49b7641e168f35a4d7d704053eba5f8e07fcf068cec725"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765176556625_82488",
+        "canonicalJsonSha256": "70ffa588b4ac9ad70e49b7641e168f35a4d7d704053eba5f8e07fcf068cec725",
+        "originalRepresentationSha256": "70ffa588b4ac9ad70e49b7641e168f35a4d7d704053eba5f8e07fcf068cec725",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_home_ownership_scheme_hos_flats_2024"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2018",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2018",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2018",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2018",
+      "json": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2018/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2018/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2018/openapi.json",
+      "sha256": "ba0fb7468b00962cc11d6edd45d60bde0299a40152b910989f2cccdb84fae328",
+      "jsonSha256": "ba0fb7468b00962cc11d6edd45d60bde0299a40152b910989f2cccdb84fae328",
+      "yamlSha256": "a9ed890d5268e0197d6425e10e47de4d5b81b0f4e0c924ecaa2d35723614d826",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_2018",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ba0fb7468b00962cc11d6edd45d60bde0299a40152b910989f2cccdb84fae328"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765176658551_31462",
+        "canonicalJsonSha256": "ba0fb7468b00962cc11d6edd45d60bde0299a40152b910989f2cccdb84fae328",
+        "originalRepresentationSha256": "ba0fb7468b00962cc11d6edd45d60bde0299a40152b910989f2cccdb84fae328",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_2018"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2019",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2019",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2019",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2019",
+      "json": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2019/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2019/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2019/openapi.json",
+      "sha256": "53a3dac00c81604e5a1577cd47e2c4184da5877463cdcafb779c5d1574076d28",
+      "jsonSha256": "53a3dac00c81604e5a1577cd47e2c4184da5877463cdcafb779c5d1574076d28",
+      "yamlSha256": "ac0fa333ff5c693bd07b0422387294aa7bffafe056c0fdad1ebd7e91fe3b8560",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_flats_gsh_2019",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "53a3dac00c81604e5a1577cd47e2c4184da5877463cdcafb779c5d1574076d28"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765177382044_98260",
+        "canonicalJsonSha256": "53a3dac00c81604e5a1577cd47e2c4184da5877463cdcafb779c5d1574076d28",
+        "originalRepresentationSha256": "53a3dac00c81604e5a1577cd47e2c4184da5877463cdcafb779c5d1574076d28",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_flats_gsh_2019"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2020/21",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2020/21",
+      "json": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2020-21/openapi.json",
+      "sha256": "c1fc3e15fb085ddc825c0cef204a76d123f1138ca95176214c40939816b2c6dd",
+      "jsonSha256": "c1fc3e15fb085ddc825c0cef204a76d123f1138ca95176214c40939816b2c6dd",
+      "yamlSha256": "63742556c2002066bb3c7ace34098d12e11e20f5f7627b1ebebd75743bfb92b5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_flats_gsh_2020_21",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c1fc3e15fb085ddc825c0cef204a76d123f1138ca95176214c40939816b2c6dd"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765178950193_21959",
+        "canonicalJsonSha256": "c1fc3e15fb085ddc825c0cef204a76d123f1138ca95176214c40939816b2c6dd",
+        "originalRepresentationSha256": "c1fc3e15fb085ddc825c0cef204a76d123f1138ca95176214c40939816b2c6dd",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_flats_gsh_2020_21"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2022",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2022",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2022",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Green Form Subsidised Home Ownership Scheme Flats (GSH) 2022",
+      "json": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2022/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2022/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-flats-gsh-2022/openapi.json",
+      "sha256": "9c532d3a2ef348a9132a0b682b5828f90d81cf0e55808e96ac723bd0661d7412",
+      "jsonSha256": "9c532d3a2ef348a9132a0b682b5828f90d81cf0e55808e96ac723bd0661d7412",
+      "yamlSha256": "e65951414e5b279c258a8bbd1c1b12c117f11cd3b345e3080a31c4026b5f3916",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_flats_gsh_2022",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "9c532d3a2ef348a9132a0b682b5828f90d81cf0e55808e96ac723bd0661d7412"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765179048355_30749",
+        "canonicalJsonSha256": "9c532d3a2ef348a9132a0b682b5828f90d81cf0e55808e96ac723bd0661d7412",
+        "originalRepresentationSha256": "9c532d3a2ef348a9132a0b682b5828f90d81cf0e55808e96ac723bd0661d7412",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_flats_gsh_2022"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2023",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2023",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2023",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2023",
+      "json": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2023/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2023/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2023/openapi.json",
+      "sha256": "c81a46737b8aca7210de7d7be83ac85aa98a24a7faa42d0b81ca0b9be82a3b8f",
+      "jsonSha256": "c81a46737b8aca7210de7d7be83ac85aa98a24a7faa42d0b81ca0b9be82a3b8f",
+      "yamlSha256": "65aecae6f92c9394a173af34ad047d487bc2019d0f161765937ee9393c9f9d9c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_2023",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c81a46737b8aca7210de7d7be83ac85aa98a24a7faa42d0b81ca0b9be82a3b8f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765179220509_94735",
+        "canonicalJsonSha256": "c81a46737b8aca7210de7d7be83ac85aa98a24a7faa42d0b81ca0b9be82a3b8f",
+        "originalRepresentationSha256": "c81a46737b8aca7210de7d7be83ac85aa98a24a7faa42d0b81ca0b9be82a3b8f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_2023"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-scheme-flats-of-ching-fu-court-dip-tsui-court",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-scheme-flats-of-ching-fu-court-dip-tsui-court",
+      "name": "Transactions in the Sale of Unsold Green Form Subsidised Home Ownership Scheme Flats of Ching Fu Court & Dip Tsui Court",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Unsold Green Form Subsidised Home Ownership Scheme Flats of Ching Fu Court & Dip Tsui Court",
+      "json": "housing/csdi-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-scheme-flats-of-ching-fu-court-dip-tsui-court/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-scheme-flats-of-ching-fu-court-dip-tsui-court/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-unsold-green-form-subsidised-home-ownership-scheme-flats-of-ching-fu-court-dip-tsui-court/openapi.json",
+      "sha256": "33fb494ab77fa62237f187248db78524e0ee3abd47654d7edd4c94c919602454",
+      "jsonSha256": "33fb494ab77fa62237f187248db78524e0ee3abd47654d7edd4c94c919602454",
+      "yamlSha256": "c347ca37b0b8d7e505dbd6f42aa896dbfed03d53821f3d6d4db1181266584046",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_unsold_green_form_subsidised_home_ownership_scheme_flats_of_ching_fu_court_dip_tsui_court",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "33fb494ab77fa62237f187248db78524e0ee3abd47654d7edd4c94c919602454"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765179382707_22882",
+        "canonicalJsonSha256": "33fb494ab77fa62237f187248db78524e0ee3abd47654d7edd4c94c919602454",
+        "originalRepresentationSha256": "33fb494ab77fa62237f187248db78524e0ee3abd47654d7edd4c94c919602454",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_unsold_green_form_subsidised_home_ownership_scheme_flats_of_ching_fu_court_dip_tsui_court"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-of-ching-fu-court-and-dip-tsui-court",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-of-ching-fu-court-and-dip-tsui-court",
+      "name": "Transactions in the Resale of Green Form Subsidised Home Ownership Scheme (GSH) Flats of Ching Fu Court and Dip Tsui Court",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Resale of Green Form Subsidised Home Ownership Scheme (GSH) Flats of Ching Fu Court and Dip Tsui Court",
+      "json": "housing/csdi-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-of-ching-fu-court-and-dip-tsui-court/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-of-ching-fu-court-and-dip-tsui-court/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-resale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-of-ching-fu-court-and-dip-tsui-court/openapi.json",
+      "sha256": "3766903f3591e2a3fce42ebb230c4444566b8691ee62a920bb3b69cfb56c18bf",
+      "jsonSha256": "3766903f3591e2a3fce42ebb230c4444566b8691ee62a920bb3b69cfb56c18bf",
+      "yamlSha256": "0cdae9b7fe43b1f9e9dcbe77e89cd6ad892bfcacde4d6ffef41b7df7e5443094",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_resale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_of_ching_fu_court_and_dip_tsui_court",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "3766903f3591e2a3fce42ebb230c4444566b8691ee62a920bb3b69cfb56c18bf"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765182024109_93343",
+        "canonicalJsonSha256": "3766903f3591e2a3fce42ebb230c4444566b8691ee62a920bb3b69cfb56c18bf",
+        "originalRepresentationSha256": "3766903f3591e2a3fce42ebb230c4444566b8691ee62a920bb3b69cfb56c18bf",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_resale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_of_ching_fu_court_and_dip_tsui_court"
+    },
+    {
+      "id": "housing-csdi-location-and-profile-of-public-housing-estates",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-location-and-profile-of-public-housing-estates",
+      "name": "Location and Profile of Public Housing Estates",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Location and Profile of Public Housing Estates",
+      "json": "housing/csdi-location-and-profile-of-public-housing-estates/openapi.json",
+      "yaml": "housing/csdi-location-and-profile-of-public-housing-estates/openapi.yaml",
+      "file": "housing/csdi-location-and-profile-of-public-housing-estates/openapi.json",
+      "sha256": "85e2c7a85849eed38510cb9da36856052db5362164a2690dcad3ac568cf8f20f",
+      "jsonSha256": "85e2c7a85849eed38510cb9da36856052db5362164a2690dcad3ac568cf8f20f",
+      "yamlSha256": "a7e33ac516351b7699e29be8a935d36e666d5111949e14afc15861a167bb09c0",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_location_and_profile_of_public_housing_estates",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "85e2c7a85849eed38510cb9da36856052db5362164a2690dcad3ac568cf8f20f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765182404740_4034",
+        "canonicalJsonSha256": "85e2c7a85849eed38510cb9da36856052db5362164a2690dcad3ac568cf8f20f",
+        "originalRepresentationSha256": "85e2c7a85849eed38510cb9da36856052db5362164a2690dcad3ac568cf8f20f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_location_and_profile_of_public_housing_estates"
+    },
+    {
+      "id": "housing-csdi-location-and-profile-of-public-housing-estates-service-2",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-location-and-profile-of-public-housing-estates-service-2",
+      "name": "Location and Profile of Public Housing Estates",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Location and Profile of Public Housing Estates",
+      "json": "housing/csdi-location-and-profile-of-public-housing-estates-service-2/openapi.json",
+      "yaml": "housing/csdi-location-and-profile-of-public-housing-estates-service-2/openapi.yaml",
+      "file": "housing/csdi-location-and-profile-of-public-housing-estates-service-2/openapi.json",
+      "sha256": "99a0f29ebbf7a65e292e6625515590a31a9ff2ef794073163791cb24f880addc",
+      "jsonSha256": "99a0f29ebbf7a65e292e6625515590a31a9ff2ef794073163791cb24f880addc",
+      "yamlSha256": "1a0d049ad1b23548bb2479e9a0ff3ee544c6bf6cffca98713ddd90dc0515d70d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_location_and_profile_of_public_housing_estates_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "99a0f29ebbf7a65e292e6625515590a31a9ff2ef794073163791cb24f880addc"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765182522170_13011",
+        "canonicalJsonSha256": "99a0f29ebbf7a65e292e6625515590a31a9ff2ef794073163791cb24f880addc",
+        "originalRepresentationSha256": "99a0f29ebbf7a65e292e6625515590a31a9ff2ef794073163791cb24f880addc",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_location_and_profile_of_public_housing_estates_service_2"
+    },
+    {
+      "id": "housing-csdi-location-and-profile-of-public-housing-estates-service-3",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-location-and-profile-of-public-housing-estates-service-3",
+      "name": "Location and Profile of Public Housing Estates",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Location and Profile of Public Housing Estates",
+      "json": "housing/csdi-location-and-profile-of-public-housing-estates-service-3/openapi.json",
+      "yaml": "housing/csdi-location-and-profile-of-public-housing-estates-service-3/openapi.yaml",
+      "file": "housing/csdi-location-and-profile-of-public-housing-estates-service-3/openapi.json",
+      "sha256": "01d37ea2a6ad6e8d6c3db693452b89c880e6686923a459763274aae7a1868562",
+      "jsonSha256": "01d37ea2a6ad6e8d6c3db693452b89c880e6686923a459763274aae7a1868562",
+      "yamlSha256": "1f8aea61913315c429d1ced4573133668fad6efd312edb1f9094b7e384083563",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_location_and_profile_of_public_housing_estates_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "01d37ea2a6ad6e8d6c3db693452b89c880e6686923a459763274aae7a1868562"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765182630229_74012",
+        "canonicalJsonSha256": "01d37ea2a6ad6e8d6c3db693452b89c880e6686923a459763274aae7a1868562",
+        "originalRepresentationSha256": "01d37ea2a6ad6e8d6c3db693452b89c880e6686923a459763274aae7a1868562",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_location_and_profile_of_public_housing_estates_service_3"
+    },
+    {
+      "id": "housing-csdi-location-and-profile-of-public-housing-estates-service-4",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-location-and-profile-of-public-housing-estates-service-4",
+      "name": "Location and Profile of Public Housing Estates",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Location and Profile of Public Housing Estates",
+      "json": "housing/csdi-location-and-profile-of-public-housing-estates-service-4/openapi.json",
+      "yaml": "housing/csdi-location-and-profile-of-public-housing-estates-service-4/openapi.yaml",
+      "file": "housing/csdi-location-and-profile-of-public-housing-estates-service-4/openapi.json",
+      "sha256": "ca992a1ada4e141e1668e2e2fbada63047a60f50f95ec3be5cb5265bd88caad6",
+      "jsonSha256": "ca992a1ada4e141e1668e2e2fbada63047a60f50f95ec3be5cb5265bd88caad6",
+      "yamlSha256": "340f291303c78f847de9693f7ea94e293a0a6247e7f05179e1c8f8240d9aa5f9",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_location_and_profile_of_public_housing_estates_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ca992a1ada4e141e1668e2e2fbada63047a60f50f95ec3be5cb5265bd88caad6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765182760632_37074",
+        "canonicalJsonSha256": "ca992a1ada4e141e1668e2e2fbada63047a60f50f95ec3be5cb5265bd88caad6",
+        "originalRepresentationSha256": "ca992a1ada4e141e1668e2e2fbada63047a60f50f95ec3be5cb5265bd88caad6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_location_and_profile_of_public_housing_estates_service_4"
+    },
+    {
+      "id": "housing-csdi-housing-authority-s-public-rental-housing-stock",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-housing-authority-s-public-rental-housing-stock",
+      "name": "Housing Authority's Public Rental Housing Stock",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Housing Authority's Public Rental Housing Stock",
+      "json": "housing/csdi-housing-authority-s-public-rental-housing-stock/openapi.json",
+      "yaml": "housing/csdi-housing-authority-s-public-rental-housing-stock/openapi.yaml",
+      "file": "housing/csdi-housing-authority-s-public-rental-housing-stock/openapi.json",
+      "sha256": "99aa10ecede9df6d214eb66efa2d80c567ab0a6978ddc03169a59f0577383d76",
+      "jsonSha256": "99aa10ecede9df6d214eb66efa2d80c567ab0a6978ddc03169a59f0577383d76",
+      "yamlSha256": "630527cf4adab5a7f25ed9f037cbd4789fedf820a98dc1750c3fd867b393ed2b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_housing_authority_s_public_rental_housing_stock",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "99aa10ecede9df6d214eb66efa2d80c567ab0a6978ddc03169a59f0577383d76"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765182882015_42518",
+        "canonicalJsonSha256": "99aa10ecede9df6d214eb66efa2d80c567ab0a6978ddc03169a59f0577383d76",
+        "originalRepresentationSha256": "99aa10ecede9df6d214eb66efa2d80c567ab0a6978ddc03169a59f0577383d76",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_housing_authority_s_public_rental_housing_stock"
+    },
+    {
+      "id": "housing-csdi-sale-transactions-under-the-tenants-purchase-scheme",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-sale-transactions-under-the-tenants-purchase-scheme",
+      "name": "Sale transactions under the Tenants Purchase Scheme",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Sale transactions under the Tenants Purchase Scheme",
+      "json": "housing/csdi-sale-transactions-under-the-tenants-purchase-scheme/openapi.json",
+      "yaml": "housing/csdi-sale-transactions-under-the-tenants-purchase-scheme/openapi.yaml",
+      "file": "housing/csdi-sale-transactions-under-the-tenants-purchase-scheme/openapi.json",
+      "sha256": "10fcca35c526652e59ba780273515c7c3baca23bbaa2ae25a3c5b8802433aff5",
+      "jsonSha256": "10fcca35c526652e59ba780273515c7c3baca23bbaa2ae25a3c5b8802433aff5",
+      "yamlSha256": "6cbdda716e2cdca89ff3be26a30e006b6e37580b8844601c40553531b38adebe",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_sale_transactions_under_the_tenants_purchase_scheme",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "10fcca35c526652e59ba780273515c7c3baca23bbaa2ae25a3c5b8802433aff5"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765183018922_87382",
+        "canonicalJsonSha256": "10fcca35c526652e59ba780273515c7c3baca23bbaa2ae25a3c5b8802433aff5",
+        "originalRepresentationSha256": "10fcca35c526652e59ba780273515c7c3baca23bbaa2ae25a3c5b8802433aff5",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_sale_transactions_under_the_tenants_purchase_scheme"
+    },
+    {
+      "id": "housing-csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2024",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2024",
+      "name": "Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2024",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Transactions in the Sale of Green Form Subsidised Home Ownership Scheme (GSH) Flats 2024",
+      "json": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2024/openapi.json",
+      "yaml": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2024/openapi.yaml",
+      "file": "housing/csdi-transactions-in-the-sale-of-green-form-subsidised-home-ownership-scheme-gsh-flats-2024/openapi.json",
+      "sha256": "0dc88607467e36f5e6d0a4a1015d139a030f61ab7203b5fe15bc6865070dd104",
+      "jsonSha256": "0dc88607467e36f5e6d0a4a1015d139a030f61ab7203b5fe15bc6865070dd104",
+      "yamlSha256": "ffea6177933bc226c052d119629dd7f80a09fe1d81dc58be30f9041d2c854b2f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_2024",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0dc88607467e36f5e6d0a4a1015d139a030f61ab7203b5fe15bc6865070dd104"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1765183571025_7270",
+        "canonicalJsonSha256": "0dc88607467e36f5e6d0a4a1015d139a030f61ab7203b5fe15bc6865070dd104",
+        "originalRepresentationSha256": "0dc88607467e36f5e6d0a4a1015d139a030f61ab7203b5fe15bc6865070dd104",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_transactions_in_the_sale_of_green_form_subsidised_home_ownership_scheme_gsh_flats_2024"
+    },
+    {
+      "id": "housing-csdi-large-trees-managed-by-housing-authority-ha-in-existing-housing-estates",
+      "publisherKey": "housing",
+      "publisherName": "Hong Kong Housing Authority",
+      "familyKey": "csdi-large-trees-managed-by-housing-authority-ha-in-existing-housing-estates",
+      "name": "Large Trees managed by Housing Authority (HA) in existing housing estates",
+      "apiTitle": "Hong Kong Housing Authority \u2014 Large Trees managed by Housing Authority (HA) in existing housing estates",
+      "json": "housing/csdi-large-trees-managed-by-housing-authority-ha-in-existing-housing-estates/openapi.json",
+      "yaml": "housing/csdi-large-trees-managed-by-housing-authority-ha-in-existing-housing-estates/openapi.yaml",
+      "file": "housing/csdi-large-trees-managed-by-housing-authority-ha-in-existing-housing-estates/openapi.json",
+      "sha256": "797d75accd54b7b1cd7c8fb38cd442a443db6b125a33749f52b65520a82583c3",
+      "jsonSha256": "797d75accd54b7b1cd7c8fb38cd442a443db6b125a33749f52b65520a82583c3",
+      "yamlSha256": "27e2f156ace2fbc2843642067155f980ba2c5d70b6ce2581696abdcb9b4eca5c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_large_trees_managed_by_housing_authority_ha_in_existing_housing_estates",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "797d75accd54b7b1cd7c8fb38cd442a443db6b125a33749f52b65520a82583c3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=housingauthority_rcd_1788331402958_44090",
+        "canonicalJsonSha256": "797d75accd54b7b1cd7c8fb38cd442a443db6b125a33749f52b65520a82583c3",
+        "originalRepresentationSha256": "797d75accd54b7b1cd7c8fb38cd442a443db6b125a33749f52b65520a82583c3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_large_trees_managed_by_housing_authority_ha_in_existing_housing_estates"
+    }
+  ]
+}

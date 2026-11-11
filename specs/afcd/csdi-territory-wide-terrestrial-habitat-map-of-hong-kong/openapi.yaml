@@ -1,0 +1,3122 @@
+openapi: 3.1.0
+info:
+  title: Agriculture, Fisheries and Conservation Department — Territory-wide Terrestrial Habitat Map of Hong Kong
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: Agricultural_land
+              value: 0
+            choice2:
+              summary: Artificial_hard_shoreline
+              value: 1
+            choice3:
+              summary: Natural_rocky_shoreline
+              value: 10
+            choice4:
+              summary: Natural_watercourse
+              value: 11
+            choice5:
+              summary: Other_urban_area
+              value: 12
+            choice6:
+              summary: Reservoirs
+              value: 13
+            choice7:
+              summary: Rural_plantation
+              value: 14
+            choice8:
+              summary: Seagrass_bed
+              value: 15
+            choice9:
+              summary: Shrubby_grassland
+              value: 16
+            choice10:
+              summary: Shrubland
+              value: 17
+            choice11:
+              summary: Soft_shore
+              value: 18
+            choice12:
+              summary: Woodland
+              value: 19
+            choice13:
+              summary: Artificial_pond
+              value: 2
+            choice14:
+              summary: Woody_shrubland
+              value: 20
+            choice15:
+              summary: Bare_rock_soil
+              value: 3
+            choice16:
+              summary: Grassland
+              value: 4
+            choice17:
+              summary: Green_urban_area
+              value: 5
+            choice18:
+              summary: Mangrove
+              value: 6
+            choice19:
+              summary: Marsh_reed_bed
+              value: 7
+            choice20:
+              summary: Mixed_barren_land
+              value: 8
+            choice21:
+              summary: Modified_watercourse
+              value: 9
+          x-choice-count: 21
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+            - 1
+            - 10
+            - 11
+            - 12
+            - 13
+            - 14
+            - 15
+            - 16
+            - 17
+            - 18
+            - 19
+            - 2
+            - 20
+            - 3
+            - 4
+            - 5
+            - 6
+            - 7
+            - 8
+            - 9
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer?f=pjson
+          sha256: f228f5c2d97f4c54568af6f2e7b2356a45ac9d50a5efe7a751f119e7082e060f
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/0?f=pjson
+          sha256: 5f4e547c6f96df3db9aafaa6ab65517ac542c05d688f152e1b75c044f8896972
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/10?f=pjson
+          sha256: 8f3f4a01822a34ca0e325f394b42fb1db02df5e96239a59faed03452b47445de
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/11?f=pjson
+          sha256: ddeccedd3afa797d5cc4f743f9b040ebd26ea66831aee80539fa8ca29f63944d
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/12?f=pjson
+          sha256: 0eadd77fd4ef7b3eb93eda816e762e098d032ec13760fae8ba7089d501d06ab7
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/13?f=pjson
+          sha256: f15c1ca7c1c23e966f14d5a9102f290bf3a9f7f79bcc77403de546901a65210d
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/14?f=pjson
+          sha256: a9d583c7cf6a5bf3a0d4d6f446d96b2ea5afbf28908ca228f406181d1580566f
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/15?f=pjson
+          sha256: 935ea0e86101406b8a4915f36d0600a56e86901309331c6fbc5c9c76ddd9566c
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/16?f=pjson
+          sha256: c06ce0a9011edf0c83beeb9ed06a1d4744ae5239d2ca07ab58aabc40d81c6e8e
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/17?f=pjson
+          sha256: b415e2f5ba133582b853e8122640c86225b1ab702fccc0775a5818cda52ffb77
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/18?f=pjson
+          sha256: 8634222e23b1a85fb49a5d2d677e22dec87a58d9c10979c6622ced5677987170
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/19?f=pjson
+          sha256: a5d6e421016366c1bc11580efa093154c0629acc7283de40585717570a36edc4
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/1?f=pjson
+          sha256: dca57bcb890f066c75da9ac6edb2bacf330ce32052442baa88e541cc93dc3d2c
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/20?f=pjson
+          sha256: 705377f8915d7accc42e99ca98b3c91e4236897fafd297e7bce817fe971c5666
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/2?f=pjson
+          sha256: 3e26aa12276d9c9e2f8552da75327869d6993257d6a4f66a2771d9cac3d44c6f
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/3?f=pjson
+          sha256: b9bbca10b62f95a3d81d31df88f5d2c95a0ce737c0f2e5d2355bd975e7700d64
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/4?f=pjson
+          sha256: 62b02a87c77e112c27f97110bc5e5fdc9b3b85473df99742be55df7e5d964a6a
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/5?f=pjson
+          sha256: 8e2ae7f46545a3a1fd80527c2989804d37e00f3674e4b4095d41f1931ca4b24b
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/6?f=pjson
+          sha256: 863d0958c2df082549be6cd4aa424477e18b479077893f83c440560dfd37d071
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/7?f=pjson
+          sha256: 81251534016f50c0083a481ec9d26eb28f4e58889c5b5b11dfaf401df8dc439b
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/8?f=pjson
+          sha256: 07da6f3c9a5f5d614aa36d1c789f1685fddd7592bf8db335dbf25f38062f923a
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/9?f=pjson
+          sha256: 695a2cadb4d66fc626d43c190522d3aced4522d2856225c83fc8010431a1abbf
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/afcd_rcd_1639382960762_55768/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: Woody_shrubland
+              value: csdi:Woody_shrubland
+            choice2:
+              summary: Woodland
+              value: csdi:Woodland
+            choice3:
+              summary: Soft_shore
+              value: csdi:Soft_shore
+            choice4:
+              summary: Shrubland
+              value: csdi:Shrubland
+            choice5:
+              summary: Shrubby_grassland
+              value: csdi:Shrubby_grassland
+            choice6:
+              summary: Seagrass_bed
+              value: csdi:Seagrass_bed
+            choice7:
+              summary: Rural_plantation
+              value: csdi:Rural_plantation
+            choice8:
+              summary: Reservoirs
+              value: csdi:Reservoirs
+            choice9:
+              summary: Other_urban_area
+              value: csdi:Other_urban_area
+            choice10:
+              summary: Natural_watercourse
+              value: csdi:Natural_watercourse
+            choice11:
+              summary: Natural_rocky_shoreline
+              value: csdi:Natural_rocky_shoreline
+            choice12:
+              summary: Modified_watercourse
+              value: csdi:Modified_watercourse
+            choice13:
+              summary: Mixed_barren_land
+              value: csdi:Mixed_barren_land
+            choice14:
+              summary: Marsh_reed_bed
+              value: csdi:Marsh_reed_bed
+            choice15:
+              summary: Mangrove
+              value: csdi:Mangrove
+            choice16:
+              summary: Green_urban_area
+              value: csdi:Green_urban_area
+            choice17:
+              summary: Grassland
+              value: csdi:Grassland
+            choice18:
+              summary: Bare_rock_soil
+              value: csdi:Bare_rock_soil
+            choice19:
+              summary: Artificial_pond
+              value: csdi:Artificial_pond
+            choice20:
+              summary: Artificial_hard_shoreline
+              value: csdi:Artificial_hard_shoreline
+            choice21:
+              summary: Agricultural_land
+              value: csdi:Agricultural_land
+          x-choice-count: 21
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::2326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::2326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1639382960762_55768/MapServer/WFSServer?service=WFS&request=GetCapabilities
+          sha256: 6b7e8fbd5d85753681fe28f1fbae469cc6aae106fea5fa76aaa713f6954c33b2
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+  /server/services/common/afcd_rcd_1639382960762_55768/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: Agricultural_land
+              value: Agricultural_land
+            choice2:
+              summary: Artificial_hard_shoreline
+              value: Artificial_hard_shoreline
+            choice3:
+              summary: Artificial_pond
+              value: Artificial_pond
+            choice4:
+              summary: Bare_rock_soil
+              value: Bare_rock_soil
+            choice5:
+              summary: Grassland
+              value: Grassland
+            choice6:
+              summary: Green_urban_area
+              value: Green_urban_area
+            choice7:
+              summary: Mangrove
+              value: Mangrove
+            choice8:
+              summary: Marsh_reed_bed
+              value: Marsh_reed_bed
+            choice9:
+              summary: Mixed_barren_land
+              value: Mixed_barren_land
+            choice10:
+              summary: Modified_watercourse
+              value: Modified_watercourse
+            choice11:
+              summary: Natural_rocky_shoreline
+              value: Natural_rocky_shoreline
+            choice12:
+              summary: Natural_watercourse
+              value: Natural_watercourse
+            choice13:
+              summary: Other_urban_area
+              value: Other_urban_area
+            choice14:
+              summary: Reservoirs
+              value: Reservoirs
+            choice15:
+              summary: Rural_plantation
+              value: Rural_plantation
+            choice16:
+              summary: Seagrass_bed
+              value: Seagrass_bed
+            choice17:
+              summary: Shrubby_grassland
+              value: Shrubby_grassland
+            choice18:
+              summary: Shrubland
+              value: Shrubland
+            choice19:
+              summary: Soft_shore
+              value: Soft_shore
+            choice20:
+              summary: Woodland
+              value: Woodland
+            choice21:
+              summary: Woody_shrubland
+              value: Woody_shrubland
+          x-choice-count: 21
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.831725,22.154763,114.439561,22.563451
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+        - EPSG:2326
+        - EPSG:102140
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1639382960762_55768/MapServer/WMSServer?service=WMS&request=GetCapabilities
+          sha256: 708d2568bdcb79cc0620ca5295589d446a3a49f093e40fcace227fb60d034e0a
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer10Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer11Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer12Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer13Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer14Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer15Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer16Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer17Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer18Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer19Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer2Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer20Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer3Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer4Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer5Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer6Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer7Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer8Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer9Attributes:
+      type: object
+      properties:
+        Id:
+          description: "Publisher field type: esriFieldTypeInteger"
+          title: Id
+          type:
+            - integer
+            - "null"
+        Class:
+          description: "Publisher field type: esriFieldTypeString"
+          title: Class
+          type:
+            - string
+            - "null"
+          maxLength: 254
+        Shape_Leng:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: Shape_Leng
+          type:
+            - number
+            - "null"
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer17Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer18Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer19Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer20Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer17Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer18Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer19Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer20Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer17Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer18Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer19Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer20Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer10Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer11Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer12Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer13Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer14Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer15Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer16Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer17Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer18Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer19Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer20Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                description: DescribeFeatureType attribute declarations unavailable; record fields remain unknown.
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: Agricultural_land
+    protocol: arcgis
+  - id: 1
+    title: Artificial_hard_shoreline
+    protocol: arcgis
+  - id: 10
+    title: Natural_rocky_shoreline
+    protocol: arcgis
+  - id: 11
+    title: Natural_watercourse
+    protocol: arcgis
+  - id: 12
+    title: Other_urban_area
+    protocol: arcgis
+  - id: 13
+    title: Reservoirs
+    protocol: arcgis
+  - id: 14
+    title: Rural_plantation
+    protocol: arcgis
+  - id: 15
+    title: Seagrass_bed
+    protocol: arcgis
+  - id: 16
+    title: Shrubby_grassland
+    protocol: arcgis
+  - id: 17
+    title: Shrubland
+    protocol: arcgis
+  - id: 18
+    title: Soft_shore
+    protocol: arcgis
+  - id: 19
+    title: Woodland
+    protocol: arcgis
+  - id: 2
+    title: Artificial_pond
+    protocol: arcgis
+  - id: 20
+    title: Woody_shrubland
+    protocol: arcgis
+  - id: 3
+    title: Bare_rock_soil
+    protocol: arcgis
+  - id: 4
+    title: Grassland
+    protocol: arcgis
+  - id: 5
+    title: Green_urban_area
+    protocol: arcgis
+  - id: 6
+    title: Mangrove
+    protocol: arcgis
+  - id: 7
+    title: Marsh_reed_bed
+    protocol: arcgis
+  - id: 8
+    title: Mixed_barren_land
+    protocol: arcgis
+  - id: 9
+    title: Modified_watercourse
+    protocol: arcgis
+  - id: csdi:Woody_shrubland
+    title: Woody_shrubland
+    protocol: wfs
+  - id: csdi:Woodland
+    title: Woodland
+    protocol: wfs
+  - id: csdi:Soft_shore
+    title: Soft_shore
+    protocol: wfs
+  - id: csdi:Shrubland
+    title: Shrubland
+    protocol: wfs
+  - id: csdi:Shrubby_grassland
+    title: Shrubby_grassland
+    protocol: wfs
+  - id: csdi:Seagrass_bed
+    title: Seagrass_bed
+    protocol: wfs
+  - id: csdi:Rural_plantation
+    title: Rural_plantation
+    protocol: wfs
+  - id: csdi:Reservoirs
+    title: Reservoirs
+    protocol: wfs
+  - id: csdi:Other_urban_area
+    title: Other_urban_area
+    protocol: wfs
+  - id: csdi:Natural_watercourse
+    title: Natural_watercourse
+    protocol: wfs
+  - id: csdi:Natural_rocky_shoreline
+    title: Natural_rocky_shoreline
+    protocol: wfs
+  - id: csdi:Modified_watercourse
+    title: Modified_watercourse
+    protocol: wfs
+  - id: csdi:Mixed_barren_land
+    title: Mixed_barren_land
+    protocol: wfs
+  - id: csdi:Marsh_reed_bed
+    title: Marsh_reed_bed
+    protocol: wfs
+  - id: csdi:Mangrove
+    title: Mangrove
+    protocol: wfs
+  - id: csdi:Green_urban_area
+    title: Green_urban_area
+    protocol: wfs
+  - id: csdi:Grassland
+    title: Grassland
+    protocol: wfs
+  - id: csdi:Bare_rock_soil
+    title: Bare_rock_soil
+    protocol: wfs
+  - id: csdi:Artificial_pond
+    title: Artificial_pond
+    protocol: wfs
+  - id: csdi:Artificial_hard_shoreline
+    title: Artificial_hard_shoreline
+    protocol: wfs
+  - id: csdi:Agricultural_land
+    title: Agricultural_land
+    protocol: wfs
+  - id: Agricultural_land
+    title: Agricultural_land
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.837528"
+        miny: "22.162992"
+        maxx: "114.437756"
+        maxy: "22.562606"
+      - CRS: EPSG:4326
+        minx: "22.162992"
+        miny: "113.837528"
+        maxx: "22.562606"
+        maxy: "114.437756"
+      - CRS: EPSG:2326
+        minx: "802593.863300"
+        miny: "801617.755200"
+        maxx: "846806.620400"
+        maxy: "863354.000000"
+      - CRS: EPSG:102140
+        minx: "802593.863300"
+        miny: "801617.755200"
+        maxx: "846806.620400"
+        maxy: "863354.000000"
+    styles:
+      - id: default
+        title: Agricultural_land
+  - id: Artificial_hard_shoreline
+    title: Artificial_hard_shoreline
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.851811"
+        miny: "22.166516"
+        maxx: "114.374829"
+        maxy: "22.546266"
+      - CRS: EPSG:4326
+        minx: "22.166516"
+        miny: "113.851811"
+        maxx: "22.546266"
+        maxy: "114.374829"
+      - CRS: EPSG:2326
+        minx: "802980.863300"
+        miny: "803082.837900"
+        maxx: "844997.217300"
+        maxy: "856884.000000"
+      - CRS: EPSG:102140
+        minx: "802980.863300"
+        miny: "803082.837900"
+        maxx: "844997.217300"
+        maxy: "856884.000000"
+    styles:
+      - id: default
+        title: Artificial_hard_shoreline
+  - id: Artificial_pond
+    title: Artificial_pond
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.857624"
+        miny: "22.194307"
+        maxx: "114.366495"
+        maxy: "22.558880"
+      - CRS: EPSG:4326
+        minx: "22.194307"
+        miny: "113.857624"
+        maxx: "22.558880"
+        maxy: "114.366495"
+      - CRS: EPSG:2326
+        minx: "806057.074200"
+        miny: "803683.842800"
+        maxx: "846394.000000"
+        maxy: "856024.925800"
+      - CRS: EPSG:102140
+        minx: "806057.074200"
+        miny: "803683.842800"
+        maxx: "846394.000000"
+        maxy: "856024.925800"
+    styles:
+      - id: default
+        title: Artificial_pond
+  - id: Bare_rock_soil
+    title: Bare_rock_soil
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.831858"
+        miny: "22.155343"
+        maxx: "114.438973"
+        maxy: "22.561993"
+      - CRS: EPSG:4326
+        minx: "22.155343"
+        miny: "113.831858"
+        maxx: "22.561993"
+        maxy: "114.438973"
+      - CRS: EPSG:2326
+        minx: "801748.195300"
+        miny: "801034.314800"
+        maxx: "846738.806300"
+        maxy: "863479.253900"
+      - CRS: EPSG:102140
+        minx: "801748.195300"
+        miny: "801034.314800"
+        maxx: "846738.806300"
+        maxy: "863479.253900"
+    styles:
+      - id: default
+        title: Bare_rock_soil
+  - id: Grassland
+    title: Grassland
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.832788"
+        miny: "22.155777"
+        maxx: "114.438963"
+        maxy: "22.563431"
+      - CRS: EPSG:4326
+        minx: "22.155777"
+        miny: "113.832788"
+        maxx: "22.563431"
+        maxy: "114.438963"
+      - CRS: EPSG:2326
+        minx: "801796.000000"
+        miny: "801130.411200"
+        maxx: "846898.000000"
+        maxy: "863478.000000"
+      - CRS: EPSG:102140
+        minx: "801796.000000"
+        miny: "801130.411200"
+        maxx: "846898.000000"
+        maxy: "863478.000000"
+    styles:
+      - id: default
+        title: Grassland
+  - id: Green_urban_area
+    title: Green_urban_area
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.845819"
+        miny: "22.166568"
+        maxx: "114.431592"
+        maxy: "22.562383"
+      - CRS: EPSG:4326
+        minx: "22.166568"
+        miny: "113.845819"
+        maxx: "22.562383"
+        maxy: "114.431592"
+      - CRS: EPSG:2326
+        minx: "802988.000000"
+        miny: "802470.490500"
+        maxx: "846782.000000"
+        maxy: "862720.000000"
+      - CRS: EPSG:102140
+        minx: "802988.000000"
+        miny: "802470.490500"
+        maxx: "846782.000000"
+        maxy: "862720.000000"
+    styles:
+      - id: default
+        title: Green_urban_area
+  - id: Mangrove
+    title: Mangrove
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.845468"
+        miny: "22.220389"
+        maxx: "114.372644"
+        maxy: "22.548206"
+      - CRS: EPSG:4326
+        minx: "22.220389"
+        miny: "113.845468"
+        maxx: "22.548206"
+        maxy: "114.372644"
+      - CRS: EPSG:2326
+        minx: "808948.000000"
+        miny: "802430.851200"
+        maxx: "845212.000000"
+        maxy: "856658.933600"
+      - CRS: EPSG:102140
+        minx: "808948.000000"
+        miny: "802430.851200"
+        maxx: "845212.000000"
+        maxy: "856658.933600"
+    styles:
+      - id: default
+        title: Mangrove
+  - id: Marsh_reed_bed
+    title: Marsh_reed_bed
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.844043"
+        miny: "22.162958"
+        maxx: "114.438023"
+        maxy: "22.559968"
+      - CRS: EPSG:4326
+        minx: "22.162958"
+        miny: "113.844043"
+        maxx: "22.559968"
+        maxy: "114.438023"
+      - CRS: EPSG:2326
+        minx: "802588.609400"
+        miny: "802287.209400"
+        maxx: "846514.547600"
+        maxy: "863381.914100"
+      - CRS: EPSG:102140
+        minx: "802588.609400"
+        miny: "802287.209400"
+        maxx: "846514.547600"
+        maxy: "863381.914100"
+    styles:
+      - id: default
+        title: Marsh_reed_bed
+  - id: Mixed_barren_land
+    title: Mixed_barren_land
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.833345"
+        miny: "22.155742"
+        maxx: "114.438937"
+        maxy: "22.562847"
+      - CRS: EPSG:4326
+        minx: "22.155742"
+        miny: "113.833345"
+        maxx: "22.562847"
+        maxy: "114.438937"
+      - CRS: EPSG:2326
+        minx: "801792.000000"
+        miny: "801187.543000"
+        maxx: "846833.361600"
+        maxy: "863475.425800"
+      - CRS: EPSG:102140
+        minx: "801792.000000"
+        miny: "801187.543000"
+        maxx: "846833.361600"
+        maxy: "863475.425800"
+    styles:
+      - id: default
+        title: Mixed_barren_land
+  - id: Modified_watercourse
+    title: Modified_watercourse
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.858422"
+        miny: "22.189567"
+        maxx: "114.367328"
+        maxy: "22.534127"
+      - CRS: EPSG:4326
+        minx: "22.189567"
+        miny: "113.858422"
+        maxx: "22.534127"
+        maxy: "114.367328"
+      - CRS: EPSG:2326
+        minx: "805532.000000"
+        miny: "803760.000000"
+        maxx: "843652.925500"
+        maxy: "856114.144500"
+      - CRS: EPSG:102140
+        minx: "805532.000000"
+        miny: "803760.000000"
+        maxx: "843652.925500"
+        maxy: "856114.144500"
+    styles:
+      - id: default
+        title: Modified_watercourse
+  - id: Natural_rocky_shoreline
+    title: Natural_rocky_shoreline
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.831741"
+        miny: "22.154763"
+        maxx: "114.439549"
+        maxy: "22.556919"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831741"
+        maxx: "22.556919"
+        maxy: "114.439549"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846176.907500"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846176.907500"
+        maxy: "863539.468800"
+    styles:
+      - id: default
+        title: Natural_rocky_shoreline
+  - id: Natural_watercourse
+    title: Natural_watercourse
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.845616"
+        miny: "22.220080"
+        maxx: "114.378720"
+        maxy: "22.547971"
+      - CRS: EPSG:4326
+        minx: "22.220080"
+        miny: "113.845616"
+        maxx: "22.547971"
+        maxy: "114.378720"
+      - CRS: EPSG:2326
+        minx: "808913.753900"
+        miny: "802446.000000"
+        maxx: "845186.000000"
+        maxy: "857284.000000"
+      - CRS: EPSG:102140
+        minx: "808913.753900"
+        miny: "802446.000000"
+        maxx: "845186.000000"
+        maxy: "857284.000000"
+    styles:
+      - id: default
+        title: Natural_watercourse
+  - id: Other_urban_area
+    title: Other_urban_area
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.832513"
+        miny: "22.156429"
+        maxx: "114.434422"
+        maxy: "22.563226"
+      - CRS: EPSG:4326
+        minx: "22.156429"
+        miny: "113.832513"
+        maxx: "22.563226"
+        maxy: "114.434422"
+      - CRS: EPSG:2326
+        minx: "801868.230500"
+        miny: "801102.000000"
+        maxx: "846875.334200"
+        maxy: "863010.937500"
+      - CRS: EPSG:102140
+        minx: "801868.230500"
+        miny: "801102.000000"
+        maxx: "846875.334200"
+        maxy: "863010.937500"
+    styles:
+      - id: default
+        title: Other_urban_area
+  - id: Reservoirs
+    title: Reservoirs
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.888013"
+        miny: "22.227464"
+        maxx: "114.373098"
+        maxy: "22.500887"
+      - CRS: EPSG:4326
+        minx: "22.227464"
+        miny: "113.888013"
+        maxx: "22.500887"
+        maxy: "114.373098"
+      - CRS: EPSG:2326
+        minx: "809722.464800"
+        miny: "806797.067900"
+        maxx: "839972.000000"
+        maxy: "856712.531300"
+      - CRS: EPSG:102140
+        minx: "809722.464800"
+        miny: "806797.067900"
+        maxx: "839972.000000"
+        maxy: "856712.531300"
+    styles:
+      - id: default
+        title: Reservoirs
+  - id: Rural_plantation
+    title: Rural_plantation
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.832786"
+        miny: "22.156518"
+        maxx: "114.438359"
+        maxy: "22.562907"
+      - CRS: EPSG:4326
+        minx: "22.156518"
+        miny: "113.832786"
+        maxx: "22.562907"
+        maxy: "114.438359"
+      - CRS: EPSG:2326
+        minx: "801878.000000"
+        miny: "801130.023300"
+        maxx: "846840.000000"
+        maxy: "863416.000000"
+      - CRS: EPSG:102140
+        minx: "801878.000000"
+        miny: "801130.023300"
+        maxx: "846840.000000"
+        maxy: "863416.000000"
+    styles:
+      - id: default
+        title: Rural_plantation
+  - id: Seagrass_bed
+    title: Seagrass_bed
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.921589"
+        miny: "22.280940"
+        maxx: "114.291399"
+        maxy: "22.540061"
+      - CRS: EPSG:4326
+        minx: "22.280940"
+        miny: "113.921589"
+        maxx: "22.540061"
+        maxy: "114.291399"
+      - CRS: EPSG:2326
+        minx: "815638.000000"
+        miny: "810259.607400"
+        maxx: "844310.000000"
+        maxy: "848302.367200"
+      - CRS: EPSG:102140
+        minx: "815638.000000"
+        miny: "810259.607400"
+        maxx: "844310.000000"
+        maxy: "848302.367200"
+    styles:
+      - id: default
+        title: Seagrass_bed
+  - id: Shrubby_grassland
+    title: Shrubby_grassland
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.831927"
+        miny: "22.155452"
+        maxx: "114.438860"
+        maxy: "22.563304"
+      - CRS: EPSG:4326
+        minx: "22.155452"
+        miny: "113.831927"
+        maxx: "22.563304"
+        maxy: "114.438860"
+      - CRS: EPSG:2326
+        minx: "801760.195300"
+        miny: "801041.753900"
+        maxx: "846884.000000"
+        maxy: "863467.410200"
+      - CRS: EPSG:102140
+        minx: "801760.195300"
+        miny: "801041.753900"
+        maxx: "846884.000000"
+        maxy: "863467.410200"
+    styles:
+      - id: default
+        title: Shrubby_grassland
+  - id: Shrubland
+    title: Shrubland
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.831915"
+        miny: "22.155450"
+        maxx: "114.438643"
+        maxy: "22.562986"
+      - CRS: EPSG:4326
+        minx: "22.155450"
+        miny: "113.831915"
+        maxx: "22.562986"
+        maxy: "114.438643"
+      - CRS: EPSG:2326
+        minx: "801760.000000"
+        miny: "801040.471200"
+        maxx: "846848.744400"
+        maxy: "863445.140600"
+      - CRS: EPSG:102140
+        minx: "801760.000000"
+        miny: "801040.471200"
+        maxx: "846848.744400"
+        maxy: "863445.140600"
+    styles:
+      - id: default
+        title: Shrubland
+  - id: Soft_shore
+    title: Soft_shore
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.835231"
+        miny: "22.160575"
+        maxx: "114.439192"
+        maxy: "22.556919"
+      - CRS: EPSG:4326
+        minx: "22.160575"
+        miny: "113.835231"
+        maxx: "22.556919"
+        maxy: "114.439192"
+      - CRS: EPSG:2326
+        minx: "802326.746100"
+        miny: "801380.000000"
+        maxx: "846176.889400"
+        maxy: "863502.816400"
+      - CRS: EPSG:102140
+        minx: "802326.746100"
+        miny: "801380.000000"
+        maxx: "846176.889400"
+        maxy: "863502.816400"
+    styles:
+      - id: default
+        title: Soft_shore
+  - id: Woodland
+    title: Woodland
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.832006"
+        miny: "22.155721"
+        maxx: "114.438398"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.155721"
+        miny: "113.832006"
+        maxx: "22.563451"
+        maxy: "114.438398"
+      - CRS: EPSG:2326
+        minx: "801790.000000"
+        miny: "801050.000000"
+        maxx: "846900.242100"
+        maxy: "863419.835900"
+      - CRS: EPSG:102140
+        minx: "801790.000000"
+        miny: "801050.000000"
+        maxx: "846900.242100"
+        maxy: "863419.835900"
+    styles:
+      - id: default
+        title: Woodland
+  - id: Woody_shrubland
+    title: Woody_shrubland
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.831725"
+        miny: "22.154763"
+        maxx: "114.439561"
+        maxy: "22.563451"
+      - CRS: EPSG:4326
+        minx: "22.154763"
+        miny: "113.831725"
+        maxx: "22.563451"
+        maxy: "114.439561"
+      - CRS: EPSG:2326
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: EPSG:102140
+        minx: "801684.000000"
+        miny: "801021.056200"
+        maxx: "846900.242100"
+        maxy: "863539.468800"
+      - CRS: CRS:84
+        minx: "113.832007"
+        miny: "22.155376"
+        maxx: "114.437975"
+        maxy: "22.563358"
+      - CRS: EPSG:4326
+        minx: "22.155376"
+        miny: "113.832007"
+        maxx: "22.563358"
+        maxy: "114.437975"
+      - CRS: EPSG:2326
+        minx: "801751.753900"
+        miny: "801050.000000"
+        maxx: "846890.000000"
+        maxy: "863376.418000"
+      - CRS: EPSG:102140
+        minx: "801751.753900"
+        miny: "801050.000000"
+        maxx: "846890.000000"
+        maxy: "863376.418000"
+    styles:
+      - id: default
+        title: Woody_shrubland
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=afcd_rcd_1639382960762_55768
+    sha256: ad0e02c69c7f2b29c348e3ce3130fcbbd5ec5425addc83f0eb2db25e9403c477
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer?f=pjson
+    sha256: f228f5c2d97f4c54568af6f2e7b2356a45ac9d50a5efe7a751f119e7082e060f
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/0?f=pjson
+    sha256: 5f4e547c6f96df3db9aafaa6ab65517ac542c05d688f152e1b75c044f8896972
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/10?f=pjson
+    sha256: 8f3f4a01822a34ca0e325f394b42fb1db02df5e96239a59faed03452b47445de
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/11?f=pjson
+    sha256: ddeccedd3afa797d5cc4f743f9b040ebd26ea66831aee80539fa8ca29f63944d
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/12?f=pjson
+    sha256: 0eadd77fd4ef7b3eb93eda816e762e098d032ec13760fae8ba7089d501d06ab7
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/13?f=pjson
+    sha256: f15c1ca7c1c23e966f14d5a9102f290bf3a9f7f79bcc77403de546901a65210d
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/14?f=pjson
+    sha256: a9d583c7cf6a5bf3a0d4d6f446d96b2ea5afbf28908ca228f406181d1580566f
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/15?f=pjson
+    sha256: 935ea0e86101406b8a4915f36d0600a56e86901309331c6fbc5c9c76ddd9566c
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/16?f=pjson
+    sha256: c06ce0a9011edf0c83beeb9ed06a1d4744ae5239d2ca07ab58aabc40d81c6e8e
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/17?f=pjson
+    sha256: b415e2f5ba133582b853e8122640c86225b1ab702fccc0775a5818cda52ffb77
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/18?f=pjson
+    sha256: 8634222e23b1a85fb49a5d2d677e22dec87a58d9c10979c6622ced5677987170
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/19?f=pjson
+    sha256: a5d6e421016366c1bc11580efa093154c0629acc7283de40585717570a36edc4
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/1?f=pjson
+    sha256: dca57bcb890f066c75da9ac6edb2bacf330ce32052442baa88e541cc93dc3d2c
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/20?f=pjson
+    sha256: 705377f8915d7accc42e99ca98b3c91e4236897fafd297e7bce817fe971c5666
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/2?f=pjson
+    sha256: 3e26aa12276d9c9e2f8552da75327869d6993257d6a4f66a2771d9cac3d44c6f
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/3?f=pjson
+    sha256: b9bbca10b62f95a3d81d31df88f5d2c95a0ce737c0f2e5d2355bd975e7700d64
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/4?f=pjson
+    sha256: 62b02a87c77e112c27f97110bc5e5fdc9b3b85473df99742be55df7e5d964a6a
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/5?f=pjson
+    sha256: 8e2ae7f46545a3a1fd80527c2989804d37e00f3674e4b4095d41f1931ca4b24b
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/6?f=pjson
+    sha256: 863d0958c2df082549be6cd4aa424477e18b479077893f83c440560dfd37d071
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/7?f=pjson
+    sha256: 81251534016f50c0083a481ec9d26eb28f4e58889c5b5b11dfaf401df8dc439b
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/8?f=pjson
+    sha256: 07da6f3c9a5f5d614aa36d1c789f1685fddd7592bf8db335dbf25f38062f923a
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1639382960762_55768/FeatureServer/9?f=pjson
+    sha256: 695a2cadb4d66fc626d43c190522d3aced4522d2856225c83fc8010431a1abbf
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1639382960762_55768/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    sha256: 6b7e8fbd5d85753681fe28f1fbae469cc6aae106fea5fa76aaa713f6954c33b2
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+  - url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1639382960762_55768/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    sha256: 708d2568bdcb79cc0620ca5295589d446a3a49f093e40fcace227fb60d034e0a
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1639382960762_55768/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+      httpStatus: 403
+    - serviceId: csdi-service-bb396eb9aaefb042a77d9139
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/afcd_rcd_1639382960762_55768/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 25
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

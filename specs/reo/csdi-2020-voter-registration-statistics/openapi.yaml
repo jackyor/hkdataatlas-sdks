@@ -1,0 +1,3241 @@
+openapi: 3.1.0
+info:
+  title: Registration and Electoral Office — 2020 Voter Registration Statistics
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: VR_2020_DC_FULL
+              value: 0
+            choice2:
+              summary: VR_2020_DC_NR
+              value: 1
+            choice3:
+              summary: VR_2020_DCCA_FULL
+              value: 2
+            choice4:
+              summary: VR_2020_DCCA_NR
+              value: 3
+            choice5:
+              summary: VR_2020_GC_FULL
+              value: 4
+            choice6:
+              summary: VR_2020_LC_FULL
+              value: 5
+            choice7:
+              summary: VR_2020_LC_NR
+              value: 6
+          x-choice-count: 7
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer?f=pjson
+          sha256: 896934b579c8b08afdc1ecadf35c198b2a34f250db6cc062cea54c53841817eb
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/0?f=pjson
+          sha256: e80691c199167fb22ea8223668c71f7dbfea69cb8513ec1577bf887ccae1aa84
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/1?f=pjson
+          sha256: 7418d4c5199f7c0e2c306f2cc9c450356e8e047524ef2d4d0f9013b1da5cf21f
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/2?f=pjson
+          sha256: 60c55775bd6da1cc90fd97ec3115e9bf883f0e94dc86b05e70952a6befddd3da
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/3?f=pjson
+          sha256: c6b0f392dd5a85f0a38df842f2a9def1e460da17f3aa6f46b8fdbab3d1bd4bb8
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/4?f=pjson
+          sha256: e8f4569f286276abdbceb6fd31c75db716ad0c5651381890bf5b45604dde667d
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/5?f=pjson
+          sha256: 3a74c91af9b62ac51c9c4e1b744f0c6dfd6909efbdec1af0aab3702e1fd94b4d
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/6?f=pjson
+          sha256: ca1a73c41f723612b71c19c4db6aaa156b096d2d51f0133bc35d4739983c56fa
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+  /server/services/common/reo_rcd_1667446461158_33321/MapServer/WFSServer:
+    get:
+      operationId: WfsMapServerGetFeature
+      tags:
+        - WFS
+      summary: Retrieve published features
+      description: One read-only GET operation selects published feature types by name. Attribute types derive from retained DescribeFeatureType XSD when available; missing XSD, geometry, unread response data and unknown fields remain explicit limitations.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WFS
+          example: WFS
+        - name: version
+          in: query
+          required: true
+          description: Exact capabilities version.
+          schema:
+            type: string
+            enum:
+              - 2.0.0
+          example: 2.0.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only operation advertised by GetCapabilities.
+          schema:
+            type: string
+            enum:
+              - GetFeature
+          example: GetFeature
+        - name: typeNames
+          in: query
+          required: true
+          description: Published feature type names; multiple selections follow the advertised protocol syntax. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: VR_2020_LC_NR
+              value: csdi:VR_2020_LC_NR
+            choice2:
+              summary: VR_2020_LC_FULL
+              value: csdi:VR_2020_LC_FULL
+            choice3:
+              summary: VR_2020_GC_FULL
+              value: csdi:VR_2020_GC_FULL
+            choice4:
+              summary: VR_2020_DCCA_NR
+              value: csdi:VR_2020_DCCA_NR
+            choice5:
+              summary: VR_2020_DCCA_FULL
+              value: csdi:VR_2020_DCCA_FULL
+            choice6:
+              summary: VR_2020_DC_NR
+              value: csdi:VR_2020_DC_NR
+            choice7:
+              summary: VR_2020_DC_FULL
+              value: csdi:VR_2020_DC_FULL
+          x-choice-count: 7
+        - name: outputFormat
+          in: query
+          required: false
+          description: Advertised native representation; JSON, GML, CSV and images are kept distinct.
+          schema:
+            type: string
+            enum:
+              - GML32
+              - GML32+ZIP
+              - GML32+GZIP
+              - application/gml+xml; version=3.2
+              - GML3
+              - GML3+ZIP
+              - GML3+GZIP
+              - text/xml; subtype=gml/3.1.1
+              - GML2
+              - GML2+ZIP
+              - GML2+GZIP
+              - text/xml; subtype=gml/2.1.2
+              - GEOJSON
+              - GEOJSON+ZIP
+              - GEOJSON+GZIP
+              - ESRIGEOJSON
+              - ESRIGEOJSON+ZIP
+              - ESRIGEOJSON+GZIP
+              - KML
+              - application/vnd.google-earth.kml xml
+              - application/vnd.google-earth.kml+xml
+              - KMZ
+              - application/vnd.google-earth.kmz
+              - SHAPE+ZIP
+              - CSV
+              - CSV+ZIP
+              - CSV+GZIP
+              - Geopackage
+              - Geopackage+ZIP
+          example: GEOJSON
+        - name: count
+          in: query
+          required: false
+          description: OGC bounded feature limit; example requests one feature without claiming a server-wide bound.
+          schema:
+            type: integer
+          example: 1
+        - name: srsName
+          in: query
+          required: false
+          description: Output CRS choices advertised by at least one feature type; support may vary by selected type.
+          schema:
+            type: string
+          example: urn:ogc:def:crs:EPSG::2326
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/gml+xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/WfsMapServerWfsFeatureCollection"
+            application/vnd.google-earth.kml+xml:
+              schema:
+                type: string
+            "*/*":
+              schema:
+                description: Native Geopackage+ZIP output; wire media type/fields are not constrained.
+            text/csv:
+              schema:
+                type: string
+                description: Native CSV; row/column wire conformance is not inferred from JSON schemas.
+      externalDocs:
+        url: https://docs.ogc.org/is/09-025r2/09-025r2.html
+      x-advertised-crss:
+        - urn:ogc:def:crs:EPSG::2326
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667446461158_33321/MapServer/WFSServer?service=WFS&request=GetCapabilities
+          sha256: 8727b6056ba4846b6e24bff500d568685a275c9149f0288b4ca1d21352ae7b05
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-capabilities
+          parseStatus: pass
+          kind: wfs-capabilities
+        - url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667446461158_33321/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+          sha256: ab96cf777e4054395dd1caed8b4333d241c0390c39e5c4e05363e47f16e5b521
+          httpStatus: 200
+          contentType: text/xml;charset=UTF-8
+          role: wfs-feature-type
+          parseStatus: pass
+          kind: wfs-feature-type
+  /server/services/common/reo_rcd_1667446461158_33321/MapServer/WMSServer:
+    get:
+      operationId: WmsMapServerGetMap
+      tags:
+        - WMS
+      summary: Render a map image
+      description: Map rendering returns its advertised native image/document representation. It does not return a feature JSON collection. Layer CRS, style and bounding-box choices are retained; no data observation is implied by metadata availability.
+      parameters:
+        - name: service
+          in: query
+          required: true
+          description: OGC service identifier.
+          schema:
+            type: string
+            enum:
+              - WMS
+          example: WMS
+        - name: version
+          in: query
+          required: true
+          description: Exact advertised WMS version.
+          schema:
+            type: string
+            enum:
+              - 1.3.0
+          example: 1.3.0
+        - name: request
+          in: query
+          required: true
+          description: Read-only GetMap operation.
+          schema:
+            type: string
+            enum:
+              - GetMap
+          example: GetMap
+        - name: layers
+          in: query
+          required: true
+          description: Comma-separated published map layer names. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: string
+          examples:
+            choice1:
+              summary: VR_2020_DC_FULL
+              value: VR_2020_DC_FULL
+            choice2:
+              summary: VR_2020_DC_NR
+              value: VR_2020_DC_NR
+            choice3:
+              summary: VR_2020_DCCA_FULL
+              value: VR_2020_DCCA_FULL
+            choice4:
+              summary: VR_2020_DCCA_NR
+              value: VR_2020_DCCA_NR
+            choice5:
+              summary: VR_2020_GC_FULL
+              value: VR_2020_GC_FULL
+            choice6:
+              summary: VR_2020_LC_FULL
+              value: VR_2020_LC_FULL
+            choice7:
+              summary: VR_2020_LC_NR
+              value: VR_2020_LC_NR
+          x-choice-count: 7
+        - name: styles
+          in: query
+          required: true
+          description: Comma-separated style names; an empty string selects the standard default style.
+          schema:
+            type: string
+          example: ""
+          allowEmptyValue: true
+        - name: format
+          in: query
+          required: true
+          description: Advertised GetMap representation.
+          schema:
+            type: string
+            enum:
+              - image/bmp
+              - image/jpeg
+              - image/tiff
+              - image/png
+              - image/png8
+              - image/png24
+              - image/png32
+              - image/gif
+              - image/svg+xml
+          example: image/png
+        - name: width
+          in: query
+          required: true
+          description: Requested image width in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: height
+          in: query
+          required: true
+          description: Requested image height in pixels; no invented maximum.
+          schema:
+            type: integer
+          example: 256
+        - name: crs
+          in: query
+          required: true
+          description: Advertised coordinate reference system; support depends on selected layer. Observe the WMS version and CRS axis order.
+          schema:
+            type: string
+          example: CRS:84
+        - name: bbox
+          in: query
+          required: true
+          description: minx,miny,maxx,maxy in the chosen CRS and its specified axis order. Example, when present, is an actual advertised bounding box.
+          schema:
+            type: string
+          example: 113.813756,22.138045,114.500968,22.569932
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            image/bmp:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/tiff:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/png8:
+              schema:
+                type: string
+                format: binary
+            image/png24:
+              schema:
+                type: string
+                format: binary
+            image/png32:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+      x-advertised-crss:
+        - CRS:84
+        - EPSG:4326
+        - EPSG:2326
+        - EPSG:102140
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667446461158_33321/MapServer/WMSServer?service=WMS&request=GetCapabilities
+          sha256: 97740ced7622c5a1cb783ac9a4779f69de7a1f944fd58abc46341dbea11786a3
+          httpStatus: 200
+          contentType: text/xml
+          role: wms-capabilities
+          parseStatus: pass
+          kind: wms-capabilities
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        F_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_18_20
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_21_25
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_26_30
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_31_35
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_36_40
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_41_45
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_46_50
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_51_55
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_56_60
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_61_65
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_66_70
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_71PLUS
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_18_20
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_21_25
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_26_30
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_31_35
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_36_40
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_41_45
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_46_50
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_51_55
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_56_60
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_61_65
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_66_70
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_71PLUS
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        F_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_18_20
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_21_25
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_26_30
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_31_35
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_36_40
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_41_45
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_46_50
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_51_55
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_56_60
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_61_65
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_66_70
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_71PLUS
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_18_20
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_21_25
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_26_30
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_31_35
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_36_40
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_41_45
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_46_50
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_51_55
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_56_60
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_61_65
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_66_70
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_71PLUS
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer2Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        CACODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CACODE
+          type:
+            - string
+            - "null"
+          maxLength: 3
+        ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        DISTRICT_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: DISTRICT_T
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        DISTRICT_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: DISTRICT_E
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_18_20
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_21_25
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_26_30
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_31_35
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_36_40
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_41_45
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_46_50
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_51_55
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_56_60
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_61_65
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_66_70
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_71PLUS
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_18_20
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_21_25
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_26_30
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_31_35
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_36_40
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_41_45
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_46_50
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_51_55
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_56_60
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_61_65
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_66_70
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_71PLUS
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer3Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        CACODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CACODE
+          type:
+            - string
+            - "null"
+          maxLength: 3
+        ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        DISTRICT_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: DISTRICT_T
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        DISTRICT_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: DISTRICT_E
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_18_20
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_21_25
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_26_30
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_31_35
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_36_40
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_41_45
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_46_50
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_51_55
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_56_60
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_61_65
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_66_70
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_71PLUS
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_18_20
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_21_25
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_26_30
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_31_35
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_36_40
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_41_45
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_46_50
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_51_55
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_56_60
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_61_65
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_66_70
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_71PLUS
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer4Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        COUNT:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: COUNT
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer5Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_18_20
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_21_25
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_26_30
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_31_35
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_36_40
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_41_45
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_46_50
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_51_55
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_56_60
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_61_65
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_66_70
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_71PLUS
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_18_20
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_21_25
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_26_30
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_31_35
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_36_40
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_41_45
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_46_50
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_51_55
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_56_60
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_61_65
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_66_70
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_71PLUS
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer6Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_18_20
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_21_25
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_26_30
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_31_35
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_36_40
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_41_45
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_46_50
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_51_55
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_56_60
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_61_65
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_66_70
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: F_71PLUS
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_18_20
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_21_25
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_26_30
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_31_35
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_36_40
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_41_45
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_46_50
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_51_55
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_56_60
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_61_65
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_66_70
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: M_71PLUS
+          type:
+            - number
+            - "null"
+        Shape__Length:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Length
+          type:
+            - number
+            - "null"
+        Shape__Area:
+          description: "Publisher field type: esriFieldTypeDouble"
+          title: SHAPE_Area
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    WfsMapServerWfsVR2020LCNRAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CNAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        ENAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsVR2020LCFULLAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CNAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        ENAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsVR2020GCFULLAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CNAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        ENAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        COUNT:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsVR2020DCCANRAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CACODE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 3
+        ENAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        CNAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        DISTRICT_T:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        DISTRICT_E:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsVR2020DCCAFULLAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CACODE:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 3
+        ENAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        CNAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 40
+        DISTRICT_T:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        DISTRICT_E:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 50
+        F_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsVR2020DCNRAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CNAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ENAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        F_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsVR2020DCFULLAttributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: Native XSD type xsd:int. Requiredness is not projected from XML occurrence into all JSON queries.
+          type: integer
+        CNAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ENAME:
+          description: Native XSD type . Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        F_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        F_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_18_20:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_21_25:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_26_30:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_31_35:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_36_40:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_41_45:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_46_50:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_51_55:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_56_60:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_61_65:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_66_70:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        M_71PLUS:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE:
+          description: Native geometry property gml:MultiSurfacePropertyType; JSON geometry is not inferred from its XML type.
+        SHAPE_Length:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+        SHAPE_Area:
+          description: Native XSD type xsd:double. Requiredness is not projected from XML occurrence into all JSON queries.
+          type:
+            - number
+            - "null"
+      additionalProperties: true
+    WfsMapServerWfsFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/WfsMapServerWfsVR2020LCNRAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsVR2020LCFULLAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsVR2020GCFULLAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsVR2020DCCANRAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsVR2020DCCAFULLAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsVR2020DCNRAttributes"
+                  - $ref: "#/components/schemas/WfsMapServerWfsVR2020DCFULLAttributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: VR_2020_DC_FULL
+    protocol: arcgis
+  - id: 1
+    title: VR_2020_DC_NR
+    protocol: arcgis
+  - id: 2
+    title: VR_2020_DCCA_FULL
+    protocol: arcgis
+  - id: 3
+    title: VR_2020_DCCA_NR
+    protocol: arcgis
+  - id: 4
+    title: VR_2020_GC_FULL
+    protocol: arcgis
+  - id: 5
+    title: VR_2020_LC_FULL
+    protocol: arcgis
+  - id: 6
+    title: VR_2020_LC_NR
+    protocol: arcgis
+  - id: csdi:VR_2020_LC_NR
+    title: VR_2020_LC_NR
+    protocol: wfs
+  - id: csdi:VR_2020_LC_FULL
+    title: VR_2020_LC_FULL
+    protocol: wfs
+  - id: csdi:VR_2020_GC_FULL
+    title: VR_2020_GC_FULL
+    protocol: wfs
+  - id: csdi:VR_2020_DCCA_NR
+    title: VR_2020_DCCA_NR
+    protocol: wfs
+  - id: csdi:VR_2020_DCCA_FULL
+    title: VR_2020_DCCA_FULL
+    protocol: wfs
+  - id: csdi:VR_2020_DC_NR
+    title: VR_2020_DC_NR
+    protocol: wfs
+  - id: csdi:VR_2020_DC_FULL
+    title: VR_2020_DC_FULL
+    protocol: wfs
+  - id: VR_2020_DC_FULL
+    title: VR_2020_DC_FULL
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: CRS:84
+        minx: "113.813875"
+        miny: "22.138046"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138046"
+        miny: "113.813875"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000086"
+        miny: "799186.839116"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000086"
+        miny: "799186.839116"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+    styles:
+      - id: default
+        title: VR_2020_DC_FULL
+  - id: VR_2020_DC_NR
+    title: VR_2020_DC_NR
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: CRS:84
+        minx: "113.813875"
+        miny: "22.138046"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138046"
+        miny: "113.813875"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000086"
+        miny: "799186.839116"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000086"
+        miny: "799186.839116"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+    styles:
+      - id: default
+        title: VR_2020_DC_NR
+  - id: VR_2020_DCCA_FULL
+    title: VR_2020_DCCA_FULL
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: CRS:84
+        minx: "113.813875"
+        miny: "22.138046"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138046"
+        miny: "113.813875"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799186.839011"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799186.839011"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+    styles:
+      - id: default
+        title: VR_2020_DCCA_FULL
+  - id: VR_2020_DCCA_NR
+    title: VR_2020_DCCA_NR
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: CRS:84
+        minx: "113.813875"
+        miny: "22.138046"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138046"
+        miny: "113.813875"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799186.839011"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799186.839011"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+    styles:
+      - id: default
+        title: VR_2020_DCCA_NR
+  - id: VR_2020_GC_FULL
+    title: VR_2020_GC_FULL
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+    styles:
+      - id: default
+        title: VR_2020_GC_FULL
+  - id: VR_2020_LC_FULL
+    title: VR_2020_LC_FULL
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+    styles:
+      - id: default
+        title: VR_2020_LC_FULL
+  - id: VR_2020_LC_NR
+    title: VR_2020_LC_NR
+    protocol: wms
+    crss:
+      - CRS:84
+      - EPSG:4326
+      - EPSG:2326
+      - EPSG:102140
+    bounds:
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847618.000101"
+        maxy: "869854.000099"
+      - CRS: CRS:84
+        minx: "113.813756"
+        miny: "22.138045"
+        maxx: "114.500968"
+        maxy: "22.569932"
+      - CRS: EPSG:4326
+        minx: "22.138045"
+        miny: "113.813756"
+        maxx: "22.569932"
+        maxy: "114.500968"
+      - CRS: EPSG:2326
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+      - CRS: EPSG:102140
+        minx: "799837.000016"
+        miny: "799174.570000"
+        maxx: "847617.999996"
+        maxy: "869853.999994"
+    styles:
+      - id: default
+        title: VR_2020_LC_NR
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=reo_rcd_1667446461158_33321
+    sha256: 14008ccf7d5172f4e341d950da312b92dc1b869432cd4424040caf531a46c84f
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer?f=pjson
+    sha256: 896934b579c8b08afdc1ecadf35c198b2a34f250db6cc062cea54c53841817eb
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/0?f=pjson
+    sha256: e80691c199167fb22ea8223668c71f7dbfea69cb8513ec1577bf887ccae1aa84
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/1?f=pjson
+    sha256: 7418d4c5199f7c0e2c306f2cc9c450356e8e047524ef2d4d0f9013b1da5cf21f
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/2?f=pjson
+    sha256: 60c55775bd6da1cc90fd97ec3115e9bf883f0e94dc86b05e70952a6befddd3da
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/3?f=pjson
+    sha256: c6b0f392dd5a85f0a38df842f2a9def1e460da17f3aa6f46b8fdbab3d1bd4bb8
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/4?f=pjson
+    sha256: e8f4569f286276abdbceb6fd31c75db716ad0c5651381890bf5b45604dde667d
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/5?f=pjson
+    sha256: 3a74c91af9b62ac51c9c4e1b744f0c6dfd6909efbdec1af0aab3702e1fd94b4d
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667446461158_33321/FeatureServer/6?f=pjson
+    sha256: ca1a73c41f723612b71c19c4db6aaa156b096d2d51f0133bc35d4739983c56fa
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667446461158_33321/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    sha256: 8727b6056ba4846b6e24bff500d568685a275c9149f0288b4ca1d21352ae7b05
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-capabilities
+    parseStatus: pass
+    kind: wfs-capabilities
+  - url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667446461158_33321/MapServer/WFSServer?service=WFS&version=2.0.0&request=DescribeFeatureType
+    sha256: ab96cf777e4054395dd1caed8b4333d241c0390c39e5c4e05363e47f16e5b521
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    role: wfs-feature-type
+    parseStatus: pass
+    kind: wfs-feature-type
+  - url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667446461158_33321/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    sha256: 97740ced7622c5a1cb783ac9a4779f69de7a1f944fd58abc46341dbea11786a3
+    httpStatus: 200
+    contentType: text/xml
+    role: wms-capabilities
+    parseStatus: pass
+    kind: wms-capabilities
+x-csdi-source-scope:
+  partialProtocols: []
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 12
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

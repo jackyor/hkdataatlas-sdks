@@ -1,0 +1,43 @@
+{
+  "sourceId": "hkma-list-of-retail-banks-hotlines-for-authenticating-the-identity",
+  "publisherKey": "hkma",
+  "family": "list_of_retail_banks_hotlines_for_authenticating_the_identity",
+  "status": "generated",
+  "key": "cc6fe91d6d892820514d44493c19b2762e072d1946c18340e75433f28061db3f",
+  "sourceSha256": "10f401dc9ceeaec2978f673aeedeb3e642be068a7edba5fba50f2002a76578f8",
+  "derivedInputSha256": "006ee22766bc48519e95869ca8dee1622c783744b0159d435136223cb80b09f7",
+  "normalizations": [],
+  "classOverrides": {
+    "Response": {
+      "class_name": "SourceResponseModel",
+      "module_name": "source_response_model"
+    }
+  },
+  "operations": [
+    {
+      "method": "get",
+      "path": "/hotlines-auth-retailbanks-rep",
+      "operationId": null,
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/hkma-list-of-retail-banks-hotlines-for-authenticating-the-identity.log",
+  "outputs": {
+    "__init__.py": "af62ef9679d409703cbe5b3d06041b62147a259225c3dc6f36348383f622f61d",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_hotlines_auth_retailbanks_rep.py": "337948dee809457e8483fd7cfd45b155b25edeeda73d68f3e4d3d429ad5a3bf3",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "243cd09ec8d399e357d9624d00c542ef3dda5319b2594f87ac8ac6ac35035969",
+    "models/error_response.py": "fd66eb80fbd71f11788002d9e48b1f31a992e751be7d31c2c7762e4ff0a6c962",
+    "models/header.py": "518f19791360413a7ed72d2105454fa74f6c66d9c05a1eab667b33d0adf41eca",
+    "models/lang.py": "b6c27f2eb5db4b63ee7b292b8bc3415cea1ca3277126ba19bc2d6751ef9812d8",
+    "models/record.py": "6822a0f2b9596027be355829c698a7260a620b41741b9e39dec4e888c275fc24",
+    "models/result.py": "898de8999ba2513dfc386185e02f98ec2bfee8938c790c4df06bae54eb7839e6",
+    "models/sortorder.py": "05db651f9038fa491e55aa012912a0c45e8e5ef227212af077f031464a343bed",
+    "models/source_response_model.py": "bdb1d0b1748f7944c42c4b5eec1c0d93a942cdfb06706c871d52123c5ce9582b",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

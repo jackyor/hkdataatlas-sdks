@@ -1,0 +1,528 @@
+{
+  "publisherKey": "immd",
+  "publisherName": "Immigration Department",
+  "sources": [
+    {
+      "id": "immd-csdi-births-and-deaths-registries",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-births-and-deaths-registries",
+      "name": "Births and Deaths Registries",
+      "apiTitle": "Immigration Department \u2014 Births and Deaths Registries",
+      "json": "immd/csdi-births-and-deaths-registries/openapi.json",
+      "yaml": "immd/csdi-births-and-deaths-registries/openapi.yaml",
+      "file": "immd/csdi-births-and-deaths-registries/openapi.json",
+      "sha256": "6f9bb6bac2cce2ecd2b10d660e00861d3fb8a43ce3fb344732a28da0235cff70",
+      "jsonSha256": "6f9bb6bac2cce2ecd2b10d660e00861d3fb8a43ce3fb344732a28da0235cff70",
+      "yamlSha256": "403e695b631e31b4ad0bfd690e148177b94b89b3eaadeec9d0b81efcdec2caa5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_births_and_deaths_registries",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6f9bb6bac2cce2ecd2b10d660e00861d3fb8a43ce3fb344732a28da0235cff70"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1632996007708_93217",
+        "canonicalJsonSha256": "6f9bb6bac2cce2ecd2b10d660e00861d3fb8a43ce3fb344732a28da0235cff70",
+        "originalRepresentationSha256": "6f9bb6bac2cce2ecd2b10d660e00861d3fb8a43ce3fb344732a28da0235cff70",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_births_and_deaths_registries"
+    },
+    {
+      "id": "immd-csdi-control-points",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-control-points",
+      "name": "Control Points",
+      "apiTitle": "Immigration Department \u2014 Control Points",
+      "json": "immd/csdi-control-points/openapi.json",
+      "yaml": "immd/csdi-control-points/openapi.yaml",
+      "file": "immd/csdi-control-points/openapi.json",
+      "sha256": "d4a6272d35adcdab0f11270c1e8f252d10180f65c4909f71dee8875a26e6964f",
+      "jsonSha256": "d4a6272d35adcdab0f11270c1e8f252d10180f65c4909f71dee8875a26e6964f",
+      "yamlSha256": "7abde67d036724ff17fdab597bed78f9ea505d8fd8bcc07d32c407f7ae48a86a",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_control_points",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d4a6272d35adcdab0f11270c1e8f252d10180f65c4909f71dee8875a26e6964f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1633320081376_19895",
+        "canonicalJsonSha256": "d4a6272d35adcdab0f11270c1e8f252d10180f65c4909f71dee8875a26e6964f",
+        "originalRepresentationSha256": "d4a6272d35adcdab0f11270c1e8f252d10180f65c4909f71dee8875a26e6964f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_control_points"
+    },
+    {
+      "id": "immd-csdi-immigration-branch-offices",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-immigration-branch-offices",
+      "name": "Immigration Branch Offices",
+      "apiTitle": "Immigration Department \u2014 Immigration Branch Offices",
+      "json": "immd/csdi-immigration-branch-offices/openapi.json",
+      "yaml": "immd/csdi-immigration-branch-offices/openapi.yaml",
+      "file": "immd/csdi-immigration-branch-offices/openapi.json",
+      "sha256": "e730bad23c5904b8c2bc3825ba67084f049c6b0731999e0f2f7777a209284384",
+      "jsonSha256": "e730bad23c5904b8c2bc3825ba67084f049c6b0731999e0f2f7777a209284384",
+      "yamlSha256": "bf0f54e270d3c374cf6c4bb8c14c7af3fb420f9d3916cdd5d4974fea67b1a3b3",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_immigration_branch_offices",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e730bad23c5904b8c2bc3825ba67084f049c6b0731999e0f2f7777a209284384"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1633320433244_69259",
+        "canonicalJsonSha256": "e730bad23c5904b8c2bc3825ba67084f049c6b0731999e0f2f7777a209284384",
+        "originalRepresentationSha256": "e730bad23c5904b8c2bc3825ba67084f049c6b0731999e0f2f7777a209284384",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_immigration_branch_offices"
+    },
+    {
+      "id": "immd-csdi-marriage-registries",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-marriage-registries",
+      "name": "Marriage Registries",
+      "apiTitle": "Immigration Department \u2014 Marriage Registries",
+      "json": "immd/csdi-marriage-registries/openapi.json",
+      "yaml": "immd/csdi-marriage-registries/openapi.yaml",
+      "file": "immd/csdi-marriage-registries/openapi.json",
+      "sha256": "f2e9524886fe4f37cbd82e2489e8bff6b01486e44051f986fa117c58ce10b7b1",
+      "jsonSha256": "f2e9524886fe4f37cbd82e2489e8bff6b01486e44051f986fa117c58ce10b7b1",
+      "yamlSha256": "7203819dd58a9bf6dfebef355c8e5b8485a149ecded45c751a1c624379ce4c8b",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_marriage_registries",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "f2e9524886fe4f37cbd82e2489e8bff6b01486e44051f986fa117c58ce10b7b1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1633320638369_51745",
+        "canonicalJsonSha256": "f2e9524886fe4f37cbd82e2489e8bff6b01486e44051f986fa117c58ce10b7b1",
+        "originalRepresentationSha256": "f2e9524886fe4f37cbd82e2489e8bff6b01486e44051f986fa117c58ce10b7b1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_marriage_registries"
+    },
+    {
+      "id": "immd-csdi-offices-in-immigration-headquarters",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-offices-in-immigration-headquarters",
+      "name": "Offices in Immigration Headquarters",
+      "apiTitle": "Immigration Department \u2014 Offices in Immigration Headquarters",
+      "json": "immd/csdi-offices-in-immigration-headquarters/openapi.json",
+      "yaml": "immd/csdi-offices-in-immigration-headquarters/openapi.yaml",
+      "file": "immd/csdi-offices-in-immigration-headquarters/openapi.json",
+      "sha256": "e1aa318475528faccc783351b77e4e56bda51cd1a48d09266b8912b4e19b8b86",
+      "jsonSha256": "e1aa318475528faccc783351b77e4e56bda51cd1a48d09266b8912b4e19b8b86",
+      "yamlSha256": "ae1b822a5a3e8a4bb3a620470d70ea6a80168344eb97641565d287c626478abd",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_offices_in_immigration_headquarters",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e1aa318475528faccc783351b77e4e56bda51cd1a48d09266b8912b4e19b8b86"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1633320710873_70750",
+        "canonicalJsonSha256": "e1aa318475528faccc783351b77e4e56bda51cd1a48d09266b8912b4e19b8b86",
+        "originalRepresentationSha256": "e1aa318475528faccc783351b77e4e56bda51cd1a48d09266b8912b4e19b8b86",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_offices_in_immigration_headquarters"
+    },
+    {
+      "id": "immd-csdi-registration-of-persons-offices",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-registration-of-persons-offices",
+      "name": "Registration of Persons Offices",
+      "apiTitle": "Immigration Department \u2014 Registration of Persons Offices",
+      "json": "immd/csdi-registration-of-persons-offices/openapi.json",
+      "yaml": "immd/csdi-registration-of-persons-offices/openapi.yaml",
+      "file": "immd/csdi-registration-of-persons-offices/openapi.json",
+      "sha256": "115e86e37fc0a8be75c6816de2b7f1c4addd75bda278b61bd0de0299292caa05",
+      "jsonSha256": "115e86e37fc0a8be75c6816de2b7f1c4addd75bda278b61bd0de0299292caa05",
+      "yamlSha256": "4fdffa98d2f1fc089d15c2e7bc9c329b8b8344bd95758eee22eca7e201570af9",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_registration_of_persons_offices",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "115e86e37fc0a8be75c6816de2b7f1c4addd75bda278b61bd0de0299292caa05"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1633320797426_38758",
+        "canonicalJsonSha256": "115e86e37fc0a8be75c6816de2b7f1c4addd75bda278b61bd0de0299292caa05",
+        "originalRepresentationSha256": "115e86e37fc0a8be75c6816de2b7f1c4addd75bda278b61bd0de0299292caa05",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_registration_of_persons_offices"
+    },
+    {
+      "id": "immd-csdi-castle-peak-bay-immigration-centre",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-castle-peak-bay-immigration-centre",
+      "name": "Castle Peak Bay Immigration Centre",
+      "apiTitle": "Immigration Department \u2014 Castle Peak Bay Immigration Centre",
+      "json": "immd/csdi-castle-peak-bay-immigration-centre/openapi.json",
+      "yaml": "immd/csdi-castle-peak-bay-immigration-centre/openapi.yaml",
+      "file": "immd/csdi-castle-peak-bay-immigration-centre/openapi.json",
+      "sha256": "bd76125248efc3992e3c3cfbccdebd02919070adbd7c6786da384d8957ece527",
+      "jsonSha256": "bd76125248efc3992e3c3cfbccdebd02919070adbd7c6786da384d8957ece527",
+      "yamlSha256": "cd4cde2a05f2fd934f0b245238083c3b6f906c6d483b2e4aa034a36e3144deb2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_castle_peak_bay_immigration_centre",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "bd76125248efc3992e3c3cfbccdebd02919070adbd7c6786da384d8957ece527"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1702858602190_19414",
+        "canonicalJsonSha256": "bd76125248efc3992e3c3cfbccdebd02919070adbd7c6786da384d8957ece527",
+        "originalRepresentationSha256": "bd76125248efc3992e3c3cfbccdebd02919070adbd7c6786da384d8957ece527",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_castle_peak_bay_immigration_centre"
+    },
+    {
+      "id": "immd-csdi-tseung-kwan-o-immigration-detention-centre",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-tseung-kwan-o-immigration-detention-centre",
+      "name": "Tseung Kwan O Immigration Detention Centre",
+      "apiTitle": "Immigration Department \u2014 Tseung Kwan O Immigration Detention Centre",
+      "json": "immd/csdi-tseung-kwan-o-immigration-detention-centre/openapi.json",
+      "yaml": "immd/csdi-tseung-kwan-o-immigration-detention-centre/openapi.yaml",
+      "file": "immd/csdi-tseung-kwan-o-immigration-detention-centre/openapi.json",
+      "sha256": "c86dc037cbef80e49a2b8b487c592361917dbb0f4868bd84ee9cf94894426a65",
+      "jsonSha256": "c86dc037cbef80e49a2b8b487c592361917dbb0f4868bd84ee9cf94894426a65",
+      "yamlSha256": "5096834e50d468bd0d488f77379c5bb42c7f1c8650cf559e6e7f11735859db0e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_tseung_kwan_o_immigration_detention_centre",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "c86dc037cbef80e49a2b8b487c592361917dbb0f4868bd84ee9cf94894426a65"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1702858699718_20708",
+        "canonicalJsonSha256": "c86dc037cbef80e49a2b8b487c592361917dbb0f4868bd84ee9cf94894426a65",
+        "originalRepresentationSha256": "c86dc037cbef80e49a2b8b487c592361917dbb0f4868bd84ee9cf94894426a65",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_tseung_kwan_o_immigration_detention_centre"
+    },
+    {
+      "id": "immd-csdi-immigration-department-recruitment-and-training-research-section",
+      "publisherKey": "immd",
+      "publisherName": "Immigration Department",
+      "familyKey": "csdi-immigration-department-recruitment-and-training-research-section",
+      "name": "Immigration Department Recruitment and Training Research Section",
+      "apiTitle": "Immigration Department \u2014 Immigration Department Recruitment and Training Research Section",
+      "json": "immd/csdi-immigration-department-recruitment-and-training-research-section/openapi.json",
+      "yaml": "immd/csdi-immigration-department-recruitment-and-training-research-section/openapi.yaml",
+      "file": "immd/csdi-immigration-department-recruitment-and-training-research-section/openapi.json",
+      "sha256": "289ab9146e9913c9be7d018bd073f81b9c3c0e2a5bc0750866dacd262527746f",
+      "jsonSha256": "289ab9146e9913c9be7d018bd073f81b9c3c0e2a5bc0750866dacd262527746f",
+      "yamlSha256": "07ea2e1834a2c5e6f0dfad02e6f0ebf44bb94764a80c7d03ba2d73473749c327",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_immigration_department_recruitment_and_training_research_section",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "289ab9146e9913c9be7d018bd073f81b9c3c0e2a5bc0750866dacd262527746f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=immd_rcd_1702862303345_5392",
+        "canonicalJsonSha256": "289ab9146e9913c9be7d018bd073f81b9c3c0e2a5bc0750866dacd262527746f",
+        "originalRepresentationSha256": "289ab9146e9913c9be7d018bd073f81b9c3c0e2a5bc0750866dacd262527746f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_immigration_department_recruitment_and_training_research_section"
+    }
+  ]
+}

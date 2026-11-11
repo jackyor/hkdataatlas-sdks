@@ -1,0 +1,1188 @@
+openapi: 3.1.0
+info:
+  title: Registration and Electoral Office — 2021 Legislative Council General Election Election Results
+  version: csdi-native-readonly-v1
+  description: Deterministic derivative of retained native CSDI metadata. Read-only GET operations are selected only where native capabilities and protocol documentation support them. Publisher originals remain separate. Successful metadata retrieval does not prove current data-query success, complete response fields or all layer combinations.
+paths:
+  /server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/{layerId}/query:
+    get:
+      operationId: ArcgisFeatureServerQueryFeatures
+      tags:
+        - ArcGIS REST
+      summary: Query published features
+      description: Read-only GET query follows the source-advertised Query capability. One parameterized operation covers all queryable layers. Metadata field types are declared without inventing universally required attributes. Omitted f may produce the native REST default representation, which is not asserted as a JSON payload.
+      parameters:
+        - name: layerId
+          in: path
+          required: true
+          description: Published queryable layer or table. Values are publisher identifiers; examples are choices, not a closed enumeration. The full ID/title directory is in x-csdi-layer-choices.
+          schema:
+            type: integer
+          examples:
+            choice1:
+              summary: RESULT_2021_LCGE_LC1
+              value: 0
+            choice2:
+              summary: RESULT_2021_LCGE_LC10
+              value: 1
+            choice3:
+              summary: RESULT_2021_LCGE_LC2
+              value: 2
+            choice4:
+              summary: RESULT_2021_LCGE_LC3
+              value: 3
+            choice5:
+              summary: RESULT_2021_LCGE_LC4
+              value: 4
+            choice6:
+              summary: RESULT_2021_LCGE_LC5
+              value: 5
+            choice7:
+              summary: RESULT_2021_LCGE_LC6
+              value: 6
+            choice8:
+              summary: RESULT_2021_LCGE_LC7
+              value: 7
+            choice9:
+              summary: RESULT_2021_LCGE_LC8
+              value: 8
+            choice10:
+              summary: RESULT_2021_LCGE_LC9
+              value: 9
+          x-choice-count: 10
+        - name: f
+          in: query
+          required: false
+          description: Advertised query representation. Supply this selector for the represented JSON/GeoJSON/PBF responses.
+          schema:
+            type: string
+            enum:
+              - json
+              - geojson
+              - pbf
+          example: json
+        - name: where
+          in: query
+          required: false
+          description: SQL WHERE expression over the published fields; source protocol supports this read-only query filter.
+          schema:
+            type: string
+          example: 1=1
+        - name: outFields
+          in: query
+          required: false
+          description: Comma-separated source field names, or *. Field schemas are conditional on the selected layer and returned fields.
+          schema:
+            type: string
+          example: "*"
+        - name: returnGeometry
+          in: query
+          required: false
+          description: Whether native feature geometry should be included.
+          schema:
+            type: boolean
+          example: false
+        - name: resultRecordCount
+          in: query
+          required: false
+          description: Bound returned records where the selected layer advertises pagination; no global range is inferred.
+          schema:
+            type: integer
+          example: 1
+          x-supported-layer-ids:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            - 7
+            - 8
+            - 9
+      responses:
+        "200":
+          description: Native publisher response; protocol or business errors may also be returned. Metadata connection and actual data-query success are separate.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisJsonEnvelope"
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/ArcgisFeatureServerArcgisGeoJson"
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+      externalDocs:
+        url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+      servers:
+        - url: https://portal.csdi.gov.hk
+      x-native-source-evidence:
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer?f=pjson
+          sha256: ba3c2f0453a8daa9961e7ceccb283d4c99567ff72a752e7557843b9dec662c1a
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-service
+          parseStatus: pass
+          kind: arcgis-service
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/0?f=pjson
+          sha256: eb5be9aeeec79a101c38777d8354cfe795231570c95c112071542e44637e76a0
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/1?f=pjson
+          sha256: d6cb3c258e9ee1841dc055759d021043bd19eaef83d2a87e3fbe8135a6b8b320
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/2?f=pjson
+          sha256: 413ceeb994c73c57662363032a16599d3e99b8ec532f8877e1e9d76e7e0ec813
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/3?f=pjson
+          sha256: a76444ac608e6852f587d5c320b43840a981bfd091355333268c3233829ac44a
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/4?f=pjson
+          sha256: bfac0b5c4eea072fd97fe27a9c79461f5f16ab7f4c3043b7248e478ac272c08d
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/5?f=pjson
+          sha256: 5068521c2e6c4a979a36893f524de8b0d7fca0c5227833a451f3a99dd33f8a23
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/6?f=pjson
+          sha256: 3d5f6a2f592fc8b1cccf109c7af11bab2ec9757a41451f9fba33baea584c1e9d
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/7?f=pjson
+          sha256: 92f1e182b36927ae1fe0063dec68b05c2de3dd9045c6783d0b3a0bb5cc817e3e
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/8?f=pjson
+          sha256: 4b5baa5908c1bd1a7f96b102e7212b747e4b2cc24a3b4999fec0d9f4568ed5a1
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+        - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/9?f=pjson
+          sha256: c0ff0b502cbf8d9626c3ca53d0b161f6c09c9d2f4840a7f804856a51591dc9bf
+          httpStatus: 200
+          contentType: text/plain;charset=UTF-8
+          role: arcgis-layer
+          parseStatus: pass
+          kind: arcgis-layer
+components:
+  schemas:
+    ArcgisFeatureServerArcgisLayer0Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM4:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM4
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer1Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM4:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM4
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer2Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer3Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM4:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM4
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM5:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM5
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer4Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer5Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer6Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer7Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM4:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM4
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer8Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisLayer9Attributes:
+      type: object
+      properties:
+        OBJECTID:
+          description: "Publisher field type: esriFieldTypeOID"
+          title: OBJECTID
+          type: integer
+        PSCODE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PSCODE
+          type:
+            - string
+            - "null"
+          maxLength: 5
+        PS_CNAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_CNAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        PS_ENAME:
+          description: "Publisher field type: esriFieldTypeString"
+          title: PS_ENAME
+          type:
+            - string
+            - "null"
+          maxLength: 150
+        ADDR_T:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_T
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ADDR_E:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ADDR_E
+          type:
+            - string
+            - "null"
+          maxLength: 200
+        ACCESSIBLE:
+          description: "Publisher field type: esriFieldTypeString"
+          title: ACCESSIBLE
+          type:
+            - string
+            - "null"
+          maxLength: 1
+        CANDIDATE_NUM1:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM1
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM2:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM2
+          type:
+            - string
+            - "null"
+          maxLength: 7
+        CANDIDATE_NUM3:
+          description: "Publisher field type: esriFieldTypeString"
+          title: CANDIDATE_NUM3
+          type:
+            - string
+            - "null"
+          maxLength: 7
+      additionalProperties: true
+    ArcgisFeatureServerArcgisFeatureSet:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              geometry:
+                description: Native geometry and spatial reference are not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+    ArcgisFeatureServerArcgisGeoJson:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              geometry:
+                description: Geometry representation is not constrained by the retained attribute metadata.
+            additionalProperties: true
+      additionalProperties: true
+    ArcgisFeatureServerArcgisJsonEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              attributes:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              properties:
+                anyOf:
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer0Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer1Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer2Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer3Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer4Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer5Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer6Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer7Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer8Attributes"
+                  - $ref: "#/components/schemas/ArcgisFeatureServerArcgisLayer9Attributes"
+              geometry:
+                description: Geometry is not constrained by attribute metadata.
+            additionalProperties: true
+        exceededTransferLimit:
+          type: boolean
+      additionalProperties: true
+externalDocs:
+  url: https://portal.csdi.gov.hk/csdi-webpage/doc/GeoSpatialServices
+x-csdi-layer-choices:
+  - id: 0
+    title: RESULT_2021_LCGE_LC1
+    protocol: arcgis
+  - id: 1
+    title: RESULT_2021_LCGE_LC10
+    protocol: arcgis
+  - id: 2
+    title: RESULT_2021_LCGE_LC2
+    protocol: arcgis
+  - id: 3
+    title: RESULT_2021_LCGE_LC3
+    protocol: arcgis
+  - id: 4
+    title: RESULT_2021_LCGE_LC4
+    protocol: arcgis
+  - id: 5
+    title: RESULT_2021_LCGE_LC5
+    protocol: arcgis
+  - id: 6
+    title: RESULT_2021_LCGE_LC6
+    protocol: arcgis
+  - id: 7
+    title: RESULT_2021_LCGE_LC7
+    protocol: arcgis
+  - id: 8
+    title: RESULT_2021_LCGE_LC8
+    protocol: arcgis
+  - id: 9
+    title: RESULT_2021_LCGE_LC9
+    protocol: arcgis
+x-csdi-source-evidence:
+  - url: https://portal.csdi.gov.hk/geoportal/csw?service=CSW&version=2.0.2&request=GetRecordById&elementSetName=full&id=reo_rcd_1667450411804_50557
+    sha256: 6ddb101fdb9097f8e8f4541702791b23eedd73e4d3b7f37cba90c7353d555d77
+    httpStatus: 200
+    contentType: application/xml;charset=UTF-8
+    role: csw-record
+    parseStatus: pass
+    kind: csw-record
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer?f=pjson
+    sha256: ba3c2f0453a8daa9961e7ceccb283d4c99567ff72a752e7557843b9dec662c1a
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-service
+    parseStatus: pass
+    kind: arcgis-service
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/0?f=pjson
+    sha256: eb5be9aeeec79a101c38777d8354cfe795231570c95c112071542e44637e76a0
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/1?f=pjson
+    sha256: d6cb3c258e9ee1841dc055759d021043bd19eaef83d2a87e3fbe8135a6b8b320
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/2?f=pjson
+    sha256: 413ceeb994c73c57662363032a16599d3e99b8ec532f8877e1e9d76e7e0ec813
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/3?f=pjson
+    sha256: a76444ac608e6852f587d5c320b43840a981bfd091355333268c3233829ac44a
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/4?f=pjson
+    sha256: bfac0b5c4eea072fd97fe27a9c79461f5f16ab7f4c3043b7248e478ac272c08d
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/5?f=pjson
+    sha256: 5068521c2e6c4a979a36893f524de8b0d7fca0c5227833a451f3a99dd33f8a23
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/6?f=pjson
+    sha256: 3d5f6a2f592fc8b1cccf109c7af11bab2ec9757a41451f9fba33baea584c1e9d
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/7?f=pjson
+    sha256: 92f1e182b36927ae1fe0063dec68b05c2de3dd9045c6783d0b3a0bb5cc817e3e
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/8?f=pjson
+    sha256: 4b5baa5908c1bd1a7f96b102e7212b747e4b2cc24a3b4999fec0d9f4568ed5a1
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+  - url: https://portal.csdi.gov.hk/server/rest/services/common/reo_rcd_1667450411804_50557/FeatureServer/9?f=pjson
+    sha256: c0ff0b502cbf8d9626c3ca53d0b161f6c09c9d2f4840a7f804856a51591dc9bf
+    httpStatus: 200
+    contentType: text/plain;charset=UTF-8
+    role: arcgis-layer
+    parseStatus: pass
+    kind: arcgis-layer
+x-csdi-source-scope:
+  partialProtocols:
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667450411804_50557/MapServer/WFSServer?service=WFS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-ec5a1aca618d1e80f68c1795
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667450411804_50557/MapServer/WFSServer?service=WFS&request=GetCapabilities
+    - serviceId: csdi-service-ec5a1aca618d1e80f68c1795
+      protocol: wfs
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WFS GetCapabilities
+    - code: metadata_http_not_200
+      url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667450411804_50557/MapServer/WMSServer?service=WMS&request=GetCapabilities
+      httpStatus: 403
+    - serviceId: csdi-service-e59b84b57ec2943f7efd531c
+      code: discovery_metadata_error
+      reason: Metadata request status http_error
+      url: https://portal.csdi.gov.hk/server/services/common/reo_rcd_1667450411804_50557/MapServer/WMSServer?service=WMS&request=GetCapabilities
+    - serviceId: csdi-service-e59b84b57ec2943f7efd531c
+      protocol: wms
+      code: unsupported_or_incomplete_native_contract
+      reason: No retained parseable WMS GetCapabilities
+  nativeMetadataStatus:
+    status: http_200_retained
+    http200Sources: 12
+  fullSourceCompleteness: not_established
+  actualDataQueriesByConversion: 0

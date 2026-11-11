@@ -1,0 +1,206 @@
+components:
+  examples:
+    boundedSampleResponse:
+      description: The supplied sample is partial and ends while showing further geoLocationResult entries; this example preserves the complete reliably supplied first location and does not claim to be a complete response.
+      summary: Bounded sample response from the publisher document
+      value:
+        code: 200
+        data:
+          geoLocationResult:
+            - chargerList:
+                - chargerType: Semi-Quick
+                  cpNo: "155"
+                  cpStatus: Status_Not_Available
+                  itemId: "1033"
+                  lastUpdate: 2025-12-08 15:36:04
+                  pointName: ""
+                  provider: CLP
+                - chargerType: Semi-Quick
+                  cpNo: "156"
+                  cpStatus: Status_Not_Available
+                  itemId: "1033"
+                  lastUpdate: 2025-12-08 15:36:04
+                  pointName: ""
+                  provider: CLP
+                - chargerType: Semi-Quick
+                  cpNo: "150"
+                  cpStatus: Status_Not_Available
+                  itemId: "1033"
+                  lastUpdate: 2025-12-08 15:36:04
+                  pointName: ""
+                  provider: CLP
+              detailedAddress: Cheung Fat Plaza Carpark 2/F, Cheung Fat Estate, Tsing Yi, N.T.
+              distance: "0"
+              districtItemId: 9b49bc57-84c8-43d0-92d2-d8c862b5744d
+              itemId: "1033"
+              lastUpdate: 2025-12-08 15:36:04
+              latitude: 22.3628115
+              longitude: 114.1033945
+              provider: CLP
+              status: Status_Not_Available
+              title: Cheung Fat Plaza (Fee-paying EV charging services will be effective from 26 May 2025.)
+              totalNumberOfAvailableCharger: 0
+              totalNumberOfAvailableQuickCharger: 0
+              totalNumberOfAvailableSemiQuickCharger: 0
+              totalNumberOfCharger: 3
+              totalNumberOfNotAvailableCharger: 0
+              totalNumberOfNotAvailableQuickCharger: 0
+              totalNumberOfNotAvailableSemiQuickCharger: 0
+              totalNumberOfOutOfServiceCharger: 0
+              totalNumberOfOutOfServiceQuickCharger: 0
+              totalNumberOfOutOfServiceSemiQuickCharger: 0
+              totalNumberOfQuickCharger: 0
+              totalNumberOfSemiQuickCharger: 3
+              totalNumberOfStatusNotAvailableCharger: 3
+          totalSearchResult: 38
+        message: Success
+  schemas:
+    Charger:
+      properties:
+        chargerType:
+          description: 'Documented values: Quick, SemiQuick. The sample spells a value as "Semi-Quick", which differs from the dictionary spelling.'
+          type: string
+        cpNo:
+          description: Unique identifier for the charger.
+          type: string
+        cpStatus:
+          description: "Documented values: Charging_Not_Available, Status_Not_Available, Charging_Available, Charger_Out_of_Service."
+          type: string
+        itemId:
+          description: Unique identifier for the charger, as described by the dictionary.
+          type: string
+        lastUpdate:
+          description: Last update timestamp. The dictionary labels this as date and gives an example with a timezone offset; the sample uses a space-separated timestamp without an offset. No format is asserted.
+          type: string
+        pointName:
+          description: Name of the charging point; the sample includes an empty string.
+          type: string
+        provider:
+          description: "Documented value: CLP."
+          type: string
+      type: object
+    Data:
+      properties:
+        geoLocationResult:
+          items:
+            $ref: "#/components/schemas/GeoLocationResult"
+          type: array
+        totalSearchResult:
+          description: Number of geoLocationResult objects.
+          type: integer
+      type: object
+    GeoLocationResult:
+      properties:
+        chargerList:
+          description: List of charger objects.
+          items:
+            $ref: "#/components/schemas/Charger"
+          type: array
+        detailedAddress:
+          description: Full address of the location.
+          type: string
+        distance:
+          description: Distance from the location of access versus the charging station. The dictionary says this is currently a placeholder and that actual distance logic may be added later; the sample shows "0".
+          type: string
+        districtItemId:
+          description: Identifier for the district.
+          type: string
+        itemId:
+          description: Unique identifier.
+          type: string
+        lastUpdate:
+          description: Last update timestamp for the location. Dictionary labels this as date; its sample is a date-time string (2025-12-08 15:36:04), so no specific format is asserted.
+          type: string
+        latitude:
+          description: Latitude in decimal degrees (for example, 22.3193).
+          type: number
+        longitude:
+          description: Longitude in decimal degrees (for example, 114.1694).
+          type: number
+        provider:
+          description: "Documented value: CLP."
+          type: string
+        status:
+          description: "Location status. Documented values: Status_Not_Available, Charging_Not_Available, Charging_Available."
+          type: string
+        title:
+          description: Item title.
+          type: string
+        totalNumberOfAvailableCharger:
+          description: Number of available chargers.
+          type: integer
+        totalNumberOfAvailableQuickCharger:
+          description: Number of available quick chargers.
+          type: integer
+        totalNumberOfAvailableSemiQuickCharger:
+          description: Number of available semi-quick chargers.
+          type: integer
+        totalNumberOfCharger:
+          description: Total number of chargers at the location.
+          type: integer
+        totalNumberOfNotAvailableCharger:
+          description: "Dictionary description: number of not-available semi-quick chargers. The field name suggests a total across charger types; the documented wording is retained as written."
+          type: integer
+        totalNumberOfNotAvailableQuickCharger:
+          description: Number of not-available quick chargers.
+          type: integer
+        totalNumberOfNotAvailableSemiQuickCharger:
+          description: Number of not-available semi-quick chargers.
+          type: integer
+        totalNumberOfOutOfServiceCharger:
+          description: Number of out-of-service chargers.
+          type: integer
+        totalNumberOfOutOfServiceQuickCharger:
+          description: Number of out-of-service quick chargers.
+          type: integer
+        totalNumberOfOutOfServiceSemiQuickCharger:
+          description: Number of out-of-service semi-quick chargers.
+          type: integer
+        totalNumberOfQuickCharger:
+          description: Total number of quick chargers.
+          type: integer
+        totalNumberOfSemiQuickCharger:
+          description: Total number of semi-quick chargers.
+          type: integer
+        totalNumberOfStatusNotAvailableCharger:
+          description: Number of chargers with status not available.
+          type: integer
+      type: object
+    SampleResponse:
+      description: Response structure described by the field dictionary and illustrated by a bounded sample. The sample does not establish that this is a complete or universal response contract.
+      properties:
+        code:
+          description: "HTTP response code; documented example: 200."
+          type: integer
+        data:
+          $ref: "#/components/schemas/Data"
+        message:
+          description: "Response message; documented example: Success."
+          type: string
+      type: object
+externalDocs:
+  description: CLP Electric Vehicle Charging Stations data dictionary
+  url: https://static.data.gov.hk/opendata/clp/Electric-Vehicle-Charging-Stations.pdf
+info:
+  description: Publisher documentation provides a response field dictionary and a sample response, but does not document an HTTP method or request contract. The catalogue associates the dataset with the literal JSON resource URL https://api.clp.com.hk/evcharger/list; that association does not establish an executable HTTP operation, request parameters, authentication, or a universal response contract. The information version is undocumented and is not a publisher API version.
+  title: Electric Vehicle Charging Stations
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /evcharger/list:
+    get:
+      operationId: retrieveElectricVehicleChargingStationsJsonEvchargerList
+      summary: Retrieve Electric Vehicle Charging Stations (JSON)
+      description: Read-only retrieval of the exact publisher-listed JSON resource https://api.clp.com.hk/evcharger/list. This is a published data-file link; no additional hosted API or URL template is asserted. Dictionary components describe contextual record fields without establishing the complete payload shape. Authentication is unspecified.
+      servers:
+        - url: https://api.clp.com.hk
+      responses:
+        "200":
+          description: Published JSON resource; successful retrieval status is the HTTP representation, availability has not been tested.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SampleResponse"
+servers:
+  - description: Catalogue-associated resource host; no API server base or operation is specified in the documentation.
+    url: https://api.clp.com.hk

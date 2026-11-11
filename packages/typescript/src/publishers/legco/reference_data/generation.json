@@ -1,0 +1,40 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "legco-reference-data",
+  "sourceSha256": "948e949b2288987e0bcb694d042b71369860e2dded272507ec84fa1d1253554d",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/ScheduleDB/odata/Tmembership",
+      "operationId": "retrieveTheMembershipOfCommitteesOfTheFifthLegislativeCouncil20122016ScheduledbOdataTmembership"
+    },
+    {
+      "method": "GET",
+      "path": "/ScheduleDB/odata/Tsession",
+      "operationId": "retrieveTheSessionsOfTheLegislativeCouncilSinceTheFifthTerm20122016ScheduledbOdataTsession"
+    },
+    {
+      "method": "GET",
+      "path": "/ScheduleDB/odata/Tmember_term",
+      "operationId": "retrieveTheMembersOfTheEighthLegislativeCouncilScheduledbOdataTmemberTerm"
+    },
+    {
+      "method": "GET",
+      "path": "/ScheduleDB/odata/Tcommittee",
+      "operationId": "retrieveTheCommitteesOfTheSixthLegislativeCouncil20162021ScheduledbOdataTcommittee"
+    },
+    {
+      "method": "GET",
+      "path": "/ScheduleDB/odata/Tterm",
+      "operationId": "retrieveTheTermsOfTheLegislativeCouncilSinceTheFifthTerm20122016ScheduledbOdataTterm"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

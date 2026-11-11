@@ -1,0 +1,41 @@
+{
+  "sourceId": "afcd-csdi-campsites-in-country-parks",
+  "publisherKey": "afcd",
+  "family": "csdi_campsites_in_country_parks",
+  "status": "generated",
+  "key": "9181984e36891bc21c15a20b119efa9f91274ec173ead104560f1a6e9f724adf",
+  "sourceSha256": "cf9a513405494e803dc201edc40e45670c8ff9b37d038410ba492ba21713a429",
+  "derivedInputSha256": "581c4e0ee6a3cd81cc0bb920d9fc34125f8c4ae52c29e6ad34f3c9b62c6b744e",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/afcd_rcd_1635133060194_82554/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/afcd-csdi-campsites-in-country-parks.log",
+  "outputs": {
+    "__init__.py": "041de720b8425ee900b8b8538fa7d7cafcaefc5ddf0c1120a1f78df714138178",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "39b6fd77349bf28b75169301930a89a2f45f66dd8b5a9d63816b602c00faff59",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "b31a890d371159421448d2e7d2b5184f9681c12e83f856e99c79c70ef99f91fb",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "5b9851b93daaff5ef27944fccc1d6f5988684fbe8884ed0d91a127169e1b7f2b",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "sourceId": "cc-complaints-statistics",
+  "publisherKey": "cc",
+  "family": "complaints_statistics",
+  "status": "generated",
+  "key": "76e0d59f03ea602b64d8fb82f92746822bec5a08d6b62586318308318974429b",
+  "sourceSha256": "be7be102842749d4d3e18f7769078058f5f81035f5e56b6c00697f7fe1d7bc58",
+  "derivedInputSha256": "19c99f524c95bc8302ad94fadafc343e477872dd8801e76c2ebb465714e45d46",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/node/32290/export-complaints/json",
+      "operationId": "getComplaintStatistics",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/cc-complaints-statistics.log",
+  "outputs": {
+    "__init__.py": "a6dc852e0a8e48d351d92b4c42e7bbb72d47b0741a3a3d2e888dd0ba91098d48",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_complaint_statistics.py": "993e7256d7213bb020e910b9d6831e6eaf8f643ea88a9d81a506170d8854794a",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "bcc07982500ee910c9e410eab62b4937d9b38ccb2bde2e730bac5425eb5b5dc9",
+    "models/complaint_category.py": "cf094134c51e1b838d55f433fa48f54a55e25ebc5b32bba284f173701f9b7c45",
+    "models/complaint_statistics_response.py": "255875b2ca2992ea19d8dc2189a4124a9b99574b1ed56d62f44354421ec222e7",
+    "models/complaint_year.py": "2cef39fb8ca35e972f67347de5d0c85163d4502f3fe44cf8308d001f51b91d2b",
+    "models/get_complaint_statistics_lang.py": "5744be5322449be109f58d933dc5e7b27fbef8010206cc1192b51b35e0dcad45",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

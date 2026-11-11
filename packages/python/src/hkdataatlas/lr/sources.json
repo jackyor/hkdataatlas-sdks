@@ -1,0 +1,122 @@
+{
+  "publisherKey": "lr",
+  "publisherName": "Land Registry",
+  "sources": [
+    {
+      "id": "lr-csdi-index-of-owners-corporations-oc",
+      "publisherKey": "lr",
+      "publisherName": "Land Registry",
+      "familyKey": "csdi-index-of-owners-corporations-oc",
+      "name": "Index of Owners' Corporations (OC)",
+      "apiTitle": "Land Registry \u2014 Index of Owners' Corporations (OC)",
+      "json": "lr/csdi-index-of-owners-corporations-oc/openapi.json",
+      "yaml": "lr/csdi-index-of-owners-corporations-oc/openapi.yaml",
+      "file": "lr/csdi-index-of-owners-corporations-oc/openapi.json",
+      "sha256": "513864e1133461780d6a15151758a98573b1921701919446fc92ad4dfde611f8",
+      "jsonSha256": "513864e1133461780d6a15151758a98573b1921701919446fc92ad4dfde611f8",
+      "yamlSha256": "d9316d8cc4feba91c45dc7a9ca0c52c9721c09845c8589258b7fdc48bd4daf40",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_index_of_owners_corporations_oc",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "513864e1133461780d6a15151758a98573b1921701919446fc92ad4dfde611f8"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=landreg_rcd_1668151937201_80478",
+        "canonicalJsonSha256": "513864e1133461780d6a15151758a98573b1921701919446fc92ad4dfde611f8",
+        "originalRepresentationSha256": "513864e1133461780d6a15151758a98573b1921701919446fc92ad4dfde611f8",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_index_of_owners_corporations_oc"
+    },
+    {
+      "id": "lr-csdi-locations-of-the-land-registrys-offices",
+      "publisherKey": "lr",
+      "publisherName": "Land Registry",
+      "familyKey": "csdi-locations-of-the-land-registrys-offices",
+      "name": "Locations of the Land Registry\u2019s offices",
+      "apiTitle": "Land Registry \u2014 Locations of the Land Registry\u2019s offices",
+      "json": "lr/csdi-locations-of-the-land-registrys-offices/openapi.json",
+      "yaml": "lr/csdi-locations-of-the-land-registrys-offices/openapi.yaml",
+      "file": "lr/csdi-locations-of-the-land-registrys-offices/openapi.json",
+      "sha256": "d679f0b73fa09c69161adf35a313ec76cb3dcdcfec61153e391b310efc79098c",
+      "jsonSha256": "d679f0b73fa09c69161adf35a313ec76cb3dcdcfec61153e391b310efc79098c",
+      "yamlSha256": "e451aec9a180e0af68157ce69ce34b96e3e035814abb7ed7ba9734473021943d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_locations_of_the_land_registrys_offices",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d679f0b73fa09c69161adf35a313ec76cb3dcdcfec61153e391b310efc79098c"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=landreg_rcd_1728963109059_76326",
+        "canonicalJsonSha256": "d679f0b73fa09c69161adf35a313ec76cb3dcdcfec61153e391b310efc79098c",
+        "originalRepresentationSha256": "d679f0b73fa09c69161adf35a313ec76cb3dcdcfec61153e391b310efc79098c",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_locations_of_the_land_registrys_offices"
+    }
+  ]
+}

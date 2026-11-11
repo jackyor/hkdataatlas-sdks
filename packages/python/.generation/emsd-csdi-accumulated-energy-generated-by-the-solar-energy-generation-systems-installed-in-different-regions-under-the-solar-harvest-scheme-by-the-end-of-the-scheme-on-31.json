@@ -1,0 +1,72 @@
+{
+  "sourceId": "emsd-csdi-accumulated-energy-generated-by-the-solar-energy-generation-systems-installed-in-different-regions-under-the-solar-harvest-scheme-by-the-end-of-the-scheme-on-31",
+  "publisherKey": "emsd",
+  "family": "csdi_accumulated_energy_generated_by_the_solar_energy_generation_systems_installed_in_different_regions_under_the_solar_harvest_scheme_by_the_end_of_the_scheme_on_31",
+  "status": "generated",
+  "key": "a650bc7f7132f31ef21ebdadd1196c94c5b62375d61a4818c780c6725c99c556",
+  "sourceSha256": "4b4b24c959b12bf87d498acb28074c6bdd5887c2c32329051fe9c8339d96bb13",
+  "derivedInputSha256": "c20e8e1723fe5a951e6afe68ae18e0ef6fc2f6fb19d913d4c09b76232f2f17e2",
+  "normalizations": [],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/server/rest/services/common/emsd_rcd_1728966679137_1277/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures",
+      "tags": [
+        "ArcGIS REST"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/emsd_rcd_1728966679137_1277/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature",
+      "tags": [
+        "WFS"
+      ]
+    },
+    {
+      "method": "get",
+      "path": "/server/services/common/emsd_rcd_1728966679137_1277/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap",
+      "tags": [
+        "WMS"
+      ]
+    }
+  ],
+  "warnings": true,
+  "log": "reports/python-generation/emsd-csdi-accumulated-energy-generated-by-the-solar-energy-generation-systems-installed-in-different-regions-under-the-solar-harvest-scheme-by-the-end-of-the-scheme-on-31.log",
+  "outputs": {
+    "__init__.py": "d7a695d125932faa67752ae96ca52f1702a236524d41a454a55af8c6c4c8ce04",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/arc_gis_rest/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/arc_gis_rest/arcgis_feature_server_query_features.py": "e142484b3beb24b919836f06d3813ea3e39b0f06f6f3ac30a7eafa1030eb3f6f",
+    "api/wfs/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wfs/wfs_map_server_get_feature.py": "69fe36b9d3399db04adbddf746836e4cf1cdbc232f4e61807d1c0f7bf4d03290",
+    "api/wms/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/wms/wms_map_server_get_map.py": "aeff1b901366cd33ecbfc4b2700beb1a0bc1fc278bc6f7a570dc7bd69cb0220b",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "6457176ad330251ffdeb775f59724267dc889e8884af307abeb95ef23118746b",
+    "models/arcgis_feature_server_arcgis_feature_set.py": "550bbfa1306cb191825b1c1b495742c141e188338c29112bbc36badd475e505f",
+    "models/arcgis_feature_server_arcgis_feature_set_features_item.py": "024867b02a8613a2f9e156cb35662e09cf53ba34f83ac6b2da23bff8386d4a27",
+    "models/arcgis_feature_server_arcgis_geo_json.py": "929ac5200d3d63f900f6fed649c10b4febdb5005f89820e53c1d41c82babc543",
+    "models/arcgis_feature_server_arcgis_geo_json_features_item.py": "5274cf9dce7337ddc0c82d1fb6266837ff2dcefbf8f07538b499b00e0b7eb8db",
+    "models/arcgis_feature_server_arcgis_json_envelope.py": "985fedb1e83f0ebf18b49f181c648929dc0d5c2bb047b85a32320afd5023fe9d",
+    "models/arcgis_feature_server_arcgis_json_envelope_features_item.py": "a131802bf3c0b765e1caf7a5101879f65094dc99dda49d48faaa1b36f064acd0",
+    "models/arcgis_feature_server_arcgis_layer_0_attributes.py": "61f01290d78b6c4224117bd828cff32fd075a8bcdbffc9ce141d51eb3c7a45e7",
+    "models/arcgis_feature_server_query_features_f.py": "f5881380e6ad21db045450c073636ec0aed90be9699be28ee5c19121520e386d",
+    "models/wfs_map_server_get_feature_output_format.py": "e4f57cb3890a02ce6dba52d2b0fcfc686179fd837b5c03300dff588d928d98d7",
+    "models/wfs_map_server_get_feature_request.py": "afc05e39db501a145c828df80073f57e52779c155b2631cb84b197d8532067c9",
+    "models/wfs_map_server_get_feature_service.py": "919ac8ccb249a9d757a7c1a39b3f3b0adc5377b9dafcac83c84789cd9972e9e8",
+    "models/wfs_map_server_get_feature_version.py": "1ad3a545490446ff0a487beea15c3c456473b4e63545161c573ade0f30e3014b",
+    "models/wfs_map_server_wfs_feature_collection.py": "b7fdfaa58f7e34a0c48a8d5b3ca0a53dd2e634639948261108f9b853f550b2e5",
+    "models/wfs_map_server_wfs_feature_collection_features_item.py": "64edad09b81c5cce532db787e746f729052e2110c958c54722719f200181b77f",
+    "models/wfs_map_server_wfssolarharvest_2024_attributes.py": "e093a42fef3a8f7154717b8348275990c171c441b28583b63ff02390c5daf434",
+    "models/wms_map_server_get_map_format.py": "a65b75b0acd6d74d2b98a842cc9d3f5acd1a40873813841fd53fdffe75d25c40",
+    "models/wms_map_server_get_map_request.py": "847774c945625dd0b2021a20ecb37f7d99e0031f6b91c82d0aa27cdc0f99b621",
+    "models/wms_map_server_get_map_service.py": "cb701b87d9fbf4f140a0316cede0a4bc37a611998facdd5bb0793962d7d9c3a5",
+    "models/wms_map_server_get_map_version.py": "80f2a7664e048499e4919b94dfcf4a546ef4aec1e377a77fb199c1a6e5d9856a",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

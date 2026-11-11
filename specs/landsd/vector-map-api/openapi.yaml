@@ -1,0 +1,123 @@
+externalDocs:
+  description: Official Vector Map API documentation
+  url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/VectorMapAPI
+info:
+  contact:
+    email: mapapi@landsd.gov.hk
+    name: Map API Support Team, Lands Department
+  description: Retrieves vector topographic map tiles in Protocol Buffer Binary Format (PBF) and a Map Presentation Style file in JSON. The version field is an OpenAPI metadata placeholder, not a publisher API version. The current documented API version is v1.0.0; versions may be updated and old versions may be removed without notice. The former service domain https://mapapi.geodata.gov.hk is scheduled for deprecation on 15 March 2027; the documented current service domain is https://mapapi.hkmapservice.gov.hk. Authentication requirements are not documented. The publisher asks clients not to make large numbers of requests within a short period and states that TLS 1.2 is required. Use is subject to LandsD Map API Terms and Conditions and IP Rights Notice. Applications are required to include the Lands Department logo and the copyright notice “Map from Lands Department”.
+  title: LandsD Vector Map API
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /gs/api/{version}/vt/basemap/{sr}/resources/styles/root.json:
+    get:
+      description: Returns the Map Presentation Style file in JSON. The publisher documents the resource URL and representation but does not specify the JSON object's fields.
+      operationId: getMapPresentationStyle
+      parameters:
+        - description: API version. The current documented version is v1.0.0. The version may be updated; old versions may be removed at any time without notice. Check the documentation for supported versions.
+          in: path
+          name: version
+          required: true
+          schema:
+            examples:
+              - v1.0.0
+            type: string
+        - description: Spatial reference system.
+          in: path
+          name: sr
+          required: true
+          schema:
+            enum:
+              - WGS84
+              - HK80
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                documentedStyleURL:
+                  externalValue: https://mapapi.hkmapservice.gov.hk/gs/api/v1.0.0/vt/basemap/HK80/resources/styles/root.json
+                  summary: Documented map presentation style URL
+              schema:
+                description: The source documents JSON output without a field dictionary or universal object/array shape.
+          description: OK. Map presentation style file returned in JSON format.
+        "204":
+          description: No Content.
+        "500":
+          description: Internal Server Error.
+      summary: Get the map presentation style
+  /gs/api/{version}/vt/basemap/{sr}/tile/{z}/{y}/{x}.pbf:
+    get:
+      description: Returns an ESRI Vector Tile (protocol buffers file). Tile coordinates use the XYZ Tile Scheme. The prose documents zoom levels 9–15, while the query-builder offers levels 10–15; this discrepancy is retained without treating the builder values as a narrower universal constraint.
+      externalDocs:
+        description: Official documentation; the documented example URL is https://mapapi.hkmapservice.gov.hk/gs/api/v1.0.0/vt/basemap/HK80/tile/15/6161/4600.pbf
+        url: https://portal.csdi.gov.hk/csdi-webpage/apidoc/VectorMapAPI
+      operationId: getVectorMapTile
+      parameters:
+        - description: API version. The current documented version is v1.0.0. The version may be updated; old versions may be removed at any time without notice. Check the documentation for supported versions.
+          in: path
+          name: version
+          required: true
+          schema:
+            examples:
+              - v1.0.0
+            type: string
+        - description: Spatial reference system.
+          in: path
+          name: sr
+          required: true
+          schema:
+            enum:
+              - WGS84
+              - HK80
+            type: string
+        - description: Zoom level under the XYZ Tile Scheme. The prose documents 9–15; the query-builder lists 10, 11, 12, 13, 14, and 15.
+          in: path
+          name: z
+          required: true
+          schema:
+            examples:
+              - 10
+              - 11
+              - 12
+              - 13
+              - 14
+              - 15
+            maximum: 15
+            minimum: 9
+            type: integer
+        - description: Y position of the map tile under the XYZ Tile Scheme.
+          in: path
+          name: y
+          required: true
+          schema:
+            examples:
+              - 6161
+            type: integer
+        - description: X position of the map tile under the XYZ Tile Scheme.
+          in: path
+          name: x
+          required: true
+          schema:
+            examples:
+              - 4600
+            type: integer
+      responses:
+        "200":
+          content:
+            application/vnd.mapbox-vector-tile:
+              schema:
+                description: Protocol Buffer Binary Format (PBF) vector tile.
+                format: binary
+                type: string
+          description: OK. Vector map tile returned in ESRI Vector Tile (protocol buffers file) format.
+        "204":
+          description: No Content.
+        "500":
+          description: Internal Server Error.
+      summary: Get a vector map tile
+servers:
+  - description: Documented current service domain
+    url: https://mapapi.hkmapservice.gov.hk

@@ -1,0 +1,179 @@
+components:
+  schemas:
+    LibraryAvailability:
+      description: Library availability fields documented by the data dictionary. The sample illustrates a response but does not establish that every response has this exact structure.
+      properties:
+        address:
+          description: The address of the library.
+          type: string
+        district:
+          description: The district of the library.
+          type: string
+        email:
+          description: The email of the library.
+          type: string
+        isOpen:
+          description: "The current opening status of the library: true means the library is open and false means it is closed."
+          type: boolean
+        lastUpdateDate:
+          description: The last updated time, in "YYYY-MM-DD hh24:mm:ss" format.
+          type: string
+        libraryCode:
+          description: The code of the library.
+          type: string
+        libraryDisplayName:
+          description: The name of the library.
+          type: string
+        sessionList:
+          description: An array of session objects. The first entry is the current session; the second is the next session, if one exists. If there are no more available sessions in the library, an empty array is returned.
+          items:
+            $ref: "#/components/schemas/Session"
+          type: array
+        telephone:
+          description: The contact phone number of the library. The documented format is "dddd dddd", where d is a numeric digit.
+          type: string
+      type: object
+    Session:
+      description: A session object containing the documented session fields.
+      properties:
+        sessionEnd:
+          description: The session end date and time, in "YYYY-MM-DD hh24:mm:ss" format.
+          type: string
+        sessionStart:
+          description: The session start date and time, in "YYYY-MM-DD hh24:mm:ss" format.
+          type: string
+        workstationGroup:
+          description: An array of workstation group objects.
+          items:
+            $ref: "#/components/schemas/WorkstationGroup"
+          type: array
+      type: object
+    WorkstationGroup:
+      description: A workstation group and its available workstation count.
+      properties:
+        availableWktNumber:
+          anyOf:
+            - type: number
+            - description: Permits the observed string representation if returned.
+              type: string
+          description: The total number of available workstations in the group. The data dictionary declares the type as Numeric; the sample response represents it as an integer.
+          examples:
+            - 4
+        groupId:
+          description: The workstation group ID.
+          type: string
+        groupName:
+          description: The workstation group display name.
+          type: string
+      type: object
+externalDocs:
+  description: Official API data specification
+  url: http://www.hkpl.gov.hk/en/common/others/gov-data/data-dictionaries/Data_Dictionary_for_AOC_EN_v1.0.pdf
+info:
+  description: API and data specification for computer facilities available for use at each public library. Version 1.0 is the source document's version, not necessarily an API version. Authentication requirements are not specified.
+  title: Availability of Computer Facilities at Hong Kong Public Libraries
+  version: "1.0"
+openapi: 3.1.0
+paths:
+  /library/selectLibraryPageInfoForPSI:
+    get:
+      description: Returns information about available workstations at public libraries. All query parameters are case-sensitive. The sample request uses language=en-US, reqPage=1, sizePerPage=9999, and libraryCode=LCKPL.
+      operationId: selectLibraryPageInfoForPSI
+      parameters:
+        - description: Page number requested. If omitted, the first page is returned.
+          in: query
+          name: reqPage
+          required: false
+          schema:
+            type: integer
+        - description: Number of libraries per page. If omitted, the first 30 records are returned. Specify 9999 to return all libraries in the first page.
+          examples:
+            allInFirstPage:
+              value: 9999
+          in: query
+          name: sizePerPage
+          required: false
+          schema:
+            type: integer
+        - description: Language of the returned data. Case-sensitive. If omitted, defaults to zh-HK.
+          examples:
+            english:
+              value: en-US
+            simplifiedChinese:
+              value: zh-CN
+            traditionalChinese:
+              value: zh-HK
+          in: query
+          name: language
+          required: false
+          schema:
+            default: zh-HK
+            enum:
+              - en-US
+              - zh-HK
+              - zh-CN
+            type: string
+        - description: Library code. Case-sensitive. If omitted, the number of available workstations at all libraries is returned.
+          examples:
+            HongKongCentralLibrary:
+              summary: Documented example library code
+              value: HKCL
+            LaiChiKokPublicLibrary:
+              summary: Value in the sample request
+              value: LCKPL
+          in: query
+          name: libraryCode
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  summary: Documented sample response
+                  value:
+                    - address: G/F - 1/F., 19 Lai Wan Road, Lai Chi Kok, Kowloon
+                      district: Sham Shui Po District
+                      email: lckpl@lcsd.gov.hk
+                      isOpen: true
+                      lastUpdateDate: 2025-03-05 12:17:18
+                      libraryCode: LCKPL
+                      libraryDisplayName: Lai Chi Kok Public Library
+                      sessionList:
+                        - sessionEnd: 2025-03-05 13:00:00
+                          sessionStart: 2025-03-05 12:00:00
+                          workstationGroup:
+                            - availableWktNumber: 4
+                              groupId: "199"
+                              groupName: G/F Children's Library
+                            - availableWktNumber: 20
+                              groupId: "202"
+                              groupName: 1/F Multimedia Library
+                            - availableWktNumber: 2
+                              groupId: "203"
+                              groupName: 1/F Multimedia Library Audio-visual Station
+                        - sessionEnd: 2025-03-05 14:00:00
+                          sessionStart: 2025-03-05 13:00:00
+                          workstationGroup:
+                            - availableWktNumber: 4
+                              groupId: "199"
+                              groupName: G/F Children's Library
+                            - availableWktNumber: 20
+                              groupId: "202"
+                              groupName: 1/F Multimedia Library
+                            - availableWktNumber: 2
+                              groupId: "203"
+                              groupName: 1/F Multimedia Library Audio-visual Station
+                      telephone: 2746 4270
+              schema:
+                items:
+                  $ref: "#/components/schemas/LibraryAvailability"
+                type: array
+          description: Success. JSON response encoded as UTF-8.
+        "500":
+          description: Internal Server Error.
+      summary: Retrieve library computer-facility availability
+servers:
+  - url: https://sls.hkpl.gov.hk/api/cfm-admin-service/open-api

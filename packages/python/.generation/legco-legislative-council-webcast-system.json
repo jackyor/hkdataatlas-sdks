@@ -1,0 +1,72 @@
+{
+  "sourceId": "legco-legislative-council-webcast-system",
+  "publisherKey": "legco",
+  "family": "legislative_council_webcast_system",
+  "status": "generated",
+  "key": "adb3564dc9e7ea1b313b8ef9375d5d895a7755be283d2760093235164f68c65f",
+  "sourceSha256": "99da608c95d7c78c57cca608908ee54e9ced0c52980c2cd6c28d5c5e874c0322",
+  "derivedInputSha256": "564413f1da55999358c936a4830c40751b582b79381a8c7dbf1e5caf68527d28",
+  "normalizations": [
+    {
+      "pointer": "/paths/~1VArchiveMeeting/get/responses/200/content/application~1xml",
+      "rule": "text_media_raw_wire_response",
+      "sourceSchema": {
+        "items": {
+          "$ref": "#/components/schemas/ArchiveMeeting"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "pointer": "/paths/~1VMeetingInfo/get/responses/200/content/application~1xml",
+      "rule": "text_media_raw_wire_response",
+      "sourceSchema": {
+        "items": {
+          "$ref": "#/components/schemas/MeetingInfo"
+        },
+        "type": "array"
+      }
+    }
+  ],
+  "classOverrides": {},
+  "operations": [
+    {
+      "method": "get",
+      "path": "/VArchiveMeeting",
+      "operationId": "getArchivedMeetings",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/VLiveMeeting",
+      "operationId": "getLiveMeetings",
+      "tags": []
+    },
+    {
+      "method": "get",
+      "path": "/VMeetingInfo",
+      "operationId": "getMeetingAgendaItems",
+      "tags": []
+    }
+  ],
+  "warnings": false,
+  "log": "reports/python-generation/legco-legislative-council-webcast-system.log",
+  "outputs": {
+    "__init__.py": "ef3c8b70c6966b231cb0ac09c3fd344d12b6da6ea07ea49cb52be1aaf334b537",
+    "api/__init__.py": "cd34a21bfba34a302a58fc9ce37e585da5fd5d39693238895816d5f9ff98b5d0",
+    "api/default/__init__.py": "e6f77db895808d1a9af71cf1cd890b0f5ca8675d8b77f6c068d079597e1f6c4f",
+    "api/default/get_archived_meetings.py": "97c3bc6d2cc7facb1fcc9f7a3fc3e7af15caea906521182e5576817ba3dbdf0e",
+    "api/default/get_live_meetings.py": "45e623873701257c227e35034a219df89eec446d942c7ce64107f3b3759448a0",
+    "api/default/get_meeting_agenda_items.py": "6c5d1f9bde7b5972d9b2246d37f8dc55dadf420be169795f0928cbf08fc92eb1",
+    "client.py": "820aeb2ba58deae36deef53e4e2ed1d5a80892b2c48e2dd6c562ed5b9659c6c8",
+    "errors.py": "80ef060662aa992360020f84e684fea0ecb1cedbe9ed5ffa5c6ece5134f5e6ad",
+    "models/__init__.py": "85254883ca391da64d1363805562f21a4b60ca81376f19d6f8e461151a6ac370",
+    "models/archive_meeting.py": "7a1e9e7842e2a2242d2f8516a6b92fc6e9f44adf388707694a501477b7e6f117",
+    "models/get_archived_meetings_response_200.py": "4d292ea7f24908c1e15d30caf5ae47d4e8bdbd6a2073099ae9e51f407dee2dc5",
+    "models/get_live_meetings_response_200.py": "360953a654de41978572ca115cacceb239ec4175f201334c8fb779d0b78d7122",
+    "models/get_meeting_agenda_items_response_200.py": "b0dc4f1876d34abfd7655071cf304083aa996efdcc259542e73c6f180bd256c8",
+    "models/live_meeting.py": "410d6cac323a9caff07c5e367e716c8f0875dcb80acf47684bdeb6aebfcd52a6",
+    "models/meeting_info.py": "8b8cd0cf7ee4edcfafaa98d979d154a858ffa7cc000432df386d6feaec1fded5",
+    "types.py": "c4cea8c3ca0302278d83257dcaf4866d621b96c17b5621f0b93ba5868a46c87f"
+  }
+}

@@ -1,0 +1,81 @@
+components:
+  schemas:
+    PressRelease:
+      description: Press release fields documented for the JSON API.
+      properties:
+        date:
+          description: Publication date. The API dictionary labels this field Date but does not specify its representation. The separate XML dictionary gives pubDate in D.M.YYYY format; that XML field is not the API field name.
+          type: string
+        description:
+          description: Content of the press release.
+          type: string
+        link:
+          description: URL of the headline.
+          type: string
+        title:
+          description: Headline of the press release.
+          type: string
+      required:
+        - title
+        - link
+        - date
+        - description
+      type: object
+externalDocs:
+  url: https://www.fso.gov.hk/eng/open_data/data_dict_press_releases.pdf
+info:
+  description: API for searching Financial Secretary press releases. The API version is not specified in the source documentation. If start and end are omitted, press releases from the last six months are returned. At most 400 records are returned. All times are Hong Kong Time (HKT, GMT+8). Authentication requirements are not specified.
+  title: Financial Secretary - Press Releases
+  version: undocumented
+openapi: 3.1.0
+paths:
+  /search:
+    get:
+      description: Dates and times are interpreted in HKT (GMT+8). A maximum of 400 records will be returned.
+      operationId: searchPressReleases
+      parameters:
+        - description: Language selector. The English API URL documented by the publisher includes lang=en. Catalog resources also list lang=sc and lang=tc.
+          example: en
+          in: query
+          name: lang
+          required: true
+          schema:
+            type: string
+        - description: Start date (inclusive) in YYYYMMDD format, e.g. 20190102. The earliest accepted date is 16 January 2017. Must be used together with end. If both start and end are omitted, press releases from the last six months are returned.
+          example: "20190102"
+          in: query
+          name: start
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+        - description: End date (inclusive) in YYYYMMDD format, e.g. 20190109. The latest accepted date is today. Must be used together with start. If both start and end are omitted, press releases from the last six months are returned.
+          example: "20190109"
+          in: query
+          name: end
+          required: false
+          schema:
+            pattern: ^\d{8}$
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                description: Object/results envelope observed in one source-backed saved response. Additional properties remain allowed; no universal envelope requiredness is inferred.
+                properties:
+                  results:
+                    description: Documented record fields in the observed results array. Saved response has no records, so item shape was not exercised.
+                    items:
+                      $ref: "#/components/schemas/PressRelease"
+                    maxItems: 400
+                    type: array
+                  returned-count:
+                    description: Observed envelope key; universal type and requiredness are not specified by the publisher dictionary.
+                  total-count:
+                    description: Observed envelope key; universal type and requiredness are not specified by the publisher dictionary.
+                type: object
+          description: Press release search results. The documentation defines the API fields but does not specify the outer response envelope or error responses. Outer object/results envelope is corroborated by one saved source-backed query, rather than specified by the field dictionary.
+      summary: Search press releases
+servers:
+  - url: https://api.data.gov.hk/v1/fso/pressrelease

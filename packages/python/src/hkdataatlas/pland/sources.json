@@ -1,0 +1,1920 @@
+{
+  "publisherKey": "pland",
+  "publisherName": "Planning Department",
+  "sources": [
+    {
+      "id": "pland-3d-photo-realistic-model",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "3d-photo-realistic-model",
+      "name": "3D photo-realistic model",
+      "apiTitle": "3D Photo-realistic Model API",
+      "json": "pland/3d-photo-realistic-model/openapi.json",
+      "yaml": "pland/3d-photo-realistic-model/openapi.yaml",
+      "file": "pland/3d-photo-realistic-model/openapi.json",
+      "sha256": "0064fdee2f73fbb71db2ed58257e1175944f4451bab1c84dcdf2dee26777f58b",
+      "jsonSha256": "0064fdee2f73fbb71db2ed58257e1175944f4451bab1c84dcdf2dee26777f58b",
+      "yamlSha256": "dbb7af7467ab0d5a6bcf73887e5db4fe158f7e6b27006bbfe77c2df8f537074d",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "3d_photo_realistic_model",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0064fdee2f73fbb71db2ed58257e1175944f4451bab1c84dcdf2dee26777f58b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.pland.gov.hk/pland_en/resources/3D_models/3D_Photo_realistic_Model_Specification.pdf",
+        "canonicalJsonSha256": "0064fdee2f73fbb71db2ed58257e1175944f4451bab1c84dcdf2dee26777f58b",
+        "originalRepresentationSha256": "0064fdee2f73fbb71db2ed58257e1175944f4451bab1c84dcdf2dee26777f58b",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "3d_photo_realistic_model"
+    },
+    {
+      "id": "pland-csdi-profile-and-operations-of-brownfield-sites-in-the-new-territories",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-profile-and-operations-of-brownfield-sites-in-the-new-territories",
+      "name": "Profile and Operations of Brownfield Sites in the New Territories",
+      "apiTitle": "Planning Department \u2014 Profile and Operations of Brownfield Sites in the New Territories",
+      "json": "pland/csdi-profile-and-operations-of-brownfield-sites-in-the-new-territories/openapi.json",
+      "yaml": "pland/csdi-profile-and-operations-of-brownfield-sites-in-the-new-territories/openapi.yaml",
+      "file": "pland/csdi-profile-and-operations-of-brownfield-sites-in-the-new-territories/openapi.json",
+      "sha256": "32ae61dd4ea0c12df8e9b66ff0ca8d6afd7da371744478fd3af5c2ba510ac831",
+      "jsonSha256": "32ae61dd4ea0c12df8e9b66ff0ca8d6afd7da371744478fd3af5c2ba510ac831",
+      "yamlSha256": "83a4984716bf46eac74f98b01a435aed76bbbc4d6b00db55fc3ff3d3ca517bb8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_profile_and_operations_of_brownfield_sites_in_the_new_territories",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "32ae61dd4ea0c12df8e9b66ff0ca8d6afd7da371744478fd3af5c2ba510ac831"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1629267205223_96851",
+        "canonicalJsonSha256": "32ae61dd4ea0c12df8e9b66ff0ca8d6afd7da371744478fd3af5c2ba510ac831",
+        "originalRepresentationSha256": "32ae61dd4ea0c12df8e9b66ff0ca8d6afd7da371744478fd3af5c2ba510ac831",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_profile_and_operations_of_brownfield_sites_in_the_new_territories"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-tertiary-planning-units-subunits",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-tertiary-planning-units-subunits",
+      "name": "Boundaries of Tertiary Planning Units & Subunits",
+      "apiTitle": "Planning Department \u2014 Boundaries of Tertiary Planning Units & Subunits",
+      "json": "pland/csdi-boundaries-of-tertiary-planning-units-subunits/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-tertiary-planning-units-subunits/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-tertiary-planning-units-subunits/openapi.json",
+      "sha256": "1aabe2c0756e0ab5da5e1fccbe319962448db652e3d32d720712c3366b223b93",
+      "jsonSha256": "1aabe2c0756e0ab5da5e1fccbe319962448db652e3d32d720712c3366b223b93",
+      "yamlSha256": "b324b0baa827b956a5cc620e67540f187769910317088a31cc723d1912f7b798",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_tertiary_planning_units_subunits",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1aabe2c0756e0ab5da5e1fccbe319962448db652e3d32d720712c3366b223b93"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634022783366_65050",
+        "canonicalJsonSha256": "1aabe2c0756e0ab5da5e1fccbe319962448db652e3d32d720712c3366b223b93",
+        "originalRepresentationSha256": "1aabe2c0756e0ab5da5e1fccbe319962448db652e3d32d720712c3366b223b93",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_tertiary_planning_units_subunits"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-new-towns",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-new-towns",
+      "name": "Boundaries of New Towns",
+      "apiTitle": "Planning Department \u2014 Boundaries of New Towns",
+      "json": "pland/csdi-boundaries-of-new-towns/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-new-towns/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-new-towns/openapi.json",
+      "sha256": "bb9943991a48a409bb27d2922be821b5244bc185f50e9e47af99064f50e1c2e6",
+      "jsonSha256": "bb9943991a48a409bb27d2922be821b5244bc185f50e9e47af99064f50e1c2e6",
+      "yamlSha256": "cd91e15046ee11e2ae065fa66f3d52b1f625da338f64e487fc0724666ef8ac97",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_new_towns",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "bb9943991a48a409bb27d2922be821b5244bc185f50e9e47af99064f50e1c2e6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634023103904_16865",
+        "canonicalJsonSha256": "bb9943991a48a409bb27d2922be821b5244bc185f50e9e47af99064f50e1c2e6",
+        "originalRepresentationSha256": "bb9943991a48a409bb27d2922be821b5244bc185f50e9e47af99064f50e1c2e6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_new_towns"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization/openapi.json",
+      "sha256": "ff033a5475ca89f2de09a229c098087a10e7ed5a4c116a36334fd144df272206",
+      "jsonSha256": "ff033a5475ca89f2de09a229c098087a10e7ed5a4c116a36334fd144df272206",
+      "yamlSha256": "a1aff9a81d5b78408d2c0778f928570771ec2fbca78ec4db4d7ab141f4658168",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ff033a5475ca89f2de09a229c098087a10e7ed5a4c116a36334fd144df272206"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634024370851_27769",
+        "canonicalJsonSha256": "ff033a5475ca89f2de09a229c098087a10e7ed5a4c116a36334fd144df272206",
+        "originalRepresentationSha256": "ff033a5475ca89f2de09a229c098087a10e7ed5a4c116a36334fd144df272206",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-new-towns-service-2",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-new-towns-service-2",
+      "name": "Boundaries of New Towns",
+      "apiTitle": "Planning Department \u2014 Boundaries of New Towns",
+      "json": "pland/csdi-boundaries-of-new-towns-service-2/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-new-towns-service-2/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-new-towns-service-2/openapi.json",
+      "sha256": "e04dfc13a720f837a2e18ad7d8a7e3ecc31c074d3054744d727f3c7edf78aef3",
+      "jsonSha256": "e04dfc13a720f837a2e18ad7d8a7e3ecc31c074d3054744d727f3c7edf78aef3",
+      "yamlSha256": "59a0c80e074ddf44c98ed81d06bb05a4d1cbcea451db06da4cc329044c6411a7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_new_towns_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e04dfc13a720f837a2e18ad7d8a7e3ecc31c074d3054744d727f3c7edf78aef3"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634024777903_55269",
+        "canonicalJsonSha256": "e04dfc13a720f837a2e18ad7d8a7e3ecc31c074d3054744d727f3c7edf78aef3",
+        "originalRepresentationSha256": "e04dfc13a720f837a2e18ad7d8a7e3ecc31c074d3054744d727f3c7edf78aef3",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_new_towns_service_2"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-tertiary-planning-units-subunits-service-2",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-tertiary-planning-units-subunits-service-2",
+      "name": "Boundaries of Tertiary Planning Units & Subunits",
+      "apiTitle": "Planning Department \u2014 Boundaries of Tertiary Planning Units & Subunits",
+      "json": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-2/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-2/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-2/openapi.json",
+      "sha256": "6e89ab52f2e4850ee735f64c6abdcde813794a5fafb96133750a4fd69fc7408a",
+      "jsonSha256": "6e89ab52f2e4850ee735f64c6abdcde813794a5fafb96133750a4fd69fc7408a",
+      "yamlSha256": "bf8c4ccc3f4297d7b2b10691580a1f013d1d4fdcc31d336ef1ddabd35d694db9",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_tertiary_planning_units_subunits_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "6e89ab52f2e4850ee735f64c6abdcde813794a5fafb96133750a4fd69fc7408a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634025118087_40967",
+        "canonicalJsonSha256": "6e89ab52f2e4850ee735f64c6abdcde813794a5fafb96133750a4fd69fc7408a",
+        "originalRepresentationSha256": "6e89ab52f2e4850ee735f64c6abdcde813794a5fafb96133750a4fd69fc7408a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_tertiary_planning_units_subunits_service_2"
+    },
+    {
+      "id": "pland-csdi-landscape-character-map-of-hong-kong-completed-in-2005",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-landscape-character-map-of-hong-kong-completed-in-2005",
+      "name": "Landscape Character Map of Hong Kong (completed in 2005)",
+      "apiTitle": "Planning Department \u2014 Landscape Character Map of Hong Kong (completed in 2005)",
+      "json": "pland/csdi-landscape-character-map-of-hong-kong-completed-in-2005/openapi.json",
+      "yaml": "pland/csdi-landscape-character-map-of-hong-kong-completed-in-2005/openapi.yaml",
+      "file": "pland/csdi-landscape-character-map-of-hong-kong-completed-in-2005/openapi.json",
+      "sha256": "e91f46ddd8c01496931c058168b692e047905f9afc25aeff008847695612d4f4",
+      "jsonSha256": "e91f46ddd8c01496931c058168b692e047905f9afc25aeff008847695612d4f4",
+      "yamlSha256": "66a7e1112afebbcae4949c29627e777dc3c3209852fc5e6fd711c26e13fce9a5",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_landscape_character_map_of_hong_kong_completed_in_2005",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "e91f46ddd8c01496931c058168b692e047905f9afc25aeff008847695612d4f4"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634259698832_46814",
+        "canonicalJsonSha256": "e91f46ddd8c01496931c058168b692e047905f9afc25aeff008847695612d4f4",
+        "originalRepresentationSha256": "e91f46ddd8c01496931c058168b692e047905f9afc25aeff008847695612d4f4",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_landscape_character_map_of_hong_kong_completed_in_2005"
+    },
+    {
+      "id": "pland-csdi-cross-boundary-travel-survey-2021",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-cross-boundary-travel-survey-2021",
+      "name": "Cross-boundary Travel Survey 2021",
+      "apiTitle": "Planning Department \u2014 Cross-boundary Travel Survey 2021",
+      "json": "pland/csdi-cross-boundary-travel-survey-2021/openapi.json",
+      "yaml": "pland/csdi-cross-boundary-travel-survey-2021/openapi.yaml",
+      "file": "pland/csdi-cross-boundary-travel-survey-2021/openapi.json",
+      "sha256": "cfbc9a9f52ea6a6cef85d5277d9c36904d17d2cd7706672f81bc61d25c701bed",
+      "jsonSha256": "cfbc9a9f52ea6a6cef85d5277d9c36904d17d2cd7706672f81bc61d25c701bed",
+      "yamlSha256": "10eeb5eb609fddad9c944b8de995e3792784fdd125d83e9e0b337ab0ab0409d7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_cross_boundary_travel_survey_2021",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cfbc9a9f52ea6a6cef85d5277d9c36904d17d2cd7706672f81bc61d25c701bed"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634270011292_5256",
+        "canonicalJsonSha256": "cfbc9a9f52ea6a6cef85d5277d9c36904d17d2cd7706672f81bc61d25c701bed",
+        "originalRepresentationSha256": "cfbc9a9f52ea6a6cef85d5277d9c36904d17d2cd7706672f81bc61d25c701bed",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_cross_boundary_travel_survey_2021"
+    },
+    {
+      "id": "pland-csdi-cross-boundary-travel-survey-2017",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-cross-boundary-travel-survey-2017",
+      "name": "Cross-boundary Travel Survey 2017",
+      "apiTitle": "Planning Department \u2014 Cross-boundary Travel Survey 2017",
+      "json": "pland/csdi-cross-boundary-travel-survey-2017/openapi.json",
+      "yaml": "pland/csdi-cross-boundary-travel-survey-2017/openapi.yaml",
+      "file": "pland/csdi-cross-boundary-travel-survey-2017/openapi.json",
+      "sha256": "2ae1caa898bc3ce9e368ffc6c6c62cec882bcf388c1ed2a4170920f8ba9bf1e1",
+      "jsonSha256": "2ae1caa898bc3ce9e368ffc6c6c62cec882bcf388c1ed2a4170920f8ba9bf1e1",
+      "yamlSha256": "3bdcd70bd4555e7dc4ed24b4b09f193f140d89de93ce7433c5cd7c7fbbddafd7",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_cross_boundary_travel_survey_2017",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "2ae1caa898bc3ce9e368ffc6c6c62cec882bcf388c1ed2a4170920f8ba9bf1e1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634281282932_15403",
+        "canonicalJsonSha256": "2ae1caa898bc3ce9e368ffc6c6c62cec882bcf388c1ed2a4170920f8ba9bf1e1",
+        "originalRepresentationSha256": "2ae1caa898bc3ce9e368ffc6c6c62cec882bcf388c1ed2a4170920f8ba9bf1e1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_cross_boundary_travel_survey_2017"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-new-towns-service-3",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-new-towns-service-3",
+      "name": "Boundaries of New Towns",
+      "apiTitle": "Planning Department \u2014 Boundaries of New Towns",
+      "json": "pland/csdi-boundaries-of-new-towns-service-3/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-new-towns-service-3/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-new-towns-service-3/openapi.json",
+      "sha256": "4699f2873e80b6839d2c6bfbbc0176b72b1f57a745b77a5c469a7e592deadedb",
+      "jsonSha256": "4699f2873e80b6839d2c6bfbbc0176b72b1f57a745b77a5c469a7e592deadedb",
+      "yamlSha256": "af2de31f0eb05449851967340313918cc0f7838d6221e5a4a8e868e8bc901085",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_new_towns_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4699f2873e80b6839d2c6bfbbc0176b72b1f57a745b77a5c469a7e592deadedb"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634281414408_50485",
+        "canonicalJsonSha256": "4699f2873e80b6839d2c6bfbbc0176b72b1f57a745b77a5c469a7e592deadedb",
+        "originalRepresentationSha256": "4699f2873e80b6839d2c6bfbbc0176b72b1f57a745b77a5c469a7e592deadedb",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_new_towns_service_3"
+    },
+    {
+      "id": "pland-csdi-survey-on-business-establishments-in-kowloon-east-2018",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-survey-on-business-establishments-in-kowloon-east-2018",
+      "name": "Survey on Business Establishments in Kowloon East 2018",
+      "apiTitle": "Planning Department \u2014 Survey on Business Establishments in Kowloon East 2018",
+      "json": "pland/csdi-survey-on-business-establishments-in-kowloon-east-2018/openapi.json",
+      "yaml": "pland/csdi-survey-on-business-establishments-in-kowloon-east-2018/openapi.yaml",
+      "file": "pland/csdi-survey-on-business-establishments-in-kowloon-east-2018/openapi.json",
+      "sha256": "5e2b1e2f0f89244dcc3a70b1490fcedfcad209b17a09e2e90520d8d90d7896ff",
+      "jsonSha256": "5e2b1e2f0f89244dcc3a70b1490fcedfcad209b17a09e2e90520d8d90d7896ff",
+      "yamlSha256": "25ed634b985b20f6d2bbbfa147ca21e3ef4ee04119fc3983414345f6adaaeff8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_survey_on_business_establishments_in_kowloon_east_2018",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "5e2b1e2f0f89244dcc3a70b1490fcedfcad209b17a09e2e90520d8d90d7896ff"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634281537638_10054",
+        "canonicalJsonSha256": "5e2b1e2f0f89244dcc3a70b1490fcedfcad209b17a09e2e90520d8d90d7896ff",
+        "originalRepresentationSha256": "5e2b1e2f0f89244dcc3a70b1490fcedfcad209b17a09e2e90520d8d90d7896ff",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_survey_on_business_establishments_in_kowloon_east_2018"
+    },
+    {
+      "id": "pland-csdi-site-wind-availability-data",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-site-wind-availability-data",
+      "name": "Site Wind Availability Data",
+      "apiTitle": "Planning Department \u2014 Site Wind Availability Data",
+      "json": "pland/csdi-site-wind-availability-data/openapi.json",
+      "yaml": "pland/csdi-site-wind-availability-data/openapi.yaml",
+      "file": "pland/csdi-site-wind-availability-data/openapi.json",
+      "sha256": "43b61ccab85f88cf3fb3571866966b53eba05251894e281c5552f4d65fd73d51",
+      "jsonSha256": "43b61ccab85f88cf3fb3571866966b53eba05251894e281c5552f4d65fd73d51",
+      "yamlSha256": "8c9cc943932cb9e6095cf7de2638008c9271cd21c73455d843bb75b709cd6739",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_site_wind_availability_data",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "43b61ccab85f88cf3fb3571866966b53eba05251894e281c5552f4d65fd73d51"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634281652589_43389",
+        "canonicalJsonSha256": "43b61ccab85f88cf3fb3571866966b53eba05251894e281c5552f4d65fd73d51",
+        "originalRepresentationSha256": "43b61ccab85f88cf3fb3571866966b53eba05251894e281c5552f4d65fd73d51",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_site_wind_availability_data"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization-service-2",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization-service-2",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization-service-2/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization-service-2/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization-service-2/openapi.json",
+      "sha256": "a8117465e5b3fdcf2562a01a1742d30563e8c9d464148d456c86f1017438aab6",
+      "jsonSha256": "a8117465e5b3fdcf2562a01a1742d30563e8c9d464148d456c86f1017438aab6",
+      "yamlSha256": "216742059f4623301cc7a3480e6ddb04c54e9e519aea46abae0378ed8ecd3e04",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a8117465e5b3fdcf2562a01a1742d30563e8c9d464148d456c86f1017438aab6"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634281791890_21963",
+        "canonicalJsonSha256": "a8117465e5b3fdcf2562a01a1742d30563e8c9d464148d456c86f1017438aab6",
+        "originalRepresentationSha256": "a8117465e5b3fdcf2562a01a1742d30563e8c9d464148d456c86f1017438aab6",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization_service_2"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-tertiary-planning-units-subunits-service-3",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-tertiary-planning-units-subunits-service-3",
+      "name": "Boundaries of Tertiary Planning Units & Subunits",
+      "apiTitle": "Planning Department \u2014 Boundaries of Tertiary Planning Units & Subunits",
+      "json": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-3/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-3/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-3/openapi.json",
+      "sha256": "1821ddc3373cbb774d83a2a812f2c6481678c7d2356e5c1e7d032a61e84ebb37",
+      "jsonSha256": "1821ddc3373cbb774d83a2a812f2c6481678c7d2356e5c1e7d032a61e84ebb37",
+      "yamlSha256": "8af4ca540613dd212f4d726a5e46a388a47a9df1f7ca32915d7fe0ad2f506218",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_tertiary_planning_units_subunits_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1821ddc3373cbb774d83a2a812f2c6481678c7d2356e5c1e7d032a61e84ebb37"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634281887222_15002",
+        "canonicalJsonSha256": "1821ddc3373cbb774d83a2a812f2c6481678c7d2356e5c1e7d032a61e84ebb37",
+        "originalRepresentationSha256": "1821ddc3373cbb774d83a2a812f2c6481678c7d2356e5c1e7d032a61e84ebb37",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_tertiary_planning_units_subunits_service_3"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization-service-3",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization-service-3",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization-service-3/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization-service-3/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization-service-3/openapi.json",
+      "sha256": "163a16d99cc0187d3fd4d7bf4db43af9ba1ba79a294ca8d703ecc3b3b432ccab",
+      "jsonSha256": "163a16d99cc0187d3fd4d7bf4db43af9ba1ba79a294ca8d703ecc3b3b432ccab",
+      "yamlSha256": "fca54f31a9bf10f552200a11ed160f999bc931acb207dbf64b3749790e4e6261",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization_service_3",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "163a16d99cc0187d3fd4d7bf4db43af9ba1ba79a294ca8d703ecc3b3b432ccab"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634282086807_94936",
+        "canonicalJsonSha256": "163a16d99cc0187d3fd4d7bf4db43af9ba1ba79a294ca8d703ecc3b3b432ccab",
+        "originalRepresentationSha256": "163a16d99cc0187d3fd4d7bf4db43af9ba1ba79a294ca8d703ecc3b3b432ccab",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization_service_3"
+    },
+    {
+      "id": "pland-csdi-strategic-viewing-points",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-strategic-viewing-points",
+      "name": "Strategic Viewing Points",
+      "apiTitle": "Planning Department \u2014 Strategic Viewing Points",
+      "json": "pland/csdi-strategic-viewing-points/openapi.json",
+      "yaml": "pland/csdi-strategic-viewing-points/openapi.yaml",
+      "file": "pland/csdi-strategic-viewing-points/openapi.json",
+      "sha256": "0498dfd496164d865d84eee2c847131545214ee93e5e316f9433eed5ada15890",
+      "jsonSha256": "0498dfd496164d865d84eee2c847131545214ee93e5e316f9433eed5ada15890",
+      "yamlSha256": "0b87f7cb521de8b1a126804a4e0a007831d34746899532548846a5d88febb73f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_strategic_viewing_points",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "0498dfd496164d865d84eee2c847131545214ee93e5e316f9433eed5ada15890"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634282175930_80034",
+        "canonicalJsonSha256": "0498dfd496164d865d84eee2c847131545214ee93e5e316f9433eed5ada15890",
+        "originalRepresentationSha256": "0498dfd496164d865d84eee2c847131545214ee93e5e316f9433eed5ada15890",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_strategic_viewing_points"
+    },
+    {
+      "id": "pland-csdi-projections-of-population-distribution-2023-2031",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-projections-of-population-distribution-2023-2031",
+      "name": "Projections of Population Distribution 2023-2031",
+      "apiTitle": "Planning Department \u2014 Projections of Population Distribution 2023-2031",
+      "json": "pland/csdi-projections-of-population-distribution-2023-2031/openapi.json",
+      "yaml": "pland/csdi-projections-of-population-distribution-2023-2031/openapi.yaml",
+      "file": "pland/csdi-projections-of-population-distribution-2023-2031/openapi.json",
+      "sha256": "64e12d444de10dfe1bcbc1d8068b75d6f1d909c1b94a0d0c99f743522458da17",
+      "jsonSha256": "64e12d444de10dfe1bcbc1d8068b75d6f1d909c1b94a0d0c99f743522458da17",
+      "yamlSha256": "af6c0554b6e163d5f3a82c3c0737d9ba6f999329a1fd61c39c845fb90450408f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_projections_of_population_distribution_2023_2031",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "64e12d444de10dfe1bcbc1d8068b75d6f1d909c1b94a0d0c99f743522458da17"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634282440515_16663",
+        "canonicalJsonSha256": "64e12d444de10dfe1bcbc1d8068b75d6f1d909c1b94a0d0c99f743522458da17",
+        "originalRepresentationSha256": "64e12d444de10dfe1bcbc1d8068b75d6f1d909c1b94a0d0c99f743522458da17",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_projections_of_population_distribution_2023_2031"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization-service-4",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization-service-4",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization-service-4/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization-service-4/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization-service-4/openapi.json",
+      "sha256": "ee9a78f5b2f6691c50b44d683a51147259dbf5a4d083853d85b007d1dbe240d7",
+      "jsonSha256": "ee9a78f5b2f6691c50b44d683a51147259dbf5a4d083853d85b007d1dbe240d7",
+      "yamlSha256": "3dc6910a24e45bc33257eeaa4cf1556c648d0b135d0c2323aafa203899a569c9",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ee9a78f5b2f6691c50b44d683a51147259dbf5a4d083853d85b007d1dbe240d7"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634282545137_98227",
+        "canonicalJsonSha256": "ee9a78f5b2f6691c50b44d683a51147259dbf5a4d083853d85b007d1dbe240d7",
+        "originalRepresentationSha256": "ee9a78f5b2f6691c50b44d683a51147259dbf5a4d083853d85b007d1dbe240d7",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization_service_4"
+    },
+    {
+      "id": "pland-csdi-2020-area-assessments-of-industrial-land-in-the-territory",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-2020-area-assessments-of-industrial-land-in-the-territory",
+      "name": "2020 Area Assessments of Industrial Land in the Territory",
+      "apiTitle": "Planning Department \u2014 2020 Area Assessments of Industrial Land in the Territory",
+      "json": "pland/csdi-2020-area-assessments-of-industrial-land-in-the-territory/openapi.json",
+      "yaml": "pland/csdi-2020-area-assessments-of-industrial-land-in-the-territory/openapi.yaml",
+      "file": "pland/csdi-2020-area-assessments-of-industrial-land-in-the-territory/openapi.json",
+      "sha256": "b0eea72d4187f91a568848ccacc8fd167066a9228554ecc4d06a5ca2ed9cfde2",
+      "jsonSha256": "b0eea72d4187f91a568848ccacc8fd167066a9228554ecc4d06a5ca2ed9cfde2",
+      "yamlSha256": "9010fafb11b8757ac8b345d3c104c491f3bf99db31c0d94978075c6ac5e27356",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2020_area_assessments_of_industrial_land_in_the_territory",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "b0eea72d4187f91a568848ccacc8fd167066a9228554ecc4d06a5ca2ed9cfde2"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634282623835_82856",
+        "canonicalJsonSha256": "b0eea72d4187f91a568848ccacc8fd167066a9228554ecc4d06a5ca2ed9cfde2",
+        "originalRepresentationSha256": "b0eea72d4187f91a568848ccacc8fd167066a9228554ecc4d06a5ca2ed9cfde2",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2020_area_assessments_of_industrial_land_in_the_territory"
+    },
+    {
+      "id": "pland-csdi-2021-based-territorial-population-and-employment-data-matrix",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-2021-based-territorial-population-and-employment-data-matrix",
+      "name": "2021-based Territorial Population and Employment Data Matrix",
+      "apiTitle": "Planning Department \u2014 2021-based Territorial Population and Employment Data Matrix",
+      "json": "pland/csdi-2021-based-territorial-population-and-employment-data-matrix/openapi.json",
+      "yaml": "pland/csdi-2021-based-territorial-population-and-employment-data-matrix/openapi.yaml",
+      "file": "pland/csdi-2021-based-territorial-population-and-employment-data-matrix/openapi.json",
+      "sha256": "cdca6de86ff3fab67c56b7bb1bc9342669c6c9f9c6c182eb06947d8665f00b2f",
+      "jsonSha256": "cdca6de86ff3fab67c56b7bb1bc9342669c6c9f9c6c182eb06947d8665f00b2f",
+      "yamlSha256": "ad8c75f8bea4279f006baa62422e90fb8eacb1f741b0f9d514eacb565046abf2",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_2021_based_territorial_population_and_employment_data_matrix",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "cdca6de86ff3fab67c56b7bb1bc9342669c6c9f9c6c182eb06947d8665f00b2f"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1634282699272_79084",
+        "canonicalJsonSha256": "cdca6de86ff3fab67c56b7bb1bc9342669c6c9f9c6c182eb06947d8665f00b2f",
+        "originalRepresentationSha256": "cdca6de86ff3fab67c56b7bb1bc9342669c6c9f9c6c182eb06947d8665f00b2f",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_2021_based_territorial_population_and_employment_data_matrix"
+    },
+    {
+      "id": "pland-csdi-3d-photo-realistic-model",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-3d-photo-realistic-model",
+      "name": "3D photo-realistic model",
+      "apiTitle": "Planning Department \u2014 3D photo-realistic model",
+      "json": "pland/csdi-3d-photo-realistic-model/openapi.json",
+      "yaml": "pland/csdi-3d-photo-realistic-model/openapi.yaml",
+      "file": "pland/csdi-3d-photo-realistic-model/openapi.json",
+      "sha256": "679d1efe4f21338323986ce369a8fb9287407bf76be3ff7bc878c9991dfec554",
+      "jsonSha256": "679d1efe4f21338323986ce369a8fb9287407bf76be3ff7bc878c9991dfec554",
+      "yamlSha256": "430cde1fe54a6b1ea8e762561bdf769f74935c034d2ce07542024e79ee9a9623",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_3d_photo_realistic_model",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "679d1efe4f21338323986ce369a8fb9287407bf76be3ff7bc878c9991dfec554"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1636534828693_9849",
+        "canonicalJsonSha256": "679d1efe4f21338323986ce369a8fb9287407bf76be3ff7bc878c9991dfec554",
+        "originalRepresentationSha256": "679d1efe4f21338323986ce369a8fb9287407bf76be3ff7bc878c9991dfec554",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_3d_photo_realistic_model"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-new-towns-service-4",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-new-towns-service-4",
+      "name": "Boundaries of New Towns",
+      "apiTitle": "Planning Department \u2014 Boundaries of New Towns",
+      "json": "pland/csdi-boundaries-of-new-towns-service-4/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-new-towns-service-4/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-new-towns-service-4/openapi.json",
+      "sha256": "a9e39ec6c96c06f6035f2acd58615506afe2ef372db2c6d89df8afbd1d1a185a",
+      "jsonSha256": "a9e39ec6c96c06f6035f2acd58615506afe2ef372db2c6d89df8afbd1d1a185a",
+      "yamlSha256": "fa5b778b82c2bb5e24ac9b40325002ba02a7d6aa7d576662c39b4fc8e06d4948",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_new_towns_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a9e39ec6c96c06f6035f2acd58615506afe2ef372db2c6d89df8afbd1d1a185a"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1636535014241_1352",
+        "canonicalJsonSha256": "a9e39ec6c96c06f6035f2acd58615506afe2ef372db2c6d89df8afbd1d1a185a",
+        "originalRepresentationSha256": "a9e39ec6c96c06f6035f2acd58615506afe2ef372db2c6d89df8afbd1d1a185a",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_new_towns_service_4"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-tertiary-planning-units-subunits-service-4",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-tertiary-planning-units-subunits-service-4",
+      "name": "Boundaries of Tertiary Planning Units & Subunits",
+      "apiTitle": "Planning Department \u2014 Boundaries of Tertiary Planning Units & Subunits",
+      "json": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-4/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-4/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-4/openapi.json",
+      "sha256": "a887aaa42097140d441a9ad172c5f6f4ab1c60ed72c09e339e76e7148b8f1978",
+      "jsonSha256": "a887aaa42097140d441a9ad172c5f6f4ab1c60ed72c09e339e76e7148b8f1978",
+      "yamlSha256": "9004caa3712cbb7a9ba390f5e7f63884459300492c0677cde53e93e45a69b38f",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_tertiary_planning_units_subunits_service_4",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "a887aaa42097140d441a9ad172c5f6f4ab1c60ed72c09e339e76e7148b8f1978"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1636535158118_80594",
+        "canonicalJsonSha256": "a887aaa42097140d441a9ad172c5f6f4ab1c60ed72c09e339e76e7148b8f1978",
+        "originalRepresentationSha256": "a887aaa42097140d441a9ad172c5f6f4ab1c60ed72c09e339e76e7148b8f1978",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_tertiary_planning_units_subunits_service_4"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-tertiary-planning-units-subunits-service-5",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-tertiary-planning-units-subunits-service-5",
+      "name": "Boundaries of Tertiary Planning Units & Subunits",
+      "apiTitle": "Planning Department \u2014 Boundaries of Tertiary Planning Units & Subunits",
+      "json": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-5/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-5/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-5/openapi.json",
+      "sha256": "589c1109486693f7b3286219932bd25a17041af9e435aac07eea37507f53ffc9",
+      "jsonSha256": "589c1109486693f7b3286219932bd25a17041af9e435aac07eea37507f53ffc9",
+      "yamlSha256": "368dd760704f9552728679ac47499124d158f8af7f3a61d559e90023800ea3ba",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_tertiary_planning_units_subunits_service_5",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "589c1109486693f7b3286219932bd25a17041af9e435aac07eea37507f53ffc9"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 3,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1636535383021_30595",
+        "canonicalJsonSha256": "589c1109486693f7b3286219932bd25a17041af9e435aac07eea37507f53ffc9",
+        "originalRepresentationSha256": "589c1109486693f7b3286219932bd25a17041af9e435aac07eea37507f53ffc9",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_tertiary_planning_units_subunits_service_5"
+    },
+    {
+      "id": "pland-csdi-boundaries-of-tertiary-planning-units-subunits-service-6",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-boundaries-of-tertiary-planning-units-subunits-service-6",
+      "name": "Boundaries of Tertiary Planning Units & Subunits",
+      "apiTitle": "Planning Department \u2014 Boundaries of Tertiary Planning Units & Subunits",
+      "json": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-6/openapi.json",
+      "yaml": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-6/openapi.yaml",
+      "file": "pland/csdi-boundaries-of-tertiary-planning-units-subunits-service-6/openapi.json",
+      "sha256": "7cd31e9a4fc3301ca5bc3e36df3cd96b878c0afbb691fc5e4ab5075619c1f974",
+      "jsonSha256": "7cd31e9a4fc3301ca5bc3e36df3cd96b878c0afbb691fc5e4ab5075619c1f974",
+      "yamlSha256": "075373b885bb1a8bdf0153608086ab9ce740be0a89aa2e021dc57d0242586b23",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_boundaries_of_tertiary_planning_units_subunits_service_6",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "7cd31e9a4fc3301ca5bc3e36df3cd96b878c0afbb691fc5e4ab5075619c1f974"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1637289585582_55577",
+        "canonicalJsonSha256": "7cd31e9a4fc3301ca5bc3e36df3cd96b878c0afbb691fc5e4ab5075619c1f974",
+        "originalRepresentationSha256": "7cd31e9a4fc3301ca5bc3e36df3cd96b878c0afbb691fc5e4ab5075619c1f974",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_boundaries_of_tertiary_planning_units_subunits_service_6"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization-service-5",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization-service-5",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization-service-5/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization-service-5/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization-service-5/openapi.json",
+      "sha256": "15a6336302731d0668664967f01daf209027b83187cbfad8e9ac7c01552e83a1",
+      "jsonSha256": "15a6336302731d0668664967f01daf209027b83187cbfad8e9ac7c01552e83a1",
+      "yamlSha256": "e94416f868eaa78d0209a142152c131cd1b02e0ac99e82412effea29b05062b8",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization_service_5",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "15a6336302731d0668664967f01daf209027b83187cbfad8e9ac7c01552e83a1"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1665742315124_26227",
+        "canonicalJsonSha256": "15a6336302731d0668664967f01daf209027b83187cbfad8e9ac7c01552e83a1",
+        "originalRepresentationSha256": "15a6336302731d0668664967f01daf209027b83187cbfad8e9ac7c01552e83a1",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization_service_5"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization-service-6",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization-service-6",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization-service-6/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization-service-6/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization-service-6/openapi.json",
+      "sha256": "ed0f50b5cf06800ae76321aa53f6cf4320aff40cbaf7ba86d894062461c1c50d",
+      "jsonSha256": "ed0f50b5cf06800ae76321aa53f6cf4320aff40cbaf7ba86d894062461c1c50d",
+      "yamlSha256": "9dd6985b711d47548bf3d6ea738bc56e4b5090156a191a323219521210978547",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization_service_6",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ed0f50b5cf06800ae76321aa53f6cf4320aff40cbaf7ba86d894062461c1c50d"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1696577406166_85973",
+        "canonicalJsonSha256": "ed0f50b5cf06800ae76321aa53f6cf4320aff40cbaf7ba86d894062461c1c50d",
+        "originalRepresentationSha256": "ed0f50b5cf06800ae76321aa53f6cf4320aff40cbaf7ba86d894062461c1c50d",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization_service_6"
+    },
+    {
+      "id": "pland-csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance",
+      "name": "Enforcement and prosecution cases completed in the past 5 years (rollover) under the Town Planning Ordinance",
+      "apiTitle": "Planning Department \u2014 Enforcement and prosecution cases completed in the past 5 years (rollover) under the Town Planning Ordinance",
+      "json": "pland/csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance/openapi.json",
+      "yaml": "pland/csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance/openapi.yaml",
+      "file": "pland/csdi-enforcement-and-prosecution-cases-completed-in-the-past-5-years-rollover-under-the-town-planning-ordinance/openapi.json",
+      "sha256": "8777dc9c1402ec3e3cd25244b1d9a2ec7cf5e68d1eb89570d38b1b666b2dcd75",
+      "jsonSha256": "8777dc9c1402ec3e3cd25244b1d9a2ec7cf5e68d1eb89570d38b1b666b2dcd75",
+      "yamlSha256": "1c150e7e45b48a450384d5428bf06f57c80a28dad09c3eb7572ab773f09d67be",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_enforcement_and_prosecution_cases_completed_in_the_past_5_years_rollover_under_the_town_planning_ordinance",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8777dc9c1402ec3e3cd25244b1d9a2ec7cf5e68d1eb89570d38b1b666b2dcd75"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 2,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1706687725748_46633",
+        "canonicalJsonSha256": "8777dc9c1402ec3e3cd25244b1d9a2ec7cf5e68d1eb89570d38b1b666b2dcd75",
+        "originalRepresentationSha256": "8777dc9c1402ec3e3cd25244b1d9a2ec7cf5e68d1eb89570d38b1b666b2dcd75",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_enforcement_and_prosecution_cases_completed_in_the_past_5_years_rollover_under_the_town_planning_ordinance"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization-service-7",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization-service-7",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization-service-7/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization-service-7/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization-service-7/openapi.json",
+      "sha256": "1b8ef8a43815aaa794b80a0a1501b66b532db072dc5d30f1d33a6903fc04328b",
+      "jsonSha256": "1b8ef8a43815aaa794b80a0a1501b66b532db072dc5d30f1d33a6903fc04328b",
+      "yamlSha256": "71b91c51b4e228840dce6b042c6a90e96b1bdf7b59f58bfd182432fb4d5f0a77",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization_service_7",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "1b8ef8a43815aaa794b80a0a1501b66b532db072dc5d30f1d33a6903fc04328b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1725865972233_20687",
+        "canonicalJsonSha256": "1b8ef8a43815aaa794b80a0a1501b66b532db072dc5d30f1d33a6903fc04328b",
+        "originalRepresentationSha256": "1b8ef8a43815aaa794b80a0a1501b66b532db072dc5d30f1d33a6903fc04328b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization_service_7"
+    },
+    {
+      "id": "pland-csdi-raster-grids-on-land-utilization-service-8",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-raster-grids-on-land-utilization-service-8",
+      "name": "Raster Grids on Land Utilization",
+      "apiTitle": "Planning Department \u2014 Raster Grids on Land Utilization",
+      "json": "pland/csdi-raster-grids-on-land-utilization-service-8/openapi.json",
+      "yaml": "pland/csdi-raster-grids-on-land-utilization-service-8/openapi.yaml",
+      "file": "pland/csdi-raster-grids-on-land-utilization-service-8/openapi.json",
+      "sha256": "4e162447d480975b5bf3bf9b6925f31326d36f586f3f1c859c4645af4b4e152b",
+      "jsonSha256": "4e162447d480975b5bf3bf9b6925f31326d36f586f3f1c859c4645af4b4e152b",
+      "yamlSha256": "a7f62d459b720e27898371f04a91b73b8fa13912752edabb1da3facaa181f54e",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_raster_grids_on_land_utilization_service_8",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "4e162447d480975b5bf3bf9b6925f31326d36f586f3f1c859c4645af4b4e152b"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=pland_rcd_1754559265139_25057",
+        "canonicalJsonSha256": "4e162447d480975b5bf3bf9b6925f31326d36f586f3f1c859c4645af4b4e152b",
+        "originalRepresentationSha256": "4e162447d480975b5bf3bf9b6925f31326d36f586f3f1c859c4645af4b4e152b",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_raster_grids_on_land_utilization_service_8"
+    },
+    {
+      "id": "pland-csdi-digital-planning-data-of-regulated-areas",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-digital-planning-data-of-regulated-areas",
+      "name": "Digital Planning Data of Regulated Areas",
+      "apiTitle": "Planning Department \u2014 Digital Planning Data of Regulated Areas",
+      "json": "pland/csdi-digital-planning-data-of-regulated-areas/openapi.json",
+      "yaml": "pland/csdi-digital-planning-data-of-regulated-areas/openapi.yaml",
+      "file": "pland/csdi-digital-planning-data-of-regulated-areas/openapi.json",
+      "sha256": "ac026efdb1752300b7b6d33c44c91becf07de72e6e11207aa66102067945de85",
+      "jsonSha256": "ac026efdb1752300b7b6d33c44c91becf07de72e6e11207aa66102067945de85",
+      "yamlSha256": "4ba797b71aa8cc61cf74bf76a8bf1119c8e2fdfc2ddda2634721dfef4e8c5cbe",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_digital_planning_data_of_regulated_areas",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "ac026efdb1752300b7b6d33c44c91becf07de72e6e11207aa66102067945de85"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=c17a8a39-4fed-5e02-8528-998b84011228",
+        "canonicalJsonSha256": "ac026efdb1752300b7b6d33c44c91becf07de72e6e11207aa66102067945de85",
+        "originalRepresentationSha256": "ac026efdb1752300b7b6d33c44c91becf07de72e6e11207aa66102067945de85",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_digital_planning_data_of_regulated_areas"
+    },
+    {
+      "id": "pland-csdi-digital-planning-data-of-regulated-areas-service-2",
+      "publisherKey": "pland",
+      "publisherName": "Planning Department",
+      "familyKey": "csdi-digital-planning-data-of-regulated-areas-service-2",
+      "name": "Digital Planning Data of Regulated Areas",
+      "apiTitle": "Planning Department \u2014 Digital Planning Data of Regulated Areas",
+      "json": "pland/csdi-digital-planning-data-of-regulated-areas-service-2/openapi.json",
+      "yaml": "pland/csdi-digital-planning-data-of-regulated-areas-service-2/openapi.yaml",
+      "file": "pland/csdi-digital-planning-data-of-regulated-areas-service-2/openapi.json",
+      "sha256": "8c4ed7002418a952534e5764632d575271b920f23128d8e3364bb7057b9bbc98",
+      "jsonSha256": "8c4ed7002418a952534e5764632d575271b920f23128d8e3364bb7057b9bbc98",
+      "yamlSha256": "de9721a4770b1019946492015ed872d0c5f6c10608471e05158b8d5235f1458c",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "csdi-native-readonly-v1",
+      "namespace": "csdi_digital_planning_data_of_regulated_areas_service_2",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "8c4ed7002418a952534e5764632d575271b920f23128d8e3364bb7057b9bbc98"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://portal.csdi.gov.hk/geoportal/?datasetId=c17a8a39-4fed-5e02-8528-998b84011228",
+        "canonicalJsonSha256": "8c4ed7002418a952534e5764632d575271b920f23128d8e3364bb7057b9bbc98",
+        "originalRepresentationSha256": "8c4ed7002418a952534e5764632d575271b920f23128d8e3364bb7057b9bbc98",
+        "serialization": "Deterministic derivative of retained native CSDI metadata; exact canonical JSON and source evidence retained. This is not publisher-authored OpenAPI."
+      },
+      "moduleName": "csdi_digital_planning_data_of_regulated_areas_service_2"
+    }
+  ]
+}

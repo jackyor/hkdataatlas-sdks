@@ -1,0 +1,64 @@
+{
+  "publisherKey": "aahk",
+  "publisherName": "Airport Authority Hong Kong",
+  "sources": [
+    {
+      "id": "aahk-flight-information",
+      "publisherKey": "aahk",
+      "publisherName": "Airport Authority Hong Kong",
+      "familyKey": "flight-information",
+      "name": "Flight Information",
+      "apiTitle": "Hong Kong International Airport Flight Information",
+      "json": "aahk/flight-information/openapi.json",
+      "yaml": "aahk/flight-information/openapi.yaml",
+      "file": "aahk/flight-information/openapi.json",
+      "sha256": "d99666269b1ed0af1b6380b0195620ccc0809b0cc378bd4241873830af89c127",
+      "jsonSha256": "d99666269b1ed0af1b6380b0195620ccc0809b0cc378bd4241873830af89c127",
+      "yamlSha256": "c19eed3889569ee0c8110c32ee5fd48d0d74f28278c550d259ec3c222e9cf3c6",
+      "openapiVersion": "3.1.0",
+      "publisherVersion": "undocumented",
+      "namespace": "flight_information",
+      "yamlSerialization": {
+        "kind": "deterministic_serialization_of_selected_JSON_not_publisher_original_YAML",
+        "library": "yaml",
+        "version": "2.9.1",
+        "options": {
+          "lineWidth": 0,
+          "aliasDuplicateObjects": false
+        },
+        "semanticEquivalent": true
+      },
+      "readiness": {
+        "status": "format_ready",
+        "canGenerate": true,
+        "contractScope": "documentation_derived_contract",
+        "format": {
+          "status": "pass",
+          "syntax": "pass",
+          "structure": "pass",
+          "inputSha256": "d99666269b1ed0af1b6380b0195620ccc0809b0cc378bd4241873830af89c127"
+        },
+        "sourceContent": {
+          "status": "not_assessed_by_import",
+          "fullContentCompleteness": "not_established_by_import"
+        },
+        "responseCoverage": {
+          "operations": 1,
+          "missingResponses": [],
+          "missingSuccessSchemas": [],
+          "emptySuccessSchemas": [],
+          "unknownRecordSchemas": [],
+          "noSuccessStatusDeclared": [],
+          "meaning": "Known structural gaps only; a present response schema does not establish full source completeness or universal endpoint behavior."
+        }
+      },
+      "source": {
+        "url": "https://www.hongkongairport.com/iwov-resources/misc/opendata/Flight_Information_DataSpec_en.pdf",
+        "canonicalJsonSha256": "d99666269b1ed0af1b6380b0195620ccc0809b0cc378bd4241873830af89c127",
+        "originalRepresentationSha256": "d99666269b1ed0af1b6380b0195620ccc0809b0cc378bd4241873830af89c127",
+        "serialization": "original JSON bytes"
+      },
+      "moduleName": "flight_information"
+    }
+  ]
+}

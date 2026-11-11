@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "fsd-csdi-fire-safety-direction-issued-under-fire-safety-industrial-buildings-ordinance-cap-636-by-fire-services-department",
+  "sourceSha256": "5edd991ea7e3be65aab0e3bbbccd52bd76410b171b485f45fc1423bb1fd36967",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/hkfsd_rcd_1634799625131_6268/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkfsd_rcd_1634799625131_6268/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/hkfsd_rcd_1634799625131_6268/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}

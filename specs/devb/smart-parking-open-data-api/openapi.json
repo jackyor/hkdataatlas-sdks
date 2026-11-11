@@ -1,0 +1,1343 @@
+{
+  "components": {
+    "schemas": {
+      "Address": {
+        "description": "Address fields in the requested locale. The dictionary uses the spelling dcDestrict; the detailed response sample uses dcDistrict.",
+        "properties": {
+          "blockDescriptor": {
+            "type": "string"
+          },
+          "blockNo": {
+            "type": "string"
+          },
+          "buildingName": {
+            "type": "string"
+          },
+          "buildingNo": {
+            "type": "string"
+          },
+          "dcDestrict": {
+            "type": "string"
+          },
+          "dcDistrict": {
+            "type": "string"
+          },
+          "displayAddress": {
+            "type": "string"
+          },
+          "estateName": {
+            "type": "string"
+          },
+          "floor": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "streetName": {
+            "type": "string"
+          },
+          "subDistrict": {
+            "type": "string"
+          },
+          "unitDescriptor": {
+            "type": "string"
+          },
+          "unitNo": {
+            "type": "string"
+          },
+          "villageName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Carpark": {
+        "description": "Carpark structure from the field definitions. In general, a property containing an empty array or value is omitted from responses. Requiredness in the field dictionary describes its structure; samples are not a guarantee that every field appears in every response.",
+        "properties": {
+          "HGV": {
+            "$ref": "#/components/schemas/VehicleInformation"
+          },
+          "LGV": {
+            "$ref": "#/components/schemas/VehicleInformation"
+          },
+          "_id": {
+            "description": "Mandatory system ID of carpark.",
+            "type": "integer"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "closed": {
+            "description": "Mandatory indication whether carpark is closed.",
+            "type": "boolean"
+          },
+          "coach": {
+            "$ref": "#/components/schemas/VehicleInformation"
+          },
+          "contactNo": {
+            "type": "string"
+          },
+          "coordinates": {
+            "description": "Mandatory longitude and latitude, in that order.",
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          "creationDate": {
+            "description": "Creation time in UTC format; sample uses an ISO date-time.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "facilities": {
+            "items": {
+              "enum": [
+                "evCharger",
+                "disabilities",
+                "unloading",
+                "washing",
+                "valet-parking"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "gracePeriods": {
+            "items": {
+              "$ref": "#/components/schemas/GracePeriod"
+            },
+            "type": "array"
+          },
+          "heightLimits": {
+            "items": {
+              "$ref": "#/components/schemas/HeightLimit"
+            },
+            "type": "array"
+          },
+          "inputMasked": {
+            "description": "Granularity of input data; field is used only by terminal.",
+            "type": "boolean"
+          },
+          "lastUploadDate": {
+            "description": "Last data upload time from carpark owner in UTC format.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "modifiedDate": {
+            "description": "Last modified time in UTC format.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "motorCycle": {
+            "$ref": "#/components/schemas/VehicleInformation"
+          },
+          "name": {
+            "description": "Mandatory carpark name, localized when requested.",
+            "type": "string"
+          },
+          "nature": {
+            "description": "Mandatory nature of carpark.",
+            "enum": [
+              "government",
+              "commercial"
+            ],
+            "type": "string"
+          },
+          "openingHours": {
+            "items": {
+              "$ref": "#/components/schemas/OpeningHours"
+            },
+            "type": "array"
+          },
+          "outputMasked": {
+            "description": "Whether vacancy is quantized for display.",
+            "type": "boolean"
+          },
+          "paymentMethods": {
+            "items": {
+              "description": "Payment method; documented options include cash, octopus, EPS, visa, master, unionpay, alipay and autopay-station. Sample also includes credit-card.",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "privateCar": {
+            "$ref": "#/components/schemas/VehicleInformation"
+          },
+          "published": {
+            "type": "boolean"
+          },
+          "publishedDate": {
+            "description": "Publication time in UTC format.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "renditionUrls": {
+            "$ref": "#/components/schemas/RenditionUrls"
+          },
+          "type": {
+            "description": "Mandatory carpark type.",
+            "enum": [
+              "multi-storey",
+              "off-street",
+              "metered"
+            ],
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "CarparkInfoResponse": {
+        "properties": {
+          "results": {
+            "$ref": "#/components/schemas/Carpark"
+          }
+        },
+        "required": [
+          "results"
+        ],
+        "type": "object"
+      },
+      "CarparkListResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/Carpark"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "results"
+        ],
+        "type": "object"
+      },
+      "ChargeBase": {
+        "properties": {
+          "covered": {
+            "enum": [
+              "covered",
+              "semi-covered",
+              "open-air",
+              "mixed"
+            ],
+            "type": "string"
+          },
+          "excludePublicHoliday": {
+            "type": "boolean"
+          },
+          "periodEnd": {
+            "type": "string"
+          },
+          "periodStart": {
+            "type": "string"
+          },
+          "price": {
+            "description": "Rate in Hong Kong dollars.",
+            "type": "number"
+          },
+          "remark": {
+            "description": "Applicable condition; sample includes null.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": "string"
+          },
+          "usageThresholds": {
+            "items": {
+              "$ref": "#/components/schemas/UsageThreshold"
+            },
+            "type": "array"
+          },
+          "weekdays": {
+            "$ref": "#/components/schemas/Weekdays"
+          }
+        },
+        "type": "object"
+      },
+      "ChargeRange": {
+        "properties": {
+          "excludePublicHoliday": {
+            "type": "boolean"
+          },
+          "periodEnd": {
+            "type": "string"
+          },
+          "periodStart": {
+            "type": "string"
+          },
+          "weekdayRanges": {
+            "type": "string"
+          },
+          "weekdays": {
+            "$ref": "#/components/schemas/Weekdays"
+          }
+        },
+        "type": "object"
+      },
+      "DayNightPark": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ChargeBase"
+          },
+          {
+            "properties": {
+              "type": {
+                "description": "Documented types include day-park, night-park, 6-hours-park, 12-hours-park and 24-hours-park; sample also contains 12-hours-midnight-park and 24-hours-midnight-park.",
+                "type": "string"
+              },
+              "validUntil": {
+                "enum": [
+                  "no-restrictions",
+                  "same-day",
+                  "following-day"
+                ],
+                "type": "string"
+              },
+              "validUntilEnd": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "GracePeriod": {
+        "properties": {
+          "minutes": {
+            "type": "number"
+          },
+          "remark": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "HeightLimit": {
+        "properties": {
+          "height": {
+            "description": "Height limit in meters. The dictionary declares String, while the example uses a number.",
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "remark": {
+            "description": "Applicable condition, localized when requested.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "HourlyCharge": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ChargeBase"
+          },
+          {
+            "properties": {
+              "type": {
+                "enum": [
+                  "hourly",
+                  "half-hourly"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        ]
+      },
+      "MonthlyCharge": {
+        "properties": {
+          "covered": {
+            "enum": [
+              "covered",
+              "semi-covered",
+              "open-air",
+              "mixed"
+            ],
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "ranges": {
+            "items": {
+              "$ref": "#/components/schemas/ChargeRange"
+            },
+            "type": "array"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "reserved": {
+            "enum": [
+              "reserved",
+              "non-reserved"
+            ],
+            "type": "string"
+          },
+          "type": {
+            "description": "Monthly plan type; documented values include monthly-, bimonthly-, quarterly- and yearly-park, with day-park and night-park variants.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "OpeningHours": {
+        "properties": {
+          "excludePublicHoliday": {
+            "type": "boolean"
+          },
+          "periodEnd": {
+            "description": "End time, example HH:MM.",
+            "type": "string"
+          },
+          "periodStart": {
+            "description": "Start time, example HH:MM.",
+            "type": "string"
+          },
+          "weekdays": {
+            "$ref": "#/components/schemas/Weekdays"
+          }
+        },
+        "type": "object"
+      },
+      "Privilege": {
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "excludePublicHoliday": {
+            "type": "boolean"
+          },
+          "periodEnd": {
+            "type": "string"
+          },
+          "periodStart": {
+            "type": "string"
+          },
+          "weekdays": {
+            "$ref": "#/components/schemas/Weekdays"
+          }
+        },
+        "type": "object"
+      },
+      "RenditionUrls": {
+        "description": "Image renditions; the property is empty/omitted when the carpark has no photo.",
+        "properties": {
+          "banner": {
+            "description": "Absolute image URL, 300x250 center-cropped rectangle.",
+            "format": "uri",
+            "type": "string"
+          },
+          "square": {
+            "description": "Absolute image URL, 150x150 center-cropped square.",
+            "format": "uri",
+            "type": "string"
+          },
+          "thumbnail": {
+            "description": "Absolute image URL, center-cropped rectangle, maximum 320 by 250.",
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "UnloadingCharge": {
+        "properties": {
+          "price": {
+            "type": "number"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "hourly",
+              "half-hourly"
+            ],
+            "type": "string"
+          },
+          "usageThresholds": {
+            "items": {
+              "$ref": "#/components/schemas/UsageThreshold"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "UsageThreshold": {
+        "properties": {
+          "hours": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "VehicleInformation": {
+        "description": "Fields vary by vehicle type and availability. Vacancy-only responses primarily provide vacancy fields; detailed information may include spaces and charges.",
+        "properties": {
+          "dayNightParks": {
+            "items": {
+              "$ref": "#/components/schemas/DayNightPark"
+            },
+            "type": "array"
+          },
+          "hourlyCharges": {
+            "items": {
+              "$ref": "#/components/schemas/HourlyCharge"
+            },
+            "type": "array"
+          },
+          "monthlyCharges": {
+            "items": {
+              "$ref": "#/components/schemas/MonthlyCharge"
+            },
+            "type": "array"
+          },
+          "privileges": {
+            "items": {
+              "$ref": "#/components/schemas/Privilege"
+            },
+            "type": "array"
+          },
+          "space": {
+            "type": "number"
+          },
+          "spaceDIS": {
+            "type": "number"
+          },
+          "spaceEV": {
+            "type": "number"
+          },
+          "spaceUNL": {
+            "type": "number"
+          },
+          "unloadings": {
+            "items": {
+              "$ref": "#/components/schemas/UnloadingCharge"
+            },
+            "type": "array"
+          },
+          "vacancy": {
+            "type": "number"
+          },
+          "vacancyDIS": {
+            "type": "number"
+          },
+          "vacancyEV": {
+            "type": "number"
+          },
+          "vacancyUNL": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "Weekdays": {
+        "items": {
+          "enum": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "type": "string"
+        },
+        "type": "array"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Smart Parking Open Data API 1.0 Specification",
+    "url": "http://www.ekeo.gov.hk/filemanager/content/smart_city/common/smart_parking_open_api_specification_v1.0.pdf"
+  },
+  "info": {
+    "description": "RESTful API for published carpark information and real-time parking vacancies, primarily for the Kowloon East area. The publisher documents the four resources below but does not state HTTP methods; GET is represented because the resources are read-only retrieval operations. The publisher explicitly states that the two vacancy resources require authentication and the information resources do not. Authentication details and credential format are not documented.",
+    "title": "Smart Parking Open Data API",
+    "version": "1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/getCarpark": {
+      "get": {
+        "description": "Gets vacancy for a specific carpark. A valid carparkId is required. The documented example includes lang=en_US. Current exact anonymous request succeeded; historical v1.0 documentation says authentication required but gives no mechanism.",
+        "operationId": "getCarparkVacancy",
+        "parameters": [
+          {
+            "description": "System ID of the carpark.",
+            "in": "query",
+            "name": "carparkId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Present in the documented example request; parameter behavior and allowed values are not separately specified for this operation.",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "default": "en_US",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example": {
+                    "summary": "Example vacancy response",
+                    "value": {
+                      "results": {
+                        "_id": 1,
+                        "closed": false,
+                        "lastUploadDate": "2015-09-16T04:38:00.353Z",
+                        "motorCycle": {
+                          "vacancy": 100,
+                          "vacancyDIS": 0,
+                          "vacancyEV": 0,
+                          "vacancyUNL": 0
+                        },
+                        "privateCar": {
+                          "vacancy": 200,
+                          "vacancyDIS": 0,
+                          "vacancyEV": 0,
+                          "vacancyUNL": 0
+                        }
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CarparkInfoResponse"
+                }
+              }
+            },
+            "description": "Vacancy information for the carpark returned as JSON."
+          },
+          "default": {
+            "description": "Error response not specified by the publisher."
+          }
+        },
+        "summary": "Get carpark vacancy",
+        "x-authentication-status": "anonymous_success_observed_documentation_disagrees"
+      }
+    },
+    "/getCarparkInfo": {
+      "get": {
+        "description": "Gets detailed information for one carpark without vacancy. Supports gzip/deflate compression and ETag.",
+        "operationId": "getCarparkInformation",
+        "parameters": [
+          {
+            "description": "System ID of the carpark.",
+            "in": "query",
+            "name": "carparkId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Language of carpark information. Omission uses en_US.",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "default": "en_US",
+              "enum": [
+                "en_US",
+                "zh_TW"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example": {
+                    "summary": "Example carpark response",
+                    "value": {
+                      "results": {
+                        "_id": 1,
+                        "address": {
+                          "buildingNo": "2",
+                          "dcDistrict": "Sheung Wan",
+                          "region": "HK",
+                          "streetName": "Rumsey Street",
+                          "subDistrict": "Sheung Wan"
+                        },
+                        "closed": false,
+                        "contactNo": "N/A",
+                        "coordinates": [
+                          114.1532164,
+                          22.2873045
+                        ],
+                        "creationDate": "2015-09-07T09:00:32.250Z",
+                        "facilities": [
+                          "washing",
+                          "unloading",
+                          "disabilities",
+                          "evCharger"
+                        ],
+                        "heightLimits": [
+                          {
+                            "height": 2,
+                            "remark": "Entrance"
+                          }
+                        ],
+                        "inputMasked": false,
+                        "modifiedDate": "2015-10-08T07:16:18.928Z",
+                        "motorCycle": {
+                          "dayNightParks": [
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "23:00",
+                              "periodStart": "008:00",
+                              "price": 20,
+                              "type": "day-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI",
+                                "SAT",
+                                "SUN"
+                              ]
+                            },
+                            {
+                              "excludePublicHoliday": false,
+                              "periodEnd": "008:00",
+                              "periodStart": "23:00",
+                              "price": 8,
+                              "type": "night-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI",
+                                "SAT",
+                                "SUN"
+                              ]
+                            }
+                          ],
+                          "space": 147
+                        },
+                        "name": "Rumsey Street Car Park",
+                        "nature": "government",
+                        "openingHours": [
+                          {
+                            "excludePublicHoliday": false,
+                            "periodEnd": "24:00",
+                            "periodStart": "00:00",
+                            "weekdays": [
+                              "MON",
+                              "TUE",
+                              "WED",
+                              "THU",
+                              "FRI",
+                              "SAT",
+                              "SUN"
+                            ]
+                          }
+                        ],
+                        "outputMasked": false,
+                        "paymentMethods": [
+                          "cash",
+                          "autopay-station",
+                          "alipay",
+                          "credit-card",
+                          "EPS",
+                          "octopus",
+                          "visa",
+                          "master",
+                          "unionpay"
+                        ],
+                        "privateCar": {
+                          "dayNightParks": [
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": true,
+                              "periodEnd": "19:00",
+                              "periodStart": "07:00",
+                              "price": 150,
+                              "type": "day-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI",
+                                "SAT"
+                              ]
+                            },
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "24:00",
+                              "periodStart": "008:00",
+                              "price": 90,
+                              "type": "day-park",
+                              "weekdays": [
+                                "SUN",
+                                "PH"
+                              ]
+                            },
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": true,
+                              "periodEnd": "07:00",
+                              "periodStart": "19:00",
+                              "price": 50,
+                              "type": "night-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI",
+                                "SAT"
+                              ]
+                            },
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "24:00",
+                              "periodStart": "00:00",
+                              "price": 100,
+                              "remark": "Test",
+                              "type": "12-hours-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI"
+                              ]
+                            },
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "24:00",
+                              "periodStart": "00:00",
+                              "price": 100,
+                              "remark": "Test",
+                              "type": "12-hours-midnight-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI"
+                              ]
+                            },
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "24:00",
+                              "periodStart": "00:00",
+                              "price": 200,
+                              "remark": "Test",
+                              "type": "24-hours-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI"
+                              ]
+                            },
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "24:00",
+                              "periodStart": "00:00",
+                              "price": 200,
+                              "remark": "Test",
+                              "type": "24-hours-midnight-park",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI"
+                              ]
+                            }
+                          ],
+                          "hourlyCharges": [
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "23:00",
+                              "periodStart": "07:00",
+                              "price": 20,
+                              "type": "hourly",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI",
+                                "SAT",
+                                "SUN"
+                              ]
+                            },
+                            {
+                              "covered": "open-air",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "07:00",
+                              "periodStart": "23:00",
+                              "price": 14,
+                              "type": "hourly",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI",
+                                "SAT",
+                                "SUN"
+                              ]
+                            }
+                          ],
+                          "monthlyCharges": [
+                            {
+                              "covered": "open-air",
+                              "price": 3000,
+                              "remark": "Non-reserved, covered",
+                              "reserved": "non-reserved",
+                              "type": "monthly-park"
+                            },
+                            {
+                              "covered": "open-air",
+                              "price": 1500,
+                              "ranges": [
+                                {
+                                  "excludePublicHoliday": false,
+                                  "periodEnd": "008:00",
+                                  "periodStart": "20:00",
+                                  "weekdayRanges": "MON-SUN",
+                                  "weekdays": [
+                                    "MON",
+                                    "TUE",
+                                    "WED",
+                                    "THU",
+                                    "FRI",
+                                    "SAT",
+                                    "SUN"
+                                  ]
+                                }
+                              ],
+                              "remark": "Non-reserved, covered",
+                              "reserved": "non-reserved",
+                              "type": "monthly-night-park"
+                            },
+                            {
+                              "covered": "open-air",
+                              "price": 6000,
+                              "remark": "Non-reserved, covered",
+                              "reserved": "non-reserved",
+                              "type": "bimonthly-park"
+                            }
+                          ],
+                          "privileges": [
+                            {
+                              "description": "Upon single spending of HK$400 or above (including 1 F&B receipt) at Fashion Walk, you can enjoy extra 1 hour free parking. For detailed Terms & Conditions, please visit www.fashionwalk.com.hk/en/happenings.",
+                              "excludePublicHoliday": false,
+                              "periodEnd": "23:00",
+                              "periodStart": "008:00",
+                              "weekdays": [
+                                "MON",
+                                "TUE",
+                                "WED",
+                                "THU",
+                                "FRI",
+                                "SAT",
+                                "SUN"
+                              ]
+                            }
+                          ],
+                          "space": 819,
+                          "spaceDIS": 0,
+                          "spaceEV": 30,
+                          "spaceUNL": 0
+                        },
+                        "published": true,
+                        "publishedDate": "2015-09-25T07:00:16.942Z",
+                        "renditionUrls": {
+                          "banner": "http://52.76.81.105:28080/rest/getRendition/fs-1%3A941849462334499966447526451899578794239698224918.jpg/banner.png",
+                          "square": "http://52.76.81.105:28080/rest/getRendition/fs-1%3A941849462334499966447526451899578794239698224918.jpg/square.png",
+                          "thumbnail": "http://52.76.81.105:28080/rest/getRendition/fs-1%3A941849462334499966447526451899578794239698224918.jpg/thumbnail.png"
+                        },
+                        "type": "multi-storey"
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CarparkInfoResponse"
+                }
+              }
+            },
+            "description": "Detailed carpark information returned as JSON."
+          },
+          "default": {
+            "description": "Error response not specified by the publisher."
+          }
+        },
+        "summary": "Get carpark information"
+      }
+    },
+    "/getCarparkInfos": {
+      "get": {
+        "description": "Gets published carpark basic information without vacancy. Supports gzip/deflate compression and ETag. If filters are omitted, all carparks are included. If fullload is omitted, only basic fields are loaded.",
+        "operationId": "getAllCarparkInformation",
+        "parameters": [
+          {
+            "description": "Carpark types to include; comma-separated values. Omission includes all carpark types.",
+            "example": "multi-storey,off-street,metered",
+            "in": "query",
+            "name": "carparkTypes",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Vehicle types to include; comma-separated values. Omission includes all vehicle types.",
+            "example": "motorCycle,coach,LGV,HGV,privateCar",
+            "in": "query",
+            "name": "vehicleTypes",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Carpark system IDs to include as comma-separated values. Omission includes all carparks.",
+            "in": "query",
+            "name": "carparkIds",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Comma-separated left longitude, bottom latitude, right longitude and top latitude bounding rectangle. Omission includes all carparks.",
+            "in": "query",
+            "name": "extent",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Whether to load detailed carpark information in the payload. If omitted, only basic fields are loaded.",
+            "in": "query",
+            "name": "fullload",
+            "required": false,
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Language of carpark information. Omission uses en_US.",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "default": "en_US",
+              "enum": [
+                "en_US",
+                "zh_TW"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "basic": {
+                    "summary": "Example response (basic information)",
+                    "value": {
+                      "results": [
+                        {
+                          "_id": 1,
+                          "closed": false,
+                          "coordinates": [
+                            114.1532164,
+                            22.2873045
+                          ],
+                          "inputMasked": false,
+                          "motorCycle": {
+                            "space": 147
+                          },
+                          "name": "Rumsey Street Car Park",
+                          "nature": "government",
+                          "outputMasked": false,
+                          "privateCar": {
+                            "space": 819
+                          },
+                          "type": "multi-storey"
+                        },
+                        {
+                          "_id": 15,
+                          "closed": false,
+                          "coach": {
+                            "space": 2
+                          },
+                          "coordinates": [
+                            114.1309679,
+                            22.2609531
+                          ],
+                          "inputMasked": true,
+                          "name": "INFORMATION CRESCENT",
+                          "nature": "government",
+                          "outputMasked": true,
+                          "privateCar": {
+                            "space": 28
+                          },
+                          "type": "metered"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CarparkListResponse"
+                }
+              }
+            },
+            "description": "Carpark information returned as JSON."
+          },
+          "default": {
+            "description": "Error response not specified by the publisher."
+          }
+        },
+        "summary": "Get all carpark information"
+      }
+    },
+    "/getCarparkVacancies": {
+      "get": {
+        "description": "Gets vacancies for selected carparks in a batch. Current documented carparkIds=12 query succeeded anonymously. Historical v1.0 documentation says authentication required but gives no mechanism.",
+        "operationId": "getAllCarparkVacancies",
+        "parameters": [
+          {
+            "description": "Carpark types to include; comma-separated values. Omission includes all carpark types.",
+            "example": "multi-storey,off-street,metered",
+            "in": "query",
+            "name": "carparkTypes",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Vehicle types to include; comma-separated values. Omission includes all vehicle types.",
+            "in": "query",
+            "name": "vehicleTypes",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Carpark system IDs to include as comma-separated values. Omission includes all carparks.",
+            "in": "query",
+            "name": "carparkIds",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Comma-separated left longitude, bottom latitude, right longitude and top latitude bounding rectangle. Omission includes all carparks.",
+            "in": "query",
+            "name": "extent",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Language of carpark information. Omission uses en_US.",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "default": "en_US",
+              "enum": [
+                "en_US",
+                "zh_TW"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example": {
+                    "summary": "Example vacancy response",
+                    "value": {
+                      "results": [
+                        {
+                          "HGV": {
+                            "vacancy": 600,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "LGV": {
+                            "vacancy": 600,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "_id": 1,
+                          "closed": false,
+                          "coach": {
+                            "vacancy": 0,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "lastUploadDate": "2015-09-16T04:38:00.353Z",
+                          "motorCycle": {
+                            "vacancy": 100,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "privateCar": {
+                            "vacancy": 200,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          }
+                        },
+                        {
+                          "HGV": {
+                            "vacancy": 0,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "LGV": {
+                            "vacancy": 0,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "_id": 15,
+                          "closed": false,
+                          "coach": {
+                            "vacancy": 0,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "lastUploadDate": "2015-10-07T17:02:21.091Z",
+                          "motorCycle": {
+                            "vacancy": 0,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          },
+                          "privateCar": {
+                            "vacancy": 0,
+                            "vacancyDIS": 0,
+                            "vacancyEV": 0,
+                            "vacancyUNL": 0
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CarparkListResponse"
+                }
+              }
+            },
+            "description": "Vacancy information returned as JSON."
+          },
+          "default": {
+            "description": "Error response not specified by the publisher."
+          }
+        },
+        "summary": "Get all carpark vacancies",
+        "x-authentication-status": "anonymous_success_observed_documentation_disagrees"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://sps-opendata.pilotsmartke.gov.hk/rest"
+    }
+  ],
+  "x-authentication-boundary": {
+    "requiredOperations": [],
+    "mechanism": "not_required_for_observed_requests",
+    "anonymousAccess": "observed_for_two_exact_requests",
+    "scope": "Exact retained GET /getCarpark?carparkId=12&lang=en_US and GET /getCarparkVacancies?carparkIds=12 returned HTTP 200 JSON without credentials. General availability is not asserted.",
+    "historicalDocumentation": "Publisher v1.0 requires authentication but publishes no mechanism. Current anonymous observations contradict treating these operations as uncallable."
+  },
+  "x-source-evidence": {
+    "url": "http://www.ekeo.gov.hk/filemanager/content/smart_city/common/smart_parking_open_api_specification_v1.0.pdf",
+    "sourcePdfSha256": "a8bf07f4d48324f432541f1bc5f522724939fec9510a6406c041fc2f2840f26c",
+    "change": "Remove the explicitly invented Bearer placeholder; retain the documented authentication requirement as unknown-mechanism metadata.",
+    "classification": "source_corrected_derivative"
+  },
+  "x-current-response-evidence": {
+    "sourceId": "devb-smart-parking-open-data-api",
+    "coverage": "Retained exact single and filtered batch anonymous HTTP 200 bodies; no credentials sent. Earlier auth-only skip is superseded for these operation requests; historical documentation preserved. Existing response fields unchanged.",
+    "dictionary": null,
+    "originalJsonSha256": "daf65c2af9fb1fe632353c22e9c9322ca7ee3ac477b394214a653e7764098a92",
+    "classification": "documented_response_fields_with_explicit_observed_wire_compatibility",
+    "newLiveCallsByBuilder": 0,
+    "requirednessInferred": false,
+    "unknownFieldsAllowed": true
+  }
+}

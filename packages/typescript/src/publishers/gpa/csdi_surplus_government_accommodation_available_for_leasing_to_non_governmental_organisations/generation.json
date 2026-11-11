@@ -1,0 +1,30 @@
+{
+  "generator": "orval",
+  "version": "8.47.0",
+  "sourceId": "gpa-csdi-surplus-government-accommodation-available-for-leasing-to-non-governmental-organisations",
+  "sourceSha256": "1c5663e01768e09e175d641489ec9b31bb3e3999084522a7bdac41f103857640",
+  "originalOperations": [
+    {
+      "method": "GET",
+      "path": "/server/rest/services/common/gpa_rcd_1633341021167_93626/FeatureServer/{layerId}/query",
+      "operationId": "ArcgisFeatureServerQueryFeatures"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/gpa_rcd_1633341021167_93626/MapServer/WFSServer",
+      "operationId": "WfsMapServerGetFeature"
+    },
+    {
+      "method": "GET",
+      "path": "/server/services/common/gpa_rcd_1633341021167_93626/MapServer/WMSServer",
+      "operationId": "WmsMapServerGetMap"
+    }
+  ],
+  "normalizations": [
+    {
+      "path": "$/servers",
+      "rule": "promote-identical-effective-operation-servers",
+      "proof": "Every operation has this identical effective server list, including operation/path overrides. Root fallback is changed without changing any effective operation server."
+    }
+  ]
+}
